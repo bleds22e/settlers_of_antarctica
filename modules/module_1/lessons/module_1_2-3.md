@@ -21,10 +21,11 @@ Keaton Wilson
 
 ### Check-in (5 minutes)
 
-For those using their own computers? Successful installation? If there
-are a few that had problems or didn’t get to it, do it now… ask folks
-sitting next to you for help. For those on classroom machines - open up
-RStudio and poke around a bit.
+-   Can everyone access RStudio Cloud/the binder instance?
+-   For those using their own computers, successful installation? If
+    there are a few that had problems or didn’t get to it, do it now…
+    ask folks sitting next to you for help. For those on classroom
+    machines - open up RStudio and poke around a bit.
 
 We will also set up the new groups now! Rearrange!
 
@@ -35,6 +36,9 @@ What are some advantages of using an IDE. Why do you think we’re using
 an IDE over base R? Do this in your group. Come up with an answer to
 each question above and be ready to report out.
 
+Link to Google Slides for R/RStudio:
+<https://docs.google.com/presentation/d/1lmOLhi2mhIYukCXQ9kw35FnawlIuIPVd51V4aUCFxkU/edit?usp=sharing>
+
 ### RStudio exploration (10 minutes)
 
 Open up RStudio. Spend some time familiarizing yourself with the
@@ -44,13 +48,14 @@ piece of software you’re working with. Be ready to report out.
 
 ### Rstudio Mini-tour (10 minutes)
 
-Perform a live-coding mini-tour of RStudio. Should focus on:  
-1. What the different panels do.  
-2. Navigating file structures in the files pane.  
-3. What is a working directory?  
-4. Console versus a script?  
-5. Appropriate commenting and script creation  
-6. Getting help!
+Perform a live-coding mini-tour of RStudio. Should focus on:
+
+1.  What the different panels do.  
+2.  Navigating file structures in the files pane.  
+3.  What is a working directory?  
+4.  Console versus a script?  
+5.  Appropriate commenting and script creation  
+6.  Getting help!
 
 ``` r
 # My first example script
@@ -138,7 +143,7 @@ Save the script and be ready to share it at the beginning of next class.
     and the basic syntax around functions (arguments, autocompletion,
     parentheses).  
 5.  Students will be able to differentiate different data classes in
-    R.  
+    18. 
 6.  Students will learn how to create their own data structures
     (vectors) and 2d data (dataframes).
 
@@ -322,13 +327,14 @@ how the function works, and be prepared to show the code you used.
 
 ## Data classes
 
-There are a few main types in R, and they behave differently:  
-1. Numerical  
-2. Character  
-3. Integer  
-4. Logical  
-5. Complex  
-6. Factors (kind of)
+There are a few main types in R, and they behave differently:
+
+1.  Numerical  
+2.  Character  
+3.  Integer  
+4.  Logical  
+5.  Complex  
+6.  Factors (kind of)
 
 ## The big takeaways:
 

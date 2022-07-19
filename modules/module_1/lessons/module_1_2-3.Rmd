@@ -22,16 +22,20 @@ generally describe the advantages of using an IDE.
 * Students will understand what a working directory is, and perform basic file system navigation using the files panel and auto-completion within RStudio.  
 * Students will be able to write a small script with appropriate documentation and commenting, run the script in the console, and save it to a specific place on their computers.  
 
-### Check-in (5 minutes)  
-For those using their own computers? Successful installation? If there are a few that had problems or didn't get to it, do it now... ask folks sitting next to you for help. For those on classroom machines - open up RStudio and poke around a bit.  
+### Check-in (5 minutes)
+* Can everyone access RStudio Cloud/the binder instance?
+* For those using their own computers, successful installation? If there are a few that had problems or didn't get to it, do it now... ask folks sitting next to you for help. For those on classroom machines - open up RStudio and poke around a bit.  
 
 We will also set up the new groups now! Rearrange!  
 
 ### What is an IDE (interactive development environment)? (10 minutes)  
-Get on the web - look up the definition of an IDE, and focus on RStudio. What are some advantages of using an IDE. Why do you think we're using an IDE over base R? Do this in your group. Come up with an answer to each question above and be ready to report out.  
+Get on the web - look up the definition of an IDE, and focus on RStudio. What are some advantages of using an IDE. Why do you think we're using an IDE over base R? Do this in your group. Come up with an answer to each question above and be ready to report out.
 
 ### RStudio exploration (10 minutes)
 Open up RStudio. Spend some time familiarizing yourself with the struture of what is in front of you. On your own (not in groups), come up with a question or something you don't really understand about the piece of software you're working with. Be ready to report out.  
+
+Link to Google Slides for R/RStudio:
+https://docs.google.com/presentation/d/1lmOLhi2mhIYukCXQ9kw35FnawlIuIPVd51V4aUCFxkU/edit?usp=sharing
 
 ### Rstudio Mini-tour (10 minutes)  
 Perform a live-coding mini-tour of RStudio. Should focus on:  
