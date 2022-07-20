@@ -20,7 +20,9 @@ knitr::opts_chunk$set(echo = TRUE)
 4. Students will able to use functions above to gain insight from real-world data.  
 
 ## Tidyverse - what is it?  
-Differenet programming languages have different syntax... and tidyverse is a package (or set of packages) offered in R that have similar goals and a set of unified syntax designed specifically to work with 2-dimensional data. When I started learning R, none of this was available, but the ecosystem has changed a lot in the last 10 years, and this is the set of tools I use to work with data every day.   
+Different programming languages have different syntax... and tidyverse is a package (or set of packages) offered in R that have similar goals and a set of unified syntax designed specifically to work with 2-dimensional data. 
+
+<!-- When I started learning R, none of this was available, but the ecosystem has changed a lot in the last 10 years, and this is the set of tools I use to work with data every day. -->  
 
 ## Getting the tidyverse (and what's in it) - Group Challenge and discussion
 
@@ -70,7 +72,7 @@ select(climate_df, dt)
 select(climate_df, dt, City, Country)
 select(climate_df, dt:Country, -City)
 
-# Similar process for rows - though we typically don't have rownames in R
+# Similar process for rows - though we typically don't have row names in R
 slice(climate_df, 1:4)
 ```
 
@@ -96,7 +98,7 @@ us_df = filter(climate_df, Country == "United States")
 ```
 
 ## Group Challenge  
-Work with the climate data we've using this class period. Construct a small set of code that does the following:  
+Work with the climate data we've been using this class period. Construct a small set of code that does the following:  
 1. Slims down the full dataframe to one that contains the columns dt, AverageTemperature and City.  
 2. Filters the data for Paris and Mexico City (hint:this may be hard than you think...remember to do quality control on your data) with an average temperature less than 22.  
 3. Name this new dataframe "cold_paris_and_mexico_city"
