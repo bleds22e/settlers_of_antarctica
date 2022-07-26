@@ -35,23 +35,62 @@ Write R code to successfully answer each question below.
 
 # Assignment Questions
 
-At https://tinyurl.com/wg6t2je is .csv file that you'll work with for the assignment. You can download it to your computer using the download.file() function in R, or download it directly from the link. 
+We need to add some new members to Team Antarctica! We have a dataset with 1000
+people who have qualified to join the mission and some general data about them.
+In this assignment, you'll be exploring this dataset to learn more about your
+incoming colleagues.
 
-1. In the code chunk below, do the following:
-* load the tidyverse package into the workspace
-* import the data into your workspace, saving it as an object called team_data
-    - use the read_csv() function
-```{r packages_and_data, message = FALSE}
+The data we are using are in a file called "mission_team_data.csv" and should
+already be in your data folder.
+
+_Remember to comment your code and run each chunk of code as you go!_
+
+1. In your own words, describe what a "package" is (1-2 sentences).
+
+
+2. Load the tidyverse package into the workspace.
+
+```{r load_tidyverse, message = FALSE}
 # load the tidyverse
 library(tidyverse)
+```
 
-# import the data
+3. Import the dataset. Assign the dataset to an object called team_data. Use the
+read_csv() function to do this.
+```{r import_data}
 team_data <- read_csv("../data/mission_team_data.csv")
 ```
 
-1. Is properly formatted using best coding practices we've discussed in class. 
-2. Loads the tidyverse package into the workspace. 
-3. Imports the data described above. 
-4. Uses the glimpse() and head() function to examine the data for quality control pre-processing, and outlines one potential error in the data based on this check. 
-5. Bind your information (make up a weight if you feel uncomfortable putting it in!) to the data.frame
-6. Determine if 1) there are more men or women on Team Antarctica, 2) what the average age of men and women are, and 3) what the most common speciality is. 
+4. Running the code chunk above produces a message that gives us some useful
+information, even before we look at the dataset. 
+* What are the dimensions of the data?
+* What are the names of the columns in the data?
+* What data _type_ do you expect to find in each column (i.e., numbers, character strings, T/F, etc.)
+
+5. Now, let's look at the data. Uses the glimpse() _and_ head() functions to examine the data. 
+```{r examine_data}
+glimpse(team_data)
+head(team_data)
+```
+
+When we have a large dataset like this, it is often helpful to summarize the data
+in some way. The next few questions will help use get a better understanding of 
+the content of the dataset.
+
+6. Write some code to determine how many of our new colleagues are male, female, and intersex (biological sex
+is not binary, and not really even a spectrum but more of a mosaic! Happy to chat about this more if you're interested, but lets just focus on getting some numbers for now).
+```{r count_sexes}
+
+```
+
+7. What is the mean height (cm) and mean weight (lbs) of the incoming team members?
+Add comments in your code chunk with the answers.
+
+```{r avg_height_weight}
+
+```
+
+8. What is the most common specialty for incoming team members? Least common?
+```{r specialties}
+
+```

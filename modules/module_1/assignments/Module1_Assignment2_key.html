@@ -11,7 +11,7 @@
 
 <meta name="author" content="Ellen Bledsoe" />
 
-<meta name="date" content="2022-07-25" />
+<meta name="date" content="2022-07-26" />
 
 <title>Module 1, Assignment 2: Getting to Know the Team</title>
 
@@ -366,7 +366,7 @@ pre code {
 <h1 class="title toc-ignore">Module 1, Assignment 2: Getting to Know the
 Team</h1>
 <h4 class="author">Ellen Bledsoe</h4>
-<h4 class="date">2022-07-25</h4>
+<h4 class="date">2022-07-26</h4>
 
 </div>
 
@@ -399,39 +399,81 @@ large 2-dimensional data sets that you’ll often see in the wild.</p>
 </div>
 <div id="assignment-questions" class="section level1">
 <h1>Assignment Questions</h1>
-<p>At <a href="https://tinyurl.com/wg6t2je" class="uri">https://tinyurl.com/wg6t2je</a> is .csv file that you’ll
-work with for the assignment. You can download it to your computer using
-the download.file() function in R, or download it directly from the
-link.</p>
+<p>We need to add some new members to Team Antarctica! We have a dataset
+with 1000 people who have qualified to join the mission and some general
+data about them. In this assignment, you’ll be exploring this dataset to
+learn more about your incoming colleagues.</p>
+<p>The data we are using are in a file called “mission_team_data.csv”
+and should already be in your data folder.</p>
+<p><em>Remember to comment your code and run each chunk of code as you
+go!</em></p>
 <ol style="list-style-type: decimal">
-<li>In the code chunk below, do the following:</li>
+<li><p>In your own words, describe what a “package” is (1-2
+sentences).</p></li>
+<li><p>Load the tidyverse package into the workspace.</p></li>
+</ol>
+<pre class="r"><code># load the tidyverse
+library(tidyverse)</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Import the dataset. Assign the dataset to an object called
+team_data. Use the read_csv() function to do this.</li>
+</ol>
+<pre class="r"><code>team_data &lt;- read_csv(&quot;../data/mission_team_data.csv&quot;)</code></pre>
+<pre><code>## Rows: 1000 Columns: 6
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr (4): last, first, sex, specialties
+## dbl (2): age, weight
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>Running the code chunk above produces a message that gives us some
+useful information, even before we look at the dataset.</li>
 </ol>
 <ul>
-<li>load the tidyverse package into the workspace</li>
-<li>import the data into your workspace, saving it as an object called
-team_data
-<ul>
-<li>use the read_csv() function</li>
-</ul></li>
+<li>What are the dimensions of the data?</li>
+<li>What are the names of the columns in the data?</li>
+<li>What data <em>type</em> do you expect to find in each column (i.e.,
+numbers, character strings, T/F, etc.)</li>
 </ul>
-<pre class="r"><code># load the tidyverse
-library(tidyverse)
-
-# import the data
-team_data &lt;- read_csv(&quot;../data/mission_team_data.csv&quot;)</code></pre>
-<ol style="list-style-type: decimal">
-<li>Is properly formatted using best coding practices we’ve discussed in
-class.</li>
-<li>Loads the tidyverse package into the workspace.</li>
-<li>Imports the data described above.</li>
-<li>Uses the glimpse() and head() function to examine the data for
-quality control pre-processing, and outlines one potential error in the
-data based on this check.</li>
-<li>Bind your information (make up a weight if you feel uncomfortable
-putting it in!) to the data.frame</li>
-<li>Determine if 1) there are more men or women on Team Antarctica, 2)
-what the average age of men and women are, and 3) what the most common
-speciality is.</li>
+<ol start="5" style="list-style-type: decimal">
+<li>Now, let’s look at the data. Uses the glimpse() <em>and</em> head()
+functions to examine the data.</li>
+</ol>
+<pre class="r"><code>glimpse(team_data)</code></pre>
+<pre><code>## Rows: 1,000
+## Columns: 6
+## $ last        &lt;chr&gt; &quot;Langston&quot;, &quot;el-Harroun&quot;, &quot;al-Mousa&quot;, &quot;Johnson&quot;, &quot;Alvarez&quot;…
+## $ first       &lt;chr&gt; &quot;Ashante&quot;, &quot;Shajee&#39;a&quot;, &quot;Mansoor&quot;, &quot;Khamel&quot;, &quot;Julissa&quot;, &quot;Je…
+## $ sex         &lt;chr&gt; &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;F&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;M&quot;, &quot;M&quot;…
+## $ age         &lt;dbl&gt; 29, 48, 54, 73, 46, 35, 23, 64, 22, 59, 78, 69, 27, 76, 31…
+## $ weight      &lt;dbl&gt; 186.5, 203.5, 237.0, 95.0, 161.0, 210.0, 92.5, 160.5, 235.…
+## $ specialties &lt;chr&gt; &quot;Applied Bioscience&quot;, &quot;Horticulure&quot;, &quot;Aquaculture&quot;, &quot;Medic…</code></pre>
+<pre class="r"><code>head(team_data)</code></pre>
+<pre><code>## # A tibble: 6 × 6
+##   last       first    sex     age weight specialties       
+##   &lt;chr&gt;      &lt;chr&gt;    &lt;chr&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;             
+## 1 Langston   Ashante  M        29   186. Applied Bioscience
+## 2 el-Harroun Shajee&#39;a M        48   204. Horticulure       
+## 3 al-Mousa   Mansoor  M        54   237  Aquaculture       
+## 4 Johnson    Khamel   F        73    95  Medicine          
+## 5 Alvarez    Julissa  M        46   161  Hydrology         
+## 6 Seitz      Jesse    M        35   210  Horticulure</code></pre>
+<p>When we have a large dataset like this, it is often helpful to
+summarize the data in some way. The next few questions will help use get
+a better understanding of the content of the dataset.</p>
+<ol start="6" style="list-style-type: decimal">
+<li><p>Write some code to determine how many of our new colleagues are
+male, female, and intersex (biological sex is not binary, and not really
+even a spectrum but more of a mosaic! Happy to chat about this more if
+you’re interested, but lets just focus on getting some numbers for
+now).</p></li>
+<li><p>What is the mean height (cm) and mean weight (lbs) of the
+incoming team members? Add comments in your code chunk with the
+answers.</p></li>
+<li><p>What is the most common specialty for incoming team members?
+Least common?</p></li>
 </ol>
 </div>
 
