@@ -1,0 +1,57 @@
+---
+title: "Module 1, Assignment 2: Getting to Know the Team"
+author: "Ellen Bledsoe"     # <- your name here!
+date: "`r Sys.Date()`"      # <- uses the current date when rendered
+output: 
+  html_document: default    # <- most common output style
+  github_document: default
+  pdf_document: default 
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Assignment Description
+
+### Purpose
+The goal of this assignment is to get more comfortable dealing with large 
+2-dimensional data sets that you'll often see in the wild. 
+
+### Task
+Write R code to successfully answer each question below.
+
+### Criteria for Success
+* Data and packages are loaded 
+* Code is within the provided code chunks
+* Code is commented with brief descriptions of what the code does
+* Code chunks run without errors 
+* Code produces the correct result
+* Questions requiring writing are answered fully
+
+### Due Date
+
+
+# Assignment Questions
+
+At https://tinyurl.com/wg6t2je is .csv file that you'll work with for the assignment. You can download it to your computer using the download.file() function in R, or download it directly from the link. 
+
+1. In the code chunk below, do the following:
+* load the tidyverse package into the workspace
+* import the data into your workspace, saving it as an object called team_data
+    - use the read_csv() function
+```{r packages_and_data, message = FALSE}
+# load the tidyverse
+library(tidyverse)
+
+# import the data
+team_data <- read_csv("../data/mission_team_data.csv")
+```
+
+1. Is properly formatted using best coding practices we've discussed in class. 
+2. Loads the tidyverse package into the workspace. 
+3. Imports the data described above. 
+4. Uses the glimpse() and head() function to examine the data for quality control pre-processing, and outlines one potential error in the data based on this check. 
+5. Bind your information (make up a weight if you feel uncomfortable putting it in!) to the data.frame
+6. Determine if 1) there are more men or women on Team Antarctica, 2) what the average age of men and women are, and 3) what the most common speciality is. 
