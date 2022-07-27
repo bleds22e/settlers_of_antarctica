@@ -1,9 +1,9 @@
-Settlers of Antarctica - Module 1 - Days 2-3
+Module 1: Introduction to Base R/RStudio
 ================
-Keaton Wilson
-11/22/2019
+Keaton Wilson, Ellen Bledsoe
+11/22/2019, revised July 2022
 
-# Day 2 - Introduction to RStudio
+# Introduction to R/RStudio
 
 ## Learning Objects
 
@@ -12,50 +12,52 @@ Keaton Wilson
     versus R, and generally describe the advantages of using an IDE.  
 -   Students will be able to describe the utility of each panel in
     RStudio.  
--   Students will understand what a working directory is, and perform
+-   Students will understand what a working directory is and perform
     basic file system navigation using the files panel and
     auto-completion within RStudio.  
--   Students will be able to write a small script with appropriate
-    documentation and commenting, run the script in the console, and
-    save it to a specific place on their computers.
+-   Students will be able to save a file to a specific place on their
+    computers.
+-   Students will be able to run code line-by-line and as code chunks
+    from an Rmarkdown file.
+-   Students will be able to comment their code effectively.
 
 ### Check-in (5 minutes)
 
--   Can everyone access RStudio Cloud/the binder instance?
--   For those using their own computers, successful installation? If
-    there are a few that had problems or didn’t get to it, do it now…
-    ask folks sitting next to you for help. For those on classroom
-    machines - open up RStudio and poke around a bit.
+-   Confirm access to RStudio on their machines or RStudio Cloud/the
+    binder instance?
+-   If there are a few that had problems or didn’t get to it, do it now…
+    ask folks sitting next to you for help. For those who are good to
+    go, poke around RStudio for a little bit and see what you can find!
 
-We will also set up the new groups now! Rearrange!
+Now is the time to form groups of \~3 people.
 
-### What is an IDE (interactive development environment)? (10 minutes)
+### What is an IDE? (10 minutes)
 
-Get on the web - look up the definition of an IDE, and focus on RStudio.
-What are some advantages of using an IDE. Why do you think we’re using
-an IDE over base R? Do this in your group. Come up with an answer to
-each question above and be ready to report out.
+Get on the web. Look up the definition of an IDE, with focus on RStudio.
+Think about the following questions with your group and be ready to
+report out: \* What does IDE stand for? \* What are some advantages of
+using an IDE? \* Why do you think we’re using an IDE over base R?
+
+A few groups report out. (5 minutes)
+
+### RStudio exploration (10 minutes)
+
+Open up RStudio, either on your machine or over the web. Spend some time
+familiarizing yourself with the structure of what is in front of you.
+Individually, come up with a question or something you don’t really
+understand about R/RStudio. Be ready to report out.
+
+### Rstudio Mini-tour (10 minutes)
 
 Link to Google Slides for R/RStudio:
 <https://docs.google.com/presentation/d/1lmOLhi2mhIYukCXQ9kw35FnawlIuIPVd51V4aUCFxkU/edit?usp=sharing>
 
-### RStudio exploration (10 minutes)
-
-Open up RStudio. Spend some time familiarizing yourself with the
-struture of what is in front of you. On your own (not in groups), come
-up with a question or something you don’t really understand about the
-piece of software you’re working with. Be ready to report out.
-
-### Rstudio Mini-tour (10 minutes)
-
-Perform a live-coding mini-tour of RStudio. Should focus on:
-
-1.  What the different panels do.  
-2.  Navigating file structures in the files pane.  
-3.  What is a working directory?  
-4.  Console versus a script?  
-5.  Appropriate commenting and script creation  
-6.  Getting help!
+Perform a live-coding mini-tour of RStudio.  
+1. What the different panels do  
+2. Navigating file structures in the files pane  
+3. What is a working directory?  
+4. Console versus a script/Rmarkdown?  
+5. Appropriate commenting 6. Getting help!
 
 ``` r
 # My first example script
@@ -119,9 +121,9 @@ doing after Orange?
 
 ### Group challenge (Until the end of class)
 
-Construct a small script (with all of the appropriate formatting we
-discussed) that calculates the average (mean) circumference of trees in
-the orange data set. Assign this to a variable called mean_circ and
+Construct a new Rmarkdown script (with all of the appropriate formatting
+we discussed) that calculates the average (mean) circumference of trees
+in the orange data set. Assign this to a variable called mean_circ and
 print it to the console.
 
 Save the script and be ready to share it at the beginning of next class.
@@ -129,7 +131,7 @@ Save the script and be ready to share it at the beginning of next class.
 **Hints and tips:** search the web for ‘assignment operators in R’ and
 ‘creating variables in R’ for help on how to make new variables.
 
-# Day 3 - Introduction to Programming
+# Introduction to Programming
 
 ## Learning Objects
 
@@ -143,7 +145,7 @@ Save the script and be ready to share it at the beginning of next class.
     and the basic syntax around functions (arguments, autocompletion,
     parentheses).  
 5.  Students will be able to differentiate different data classes in
-    18. 
+    R.  
 6.  Students will learn how to create their own data structures
     (vectors) and 2d data (dataframes).
 
@@ -327,14 +329,13 @@ how the function works, and be prepared to show the code you used.
 
 ## Data classes
 
-There are a few main types in R, and they behave differently:
-
-1.  Numerical  
-2.  Character  
-3.  Integer  
-4.  Logical  
-5.  Complex  
-6.  Factors (kind of)
+There are a few main types in R, and they behave differently:  
+1. Numerical  
+2. Character  
+3. Integer  
+4. Logical  
+5. Complex  
+6. Factors (kind of)
 
 ## The big takeaways:
 
