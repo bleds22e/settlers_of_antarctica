@@ -21,16 +21,16 @@ The assignment is to write an R script that is properly formatted with best-codi
 Upload the script to D2L when finished.   
 
 
-1) Load in tidyverse and read in the data
+1. Load in tidyverse and read in the data. Remember to use read_csv().
 ```{r}
 # packages
 library(tidyverse)
 
 # loading in the data
-df = read_csv("./modules/module_1/data/aggregated_station_data.csv")
+df <- read_csv("./modules/module_1/data/aggregated_station_data.csv")
 ```
 
-2) Perform a quality control check on the data and notes the number of columns and rows in commented notes
+2. Perform a quality control check on the data and note the number of columns and rows in commented notes
 ```{r} 
 # QC
 glimpse(df)
@@ -39,23 +39,22 @@ glimpse(df)
 ```
 
 
-3) How many unique stations are there reported here? (Hint: look up the help file for the unique() function)
+3. How many unique stations are there reported here? (Hint: look up the help file for the unique() function)
 ```{r}
 # Unique Stations
 unique(df$station_id)
 ```
 
-4) Write a chunk of code that calculates the mean temperature for the month of January for each station. You can use base R or tidyverse, but it will probably be easier in tidyverse. Hint: think about using the pipe, group_by(), filter() and summarize(). 
+4. Write a chunk of code that calculates the mean temperature for the month of January for each station. You can use base R or tidyverse, but it will probably be easier in tidyverse. Hint: think about using the pipe, group_by(), filter() and summarize(). 
 ```{r}
 # Mean for Jan for each station
 df %>%
   filter(month == 1) %>%
   group_by(station_id) %>%
-  summarize(mean_temp = mean(temp)) %>%
-  arrange(mean_temp)
+  summarize(mean_temp = mean(temp))
 ```
 
-5) Which station had the coldest average temperature in January (hint: look up the arrange() function)
+5. Which station had the coldest average temperature in January (hint: look up the arrange() function)
 ```{r}
 # Mean for Jan for each station
 df %>%
