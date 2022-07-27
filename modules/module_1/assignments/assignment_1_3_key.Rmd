@@ -1,7 +1,22 @@
 ---
-title: "Module 1 Assignment 3 key"
-output: html_notebook
+title: "Module 1, Assignment 3: <br> Getting to Know Your Home"
+author: "Ellen Bledsoe"     # <- your name here!
+date: "`r Sys.Date()`"      # <- uses the current date when rendered
+output: 
+  github_document: default
+  html_document: default
+  pdf_document: default
 ---
+
+# Assignment Description
+
+### Purpose
+
+### Task
+
+### Criteria for Success
+
+
 
 
 Assignment 1-3 - Getting to know your new home
@@ -20,6 +35,7 @@ The assignment is to write an R script that is properly formatted with best-codi
 
 Upload the script to D2L when finished.   
 
+# Assignment Questions
 
 1. Load in tidyverse and read in the data. Remember to use read_csv().
 ```{r}
@@ -27,7 +43,7 @@ Upload the script to D2L when finished.
 library(tidyverse)
 
 # loading in the data
-df <- read_csv("./modules/module_1/data/aggregated_station_data.csv")
+df <- read_csv("../data/aggregated_station_data.csv")
 ```
 
 2. Perform a quality control check on the data and note the number of columns and rows in commented notes
