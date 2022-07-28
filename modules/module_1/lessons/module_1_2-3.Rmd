@@ -14,7 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Introduction to R/RStudio  
 
-## Learning Objects  
+## Learning Outcomes  
 * Students will be able to successfully install and open RStudio.  
 * Students will be able to differentiate the function of RStudio versus R, and 
 generally describe the advantages of using an IDE.  
@@ -26,7 +26,7 @@ system navigation using the files panel and auto-completion within RStudio.
 Rmarkdown file. 
 * Students will be able to comment their code effectively.
 
-### Check-in (5 minutes)
+## Check-in (5 minutes)
 * Confirm access to RStudio on their machines or RStudio Cloud/the binder instance?
 * If there are a few that had problems or didn't get to it, do it now... ask 
 folks sitting next to you for help. For those who are good to go, poke around
@@ -34,7 +34,7 @@ RStudio for a little bit and see what you can find!
 
 Now is the time to form groups of ~3 people.
 
-### What is an IDE? (10 minutes)  
+## What is an IDE? (10 minutes)  
 
 Get on the web. Look up the definition of an IDE, with focus on RStudio. Think 
 about the following questions with your group and be ready to report out:
@@ -44,13 +44,13 @@ about the following questions with your group and be ready to report out:
 
 A few groups report out. (5 minutes)
 
-### RStudio exploration (10 minutes)
+## RStudio exploration (10 minutes)
 
 Open up RStudio, either on your machine or over the web. Spend some time familiarizing
 yourself with the structure of what is in front of you. Individually, come up with
 a question or something you don't really understand about R/RStudio. Be ready to report out.  
 
-### Rstudio Mini-tour (10 minutes)  
+## Rstudio Mini-tour (10 minutes)  
 
 Link to Google Slides for R/RStudio:
 https://docs.google.com/presentation/d/1lmOLhi2mhIYukCXQ9kw35FnawlIuIPVd51V4aUCFxkU/edit?usp=sharing
@@ -60,42 +60,12 @@ Perform a live-coding mini-tour of RStudio.
 2. Navigating file structures in the files pane  
 3. What is a working directory?  
 4. Console versus a script/Rmarkdown?  
-5. Appropriate commenting
-6. Getting help!  
+5. Getting help!  
 
-```{r}
-# My first example script
-# Keaton Wilson
-# keatonwilson@me.com
-# 2019-11-22
-
-# Examining a pre-built data set in R
-Orange
-
-# printing maximum circumference of the biggest tree
-max(Orange$circumference)
-
-```
-
-### Group discussion  (5 minutes)
-What is happening in the last bit of code that I just wrote?  
-What do you think `max()` is? What do the parentheses do? What is the $ doing 
-after Orange?  
-
-### Group challenge  (Until the end of class)  
-Construct a new Rmarkdown script (with all of the appropriate formatting we discussed) 
-that calculates the average (mean) circumference of trees in the orange data set. 
-Assign this to a variable called mean_circ and print it to the console.  
-
-Save the script and be ready to share it at the beginning of next class.  
-
-**Hints and tips:** search the web for 'assignment operators in R' and 'creating 
-variables in R' for help on how to make new variables.  
-
-
+ 
 # Introduction to Programming  
 
-## Learning Objects  
+## Learning Outcomes  
 1. Students will be able to perform basic math functions in the R console.  
 2. Students will be able to write scripts that assign values to variables 
 and use these variables to perform various operations.  
@@ -110,10 +80,6 @@ data (dataframes).
 Let's revisit your assignment from the end of last class. Let's have someone 
 from each group (1 at a time), come up and wrote what they came up with.  
 
-**Assignment:** Construct a small script (with all of the appropriate formatting 
-we discussed) that calculates the average (mean) circumference of trees in the 
-orange data set. Assign this to a variable called mean_circ and print it to the
-console.  
 
 What were some problems? What difficulties did folks face?  
 
@@ -143,47 +109,62 @@ Let's begin by opening a new script - we've been working mainly in the console, 
 
 Demonstrate how to open a new script - highlight headings again. Remind them that this is best-coding practices. Do it every time!  
 
-Assignments are really key to almost everything we do in R. We can save stuff to ram, manipulate it, save it to our harddrive, etc.... this is how we create permanence in R. Anything can be saved to an object, and we do this with an assignment operator. 
+Assignments are really key to almost everything we do in R. This is how we create permanence in R. Anything can be saved to an object, and we do this with the assignment operator. 
 
 ```{r}
 # R assignment things
 
-# Let's say we want to store some stuff. 
-# These two are equivalent
-x = 4
-x <- 4
-
-# Talk about differences. 
-
-x = 4
-y = 10
-z = x + y
-z
+## Assigning Objects
+mass <- 47.5 # this is the mass in kg
+age <- 122
+mass <- mass * 2 # multiply
+age <- age - 20 # subtract
+mass_index <- mass/age # divide
+mass_sq <- mass^2 # raise to an expotent
 
 # This is simple and you'll rarely do it in real-world scenarios. We can also assign more complex lists of objects to a particular object. 
 
-x = c(1,2,3,4,5,6)
+x <- c(1,2,3,4,5,6)
 x
 
 # This is a vector. R is inherently a vectorized language... here is what i mean.  
-x = c(1,2,3,4,5,6)
-y = c(1,2,3,4,5,6)
+x <- c(1,2,3,4,5,6)
+y <- c(1,2,3,4,5,6)
 
-#What is x+y going to look like?
-
+# What is x + y going to look like?
+x + y
 
 # R does everything in vectors
 
 ```
 
-## 2-dimensional data, functions, helpfiles  
+## Functions
+
+```{r}
+## Functions
+
+# functions are always followed by parentheses
+# anything you type into the parentheses are called arguments
+weight_kg <- sqrt(10) # square root
+round(weight_kg) # rounding
+round(weight_kg, digits = 2) # round to 2 digits past 0
+
+# to get more information about a function, use the help function
+help(mean) # or type ?help
+```
+
+
+## 2-dimensional Data
 Most of the data you will encounter is two-dimensional, i.e. it has columns and rows (should be familiar for those of you who have worked with Excel before). R is really great at working with these types of data.  
 
 ```{r}
-new_df = data.frame(sex = c("M", "F", "M", "F", "F", "M"), 
-                    height = c(182, 170, 191, 151, 150, 161))
+# Create a simple data frame
+new_df <- data.frame(sex = c("M", "F", "M", "F", "F", "M"), 
+                     height = c(182, 170, 191, 151, 150, 161))
 
 new_df
+
+#
 ```
 
 ## Discussion point. This is a really simple data set, but let's come up with some questions. Let's write them on the board.  
@@ -191,19 +172,19 @@ new_df
 Probably going to lead to the mean height overall, and for men and women.  
 
 ```{r}
-# Specifying certain columns
-new_df$height
+# Subsetting data in base R
 
-mean(new_df$height)
+## Vectors
+# 1-dimensional, so you only need to specify location in one dimension
+x[2]
+x[2:4]
 
-# but what about men and women separately?
+## Data frames
+# 2-dimensional, so you need to specify row and then column
+new_df[ ,2]
+new_df[new_df$sex == "F", ]
 
-new_df[,2]
-new_df[new_df$sex == "F",]
-
-mean(new_df[new_df$sex == "F",2])
-mean(new_df[new_df$sex == "M", 2])
-
+mean(new_df[new_df$sex == "F", 2])
 ```
 
 ## Group Challenge - Using helpfiles on functions, using functions
@@ -229,8 +210,59 @@ There are a few main types in R, and they behave differently:
 1 + 1 + 1 + 1
 "1" + "1" + "1" + "1"
 
-vec = (1, 1.000, "1", TRUE)
+vec <- (1, 1.000, "1", TRUE)
 ```
 
-## Quick challenge - what data type is the is the sex column of the data frame we just used? Discussion of why it isn't character?  
+### Quick Challenge
+What data type is the is the sex column of the data frame we just used? Why isn't
+it a character?
 
+# Rmarkdown and Code Chunks (10 minutes)
+
+Rmarkdown (.Rmd) is a file format that let's us incorporate text and code into one
+document seamlessly. In fact, it is the file format for this document! 
+
+To open a new Rmarkdown file, go the File > New File > R Markdown. Enter a title
+for the document (short but descriptive), your name, and make sure the default
+output HTML is selected. 
+
+When the Rmd file opens, you'll see that there is already stuff in it! The file
+will have a header with the information you entered, some code chunks, and some 
+text explaining how Rmd files work. 
+* For writing text, you can type as you would normally
+* Code chunks are a bit different. To include text in them, you will need to put
+a # in front. R will not read anything after the # as code. Chunks look like this:
+```{r}
+
+```
+
+Type your R code in between the lines with the ```. A quick shortcut for adding
+a code chunk is Ctrl + Atl + i (Cmd + Opt + i on a Mac). Alternatively, you can
+go to Code > Insert Chunk.
+
+To run a chunk of code, click the green arrow on the far right side of the chunk.
+
+Let's work with an example code chunk:
+```{r}
+# My first code chunk!
+# Ellen Bledsoe
+# Aug 2022
+
+# Examining a pre-built data set in R
+Orange
+
+# printing maximum circumference of the biggest tree
+max(Orange$circumference)
+
+```
+
+### Group discussion  (5 minutes)
+What is happening in the last bit of code that I just wrote?  
+What do you think `max()` is? What do the parentheses do? What is the $ doing 
+after Orange?  
+
+### Group challenge  (Until the end of class)  
+Construct a new Rmarkdown script (with all of the appropriate formatting we discussed) 
+that calculates the average (mean) circumference of trees in the orange data set. 
+
+Save the script and be ready to share it at the beginning of next class. 

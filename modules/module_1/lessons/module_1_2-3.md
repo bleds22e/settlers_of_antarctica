@@ -5,7 +5,7 @@ Keaton Wilson, Ellen Bledsoe
 
 # Introduction to R/RStudio
 
-## Learning Objects
+## Learning Outcomes
 
 -   Students will be able to successfully install and open RStudio.  
 -   Students will be able to differentiate the function of RStudio
@@ -21,7 +21,7 @@ Keaton Wilson, Ellen Bledsoe
     from an Rmarkdown file.
 -   Students will be able to comment their code effectively.
 
-### Check-in (5 minutes)
+## Check-in (5 minutes)
 
 -   Confirm access to RStudio on their machines or RStudio Cloud/the
     binder instance?
@@ -31,7 +31,7 @@ Keaton Wilson, Ellen Bledsoe
 
 Now is the time to form groups of \~3 people.
 
-### What is an IDE? (10 minutes)
+## What is an IDE? (10 minutes)
 
 Get on the web. Look up the definition of an IDE, with focus on RStudio.
 Think about the following questions with your group and be ready to
@@ -40,14 +40,14 @@ using an IDE? \* Why do you think we’re using an IDE over base R?
 
 A few groups report out. (5 minutes)
 
-### RStudio exploration (10 minutes)
+## RStudio exploration (10 minutes)
 
 Open up RStudio, either on your machine or over the web. Spend some time
 familiarizing yourself with the structure of what is in front of you.
 Individually, come up with a question or something you don’t really
 understand about R/RStudio. Be ready to report out.
 
-### Rstudio Mini-tour (10 minutes)
+## Rstudio Mini-tour (10 minutes)
 
 Link to Google Slides for R/RStudio:
 <https://docs.google.com/presentation/d/1lmOLhi2mhIYukCXQ9kw35FnawlIuIPVd51V4aUCFxkU/edit?usp=sharing>
@@ -57,13 +57,280 @@ Perform a live-coding mini-tour of RStudio.
 2. Navigating file structures in the files pane  
 3. What is a working directory?  
 4. Console versus a script/Rmarkdown?  
-5. Appropriate commenting 6. Getting help!
+5. Getting help!
+
+# Introduction to Programming
+
+## Learning Outcomes
+
+1.  Students will be able to perform basic math functions in the R
+    console.  
+2.  Students will be able to write scripts that assign values to
+    variables and use these variables to perform various operations.  
+3.  Students will be able to use helpfiles to learn how to use
+    functions.  
+4.  Students will be able to recall and explain how functions operate,
+    and the basic syntax around functions (arguments, autocompletion,
+    parentheses).  
+5.  Students will be able to differentiate different data classes in
+    R.  
+6.  Students will learn how to create their own data structures
+    (vectors) and 2d data (dataframes).
+
+## Revisiting the exercise at the end of last class.
+
+Let’s revisit your assignment from the end of last class. Let’s have
+someone from each group (1 at a time), come up and wrote what they came
+up with.
+
+What were some problems? What difficulties did folks face?
+
+## Using R as a calculator - getting comfortable with the console
+
+You can do basic math in the console (the bottom left part of the
+screen). For example:
 
 ``` r
-# My first example script
-# Keaton Wilson
-# keatonwilson@me.com
-# 2019-11-22
+3+5
+```
+
+    ## [1] 8
+
+``` r
+45^7
+```
+
+    ## [1] 373669453125
+
+``` r
+890*4.76523
+```
+
+    ## [1] 4241.055
+
+## Math - Group Challenge
+
+Run the following equation in the console. You’ll need to be creative,
+dig into the helpfiles and probably the web to figure out a few of the
+more complicated operations. Be ready to share your code.
+
+The log (base 10) of the square root of pi, raised to the power of 12.
+
+``` r
+log10(sqrt(pi))^12
+```
+
+    ## [1] 5.565293e-08
+
+## Variables, assignments, vectors
+
+Let’s begin by opening a new script - we’ve been working mainly in the
+console, but it’s important to get familiar with both the console and a
+script, and how to move back and forth between the two.
+
+Demonstrate how to open a new script - highlight headings again. Remind
+them that this is best-coding practices. Do it every time!
+
+Assignments are really key to almost everything we do in R. This is how
+we create permanence in R. Anything can be saved to an object, and we do
+this with the assignment operator.
+
+``` r
+# R assignment things
+
+## Assigning Objects
+mass <- 47.5 # this is the mass in kg
+age <- 122
+mass <- mass * 2 # multiply
+age <- age - 20 # subtract
+mass_index <- mass/age # divide
+mass_sq <- mass^2 # raise to an expotent
+
+# This is simple and you'll rarely do it in real-world scenarios. We can also assign more complex lists of objects to a particular object. 
+
+x <- c(1,2,3,4,5,6)
+x
+```
+
+    ## [1] 1 2 3 4 5 6
+
+``` r
+# This is a vector. R is inherently a vectorized language... here is what i mean.  
+x <- c(1,2,3,4,5,6)
+y <- c(1,2,3,4,5,6)
+
+# What is x + y going to look like?
+x + y
+```
+
+    ## [1]  2  4  6  8 10 12
+
+``` r
+# R does everything in vectors
+```
+
+## Functions
+
+``` r
+## Functions
+
+# functions are always followed by parentheses
+# anything you type into the parentheses are called arguments
+weight_kg <- sqrt(10) # square root
+round(weight_kg) # rounding
+```
+
+    ## [1] 3
+
+``` r
+round(weight_kg, digits = 2) # round to 2 digits past 0
+```
+
+    ## [1] 3.16
+
+``` r
+# to get more information about a function, use the help function
+help(mean) # or type ?help
+```
+
+## 2-dimensional Data
+
+Most of the data you will encounter is two-dimensional, i.e. it has
+columns and rows (should be familiar for those of you who have worked
+with Excel before). R is really great at working with these types of
+data.
+
+``` r
+# Create a simple data frame
+new_df <- data.frame(sex = c("M", "F", "M", "F", "F", "M"), 
+                     height = c(182, 170, 191, 151, 150, 161))
+
+new_df
+```
+
+    ##   sex height
+    ## 1   M    182
+    ## 2   F    170
+    ## 3   M    191
+    ## 4   F    151
+    ## 5   F    150
+    ## 6   M    161
+
+``` r
+#
+```
+
+## Discussion point. This is a really simple data set, but let’s come up with some questions. Let’s write them on the board.
+
+Probably going to lead to the mean height overall, and for men and
+women.
+
+``` r
+# Subsetting data in base R
+
+## Vectors
+# 1-dimensional, so you only need to specify location in one dimension
+x[2]
+```
+
+    ## [1] 2
+
+``` r
+x[2:4]
+```
+
+    ## [1] 2 3 4
+
+``` r
+## Data frames
+# 2-dimensional, so you need to specify row and then column
+new_df[ ,2]
+```
+
+    ## [1] 182 170 191 151 150 161
+
+``` r
+new_df[new_df$sex == "F", ]
+```
+
+    ##   sex height
+    ## 2   F    170
+    ## 4   F    151
+    ## 5   F    150
+
+``` r
+mean(new_df[new_df$sex == "F", 2])
+```
+
+    ## [1] 157
+
+## Group Challenge - Using helpfiles on functions, using functions
+
+As a group, find the standard deviation `sd()` of the height of both
+males and females and determine which is larger. Additionally, come up
+with a definition of standard deviation, use the helpfile to find out
+how the function works, and be prepared to show the code you used.
+
+## Data classes
+
+There are a few main types in R, and they behave differently:  
+1. Numerical  
+2. Character  
+3. Integer  
+4. Logical  
+5. Complex  
+6. Factors (kind of)
+
+## The big takeaways:
+
+1.  You can use `class()` to determine the class (or some easier ways
+    for big dataframes that we’ll cover later in the course)  
+2.  Columns that end up being character vectors can trip you up a lot  
+3.  Vectors must be of all the same data type
+
+``` r
+# Comparison
+1 + 1 + 1 + 1
+"1" + "1" + "1" + "1"
+
+vec <- (1, 1.000, "1", TRUE)
+```
+
+### Quick Challenge
+
+What data type is the is the sex column of the data frame we just used?
+Why isn’t it a character?
+
+# Rmarkdown and Code Chunks (10 minutes)
+
+Rmarkdown (.Rmd) is a file format that let’s us incorporate text and
+code into one document seamlessly. In fact, it is the file format for
+this document!
+
+To open a new Rmarkdown file, go the File \> New File \> R Markdown.
+Enter a title for the document (short but descriptive), your name, and
+make sure the default output HTML is selected.
+
+When the Rmd file opens, you’ll see that there is already stuff in it!
+The file will have a header with the information you entered, some code
+chunks, and some text explaining how Rmd files work. \* For writing
+text, you can type as you would normally \* Code chunks are a bit
+different. To include text in them, you will need to put a \# in front.
+R will not read anything after the \# as code. Chunks look like this:
+
+Type your R code in between the lines with the \`\`\`. A quick shortcut
+for adding a code chunk is Ctrl + Atl + i (Cmd + Opt + i on a Mac).
+Alternatively, you can go to Code \> Insert Chunk.
+
+To run a chunk of code, click the green arrow on the far right side of
+the chunk.
+
+Let’s work with an example code chunk:
+
+``` r
+# My first code chunk!
+# Ellen Bledsoe
+# Aug 2022
 
 # Examining a pre-built data set in R
 Orange
@@ -123,233 +390,6 @@ doing after Orange?
 
 Construct a new Rmarkdown script (with all of the appropriate formatting
 we discussed) that calculates the average (mean) circumference of trees
-in the orange data set. Assign this to a variable called mean_circ and
-print it to the console.
+in the orange data set.
 
 Save the script and be ready to share it at the beginning of next class.
-
-**Hints and tips:** search the web for ‘assignment operators in R’ and
-‘creating variables in R’ for help on how to make new variables.
-
-# Introduction to Programming
-
-## Learning Objects
-
-1.  Students will be able to perform basic math functions in the R
-    console.  
-2.  Students will be able to write scripts that assign values to
-    variables and use these variables to perform various operations.  
-3.  Students will be able to use helpfiles to learn how to use
-    functions.  
-4.  Students will be able to recall and explain how functions operate,
-    and the basic syntax around functions (arguments, autocompletion,
-    parentheses).  
-5.  Students will be able to differentiate different data classes in
-    R.  
-6.  Students will learn how to create their own data structures
-    (vectors) and 2d data (dataframes).
-
-## Revisiting the exercise at the end of last class.
-
-Let’s revisit your assignment from the end of last class. Let’s have
-someone from each group (1 at a time), come up and wrote what they came
-up with.
-
-**Assignment:** Construct a small script (with all of the appropriate
-formatting we discussed) that calculates the average (mean)
-circumference of trees in the orange data set. Assign this to a variable
-called mean_circ and print it to the console.
-
-What were some problems? What difficulties did folks face?
-
-## Using R as a calculator - getting comfortable with the console
-
-You can do basic math in the console (the bottom left part of the
-screen). For example:
-
-``` r
-3+5
-```
-
-    ## [1] 8
-
-``` r
-45^7
-```
-
-    ## [1] 373669453125
-
-``` r
-890*4.76523
-```
-
-    ## [1] 4241.055
-
-## Math - Group Challenge
-
-Run the following equation in the console. You’ll need to be creative,
-dig into the helpfiles and probably the web to figure out a few of the
-more complicated operations. Be ready to share your code.
-
-The log (base 10) of the square root of pi, raised to the power of 12.
-
-``` r
-log10(sqrt(pi))^12
-```
-
-    ## [1] 5.565293e-08
-
-## Variables, assignments, vectors
-
-Let’s begin by opening a new script - we’ve been working mainly in the
-console, but it’s important to get familiar with both the console and a
-script, and how to move back and forth between the two.
-
-Demonstrate how to open a new script - highlight headings again. Remind
-them that this is best-coding practices. Do it every time!
-
-Assignments are really key to almost everything we do in R. We can save
-stuff to ram, manipulate it, save it to our harddrive, etc…. this is how
-we create permanence in R. Anything can be saved to an object, and we do
-this with an assignment operator.
-
-``` r
-# R assignment things
-
-# Let's say we want to store some stuff. 
-# These two are equivalent
-x = 4
-x <- 4
-
-# Talk about differences. 
-
-x = 4
-y = 10
-z = x + y
-z
-```
-
-    ## [1] 14
-
-``` r
-# This is simple and you'll rarely do it in real-world scenarios. We can also assign more complex lists of objects to a particular object. 
-
-x = c(1,2,3,4,5,6)
-x
-```
-
-    ## [1] 1 2 3 4 5 6
-
-``` r
-# This is a vector. R is inherently a vectorized language... here is what i mean.  
-x = c(1,2,3,4,5,6)
-y = c(1,2,3,4,5,6)
-
-#What is x+y going to look like?
-
-
-# R does everything in vectors
-```
-
-## 2-dimensional data, functions, helpfiles
-
-Most of the data you will encounter is two-dimensional, i.e. it has
-columns and rows (should be familiar for those of you who have worked
-with Excel before). R is really great at working with these types of
-data.
-
-``` r
-new_df = data.frame(sex = c("M", "F", "M", "F", "F", "M"), 
-                    height = c(182, 170, 191, 151, 150, 161))
-
-new_df
-```
-
-    ##   sex height
-    ## 1   M    182
-    ## 2   F    170
-    ## 3   M    191
-    ## 4   F    151
-    ## 5   F    150
-    ## 6   M    161
-
-## Discussion point. This is a really simple data set, but let’s come up with some questions. Let’s write them on the board.
-
-Probably going to lead to the mean height overall, and for men and
-women.
-
-``` r
-# Specifying certain columns
-new_df$height
-```
-
-    ## [1] 182 170 191 151 150 161
-
-``` r
-mean(new_df$height)
-```
-
-    ## [1] 167.5
-
-``` r
-# but what about men and women separately?
-
-new_df[,2]
-```
-
-    ## [1] 182 170 191 151 150 161
-
-``` r
-new_df[new_df$sex == "F",]
-```
-
-    ##   sex height
-    ## 2   F    170
-    ## 4   F    151
-    ## 5   F    150
-
-``` r
-mean(new_df[new_df$sex == "F",2])
-```
-
-    ## [1] 157
-
-``` r
-mean(new_df[new_df$sex == "M", 2])
-```
-
-    ## [1] 178
-
-## Group Challenge - Using helpfiles on functions, using functions
-
-As a group, find the standard deviation `sd()` of the height of both
-males and females and determine which is larger. Additionally, come up
-with a definition of standard deviation, use the helpfile to find out
-how the function works, and be prepared to show the code you used.
-
-## Data classes
-
-There are a few main types in R, and they behave differently:  
-1. Numerical  
-2. Character  
-3. Integer  
-4. Logical  
-5. Complex  
-6. Factors (kind of)
-
-## The big takeaways:
-
-1.  You can use `class()` to determine the class (or some easier ways
-    for big dataframes that we’ll cover later in the course)  
-2.  Columns that end up being character vectors can trip you up a lot  
-3.  Vectors must be of all the same data type
-
-``` r
-# Comparison
-1 + 1 + 1 + 1
-"1" + "1" + "1" + "1"
-
-vec = (1, 1.000, "1", TRUE)
-```
-
-## Quick challenge - what data type is the is the sex column of the data frame we just used? Discussion of why it isn’t character?
