@@ -3,7 +3,7 @@ title: "Module 1, Assignment 2: Getting to Know the Team"
 author: "Ellen Bledsoe"     # <- your name here!
 date: "`r Sys.Date()`"      # <- uses the current date when rendered
 output: 
-  github_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -13,81 +13,127 @@ knitr::opts_chunk$set(echo = TRUE)
 # Assignment Description
 
 ### Purpose
-The goal of this assignment is to get more comfortable dealing with large 
-2-dimensional data sets that you'll often see in the wild. 
+The goal of this assignment is to get comfortable using base R to look at 1- and 2-dimensional datasets. 
 
 ### Task
 Write R code to successfully answer each question below.
 
 ### Criteria for Success
-* Data and packages are loaded 
 * Code is within the provided code chunks
 * Code is commented with brief descriptions of what the code does
 * Code chunks run without errors 
 * Code produces the correct result
-* Questions requiring writing are answered fully
 
 ### Due Date
 
 
 # Assignment Questions
 
-We need to add some new members to Team Antarctica! We have a dataset with 1000
-people who have qualified to join the mission and some general data about them.
-In this assignment, you'll be exploring this dataset to learn more about your
-incoming colleagues.
-
-The data we are using are in a file called "mission_team_data.csv" and should
-already be in your data folder.
-
 _Remember to comment your code and run each chunk of code as you go!_
 
-1. In your own words, describe what a "package" is (1-2 sentences).
+## Vectors 
 
+Let's start working with vectors, or 1-dimensional data, first.
 
-2. Load the tidyverse package into the workspace.
-
-```{r load_tidyverse, message = FALSE}
-# load the tidyverse
-library(tidyverse)
+Run this chunk of code to create a vector of data to use.
+```{r vector}
+# vector with counts of penguins
+counts <- c(2, 9, 4, 3, 6, 7, 1, 0, 3)
 ```
 
-3. Import the dataset. Assign the dataset to an object called team_data. Use the
-read_csv() function to do this.
+1. What data class is `counts`? Write a line of code that tells you.
+```{r data_class}
+# data class for counts
+class(counts)
+```
+
+2. Write a line of code that pulls out the 2nd value in the vector.
+```{r second_value}
+# second value of counts vector
+counts[2]
+```
+
+3. Calculate the average number of penguins that were counted.
+```{r avg_penguins}
+# mean number of penguins
+mean(counts)
+```
+
+## Data Frames
+
+Now that we've practiced with vectors, let's move on to 2-dimensional data.
+
+We need to add some new members to Team Antarctica! We have a dataset with 1000
+people who have qualified to join the mission and some general info about them.
+In this part of the assignment, you'll be exploring this dataset to learn more 
+about your incoming colleagues.
+
+The data we are using are in a file called "mission_team_data.csv" and should
+already be in your data folder for Module 1. The following code chunk will read 
+in the data. Be sure to run it before try to answer the questions!
+
 ```{r import_data}
-team_data <- read_csv("../data/mission_team_data.csv")
+team_data <- read.csv("../data/mission_team_data.csv")
 ```
 
-4. Running the code chunk above produces a message that gives us some useful
+Running the code chunk above produces a message that gives us some useful
 information, even before we look at the dataset. 
 * What are the dimensions of the data?
 * What are the names of the columns in the data?
-* What data _type_ do you expect to find in each column (i.e., numbers, character strings, T/F, etc.)
+* What data _class_ do you expect to find in each column (i.e., numbers, character strings, T/F, etc.)
 
-5. Now, let's look at the data. Uses the glimpse() _and_ head() functions to examine the data. 
+4. Take a look at the data frame using the `head()` function. Typically, `head()`
+provides the first 6 rows of data. Modify one of the arguments in `head()` so 
+that the line of code prints the first 10 rows. (If you aren't sure how to do
+that, remember how you can look for help about functions!)
 ```{r examine_data}
-glimpse(team_data)
-head(team_data)
+head(team_data, 10)
+```
+
+5. Using what you know about subsetting data frames, write a line of code the 
+pulls out the age for your new colleague, Marissa Yu (row 3).
+```{r}
+team_data[3, 4]
 ```
 
 When we have a large dataset like this, it is often helpful to summarize the data
 in some way. The next few questions will help use get a better understanding of 
 the content of the dataset.
 
-6. Write some code to determine how many of our new colleagues are male, female, and intersex (biological sex
-is not binary, and not really even a spectrum but more of a mosaic! Happy to chat about this more if you're interested, but lets just focus on getting some numbers for now).
-```{r count_sexes}
-
+6. What is the average weight (in kg) of the incoming team members? 
+```{r average_weight}
+mean(team_data$weight_kg)
 ```
+
 
 7. What is the mean height (cm) and mean weight (lbs) of the incoming team members?
 Add comments in your code chunk with the answers.
 
-```{r avg_height_weight}
+```{r min_max_height}
+# minimum height
+min(team_data$height_cm)
 
+# maximum height
+max(team_data$height_cm)
 ```
 
-8. What is the most common specialty for incoming team members? Least common?
-```{r specialties}
+8. Create a data frame that only includes rows of data for people whose specialty
+is "Management." 
+```{r }
+team_data[team_data$specialties == "Management",]
+```
 
+
+9. How many different specialties are represented amongst your new colleauges?
+This will require two steps.
+    a. First, use the `unique()` function to pull out each distinct value from the
+  specialties column. Save this as an object called `specialties`, which is now
+  a vector.
+    b. Use the `length()` function to count how many distinct specialties are in
+  the `specialties` vector.
+
+```{r specialties}
+specialties <- unique(team_data$specialties)
+specialties
+length(specialties)
 ```

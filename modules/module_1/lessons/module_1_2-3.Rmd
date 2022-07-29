@@ -161,7 +161,6 @@ round(mass_kg, digits = 2) # round to 2 digits past 0
 
 # to get more information about a function, use the help function
 help(mean) # or type ?help
-
 ```
 
 
