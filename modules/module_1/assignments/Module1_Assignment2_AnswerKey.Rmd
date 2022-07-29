@@ -1,0 +1,81 @@
+---
+title: 'Module 1, Assignment 2: Answer Key'
+author: "Ellen Bledsoe"
+date: "2022-07-29"
+output: pdf_document
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+```{r vector}
+# vector with counts of penguins
+counts <- c(2, 9, 4, 3, 6, 7, 1, 0, 3)
+```
+
+
+1. 
+```{r data_class}
+# data class for counts
+class(counts)
+```
+
+2. 
+```{r second_value}
+# second value of counts vector
+counts[2]
+```
+
+3. 
+```{r avg_penguins}
+# mean number of penguins
+mean(counts)
+```
+
+
+```{r import_data}
+team_data <- read.csv("../data/mission_team_data.csv")
+```
+
+4. 
+```{r examine_data}
+head(team_data, 10)
+```
+
+5. 
+```{r}
+team_data[3, 4]
+```
+
+
+6. 
+```{r average_weight}
+mean(team_data$weight_kg)
+```
+
+7. 
+```{r min_max_height}
+# minimum height
+min(team_data$height_cm)
+
+# maximum height
+max(team_data$height_cm)
+```
+
+8.
+```{r }
+team_data[team_data$specialties == "Management",]
+```
+
+
+9. 
+
+```{r specialties}
+# 9a
+specialties <- unique(team_data$specialties)
+specialties
+
+# 9b
+length(specialties)
+```
