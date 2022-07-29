@@ -45,7 +45,7 @@ for (i in 1:length(age)){
 
 ## Specialty/discipline ----
 
-specialty = c("Mechanical Engineering", "Horticulure", "Aquaculture", "Computer Science", 
+specialty = c("Mechanical Engineering", "Horticulture", "Aquaculture", "Computer Science", 
               "Data Science", "Geology", "Marine Biology", "Climatology", "Anthropology",
               "Electrical Engineering", "Chemical Engineering", "Medicine", "Psychology",
               "Management", "Applied Bioscience", "Genetics", "Hydrology", "Food Science")
