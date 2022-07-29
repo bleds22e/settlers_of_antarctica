@@ -1,1001 +1,1001 @@
 last,first,sex,age,height_cm,weight_kg,specialties
-Williams,Dallas,M,37,183.4,98.1,Computer Science
-Person,Sabrina,M,29,204.5,54.6,Food Science
-Yu,Marissa,M,31,142.3,76.4,Psychology
-Richards,Zane,F,39,140.7,84.6,Data Science
-Douglas,Elyssa,M,31,141.9,98.2,Marine Biology
-Tosi,Daniel,F,22,190.9,92.8,Anthropology
-Perez,Ryan,F,26,185.4,65.9,Genetics
-Campos,Tyra,M,45,173.9,78,Management
-Wilcox,Kate,M,38,170.5,83.1,Climatology
-Hoell-Dixon,Zakiya,M,36,198.5,63.9,Electrical Engineering
+Williams,Dallas,F,37,183.4,98.1,Computer Science
+Person,Sabrina,F,29,204.5,54.6,Food Science
+Yu,Marissa,F,31,142.3,76.4,Psychology
+Richards,Zane,M,39,140.7,84.6,Data Science
+Douglas,Elyssa,F,31,141.9,98.2,Marine Biology
+Tosi,Daniel,M,22,190.9,92.8,Anthropology
+Perez,Ryan,M,26,185.4,65.9,Genetics
+Campos,Tyra,F,45,173.9,78,Management
+Wilcox,Kate,F,38,170.5,83.1,Climatology
+Hoell-Dixon,Zakiya,F,36,198.5,63.9,Electrical Engineering
 Urbina-Jimenez,Jessie,I,38,191.6,74.1,Management
-Perez,Karina,M,33,175.1,53.2,Marine Biology
-Hoffmann,Tian,M,24,185.2,65.3,Medicine
-el-Mahdi,Anbara,M,40,169,70.8,Climatology
-Masingale,Elijah,F,52,138.4,75,Hydrology
-Hawkins,Caterina,M,53,127.2,59.8,Mechanical Engineering
-Thornton,Theron,F,22,188.9,82.5,Chemical Engineering
-Lee,John,F,73,159,46.4,Hydrology
-Brown,Duncan,F,36,183.2,111.3,Mechanical Engineering
-Blanchard,Haben,F,28,125.9,92.6,Horticulure
-Noel,Hylas,F,26,132.8,81.9,Psychology
-Ho,Davie,F,37,174.9,84,Medicine
-Gutierrez,Ashley,M,46,202.7,90.2,Climatology
-Matin,Tae,F,33,167.2,88,Computer Science
-Maez,Emanuel,F,74,157,77.9,Genetics
-Armstrong,Cornelia,M,42,127.7,113.2,Computer Science
-Boykin,Daniel,F,35,163,90.9,Medicine
-Sears,Nikolas,F,27,162.1,92.7,Anthropology
-Tatum Clardy,Kiley,M,23,141,89,Medicine
-Abeyta,Lauren,M,29,184,45.1,Electrical Engineering
-Perez,Martin,F,26,176.9,51.4,Computer Science
-el-Guler,Kabeer,F,42,115.8,63.3,Management
-Kabotie,Chad,F,51,140.5,59.9,Climatology
-Gallegos,Kelly,M,39,144.3,98.7,Aquaculture
-Hailesilasie,Tiara,M,31,153.9,54.8,Computer Science
-Martin,Davone,F,27,142.2,108.6,Climatology
-Burkett,Kara,M,39,158.4,87,Electrical Engineering
-Taylor,Ross,F,23,141,83,Horticulure
-al-Hamdan,Ulyaa,M,33,173.4,88.1,Management
-Jackson,Yohana,M,27,169.2,83.8,Climatology
-Hines,Klarissa,M,36,159.7,74.1,Mechanical Engineering
-O'Dell,Gabe,F,21,170.1,62.1,Medicine
-Morgan,Paige,M,55,169,79.5,Electrical Engineering
-Trujillo,Justin,F,26,163.3,92.6,Aquaculture
-Davis,Markeishar,M,41,201.9,108.8,Mechanical Engineering
-Tave Coles,Mariam,M,39,195,63,Hydrology
-al-Alam,Jaarallah,F,37,189.7,47.7,Data Science
-Rincon,Kelsey,M,49,180.1,77.3,Psychology
-Egbert,Marissa,M,31,129.4,102,Electrical Engineering
-Nuels,Ja Von,F,20,182.5,63.9,Medicine
-Lewis,Adrian,M,18,150.5,98.5,Hydrology
-Gonzalez-Cervantes,Andrew,F,27,188.4,103.1,Marine Biology
-Smith,Rachel,M,30,118.1,61.9,Psychology
-Meza,Alejandro,F,45,149.1,87.8,Computer Science
-Hensinger II,James,F,18,142,111,Applied Bioscience
-Garcia,Jonathan,F,32,167.4,65.4,Electrical Engineering
-Dorado Velasco,Luz,M,22,189.8,87.4,Computer Science
-Caradec,Breanne,M,53,169.7,43,Management
-al-Sadek,Muhyddeen,F,31,141.8,105,Climatology
-Candelario,Huong,M,19,198,66.8,Mechanical Engineering
-Tahlo,Evan,M,33,176.5,70.7,Electrical Engineering
-Hintz,Miles,F,23,206.2,92.7,Marine Biology
-Leahy,Lonnie,F,24,156.9,62,Chemical Engineering
-Gilchrist,Jessica,M,22,125.9,82.2,Electrical Engineering
-Hunter,Emily,M,29,191.8,98.7,Applied Bioscience
-al-Shah,Mahmooda,M,29,133.2,47.4,Anthropology
-Nguyen,Olivia,M,36,126.9,53.6,Marine Biology
-Whitetree,Werner,F,34,205.2,81.8,Geology
-Foutch,Kayleigh,M,28,137.1,84,Management
-Mcgee,Jordan,F,36,135.1,109.8,Anthropology
-Vigil,Mato Ty,F,48,142.9,74,Anthropology
-Hong,Tyme,F,29,150,64.1,Chemical Engineering
-Wisham,Shervanna,M,32,196.4,49.7,Food Science
-el-Abdallah,Sabri,F,26,154.7,101.6,Climatology
-Ackerland,Faithe,M,20,207,104.7,Food Science
-Gray,Danielle,M,35,165.4,91.9,Medicine
-Powell,Kaela,M,22,150,91.8,Computer Science
-Atene,David,F,37,169.4,112,Electrical Engineering
-Eriacho,Jennifer,M,24,167.6,65.9,Marine Biology
-el-Farid,Shaamila,M,28,158.9,64.5,Anthropology
-al-Shareef,Haajara,M,45,189.2,77.4,Genetics
-Liskey,Kaela,M,23,140.9,64.5,Management
-el-Akbar,Asad,F,38,170.3,66.8,Psychology
-Chavira,Kaylee,M,35,175.3,61.9,Medicine
-Wolfskill,Armando,F,27,159.7,85.2,Psychology
-Harding,Keschon,F,28,161.4,62.7,Mechanical Engineering
-Aguirre-Hernandez,Katie,M,59,107.7,110,Chemical Engineering
-Delgado,Jesus,F,33,178.5,103.8,Hydrology
-Richards,Alexa,M,43,181.5,112,Medicine
-Dottson,Julian,F,36,140.1,52.6,Climatology
-Mayshack,Megan,M,39,169.3,39.6,Geology
-Singer,Ashley,M,37,172.7,56.2,Climatology
-Wiebe,Robert,F,29,174.7,68.9,Genetics
-Edelen,Cameron,F,26,161.3,90.9,Horticulure
-Self,Brice,F,27,155,60.8,Applied Bioscience
-Mondragon,Alissa,M,23,193.4,74.3,Data Science
-Lopez,Orlando,F,29,146.8,81.7,Chemical Engineering
-Smeal,Andrew,F,20,138,120,Aquaculture
-Whiteford,Charles,F,30,132.1,94.7,Applied Bioscience
-Murray,Danielle,M,25,173.6,118.8,Chemical Engineering
-Nguyen,Nhan,F,30,154.3,115,Management
-Romero,Carmen,M,31,152.8,84.8,Hydrology
-Lopez,Briannah,M,19,124.5,63,Aquaculture
-Yi,Vince,F,52,208.4,81.8,Food Science
-Ramirez-Nevarez,Jazmin,M,28,104.8,47.3,Psychology
-Secrist,Dylan,F,22,193.4,42.4,Applied Bioscience
-Brandon,Aspen,M,37,176.2,59.2,Horticulure
-al-Islam,Rabdaa,M,20,173.3,44.5,Aquaculture
-Gothard,Alawn,F,54,114,95.4,Horticulure
-Stacy,Michael,F,43,132.9,111.5,Psychology
-Russell,Langston,F,30,177.8,90.1,Food Science
-al-Mourad,Mudrika,M,36,204,88.7,Medicine
-Gomez,Tabatha,M,39,188,64.4,Data Science
-Liddell,Shanise,M,18,163.1,106,Anthropology
-Lim,Robert,F,21,174.9,59.1,Applied Bioscience
-Gutierrez Salomon,Efren,F,30,142.9,97.5,Anthropology
-Compton,Eboni,M,53,137.1,69.3,Marine Biology
-Bates,Taylar,M,29,163,50.8,Anthropology
-Sisneros,Angel,F,24,173.6,61.6,Management
-Padilla,Brian,F,45,196,62.1,Electrical Engineering
-Romero,Darias,F,21,164.7,44.2,Aquaculture
-Bean,Steven,F,21,184.6,57.9,Management
-Oliver,Morgan,M,23,173.6,56.8,Geology
-Farmer,Jesse,F,28,149.2,90.9,Psychology
-Ellwanger,Payton,F,28,206,112.9,Climatology
-Olivas,Sierra,M,31,120,74,Medicine
-Villalobos,Rafael,F,36,170.4,98.8,Food Science
-Morales,Alex,F,26,164.6,53.2,Aquaculture
-Yoo,Anthony,F,38,124.6,87,Data Science
-Garcia Cerda,Gabrielle,M,31,162.9,42,Medicine
-Grubbs,Stevie,M,30,144.3,103.8,Marine Biology
-Boyer,Paisley,M,29,165.5,86.9,Computer Science
-Stewart,Dylan,F,27,178.4,84.2,Marine Biology
-Bowker,Jacob,F,21,140.2,57.5,Management
-Lovett Jr,Thalir,M,43,143.7,51.3,Climatology
-Ramirez,Laura,M,33,154.2,108.7,Psychology
-Razo,Lizbeth,M,28,182,78.5,Horticulure
-Yamada,Liana,M,31,169,83.4,Chemical Engineering
-Salas,Jaime,F,27,148.4,43.2,Electrical Engineering
-Tran,Saoli,M,40,164.9,82.4,Geology
-al-Harroun,Imaad,F,36,157.8,105.3,Mechanical Engineering
-Nubine,Piotreck,F,35,150.2,100.2,Marine Biology
-Casillas Garcia,Marco,F,33,146.8,71.9,Chemical Engineering
-Ripper,Tyler,F,33,203.6,47.3,Climatology
-Mobilian,Emily,M,23,208.2,92.7,Genetics
-Luttrell,Austin,F,22,140.9,68.4,Data Science
-Fikes,Taren,F,36,193.4,65.8,Marine Biology
-Lucero,Ashley,M,28,157.3,108.9,Food Science
-al-Hasan,Shaheera,M,22,191,104,Chemical Engineering
-Yoh,Lee,M,22,138.6,49,Anthropology
-Duff,Ocean,F,24,182.5,75.1,Food Science
-Mann,Brandon,F,34,129.8,60.7,Electrical Engineering
-el-Khalili,Nadheera,M,24,150.7,42.5,Psychology
-Vang,Moel,M,30,170,84.3,Hydrology
-Haynes,Brenna,M,27,145.9,38.5,Electrical Engineering
-Lansing,Parker,F,41,180.6,77.7,Chemical Engineering
-Guevara,Alejandro,F,30,179,40,Genetics
-Fischer,Preston,F,37,158.6,73.5,Electrical Engineering
-el-Sawaya,Sajiyya,M,28,158.6,99.8,Anthropology
-Tivis,Darian,F,29,123.7,107.2,Medicine
-La'A,Mai,M,21,152.2,80,Data Science
-Williams,Tierra,M,35,164.1,75.8,Computer Science
-Barron,Destiny,M,42,149.6,85.7,Data Science
-Howe,Rachel,M,56,149.7,68.5,Data Science
-James,Bobbie,M,20,115,77.7,Mechanical Engineering
-Fernandez,Juan,F,21,169,62.1,Marine Biology
-Parra,Sergio,F,29,194,61,Climatology
-Davis,Devin,F,44,170.4,53.7,Geology
-Le,Beau,F,38,131.5,75.6,Medicine
-el-Wakim,Nashat,F,49,140.3,118,Data Science
-el-Khan,Fidda,M,19,157.1,64.7,Mechanical Engineering
-el-Laham,Hujja,M,24,163,93.3,Food Science
-Martinez,Desiree,M,20,116.7,51.8,Food Science
-Garcia,Ismael,F,42,123.6,44.6,Data Science
-Shoeboot,Joseph,F,34,176.3,81.8,Psychology
-el-Fares,Uqbah,F,32,161,78.9,Psychology
-Battumur,Olivia,M,26,172.8,92.3,Anthropology
-Dauenhauer,Vadim,F,26,134.4,70.8,Hydrology
-Montoya,Ana,M,37,161,108.8,Food Science
-al-Bey,Humaina,M,20,180,59.6,Electrical Engineering
-Williams,Eric,F,31,154.4,54.1,Hydrology
-Papp,Michael,F,38,159.2,116.5,Hydrology
-Park,Kaitlyn,M,21,147,71.9,Mechanical Engineering
-Hopkins,Paul,F,29,177.2,80.2,Mechanical Engineering
-Whitehorse,Frances,M,29,198.3,62.4,Psychology
-Lee,Cody,F,25,116.8,59.4,Climatology
-Dall,Kristin,M,30,153,68.3,Hydrology
-el-Jamail,Rifaah,F,28,207.6,68.9,Chemical Engineering
-Jose-Juan,Ronnie,F,22,159.6,72.8,Hydrology
-Duran,Brianna,M,27,129.6,73.9,Marine Biology
-Martin,Anfernee,F,19,162.7,66.8,Aquaculture
-Orona Gallegos,Gabriel,F,37,179.4,79.8,Anthropology
-Saxe,Michael,F,27,135.4,111.5,Aquaculture
-Trujillo,Jessica,M,28,189.7,83.6,Climatology
-Palomares,Ernesto,F,20,179,92.9,Chemical Engineering
-Yang,Somarrey,M,60,128.2,85.8,Food Science
-el-Mannan,Nadheer,F,45,176.3,87.5,Climatology
-Jackson,Lee,F,41,148.3,62.5,Electrical Engineering
-Giron Lovato,Casady,M,21,182.2,88.8,Horticulure
-Chrysler,Alexandria,M,30,154.6,60.8,Horticulure
-Williams,Alyssa,M,27,139.6,111.4,Genetics
-Mosley,Philip,F,22,204.5,54,Food Science
-el-Abdelrahman,Izza,M,21,158.2,43.2,Mechanical Engineering
-Nelson,Mykaela,M,30,147.5,90.2,Hydrology
-Hairston,Jordan,F,57,197.8,109.4,Chemical Engineering
-el-Ahmad,Samir,F,25,188.8,51.8,Data Science
-Lyon,Amanda,M,22,185.8,115,Chemical Engineering
-Musselman,Robert,F,37,167.7,85.3,Anthropology
-el-Hamed,Aarif,F,28,141.3,81.5,Marine Biology
-Mccoy Torrance,Tanesha,M,46,204.7,100.5,Marine Biology
-George,Kaitlin,M,24,201.5,70.9,Genetics
-Battulga,Amaresh,F,25,149,83.4,Data Science
-Butch,Ray,F,31,182.5,67.1,Medicine
-Ramamurthy,Susie,M,31,112.4,80.2,Management
-Ortiz,Jade,M,48,132.7,47,Management
-Palomares,Ashleigh,M,23,147,101.4,Marine Biology
-Rojas,Marlon,F,24,191.1,92,Genetics
-Griffith,Anissa,M,31,158.8,52.2,Food Science
-Ketchum,Morgan,M,33,172.6,82.9,Genetics
-al-Malik,Kinaana,M,29,162.8,62.2,Genetics
-Vermillion,Ronald,F,45,118.8,49.8,Psychology
-Baeza,Hannah,M,28,204.7,44.7,Applied Bioscience
-Shrestha,Lewis,F,27,171.5,95.8,Applied Bioscience
-el-Riaz,Maleeka,M,32,141,90.4,Psychology
-Cho,Patrick,F,35,131.8,115,Marine Biology
-Schlosser,Luis,F,25,128.8,84.3,Hydrology
-Mattson,Devon,F,22,164.1,99,Psychology
-Vialpando,Ruby,M,37,209.2,97.6,Data Science
-Townsend,Brandon,F,24,199,97.4,Geology
-el-Abdalla,Jalaal,F,33,156.4,84.8,Geology
-Angeles,Deisey,M,22,164.9,73.9,Hydrology
-Turner,Rachel,M,25,206.2,119.9,Anthropology
-Mallikarjun,Josilyn,M,21,174.3,89,Chemical Engineering
+Perez,Karina,F,33,175.1,53.2,Marine Biology
+Hoffmann,Tian,F,24,185.2,65.3,Medicine
+el-Mahdi,Anbara,F,40,169,70.8,Climatology
+Masingale,Elijah,M,52,138.4,75,Hydrology
+Hawkins,Caterina,F,53,127.2,59.8,Mechanical Engineering
+Thornton,Theron,M,22,188.9,82.5,Chemical Engineering
+Lee,John,M,73,159,46.4,Hydrology
+Brown,Duncan,M,36,183.2,111.3,Mechanical Engineering
+Blanchard,Haben,M,28,125.9,92.6,Horticulure
+Noel,Hylas,M,26,132.8,81.9,Psychology
+Ho,Davie,M,37,174.9,84,Medicine
+Gutierrez,Ashley,F,46,202.7,90.2,Climatology
+Matin,Tae,M,33,167.2,88,Computer Science
+Maez,Emanuel,M,74,157,77.9,Genetics
+Armstrong,Cornelia,F,42,127.7,113.2,Computer Science
+Boykin,Daniel,M,35,163,90.9,Medicine
+Sears,Nikolas,M,27,162.1,92.7,Anthropology
+Tatum Clardy,Kiley,F,23,141,89,Medicine
+Abeyta,Lauren,F,29,184,45.1,Electrical Engineering
+Perez,Martin,M,26,176.9,51.4,Computer Science
+el-Guler,Kabeer,M,42,115.8,63.3,Management
+Kabotie,Chad,M,51,140.5,59.9,Climatology
+Gallegos,Kelly,F,39,144.3,98.7,Aquaculture
+Hailesilasie,Tiara,F,31,153.9,54.8,Computer Science
+Martin,Davone,M,27,142.2,108.6,Climatology
+Burkett,Kara,F,39,158.4,87,Electrical Engineering
+Taylor,Ross,M,23,141,83,Horticulure
+al-Hamdan,Ulyaa,F,33,173.4,88.1,Management
+Jackson,Yohana,F,27,169.2,83.8,Climatology
+Hines,Klarissa,F,36,159.7,74.1,Mechanical Engineering
+O'Dell,Gabe,M,21,170.1,62.1,Medicine
+Morgan,Paige,F,55,169,79.5,Electrical Engineering
+Trujillo,Justin,M,26,163.3,92.6,Aquaculture
+Davis,Markeishar,F,41,201.9,108.8,Mechanical Engineering
+Tave Coles,Mariam,F,39,195,63,Hydrology
+al-Alam,Jaarallah,M,37,189.7,47.7,Data Science
+Rincon,Kelsey,F,49,180.1,77.3,Psychology
+Egbert,Marissa,F,31,129.4,102,Electrical Engineering
+Nuels,Ja Von,M,20,182.5,63.9,Medicine
+Lewis,Adrian,F,18,150.5,98.5,Hydrology
+Gonzalez-Cervantes,Andrew,M,27,188.4,103.1,Marine Biology
+Smith,Rachel,F,30,118.1,61.9,Psychology
+Meza,Alejandro,M,45,149.1,87.8,Computer Science
+Hensinger II,James,M,18,142,111,Applied Bioscience
+Garcia,Jonathan,M,32,167.4,65.4,Electrical Engineering
+Dorado Velasco,Luz,F,22,189.8,87.4,Computer Science
+Caradec,Breanne,F,53,169.7,43,Management
+al-Sadek,Muhyddeen,M,31,141.8,105,Climatology
+Candelario,Huong,F,19,198,66.8,Mechanical Engineering
+Tahlo,Evan,F,33,176.5,70.7,Electrical Engineering
+Hintz,Miles,M,23,206.2,92.7,Marine Biology
+Leahy,Lonnie,M,24,156.9,62,Chemical Engineering
+Gilchrist,Jessica,F,22,125.9,82.2,Electrical Engineering
+Hunter,Emily,F,29,191.8,98.7,Applied Bioscience
+al-Shah,Mahmooda,F,29,133.2,47.4,Anthropology
+Nguyen,Olivia,F,36,126.9,53.6,Marine Biology
+Whitetree,Werner,M,34,205.2,81.8,Geology
+Foutch,Kayleigh,F,28,137.1,84,Management
+Mcgee,Jordan,M,36,135.1,109.8,Anthropology
+Vigil,Mato Ty,M,48,142.9,74,Anthropology
+Hong,Tyme,M,29,150,64.1,Chemical Engineering
+Wisham,Shervanna,F,32,196.4,49.7,Food Science
+el-Abdallah,Sabri,M,26,154.7,101.6,Climatology
+Ackerland,Faithe,F,20,207,104.7,Food Science
+Gray,Danielle,F,35,165.4,91.9,Medicine
+Powell,Kaela,F,22,150,91.8,Computer Science
+Atene,David,M,37,169.4,112,Electrical Engineering
+Eriacho,Jennifer,F,24,167.6,65.9,Marine Biology
+el-Farid,Shaamila,F,28,158.9,64.5,Anthropology
+al-Shareef,Haajara,F,45,189.2,77.4,Genetics
+Liskey,Kaela,F,23,140.9,64.5,Management
+el-Akbar,Asad,M,38,170.3,66.8,Psychology
+Chavira,Kaylee,F,35,175.3,61.9,Medicine
+Wolfskill,Armando,M,27,159.7,85.2,Psychology
+Harding,Keschon,M,28,161.4,62.7,Mechanical Engineering
+Aguirre-Hernandez,Katie,F,59,107.7,110,Chemical Engineering
+Delgado,Jesus,M,33,178.5,103.8,Hydrology
+Richards,Alexa,F,43,181.5,112,Medicine
+Dottson,Julian,M,36,140.1,52.6,Climatology
+Mayshack,Megan,F,39,169.3,39.6,Geology
+Singer,Ashley,F,37,172.7,56.2,Climatology
+Wiebe,Robert,M,29,174.7,68.9,Genetics
+Edelen,Cameron,M,26,161.3,90.9,Horticulure
+Self,Brice,M,27,155,60.8,Applied Bioscience
+Mondragon,Alissa,F,23,193.4,74.3,Data Science
+Lopez,Orlando,M,29,146.8,81.7,Chemical Engineering
+Smeal,Andrew,M,20,138,120,Aquaculture
+Whiteford,Charles,M,30,132.1,94.7,Applied Bioscience
+Murray,Danielle,F,25,173.6,118.8,Chemical Engineering
+Nguyen,Nhan,M,30,154.3,115,Management
+Romero,Carmen,F,31,152.8,84.8,Hydrology
+Lopez,Briannah,F,19,124.5,63,Aquaculture
+Yi,Vince,M,52,208.4,81.8,Food Science
+Ramirez-Nevarez,Jazmin,F,28,104.8,47.3,Psychology
+Secrist,Dylan,M,22,193.4,42.4,Applied Bioscience
+Brandon,Aspen,F,37,176.2,59.2,Horticulure
+al-Islam,Rabdaa,F,20,173.3,44.5,Aquaculture
+Gothard,Alawn,M,54,114,95.4,Horticulure
+Stacy,Michael,M,43,132.9,111.5,Psychology
+Russell,Langston,M,30,177.8,90.1,Food Science
+al-Mourad,Mudrika,F,36,204,88.7,Medicine
+Gomez,Tabatha,F,39,188,64.4,Data Science
+Liddell,Shanise,F,18,163.1,106,Anthropology
+Lim,Robert,M,21,174.9,59.1,Applied Bioscience
+Gutierrez Salomon,Efren,M,30,142.9,97.5,Anthropology
+Compton,Eboni,F,53,137.1,69.3,Marine Biology
+Bates,Taylar,F,29,163,50.8,Anthropology
+Sisneros,Angel,M,24,173.6,61.6,Management
+Padilla,Brian,M,45,196,62.1,Electrical Engineering
+Romero,Darias,M,21,164.7,44.2,Aquaculture
+Bean,Steven,M,21,184.6,57.9,Management
+Oliver,Morgan,F,23,173.6,56.8,Geology
+Farmer,Jesse,M,28,149.2,90.9,Psychology
+Ellwanger,Payton,M,28,206,112.9,Climatology
+Olivas,Sierra,F,31,120,74,Medicine
+Villalobos,Rafael,M,36,170.4,98.8,Food Science
+Morales,Alex,M,26,164.6,53.2,Aquaculture
+Yoo,Anthony,M,38,124.6,87,Data Science
+Garcia Cerda,Gabrielle,F,31,162.9,42,Medicine
+Grubbs,Stevie,F,30,144.3,103.8,Marine Biology
+Boyer,Paisley,F,29,165.5,86.9,Computer Science
+Stewart,Dylan,M,27,178.4,84.2,Marine Biology
+Bowker,Jacob,M,21,140.2,57.5,Management
+Lovett Jr,Thalir,F,43,143.7,51.3,Climatology
+Ramirez,Laura,F,33,154.2,108.7,Psychology
+Razo,Lizbeth,F,28,182,78.5,Horticulure
+Yamada,Liana,F,31,169,83.4,Chemical Engineering
+Salas,Jaime,M,27,148.4,43.2,Electrical Engineering
+Tran,Saoli,F,40,164.9,82.4,Geology
+al-Harroun,Imaad,M,36,157.8,105.3,Mechanical Engineering
+Nubine,Piotreck,M,35,150.2,100.2,Marine Biology
+Casillas Garcia,Marco,M,33,146.8,71.9,Chemical Engineering
+Ripper,Tyler,M,33,203.6,47.3,Climatology
+Mobilian,Emily,F,23,208.2,92.7,Genetics
+Luttrell,Austin,M,22,140.9,68.4,Data Science
+Fikes,Taren,M,36,193.4,65.8,Marine Biology
+Lucero,Ashley,F,28,157.3,108.9,Food Science
+al-Hasan,Shaheera,F,22,191,104,Chemical Engineering
+Yoh,Lee,F,22,138.6,49,Anthropology
+Duff,Ocean,M,24,182.5,75.1,Food Science
+Mann,Brandon,M,34,129.8,60.7,Electrical Engineering
+el-Khalili,Nadheera,F,24,150.7,42.5,Psychology
+Vang,Moel,F,30,170,84.3,Hydrology
+Haynes,Brenna,F,27,145.9,38.5,Electrical Engineering
+Lansing,Parker,M,41,180.6,77.7,Chemical Engineering
+Guevara,Alejandro,M,30,179,40,Genetics
+Fischer,Preston,M,37,158.6,73.5,Electrical Engineering
+el-Sawaya,Sajiyya,F,28,158.6,99.8,Anthropology
+Tivis,Darian,M,29,123.7,107.2,Medicine
+La'A,Mai,F,21,152.2,80,Data Science
+Williams,Tierra,F,35,164.1,75.8,Computer Science
+Barron,Destiny,F,42,149.6,85.7,Data Science
+Howe,Rachel,F,56,149.7,68.5,Data Science
+James,Bobbie,F,20,115,77.7,Mechanical Engineering
+Fernandez,Juan,M,21,169,62.1,Marine Biology
+Parra,Sergio,M,29,194,61,Climatology
+Davis,Devin,M,44,170.4,53.7,Geology
+Le,Beau,M,38,131.5,75.6,Medicine
+el-Wakim,Nashat,M,49,140.3,118,Data Science
+el-Khan,Fidda,F,19,157.1,64.7,Mechanical Engineering
+el-Laham,Hujja,F,24,163,93.3,Food Science
+Martinez,Desiree,F,20,116.7,51.8,Food Science
+Garcia,Ismael,M,42,123.6,44.6,Data Science
+Shoeboot,Joseph,M,34,176.3,81.8,Psychology
+el-Fares,Uqbah,M,32,161,78.9,Psychology
+Battumur,Olivia,F,26,172.8,92.3,Anthropology
+Dauenhauer,Vadim,M,26,134.4,70.8,Hydrology
+Montoya,Ana,F,37,161,108.8,Food Science
+al-Bey,Humaina,F,20,180,59.6,Electrical Engineering
+Williams,Eric,M,31,154.4,54.1,Hydrology
+Papp,Michael,M,38,159.2,116.5,Hydrology
+Park,Kaitlyn,F,21,147,71.9,Mechanical Engineering
+Hopkins,Paul,M,29,177.2,80.2,Mechanical Engineering
+Whitehorse,Frances,F,29,198.3,62.4,Psychology
+Lee,Cody,M,25,116.8,59.4,Climatology
+Dall,Kristin,F,30,153,68.3,Hydrology
+el-Jamail,Rifaah,M,28,207.6,68.9,Chemical Engineering
+Jose-Juan,Ronnie,M,22,159.6,72.8,Hydrology
+Duran,Brianna,F,27,129.6,73.9,Marine Biology
+Martin,Anfernee,M,19,162.7,66.8,Aquaculture
+Orona Gallegos,Gabriel,M,37,179.4,79.8,Anthropology
+Saxe,Michael,M,27,135.4,111.5,Aquaculture
+Trujillo,Jessica,F,28,189.7,83.6,Climatology
+Palomares,Ernesto,M,20,179,92.9,Chemical Engineering
+Yang,Somarrey,F,60,128.2,85.8,Food Science
+el-Mannan,Nadheer,M,45,176.3,87.5,Climatology
+Jackson,Lee,M,41,148.3,62.5,Electrical Engineering
+Giron Lovato,Casady,F,21,182.2,88.8,Horticulure
+Chrysler,Alexandria,F,30,154.6,60.8,Horticulure
+Williams,Alyssa,F,27,139.6,111.4,Genetics
+Mosley,Philip,M,22,204.5,54,Food Science
+el-Abdelrahman,Izza,F,21,158.2,43.2,Mechanical Engineering
+Nelson,Mykaela,F,30,147.5,90.2,Hydrology
+Hairston,Jordan,M,57,197.8,109.4,Chemical Engineering
+el-Ahmad,Samir,M,25,188.8,51.8,Data Science
+Lyon,Amanda,F,22,185.8,115,Chemical Engineering
+Musselman,Robert,M,37,167.7,85.3,Anthropology
+el-Hamed,Aarif,M,28,141.3,81.5,Marine Biology
+Mccoy Torrance,Tanesha,F,46,204.7,100.5,Marine Biology
+George,Kaitlin,F,24,201.5,70.9,Genetics
+Battulga,Amaresh,M,25,149,83.4,Data Science
+Butch,Ray,M,31,182.5,67.1,Medicine
+Ramamurthy,Susie,F,31,112.4,80.2,Management
+Ortiz,Jade,F,48,132.7,47,Management
+Palomares,Ashleigh,F,23,147,101.4,Marine Biology
+Rojas,Marlon,M,24,191.1,92,Genetics
+Griffith,Anissa,F,31,158.8,52.2,Food Science
+Ketchum,Morgan,F,33,172.6,82.9,Genetics
+al-Malik,Kinaana,F,29,162.8,62.2,Genetics
+Vermillion,Ronald,M,45,118.8,49.8,Psychology
+Baeza,Hannah,F,28,204.7,44.7,Applied Bioscience
+Shrestha,Lewis,M,27,171.5,95.8,Applied Bioscience
+el-Riaz,Maleeka,F,32,141,90.4,Psychology
+Cho,Patrick,M,35,131.8,115,Marine Biology
+Schlosser,Luis,M,25,128.8,84.3,Hydrology
+Mattson,Devon,M,22,164.1,99,Psychology
+Vialpando,Ruby,F,37,209.2,97.6,Data Science
+Townsend,Brandon,M,24,199,97.4,Geology
+el-Abdalla,Jalaal,M,33,156.4,84.8,Geology
+Angeles,Deisey,F,22,164.9,73.9,Hydrology
+Turner,Rachel,F,25,206.2,119.9,Anthropology
+Mallikarjun,Josilyn,F,21,174.3,89,Chemical Engineering
 Camus,Melissa,I,28,144,92.6,Anthropology
-Cuevas,Bianca,M,26,131.9,106.2,Marine Biology
-el-Abdullah,Nusaiba,M,39,188.5,76.1,Psychology
-Kennis,Andrea,M,27,189.2,113.4,Food Science
-Yin,Kitty,M,19,131.7,77.4,Chemical Engineering
-Renner,Danita,M,45,147.1,114.4,Chemical Engineering
-Guerue,Gabriel,F,27,176.4,62.1,Climatology
-Herrera,De'Jane,M,32,146,55.9,Horticulure
-Ware,Joel-Ira,F,43,141.2,74.4,Aquaculture
-Lafebre,Zachariah,F,32,131.2,98.5,Computer Science
-Chatman,Elshaday,M,29,150.7,100.6,Applied Bioscience
-al-Alli,Abbaad,F,27,138.3,100.4,Medicine
-Hicks,Sydney,M,23,160.9,65.1,Management
-Vongvichith,Tu,F,30,131.1,68.5,Genetics
-Upchurch,Teandre,F,32,188.3,89.3,Climatology
-Armas,Jaime,F,38,137.4,63.7,Geology
-Perez,Fernando,F,33,156.2,103,Marine Biology
-Yang,Keane,F,25,196.5,103,Geology
-Martinez,Joseph,F,36,197.8,53,Chemical Engineering
-Rodriguez,Kaitlyn,M,33,178.6,91.2,Food Science
-el-Safi,Tharwa,M,33,183,57.2,Anthropology
-Chen,Amber,M,22,189.2,111.3,Aquaculture
-Zhang,Hailey,M,18,175.5,50.4,Hydrology
+Cuevas,Bianca,F,26,131.9,106.2,Marine Biology
+el-Abdullah,Nusaiba,F,39,188.5,76.1,Psychology
+Kennis,Andrea,F,27,189.2,113.4,Food Science
+Yin,Kitty,F,19,131.7,77.4,Chemical Engineering
+Renner,Danita,F,45,147.1,114.4,Chemical Engineering
+Guerue,Gabriel,M,27,176.4,62.1,Climatology
+Herrera,De'Jane,F,32,146,55.9,Horticulure
+Ware,Joel-Ira,M,43,141.2,74.4,Aquaculture
+Lafebre,Zachariah,M,32,131.2,98.5,Computer Science
+Chatman,Elshaday,F,29,150.7,100.6,Applied Bioscience
+al-Alli,Abbaad,M,27,138.3,100.4,Medicine
+Hicks,Sydney,F,23,160.9,65.1,Management
+Vongvichith,Tu,M,30,131.1,68.5,Genetics
+Upchurch,Teandre,M,32,188.3,89.3,Climatology
+Armas,Jaime,M,38,137.4,63.7,Geology
+Perez,Fernando,M,33,156.2,103,Marine Biology
+Yang,Keane,M,25,196.5,103,Geology
+Martinez,Joseph,M,36,197.8,53,Chemical Engineering
+Rodriguez,Kaitlyn,F,33,178.6,91.2,Food Science
+el-Safi,Tharwa,F,33,183,57.2,Anthropology
+Chen,Amber,F,22,189.2,111.3,Aquaculture
+Zhang,Hailey,F,18,175.5,50.4,Hydrology
 White,Andrew,I,28,130.4,54.4,Climatology
-Nguyen,Jamal,F,39,160,106.7,Genetics
-West,Katherine,M,24,172.3,85.2,Genetics
-Duran,Kevin,F,25,194.9,70.8,Marine Biology
-Marsh,Brittany,M,39,177,80.1,Genetics
-Musimbi,Kamry,M,31,197,103.4,Food Science
-Encinias,Brandon,F,51,206.9,97.4,Applied Bioscience
-Her,Ariana,M,31,182,66.1,Genetics
-Raikes,Alishia,M,32,175.4,106,Computer Science
-Navratil,John,F,19,112.3,96.3,Genetics
-Smits-Kagoshima,Michael,F,28,206.5,112,Data Science
-Smith,Antonio,F,30,146,112.2,Food Science
-Walker,Trevon,F,33,189.6,102,Psychology
-Barger,Rhiannon,M,33,157.5,115.8,Climatology
-el-Abdi,Marzooq,F,23,153.8,45,Geology
-Patterson,Kory,F,39,200.4,69,Hydrology
-Radney,Darian,F,46,133.8,109.1,Marine Biology
-Lovato,Victoria,M,21,152.1,58.3,Anthropology
-al-Harroun,Muhammad,F,24,160,63.1,Climatology
-Mcclaskey,Walter,F,28,131.8,62.2,Medicine
-el-Imam,Turfa,M,39,151.1,91.2,Applied Bioscience
-Ramirez,Elizabeth,M,26,197.5,91.9,Horticulure
-Hudson,Monet,M,34,157.1,90.7,Geology
-Montes,Carlos,F,25,122.8,78.7,Mechanical Engineering
-Sarracino,Brittany,M,33,166.3,86,Geology
-Neuman,Giovanni,F,27,175,68.2,Geology
-Hunter-Crump,Kimberley,M,39,155.4,83.8,Electrical Engineering
-al-Salaam,"Jam,Aan",F,31,183,109.6,Genetics
-Thomas,Noah,F,28,190.2,72.4,Applied Bioscience
-Wagner,Morgan,F,26,181.5,72,Anthropology
-Brennan,Kiana,M,18,197.4,74.4,Marine Biology
-Collier Zans,Taylor,F,23,167.6,37,Anthropology
-Lou,Vincent,F,35,178,52.5,Applied Bioscience
-el-Abdo,Kameela,M,22,185.5,78.9,Marine Biology
-el-Uddin,Kifaaya,M,38,123.1,118.6,Data Science
-Becker,Carly,M,23,209.9,77.9,Management
-al-Baluch,Jubair,F,33,199.8,105.4,Marine Biology
-Richmond,Hezekaih,F,44,107.5,39.7,Medicine
-Ibanez,Savannah,M,58,172.2,64.3,Aquaculture
-Austria,Carrie,M,23,133.4,102.4,Geology
-Alvarenga,Destiny,M,38,204,83.7,Mechanical Engineering
-Jacket,Robert,F,36,150,115.1,Horticulure
-Boisselle,Dale,F,27,177.1,79.7,Climatology
-Taylor,Malik,F,37,186.3,91.1,Psychology
-al-Salek,Khaleela,M,80,204.1,52.5,Anthropology
-Ottens,Daniel,F,25,156.2,59.5,Climatology
-Hord Sherrer,Kalan,F,27,169.8,95.5,Management
-al-Hatem,Aatif,F,27,164.6,74,Applied Bioscience
-Pike,Skye,M,26,155.3,87.3,Computer Science
-al-Eid,Faadil,F,40,109.7,98.7,Marine Biology
-al-Afzal,Shukriyya,M,39,114.7,64,Food Science
-Jablonski,Brandon,F,28,158.4,59.6,Electrical Engineering
-Ingle,Brandi,M,23,176.5,62.6,Electrical Engineering
-Barela,Raymond,F,35,153.9,99,Psychology
-el-Shad,Hamdaan,F,27,170.8,100.2,Electrical Engineering
-Yarbrough,Jessie,M,39,205.8,69.6,Computer Science
-Jimenez-Estrada,Felix,F,44,205.8,72.1,Computer Science
-Brooks,Diamond,M,26,162,76,Genetics
-Shafer,Andrew,F,37,149.6,92.6,Climatology
-Quackenbush,Joshua,F,31,165.9,88.1,Electrical Engineering
-Loi,Marcus,F,29,166.9,93.5,Chemical Engineering
-Lathrop,Gabriel,F,33,137.3,84.5,Chemical Engineering
-Franklin,Marthalee,M,46,178,105.3,Marine Biology
-Ricalday,Diana,M,37,163.2,60.4,Genetics
-el-Huda,Sham'a,M,29,157.3,49.9,Anthropology
-Pope,Megan,M,22,146.4,59,Climatology
-Naito,Thinh,F,22,190.8,74.7,Genetics
+Nguyen,Jamal,M,39,160,106.7,Genetics
+West,Katherine,F,24,172.3,85.2,Genetics
+Duran,Kevin,M,25,194.9,70.8,Marine Biology
+Marsh,Brittany,F,39,177,80.1,Genetics
+Musimbi,Kamry,F,31,197,103.4,Food Science
+Encinias,Brandon,M,51,206.9,97.4,Applied Bioscience
+Her,Ariana,F,31,182,66.1,Genetics
+Raikes,Alishia,F,32,175.4,106,Computer Science
+Navratil,John,M,19,112.3,96.3,Genetics
+Smits-Kagoshima,Michael,M,28,206.5,112,Data Science
+Smith,Antonio,M,30,146,112.2,Food Science
+Walker,Trevon,M,33,189.6,102,Psychology
+Barger,Rhiannon,F,33,157.5,115.8,Climatology
+el-Abdi,Marzooq,M,23,153.8,45,Geology
+Patterson,Kory,M,39,200.4,69,Hydrology
+Radney,Darian,M,46,133.8,109.1,Marine Biology
+Lovato,Victoria,F,21,152.1,58.3,Anthropology
+al-Harroun,Muhammad,M,24,160,63.1,Climatology
+Mcclaskey,Walter,M,28,131.8,62.2,Medicine
+el-Imam,Turfa,F,39,151.1,91.2,Applied Bioscience
+Ramirez,Elizabeth,F,26,197.5,91.9,Horticulure
+Hudson,Monet,F,34,157.1,90.7,Geology
+Montes,Carlos,M,25,122.8,78.7,Mechanical Engineering
+Sarracino,Brittany,F,33,166.3,86,Geology
+Neuman,Giovanni,M,27,175,68.2,Geology
+Hunter-Crump,Kimberley,F,39,155.4,83.8,Electrical Engineering
+al-Salaam,"Jam,Aan",M,31,183,109.6,Genetics
+Thomas,Noah,M,28,190.2,72.4,Applied Bioscience
+Wagner,Morgan,M,26,181.5,72,Anthropology
+Brennan,Kiana,F,18,197.4,74.4,Marine Biology
+Collier Zans,Taylor,M,23,167.6,37,Anthropology
+Lou,Vincent,M,35,178,52.5,Applied Bioscience
+el-Abdo,Kameela,F,22,185.5,78.9,Marine Biology
+el-Uddin,Kifaaya,F,38,123.1,118.6,Data Science
+Becker,Carly,F,23,209.9,77.9,Management
+al-Baluch,Jubair,M,33,199.8,105.4,Marine Biology
+Richmond,Hezekaih,M,44,107.5,39.7,Medicine
+Ibanez,Savannah,F,58,172.2,64.3,Aquaculture
+Austria,Carrie,F,23,133.4,102.4,Geology
+Alvarenga,Destiny,F,38,204,83.7,Mechanical Engineering
+Jacket,Robert,M,36,150,115.1,Horticulure
+Boisselle,Dale,M,27,177.1,79.7,Climatology
+Taylor,Malik,M,37,186.3,91.1,Psychology
+al-Salek,Khaleela,F,80,204.1,52.5,Anthropology
+Ottens,Daniel,M,25,156.2,59.5,Climatology
+Hord Sherrer,Kalan,M,27,169.8,95.5,Management
+al-Hatem,Aatif,M,27,164.6,74,Applied Bioscience
+Pike,Skye,F,26,155.3,87.3,Computer Science
+al-Eid,Faadil,M,40,109.7,98.7,Marine Biology
+al-Afzal,Shukriyya,F,39,114.7,64,Food Science
+Jablonski,Brandon,M,28,158.4,59.6,Electrical Engineering
+Ingle,Brandi,F,23,176.5,62.6,Electrical Engineering
+Barela,Raymond,M,35,153.9,99,Psychology
+el-Shad,Hamdaan,M,27,170.8,100.2,Electrical Engineering
+Yarbrough,Jessie,F,39,205.8,69.6,Computer Science
+Jimenez-Estrada,Felix,M,44,205.8,72.1,Computer Science
+Brooks,Diamond,F,26,162,76,Genetics
+Shafer,Andrew,M,37,149.6,92.6,Climatology
+Quackenbush,Joshua,M,31,165.9,88.1,Electrical Engineering
+Loi,Marcus,M,29,166.9,93.5,Chemical Engineering
+Lathrop,Gabriel,M,33,137.3,84.5,Chemical Engineering
+Franklin,Marthalee,F,46,178,105.3,Marine Biology
+Ricalday,Diana,F,37,163.2,60.4,Genetics
+el-Huda,Sham'a,F,29,157.3,49.9,Anthropology
+Pope,Megan,F,22,146.4,59,Climatology
+Naito,Thinh,M,22,190.8,74.7,Genetics
 Sylber,Jazlynn,I,32,143.6,57.6,Applied Bioscience
-Stevenson,Ryshawn,F,27,137.7,71.6,Management
-Sam,Morgan,M,59,176.4,101.4,Marine Biology
-Dulaney,Garrett,F,24,140.7,79.4,Hydrology
-al-Anwar,Ameera,M,43,170.3,104.8,Marine Biology
-el-Nagi,Muhaajir,F,30,133.9,55.3,Hydrology
-Morris,Blia,M,32,199.5,105.5,Hydrology
-Franklin,Gerardo,F,33,165,97.4,Hydrology
-Estrada,Andra,M,22,166.3,42.9,Food Science
-Marotta,Savannah,M,43,171,101,Applied Bioscience
-Tom,Sierra,M,38,174.1,63,Geology
-Lansing,Ashley,M,21,179.3,43.8,Food Science
-Welton,Mychole,M,35,138,64.2,Medicine
-Scherschligt-Rodriguez,Ronald,F,36,167.8,62.7,Management
-Kramer,Carson,F,38,209,107.3,Climatology
-Zhang,Evan,F,29,136.8,101.1,Electrical Engineering
-al-Jaber,Fawwaaz,F,31,159.6,98.2,Genetics
-el-Hatem,Zulfa,M,29,190.2,82.8,Geology
-Lujan,Armando,F,51,123.1,103.3,Geology
-Loggins,Lawrence,F,29,131.1,96.8,Food Science
-Lewis-Wilde,Lakota,F,22,161,38.4,Marine Biology
-al-Sultana,Muneeb,F,26,194.3,52.2,Geology
-Porter,Jessica,M,23,199,89.2,Hydrology
-Barnhill,Jayden,F,41,198,54.6,Medicine
-Barfoot,Garrett,F,27,143.5,39.9,Geology
-el-Jan,Ilhaam,M,36,168.6,85.4,Chemical Engineering
-Coffey,Darien,F,22,194.6,95.9,Marine Biology
-Whittington,Deandre,F,19,157.9,95.8,Electrical Engineering
-Nguyen,Kyleigh,M,57,179.1,81,Aquaculture
-Herrera,Dante,F,19,189.2,61,Marine Biology
+Stevenson,Ryshawn,M,27,137.7,71.6,Management
+Sam,Morgan,F,59,176.4,101.4,Marine Biology
+Dulaney,Garrett,M,24,140.7,79.4,Hydrology
+al-Anwar,Ameera,F,43,170.3,104.8,Marine Biology
+el-Nagi,Muhaajir,M,30,133.9,55.3,Hydrology
+Morris,Blia,F,32,199.5,105.5,Hydrology
+Franklin,Gerardo,M,33,165,97.4,Hydrology
+Estrada,Andra,F,22,166.3,42.9,Food Science
+Marotta,Savannah,F,43,171,101,Applied Bioscience
+Tom,Sierra,F,38,174.1,63,Geology
+Lansing,Ashley,F,21,179.3,43.8,Food Science
+Welton,Mychole,F,35,138,64.2,Medicine
+Scherschligt-Rodriguez,Ronald,M,36,167.8,62.7,Management
+Kramer,Carson,M,38,209,107.3,Climatology
+Zhang,Evan,M,29,136.8,101.1,Electrical Engineering
+al-Jaber,Fawwaaz,M,31,159.6,98.2,Genetics
+el-Hatem,Zulfa,F,29,190.2,82.8,Geology
+Lujan,Armando,M,51,123.1,103.3,Geology
+Loggins,Lawrence,M,29,131.1,96.8,Food Science
+Lewis-Wilde,Lakota,M,22,161,38.4,Marine Biology
+al-Sultana,Muneeb,M,26,194.3,52.2,Geology
+Porter,Jessica,F,23,199,89.2,Hydrology
+Barnhill,Jayden,M,41,198,54.6,Medicine
+Barfoot,Garrett,M,27,143.5,39.9,Geology
+el-Jan,Ilhaam,F,36,168.6,85.4,Chemical Engineering
+Coffey,Darien,M,22,194.6,95.9,Marine Biology
+Whittington,Deandre,M,19,157.9,95.8,Electrical Engineering
+Nguyen,Kyleigh,F,57,179.1,81,Aquaculture
+Herrera,Dante,M,19,189.2,61,Marine Biology
 el-Jan,Ameen,I,37,143.9,89.2,Mechanical Engineering
-Lewis,Danielle,M,30,178.3,79.7,Electrical Engineering
-Dreher,Sarah,M,46,201.4,50.1,Climatology
-al-Kaba,Amaani,M,28,168.3,67.8,Electrical Engineering
-el-Shad,Kamaaluddeen,F,25,176.1,64.2,Hydrology
-Lara,Dakota,F,37,194.2,86.5,Climatology
-Contreras,Rio,M,33,167.8,101.1,Genetics
+Lewis,Danielle,F,30,178.3,79.7,Electrical Engineering
+Dreher,Sarah,F,46,201.4,50.1,Climatology
+al-Kaba,Amaani,F,28,168.3,67.8,Electrical Engineering
+el-Shad,Kamaaluddeen,M,25,176.1,64.2,Hydrology
+Lara,Dakota,M,37,194.2,86.5,Climatology
+Contreras,Rio,F,33,167.8,101.1,Genetics
 el-Hamdan,Samir,I,28,158.3,72.6,Climatology
-Guillory,Makayla,M,26,134.8,55.9,Anthropology
-Kills In Sight,Jane,M,21,154.1,91.4,Marine Biology
-Dwyer,Ashlyn,M,32,150.2,63.6,Climatology
-Rodenburg,Dyllon,F,20,198.4,95.8,Chemical Engineering
-Whisenhunt,Ashley,M,35,180.3,73.7,Data Science
-el-Sadiq,Almaasa,M,33,129,70.2,Applied Bioscience
-Fimbres,Raymond,F,31,152.9,114.4,Marine Biology
-Johns,Grace,M,38,176,103,Aquaculture
-al-Saleem,Rawda,M,40,209.9,43.1,Mechanical Engineering
-Denicola,Amanda,M,31,172,106.1,Psychology
-Swiney,Cierra,M,28,158.4,94.6,Marine Biology
-Fimbres,Arianna,M,28,152.9,97.1,Aquaculture
-Moore,Stephanie,M,56,153.8,40,Food Science
-el-Fares,Awn,F,26,161.9,37,Data Science
-el-Ghattas,Arwa,M,24,141.7,73.5,Computer Science
-Watts,Brian,F,31,190.2,62.9,Chemical Engineering
-Montgomery,Joanna,M,28,155.6,48.2,Horticulure
-Nackowicz,Sydney,M,37,145.3,75.8,Computer Science
-Baek,Tatiana,M,22,167.1,72.8,Food Science
-Duncan,Joelle,M,76,140,62.5,Food Science
-Williams,Mylia,M,23,137.6,54.5,Data Science
-Hall,Alex,F,30,129.3,77.3,Psychology
-Olson,Kaci,M,58,137,65.7,Chemical Engineering
-Hawkins,Tori,M,55,137.9,97.9,Anthropology
-Maravilla,Nicholas,F,34,179.9,55.2,Data Science
-Sanchez,Jose,F,26,159.7,60.2,Aquaculture
-Smith,Stalin,F,46,187.6,93.5,Applied Bioscience
-al-Guler,Sanad,M,23,159.1,65.7,Genetics
-Lozano,Shelby,M,28,198.6,87.5,Genetics
-Culberson,Avianha,M,25,167.7,103,Chemical Engineering
-May,Dale,F,27,200.7,82.8,Chemical Engineering
-Shah,Van,F,20,154.5,71.7,Aquaculture
-Waters,Yasin,F,48,148.6,59.7,Psychology
-el-Salah,Safaaa,M,30,155.6,85.2,Horticulure
-el-Vaziri,Tawheeda,M,30,146.9,45,Genetics
-Boyack,Ashley,M,34,129.2,35,Climatology
-Bridge,Sonya,M,26,152.6,75.9,Chemical Engineering
-Blacker,Kaelin,M,34,137.4,71.6,Aquaculture
-Namkoong,Shinji,F,34,118.9,57.5,Psychology
-Chacon,James,F,24,178.7,49.9,Computer Science
-Green,Chrystal,M,29,178.5,60.2,Climatology
-Mccarthy,Lanae,M,29,156.9,80.4,Data Science
-el-Ammar,Faadi,F,30,164.2,39.9,Geology
-Regur,Agnes,M,23,156.6,52.3,Aquaculture
-Lozano,Ingrid,M,20,108.8,51.5,Aquaculture
-Lopez,Ladonna,M,28,192.6,95.2,Data Science
-Sanders-Ryder,Makia,F,41,192,66.5,Computer Science
-Cooper,Tyler,F,46,133.8,82,Chemical Engineering
-Vo,Karen,M,58,137,100.8,Data Science
-Tuiolosega,Brett,F,28,165.1,70.7,Hydrology
-Jones,Brianna,M,27,179.5,55,Hydrology
-Coleman,Amira,M,24,164.2,67.2,Mechanical Engineering
-Munoz,Gilbert,F,21,173.7,96.2,Hydrology
-Kramer,Hunter,F,30,147.4,90.5,Data Science
-Gallardo,Eric,F,30,190.5,84.1,Management
-Palmier,Joshua,F,37,156.5,64.9,Aquaculture
-el-Safi,Ghaaliya,M,42,187.4,52.7,Climatology
-Gordon-Hughes,Michael,F,21,202.9,58.2,Horticulure
-el-Rasheed,Wardiyya,M,29,158.4,77.4,Aquaculture
-Ramai,Jonathan,F,36,130.4,69,Anthropology
-Silas,Briana,M,28,147.6,89.6,Hydrology
-Medhin,Chandra,M,45,133.1,80,Applied Bioscience
-el-Akhtar,Zuraara,F,26,196.9,81.4,Food Science
-Dixon,Adaiah,M,20,161.7,56.6,Management
-al-Huq,Katheer,F,18,195.7,74.5,Psychology
-Doublin,Joseph,F,27,100.3,51,Applied Bioscience
-al-Kader,Waail,F,26,154.8,56,Genetics
-Bedu Annan,Dashanae,M,43,112.9,90.1,Aquaculture
-Luna,Luis,F,24,161,82.6,Mechanical Engineering
-el-Aly,Talaal,F,27,131.6,70.7,Chemical Engineering
-Evangelista,Brianna,M,24,175.8,106,Food Science
-al-Akbari,Fikra,M,36,189.2,49.1,Psychology
-el-Maroun,Saami,F,22,160.9,81.4,Food Science
-el-Arif,Hilaal,F,37,169.9,71.6,Aquaculture
-Curry,Liliana,M,47,156.7,100.3,Medicine
-Marquez,Andrew,F,21,171.6,54.8,Management
-Machin,Sereno,F,35,187.2,58.8,Data Science
-Aguirre,Doriany,M,33,179.7,119.1,Computer Science
-Kim,Victor,F,42,182.6,111.2,Geology
-Chee,Austin,F,40,179.1,74.3,Marine Biology
-Welch,Anthony,F,19,142,103,Climatology
-el-Abbasi,Hibbaan,F,31,153.3,51,Horticulure
-Squibbs,Elizabeth,M,36,144.5,80,Applied Bioscience
-Bustillos,Jared,F,36,132.8,115,Geology
-al-Yousef,Abdul Noor,F,31,140.8,97.5,Hydrology
-Perez Casillas,Jacob,F,25,101.2,56.4,Chemical Engineering
-Begay,Kelia,M,50,161.5,119.6,Hydrology
-Phillips,Armani,F,37,158.9,49.2,Computer Science
-Allen,Jeromy,F,33,166.6,86.8,Genetics
-Deherrera,Matthew,F,29,146.7,56.8,Climatology
-Cerqueira,Laura,M,26,173.8,56.9,Applied Bioscience
-el-Zaki,Aabid,F,26,166.8,76.8,Management
-al-Alam,Hamaama,M,34,155.6,101,Management
-Tropsa,Adriana,M,37,129.7,103.8,Management
-Daniel,Eueal,F,20,140.5,116.5,Food Science
-el-Muhammed,Naafoora,M,36,154.7,43.3,Chemical Engineering
-Hughes,Aisha,M,27,208.8,104.7,Electrical Engineering
-Curtis,Ayah,M,28,153.8,58,Aquaculture
-Gutierrez,Jacquelyn,M,29,138.8,56.1,Geology
+Guillory,Makayla,F,26,134.8,55.9,Anthropology
+Kills In Sight,Jane,F,21,154.1,91.4,Marine Biology
+Dwyer,Ashlyn,F,32,150.2,63.6,Climatology
+Rodenburg,Dyllon,M,20,198.4,95.8,Chemical Engineering
+Whisenhunt,Ashley,F,35,180.3,73.7,Data Science
+el-Sadiq,Almaasa,F,33,129,70.2,Applied Bioscience
+Fimbres,Raymond,M,31,152.9,114.4,Marine Biology
+Johns,Grace,F,38,176,103,Aquaculture
+al-Saleem,Rawda,F,40,209.9,43.1,Mechanical Engineering
+Denicola,Amanda,F,31,172,106.1,Psychology
+Swiney,Cierra,F,28,158.4,94.6,Marine Biology
+Fimbres,Arianna,F,28,152.9,97.1,Aquaculture
+Moore,Stephanie,F,56,153.8,40,Food Science
+el-Fares,Awn,M,26,161.9,37,Data Science
+el-Ghattas,Arwa,F,24,141.7,73.5,Computer Science
+Watts,Brian,M,31,190.2,62.9,Chemical Engineering
+Montgomery,Joanna,F,28,155.6,48.2,Horticulure
+Nackowicz,Sydney,F,37,145.3,75.8,Computer Science
+Baek,Tatiana,F,22,167.1,72.8,Food Science
+Duncan,Joelle,F,76,140,62.5,Food Science
+Williams,Mylia,F,23,137.6,54.5,Data Science
+Hall,Alex,M,30,129.3,77.3,Psychology
+Olson,Kaci,F,58,137,65.7,Chemical Engineering
+Hawkins,Tori,F,55,137.9,97.9,Anthropology
+Maravilla,Nicholas,M,34,179.9,55.2,Data Science
+Sanchez,Jose,M,26,159.7,60.2,Aquaculture
+Smith,Stalin,M,46,187.6,93.5,Applied Bioscience
+al-Guler,Sanad,F,23,159.1,65.7,Genetics
+Lozano,Shelby,F,28,198.6,87.5,Genetics
+Culberson,Avianha,F,25,167.7,103,Chemical Engineering
+May,Dale,M,27,200.7,82.8,Chemical Engineering
+Shah,Van,M,20,154.5,71.7,Aquaculture
+Waters,Yasin,M,48,148.6,59.7,Psychology
+el-Salah,Safaaa,F,30,155.6,85.2,Horticulure
+el-Vaziri,Tawheeda,F,30,146.9,45,Genetics
+Boyack,Ashley,F,34,129.2,35,Climatology
+Bridge,Sonya,F,26,152.6,75.9,Chemical Engineering
+Blacker,Kaelin,F,34,137.4,71.6,Aquaculture
+Namkoong,Shinji,M,34,118.9,57.5,Psychology
+Chacon,James,M,24,178.7,49.9,Computer Science
+Green,Chrystal,F,29,178.5,60.2,Climatology
+Mccarthy,Lanae,F,29,156.9,80.4,Data Science
+el-Ammar,Faadi,M,30,164.2,39.9,Geology
+Regur,Agnes,F,23,156.6,52.3,Aquaculture
+Lozano,Ingrid,F,20,108.8,51.5,Aquaculture
+Lopez,Ladonna,F,28,192.6,95.2,Data Science
+Sanders-Ryder,Makia,M,41,192,66.5,Computer Science
+Cooper,Tyler,M,46,133.8,82,Chemical Engineering
+Vo,Karen,F,58,137,100.8,Data Science
+Tuiolosega,Brett,M,28,165.1,70.7,Hydrology
+Jones,Brianna,F,27,179.5,55,Hydrology
+Coleman,Amira,F,24,164.2,67.2,Mechanical Engineering
+Munoz,Gilbert,M,21,173.7,96.2,Hydrology
+Kramer,Hunter,M,30,147.4,90.5,Data Science
+Gallardo,Eric,M,30,190.5,84.1,Management
+Palmier,Joshua,M,37,156.5,64.9,Aquaculture
+el-Safi,Ghaaliya,F,42,187.4,52.7,Climatology
+Gordon-Hughes,Michael,M,21,202.9,58.2,Horticulure
+el-Rasheed,Wardiyya,F,29,158.4,77.4,Aquaculture
+Ramai,Jonathan,M,36,130.4,69,Anthropology
+Silas,Briana,F,28,147.6,89.6,Hydrology
+Medhin,Chandra,F,45,133.1,80,Applied Bioscience
+el-Akhtar,Zuraara,M,26,196.9,81.4,Food Science
+Dixon,Adaiah,F,20,161.7,56.6,Management
+al-Huq,Katheer,M,18,195.7,74.5,Psychology
+Doublin,Joseph,M,27,100.3,51,Applied Bioscience
+al-Kader,Waail,M,26,154.8,56,Genetics
+Bedu Annan,Dashanae,F,43,112.9,90.1,Aquaculture
+Luna,Luis,M,24,161,82.6,Mechanical Engineering
+el-Aly,Talaal,M,27,131.6,70.7,Chemical Engineering
+Evangelista,Brianna,F,24,175.8,106,Food Science
+al-Akbari,Fikra,F,36,189.2,49.1,Psychology
+el-Maroun,Saami,M,22,160.9,81.4,Food Science
+el-Arif,Hilaal,M,37,169.9,71.6,Aquaculture
+Curry,Liliana,F,47,156.7,100.3,Medicine
+Marquez,Andrew,M,21,171.6,54.8,Management
+Machin,Sereno,M,35,187.2,58.8,Data Science
+Aguirre,Doriany,F,33,179.7,119.1,Computer Science
+Kim,Victor,M,42,182.6,111.2,Geology
+Chee,Austin,M,40,179.1,74.3,Marine Biology
+Welch,Anthony,M,19,142,103,Climatology
+el-Abbasi,Hibbaan,M,31,153.3,51,Horticulure
+Squibbs,Elizabeth,F,36,144.5,80,Applied Bioscience
+Bustillos,Jared,M,36,132.8,115,Geology
+al-Yousef,Abdul Noor,M,31,140.8,97.5,Hydrology
+Perez Casillas,Jacob,M,25,101.2,56.4,Chemical Engineering
+Begay,Kelia,F,50,161.5,119.6,Hydrology
+Phillips,Armani,M,37,158.9,49.2,Computer Science
+Allen,Jeromy,M,33,166.6,86.8,Genetics
+Deherrera,Matthew,M,29,146.7,56.8,Climatology
+Cerqueira,Laura,F,26,173.8,56.9,Applied Bioscience
+el-Zaki,Aabid,M,26,166.8,76.8,Management
+al-Alam,Hamaama,F,34,155.6,101,Management
+Tropsa,Adriana,F,37,129.7,103.8,Management
+Daniel,Eueal,M,20,140.5,116.5,Food Science
+el-Muhammed,Naafoora,F,36,154.7,43.3,Chemical Engineering
+Hughes,Aisha,F,27,208.8,104.7,Electrical Engineering
+Curtis,Ayah,F,28,153.8,58,Aquaculture
+Gutierrez,Jacquelyn,F,29,138.8,56.1,Geology
 al-Sharaf,Shaakir,I,18,158.6,76,Aquaculture
-Little,David,F,36,170.3,80.9,Food Science
-al-Aydin,Zumruda,M,22,195.3,74.8,Electrical Engineering
-Slocum,Katelyn,M,24,159.9,71.1,Applied Bioscience
-Bird,Joseph,F,27,175,77.5,Hydrology
-Carroll,Dakota,M,24,160.2,70.1,Management
-Anderson,Bella,M,42,137.9,87.3,Data Science
-Shomaker,Shelby,M,43,209.2,104.6,Psychology
-Wadsworth,Miyah,M,34,156.6,90.4,Geology
-Jamison,Gage,F,24,194.2,48.8,Management
-Huang,Aeones,F,25,177,69.9,Anthropology
-Gibson,Joshua,F,38,142.3,44,Hydrology
-Denning,Caylyn,F,36,127.7,78.9,Electrical Engineering
-Chikuma,Franklin,F,40,134.4,109.7,Marine Biology
-Pulido,Viridiana,M,42,140,95,Marine Biology
+Little,David,M,36,170.3,80.9,Food Science
+al-Aydin,Zumruda,F,22,195.3,74.8,Electrical Engineering
+Slocum,Katelyn,F,24,159.9,71.1,Applied Bioscience
+Bird,Joseph,M,27,175,77.5,Hydrology
+Carroll,Dakota,F,24,160.2,70.1,Management
+Anderson,Bella,F,42,137.9,87.3,Data Science
+Shomaker,Shelby,F,43,209.2,104.6,Psychology
+Wadsworth,Miyah,F,34,156.6,90.4,Geology
+Jamison,Gage,M,24,194.2,48.8,Management
+Huang,Aeones,M,25,177,69.9,Anthropology
+Gibson,Joshua,M,38,142.3,44,Hydrology
+Denning,Caylyn,M,36,127.7,78.9,Electrical Engineering
+Chikuma,Franklin,M,40,134.4,109.7,Marine Biology
+Pulido,Viridiana,F,42,140,95,Marine Biology
 el-Hamed,Haaniya,I,34,194.2,88.2,Management
-el-Zaki,Naseera,M,24,122.3,100.4,Mechanical Engineering
-Left Hand Bull,Angelique,M,26,173.2,92.1,Aquaculture
-Huang,Sarah,M,18,163.6,49,Food Science
-Jacobs,Kirkpatrick,F,39,154.3,64.7,Mechanical Engineering
-Morales,Yang,F,18,199,116,Chemical Engineering
-Greimann,Adrienne,M,28,197.8,73.7,Marine Biology
-Carlo,Alexandrea,M,51,145.7,88,Aquaculture
-Descheny,Camille,M,34,174.4,65.1,Medicine
-Fernandez,Beatrice,M,22,180.7,59.7,Anthropology
-Farrow,Gabriella,M,38,147.5,67.8,Management
-Clark,De'Jane,M,29,171.9,59.1,Electrical Engineering
-Clayton,Natalie,M,24,209.1,76.9,Genetics
-Ruff,Kincaid,F,21,142,41,Computer Science
-Kurth,Samantha,M,32,158.8,63.3,Mechanical Engineering
-Leonard,Brianna,M,28,157.1,82.2,Data Science
-Roberts,Condeladio,F,42,130,84.3,Anthropology
-Holguin-Garcia,Juan,F,46,205.2,70.6,Computer Science
-Christy,Nechelle,M,56,189.1,66.7,Electrical Engineering
-Bah,Bradley,F,33,182.4,79.1,Chemical Engineering
-Kinchens,Brian,F,48,157,51.5,Genetics
-Bergner,Braedon,F,34,178.2,71,Anthropology
-Bailey,Lauren,M,27,191,50.4,Anthropology
-Chin,Dominic,F,31,197.3,70.2,Climatology
-Melendez,Joshua,F,30,208.4,102,Electrical Engineering
-Tadeo,Vanesa,M,24,167.1,95.2,Mechanical Engineering
-So,Michael,F,55,171.6,106.7,Mechanical Engineering
-Vazquez,Adileiry,M,41,138.4,105,Medicine
-Quintana,Thalia,M,22,165.8,110.7,Computer Science
-Long,Dominic,F,55,174.7,109.4,Climatology
-el-Dallal,Sitaara,M,42,178.7,83.3,Marine Biology
+el-Zaki,Naseera,F,24,122.3,100.4,Mechanical Engineering
+Left Hand Bull,Angelique,F,26,173.2,92.1,Aquaculture
+Huang,Sarah,F,18,163.6,49,Food Science
+Jacobs,Kirkpatrick,M,39,154.3,64.7,Mechanical Engineering
+Morales,Yang,M,18,199,116,Chemical Engineering
+Greimann,Adrienne,F,28,197.8,73.7,Marine Biology
+Carlo,Alexandrea,F,51,145.7,88,Aquaculture
+Descheny,Camille,F,34,174.4,65.1,Medicine
+Fernandez,Beatrice,F,22,180.7,59.7,Anthropology
+Farrow,Gabriella,F,38,147.5,67.8,Management
+Clark,De'Jane,F,29,171.9,59.1,Electrical Engineering
+Clayton,Natalie,F,24,209.1,76.9,Genetics
+Ruff,Kincaid,M,21,142,41,Computer Science
+Kurth,Samantha,F,32,158.8,63.3,Mechanical Engineering
+Leonard,Brianna,F,28,157.1,82.2,Data Science
+Roberts,Condeladio,M,42,130,84.3,Anthropology
+Holguin-Garcia,Juan,M,46,205.2,70.6,Computer Science
+Christy,Nechelle,F,56,189.1,66.7,Electrical Engineering
+Bah,Bradley,M,33,182.4,79.1,Chemical Engineering
+Kinchens,Brian,M,48,157,51.5,Genetics
+Bergner,Braedon,M,34,178.2,71,Anthropology
+Bailey,Lauren,F,27,191,50.4,Anthropology
+Chin,Dominic,M,31,197.3,70.2,Climatology
+Melendez,Joshua,M,30,208.4,102,Electrical Engineering
+Tadeo,Vanesa,F,24,167.1,95.2,Mechanical Engineering
+So,Michael,M,55,171.6,106.7,Mechanical Engineering
+Vazquez,Adileiry,F,41,138.4,105,Medicine
+Quintana,Thalia,F,22,165.8,110.7,Computer Science
+Long,Dominic,M,55,174.7,109.4,Climatology
+el-Dallal,Sitaara,F,42,178.7,83.3,Marine Biology
 Jayachandra,Alfred,I,40,171,99.4,Marine Biology
-Alicea Santana,Shiann,M,34,137.2,58.5,Chemical Engineering
-Hernandez,Ariana,M,19,206.8,65.3,Chemical Engineering
-Francis,Angelique,M,25,203.5,82.4,Genetics
-Parra Velez,Joey,F,20,151.3,85.3,Medicine
+Alicea Santana,Shiann,F,34,137.2,58.5,Chemical Engineering
+Hernandez,Ariana,F,19,206.8,65.3,Chemical Engineering
+Francis,Angelique,F,25,203.5,82.4,Genetics
+Parra Velez,Joey,M,20,151.3,85.3,Medicine
 Ramirez,Shelby,I,32,173.6,84.3,Horticulure
-Armbruster,Frazier,F,33,162.9,102.3,Anthropology
-Smith,Shakeara,M,37,193.7,119.3,Aquaculture
-el-Burki,Hasana,M,31,154.6,97.7,Hydrology
-Combs,James,F,31,102.8,71.3,Applied Bioscience
-Wang,Aungko,F,30,177,70,Psychology
-Ward,Taylor,F,53,172.6,86.8,Food Science
-el-Diab,Shafeeq,F,36,163.5,91.7,Marine Biology
-Kroeschen,Jeremiah,F,21,151.5,109.6,Genetics
-Kim,Bryant,F,24,119.7,75.7,Geology
-Zilm,Reno,M,35,149.6,81,Marine Biology
-Sath,Pragna,M,48,176.4,84.3,Food Science
-Mealhow,Alyssa,M,27,167.4,117.5,Climatology
-Nguyen,Tmorchi,F,40,147.6,103.6,Psychology
-el-Abdullah,Shakeel,F,34,113,65.9,Climatology
-Samarripa,Tahlia,M,40,160.8,52.2,Marine Biology
-Azama,Vanessa,M,33,159.6,99.1,Horticulure
-Garcia,Megan,M,34,191.2,47,Management
-al-Majeed,Izza,M,34,167,62,Medicine
-Hemlock,Terry,F,29,199.4,86,Chemical Engineering
-Fox,Jason,F,22,180.2,98.4,Hydrology
-Cavender,Christina,M,45,152.9,68.5,Psychology
+Armbruster,Frazier,M,33,162.9,102.3,Anthropology
+Smith,Shakeara,F,37,193.7,119.3,Aquaculture
+el-Burki,Hasana,F,31,154.6,97.7,Hydrology
+Combs,James,M,31,102.8,71.3,Applied Bioscience
+Wang,Aungko,M,30,177,70,Psychology
+Ward,Taylor,M,53,172.6,86.8,Food Science
+el-Diab,Shafeeq,M,36,163.5,91.7,Marine Biology
+Kroeschen,Jeremiah,M,21,151.5,109.6,Genetics
+Kim,Bryant,M,24,119.7,75.7,Geology
+Zilm,Reno,F,35,149.6,81,Marine Biology
+Sath,Pragna,F,48,176.4,84.3,Food Science
+Mealhow,Alyssa,F,27,167.4,117.5,Climatology
+Nguyen,Tmorchi,M,40,147.6,103.6,Psychology
+el-Abdullah,Shakeel,M,34,113,65.9,Climatology
+Samarripa,Tahlia,F,40,160.8,52.2,Marine Biology
+Azama,Vanessa,F,33,159.6,99.1,Horticulure
+Garcia,Megan,F,34,191.2,47,Management
+al-Majeed,Izza,F,34,167,62,Medicine
+Hemlock,Terry,M,29,199.4,86,Chemical Engineering
+Fox,Jason,M,22,180.2,98.4,Hydrology
+Cavender,Christina,F,45,152.9,68.5,Psychology
 Gibson,Katherine,I,59,158.3,106.5,Anthropology
-Fuentes,Rangel,F,29,140.5,72.5,Computer Science
-Ahn,Bunty,F,31,169.7,39,Geology
-Nguyen,Kalee,M,33,192.6,75.3,Horticulure
-Burrola-Caro,Whitney,M,25,147,99.6,Hydrology
-Estrada,Daniel,F,26,156.5,62,Psychology
-Lucero,Chantel,M,27,157.8,74.9,Climatology
-Johnson,Simone,M,33,137.8,46.3,Chemical Engineering
-Heikes,Megan,M,48,204.9,85,Anthropology
-Huynh,Faith,M,30,149.6,42.2,Data Science
+Fuentes,Rangel,M,29,140.5,72.5,Computer Science
+Ahn,Bunty,M,31,169.7,39,Geology
+Nguyen,Kalee,F,33,192.6,75.3,Horticulure
+Burrola-Caro,Whitney,F,25,147,99.6,Hydrology
+Estrada,Daniel,M,26,156.5,62,Psychology
+Lucero,Chantel,F,27,157.8,74.9,Climatology
+Johnson,Simone,F,33,137.8,46.3,Chemical Engineering
+Heikes,Megan,F,48,204.9,85,Anthropology
+Huynh,Faith,F,30,149.6,42.2,Data Science
 Frerichs,Crystal,I,23,146,117.5,Data Science
-Barnes,Michael,F,26,159.1,64,Chemical Engineering
-Yoshida,Kenny,F,36,164.4,48.7,Hydrology
-Torres,Cheyenne,F,31,189,63.5,Mechanical Engineering
-Street,Kiana,M,34,184.5,49.6,Data Science
-al-Kabir,Rif'a,M,55,181.1,92.3,Data Science
-al-Vohra,Haaniya,M,62,167.5,99,Management
-Gutierrez Flores,Jovon,M,40,128.3,74.7,Anthropology
-Wood,Freddy,F,51,176.2,93.8,Genetics
-Boykin,Johnny,F,25,100.4,72,Management
-Lassahn,Laura,M,21,152.5,45.7,Data Science
-Small,Endia,M,35,191.2,61.5,Hydrology
-Hearon,Jackson,F,19,129.6,76.1,Medicine
-Johnson,Thomas,F,22,129.7,95,Hydrology
-Whitlock,Domonique,M,26,192.9,92,Anthropology
+Barnes,Michael,M,26,159.1,64,Chemical Engineering
+Yoshida,Kenny,M,36,164.4,48.7,Hydrology
+Torres,Cheyenne,M,31,189,63.5,Mechanical Engineering
+Street,Kiana,F,34,184.5,49.6,Data Science
+al-Kabir,Rif'a,F,55,181.1,92.3,Data Science
+al-Vohra,Haaniya,F,62,167.5,99,Management
+Gutierrez Flores,Jovon,F,40,128.3,74.7,Anthropology
+Wood,Freddy,M,51,176.2,93.8,Genetics
+Boykin,Johnny,M,25,100.4,72,Management
+Lassahn,Laura,F,21,152.5,45.7,Data Science
+Small,Endia,F,35,191.2,61.5,Hydrology
+Hearon,Jackson,M,19,129.6,76.1,Medicine
+Johnson,Thomas,M,22,129.7,95,Hydrology
+Whitlock,Domonique,F,26,192.9,92,Anthropology
 Rogers,John,I,41,163.1,66,Aquaculture
-Green,Trevor,F,25,141.5,61,Aquaculture
-el-Sader,Lutfiyya,M,47,163.6,78.2,Electrical Engineering
-Estala,Andrea,M,50,150.6,68.6,Data Science
-el-Abdullah,Haaniya,M,31,170.8,77.1,Marine Biology
-Avila,Amanda,M,49,159.1,51.2,Electrical Engineering
-Palomino,Alexander,F,44,119.2,70.4,Hydrology
-Dowodzenka,Alexander,F,29,173.1,88.2,Data Science
-Dalke,William,F,37,170.3,98,Computer Science
-Bess,Diselle,M,31,128,101.8,Anthropology
-Miller,Justin,F,20,161.3,92.2,Mechanical Engineering
-Guerrero,Michael,F,25,165.8,76.4,Food Science
-Sullivan,Montana,F,36,188.2,67.2,Computer Science
-Karlson,Zackary,F,70,185.9,75.8,Computer Science
-Morales-Martinez,Vanessa,M,37,187.2,78,Psychology
-Huynh,Marco,F,43,194.7,100,Applied Bioscience
-el-Masood,Raamiz,F,30,146.2,72,Computer Science
-Sotillo,Marcus,F,35,154.2,99.9,Medicine
-Witt,Kenneth,F,19,151,68.8,Applied Bioscience
-Daley,Takesha,M,35,114.2,73.6,Climatology
-Rodriquez,Carlos,F,78,146.4,94.4,Horticulure
-Wentz,Emily,M,29,149,94,Food Science
-Johnston,Justin,F,22,176.3,71.3,Medicine
-Ruiz,Kyla,M,21,173.8,80.6,Anthropology
-al-Farag,Shuraih,F,20,124.2,85.6,Computer Science
-el-Chahine,Raihaan,F,48,128.9,114,Anthropology
-Hammeke-Stout,Andrea,M,31,158.1,83.8,Computer Science
-Mace,Michelle,M,34,152.1,69.6,Management
-Bough,Kolby,M,25,152,87.1,Hydrology
-Thomas,Michelle,M,29,160,45.3,Climatology
-al-Muhammad,Hamad,F,31,164.2,84.9,Aquaculture
-Merriweather,Eric,F,21,185.2,46.3,Genetics
+Green,Trevor,M,25,141.5,61,Aquaculture
+el-Sader,Lutfiyya,F,47,163.6,78.2,Electrical Engineering
+Estala,Andrea,F,50,150.6,68.6,Data Science
+el-Abdullah,Haaniya,F,31,170.8,77.1,Marine Biology
+Avila,Amanda,F,49,159.1,51.2,Electrical Engineering
+Palomino,Alexander,M,44,119.2,70.4,Hydrology
+Dowodzenka,Alexander,M,29,173.1,88.2,Data Science
+Dalke,William,M,37,170.3,98,Computer Science
+Bess,Diselle,F,31,128,101.8,Anthropology
+Miller,Justin,M,20,161.3,92.2,Mechanical Engineering
+Guerrero,Michael,M,25,165.8,76.4,Food Science
+Sullivan,Montana,M,36,188.2,67.2,Computer Science
+Karlson,Zackary,M,70,185.9,75.8,Computer Science
+Morales-Martinez,Vanessa,F,37,187.2,78,Psychology
+Huynh,Marco,M,43,194.7,100,Applied Bioscience
+el-Masood,Raamiz,M,30,146.2,72,Computer Science
+Sotillo,Marcus,M,35,154.2,99.9,Medicine
+Witt,Kenneth,M,19,151,68.8,Applied Bioscience
+Daley,Takesha,F,35,114.2,73.6,Climatology
+Rodriquez,Carlos,M,78,146.4,94.4,Horticulure
+Wentz,Emily,F,29,149,94,Food Science
+Johnston,Justin,M,22,176.3,71.3,Medicine
+Ruiz,Kyla,F,21,173.8,80.6,Anthropology
+al-Farag,Shuraih,M,20,124.2,85.6,Computer Science
+el-Chahine,Raihaan,M,48,128.9,114,Anthropology
+Hammeke-Stout,Andrea,F,31,158.1,83.8,Computer Science
+Mace,Michelle,F,34,152.1,69.6,Management
+Bough,Kolby,F,25,152,87.1,Hydrology
+Thomas,Michelle,F,29,160,45.3,Climatology
+al-Muhammad,Hamad,M,31,164.2,84.9,Aquaculture
+Merriweather,Eric,M,21,185.2,46.3,Genetics
 Herrera,Zsirahd,I,37,167.9,50,Marine Biology
-Wafford,Byron,F,32,176.5,103.5,Climatology
-Casper,Brandon,F,28,146,82.9,Medicine
-el-Fares,Nawaar,M,31,182.3,113.6,Anthropology
-al-Siddique,Manaahil,M,19,139.2,104,Data Science
-el-Fahs,Sireen,M,35,185.3,50.1,Horticulure
-Pham,Cody,F,20,195,46,Mechanical Engineering
-Davis,Jasmine,M,35,197.2,73,Psychology
-el-Abood,Faatih,F,31,180.3,88.4,Geology
-Lehmann,Emily,M,39,188.1,53,Chemical Engineering
-Oberwetter,Alana,M,49,146.4,75.2,Mechanical Engineering
-Davidson,Taylor,M,30,175.8,75.2,Anthropology
-Burger,Bryan,F,20,167.4,93,Aquaculture
-Tilley,Aerie,M,43,166.9,112.5,Climatology
-Ogsbury-Jones,Natasha,M,57,191.2,86.6,Anthropology
-el-Sala,Haifaaa,M,30,199,97.2,Data Science
-Sanchez,Mark,F,37,118.6,35,Food Science
-Shafer,Derek,F,18,170,76.7,Electrical Engineering
-John,Jonathan,F,23,141.9,83,Management
-el-Rasheed,Khadeeja,M,37,170.7,40,Genetics
-Lange,Shane,F,40,169,79.4,Chemical Engineering
-Fields,Skylar,F,56,204.5,49,Applied Bioscience
-Massey,Jana,M,41,140.8,88.5,Medicine
-Ohlig,Frances,M,39,209.2,83.6,Marine Biology
-Johnson,Chann,F,31,183.8,82.4,Computer Science
-Leyba-Bush,Nathan,F,33,134.4,81.6,Psychology
-Adame,Johanna,M,24,156.8,54.4,Medicine
-Rice,Yared,F,40,197,78.8,Anthropology
-Frost,Joseph,F,49,198.8,93.6,Genetics
-Hoppe,Alyssa,M,39,162.5,56.5,Psychology
-Apodaca,Cheryl,M,20,182.4,70,Management
-Zheng,Cicely,M,29,183.2,47,Food Science
-Simmons,Christine,M,30,179.8,53.6,Horticulure
-el-Khalil,Laaiqa,M,41,137.6,41.5,Applied Bioscience
-Chao,Mira,M,26,177,66.3,Medicine
-Battle,Kamaria,M,23,172,51.8,Mechanical Engineering
-Morlock,Kylejon,F,64,149.4,64.2,Mechanical Engineering
-Leary,Brittany,M,29,172.9,62.7,Computer Science
-Flood,Daniella,M,42,156.7,119.9,Aquaculture
-Tran,Alexander,F,28,152,107.5,Genetics
-al-Afzal,Mushtaaq,F,28,149.3,58,Hydrology
-Baltazar,Victor,F,21,185.6,66,Genetics
-Velasquez,Noah,F,40,142.1,87.2,Geology
-Moua,Eric,F,51,141.5,56.4,Psychology
-al-Hamidi,Jameel,F,28,162.6,62.1,Management
-Gowda,Elsie,M,21,174.1,57.5,Food Science
-Hubbard Weber,Jacob,F,29,179.2,85.6,Psychology
-Nosker,Tiana,M,39,183.7,69.1,Climatology
-Jaramillo,Alejandro,F,33,167.2,73.7,Chemical Engineering
-Watson,Leanna,M,35,160.8,85.9,Geology
-Akimoto-Miller,Alisa,M,40,159,80.1,Anthropology
-Richardson,Candance,M,52,172.2,43.8,Anthropology
-Evans,Brandon,F,24,198.7,85.4,Computer Science
-Hong,Jacob,F,24,145,84,Anthropology
-al-Karam,Jasoor,F,24,183.7,108.9,Psychology
-Hines,Ka'Sandra,M,27,180.1,94,Genetics
-Christinson,Tiffany,M,39,200.2,87.8,Food Science
-Rapp,Nihil,F,33,186,88.3,Anthropology
-Lowe,Bishop,F,28,170,72.8,Data Science
-Garcia,Akshay,F,39,167.3,68.1,Food Science
-Parham,Vincent,F,44,138.3,73.7,Marine Biology
-el-Momin,Saahira,M,18,158.2,52.3,Horticulure
-Vigil,Martin,F,45,161.4,116.5,Geology
-Rodriguez,Angelica,M,22,195.4,100.1,Medicine
-Moscoso,Ernesto,F,38,174.6,93,Marine Biology
-Quick Bear,Joshua,F,25,203.6,88.7,Data Science
-Gallegos,Margalena,M,40,188,61.7,Computer Science
-Gallegos,Dominque,M,18,162.5,102.7,Applied Bioscience
-Brott,Davier,F,19,144.4,59.6,Food Science
-Miranda,Eduardo,F,48,184,88.8,Applied Bioscience
-Hogan,Jessica,M,20,156.6,117,Genetics
-Cardenas,Synthia,M,23,131.9,92,Food Science
-al-Popal,Fawzi,F,31,198.1,86.8,Management
-Ross,Rocky,F,30,167,92.4,Management
-Burback,Sean,F,35,160,66.2,Medicine
-el-Momin,Saabir,F,19,184.9,110.8,Aquaculture
-Oh,Jasmine,M,30,140.3,70.1,Horticulure
-Bonthron,Kevin,F,23,169.1,81.8,Food Science
-Keys,Zyre,M,26,160,43.7,Data Science
-Hamilton,Justin,F,39,158,76.6,Computer Science
-el-Rahaman,Jaasim,F,22,170.7,75.9,Marine Biology
-Cruz Jr,Jessica,M,38,143.9,94.4,Management
-Mouanoutoua,Bryant,F,39,160.1,85.2,Marine Biology
-Haddock,Megan,M,49,162.4,70.8,Food Science
-el-Faraj,Intisaar,M,32,139.1,67.3,Mechanical Engineering
-Nunnally,Clarissa,M,32,174.1,45.1,Electrical Engineering
-al-Shaban,Ghaidaa,M,19,182.8,51.7,Marine Biology
-Thrush,Mikayla,M,37,187.5,87,Applied Bioscience
-Daves,Tex,F,26,176.8,100,Geology
-Halaseh,Raul,F,18,187.7,74.1,Horticulure
-Perez,Darias,F,23,201.8,72,Medicine
-Archuleta,John,F,31,196.3,98.4,Hydrology
-Rodriguez,Hugo,F,26,160,38.6,Medicine
-Connors,Quincy,F,39,206.4,59.9,Marine Biology
-Walker,Havannah,M,35,156.6,65,Applied Bioscience
-Paulson,Donavon,F,19,106.4,55.8,Hydrology
-Vigil,Yesenia,M,40,186.8,70,Management
-al-Bacho,Ulyaa,M,35,204,87.2,Chemical Engineering
-Buss-Roberts,Sarai,M,32,164.6,69.6,Computer Science
-Huang,Bill,F,28,186.4,71.6,Mechanical Engineering
-Tosi,Sun,M,39,193.1,78.7,Anthropology
-Busterna,Ayana,M,32,135.1,72.3,Anthropology
-Burns,Aaron,F,36,133.3,95.9,Management
-Daughtry,Zionah,M,29,182,80.8,Chemical Engineering
-Schwarz,Kevin,F,36,159.6,83.7,Electrical Engineering
-Chu,Cassandra,M,20,208.9,69,Psychology
-Tran,Sofia,M,27,165.6,103.3,Anthropology
-Norman,Solanus,F,27,153.8,64.3,Applied Bioscience
-Chapa,Malynda,M,23,123.9,41.4,Climatology
-el-Kaiser,Raihaana,M,24,169,103.2,Applied Bioscience
-Cervantes-Santos,Jack,F,50,193,58.8,Computer Science
-Neugebauer,Austin,F,39,206.5,56.2,Aquaculture
-al-Mahdavi,Maisara,M,39,197.4,53.7,Electrical Engineering
-Brito,Joshua,F,19,183,55.8,Medicine
-Edmonds,Natalie,M,27,104.5,97.1,Horticulure
-Cooper,Ian,F,29,125.9,64.1,Anthropology
-Barela,Selina,M,30,141,66.6,Marine Biology
-Fairbanks,Michael,F,42,155,79.5,Food Science
-Iese,Li-Mae,M,26,150,89.3,Mechanical Engineering
-Stegman,Brooke,M,59,193.6,95.6,Computer Science
-Kallberg,Zachary,F,32,188,42.5,Psychology
-Cha,Andreas,F,41,138.6,55.1,Computer Science
-Morales,Neil,F,33,185.5,65.9,Management
-Nguyen,Dennis,F,50,183.3,74.3,Electrical Engineering
-el-Srour,Rashaa,M,21,157.2,58.1,Mechanical Engineering
-Kuebler,Christopher,F,59,113.2,73.3,Aquaculture
-Baranda,Cesar,F,30,110,52.5,Geology
-al-Ahmed,Sameera,M,29,170.4,81,Mechanical Engineering
-Grajeda,Cyndy,M,40,200.4,82.8,Psychology
-Torre,Kaprice,M,37,149.9,42.2,Food Science
-el-Ghanem,Jaabir,F,34,180,104,Geology
-Cordova,Isaias,F,34,158.7,102,Applied Bioscience
-Lee,Marcus,F,28,159.3,113,Geology
-Taase,Christian,F,36,157.5,108.2,Genetics
-Matsumoto,Haley,M,56,179.7,69.5,Computer Science
-Anderson,J'Rita,M,35,205.1,83.7,Geology
-Shingleton,Jared,F,42,152.5,72.7,Chemical Engineering
-al-Ghattas,Amaani,M,22,148,113.3,Mechanical Engineering
-Digby,Amber,M,58,133.7,61.7,Horticulure
-Howard,Markuz,F,34,155.7,88.6,Chemical Engineering
-Cheung,Joanne,M,32,186.5,119.7,Computer Science
-Lemont,Shawn,F,36,169.7,67.3,Hydrology
-Bruzga,Alexandra,M,23,156.2,111.4,Hydrology
-Brooks,Antonio,F,48,133.3,86.1,Data Science
-Vang,Lynn,M,27,127.2,95,Hydrology
-Echsner,Rustyjames,F,52,194.6,60.6,Medicine
-Mendoza,Joseph,F,28,145.8,67.9,Food Science
-el-Awan,Taahir,F,27,116.1,90.6,Applied Bioscience
+Wafford,Byron,M,32,176.5,103.5,Climatology
+Casper,Brandon,M,28,146,82.9,Medicine
+el-Fares,Nawaar,F,31,182.3,113.6,Anthropology
+al-Siddique,Manaahil,F,19,139.2,104,Data Science
+el-Fahs,Sireen,F,35,185.3,50.1,Horticulure
+Pham,Cody,M,20,195,46,Mechanical Engineering
+Davis,Jasmine,F,35,197.2,73,Psychology
+el-Abood,Faatih,M,31,180.3,88.4,Geology
+Lehmann,Emily,F,39,188.1,53,Chemical Engineering
+Oberwetter,Alana,F,49,146.4,75.2,Mechanical Engineering
+Davidson,Taylor,F,30,175.8,75.2,Anthropology
+Burger,Bryan,M,20,167.4,93,Aquaculture
+Tilley,Aerie,F,43,166.9,112.5,Climatology
+Ogsbury-Jones,Natasha,F,57,191.2,86.6,Anthropology
+el-Sala,Haifaaa,F,30,199,97.2,Data Science
+Sanchez,Mark,M,37,118.6,35,Food Science
+Shafer,Derek,M,18,170,76.7,Electrical Engineering
+John,Jonathan,M,23,141.9,83,Management
+el-Rasheed,Khadeeja,F,37,170.7,40,Genetics
+Lange,Shane,M,40,169,79.4,Chemical Engineering
+Fields,Skylar,M,56,204.5,49,Applied Bioscience
+Massey,Jana,F,41,140.8,88.5,Medicine
+Ohlig,Frances,F,39,209.2,83.6,Marine Biology
+Johnson,Chann,M,31,183.8,82.4,Computer Science
+Leyba-Bush,Nathan,M,33,134.4,81.6,Psychology
+Adame,Johanna,F,24,156.8,54.4,Medicine
+Rice,Yared,M,40,197,78.8,Anthropology
+Frost,Joseph,M,49,198.8,93.6,Genetics
+Hoppe,Alyssa,F,39,162.5,56.5,Psychology
+Apodaca,Cheryl,F,20,182.4,70,Management
+Zheng,Cicely,F,29,183.2,47,Food Science
+Simmons,Christine,F,30,179.8,53.6,Horticulure
+el-Khalil,Laaiqa,F,41,137.6,41.5,Applied Bioscience
+Chao,Mira,F,26,177,66.3,Medicine
+Battle,Kamaria,F,23,172,51.8,Mechanical Engineering
+Morlock,Kylejon,M,64,149.4,64.2,Mechanical Engineering
+Leary,Brittany,F,29,172.9,62.7,Computer Science
+Flood,Daniella,F,42,156.7,119.9,Aquaculture
+Tran,Alexander,M,28,152,107.5,Genetics
+al-Afzal,Mushtaaq,M,28,149.3,58,Hydrology
+Baltazar,Victor,M,21,185.6,66,Genetics
+Velasquez,Noah,M,40,142.1,87.2,Geology
+Moua,Eric,M,51,141.5,56.4,Psychology
+al-Hamidi,Jameel,M,28,162.6,62.1,Management
+Gowda,Elsie,F,21,174.1,57.5,Food Science
+Hubbard Weber,Jacob,M,29,179.2,85.6,Psychology
+Nosker,Tiana,F,39,183.7,69.1,Climatology
+Jaramillo,Alejandro,M,33,167.2,73.7,Chemical Engineering
+Watson,Leanna,F,35,160.8,85.9,Geology
+Akimoto-Miller,Alisa,F,40,159,80.1,Anthropology
+Richardson,Candance,F,52,172.2,43.8,Anthropology
+Evans,Brandon,M,24,198.7,85.4,Computer Science
+Hong,Jacob,M,24,145,84,Anthropology
+al-Karam,Jasoor,M,24,183.7,108.9,Psychology
+Hines,Ka'Sandra,F,27,180.1,94,Genetics
+Christinson,Tiffany,F,39,200.2,87.8,Food Science
+Rapp,Nihil,M,33,186,88.3,Anthropology
+Lowe,Bishop,M,28,170,72.8,Data Science
+Garcia,Akshay,M,39,167.3,68.1,Food Science
+Parham,Vincent,M,44,138.3,73.7,Marine Biology
+el-Momin,Saahira,F,18,158.2,52.3,Horticulure
+Vigil,Martin,M,45,161.4,116.5,Geology
+Rodriguez,Angelica,F,22,195.4,100.1,Medicine
+Moscoso,Ernesto,M,38,174.6,93,Marine Biology
+Quick Bear,Joshua,M,25,203.6,88.7,Data Science
+Gallegos,Margalena,F,40,188,61.7,Computer Science
+Gallegos,Dominque,F,18,162.5,102.7,Applied Bioscience
+Brott,Davier,M,19,144.4,59.6,Food Science
+Miranda,Eduardo,M,48,184,88.8,Applied Bioscience
+Hogan,Jessica,F,20,156.6,117,Genetics
+Cardenas,Synthia,F,23,131.9,92,Food Science
+al-Popal,Fawzi,M,31,198.1,86.8,Management
+Ross,Rocky,M,30,167,92.4,Management
+Burback,Sean,M,35,160,66.2,Medicine
+el-Momin,Saabir,M,19,184.9,110.8,Aquaculture
+Oh,Jasmine,F,30,140.3,70.1,Horticulure
+Bonthron,Kevin,M,23,169.1,81.8,Food Science
+Keys,Zyre,F,26,160,43.7,Data Science
+Hamilton,Justin,M,39,158,76.6,Computer Science
+el-Rahaman,Jaasim,M,22,170.7,75.9,Marine Biology
+Cruz Jr,Jessica,F,38,143.9,94.4,Management
+Mouanoutoua,Bryant,M,39,160.1,85.2,Marine Biology
+Haddock,Megan,F,49,162.4,70.8,Food Science
+el-Faraj,Intisaar,F,32,139.1,67.3,Mechanical Engineering
+Nunnally,Clarissa,F,32,174.1,45.1,Electrical Engineering
+al-Shaban,Ghaidaa,F,19,182.8,51.7,Marine Biology
+Thrush,Mikayla,F,37,187.5,87,Applied Bioscience
+Daves,Tex,M,26,176.8,100,Geology
+Halaseh,Raul,M,18,187.7,74.1,Horticulure
+Perez,Darias,M,23,201.8,72,Medicine
+Archuleta,John,M,31,196.3,98.4,Hydrology
+Rodriguez,Hugo,M,26,160,38.6,Medicine
+Connors,Quincy,M,39,206.4,59.9,Marine Biology
+Walker,Havannah,F,35,156.6,65,Applied Bioscience
+Paulson,Donavon,M,19,106.4,55.8,Hydrology
+Vigil,Yesenia,F,40,186.8,70,Management
+al-Bacho,Ulyaa,F,35,204,87.2,Chemical Engineering
+Buss-Roberts,Sarai,F,32,164.6,69.6,Computer Science
+Huang,Bill,M,28,186.4,71.6,Mechanical Engineering
+Tosi,Sun,F,39,193.1,78.7,Anthropology
+Busterna,Ayana,F,32,135.1,72.3,Anthropology
+Burns,Aaron,M,36,133.3,95.9,Management
+Daughtry,Zionah,F,29,182,80.8,Chemical Engineering
+Schwarz,Kevin,M,36,159.6,83.7,Electrical Engineering
+Chu,Cassandra,F,20,208.9,69,Psychology
+Tran,Sofia,F,27,165.6,103.3,Anthropology
+Norman,Solanus,M,27,153.8,64.3,Applied Bioscience
+Chapa,Malynda,F,23,123.9,41.4,Climatology
+el-Kaiser,Raihaana,F,24,169,103.2,Applied Bioscience
+Cervantes-Santos,Jack,M,50,193,58.8,Computer Science
+Neugebauer,Austin,M,39,206.5,56.2,Aquaculture
+al-Mahdavi,Maisara,F,39,197.4,53.7,Electrical Engineering
+Brito,Joshua,M,19,183,55.8,Medicine
+Edmonds,Natalie,F,27,104.5,97.1,Horticulure
+Cooper,Ian,M,29,125.9,64.1,Anthropology
+Barela,Selina,F,30,141,66.6,Marine Biology
+Fairbanks,Michael,M,42,155,79.5,Food Science
+Iese,Li-Mae,F,26,150,89.3,Mechanical Engineering
+Stegman,Brooke,F,59,193.6,95.6,Computer Science
+Kallberg,Zachary,M,32,188,42.5,Psychology
+Cha,Andreas,M,41,138.6,55.1,Computer Science
+Morales,Neil,M,33,185.5,65.9,Management
+Nguyen,Dennis,M,50,183.3,74.3,Electrical Engineering
+el-Srour,Rashaa,F,21,157.2,58.1,Mechanical Engineering
+Kuebler,Christopher,M,59,113.2,73.3,Aquaculture
+Baranda,Cesar,M,30,110,52.5,Geology
+al-Ahmed,Sameera,F,29,170.4,81,Mechanical Engineering
+Grajeda,Cyndy,F,40,200.4,82.8,Psychology
+Torre,Kaprice,F,37,149.9,42.2,Food Science
+el-Ghanem,Jaabir,M,34,180,104,Geology
+Cordova,Isaias,M,34,158.7,102,Applied Bioscience
+Lee,Marcus,M,28,159.3,113,Geology
+Taase,Christian,M,36,157.5,108.2,Genetics
+Matsumoto,Haley,F,56,179.7,69.5,Computer Science
+Anderson,J'Rita,F,35,205.1,83.7,Geology
+Shingleton,Jared,M,42,152.5,72.7,Chemical Engineering
+al-Ghattas,Amaani,F,22,148,113.3,Mechanical Engineering
+Digby,Amber,F,58,133.7,61.7,Horticulure
+Howard,Markuz,M,34,155.7,88.6,Chemical Engineering
+Cheung,Joanne,F,32,186.5,119.7,Computer Science
+Lemont,Shawn,M,36,169.7,67.3,Hydrology
+Bruzga,Alexandra,F,23,156.2,111.4,Hydrology
+Brooks,Antonio,M,48,133.3,86.1,Data Science
+Vang,Lynn,F,27,127.2,95,Hydrology
+Echsner,Rustyjames,M,52,194.6,60.6,Medicine
+Mendoza,Joseph,M,28,145.8,67.9,Food Science
+el-Awan,Taahir,M,27,116.1,90.6,Applied Bioscience
 Turner,Shannon,I,39,207.1,80.4,Electrical Engineering
-el-Farooqui,Maisara,F,22,179.4,78.5,Marine Biology
-el-Nour,Kaalim,F,22,147.5,83.5,Food Science
-Cardenas,Janyce,M,33,178.9,112.7,Horticulure
-Starcer,Dylan,F,22,146.6,78.2,Aquaculture
-Biggers,Kimball,F,19,137.8,51.6,Climatology
-Smock,Tanner,F,56,155,89.8,Hydrology
-Sarpy,Candance,M,33,187.9,101.1,Genetics
-Tafoya,Tisa,M,33,167.5,76.9,Aquaculture
-Riggs,Kevin,F,23,201.6,114,Data Science
-Greimann,Ashleigh,M,38,160.6,81.3,Management
-Chavez,Mario,F,28,168.6,89,Computer Science
-Romero,Jaylene,M,19,206.4,57.2,Medicine
-Van,Vivien,M,29,186.9,69.7,Computer Science
-Gonzalez,Janet,M,24,111.6,106,Mechanical Engineering
-Dunn-Sparks,Jaylen,F,32,144.9,98.9,Marine Biology
-Williams,Hayden,F,37,186.1,74.7,Computer Science
-Desantos,Xavier,F,40,192.1,75.8,Electrical Engineering
-Russell,Adonus,F,57,140.6,52.8,Data Science
-el-Abdi,Baasim,F,26,186,44.8,Horticulure
+el-Farooqui,Maisara,M,22,179.4,78.5,Marine Biology
+el-Nour,Kaalim,M,22,147.5,83.5,Food Science
+Cardenas,Janyce,F,33,178.9,112.7,Horticulure
+Starcer,Dylan,M,22,146.6,78.2,Aquaculture
+Biggers,Kimball,M,19,137.8,51.6,Climatology
+Smock,Tanner,M,56,155,89.8,Hydrology
+Sarpy,Candance,F,33,187.9,101.1,Genetics
+Tafoya,Tisa,F,33,167.5,76.9,Aquaculture
+Riggs,Kevin,M,23,201.6,114,Data Science
+Greimann,Ashleigh,F,38,160.6,81.3,Management
+Chavez,Mario,M,28,168.6,89,Computer Science
+Romero,Jaylene,F,19,206.4,57.2,Medicine
+Van,Vivien,F,29,186.9,69.7,Computer Science
+Gonzalez,Janet,F,24,111.6,106,Mechanical Engineering
+Dunn-Sparks,Jaylen,M,32,144.9,98.9,Marine Biology
+Williams,Hayden,M,37,186.1,74.7,Computer Science
+Desantos,Xavier,M,40,192.1,75.8,Electrical Engineering
+Russell,Adonus,M,57,140.6,52.8,Data Science
+el-Abdi,Baasim,M,26,186,44.8,Horticulure
 Mendoza,Alondra,I,35,166.5,91.5,Chemical Engineering
-Kimble,Kenneth,F,19,161,74.3,Applied Bioscience
-Isaacson,Samantha,M,44,202.7,113.3,Marine Biology
-el-Amin,Abeer,M,29,158.7,38,Anthropology
-Lavender,Dakota,F,32,163.3,100.3,Hydrology
-Dronavalli,Lily Clare,M,21,160.3,61.6,Computer Science
-Colbert,Katrice,M,29,170.4,76,Medicine
-el-Rehman,Ramziyya,M,35,160,64.4,Geology
-Trujillo,Jordan,F,38,196,101.5,Hydrology
-Silverfox Gore,Ryan,F,25,165.3,81.9,Hydrology
-Vannice,Chandler,F,34,159.3,62.5,Food Science
-Johnson,Richard,F,39,162.2,98.4,Medicine
-Zilm,Cynthia,M,44,198,81.7,Management
-Archuleta,Elexis,M,42,197,42.4,Data Science
-White,Jordan,F,34,163.1,111.5,Psychology
-Palacios,Adrian,F,29,168.4,80,Hydrology
-Padovich,Connie,M,33,129.5,60.1,Data Science
-Cao,Meelan,F,36,148.9,80.9,Marine Biology
-Ortega,Alexandria,M,39,107.3,66,Medicine
-Hudson,Duncan,F,41,151,53.4,Data Science
-Grizzle,Jose,F,23,128.2,72.2,Aquaculture
-Stewart,Cheyenne,M,31,153.5,95,Chemical Engineering
-Delval,Alexandra,M,32,168.4,105,Horticulure
-Howard,Joshua,F,21,166.5,62.5,Genetics
-Thomas,Yusra,M,28,148.9,107.6,Marine Biology
+Kimble,Kenneth,M,19,161,74.3,Applied Bioscience
+Isaacson,Samantha,F,44,202.7,113.3,Marine Biology
+el-Amin,Abeer,F,29,158.7,38,Anthropology
+Lavender,Dakota,M,32,163.3,100.3,Hydrology
+Dronavalli,Lily Clare,F,21,160.3,61.6,Computer Science
+Colbert,Katrice,F,29,170.4,76,Medicine
+el-Rehman,Ramziyya,F,35,160,64.4,Geology
+Trujillo,Jordan,M,38,196,101.5,Hydrology
+Silverfox Gore,Ryan,M,25,165.3,81.9,Hydrology
+Vannice,Chandler,M,34,159.3,62.5,Food Science
+Johnson,Richard,M,39,162.2,98.4,Medicine
+Zilm,Cynthia,F,44,198,81.7,Management
+Archuleta,Elexis,F,42,197,42.4,Data Science
+White,Jordan,M,34,163.1,111.5,Psychology
+Palacios,Adrian,M,29,168.4,80,Hydrology
+Padovich,Connie,F,33,129.5,60.1,Data Science
+Cao,Meelan,M,36,148.9,80.9,Marine Biology
+Ortega,Alexandria,F,39,107.3,66,Medicine
+Hudson,Duncan,M,41,151,53.4,Data Science
+Grizzle,Jose,M,23,128.2,72.2,Aquaculture
+Stewart,Cheyenne,F,31,153.5,95,Chemical Engineering
+Delval,Alexandra,F,32,168.4,105,Horticulure
+Howard,Joshua,M,21,166.5,62.5,Genetics
+Thomas,Yusra,F,28,148.9,107.6,Marine Biology
 Artichoker,Jeremy,I,26,167,91.9,Geology
-Barba,Cindy,M,33,206.8,92.9,Aquaculture
-Atkinson,Clark,F,66,160.7,47.4,Electrical Engineering
-Negash,Teanna,M,35,208.1,89,Food Science
-el-Younan,Jiyaad,F,30,195.6,92.8,Geology
-al-Amen,Zuhra,M,29,168.2,78.5,Hydrology
-el-Semaan,Bilaal,F,29,165.1,78.9,Computer Science
-Delgado,Malorie,M,35,143.1,53.2,Medicine
-Huerta,Iris,M,25,182.9,68.8,Psychology
-Nguyen,Gabriel,F,49,166.9,44.1,Geology
-Klopsch,Mehdi,F,25,153,47.4,Anthropology
-Adams,Jack,F,32,174.4,59.1,Mechanical Engineering
-Newell,Marcus,F,26,202.1,83.8,Geology
-Quintero,Devin,F,64,200.8,40.7,Hydrology
-Thompson,Jaspar,F,30,157.7,54.6,Chemical Engineering
-Wetmore,Kendra,M,25,143,77.2,Hydrology
-Nguyen,Erika,M,25,165.5,45.2,Computer Science
-Good Wind,Willanna,M,18,192.3,74.5,Management
-Hong,Ashna,M,34,148.8,102.9,Management
-Marshall,Richard,F,23,123.8,80.5,Applied Bioscience
-Rutter,Anna,M,39,197,57.2,Electrical Engineering
-Tyler,John,F,21,187,107.6,Climatology
-Mckinney,Renee,M,21,202,86.8,Anthropology
-Zhong,Tobby,F,21,121.4,49.3,Mechanical Engineering
-Tyars,Essiance,M,34,177.5,69.7,Anthropology
-Vue,Amanda,M,40,185.4,78.2,Mechanical Engineering
-Procopio Chacon,Marc,F,24,146,58.2,Aquaculture
-Rosen,Tam,F,24,147.9,61.6,Horticulure
-Cady,Murtidevi,M,25,134.6,53.6,Food Science
-Lujan,Jessica,M,22,154.1,86.2,Marine Biology
-Davis,Marcus,F,40,114.1,56.6,Medicine
-Andrews,Noah,F,22,137.5,65.2,Management
-el-Massoud,Zaahid,F,37,141.8,102.6,Horticulure
-Emrich,Lucas,F,36,191,99.4,Anthropology
-North,William,F,39,183.2,77.4,Geology
-Haynes,Sabrina,M,27,174.7,85.3,Chemical Engineering
-Beyale,Claudia,M,26,152.7,105,Food Science
-Smith,Eun,M,25,136.1,82.5,Management
-Hamilton,Samantha,M,26,172.9,65.1,Psychology
-el-Madani,Safiyya,M,19,156.9,87.6,Marine Biology
-Fangman,Joseph,F,35,188.8,90.1,Food Science
-el-Amiri,Raita,M,24,159.5,78.7,Genetics
-Tran,Lawrence,F,35,151.2,57.3,Genetics
-Nichols,Truyen,F,23,149.7,80.4,Computer Science
-Magginetti,Abigail,M,36,206.4,57,Anthropology
+Barba,Cindy,F,33,206.8,92.9,Aquaculture
+Atkinson,Clark,M,66,160.7,47.4,Electrical Engineering
+Negash,Teanna,F,35,208.1,89,Food Science
+el-Younan,Jiyaad,M,30,195.6,92.8,Geology
+al-Amen,Zuhra,F,29,168.2,78.5,Hydrology
+el-Semaan,Bilaal,M,29,165.1,78.9,Computer Science
+Delgado,Malorie,F,35,143.1,53.2,Medicine
+Huerta,Iris,F,25,182.9,68.8,Psychology
+Nguyen,Gabriel,M,49,166.9,44.1,Geology
+Klopsch,Mehdi,M,25,153,47.4,Anthropology
+Adams,Jack,M,32,174.4,59.1,Mechanical Engineering
+Newell,Marcus,M,26,202.1,83.8,Geology
+Quintero,Devin,M,64,200.8,40.7,Hydrology
+Thompson,Jaspar,M,30,157.7,54.6,Chemical Engineering
+Wetmore,Kendra,F,25,143,77.2,Hydrology
+Nguyen,Erika,F,25,165.5,45.2,Computer Science
+Good Wind,Willanna,F,18,192.3,74.5,Management
+Hong,Ashna,F,34,148.8,102.9,Management
+Marshall,Richard,M,23,123.8,80.5,Applied Bioscience
+Rutter,Anna,F,39,197,57.2,Electrical Engineering
+Tyler,John,M,21,187,107.6,Climatology
+Mckinney,Renee,F,21,202,86.8,Anthropology
+Zhong,Tobby,M,21,121.4,49.3,Mechanical Engineering
+Tyars,Essiance,F,34,177.5,69.7,Anthropology
+Vue,Amanda,F,40,185.4,78.2,Mechanical Engineering
+Procopio Chacon,Marc,M,24,146,58.2,Aquaculture
+Rosen,Tam,M,24,147.9,61.6,Horticulure
+Cady,Murtidevi,F,25,134.6,53.6,Food Science
+Lujan,Jessica,F,22,154.1,86.2,Marine Biology
+Davis,Marcus,M,40,114.1,56.6,Medicine
+Andrews,Noah,M,22,137.5,65.2,Management
+el-Massoud,Zaahid,M,37,141.8,102.6,Horticulure
+Emrich,Lucas,M,36,191,99.4,Anthropology
+North,William,M,39,183.2,77.4,Geology
+Haynes,Sabrina,F,27,174.7,85.3,Chemical Engineering
+Beyale,Claudia,F,26,152.7,105,Food Science
+Smith,Eun,F,25,136.1,82.5,Management
+Hamilton,Samantha,F,26,172.9,65.1,Psychology
+el-Madani,Safiyya,F,19,156.9,87.6,Marine Biology
+Fangman,Joseph,M,35,188.8,90.1,Food Science
+el-Amiri,Raita,F,24,159.5,78.7,Genetics
+Tran,Lawrence,M,35,151.2,57.3,Genetics
+Nichols,Truyen,M,23,149.7,80.4,Computer Science
+Magginetti,Abigail,F,36,206.4,57,Anthropology
 Mestas,Santana,I,30,200,107,Hydrology
-Windedahl,Roper,F,25,184,63,Food Science
-Eriacho,Wyatt,F,25,135.9,116.4,Psychology
-Wilson,Thomas,F,27,159.5,98.5,Medicine
-Wood,Kelsey,M,19,136.8,78.4,Electrical Engineering
-Kim,Daniel,F,28,198,39.9,Hydrology
-Matoush,Fallon,M,21,187,104.5,Aquaculture
-Mcdaniel,Dane'Sha,M,39,170.1,104.1,Hydrology
-Palmer,Liukura,F,57,199.7,97.6,Hydrology
-Lucero,Eric,F,28,151,117.3,Chemical Engineering
-el-Hashim,Abdus Salam,F,22,154,72.5,Medicine
-Ornelas,Marcus,F,33,202.9,78.7,Psychology
-al-Abu,Nawaar,M,30,140.9,94.9,Marine Biology
-Berry,Kaile,M,24,163.7,58,Food Science
-el-Burki,Hamood,F,26,149.3,73.2,Chemical Engineering
-al-Hamidi,Raaid,F,43,180.3,103.2,Data Science
-Hillson,Kelsey,M,34,155.4,39.7,Hydrology
-Campbell,Charlene,M,50,137.3,79.1,Psychology
-Delgadillo,Filiberto,F,36,158.9,87.9,Genetics
-al-Sabet,Zahraaa,M,26,182.8,42.2,Management
-Smith,Anthony,F,20,178.1,75.5,Geology
-Stephens,Jonathan,F,51,187.7,113,Geology
-Gonzalez,Anna,M,34,154,75.4,Hydrology
-Peil,Kyana,M,34,174.5,83.9,Mechanical Engineering
-Sayers,Ammanuel,F,42,193.7,112.2,Geology
-Malik,Ryan,F,31,154.6,55.4,Applied Bioscience
-Bingham,Darlene,M,41,178.2,115,Mechanical Engineering
-Sanchez,Robert,F,45,146.7,49,Anthropology
-Gronski,Scott,F,34,179,99.5,Geology
-Oguin,Riley,F,47,187.6,78.5,Aquaculture
-Harris,Stefon,F,45,114.7,81.3,Computer Science
-Baca,Karissa,M,31,198.3,75.2,Hydrology
-al-Irani,Haaniya,M,26,148,61.6,Data Science
-Drake,Damian,F,28,160.2,90.6,Food Science
-Badhesha,Sean,F,29,182.3,76.5,Genetics
-al-Rahaim,Salwa,M,35,155.1,69.2,Data Science
-Duff,Joshua,F,26,132.8,52.1,Horticulure
-Bautista,Hadley,M,43,182.3,82.5,Chemical Engineering
-Hosburgh,Bryn,M,49,158,62,Mechanical Engineering
-Ramirez Granillo,Rosa,M,25,194.9,104,Anthropology
-Harnish,Michael,F,53,184.8,39.8,Electrical Engineering
-Marton,Tyler,F,30,151.4,103,Electrical Engineering
-el-Qazi,Maajida,M,28,189.6,51.4,Geology
-Prospero,Joshua,F,26,200,55.9,Applied Bioscience
-Smith,Nina,M,37,171.2,68.7,Genetics
-Shen,Xingyou,F,38,202.1,42.7,Psychology
-Lang,Ruby,M,28,131.1,47.5,Aquaculture
-Chen,Sara,M,34,145,100.3,Anthropology
-el-Sharaf,Humaina,M,30,117.3,92.2,Food Science
-Siemens,Raven,M,21,118.2,83.7,Food Science
-Ruiz,John,F,31,162.1,77.7,Medicine
-Hamilton,Ethan,F,25,149.3,113.7,Management
-Montanez,Kadin,F,36,189.3,104.4,Anthropology
-Miller,Brianna,M,41,171.9,71.6,Mechanical Engineering
-Hammond,Deirdra,M,20,190.2,85.3,Management
-Khan,Abhinav,F,33,145.4,85.2,Mechanical Engineering
-Whittaker,Jessica,M,33,184,51,Electrical Engineering
-Miller,Summer,M,26,132.5,114.1,Horticulure
-Hatchett,Tia,M,26,156,78.1,Management
-Thomas,Brittney,M,24,182.6,112,Psychology
-Guerrero,Francisco,F,19,148,79.4,Medicine
-Haggas,Radha,M,43,118,102,Climatology
-el-Bagheri,Fayyaad,F,30,192.2,84.6,Aquaculture
-Bodlak,Raif,F,34,176.2,106,Aquaculture
-el-Farhat,Zainuddeen,F,33,192.5,95.4,Genetics
-Knight,Samuel,F,30,158,71.8,Genetics
-Rivera,Pranav,F,19,165.6,91.6,Chemical Engineering
-Martinez,Nicholas,F,32,171.3,70.1,Electrical Engineering
-Temple,Chaise,F,23,112.3,90.4,Geology
-Aragon,Daniel,F,22,147.4,106,Anthropology
-Brown,Darius,F,37,131.8,67.7,Data Science
-Barlow,Sean,F,32,187.6,95.2,Medicine
-Werner,Wyatt,F,34,117.7,44.8,Geology
-Thompson,Cheyenne,M,53,151.1,57.2,Climatology
-Tran,Brian,F,23,164.6,66.5,Hydrology
-Welsh,Wesley,F,37,187.2,98.6,Marine Biology
+Windedahl,Roper,M,25,184,63,Food Science
+Eriacho,Wyatt,M,25,135.9,116.4,Psychology
+Wilson,Thomas,M,27,159.5,98.5,Medicine
+Wood,Kelsey,F,19,136.8,78.4,Electrical Engineering
+Kim,Daniel,M,28,198,39.9,Hydrology
+Matoush,Fallon,F,21,187,104.5,Aquaculture
+Mcdaniel,Dane'Sha,F,39,170.1,104.1,Hydrology
+Palmer,Liukura,M,57,199.7,97.6,Hydrology
+Lucero,Eric,M,28,151,117.3,Chemical Engineering
+el-Hashim,Abdus Salam,M,22,154,72.5,Medicine
+Ornelas,Marcus,M,33,202.9,78.7,Psychology
+al-Abu,Nawaar,F,30,140.9,94.9,Marine Biology
+Berry,Kaile,F,24,163.7,58,Food Science
+el-Burki,Hamood,M,26,149.3,73.2,Chemical Engineering
+al-Hamidi,Raaid,M,43,180.3,103.2,Data Science
+Hillson,Kelsey,F,34,155.4,39.7,Hydrology
+Campbell,Charlene,F,50,137.3,79.1,Psychology
+Delgadillo,Filiberto,M,36,158.9,87.9,Genetics
+al-Sabet,Zahraaa,F,26,182.8,42.2,Management
+Smith,Anthony,M,20,178.1,75.5,Geology
+Stephens,Jonathan,M,51,187.7,113,Geology
+Gonzalez,Anna,F,34,154,75.4,Hydrology
+Peil,Kyana,F,34,174.5,83.9,Mechanical Engineering
+Sayers,Ammanuel,M,42,193.7,112.2,Geology
+Malik,Ryan,M,31,154.6,55.4,Applied Bioscience
+Bingham,Darlene,F,41,178.2,115,Mechanical Engineering
+Sanchez,Robert,M,45,146.7,49,Anthropology
+Gronski,Scott,M,34,179,99.5,Geology
+Oguin,Riley,M,47,187.6,78.5,Aquaculture
+Harris,Stefon,M,45,114.7,81.3,Computer Science
+Baca,Karissa,F,31,198.3,75.2,Hydrology
+al-Irani,Haaniya,F,26,148,61.6,Data Science
+Drake,Damian,M,28,160.2,90.6,Food Science
+Badhesha,Sean,M,29,182.3,76.5,Genetics
+al-Rahaim,Salwa,F,35,155.1,69.2,Data Science
+Duff,Joshua,M,26,132.8,52.1,Horticulure
+Bautista,Hadley,F,43,182.3,82.5,Chemical Engineering
+Hosburgh,Bryn,F,49,158,62,Mechanical Engineering
+Ramirez Granillo,Rosa,F,25,194.9,104,Anthropology
+Harnish,Michael,M,53,184.8,39.8,Electrical Engineering
+Marton,Tyler,M,30,151.4,103,Electrical Engineering
+el-Qazi,Maajida,F,28,189.6,51.4,Geology
+Prospero,Joshua,M,26,200,55.9,Applied Bioscience
+Smith,Nina,F,37,171.2,68.7,Genetics
+Shen,Xingyou,M,38,202.1,42.7,Psychology
+Lang,Ruby,F,28,131.1,47.5,Aquaculture
+Chen,Sara,F,34,145,100.3,Anthropology
+el-Sharaf,Humaina,F,30,117.3,92.2,Food Science
+Siemens,Raven,F,21,118.2,83.7,Food Science
+Ruiz,John,M,31,162.1,77.7,Medicine
+Hamilton,Ethan,M,25,149.3,113.7,Management
+Montanez,Kadin,M,36,189.3,104.4,Anthropology
+Miller,Brianna,F,41,171.9,71.6,Mechanical Engineering
+Hammond,Deirdra,F,20,190.2,85.3,Management
+Khan,Abhinav,M,33,145.4,85.2,Mechanical Engineering
+Whittaker,Jessica,F,33,184,51,Electrical Engineering
+Miller,Summer,F,26,132.5,114.1,Horticulure
+Hatchett,Tia,F,26,156,78.1,Management
+Thomas,Brittney,F,24,182.6,112,Psychology
+Guerrero,Francisco,M,19,148,79.4,Medicine
+Haggas,Radha,F,43,118,102,Climatology
+el-Bagheri,Fayyaad,M,30,192.2,84.6,Aquaculture
+Bodlak,Raif,M,34,176.2,106,Aquaculture
+el-Farhat,Zainuddeen,M,33,192.5,95.4,Genetics
+Knight,Samuel,M,30,158,71.8,Genetics
+Rivera,Pranav,M,19,165.6,91.6,Chemical Engineering
+Martinez,Nicholas,M,32,171.3,70.1,Electrical Engineering
+Temple,Chaise,M,23,112.3,90.4,Geology
+Aragon,Daniel,M,22,147.4,106,Anthropology
+Brown,Darius,M,37,131.8,67.7,Data Science
+Barlow,Sean,M,32,187.6,95.2,Medicine
+Werner,Wyatt,M,34,117.7,44.8,Geology
+Thompson,Cheyenne,F,53,151.1,57.2,Climatology
+Tran,Brian,M,23,164.6,66.5,Hydrology
+Welsh,Wesley,M,37,187.2,98.6,Marine Biology
 Johnson,Josiah,I,47,154.5,102.4,Medicine
-el-Beydoun,Sawada,M,32,193.2,81.6,Horticulure
-Darlington-Rivera,Jordan,F,44,164.6,74.8,Genetics
-Darity,Jessica,M,27,136.8,77.7,Climatology
-Wang,Randy,F,31,180.4,110.3,Data Science
-al-Imam,Ghaidaa,M,36,174.3,71.4,Applied Bioscience
-Perales,Skylar,M,20,146.6,75,Chemical Engineering
-Vo,Rebecca,M,30,156.2,107.2,Psychology
-Guzman Lira,Emilio,F,30,159.3,79.9,Anthropology
-Rodriguez,Lesli,M,23,178.2,89.1,Computer Science
-Murillo,Nelly,M,26,184.6,56,Computer Science
+el-Beydoun,Sawada,F,32,193.2,81.6,Horticulure
+Darlington-Rivera,Jordan,M,44,164.6,74.8,Genetics
+Darity,Jessica,F,27,136.8,77.7,Climatology
+Wang,Randy,M,31,180.4,110.3,Data Science
+al-Imam,Ghaidaa,F,36,174.3,71.4,Applied Bioscience
+Perales,Skylar,F,20,146.6,75,Chemical Engineering
+Vo,Rebecca,F,30,156.2,107.2,Psychology
+Guzman Lira,Emilio,M,30,159.3,79.9,Anthropology
+Rodriguez,Lesli,F,23,178.2,89.1,Computer Science
+Murillo,Nelly,F,26,184.6,56,Computer Science
 Fluckes,Kiera,I,31,188.2,44,Climatology
-Lovelace,Atenzia,M,29,200,91.5,Horticulure
-Hernandez,Thomas,F,24,182.2,109.1,Computer Science
-Archuleta,Sabrina,M,24,178.9,89.4,Food Science
-Littlethunder,Cassidy,M,36,171.9,77.2,Medicine
-Huston,Jontah,F,21,166.5,41.6,Applied Bioscience
-Richards III,Joylensia,M,26,150.7,43,Psychology
+Lovelace,Atenzia,F,29,200,91.5,Horticulure
+Hernandez,Thomas,M,24,182.2,109.1,Computer Science
+Archuleta,Sabrina,F,24,178.9,89.4,Food Science
+Littlethunder,Cassidy,F,36,171.9,77.2,Medicine
+Huston,Jontah,M,21,166.5,41.6,Applied Bioscience
+Richards III,Joylensia,F,26,150.7,43,Psychology
 Stroud,Salem,I,20,188.3,90.1,Geology
-Desersa,Alyssia,M,19,201,48.4,Anthropology
-Espinoza Diaz,Elizabeth,M,32,173.8,104.7,Mechanical Engineering
+Desersa,Alyssia,F,19,201,48.4,Anthropology
+Espinoza Diaz,Elizabeth,F,32,173.8,104.7,Mechanical Engineering
 Johnson,Alexa,I,21,197.2,101.7,Horticulure
 Eppard,Arturo,I,25,153.7,76.1,Mechanical Engineering
-Lor,Hannah,M,32,196.7,54.9,Hydrology
-Palmer,Mackinsie,M,36,168.8,92.6,Geology
-Hansen,Cheryl,M,31,154.8,80.9,Hydrology
-Rollo,Kayla,M,23,170.5,108.6,Mechanical Engineering
-Campuzano,Julio,F,43,149,70.7,Food Science
-Rush,Richard,F,30,189.1,60,Applied Bioscience
-Lopez,Tyson,F,42,156.9,47.5,Management
-Mitchell,Suzanna,M,32,155,78.8,Genetics
-Vasquez,Corrina,M,19,200,59.1,Chemical Engineering
-al-Waheed,Ali,F,25,174.5,90.7,Climatology
-Mathis-Downing II,Kae'Vaughn,F,29,181.8,58.9,Aquaculture
-Eberhart,Patricia,M,29,183.7,83.7,Medicine
-Norris,Rachel,M,42,196.3,65.7,Anthropology
-Ruark,Kayla,M,53,159,104.4,Chemical Engineering
-Farley,Christian,M,35,161,78.8,Data Science
-Schopen,Kirby,F,29,123.2,111.7,Marine Biology
-Nguyen,Henry,F,31,137.3,86.4,Geology
-Martinez,Gavin,F,24,146.5,62.5,Horticulure
-Minnick,Nicholas,F,25,176.7,107.2,Data Science
-Lopez,Vincent,F,32,119.4,86,Applied Bioscience
-Wirsching,Alexandrina,M,49,180.7,76.2,Management
-Fuhrmark,Zachary,F,27,150,82.6,Management
-Eagle Horse,Tristany,M,36,132.3,117,Genetics
-Sandoval-Veliz,Mayra,M,31,159.3,82.6,Medicine
-Crisp,Christina,M,32,195.2,79.1,Geology
-Meneses,Arvind,F,36,176.1,72.3,Medicine
-Dominguez Lujan,Makayla,M,27,165.1,82.9,Psychology
-Swanson,Iniki,F,28,164.9,75,Chemical Engineering
-Valbrun,Kingahnah,F,47,164.8,70.2,Computer Science
-Hau,Kin,F,22,118.1,41.1,Psychology
-Martinez-Pantoja,Laura,M,28,106.1,86.5,Horticulure
-Yoo,Amy,M,26,205,92,Computer Science
-Carson,David,F,67,198.1,70.7,Psychology
-Gallegos Pena,Richard,F,29,152.6,98.1,Climatology
-al-Akhtar,Adham,F,24,121.3,46.9,Geology
-Briones,Jesus,F,35,133.4,66.6,Management
-Young,Samantha,M,21,181.2,80,Aquaculture
-al-Hashemi,Nawfal,F,21,139.7,78.9,Marine Biology
-Gastelum,Micaela,M,18,140.3,94.6,Horticulure
-Ackerman,Anthony,F,29,143.4,78,Marine Biology
-Brown,Jazmyn,M,18,133.7,85.2,Data Science
-Heu,Hing,F,36,151,60.8,Applied Bioscience
-Fertig,Jonathan,F,30,164,66.1,Aquaculture
-Madrid,Alyssa,M,49,189.8,118.1,Geology
-Casanova,Shaniya,M,25,111.5,63,Data Science
-Butler,Jerrell,F,19,178.3,52.2,Horticulure
-Sue,Paul,F,49,187.6,68.3,Electrical Engineering
-Mason,Savannah,M,28,182.3,88.3,Psychology
-Garcia Perez,Dominique,M,32,178.5,83.1,Chemical Engineering
-el-Huq,Nabeeha,M,25,153.8,110,Mechanical Engineering
-Haskan,Ryan,F,24,142.7,102.2,Hydrology
-Gonzalez,Angelo,F,35,169.4,51.4,Hydrology
-Nguyen,Ariana,M,23,172.5,107.4,Applied Bioscience
-Noriega,Sean,F,26,175.7,111,Climatology
-al-Salah,Imraan,F,35,177.9,70.9,Medicine
-Kusi-Mensah,Aaron,F,24,170.1,112,Mechanical Engineering
-Neil,Christopher,F,32,174.1,77.6,Medicine
-Terahara,Victoria,M,35,168.1,59.8,Chemical Engineering
-Olin,Ryan,F,18,194,99.5,Food Science
-Owen,Denton,F,40,166,69.6,Horticulure
-Phan,Jonathan,F,79,189.3,38.2,Food Science
-Gonzalez,Anette,M,32,182.9,87.6,Mechanical Engineering
-Shadden,Nicholas,F,27,150.1,69.2,Food Science
-el-Naderi,Kawthar,M,19,137.2,85,Applied Bioscience
-Northup,Dominique,F,47,121.1,58,Medicine
-Turner,Kendall,F,37,153,73,Data Science
-al-Hafeez,Jaasir,F,21,140.8,72.6,Computer Science
-Skelton,Abigail,M,37,189,57.4,Management
-Nelms,Aquasia,M,26,190,112,Chemical Engineering
-Mccaden,Deshawn,F,45,169.5,92.7,Hydrology
-Chuong,Dominick,F,28,159.4,50.9,Hydrology
-Gallegos,Roberta,M,30,113.6,76,Anthropology
-Garcia,Wendy,M,32,135.9,76.7,Aquaculture
+Lor,Hannah,F,32,196.7,54.9,Hydrology
+Palmer,Mackinsie,F,36,168.8,92.6,Geology
+Hansen,Cheryl,F,31,154.8,80.9,Hydrology
+Rollo,Kayla,F,23,170.5,108.6,Mechanical Engineering
+Campuzano,Julio,M,43,149,70.7,Food Science
+Rush,Richard,M,30,189.1,60,Applied Bioscience
+Lopez,Tyson,M,42,156.9,47.5,Management
+Mitchell,Suzanna,F,32,155,78.8,Genetics
+Vasquez,Corrina,F,19,200,59.1,Chemical Engineering
+al-Waheed,Ali,M,25,174.5,90.7,Climatology
+Mathis-Downing II,Kae'Vaughn,M,29,181.8,58.9,Aquaculture
+Eberhart,Patricia,F,29,183.7,83.7,Medicine
+Norris,Rachel,F,42,196.3,65.7,Anthropology
+Ruark,Kayla,F,53,159,104.4,Chemical Engineering
+Farley,Christian,F,35,161,78.8,Data Science
+Schopen,Kirby,M,29,123.2,111.7,Marine Biology
+Nguyen,Henry,M,31,137.3,86.4,Geology
+Martinez,Gavin,M,24,146.5,62.5,Horticulure
+Minnick,Nicholas,M,25,176.7,107.2,Data Science
+Lopez,Vincent,M,32,119.4,86,Applied Bioscience
+Wirsching,Alexandrina,F,49,180.7,76.2,Management
+Fuhrmark,Zachary,M,27,150,82.6,Management
+Eagle Horse,Tristany,F,36,132.3,117,Genetics
+Sandoval-Veliz,Mayra,F,31,159.3,82.6,Medicine
+Crisp,Christina,F,32,195.2,79.1,Geology
+Meneses,Arvind,M,36,176.1,72.3,Medicine
+Dominguez Lujan,Makayla,F,27,165.1,82.9,Psychology
+Swanson,Iniki,M,28,164.9,75,Chemical Engineering
+Valbrun,Kingahnah,M,47,164.8,70.2,Computer Science
+Hau,Kin,M,22,118.1,41.1,Psychology
+Martinez-Pantoja,Laura,F,28,106.1,86.5,Horticulure
+Yoo,Amy,F,26,205,92,Computer Science
+Carson,David,M,67,198.1,70.7,Psychology
+Gallegos Pena,Richard,M,29,152.6,98.1,Climatology
+al-Akhtar,Adham,M,24,121.3,46.9,Geology
+Briones,Jesus,M,35,133.4,66.6,Management
+Young,Samantha,F,21,181.2,80,Aquaculture
+al-Hashemi,Nawfal,M,21,139.7,78.9,Marine Biology
+Gastelum,Micaela,F,18,140.3,94.6,Horticulure
+Ackerman,Anthony,M,29,143.4,78,Marine Biology
+Brown,Jazmyn,F,18,133.7,85.2,Data Science
+Heu,Hing,M,36,151,60.8,Applied Bioscience
+Fertig,Jonathan,M,30,164,66.1,Aquaculture
+Madrid,Alyssa,F,49,189.8,118.1,Geology
+Casanova,Shaniya,F,25,111.5,63,Data Science
+Butler,Jerrell,M,19,178.3,52.2,Horticulure
+Sue,Paul,M,49,187.6,68.3,Electrical Engineering
+Mason,Savannah,F,28,182.3,88.3,Psychology
+Garcia Perez,Dominique,F,32,178.5,83.1,Chemical Engineering
+el-Huq,Nabeeha,F,25,153.8,110,Mechanical Engineering
+Haskan,Ryan,M,24,142.7,102.2,Hydrology
+Gonzalez,Angelo,M,35,169.4,51.4,Hydrology
+Nguyen,Ariana,F,23,172.5,107.4,Applied Bioscience
+Noriega,Sean,M,26,175.7,111,Climatology
+al-Salah,Imraan,M,35,177.9,70.9,Medicine
+Kusi-Mensah,Aaron,M,24,170.1,112,Mechanical Engineering
+Neil,Christopher,M,32,174.1,77.6,Medicine
+Terahara,Victoria,F,35,168.1,59.8,Chemical Engineering
+Olin,Ryan,M,18,194,99.5,Food Science
+Owen,Denton,M,40,166,69.6,Horticulure
+Phan,Jonathan,M,79,189.3,38.2,Food Science
+Gonzalez,Anette,F,32,182.9,87.6,Mechanical Engineering
+Shadden,Nicholas,M,27,150.1,69.2,Food Science
+el-Naderi,Kawthar,F,19,137.2,85,Applied Bioscience
+Northup,Dominique,M,47,121.1,58,Medicine
+Turner,Kendall,M,37,153,73,Data Science
+al-Hafeez,Jaasir,M,21,140.8,72.6,Computer Science
+Skelton,Abigail,F,37,189,57.4,Management
+Nelms,Aquasia,F,26,190,112,Chemical Engineering
+Mccaden,Deshawn,M,45,169.5,92.7,Hydrology
+Chuong,Dominick,M,28,159.4,50.9,Hydrology
+Gallegos,Roberta,F,30,113.6,76,Anthropology
+Garcia,Wendy,F,32,135.9,76.7,Aquaculture

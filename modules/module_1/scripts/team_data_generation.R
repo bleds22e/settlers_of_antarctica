@@ -28,8 +28,8 @@ names <- as_tibble(randomNames(n = 1000, gender = sex, name.sep = ",")) %>%
 
 # include 23 intersex team members and change sexes from numeric to chr
 sex[sample(length(sex), 23)] <- 2 
-labels <- if_else(sex == 0, "F",
-                  if_else(sex == 1, "M", "I"))
+labels <- if_else(sex == 0, "M",
+                  if_else(sex == 1, "F", "I"))
 
 ## Ages ----
 
