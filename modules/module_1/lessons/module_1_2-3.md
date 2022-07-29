@@ -195,14 +195,14 @@ x[2:4]
 
 # functions are always followed by parentheses
 # anything you type into the parentheses are called arguments
-weight_kg <- sqrt(10) # square root
-round(weight_kg) # rounding
+mass_kg <- sqrt(10) # square root
+round(mass_kg) # rounding
 ```
 
     ## [1] 3
 
 ``` r
-round(weight_kg, digits = 2) # round to 2 digits past 0
+round(mass_kg, digits = 2) # round to 2 digits past 0
 ```
 
     ## [1] 3.16
@@ -297,13 +297,21 @@ prepared to show the code you used.
 
 ## Data classes
 
-There are a few main types in R, and they behave differently:  
-1. Numerical  
-2. Character  
-3. Integer  
-4. Logical  
-5. Complex  
-6. Factors (kind of)
+There are a few main types in R, and they behave differently.
+
+-   numeric (numbers)
+    -   integer  
+    -   double
+-   character (letters or mixture)
+-   logical (True or False; T or F)
+-   factors (kind of)
+
+``` r
+# Examples of different data classes
+num <- c(2, 4, 6, 8)
+char <- c("cat", "dog", "bird")
+logic <- c(T, F, F, T)
+```
 
 ## The big takeaways:
 
