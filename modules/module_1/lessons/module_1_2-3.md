@@ -169,6 +169,25 @@ x + y
 # R does everything in vectors
 ```
 
+### Subsetting Vectors
+
+Sometimes we want to pull out and work with specific values from a
+vector. This is called subsetting (taking a smaller set of the original)
+
+``` r
+# Sub-setting vectors
+# Use square brackets
+x[2]
+```
+
+    ## [1] 2
+
+``` r
+x[2:4]
+```
+
+    ## [1] 2 3 4
+
 ## Functions
 
 ``` r
@@ -202,74 +221,79 @@ data.
 
 ``` r
 # Create a simple data frame
-new_df <- data.frame(sex = c("M", "F", "M", "F", "F", "M"), 
-                     height = c(182, 170, 191, 151, 150, 161))
+plants <- data.frame(height = c(55, 17, 42, 47, 68, 39),
+                     nitrogen = c("Y", "N", "N", "Y", "Y", "N"))
 
-new_df
+plants
 ```
 
-    ##   sex height
-    ## 1   M    182
-    ## 2   F    170
-    ## 3   M    191
-    ## 4   F    151
-    ## 5   F    150
-    ## 6   M    161
+    ##   height nitrogen
+    ## 1     55        Y
+    ## 2     17        N
+    ## 3     42        N
+    ## 4     47        Y
+    ## 5     68        Y
+    ## 6     39        N
+
+### Subsetting Data Frames
+
+Because data frames are two-dimensional, we can subset data in different
+ways. We can select specific columns, specific rows, or filter rows by
+values.
 
 ``` r
-#
-```
-
-## Discussion point. This is a really simple data set, but let’s come up with some questions. Let’s write them on the board.
-
-Probably going to lead to the mean height overall, and for men and
-women.
-
-``` r
-# Subsetting data in base R
-
-## Vectors
-# 1-dimensional, so you only need to specify location in one dimension
-x[2]
-```
-
-    ## [1] 2
-
-``` r
-x[2:4]
-```
-
-    ## [1] 2 3 4
-
-``` r
-## Data frames
+# Sub-setting data frames
 # 2-dimensional, so you need to specify row and then column
-new_df[ ,2]
+plants[4,1]
 ```
 
-    ## [1] 182 170 191 151 150 161
+    ## [1] 47
 
 ``` r
-new_df[new_df$sex == "F", ]
+plants[,2]
 ```
 
-    ##   sex height
-    ## 2   F    170
-    ## 4   F    151
-    ## 5   F    150
+    ## [1] "Y" "N" "N" "Y" "Y" "N"
 
 ``` r
-mean(new_df[new_df$sex == "F", 2])
+# We can also choose specific columns using `$`
+plants$height
 ```
 
-    ## [1] 157
+    ## [1] 55 17 42 47 68 39
 
-## Group Challenge - Using helpfiles on functions, using functions
+### Discussion point
 
-As a group, find the standard deviation `sd()` of the height of both
-males and females and determine which is larger. Additionally, come up
-with a definition of standard deviation, use the helpfile to find out
-how the function works, and be prepared to show the code you used.
+This is a simple data set, but let’s come up with some questions. Let’s
+write them on the board.
+
+Example: height of plants treated with nitrogen vs. those not treated.
+
+``` r
+# filter rows based on values in the nitrogen column
+plants[plants$nitrogen == "Y", ]
+```
+
+    ##   height nitrogen
+    ## 1     55        Y
+    ## 4     47        Y
+    ## 5     68        Y
+
+``` r
+mean(plants[plants$nitrogen == "Y", 1])
+```
+
+    ## [1] 56.66667
+
+### Group Challenge (5 min)
+
+Using help files on functions
+
+As a group, find the standard deviation `sd()` of the height of plants
+treated with nitrogen and those not treated with nitrogen. Which group
+has the larger standard deviation? Come up with a definition of standard
+deviation, use the help file to find out how the function works, and be
+prepared to show the code you used.
 
 ## Data classes
 
@@ -284,7 +308,7 @@ There are a few main types in R, and they behave differently:
 ## The big takeaways:
 
 1.  You can use `class()` to determine the class (or some easier ways
-    for big dataframes that we’ll cover later in the course)  
+    for big data frames that we’ll cover later in the course)  
 2.  Columns that end up being character vectors can trip you up a lot  
 3.  Vectors must be of all the same data type
 
@@ -295,11 +319,6 @@ There are a few main types in R, and they behave differently:
 
 vec <- (1, 1.000, "1", TRUE)
 ```
-
-### Quick Challenge
-
-What data type is the is the sex column of the data frame we just used?
-Why isn’t it a character?
 
 # Rmarkdown and Code Chunks (10 minutes)
 
@@ -380,16 +399,10 @@ max(Orange$circumference)
 
     ## [1] 214
 
-### Group discussion (5 minutes)
-
-What is happening in the last bit of code that I just wrote?  
-What do you think `max()` is? What do the parentheses do? What is the $
-doing after Orange?
-
 ### Group challenge (Until the end of class)
 
 Construct a new Rmarkdown script (with all of the appropriate formatting
 we discussed) that calculates the average (mean) circumference of trees
-in the orange data set.
+in the orange data set. Save the mean as an object called “avg_circ.”
 
 Save the script and be ready to share it at the beginning of next class.
