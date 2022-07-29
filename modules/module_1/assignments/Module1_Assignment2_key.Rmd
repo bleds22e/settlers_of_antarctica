@@ -3,7 +3,7 @@ title: "Module 1, Assignment 2: Getting to Know the Team"
 author: "Ellen Bledsoe"     # <- your name here!
 date: "`r Sys.Date()`"      # <- uses the current date when rendered
 output: 
-  html_document: default
+  github_document: default
 ---
 
 ```{r setup, include=FALSE}

@@ -218,14 +218,11 @@ team_data[team_data$specialties == "Management",]
 
 9.  How many different specialties are represented amongst your new
     colleauges? This will require two steps.
-
-<!-- -->
-
-1)  First, use the `unique()` function to pull out each distinct value
-    from the specialties column. Save this as an object called
-    `specialties`, which is now a vector.
-2)  Use the `length()` function to count how many distinct specialties
-    are in the `specialties` vector.
+    1.  First, use the `unique()` function to pull out each distinct
+        value from the specialties column. Save this as an object called
+        `specialties`, which is now a vector.
+    2.  Use the `length()` function to count how many distinct
+        specialties are in the `specialties` vector.
 
 ``` r
 specialties <- unique(team_data$specialties)
@@ -236,7 +233,7 @@ specialties
     ##  [4] "Data Science"           "Marine Biology"         "Anthropology"          
     ##  [7] "Genetics"               "Management"             "Climatology"           
     ## [10] "Electrical Engineering" "Medicine"               "Hydrology"             
-    ## [13] "Mechanical Engineering" "Chemical Engineering"   "Horticulure"           
+    ## [13] "Mechanical Engineering" "Chemical Engineering"   "Horticulture"          
     ## [16] "Aquaculture"            "Applied Bioscience"     "Geology"
 
 ``` r
