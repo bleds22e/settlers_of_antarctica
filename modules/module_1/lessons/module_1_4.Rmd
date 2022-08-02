@@ -1,8 +1,9 @@
 ---
-title: "Settlers of Antarctica - Module 1 - Day 4"
-author: "Keaton Wilson"
-date: "12/4/2019"
+title: "Module 1, Introduction to the `tidyverse`"
+author: "Keaton Wilson, Ellen Bledsoe"
+date: "12/4/2019, revised August 2022"
 output:
+  github_document: default
   pdf_document: default
   html_document: default
 ---
@@ -11,54 +12,122 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Day 4 - 2-dimensional data and introduction to the tidyverse  
+# 2-dimensional Data and the `tidyverse`  
 
-## Learning Objectives  
-1. Students will practice programming fundamentals like installing and loading packages, using helpfiles and navigating file structure.  
-2. Students will be able to use the fundamental functions of the tidyverse: select, filter, mutate, summarize and the pipe.  
-3. Students will be able to compare base R methodology and tidyverse methodology for filtering and indexing dataframes.  
-4. Students will able to use functions above to gain insight from real-world data.  
+## Learning Outcomes  
+* Students will be able to install and load packages, use helpfiles, and navigate 
+file paths.  
+* Students will be able to use some functions of the tidyverse: select, filter, 
+mutate, summarize and the pipe.  
+* Students will compare and contrast base R and tidyverse methodology for subsetting
+data frames. 
+* Students will able to use tidyverse functions to summarize real-world data.  
 
-## Tidyverse - what is it?  
-Different programming languages have different syntax... and tidyverse is a package (or set of packages) offered in R that have similar goals and a set of unified syntax designed specifically to work with 2-dimensional data. 
+## The `tidyverse`: What is it?  
+Different programming languages have different syntax (language structure). The
+`tidyverse` is a package (more accurately, a set of packages) offered in R that 
+all have similar goals and a unified syntax designed to work particularly well 
+with 2-dimensional data. 
 
-<!-- When I started learning R, none of this was available, but the ecosystem has changed a lot in the last 10 years, and this is the set of tools I use to work with data every day. -->  
+This syntax is often different from base R, which we learned last week. Both are
+useful, which is why we start with base R. 
 
-## Getting the tidyverse (and what's in it) - Group Challenge and discussion
+That said, we will be primarily using the `tidyverse` for the rest of the semester,
+but I will never punish you for using base R in place of `tidyverse`, as long as
+you get the same answer! 
 
-Let's begin by scoping out what is in the tidyverse. Go to www.tidyverse.org and browse the site. In your groups, answer the 3 questions below, and be prepared to report out at the end:   
+### Wait, what is a package?? 
+Packages are one of the neatest things of working in an open-source environment 
+like R. They contains bits of code (often in the form of functions) that can be 
+reused, making them a core component of reproducible data science. Anyone can
+develop a package, and there are thousands of them doing all sorts of things!
+
+### Explore the `tidyverse` 
+
+Group Challenge and Discussion (10 min)
+
+Let's begin by scoping out what is in the `tidyverse`. Go to www.tidyverse.org 
+and browse the site. In your groups, answer the 3 questions below, and be prepared
+to report out at the end:   
 1. What are the core packages in the tidyverse?  
 2. Give a one sentence summary about what each package does.  
 3. What is one question you have about the tidyverse/core packages?  
 
-## Practice with the tidyverse  
+## Practice with the `tidyverse`
 
-We're going to use a real data set on climate change from Berkeley. It outlines temperatures in major cities across the world since 1750. We're going to use this data set to learn the tidyverse!  
+### Download and install
 
-First things first, let's load it up. 
+First things first, we need to download the `tidyverse` from the internet onto 
+our computer before we can use it. We typically only need to do this once.
 
-```{r}
-library(tidyverse)
-
-# download.file("https://tinyurl.com/vvsykhm")
-
-climate_df = read_csv("../data/GlobalLandTemperaturesByMajorCity.csv")
-
-# call the climate data... this looks a bit different
-#climate_df
-
-# It's a tibble! Like a dataframe but better. :) Lots of information to dissect here. Let's look at another way to quickly view our data.  
-
-glimpse(climate_df)
-
-
-# 
+We use the `install.packages()` function to do this. It might take a little while.
+```{r install_tidyverse, message = FALSE}
+# download and install the tidyverse package(s)
+# if you haven't done this before, remove the # in front of the line of code below
+# and run this chunk
+# install.packages("tidyverse")
 ```
+
+### Load into R
+
+Any time we open R/RStudio and want to use functions from the `tidyverse`, we 
+need to "load" the package. We use the `library()` function to do this.
+
+When you run this code, you'll see a message that says "Attaching packages" and
+"Conflicts." Don't panic! 
+
+* The first bit tells us that the core packages have been
+brought into our R session. 
+* The "conflict" part is a little more complicated but we don't need to worry too
+much about it. 
+    * If you're curious, though, it is telling us that there are some 
+functions in the `tidyverse` that have the same names as functions that are 
+automatically installed with R and that the `tidyverse` versions of those functions
+will be the ones that get used by default unless we specify otherwise. 
+
+```{r load_tidyverse}
+# load the tidyverse (tell RStudio we want to use this package in this session)
+library(tidyverse)
+```
+
+### Climate Data
+We're going to use a real data set on climate change from Berkeley, CA. It outlines 
+temperatures in major cities across the world since 1750. We're going to use this
+data set to learn the `tidyverse`! 
+
+```{r climate_data}
+# read in the data file
+
+# first, make sure you file path is pointing to the correct location!
+
+# you might also notice that we are using the function `read_csv()` instead of 
+# `read.csv().` These two functions do mostly the same thing, but `read_csv()`
+# is part of the `tidyverse` and gives us some more options when reading in data.
+climate_df <- read_csv("../data/GlobalLandTemperaturesByMajorCity.csv")
+
+# Let's take a look at the climate data. 
+climate_df
+```
+
+This looks a bit different from the 2D data were were looking at before, doesn't it?
+
+The `tidyverse` converts 2D data into something called a tibble! For our intents
+and purposes, it is basically the same as a data frame (and I'll probably call it
+a data frame, in reality).
+
+This data set clearly has a lot of data! The `tidyverse` offers a great function
+called `glimpse()` that lets us take a quick look at the dataset. Let's look at another way to quickly view our data.  
+```{r glimpse_data}
+# explore the data set
+glimpse(climate_df)
+```
+
+
 ## Select()ing columns  
 
-Let's use our first function, select.  
+Let's use our first function, `select()`.  
 
-```{r}
+```{r select}
 # Select at its core allows you pick out a selection of columns from your data
 # Can folks remember how do this with base R?
 
