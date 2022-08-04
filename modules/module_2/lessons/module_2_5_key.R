@@ -7,8 +7,8 @@
 library(tidyverse)
 
 # Data
-fish_tank_data = read_csv("https://tinyurl.com/tbyskxl")
-sick_fish = read_csv("https://tinyurl.com/yf3pv3am")
+fish_tank_data = read_csv("modules/module_2/data/fish_tank_data.csv")
+sick_fish = read_csv("modules/module_2/data/fish_sick_data.csv")
 
 # Let's hone in on the problem - tilapia or trout
 sick_fish %>%

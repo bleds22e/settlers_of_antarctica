@@ -28,7 +28,7 @@ and we definitely don't know what kinds of factors are contributing to this
 problem (if there is one!).  
 
 Our first challenge is that we can't sample the disease rate in all tanks - it's
-too expensive and it takes too long. So we're going to task our aqauaculture  
+too expensive and it takes too long. So we're going to task our aquaculture  
 scientists to take a sub-sample (50 tanks). Our aquaculture scientists have shared this 
 data with us. It's in the data folder and called "fish_sick_data.csv" 
 
