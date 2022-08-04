@@ -8,7 +8,7 @@ library(tidyverse)
 library(truncnorm)
 
 # generating tank data frame
-fish_tanks = tibble(tank_id = c(1:1000), 
+fish_tanks <- tibble(tank_id = c(1:1000), 
                species = c(rep("tilapia", 750), rep("trout", 250))) %>%
   mutate(avg_daily_temp = ifelse(species == "tilapia", 
                                  rnorm(n = 750, mean = 23.89, sd = 0.5), 
@@ -29,7 +29,7 @@ fish_tanks = tibble(tank_id = c(1:1000),
                              rnorm(750, mean = 2783, sd = 5),
                              rnorm(250, mean = 150, sd = 2)))
 
-fish_sick = fish_tanks %>%
+fish_sick <- fish_tanks %>%
   sample_n(50, weight = factor(species))
   
 # Looking at data
@@ -39,7 +39,7 @@ fish_tanks %>%
 
 # writing to csv
 write_csv(fish_tanks %>% 
-            select(-num_sick), path = "./modules/module_2/data/fish_tank_data.csv")
+            select(-num_sick), "./modules/module_2/data/fish_tank_data.csv")
 write_csv(fish_sick, "./modules/module_2/data/fish_sick_data.csv")
 # 
 # Note, be careful overwriting this - I cherrypicked high density tanks with 
