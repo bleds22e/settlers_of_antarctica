@@ -5,24 +5,25 @@
 
 # packages
 library(tidyverse)
-library(randomNames)
-library(stringr)
 library(truncnorm)
 
 # Reading in team data
-team_data = read_csv("./modules/module_1/data/mission_team_data.csv")
+team_data <- read_csv("./modules/module_1/data/mission_team_data.csv")
 
 # subsetting to make our sick sample
-team_sub_sick = team_data %>%
+team_sub_sick <- team_data %>%
   sample_n(size = 400)
 
-# Using the truncnorm package to generate a series of values 
-# that represent the percentage of a given team-members diet 
-# that contains, fish, or plants (the bulk of plant-based food is grown in greenhouses) 
+# Using the truncnorm package to generate a series of values that represent the 
+# percentage of a given team-member's diet that contains fish or plants (the 
+# bulk of plant-based food is grown in greenhouses).
 
-perc_fish = truncnorm::rtruncnorm(n = 400, a = 0, b = 1, mean = 0.4, sd = 0.5)
+perc_fish <- truncnorm::rtruncnorm(n = 400,             # sample number
+                                   a = 0, b = 1,        # upper and lower bounds
+                                   mean = 0.4, sd = 0.5)# parameters
 
-team_sub_sick = team_sub_sick %>%
+# create columns for percentages of fish and plant in diets
+team_sub_sick <- team_sub_sick %>%
   mutate(perc_fish = perc_fish, 
          perc_plant = 1-perc_fish)
 
@@ -38,7 +39,8 @@ complement <- function(y, rho, x) {
 # is positively correlated with the percentage of fish in a
 # given team members diet
 
-doctor_trips = round(complement(y = team_sub_sick$perc_fish, rho = 0.95)*5)
+doctor_trips <- round(complement(y = team_sub_sick$perc_fish, 
+                                 rho = 0.95)*5)
 
 # graphing
 team_sub_sick %>% 
@@ -47,7 +49,7 @@ team_sub_sick %>%
   geom_point()
 
 # binding
-team_sub_sick = team_sub_sick %>%
+team_sub_sick <- team_sub_sick %>%
   mutate(doctor_trips = doctor_trips) %>%
   filter(doctor_trips > 0)
 

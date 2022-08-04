@@ -1,0 +1,344 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Module 2-1},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Module 2-1}
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+\maketitle
+
+\hypertarget{learning-objectives}{%
+\subsection{Learning Objectives}\label{learning-objectives}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Students will become familiar with the real-world problem for this
+  module - food poisoning due to an outbreak of disease in one of the
+  species of fish that is grown in recirculating aquaculture systems.\\
+\item
+  Students will be be able to generate two types of plots using base R
+  syntax to visualize single variables (histograms and distributions)
+  and two variables (scatterplots).
+\item
+  Students will develop visual-thinking skills to create visualizations
+  that allow them to explore patterns in data, draw inferences and
+  create solutions.
+\end{enumerate}
+
+\hypertarget{introduction-to-the-problem}{%
+\subsection{Introduction to the
+problem}\label{introduction-to-the-problem}}
+
+Overall, the issue here is that we have a wave of people getting sick
+across the team. People are coming in complaining of stomach sickness -
+doctors have ruled out a communicable viral infection like norovirus,
+and it seems to be a food contamination issue.
+
+The two main sources of food that are grown on site and distributed to
+team members are
+\href{https://thespoon.tech/scientists-in-antarctica-grow-food-without-soil-or-sunlight-get-ready-mars/}{plants
+grown in hydroponic greenhouses}. (mostly swiss chard, cucumbers and
+radishes) and fish (tilapia, a tolerant warm -water species and rainbow
+trout a cold-water species).
+
+\textbf{Diagram this next part on the board}
+
+We have a good set of data on team members that are sick, and how much
+fish or plant material they incorporate into their diets (team members
+vary in the composition of their diet - people are allowed to choose how
+much of different food sources they use).
+
+\hypertarget{discussion---how-might-we-figure-this-out}{%
+\subsection{Discussion - how might we figure this
+out?}\label{discussion---how-might-we-figure-this-out}}
+
+Spend 5 minutes brainstorming in your groups how you might figure out
+whether plants or fish are the culprits? Be ready to report out.
+
+\hypertarget{introduction-to-the-dataset-and-visualization-in-r}{%
+\subsection{Introduction to the dataset and visualization in
+R}\label{introduction-to-the-dataset-and-visualization-in-r}}
+
+First we're going to pull in the data and give it a quick
+inspection/exploration before we start to work through some of the
+visualization tools in R.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## -- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+\end{verbatim}
+
+\begin{verbatim}
+## v ggplot2 3.3.5     v purrr   0.3.4
+## v tibble  3.1.6     v dplyr   1.0.7
+## v tidyr   1.1.4     v stringr 1.4.0
+## v readr   2.1.1     v forcats 0.5.1
+\end{verbatim}
+
+\begin{verbatim}
+## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sick }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"../data/sick\_data.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Rows: 349 Columns: 10
+\end{verbatim}
+
+\begin{verbatim}
+## -- Column specification --------------------------------------------------------
+## Delimiter: ","
+## chr (4): last, first, sex, specialties
+## dbl (6): age, height_cm, weight_kg, perc_fish, perc_plant, doctor_trips
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## i Use `spec()` to retrieve the full column specification for this data.
+## i Specify the column types or set `show_col_types = FALSE` to quiet this message.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sick}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 349 x 10
+##    last   first sex     age height_cm weight_kg specialties perc_fish perc_plant
+##    <chr>  <chr> <chr> <dbl>     <dbl>     <dbl> <chr>           <dbl>      <dbl>
+##  1 Gonza~ Ange~ M        35      169.      51.4 Hydrology       0.994    0.00620
+##  2 Navra~ John  M        19      112.      96.3 Genetics        0.297    0.703  
+##  3 Duff   Josh~ M        26      133.      52.1 Horticultu~     0.514    0.486  
+##  4 Dotts~ Juli~ M        36      140.      52.6 Climatology     0.686    0.314  
+##  5 al-Su~ Mune~ M        26      194.      52.2 Geology         0.292    0.708  
+##  6 Galle~ Rich~ M        29      153.      98.1 Climatology     0.329    0.671  
+##  7 Walker Trev~ M        33      190.     102   Psychology      0.558    0.442  
+##  8 Hau    Kin   M        22      118.      41.1 Psychology      0.237    0.763  
+##  9 Zhong  Tobby M        21      121.      49.3 Mechanical~     0.427    0.573  
+## 10 Scher~ Rona~ M        36      168.      62.7 Management      0.529    0.471  
+## # ... with 339 more rows, and 1 more variable: doctor_trips <dbl>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{glimpse}\NormalTok{(sick)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Rows: 349
+## Columns: 10
+## $ last         <chr> "Gonzalez", "Navratil", "Duff", "Dottson", "al-Sultana", ~
+## $ first        <chr> "Angelo", "John", "Joshua", "Julian", "Muneeb", "Richard"~
+## $ sex          <chr> "M", "M", "M", "M", "M", "M", "M", "M", "M", "M", "F", "M~
+## $ age          <dbl> 35, 19, 26, 36, 26, 29, 33, 22, 21, 36, 41, 24, 36, 28, 2~
+## $ height_cm    <dbl> 169.4, 112.3, 132.8, 140.1, 194.3, 152.6, 189.6, 118.1, 1~
+## $ weight_kg    <dbl> 51.4, 96.3, 52.1, 52.6, 52.2, 98.1, 102.0, 41.1, 49.3, 62~
+## $ specialties  <chr> "Hydrology", "Genetics", "Horticulture", "Climatology", "~
+## $ perc_fish    <dbl> 0.9937990, 0.2974799, 0.5138754, 0.6856123, 0.2923204, 0.~
+## $ perc_plant   <dbl> 0.006200981, 0.702520140, 0.486124626, 0.314387706, 0.707~
+## $ doctor_trips <dbl> 5, 1, 2, 3, 1, 1, 3, 1, 2, 2, 2, 3, 3, 2, 3, 4, 2, 3, 1, ~
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Basic visualization {-} in base R, the plot(), and some others function is your }
+\CommentTok{\# friend. We\textquotesingle{}ll talk about some tidyverse ways to plot that are a bit more }
+\CommentTok{\# powerful later, but you really can do any kind of plotting you want with base }
+\CommentTok{\# R. }
+
+\FunctionTok{hist}\NormalTok{(sick}\SpecialCharTok{$}\NormalTok{age)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{module_2_1_files/figure-latex/unnamed-chunk-1-1.pdf}
+
+\hypertarget{mini-group-discussion---histograms}{%
+\subsection{Mini Group Discussion -
+Histograms}\label{mini-group-discussion---histograms}}
+
+What is this showing us? What conclusions can we draw from this data
+visualization? How could this visualization be improved?
+
+\hypertarget{group-project---make-a-better-histogram.}{%
+\subsection{Group Project - make a better
+histogram.}\label{group-project---make-a-better-histogram.}}
+
+Work in your groups to build a histogram of weights with properly
+labeled axes, a vertical line that depicts the median, and an
+appropriate visually appealing bin size. Check out the \texttt{hist()}
+help page, and the \texttt{abline()} function.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{hist}\NormalTok{(sick}\SpecialCharTok{$}\NormalTok{age, }\AttributeTok{breaks =} \DecValTok{15}\NormalTok{, }\AttributeTok{xlab =} \StringTok{"Age"}\NormalTok{, }\AttributeTok{ylab =} \StringTok{"Frequency"}\NormalTok{, }\AttributeTok{main =} \ConstantTok{NULL}\NormalTok{)}
+\FunctionTok{abline}\NormalTok{(}\AttributeTok{v =} \FunctionTok{median}\NormalTok{(sick}\SpecialCharTok{$}\NormalTok{age))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{module_2_1_files/figure-latex/unnamed-chunk-2-1.pdf}
+
+\hypertarget{brainstorm---group-activity}{%
+\subsection{Brainstorm - Group
+activity}\label{brainstorm---group-activity}}
+
+We've covered one type of visualization that just shows one
+variable\ldots{} but what we're really interested in is figuring out if
+fish or plants are the culprit in food poisoning. Spend 10 minutes in
+your groups sketching out a visualization that might give us insight
+into this.
+
+\hypertarget{scatter-plots}{%
+\subsection{Scatter plots}\label{scatter-plots}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(}\AttributeTok{x =}\NormalTok{ sick}\SpecialCharTok{$}\NormalTok{age, }\AttributeTok{y =}\NormalTok{ sick}\SpecialCharTok{$}\NormalTok{perc\_fish)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{module_2_1_files/figure-latex/unnamed-chunk-3-1.pdf}
+
+Not super informative, because there isn't really a relationship between
+a person's age and the amount of fish they consume. At least not in this
+sample.
+
+\hypertarget{building-and-interpreting}{%
+\section{Building and interpreting}\label{building-and-interpreting}}
+
+In your group, build out the plot that you conceived earlier that
+determines whether there is a correlation between the percentage of fish
+eaten and the number of trips to the doctor in the past 6 months. Use
+proper labelling and aesthetic design principles to make it as visually
+appealing as possible.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(}\AttributeTok{x =}\NormalTok{ sick}\SpecialCharTok{$}\NormalTok{perc\_fish, }\AttributeTok{y =}\NormalTok{ sick}\SpecialCharTok{$}\NormalTok{doctor\_trips, }
+     \AttributeTok{xlab =} \StringTok{"Percentage Fish in Diet"}\NormalTok{, }
+     \AttributeTok{ylab =} \StringTok{"Number of Trips to Doctor"}\NormalTok{, }
+     \AttributeTok{main =} \ConstantTok{NULL}\NormalTok{, }
+     \AttributeTok{pch =} \DecValTok{16}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{module_2_1_files/figure-latex/unnamed-chunk-4-1.pdf}
+
+\end{document}
