@@ -2,8 +2,9 @@
 title: "Module_2_3"
 author: "Keaton Wilson"
 output:
-  pdf_document: default
-  html_document: default
+  github_document: default
+  #pdf_document: default
+  #html_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -29,14 +30,13 @@ problem (if there is one!).
 Our first challenge is that we can't sample the disease rate in all tanks - it's
 too expensive and it takes too long. So we're going to task our aqauaculture  
 scientists to take a sub-sample (50 tanks). Our aquaculture scientists have shared this 
-data with us, and we can access it here:  
-[https://tinyurl.com/yf3pv3am ](https://tinyurl.com/yf3pv3am).  
+data with us. It's in the data folder and called "fish_sick_data.csv" 
 
 Let's scope it out:
 ```{r}
 library(tidyverse)
 
-sick_fish = read_csv("https://tinyurl.com/yf3pv3am")
+sick_fish = read_csv("../data/fish_sick_data.csv")
 glimpse(sick_fish)
 ```
 
@@ -67,7 +67,7 @@ aquaculture scientists provided us?
 
 # Let's generate some data for tilapia to start
 # How many fish do we have in each tank? Well, it varies, but on average, it's...
-fish_tank_data = read_csv("https://tinyurl.com/tbyskxl")
+fish_tank_data <- read_csv("../data/fish_tank_data.csv")
 fish_tank_data %>%
   group_by(species) %>%
   summarize(mean_num_fish = mean(num_fish))
