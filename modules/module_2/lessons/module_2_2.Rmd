@@ -2,8 +2,9 @@
 title: "Module 2_2 - Functions"
 author: "Keaton Wilson"
 output:
-  pdf_document: default
-  html_document: default
+  github_document: default
+  #pdf_document: default
+  #html_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -28,7 +29,7 @@ correlation we found earlier. Let's check out our tank data.
 ```{r}
 library(tidyverse)
 
-fish_tank_data = read_csv("https://tinyurl.com/tbyskxl")
+fish_tank_data = read_csv("../data/fish_tank_data.csv")
 glimpse(fish_tank_data)
 ```
 
