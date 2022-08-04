@@ -23,9 +23,9 @@ and it seems to be a food contamination issue.
 
 The two main sources of food that are grown on site and distributed to
 team members are [plants grown in hydroponic
-greenhouses](https://thespoon.tech/scientists-in-antarctica-grow-food-without-soil-or-sunlight-get-ready-mars/).
+greenhouses](https://thespoon.tech/scientists-in-antarctica-grow-food-without-soil-or-sunlight-get-ready-mars/)
 (mostly swiss chard, cucumbers and radishes) and fish (tilapia, a
-tolerant warm -water species and rainbow trout a cold-water species).
+tolerant warm -water species and rainbow trout, a cold-water species).
 
 **Diagram this next part on the board**
 
