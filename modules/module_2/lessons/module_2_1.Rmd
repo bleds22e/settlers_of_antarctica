@@ -2,8 +2,7 @@
 title: "Module 2-1"
 output:
   github_document: default
-  #pdf_document: default
-  #html_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -105,3 +104,5 @@ plot(x = sick$perc_fish, y = sick$doctor_trips,
      pch = 16)
 
 ```
+
+
