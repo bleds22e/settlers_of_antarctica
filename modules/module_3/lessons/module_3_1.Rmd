@@ -10,41 +10,38 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 # Introduction to the Problem and Summarizing Data  
 
-## The challenge  
-Part of the food that folks are being fed with are fish that are caught, not 
-farmed (as in the previous module). These fish are caught by members of team 
-antarctica, but there is extreme risk involved (think Deadliest Catch, but 
-colder).  
+## The Challenge  
 
-One of the main hazards to these teams are leopard seals - they're apex 
-predators in this ecosystem, and can cause serious injury, especially when large 
+Given the issues with our farmed fish, we will need to supplement our diets with
+some fish that are wild-caught for a while. These fish are caught by members of 
+Team Antarctica, but there is quite a bit of risk involved.
+
+One of the main hazards to these fishing teams are leopard seals. They're apex 
+predators in this ecosystem and can cause serious injury, especially when large 
 schools of fish are involved (a researcher was killed by a Leopard Seal in 
 Antarctica in 2003).  
 
-One way we've worked to remove some of this danger is by working with large 
-mammal researchers to place radio collars on a number of seals that live in 
-areas that are typically fished. Fishing boats are equipped with radios that can
+One way we're working to remove some of this danger is by working with data from
+large mammal researchers. They have radio collared on a number of seals that live
+in areas that could be fished. Fishing boats are equipped with radios that can
 detect the presence of seals in the area and avoid high-risk sites.  
 
-In recent months, a problem has arisen. Some of the collars are failing, 
-leading to some very close calls - one team member was pulled into the water 
-after attempting to untangle a net when a seal lunged at some fish trapped in 
-the net.  
+In recent months, a problem has arisen. Some of the collars are failing, leading
+to some very close calls! While attempting to untangle a net, one team member was
+pulled into the water when a seal lunged at some fish trapped in the net.  
  
-The large mammal team (they work on orcas as well as leopard seals) replaces 
-collars frequently, based on the manufacters reccomendations for battery life 
-and general wear and tear, but it seems as if some of the collars are dying 
-earlier than expected and putting our team in danger. 
+The large mammal team replaces collars frequently based on the two manufacturers' 
+recommendations for battery life and general wear and tear, but it seems as if 
+some of the collars are dying earlier than expected and putting our team in danger. 
 
 We've been tasked with determining why the units are failing and if we can tie 
-it to a particular manufacturer (we've sourced radio collars from two different
-companies).  
+it to a particular manufacturer.
 
 ## The Data  
 
-Our data on collars can be accessed here: https://tinyurl.com/sp7b25x  
+Our data on collars is in a file called "collar_data.csv."  
 
-Let's explore and talk about the data a bit:  
+### Explore the Data
 1. Two manufacturers  
 2. Battery life - The average number of days a particular collar lasts (this is
 recorded in the unit and stored when the battery dies)  
@@ -54,37 +51,47 @@ recorded at.
 from seals that were noticed by the team but that didn't ping the radio 
 equipment).  
 
-## Group Challenge 1 - Summarizing
-We covered how to do grouped summaries in R in Module 1 (and practiced a bit
-in module 2), while also covering how to write your own custom functions in 
-module 2. It's time to put this together. Write your own custom function that 
-does the following:  
-1. Summarizes the data by calculating the mean, min and max for battery life 
-and signal distance, while counting up the number of failures. You'll want to
-do this for both manufacturers. 
-```{r}
+### Group Challenge 1 - Summarizing
+
+Let's practice 
+
+* summarizes the data by calculating the mean, min and max for:
+  * battery life 
+  * signal distance, while 
+* counts up the number of failures
+* by manufacturer
+
+```{r summarize}
 library(tidyverse)
 
-collars = read_csv("https://tinyurl.com/sp7b25x")
-summary_1 = collars %>%
+collars <- read_csv("../data/collar_data.csv")
+glimpse(collars)
+
+bat_life_and_signal <- collars %>%
   mutate(fail = as.logical(fail), 
          maker = as.factor(maker)) %>%
-  select(-collar_id) %>%
+  dplyr::select(-collar_id) %>%
   group_by(maker) %>%
-  summarize_if(is.numeric, list(min = min, max = max, mean = mean)) %>%
-  select(-contains("collar_id"))
+  summarize(bat_life_mean = mean(battery_life),
+            bat_life_min = min(battery_life),
+            bat_life_max = max(battery_life),
+            signal_mean = mean(signal_distance),
+            signal_min = min(signal_distance),
+            signal_max = max(signal_distance)) 
 
-summary_2 = collars %>%
-  mutate(fail = as.logical(fail), 
-         maker = as.factor(maker)) %>%
-  select(-collar_id) %>%
+fail_count <- collars %>%
   group_by(maker) %>%
-  summarize_if(is.logical, sum)
+  summarize(fail_count = sum(fail))
 
-final = bind_cols(summary_1, summary_2) %>%
-  select(-maker1)
+final <- bind_cols(bat_life_and_signal, 
+                   fail_count %>% dplyr::select(-maker))
 
 ```
+
+<!---maybe this is where we introduce pivot_wider and pivot_longer and data table structure?--->
+<!---maybe better introduced in Module 2, although pivoting is important for ggplot2,
+so it isn't completely out of place here in Module 3--->
+
 
 ## Visualizing the Data - an introduction to a better way to visualize the data
 So far, we've used the base R plotting syntax, but there is another way. It's 
