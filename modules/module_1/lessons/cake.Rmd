@@ -1,0 +1,211 @@
+---
+title: "R Notebook"
+output:
+  html_document:
+    df_print: paged
+  html_notebook: default
+  pdf_document: default
+---
+```{r setup, include=FALSE} 
+knitr::opts_chunk$set(warning = FALSE, message = FALSE) 
+```
+# Exploring Data Science with Palmer Penguins  
+
+## Learning outcomes  
+* Students will get an impression of what is possible using the skills taught in this course.
+* Students will see statistics used in an ecological context. 
+
+
+```{r}
+#load the libraries for the lesson
+library(palmerpenguins)
+library(tidyverse)
+```
+
+## The data  
+
+For this lesson, we'll be working with the Palmer Penguins dataset, which contains data on three species of penguins collected by Dr. Kristen Gorman and the Palmer Station, Antarctica LTER (Long Term Ecological Research). The data include observations of penguins' species and physical measurements.  
+
+```{r}
+#call our data
+penguins
+```
+
+## Explore and summarize  
+
+With R and tidyverse, we can easily find the mean bill length of each species of penguin in the data.  
+
+```{r}
+#organize our data by species, and calculate the mean
+penguins %>% 
+  group_by(species) %>% 
+  summarize(mean_bill=mean(bill_length_mm, na.rm=TRUE))
+```
+
+However, the mean alone doesn't give us a picture of how the data are **distributed** around the mean:  
+
+* Is there a wide range of possible values?
+* Are values close to the mean more likely?
+
+We can approach these questions analytically using a metric called the **standard deviation**, which measures the average distance of observations from the mean.  
+
+```{r}
+#organize our data by species, and calculate the standard deviation
+penguins %>% 
+  group_by(species) %>% 
+  summarize(sd=sd(bill_length_mm, na.rm=TRUE))
+```
+
+We can visualize this information using a histogram, which shows us the concentration of observations around their values.  
+
+```{r}
+#plot histograms of bill length for each species
+penguins %>% 
+  ggplot(aes(bill_length_mm, fill=species, alpha=0.6)) +
+  geom_histogram(position="identity")
+```
+
+Let's take a closer look at the bill lengths of Adélie penguins. Below is a histogram, with the mean represented as a vertical line.  
+
+```{r}
+#filter the data to include only Adelie penguins
+adelie <- penguins[penguins$species=="Adelie",]
+
+#plot a histogram of bill length, and a line for the mean
+adelie %>% 
+    ggplot(aes(x=bill_length_mm, fill=species)) +
+  geom_histogram() +
+  geom_vline(aes(xintercept=mean(bill_length_mm, na.rm=TRUE)))
+
+```
+
+It seems like observations nearer to the mean are more likely, and become less likely as they deviate further. If you've taken some statistics before, you might notice it looks somewhat like a **bell curve** or **normal distribution**.    
+ 
+## Simulation   
+
+If we assume the data do in fact come from a normal distribution, we can use the mean and standard deviation to approximate that distribution.  
+
+```{r}
+#plot Adelie bill length histogram, overlaid with normal distribution
+ggplot(adelie,aes(x = bill_length_mm, fill=species)) +
+geom_histogram(aes(y=..density..)) +
+stat_function(
+fun = dnorm,
+args = with(adelie, c(mean = mean(bill_length_mm, na.rm=TRUE), sd = sd(bill_length_mm, na.rm=TRUE)))
+)
+  
+```
+
+Using the normal distribution we just made, we can **simulate** data that follow the distribution. This will make a bit more sense if we show you:  
+
+```{r}
+#simulate data using our normal distribution
+adelie <- adelie %>% 
+  mutate(bill_sim=rnorm(n = 152, mean = mean(adelie$bill_length_mm, na.rm=TRUE), sd = sd(adelie$bill_length_mm, na.rm=TRUE)))
+
+#histogram of the simulated data, overlaid with same normal distribution
+ggplot(adelie, aes(x=bill_sim, fill=species)) +
+  geom_histogram(aes(y=..density..)) +
+  stat_function(
+  fun = dnorm,
+  args = with(adelie, c(mean = mean(bill_length_mm, na.rm=TRUE), sd = sd(bill_length_mm, na.rm=TRUE)))
+  )
+
+```
+
+Notice that the simulated data look a lot like our real data!  
+
+
+## Testing hypotheses  
+
+### Using a single sample  
+**T-tests** are statistical tools that let us test hypotheses about the means of data.   
+
+For instance:  
+
+The Encylopedia of Life (https://eol.org/pages/45512076) states that the mean bill length among gentoo penguins is 53.8mm. So, we might want to test the following hypothesis using our data:  
+
+* The mean bill length of gentoo penguins is 53.8mm
+
+In other words, do our data support the claim that the average bill length of gentoo penguins is 53.8mm? We'll get into how t-tests work later on, but for now we'll just focus on their results.  
+
+```{r}
+#filter data to include only gentoo penguins
+gentoo <- penguins[penguins$species=='Gentoo',]
+
+#perform t-test on our data, using the mean from EoL 
+t.test(gentoo$bill_length_mm, mu=53.8)
+```
+
+Here, the test indicates that our data do not support the claim that the average bill length is 53.8mm.  
+
+
+### Using multiple samples  
+
+We can also use a t-test to test if the means from two populations/samples are different.  
+
+You may recall that the histograms of bill length for gentoo and chinstrap penguins overlapped quite a bit.  
+
+So, we can test the hypothesis:  
+
+* The difference between the means of Adélie and gentoo penguins' bill lengths is 0.  
+
+In other words, are the average bill lengths of Adélie and gentoo penguins different?  
+
+```{r}
+#filter data to include only chinstrap penguins
+chinstrap <- penguins[penguins$species=="Chinstrap",]
+
+#t-test comparing means of gentoo and chinstrap penguins
+t.test(x=gentoo$bill_length_mm, y=chinstrap$bill_length_mm, mu=0)
+```
+
+Even though their distributions look similar, our test indicates that they do not come from the same distribution.  
+
+
+## Modeling  
+
+Often, when we're analyzing data, we'd like to create a **model** in which we try to explain or predict the behavior of our data.  
+
+The most common approach is to simply fit a line to the data, indicating how one type of observation varies with another.   
+
+How does bill length vary with flipper length among all of the penguins studied?  
+
+```{r}
+# plot scatterplot of our data, overlaid with linear model
+penguins %>% 
+  ggplot(aes(x=bill_length_mm, y=flipper_length_mm))+
+  geom_point() +
+  geom_smooth(method="lm")
+
+# display the slope and intercept of our line
+model <- lm(penguins$flipper_length_mm ~ penguins$bill_length_mm)
+coef(model)
+```
+
+Our model has a slope of 1.69, which indicates that for every unit increase in bill length, flipper length increases by 1.69.  
+
+However, we know that there are three distinct species represented in our data. Would results be different if we modeled each species separately?  
+
+
+```{r}
+# plot scatterplot of our data, colored by species, overlaid with linear models
+penguins %>% 
+  ggplot(aes(x=bill_length_mm, y=flipper_length_mm, color=species))+
+  geom_point() +
+  geom_smooth(method="lm")
+
+# display slopes and intercepts of our lines
+model_adelie <- lm(adelie$flipper_length_mm ~ adelie$bill_length_mm)
+coef(model_adelie)
+
+model_gentoo <- lm(gentoo$flipper_length_mm ~ gentoo$bill_length_mm)
+coef(model_gentoo)
+
+model_chinstrap <- lm(chinstrap$flipper_length_mm ~ chinstrap$bill_length_mm)
+coef(model_chinstrap)
+
+```
+
+Our models for Adélie, gentoo, and chinstrap penguins have slopes of 0.8, 1.4, and 1, respectively. These are both quite different from eachother, and from the original model!  
+
