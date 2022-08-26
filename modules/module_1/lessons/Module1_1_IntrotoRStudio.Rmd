@@ -1,0 +1,68 @@
+---
+title: "Module 1: Introduction to R and RStudio"
+author: "Keaton Wilson, Ellen Bledsoe"
+date: "11/22/2019, revised July 2022"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introduction to R/RStudio  
+
+## Learning Outcomes
+* Students will be able to describe what computer programming languages (code) are,
+with R as an example.
+* Students will be able to describe the role of RStudio in programming with R.
+* Students will be able to describe the utility of each panel in RStudio.  
+* Students will be able to perform basic math functions in the R console.
+
+
+## Check-in (5 minutes)
+* Confirm access to RStudio on their machines or RStudio Cloud/the binder instance?
+* If there are a few that had problems or didn't get to it, do it now... ask 
+folks sitting next to you for help. For those who are good to go, poke around
+RStudio for a little bit and see what you can find!  
+
+Now is the time to form groups of ~3 people.
+
+## RStudio exploration (10 minutes)
+
+Open up RStudio Cloud. Spend some time familiarizing
+yourself with the structure of what is in front of you. Individually, come up with
+a question or something you don't really understand about R/RStudio. Be ready to report out.  
+
+## Rstudio Mini-tour (10 minutes)  
+
+Link to Google Slides for R/RStudio:
+https://docs.google.com/presentation/d/1lmOLhi2mhIYukCXQ9kw35FnawlIuIPVd51V4aUCFxkU/edit?usp=sharing
+
+Perform a live-coding mini-tour of RStudio.   
+1. What the different panels do  
+2. Navigating file structures in the files pane  
+3. What is a working directory?  
+4. Console versus a script/Rmarkdown?  
+5. Getting help!  
+
+## Using R as a calculator - getting comfortable with the console  
+You can do basic math in the console (the bottom left part of the screen). For example: 
+```{r}
+3+5
+
+45^7
+
+890*4.76523
+```
+
+## Math - Group Challenge  
+Run the following equation in the console. You'll need to be creative, dig into the helpfiles and probably the web to figure out a few of the more complicated operations.  Be ready to share your code.  
+
+The log (base 10) of the square root of pi, raised to the power of 12. 
+
+```{r}
+log10(sqrt(pi))^12
+```
+
