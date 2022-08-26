@@ -20,14 +20,9 @@ with R as an example.
 * Students will be able to describe the utility of each panel in RStudio.  
 * Students will be able to perform basic math functions in the R console.
 
-
 ## Check-in (5 minutes)
-* Confirm access to RStudio on their machines or RStudio Cloud/the binder instance?
-* If there are a few that had problems or didn't get to it, do it now... ask 
-folks sitting next to you for help. For those who are good to go, poke around
-RStudio for a little bit and see what you can find!  
 
-Now is the time to form groups of ~3 people.
+Let's all sign-up for RStudio Cloud!
 
 ## RStudio exploration (10 minutes)
 
@@ -44,7 +39,7 @@ Perform a live-coding mini-tour of RStudio.
 1. What the different panels do  
 2. Navigating file structures in the files pane  
 3. What is a working directory?  
-4. Console versus a script/Rmarkdown?  
+4. Console versus a script/Rmarkdown file?  
 5. Getting help!  
 
 ## Using R as a calculator - getting comfortable with the console  
