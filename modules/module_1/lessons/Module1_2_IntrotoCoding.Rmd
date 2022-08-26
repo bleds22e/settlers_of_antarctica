@@ -12,17 +12,22 @@ knitr::opts_chunk$set(echo = TRUE)
 # Introduction to Coding  
 
 ## Learning Outcomes  
+* Students will be able to define the following terms:
+  - variable
+  - assignment
+  - vector
+  - function
+  - data frame
 * Students will be able to run code line-by-line and as code chunks from an
 Rmarkdown file. 
 * Students will be able to comment their code effectively.  
-* Students will be able to write code that assign values to variables 
+* Students will be able to write code assign values to variables 
 and use these variables to perform various operations.  
-* Students will be able to use helpfiles to learn how to use functions.  
+* Students will be able to use help files to learn how to use functions.  
 * Students will be able to recall and explain how functions operate, and the 
-basic syntax around functions (arguments, autocompletion, parentheses).  
+basic syntax around functions (arguments, auto-completion, parentheses).  
 * Students will be able to differentiate different data classes in R.  
-* Students will learn how to create their own data structures (vectors) and 2d 
-data (dataframes).  
+* Students will learn how to create their own data structures (vectors, data frames).  
 
 
 ## Variables, assignments, vectors
