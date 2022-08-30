@@ -35,21 +35,49 @@ basic syntax around functions (arguments, auto-completion, parentheses).
 Assignments are really key to almost everything we do in R. This is how we create permanence in R. Anything can be saved to an object, and we do this with the assignment operator. 
 
 ```{r}
+# R assignment things
 
+## Assigning Objects
+mass <- 47.5            # this is the mass in kg
+age <- 122
+mass <- mass * 2        # multiply
+age <- age - 20         # subtract
+mass_index <- mass/age  # divide
+mass_sq <- mass^2       # raise to an exponent
+
+# This is simple and you'll rarely do it in real-world scenarios. 
+# We can also assign more complex lists of objects to a particular object. 
+
+mass_kg <- c(3, 2, 4, 9, 7, 3, 6)
+mass_kg
+
+# R does everything in vectors
 ```
 
 ### Subsetting Vectors
 Sometimes we want to pull out and work with specific values from a vector. This is
 called sub-setting (taking a smaller set of the original)
 ```{r}
-
+# Sub-setting vectors
+# Use square brackets
+mass_kg[2]
+mass_kg[2:4]
 ```
 
 
 ## Functions
 
 ```{r}
+## Functions
 
+# functions are always followed by parentheses
+# anything you type into the parentheses are called arguments
+mass_kg_mean <- mean(mass_kg)   # square root
+round(mass_kg_mean)             # rounding
+round(mass_kg_mean, digits = 2) # round to 2 digits past 0
+
+# to get more information about a function, use the help function
+help(mean) # or type ?help
 ```
 
 
@@ -57,7 +85,11 @@ called sub-setting (taking a smaller set of the original)
 Most of the data you will encounter is two-dimensional, i.e. it has columns and rows (should be familiar for those of you who have worked with Excel before). R is really great at working with these types of data.  
 
 ```{r}
+# Create a simple data frame
+plants <- data.frame(height = c(55, 17, 42, 47, 68, 39),
+                     nitrogen = c("Y", "N", "N", "Y", "Y", "N"))
 
+plants
 ```
  
 ### Subsetting Data Frames
@@ -65,6 +97,13 @@ Because data frames are two-dimensional, we can subset data in different ways. W
 can select specific columns, specific rows, or filter rows by values.
 
 ```{r}
+# Sub-setting data frames
+# 2-dimensional, so you need to specify row and then column
+plants[4,1]
+plants[,2]
+
+# We can also choose specific columns using `$`
+plants$height
 
 ```
 
@@ -74,7 +113,10 @@ This is a simple data set, but let's come up with some questions. Let's write th
 
 Example: height of plants treated with nitrogen vs. those not treated. 
 ```{r}
+# filter rows based on values in the nitrogen column
+plants[plants$nitrogen == "Y", ]
 
+mean(plants[plants$nitrogen == "Y", 1])
 ```
 
 ### Group Challenge (5 min)
@@ -97,8 +139,10 @@ There are a few main types in R, and they behave differently.
 - factors (kind of)   
 
 ```{r}
-
-
+# Examples of different data classes
+num <- c(2, 4, 6, 8)
+char <- c("cat", "dog", "bird")
+logic <- c(T, F, F, T)
 ```
 
 
@@ -110,7 +154,10 @@ data frames that we'll cover later in the course)
 
 ```{r, eval=FALSE}
 # Comparison
+1 + 1 + 1 + 1
+"1" + "1" + "1" + "1"
 
+vec <- (1, 1.000, "1", TRUE)
 ```
 
 
@@ -141,13 +188,21 @@ To run a chunk of code, click the green arrow on the far right side of the chunk
 
 Let's work with an example code chunk:
 ```{r}
+# My first code chunk!
+# Ellen Bledsoe
+# Aug 2022
 
+# Examining a pre-built data set in R
+Orange
+
+# printing maximum circumference of the biggest tree
+max(Orange$circumference)
 
 ```
 
-### Group challenge   
+### Group challenge  (Until the end of class)  
 Construct a new Rmarkdown script (with all of the appropriate formatting we discussed) 
 that calculates the average (mean) circumference of trees in the orange data set. 
 Save the mean as an object called "avg_circ."
 
-Save your code and be ready to share it at the beginning of next class. 
+Save the script and be ready to share it at the beginning of next class. 

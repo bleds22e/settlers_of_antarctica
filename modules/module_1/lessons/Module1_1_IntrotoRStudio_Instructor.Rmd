@@ -40,8 +40,11 @@ Perform a live-coding mini-tour of RStudio.
 ## Using R as a calculator - getting comfortable with the console  
 You can do basic math in the console (the bottom left part of the screen). For example: 
 ```{r}
+3+5
 
+45^7
 
+890*4.76523
 ```
 
 ## Math - Group Challenge  
@@ -50,6 +53,6 @@ Run the following equation in the console. You'll need to be creative, dig into 
 The log (base 10) of the square root of pi, raised to the power of 12. 
 
 ```{r}
-
+log10(sqrt(pi))^12
 ```
 
