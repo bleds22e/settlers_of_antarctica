@@ -35,21 +35,22 @@ a question or something you don't really understand about R/RStudio. Be ready to
 Perform a live-coding mini-tour of RStudio.   
 1. What the different panels do  
 2. Console versus a script/Rmarkdown file?  
-3. Getting help!  
 
-## Using R as a calculator - getting comfortable with the console  
-You can do basic math in the console (the bottom left part of the screen). For example: 
+## Using R as a calculator   
+For example: 
 ```{r}
 
 
 ```
 
-## Math - Group Challenge  
-Run the following equation in the console. You'll need to be creative, dig into the helpfiles and probably the web to figure out a few of the more complicated operations.  Be ready to share your code.  
+### Let's practice in the console, too.
+You can do basic math in the console (the bottom left part of the screen). The console only understands R code, so we don't need to use the ```{r}``` notation; we can type numbers and mathematical symbols. Try multiplying 5 and 3 (hint: * means multiply) in the console.
+
+### Math: Small Group Challenge  
+Run the following equation in the console. You'll need to be creative, dig into the help files and probably the web to figure out a few of the more complicated operations.  Be ready to share your code.  
 
 The log (base 10) of the square root of pi, raised to the power of 12. 
 
 ```{r}
 
 ```
-
