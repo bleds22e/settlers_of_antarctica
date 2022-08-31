@@ -13,7 +13,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Learning Outcomes  
 * Students will be able to define the following terms:
-  - variable
+  - object
   - assignment
   - vector
   - function
@@ -30,13 +30,44 @@ basic syntax around functions (arguments, auto-completion, parentheses).
 * Students will learn how to create their own data structures (vectors, data frames).  
 
 
-## Variables, assignments, vectors
+## Assigning Objects 
 
-Assignments are really key to almost everything we do in R. This is how we create permanence in R. Anything can be saved to an object, and we do this with the assignment operator. 
+Assignments are really key to almost everything we do in R. This is how we create
+permanence in R. Anything can be saved to an object, and we do this with the 
+assignment operator, `<-`. 
+
+The short-cut for `<-` is `Alt + -` (or `Option + -` on a Mac)
 
 ```{r}
 
 ```
+
+## 1-Dimensional Data: Vectors
+We can also assign more complex group of elements of the same type to a particular
+object. This is a basic data structure in R.
+```{r}
+
+```
+
+## Data classes
+There are a few main types in R, and they behave differently. 
+
+- numeric (numbers)
+  * integer (no decimals allowed) 
+  * double (decimals allowed--interchangeable with numeric)
+- character (letters or mixture) 
+- logical (True or False; T or F) 
+- factors (best used for ordinal data; levels indicate the order)   
+
+```{r}
+
+```
+
+Vectors have to contain elements that are all of the same class.
+```{r, eval = FALSE}
+
+```
+
 
 ### Subsetting Vectors
 Sometimes we want to pull out and work with specific values from a vector. This is
@@ -45,16 +76,19 @@ called sub-setting (taking a smaller set of the original)
 
 ```
 
-
 ## Functions
 
+Functions are pre-written bits of codes that perform specific tasks for us.
 ```{r}
 
 ```
 
 
-## 2-dimensional Data
-Most of the data you will encounter is two-dimensional, i.e. it has columns and rows (should be familiar for those of you who have worked with Excel before). R is really great at working with these types of data.  
+## 2-Dimensional Data: Data Frames
+Most of the data you will encounter is two-dimensional, i.e., it has columns and rows.
+Its structure resembles a spreadsheet. R is really good with these types of data.  
+
+Data frames are made up of multiple vectors. Each vector becomes a column.
 
 ```{r}
 
@@ -70,7 +104,7 @@ can select specific columns, specific rows, or filter rows by values.
 
 
 ### Discussion point
-This is a simple data set, but let's come up with some questions. Let's write them on the board.  
+This is a simple data set, but let's come up with some questions. 
 
 Example: height of plants treated with nitrogen vs. those not treated. 
 ```{r}
@@ -83,35 +117,9 @@ Using help files on functions
 As a group, find the standard deviation `sd()` of the height of plants treated with 
 nitrogen and those not treated with nitrogen. Which group has the larger standard
 deviation? 
+
 Come up with a definition of standard deviation, use the help file to find out how
 the function works, and be prepared to show the code you used.  
-
-## Data classes
-There are a few main types in R, and they behave differently. 
-
-- numeric (numbers)
-  * integer  
-  * double 
-- character (letters or mixture) 
-- logical (True or False; T or F) 
-- factors (kind of)   
-
-```{r}
-
-
-```
-
-
-## The big takeaways:  
-1. You can use `class()` to determine the class (or some easier ways for big 
-data frames that we'll cover later in the course)  
-2. Columns that end up being character vectors can trip you up a lot  
-3. Vectors must be of all the same data type
-
-```{r, eval=FALSE}
-# Comparison
-
-```
 
 
 # Rmarkdown and Code Chunks (10 minutes)
@@ -142,12 +150,12 @@ To run a chunk of code, click the green arrow on the far right side of the chunk
 Let's work with an example code chunk:
 ```{r}
 
-
 ```
 
-### Group challenge   
+### Group challenge 
+
 Construct a new Rmarkdown script (with all of the appropriate formatting we discussed) 
 that calculates the average (mean) circumference of trees in the orange data set. 
 Save the mean as an object called "avg_circ."
 
-Save your code and be ready to share it at the beginning of next class. 
+Save the script and be ready to share it.

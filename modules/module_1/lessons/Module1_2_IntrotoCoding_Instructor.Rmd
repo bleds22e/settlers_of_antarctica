@@ -103,7 +103,6 @@ mass_kg[2:4]
 ## Functions
 
 Functions are pre-written bits of codes that perform specific tasks for us.
-
 ```{r}
 ## Functions
 
