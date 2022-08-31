@@ -13,7 +13,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Learning Outcomes  
 * Students will be able to define the following terms:
-  - variable
+  - object
   - assignment
   - vector
   - function
@@ -30,14 +30,16 @@ basic syntax around functions (arguments, auto-completion, parentheses).
 * Students will learn how to create their own data structures (vectors, data frames).  
 
 
-## Variables, assignments, vectors
+## Assigning Objects 
 
-Assignments are really key to almost everything we do in R. This is how we create permanence in R. Anything can be saved to an object, and we do this with the assignment operator. 
+Assignments are really key to almost everything we do in R. This is how we create
+permanence in R. Anything can be saved to an object, and we do this with the 
+assignment operator, `<-`. 
+
+The short-cut for `<-` is `Alt + -` (or `Option + -` on a Mac)
 
 ```{r}
-# R assignment things
-
-## Assigning Objects
+# Assigning Objects
 mass <- 47.5            # this is the mass in kg
 age <- 122
 mass <- mass * 2        # multiply
@@ -46,24 +48,57 @@ mass_index <- mass/age  # divide
 mass_sq <- mass^2       # raise to an exponent
 
 # This is simple and you'll rarely do it in real-world scenarios. 
-# We can also assign more complex lists of objects to a particular object. 
 
+```
+
+## 1-Dimensional Data: Vectors
+We can also assign more complex group of elements of the same type to a particular
+object. This is a basic data structure in R.
+```{r}
 mass_kg <- c(3, 2, 4, 9, 7, 3, 6)
 mass_kg
 
+animals <- c("cat", "rat", "bat")
+animals
 # R does everything in vectors
 ```
+
+## Data classes
+There are a few main types in R, and they behave differently. 
+
+- numeric (numbers)
+  * integer (no decimals allowed) 
+  * double (decimals allowed--interchangeable with numeric)
+- character (letters or mixture) 
+- logical (True or False; T or F) 
+- factors (best used for ordinal data; levels indicate the order)   
+
+```{r}
+# Examples of different data classes
+mass_kg     # numeric, integer, double
+animals     # character
+
+animal_size <- as.factor(c("small", "medium", "large"))
+animal_size  # factor, put in order [ordinal data]
+
+logic <- c(T, F, F, T)  # logical
+logic
+```
+
+Vectors have to contain elements that are all of the same class.
+```{r, eval = FALSE}
+vec <- (1, 1.000, "1", TRUE)
+```
+
 
 ### Subsetting Vectors
 Sometimes we want to pull out and work with specific values from a vector. This is
 called sub-setting (taking a smaller set of the original)
 ```{r}
-# Sub-setting vectors
 # Use square brackets
 mass_kg[2]
 mass_kg[2:4]
 ```
-
 
 ## Functions
 
@@ -72,17 +107,22 @@ mass_kg[2:4]
 
 # functions are always followed by parentheses
 # anything you type into the parentheses are called arguments
-mass_kg_mean <- mean(mass_kg)   # square root
+mass_kg_mean <- mean(mass_kg)   # average of the mass_kg vector from above
+mass_kg_mean
+
 round(mass_kg_mean)             # rounding
 round(mass_kg_mean, digits = 2) # round to 2 digits past 0
 
 # to get more information about a function, use the help function
-help(mean) # or type ?help
+help(round) # or type ?help
 ```
 
 
-## 2-dimensional Data
-Most of the data you will encounter is two-dimensional, i.e. it has columns and rows (should be familiar for those of you who have worked with Excel before). R is really great at working with these types of data.  
+## 2-Dimensional Data: Data Frames
+Most of the data you will encounter is two-dimensional, i.e., it has columns and rows.
+Its structure resembles a spreadsheet. R is really good with these types of data.  
+
+Data frames are made up of multiple vectors. Each vector becomes a column.
 
 ```{r}
 # Create a simple data frame
@@ -109,13 +149,12 @@ plants$height
 
 
 ### Discussion point
-This is a simple data set, but let's come up with some questions. Let's write them on the board.  
+This is a simple data set, but let's come up with some questions. 
 
 Example: height of plants treated with nitrogen vs. those not treated. 
 ```{r}
 # filter rows based on values in the nitrogen column
 plants[plants$nitrogen == "Y", ]
-
 mean(plants[plants$nitrogen == "Y", 1])
 ```
 
@@ -125,40 +164,9 @@ Using help files on functions
 As a group, find the standard deviation `sd()` of the height of plants treated with 
 nitrogen and those not treated with nitrogen. Which group has the larger standard
 deviation? 
+
 Come up with a definition of standard deviation, use the help file to find out how
 the function works, and be prepared to show the code you used.  
-
-## Data classes
-There are a few main types in R, and they behave differently. 
-
-- numeric (numbers)
-  * integer  
-  * double 
-- character (letters or mixture) 
-- logical (True or False; T or F) 
-- factors (kind of)   
-
-```{r}
-# Examples of different data classes
-num <- c(2, 4, 6, 8)
-char <- c("cat", "dog", "bird")
-logic <- c(T, F, F, T)
-```
-
-
-## The big takeaways:  
-1. You can use `class()` to determine the class (or some easier ways for big 
-data frames that we'll cover later in the course)  
-2. Columns that end up being character vectors can trip you up a lot  
-3. Vectors must be of all the same data type
-
-```{r, eval=FALSE}
-# Comparison
-1 + 1 + 1 + 1
-"1" + "1" + "1" + "1"
-
-vec <- (1, 1.000, "1", TRUE)
-```
 
 
 # Rmarkdown and Code Chunks (10 minutes)
@@ -200,9 +208,10 @@ max(Orange$circumference)
 
 ```
 
-### Group challenge  (Until the end of class)  
+### Group challenge 
+
 Construct a new Rmarkdown script (with all of the appropriate formatting we discussed) 
 that calculates the average (mean) circumference of trees in the orange data set. 
 Save the mean as an object called "avg_circ."
 
-Save the script and be ready to share it at the beginning of next class. 
+Save the script and be ready to share it.
