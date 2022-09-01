@@ -93,6 +93,19 @@ original)
 Functions are pre-written bits of codes that perform specific tasks for
 us.
 
+Functions are always followed by parentheses. Anything you type into the parentheses are called arguments
+
+```{r}
+
+```
+
+To get more information about a function, use the `help()` function.
+```{r}
+
+```
+
+We can use a function called `class()` to figure out the data type of a
+vector.
 ```{r}
 
 ```

@@ -117,19 +117,26 @@ mass_kg[2:4]
 Functions are pre-written bits of codes that perform specific tasks for
 us.
 
+Functions are always followed by parentheses. Anything you type into the parentheses are called arguments
+
 ```{r}
 ## Functions
-
-# functions are always followed by parentheses
-# anything you type into the parentheses are called arguments
 mass_kg_mean <- mean(mass_kg)   # average of the mass_kg vector from above
 mass_kg_mean
 
 round(mass_kg_mean)             # rounding
 round(mass_kg_mean, digits = 2) # round to 2 digits past 0
+```
 
-# to get more information about a function, use the help function
+To get more information about a function, use the `help()` function.
+```{r}
 help(round) # or type ?help
+```
+
+We can use a function called `class()` to figure out the data type of a
+vector.
+```{r}
+
 ```
 
 ### Group Challenge
