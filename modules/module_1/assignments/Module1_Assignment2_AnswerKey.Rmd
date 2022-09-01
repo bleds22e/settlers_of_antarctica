@@ -35,7 +35,8 @@ mean(counts)
 
 
 ```{r import_data}
-team_data <- read.csv("../data/mission_team_data.csv")
+library(tidyverse)
+team_data <- read_csv("../data/team_antartica_responses.csv") %>% drop_na()
 ```
 
 4. 
@@ -45,37 +46,46 @@ head(team_data, 10)
 
 5. 
 ```{r}
-team_data[3, 4]
+team_data[7, 9]
 ```
 
 
 6. 
-```{r average_weight}
-mean(team_data$weight_kg)
+```{r average_cold_tolerance}
+mean(team_data$Cold_tolerance)
 ```
 
 7. 
-```{r min_max_height}
-# minimum height
-min(team_data$height_cm)
+```{r min_max_distance}
+# minimum distance
+min(team_data$Distance_mi)
 
-# maximum height
-max(team_data$height_cm)
+# maximum distance
+max(team_data$Distance_mi)
 ```
 
 8.
-```{r }
-team_data[team_data$specialties == "Management",]
+```{r cooking_skill}
+team_data[team_data$Cooking_skill == 5, ]
 ```
 
 
 9. 
 
-```{r specialties}
+```{r parka_colors}
 # 9a
-specialties <- unique(team_data$specialties)
-specialties
+colors <- unique(team_data$Parka_color)
+colors
 
-# 9b
-length(specialties)
+#9b
+length(colors)
 ```
+
+Bonus
+```{r flag_mascot}
+# UA data frame
+UA <- team_data[team_data$Team == "University of Arizona",]
+# count of each animal
+table(UA$Team_flag)
+```
+
