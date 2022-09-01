@@ -1,0 +1,162 @@
+---
+title: "Module 1, Assignment 2: Getting to Know the Team"
+author: "Ellen Bledsoe"     # <- your name here!
+date: "`r Sys.Date()`"      # <- uses the current date when rendered
+output: 
+  github_document: default
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Assignment Description
+
+### Purpose
+
+The goal of this assignment is to get comfortable using R to look at 1-
+and 2-dimensional data sets.
+
+### Task
+
+Write R code to successfully answer each question below.
+
+### Criteria for Success
+
+-   Code is within the provided code chunks
+-   Code is commented with brief descriptions of what the code does
+-   Code chunks run without errors
+-   Code produces the correct result
+
+### Due Date
+
+Sept 15 at midnight MST
+
+# Assignment Questions
+
+*Remember to comment your code and run each chunk of code as you go!*
+
+Each question is worth 2 points.
+
+## Vectors
+
+Let's start working with vectors, or 1-dimensional data, first.
+
+Run this chunk of code to create a vector of data to use.
+
+```{r vector}
+
+```
+
+1.  What data class is `counts`? Write a line of code that tells you.
+
+```{r data_class}
+
+```
+
+2.  Write a line of code that pulls out the 2nd value in the vector.
+
+```{r second_value}
+
+```
+
+3.  Calculate the average number of penguins that were counted.
+
+```{r avg_penguins}
+
+```
+
+## Data Frames
+
+Now that we've practiced with vectors, let's move on to 2-dimensional
+data.
+
+Remember that quiz we took in class with fun/silly questions about our
+trip to Antarctica? It's time to play around with that data!
+
+The following code chunk will read in the data. Be sure to run it before
+try to answer the questions!
+
+```{r import_data}
+team_data <- read_csv("../data/team_antarctica_responses.csv") %>% drop_na()
+```
+
+Running the code chunk above produces a message that gives us some
+useful information, even before we look at the data set (alternatively,
+you can check it out in the environment tab to the right).
+
+-   What are the dimensions of the data?
+-   What are the names of the columns in the data?
+-   What data *class* do you expect to find in each column (i.e.,
+    numbers, character strings, T/F, etc.)
+
+4.  Take a look at the data frame using the `head()` function.
+    Typically, `head()` provides the first 6 rows of data. Modify one of
+    the arguments in `head()` so that the line of code prints the first
+    10 rows. (If you aren't sure how to do that, remember how you can
+    look for help about functions!)
+
+```{r examine_data}
+
+```
+
+5.  Using what you know about sub setting data frames, write a line of
+    code the pulls out the parka color for UniqueID 7 (row 7).
+
+```{r parka7}
+
+```
+
+When we have a large data set like this, it is often helpful to
+summarize the data in some way. The next few questions will help use get
+a better understanding of the content of the data set.
+
+6.  On average, how did people rate their cold tolerance?
+
+```{r average_cold_tolerance}
+
+```
+
+7.  What is the minimum and maximum distance that would be traveled by a
+    team member to get to Antarctica? Use `min()` and `max()`.
+
+```{r min_max_distance}
+
+```
+
+8.  Create a data frame that only includes rows of data for people who
+    rated their cooking skills as a 5. (Hint: numbers do not need
+    quotation marks around them).
+
+```{r cooking_skill}
+
+```
+
+9.  How many different parka colors will we have? This will require two
+    steps (2 points per step).
+
+    a.  First, use the `unique()` function to pull out each distinct
+        value from the `Parka_color` column. Save this as an object
+        called `colors`, which is now a vector.
+    b.  Use the `length()` function to count how many distinct
+        specialties are in the `colors` vector.
+
+```{r parka_colors}
+
+```
+
+## Bonus (up to 2 points)!
+
+What animal should be on our team flag?
+
+First, create a new data frame called `UA` that has only University of
+Arizona students. Next, use the `table()` function on the `Team_flag`
+column. This will give you the number of times each option was chosen.
+According to the results, which animal should be on our team flag?
+
+```{r flag_mascot}
+
+```
