@@ -36,7 +36,7 @@ mean(counts)
 
 ```{r import_data}
 library(tidyverse)
-team_data <- read_csv("../data/team_antartica_responses.csv") %>% drop_na()
+team_data <- read_csv("../data/team_antarctica_responses.csv") %>% drop_na()
 ```
 
 4. 

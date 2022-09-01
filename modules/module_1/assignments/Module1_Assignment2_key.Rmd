@@ -85,7 +85,7 @@ The following code chunk will read in the data. Be sure to run it before
 try to answer the questions!
 
 ```{r import_data}
-team_data <- read_csv("../data/team_antartica_responses.csv") %>% drop_na()
+team_data <- read_csv("../data/team_antarctica_responses.csv") %>% drop_na()
 ```
 
 Running the code chunk above produces a message that gives us some
