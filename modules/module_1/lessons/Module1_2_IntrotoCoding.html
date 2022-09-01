@@ -11,7 +11,7 @@
 
 <meta name="author" content="Ellen Bledsoe" />
 
-<meta name="date" content="2022-08-31" />
+<meta name="date" content="2022-09-01" />
 
 <title>Module 1: Intro to Coding in R</title>
 
@@ -361,7 +361,7 @@ pre code {
 
 <h1 class="title toc-ignore">Module 1: Intro to Coding in R</h1>
 <h4 class="author">Ellen Bledsoe</h4>
-<h4 class="date">2022-08-31</h4>
+<h4 class="date">2022-09-01</h4>
 
 </div>
 
@@ -381,21 +381,16 @@ pre code {
 </ul></li>
 <li>Students will be able to run code line-by-line and as code chunks
 from an Rmarkdown file.</li>
-<li>Students will be able to comment their code effectively.<br />
-</li>
+<li>Students will be able to comment their code effectively.</li>
 <li>Students will be able to write code assign values to variables and
-use these variables to perform various operations.<br />
-</li>
+use these variables to perform various operations.</li>
 <li>Students will be able to use help files to learn how to use
-functions.<br />
-</li>
+functions.</li>
 <li>Students will be able to recall and explain how functions operate,
 and the basic syntax around functions (arguments, auto-completion,
-parentheses).<br />
-</li>
+parentheses).</li>
 <li>Students will be able to differentiate different data classes in
-R.<br />
-</li>
+R.</li>
 <li>Students will learn how to create their own data structures
 (vectors, data frames).</li>
 </ul>
@@ -427,8 +422,8 @@ a particular object. This is a basic data structure in R.</p>
 <li>factors (best used for ordinal data; levels indicate the order)</li>
 </ul>
 <p>Vectors have to contain elements that are all of the same class.</p>
-<div id="subsetting-vectors" class="section level3">
-<h3>Subsetting Vectors</h3>
+<div id="sub-setting-vectors" class="section level3">
+<h3>Sub-setting Vectors</h3>
 <p>Sometimes we want to pull out and work with specific values from a
 vector. This is called sub-setting (taking a smaller set of the
 original)</p>
@@ -438,25 +433,43 @@ original)</p>
 <h2>Functions</h2>
 <p>Functions are pre-written bits of codes that perform specific tasks
 for us.</p>
+<div id="group-challenge" class="section level3">
+<h3>Group Challenge</h3>
+<p>Let’s practice! Write a few lines of code that do the following:</p>
+<ul>
+<li>create a vector with a number from 6 to 1</li>
+<li>assign the vector to an object named <code>vec</code></li>
+<li>subset <code>vec</code> to include the last 3 numbers (should
+include 3, 2, 1)</li>
+<li>find the sum of the numbers (hint: use the <code>sum()</code>
+function)</li>
+</ul>
+<p>Already finished? See if you can condense your code down any further
+or turn around and help out a neighbor.</p>
+</div>
 </div>
 <div id="dimensional-data-data-frames" class="section level2">
 <h2>2-Dimensional Data: Data Frames</h2>
 <p>Most of the data you will encounter is two-dimensional, i.e., it has
 columns and rows. Its structure resembles a spreadsheet. R is really
 good with these types of data.</p>
+<ul>
+<li><strong>rows</strong> go side-to-side</li>
+<li><strong>columns</strong> go up-and-down</li>
+</ul>
 <p>Data frames are made up of multiple vectors. Each vector becomes a
 column.</p>
-<div id="subsetting-data-frames" class="section level3">
-<h3>Subsetting Data Frames</h3>
+<div id="sub-setting-data-frames" class="section level3">
+<h3>Sub-setting Data Frames</h3>
 <p>Because data frames are two-dimensional, we can subset data in
 different ways. We can select specific columns, specific rows, or filter
 rows by values.</p>
+<p>R always takes information for the row first, then the column.</p>
 </div>
 <div id="discussion-point" class="section level3">
 <h3>Discussion point</h3>
-<p>This is a simple data set, but let’s come up with some questions.</p>
-<p>Example: height of plants treated with nitrogen vs. those not
-treated.</p>
+<p>Plants is a simple data set, but let’s come up with some
+questions.</p>
 </div>
 <div id="group-challenge-5-min" class="section level3">
 <h3>Group Challenge (5 min)</h3>
@@ -465,14 +478,26 @@ treated.</p>
 height of plants treated with nitrogen and those not treated with
 nitrogen. Which group has the larger standard deviation?</p>
 <p>Come up with a definition of standard deviation, use the help file to
-find out how the function works, and be prepared to show the code you
-used.</p>
+find out how the <code>sd()</code> function works, and be prepared to
+show the code you used.</p>
 </div>
+</div>
+<div id="helpful-functions" class="section level2">
+<h2>Helpful Functions</h2>
+<p>Below are some functions that I often find very helpful when working
+with vectors and data frames:</p>
+<ul>
+<li><code>str()</code></li>
+<li><code>head()</code> and <code>tail()</code></li>
+<li><code>length()</code></li>
+<li><code>ncol()</code> and <code>nrow()</code></li>
+<li><code>names()</code></li>
+</ul>
 </div>
 </div>
 <div id="rmarkdown-and-code-chunks-10-minutes" class="section level1">
 <h1>Rmarkdown and Code Chunks (10 minutes)</h1>
-<p>Rmarkdown (.Rmd) is a file format that let’s us incorporate text and
+<p>Rmarkdown (.Rmd) is a file format that lets us incorporate text and
 code into one document seamlessly. In fact, it is the file format for
 this document!</p>
 <p>To open a new Rmarkdown file, go the File &gt; New File &gt; R
@@ -480,23 +505,29 @@ Markdown. Enter a title for the document (short but descriptive), your
 name, and make sure the default output HTML is selected.</p>
 <p>When the Rmd file opens, you’ll see that there is already stuff in
 it! The file will have a header with the information you entered, some
-code chunks, and some text explaining how Rmd files work. * For writing
-text, you can type as you would normally * Code chunks are a bit
-different. To include text in them, you will need to put a # in front. R
-will not read anything after the # as code. Chunks look like this:</p>
+code chunks, and some text explaining how Rmd files work.</p>
+<ul>
+<li>For writing text, you can type as you would normally</li>
+<li>Code chunks are a bit different. To include text in them, you will
+need to put a # in front. R will not read anything after the # as code.
+Chunks look like this:</li>
+</ul>
 <p>Type your R code in between the lines with the ```. A quick shortcut
-for adding a code chunk is Ctrl + Atl + i (Cmd + Opt + i on a Mac).
-Alternatively, you can go to Code &gt; Insert Chunk.</p>
+for adding a code chunk is <code>Ctrl + Atl + i</code>
+(<code>Cmd + Opt + i</code> on a Mac). Alternatively, you can go to Code
+&gt; Insert Chunk.</p>
 <p>To run a chunk of code, click the green arrow on the far right side
 of the chunk.</p>
 <p>Let’s work with an example code chunk:</p>
-<div id="group-challenge" class="section level3">
+<div id="group-challenge-1" class="section level3">
 <h3>Group challenge</h3>
 <p>Construct a new Rmarkdown script (with all of the appropriate
 formatting we discussed) that calculates the average (mean)
 circumference of trees in the orange data set. Save the mean as an
 object called “avg_circ.”</p>
 <p>Save the script and be ready to share it.</p>
+<p>If you’re already finished, try this challenge. Find the average age
+for a subset of trees (3-5).</p>
 </div>
 </div>
 
