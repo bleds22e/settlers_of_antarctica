@@ -48,7 +48,8 @@ Let's start working with vectors, or 1-dimensional data, first.
 Run this chunk of code to create a vector of data to use.
 
 ```{r vector}
-
+# vector with counts of penguins
+counts <- c(2, 9, 4, 3, 6, 7, 1, 0, 3)
 ```
 
 1.  What data class is `counts`? Write a line of code that tells you.
