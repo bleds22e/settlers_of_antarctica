@@ -237,5 +237,5 @@ in the orange data set. Save the mean as an object called "avg_circ."
 
 Save the script and be ready to share it.
 
-If you're already finished, try this challenge. Find the average age for
-a subset of trees (3-5).
+If you're already finished, try this challenge. Find the average circumference of
+trees aged 484 days.
