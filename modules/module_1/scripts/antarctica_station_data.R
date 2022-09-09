@@ -29,8 +29,13 @@ for(i in 1:length(files)) {
     mutate(station_id = str_remove(str_sub(files[i], start = -16), 
                                    pattern = ".txt"))
   
-  all_station_data = bind_rows(all_station_data, temp)
+  all_station_data <- bind_rows(all_station_data, temp)
   
 }
+
+# replace 444 and 444.0 with NA
+all_station_data <- all_station_data %>% 
+  mutate(across(where(is.double), ~na_if(., c(444))))
+
 
 write_csv(all_station_data, "./modules/module_1/data/aggregated_station_data.csv")
