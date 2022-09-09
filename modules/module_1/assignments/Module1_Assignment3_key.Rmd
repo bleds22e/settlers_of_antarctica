@@ -35,47 +35,66 @@ Sept 15 at midnight MDT
 
 For this final assignment for Module 1, you'll be working with another real-world data set--a collection of data from climate stations scattered across Antarctica.
 
-1.  Load in the `tidyverse` package.
+1.  In your own words, describe what the `tidyverse` is. Your answers should be between 1-3 sentences.
+
+2.  Load in the `tidyverse` package.
 
 ```{r load_tidyverse}
 # load packages
 library(tidyverse)
 ```
 
-2.  Load in the data file (called aggregated_station_data.csv). Save the data as an object called `weather`.
+3.  Load in the data file (called aggregated_station_data.csv). Save the data as an object called `weather`.
 
 (Hint: remember to use the `tidyverse` function for reading in data! If it doesn't pop up when you start typing, you probably forgot to run the code chunk above).
 
 ```{r load_data}
 # read in weather station data
-weather <- read_csv("../data/aggregated_station_data.csv")
+weather <- read_csv("../data/aggregated_station_data.csv",
+                    na = c("", "NA", "444", "444.0"))
 ```
 
-3.  How many rows and columns are in the data? Type your answers below:
+4.  How many rows and columns are in the data? Type your answers below:
 
     rows: 139, 144
 
     columns: 12
 
-4.  Write code to determine how many unique stations are in the data set.
+5.  Create a data frame that includes temperatures which are above freezer (AKA greater than 0)
 
-(Hint: look up the help file for the `distinct()` function).
-
-```{r unique_stations}
-# number of unique stations
-weather %>% 
-  distinct(station_id) %>% 
-  count() # optional 
-
+```{r}
+filter(weather, temp > 0)
 ```
 
-5.  Write a chunk of code that calculates the mean temperature for the month of January for each station.
+6.  Create a new data frame called `temp` that includes *only* the following columns: year, day, month, temp, station_id.
 
-    Some hints:
+```{r temp_df}
+select(weather, hour:month, temp, station_id)
+```
 
-    -   take note of how months are represented in the data
+7.  Using the data frame you created in Q5 above (`temp`), add a new column to that data frame that converts the temperature column (currently in Celsius) to Fahrenheit. Call the new column `tempF`. (Hint: we did this in class--use that same equation)
 
-    -   think about using the pipe, how we choose which rows we want, and how we split-apply-combine
+```{r tempF}
+temp %>% 
+  mutate(tempF = temp*(9/5) + 32)
+```
+
+8.  In your own words (either bullet points or sentence form is fine), explain two benefits of using the pipe (`%>%`).
+
+9.  Find the minimum temperature recorded for each month (in Celsius). (Hint: think about months first (split) and then temp (apply))
+
+```{r}
+temp %>% 
+  group_by(month) %>% 
+  summarise(min_temp = min(temp))
+```
+
+10. Create a data frame with the mean temperature for the month of January for each station.
+
+Some hints:
+
+-   take note of how months are represented in the data
+-   think about using the pipe, how we choose which rows we want, and how we split-apply-combine
 
 ```{r mean_jan_temp}
 weather %>% 
@@ -84,14 +103,13 @@ weather %>%
   summarize(mean_temp = mean(temp))
 ```
 
-6.  Write code to determine which station had the coldest average temperature in January.
+## Bonus! (up to 2 points)
 
-(hint: look up the `arrange()` function)
+Write code to determine how many unique stations are in the `weather` data set. (Hint: look up the help file for the `distinct()` and the `count()` functions).
 
-```{r}
+```{r unique_stations}
+# number of unique stations
 weather %>% 
-  filter(month == 1) %>% 
-  group_by(station_id) %>% 
-  summarize(mean_temp = mean(temp)) %>% 
-  arrange(mean_temp)
+  distinct(station_id) %>% 
+  count() 
 ```
