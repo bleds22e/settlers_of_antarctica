@@ -1,49 +1,63 @@
 ---
-title: "Module 2-1"
+title: "Module 2: Food Gone Bad"
+author: "Keaton Wilson, modified by EKB"
 output:
-  github_document: default
   html_document: default
+editor_options: 
+  markdown: 
+    wrap: 72
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-## Learning Objectives  
-1. Students will become familiar with the real-world problem for this module - 
-food poisoning due to an outbreak of disease in one of the species of fish that 
-is grown in recirculating aquaculture systems.  
-2. Students will be be able to generate two types of plots using base R syntax 
-to visualize single variables (histograms and distributions) and two variables 
-(scatterplots).
-3. Students will develop visual-thinking skills to create visualizations that 
-allow them to explore patterns in data, draw inferences and create solutions.  
 
-## Introduction to the problem  
-Overall, the issue here is that we have a wave of people getting sick across 
-the team. People are coming in complaining of stomach sickness - doctors have 
-ruled out a communicable viral infection like norovirus, and it seems to be a 
-food contamination issue.  
+# Introduction to Plotting
 
-The two main sources of food that are grown on site and distributed to team 
-members are [plants grown in hydroponic greenhouses](https://thespoon.tech/scientists-in-antarctica-grow-food-without-soil-or-sunlight-get-ready-mars/) 
-(mostly swiss chard, cucumbers and radishes) and fish (tilapia, a tolerant warm
--water species and rainbow trout, a cold-water species).  
+## Student Learning Outcomes
 
-**Diagram this next part on the board**  
+1.  Students will be able to apply basic data science knowledge to find
+    the cause of a real-world scenario--food poisoning!
+2.  Students will be able to generate two types of plots using base R
+    syntax to visualize a single continuous variable (histograms and
+    distributions) and two continous variables (scatterplots).
+3.  Students will be able to use visual-thinking skills to create
+    visualizations that allow them to explore patterns in data, draw
+    inferences, and create solutions.
 
-We have a good set of data on team members that are sick, and how much fish or 
-plant material they incorporate into their diets (team members vary in the 
-composition of their diet - people are allowed to choose how much of different 
-food sources they use).  
+## Introduction to the problem
 
-## Discussion - how might we figure this out?  
-Spend 5 minutes brainstorming in your groups how you might figure out whether 
-plants or fish are the culprits? Be ready to report out.  
+We have a wave of people getting sick across the team. People are coming
+in complaining of stomach sickness. Doctors have ruled out a
+communicable viral infection like norovirus, so it seems likely to be a
+food contamination issue.
 
-## Introduction to the dataset and visualization in R  
+The two main sources of food that are grown on site and distributed to
+team members are [plants grown in hydroponic
+greenhouses](https://thespoon.tech/scientists-in-antarctica-grow-food-without-soil-or-sunlight-get-ready-mars/)
+(mostly swiss chard, cucumbers and radishes) and fish (tilapia, a
+tolerant warm-water species, and rainbow trout, a cold-water species).
+Team members vary in the composition of their diet; people are allowed
+to choose how much of different food sources they eat.
 
-First we're going to pull in the data and give it a quick inspection/exploration
-before we start to work through some of the visualization tools in R.  
+Fortunately, we have some data to work with! We have data on the
+following:
+
+-   which team members are sick
+-   how much fish or plant material they incorporate into their diets
+
+### Group Discussion 
+
+How might we go about trying to figure out what is causing the problem?
+
+Spend 5 minutes brainstorming in your groups how you might figure out
+whether plants or fish are the culprits? Be ready to report out.
+
+## Introduction to the Dataset and Visualization in R
+
+First we're going to pull in the data and give it a quick
+inspection/exploration before we start to work through some of the
+visualization tools in R.
 
 ```{r}
 library(tidyverse)
@@ -61,14 +75,28 @@ hist(sick$age)
 
 ```
 
-## Mini Group Discussion - Histograms  
-What is this showing us? What conclusions can we draw from this data 
-visualization? How could this visualization be improved?   
+### Group Discussion 
 
-## Group Project - make a better histogram.  
-Work in your groups to build a histogram of weights with properly labeled axes, 
-a vertical line that depicts the median, and an appropriate visually appealing 
-bin size. Check out the `hist()` help page, and the `abline()` function. 
+Discuss this histogram with your group members. Some questions to
+consider:
+
+-   What *is* a histogram?
+-   What does a histogram tell us?
+-   What does each axis mean? (x-axis is horizontal, y-axis is vertical)
+-   What conclusions can we draw from this histogram in regards to age
+    and sickness?
+-   How can we improve this visualization?
+
+Take about 10 minutes. Be ready to report out.
+
+## Group Project 
+
+Let's make a better histogram.
+
+Work in your groups to build a histogram of weights with properly
+labeled axes, a vertical line that depicts the median, and an
+appropriate visually appealing bin size. Check out the `hist()` help
+page, and the `abline()` function.
 
 ```{r}
 hist(sick$age, breaks = 15, xlab = "Age", ylab = "Frequency", main = NULL)
@@ -76,25 +104,30 @@ abline(v = median(sick$age))
 
 ```
 
-## Brainstorm - Group activity  
-We've covered one type of visualization that just shows one variable... but what
-we're really interested in is figuring out if fish or plants are the culprit in 
-food poisoning. Spend 10 minutes in your groups sketching out a visualization 
-that might give us insight into this.  
+## Brainstorm - Group activity
 
-## Scatter plots  
+We've covered one type of visualization that just shows one variable...
+but what we're really interested in is figuring out if fish or plants
+are the culprit in food poisoning. Spend 10 minutes in your groups
+sketching out a visualization that might give us insight into this.
+
+## Scatter plots
+
 ```{r}
 plot(x = sick$age, y = sick$perc_fish)
 ```
 
-Not super informative, because there isn't really a relationship between a 
-person's age and the amount of fish they consume. At least not in this sample. 
+Not super informative, because there isn't really a relationship between
+a person's age and the amount of fish they consume. At least not in this
+sample.
 
 # Building and interpreting
-In your group, build out the plot that you conceived earlier that determines 
-whether there is a correlation between the percentage of fish eaten and the 
-number of trips to the doctor in the past 6 months. Use proper labelling and 
-aesthetic design principles to make it as visually appealing as possible.  
+
+In your group, build out the plot that you conceived earlier that
+determines whether there is a correlation between the percentage of fish
+eaten and the number of trips to the doctor in the past 6 months. Use
+proper labelling and aesthetic design principles to make it as visually
+appealing as possible.
 
 ```{r}
 plot(x = sick$perc_fish, y = sick$doctor_trips, 
@@ -104,5 +137,3 @@ plot(x = sick$perc_fish, y = sick$doctor_trips,
      pch = 16)
 
 ```
-
-
