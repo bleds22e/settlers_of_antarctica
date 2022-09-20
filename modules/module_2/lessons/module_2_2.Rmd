@@ -1,10 +1,8 @@
 ---
 title: "Module 2_2 - Functions"
-author: "Keaton Wilson"
+author: "Keaton Wilson, modified by EKB"
 output:
-  github_document: default
-  #pdf_document: default
-  #html_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
