@@ -46,14 +46,14 @@ following:
 -   which team members are sick
 -   how much fish or plant material they incorporate into their diets
 
-### Group Discussion 
+### Group Discussion
 
 How might we go about trying to figure out what is causing the problem?
 
 Spend 5 minutes brainstorming in your groups how you might figure out
 whether plants or fish are the culprits? Be ready to report out.
 
-## Introduction to the Dataset and Visualization in R
+## The Data
 
 First we're going to pull in the data and give it a quick
 inspection/exploration before we start to work through some of the
@@ -63,19 +63,26 @@ visualization tools in R.
 library(tidyverse)
 
 sick <- read_csv("../data/sick_data.csv")
-sick
-glimpse(sick)
-
-# Basic visualization - in base R, the plot(), and some others function is your 
-# friend. We'll talk about some tidyverse ways to plot that are a bit more 
-# powerful later, but you really can do any kind of plotting you want with base 
-# R. 
-
-hist(sick$age)
-
+head(sick)
 ```
 
-### Group Discussion 
+## Visualization in (base) R
+
+Later in the semester, we will use a package from the `tidyverse` called
+`ggplot2` which is a very powerful way to make effective visualizations
+of data. However, it takes a bit of learning to make even a simple plot.
+
+For now, we are going to use some base R plotting functions to quickly
+make some plots.
+
+Data visualization is one of many techniques used to help us understand
+our data. One such plot is a histogram.
+
+```{r}
+hist(sick$age)
+```
+
+### Group Discussion
 
 Discuss this histogram with your group members. Some questions to
 consider:
@@ -89,7 +96,7 @@ consider:
 
 Take about 10 minutes. Be ready to report out.
 
-## Group Project 
+### Group Project
 
 Let's make a better histogram.
 
@@ -104,7 +111,7 @@ abline(v = median(sick$age))
 
 ```
 
-## Brainstorm - Group activity
+### Group Brainstorm
 
 We've covered one type of visualization that just shows one variable...
 but what we're really interested in is figuring out if fish or plants
@@ -115,25 +122,30 @@ sketching out a visualization that might give us insight into this.
 
 ```{r}
 plot(x = sick$age, y = sick$perc_fish)
+
+# we can also use xlab and ylab here
 ```
 
 Not super informative, because there isn't really a relationship between
 a person's age and the amount of fish they consume. At least not in this
 sample.
 
-# Building and interpreting
+### Building and Interpreting
 
-In your group, build out the plot that you conceived earlier that
-determines whether there is a correlation between the percentage of fish
-eaten and the number of trips to the doctor in the past 6 months. Use
-proper labelling and aesthetic design principles to make it as visually
-appealing as possible.
+In your group, create a scatter plot to determine whether there is a
+correlation between the percentage of fish eaten and the number of trips
+to the doctor in the past 6 months.
+
+Add some clearer x-axis labels and y-axis labels and aesthetic to make
+it as visually appealing as possible. [This
+website](http://www.sthda.com/english/wiki/r-plot-pch-symbols-the-different-point-shapes-available-in-r)
+will give you some insights into arguments (and values) you can use to
+make your plot "prettier." Feel free to have some fun experimenting!
 
 ```{r}
 plot(x = sick$perc_fish, y = sick$doctor_trips, 
      xlab = "Percentage Fish in Diet", 
      ylab = "Number of Trips to Doctor", 
-     main = NULL, 
      pch = 16)
 
 ```
