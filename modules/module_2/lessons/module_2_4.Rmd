@@ -82,10 +82,10 @@ fish_tank_data = read_csv("../data/fish_tank_data.csv")
 # function
 fish_sick_simulator = function(mean = NULL, species = "trout", sd = NULL){
   if(species == 'trout'){
-    sick_fish_vec = round(rnorm(n=17, mean = mean, sd = sd))
+    sick_fish_vec = round(rnorm(n=19, mean = mean, sd = sd))
     return(mean(sick_fish_vec)/74)
   } else {
-    sick_fish_vec = round(rnorm(n=33, mean = mean, sd = sd))
+    sick_fish_vec = round(rnorm(n=31, mean = mean, sd = sd))
     return(mean(sick_fish_vec)/100)
   }
 }

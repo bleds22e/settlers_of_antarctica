@@ -1,0 +1,96 @@
+---
+title: "Module2_3_SickFish"
+author: "Keaton Wilson, EKB"
+output:
+  html_document: default
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Scenario
+
+Here is our current scenario.
+
+**What we know**: We found a correlation between eating fish and people
+getting sick, but that isn't really the root of the problem. We have
+also found that a number of tanks are below the average temperature that
+might cause issues with fish immune systems.
+
+**What we don't know**: We don't actually know if rates of disease are
+present above average levels in the tanks, and we definitely don't know
+what kinds of factors are contributing to this problem (if there is
+one!).
+
+Our first challenge is that we can't sample the disease rate in all
+tanks. It's too expensive and takes too long. Instead of sampling all
+1000 tanks, we've tasked our aquaculture scientists to take a sub-sample
+(50 tanks). Our aquaculture scientists have shared this data with us.
+
+Let's scope it out:
+
+```{r}
+
+```
+
+Oh no, we might need to add a Fahrenheit column...let's practice.
+
+```{r}
+
+```
+
+## Data Exploration
+
+One of the best ways to get an idea of what our data look like and are
+telling us is by calculating some summary statistics.
+
+### Group Challenge
+
+Let's use the `tidyverse` to calculate some summary statistics for the
+data we have been given.
+
+Write some code that produces the following values *per species*.
+
+-   mean (average) number of sick fish
+-   mean (average) percentage of sick fish per tank
+-   how many tanks
+
+```{r}
+
+```
+
+Summary statistics (such as means) are helpful for giving us some ideas
+about our data, but they don't tell us the full story. Plotting data can
+give us some additional insights.
+
+Before we plot, let's create two different data frames: one for tilapia
+and one for trout.
+
+```{r}
+
+```
+
+Now, let's plot our data to get an idea of the distribution (spread) of
+the data. We can make histograms to see if there are some tanks that
+have a lot of sick fish and are increasing this average or if most of
+the tanks seem to have about the same number of sick fish.
+
+What would these two different scenarios tell us?
+
+```{r}
+
+```
+
+## Is it temperature?
+
+Does it seem like temperature is the issue? Let's compare values from
+cold tanks to our overall values to see if there are major difference or
+we can figure out some answers.
+
+```{r}
+
+```
