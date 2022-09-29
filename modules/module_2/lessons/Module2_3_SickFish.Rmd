@@ -40,6 +40,10 @@ Let's scope it out:
 Oh no, we might need to add a Fahrenheit column...let's practice.
 
 ```{r}
+c_to_f <- function(c = NULL){
+  f <- (c * (9/5)) + 32
+  return(f)
+}
 
 ```
 
@@ -75,9 +79,12 @@ and one for trout.
 ```
 
 Now, let's plot our data to get an idea of the distribution (spread) of
-the data. We can make histograms to see if there are some tanks that
-have a lot of sick fish and are increasing this average or if most of
-the tanks seem to have about the same number of sick fish.
+the data. What might the distribution of the data tell us that an
+average can't?
+
+We can make histograms to see if there are some tanks that have a lot of
+sick fish and are increasing this average or if most of the tanks seem
+to have about the same number of sick fish.
 
 What would these two different scenarios tell us?
 
@@ -85,11 +92,102 @@ What would these two different scenarios tell us?
 
 ```
 
-## Is it temperature?
+Let's compare values from tanks which are below the temperature cutoffs
+to those which are above the cutoffs to see if there are major
+difference or we can figure out some answers.
 
-Does it seem like temperature is the issue? Let's compare values from
-cold tanks to our overall values to see if there are major difference or
-we can figure out some answers.
+## Using the `if_else()` function
+
+Before we start calculating means and plotting, let's create a new
+column in our data frame to indicate whether the tank temperature is
+above or below the cutoff temperature. We will use our fish-specific
+data frames to do this.
+
+A useful function that we can use when we want to create a new column
+based on values in another column is the `if_else()` function. It
+operates the following way: 1. IF a condition is true, do [something].
+2. IF a condition is false, do [something ELSE].
+
+```{r}
+
+```
+
+### Individual Challenge
+
+Practice using the `if_else()` function as we did above. This time, use
+the sick_trout dataframe. Remember to change the bits of the code that
+you need to!
+
+```{r}
+
+```
+
+## Another Type of Iteration: `for loop`
+
+Another way we could write something like this is by using the
+`if_else()` function in something we call a `for loop`.
+
+Before we do that, though, let's talk through the general structure of a
+`for loop`. It essentially says for each value in a list, do a certain
+task. The "loop" is because we are "looping" through a list of values,
+performing the task for one value then looping back to the beginning to
+perform the task for the next value. We type the "task" within curly
+brackets, similar to a function that we write.
+
+```{r}
+
+```
+
+Now that we know the general structure of a `for loop`, we can combine
+it with the `if_else()` function to create a new column.
+
+```{r}
+
+```
+
+*Note: I will never ask you to write a for loop completely from scratch.
+I might have you copy and paste one or change some values in one, but
+you won't have to write one out yourself.*
+
+### Group Challenge
+
+Try your hand at using the `for loop` we wrote above to create a new
+temperature cutoff column in the `sick_trout` data frame. Remember, the
+cutoff for trout was 59 F.
+
+```{r}
+
+```
+
+### Why `for loops`?
+
+Like with our last lesson about functions, I've asked you to perform a
+task in a new and complicated way than you need to for that task. Why?
+
+You'll find some examples
+[here](https://github.com/bleds22e/PP_shifts/blob/master/scripts/functions.R)
+in code written for my PhD dissertation.
+
+## Back to Data Exploration
+
+We now have 2 data frames, one with tilapia data and one with trout
+data. Each data frame also has a new column called `temp_cutoff`. On
+your own or with a partner, start exploring the data to figure out if
+there are differences between warm and cold tilapia and warm and cold
+trout.
+
+Can you pinpoint an issue? Let's start by comparing means.
+
+```{r}
+
+```
+
+Not much popping out in the means. Next thing to check would be
+histograms of the number of sick fish for both species, above and below
+the cutoffs.
+
+For now, I would recommend making 4 different data frames (this isn't
+"best practice" but it is really helpful while you are learning).
 
 ```{r}
 
