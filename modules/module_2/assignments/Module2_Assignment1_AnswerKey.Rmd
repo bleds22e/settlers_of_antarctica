@@ -1,0 +1,63 @@
+---
+title: "Module 2, Assignment 1"
+author: "Ellen Bledsoe"
+date: '2022-09-29'
+output:
+  html_document:
+    df_print: paged
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, fig_crop = FALSE)
+```
+
+
+```{r message = FALSE}
+library(palmerpenguins)
+library(tidyverse)
+```
+
+2. 
+
+```{r}
+head(penguins)
+```
+4.
+```{r}
+hist(penguins$body_mass_g)
+```
+
+
+5.  
+
+```{r}
+hist(penguins$body_mass_g, main = NULL,
+     xlab = "[Insert more descriptive axis label here]",
+     ylab = "Frequency of [insert]",
+     labels = TRUE)
+```
+
+6.  
+```{r}
+hist(penguins$body_mass_g, main = NULL,
+     xlab = "[Insert better label here]",
+     ylab = "Frequency of [value]",
+     labels = TRUE)
+abline(v = mean(penguins$body_mass_g, na.rm = TRUE), col = "red")
+```
+
+7.  
+
+```{r}
+plot(x = penguins$flipper_length_mm, y = penguins$bill_length_mm)
+```
+
+
+9.  
+
+```{r}
+plot(penguins$flipper_length_mm, penguins$bill_length_mm,
+     xlab = "[Insert better label here]",
+     ylab = "[Insert better label here]")
+```
