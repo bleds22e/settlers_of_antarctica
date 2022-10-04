@@ -35,4 +35,6 @@ October 11 at midnight MST
 
 # Assignment Questions
 
-1. Our goal for this assignment is to start with a dataframe, summarize the data in constructive ways and plot the data. To get from point a to point b to point c requires some planning.
+Our goal for this assignment is to start with a dataframe, summarize the data in constructive ways and plot the data. To get from point a to point b to point c requires some planning. In this assignment, we will make a plan, execute how we would actually go about the process, and then evaluate how well our original plan matches with the path we actually used.
+
+First, let's take a look at the data we will be using for the assignment. Use the `head` function to get an idea of what the data look like.
