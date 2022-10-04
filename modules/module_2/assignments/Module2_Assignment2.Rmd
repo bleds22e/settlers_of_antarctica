@@ -42,8 +42,7 @@ You should reference the [2_Functions](https://rstudio.cloud/spaces/269799/conte
 1.  Load both the `tidyverse` and `palmerpenguin` packages into our work space. (2 points)
 
 ```{r}
-library(tidyverse)
-library(palmerpenguins)
+
 ```
 
 ------------------------------------------------------------------------
@@ -60,7 +59,7 @@ Right now, the bill length, bill depth, and flipper length measurements are in m
 
 ------------------------------------------------------------------------
 
-2.  First, let's write a custom function that will convert any value we give it from millimeters to centimeters. (3 points)
+2.  First, let's write a custom function that will convert any value we give it from millimeters to centimeters. Replace the missing bits of code (\_\_\_) with the correct code. (3 points)
 
     Add in all the necessary information, including:
 
@@ -69,9 +68,9 @@ Right now, the bill length, bill depth, and flipper length measurements are in m
     -   what value the function should return
 
 ```{r}
-mm_to_cm <- function(mm){
-  cm <- mm / 10
-  return(cm)
+mm_to_cm <- function(___){
+  cm <- ___ / 10
+  return(___)
 }
 ```
 
@@ -83,8 +82,6 @@ Don't forget to run the code chunk above to add your function to the environment
 # run the line of code below to create a vector called `vec`
 vec <- c(66, 39, 40, 2, 439, 0, 54)
 
-mm_to_cm(42)
-mm_to_cm(vec)
 ```
 
 4.  Now that we have our new function working, we can iterate! Let's use it to create 3 new columns: `bill_length_cm`, `bill_depth_cm`, and `flipper_length_cm`. (3 points)
@@ -94,10 +91,7 @@ mm_to_cm(vec)
     Note: you can either put multiple arguments into the `mutate` function (as we've done with `filter` and `summarize`) or you can overwrite `penguins_cm` multiple times, but I want all three new columns in the new `penguins_cm` data frame.
 
 ```{r}
-penguins_cm <- penguins %>% 
-  mutate(bill_length_cm = mm_to_cm(bill_length_mm),
-         bill_depth_cm = mm_to_cm(bill_depth_mm),
-         flipper_length_cm = mm_to_cm(flipper_length_mm))
+
 ```
 
 Our colleague has now also asked us for the penguin body mass data to be in kilograms, not grams. (If he learned how to code, he could easily convert this data himself!)
@@ -111,34 +105,29 @@ Our colleague has now also asked us for the penguin body mass data to be in kilo
     -   what value the function should return
 
 ```{r}
-g_to_kg <- function(g){
-  kg <- g / 1000
-  return(kg)
-}
+g_to_kg <- 
 ```
 
-6.  Again, let's check that our function works, also using 42 and `vec`. (1 points)
+6.  Again, let's check that our function works, also using 42 and `vec`. (1 point)
 
 ```{r}
-g_to_kg(42)
-g_to_kg(vec)
+
 ```
 
 7.  This time, instead of using `mutate`, let's write a `for loop` to create a new column in the `penguins_cm` data frame. (4 points)
 
-    First, we need to create a new column called `body_mass_kg`. Fill in the missing code (\_\_\_) with the appropriate code. Remember to use the `$` operator to indicate the column!
+    First, we need to create a new column called `body_mass_kg`. Fill in the missing code (\_\_\_) with the appropriate code.
 
 ```{r}
-penguins_cm$body_mass_kg <- NA
+penguins_cm$body_mass_kg <- ___
 
-for (i in 1:nrow(penguins_cm)){
-  penguins_cm$body_mass_kg[i] <- g_to_kg(penguins_cm$body_mass_g[i])
+for (i in 1:nrow(___)){
+  penguins_cm$___[i] <- ___(penguins_cm$body_mass_g[i])
 }
 ```
 
 8.  Finally, let's create a data frame with only the columns our colleague needs--no columns with millimeters or grams. Call this data frame `penguins2`. (2 points)
 
 ```{r}
-penguins2 <- penguins_cm %>% 
-  select(-bill_length_mm, -bill_depth_mm, -flipper_length_mm, -body_mass_g)
+
 ```

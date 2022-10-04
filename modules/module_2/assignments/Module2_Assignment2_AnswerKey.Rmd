@@ -1,0 +1,76 @@
+---
+title: "Module 2, Assignment 2"
+author: "Ellen Bledsoe" 
+date: "2022-10-04"      
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r warning = FALSE}
+library(tidyverse)
+library(palmerpenguins)
+```
+
+```{r}
+mm_to_cm <- function(mm){
+  cm <- mm / 10
+  return(cm)
+}
+```
+
+3.  
+
+```{r}
+# run the line of code below to create a vector called `vec`
+vec <- c(66, 39, 40, 2, 439, 0, 54)
+
+mm_to_cm(42)
+mm_to_cm(vec)
+```
+
+4.  
+
+```{r}
+penguins_cm <- penguins %>% 
+  mutate(bill_length_cm = mm_to_cm(bill_length_mm),
+         bill_depth_cm = mm_to_cm(bill_depth_mm),
+         flipper_length_cm = mm_to_cm(flipper_length_mm))
+as_tibble(penguins_cm)
+```
+
+```{r}
+g_to_kg <- function(g){
+  kg <- g / 1000
+  return(kg)
+}
+```
+
+6.  
+
+```{r}
+g_to_kg(42)
+g_to_kg(vec)
+```
+
+7.  
+
+```{r}
+penguins_cm$body_mass_kg <- NA
+
+for (i in 1:nrow(penguins_cm)){
+  penguins_cm$body_mass_kg[i] <- g_to_kg(penguins_cm$body_mass_g[i])
+}
+
+as_tibble(penguins_cm)
+```
+
+8.  
+
+```{r}
+penguins2 <- penguins_cm %>% 
+  select(-bill_length_mm, -bill_depth_mm, -flipper_length_mm, -body_mass_g)
+as_tibble(penguins2)
+```
