@@ -1,0 +1,37 @@
+---
+title: "Module 2, Assignment 2"
+author: "Ellen Bledsoe"
+date: "2022-10-04"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Assignment Details
+
+### Purpose
+
+The goal of this assignment is to assess your ability to produce and interpret histograms and scatter plots.
+
+### Task
+
+Write R code which produces the correct answers and correctly interpret the plots produced.
+
+### Criteria for Success
+
+-   Code is within the provided code chunks
+-   Code is commented with brief descriptions of what the code does
+-   Code chunks run without errors
+-   Code produces the correct result
+    -   Code that produces the correct answer will receive full credit
+    -   Code attempts with logical direction will receive partial credit
+-   Written answers address the questions in sufficient detail
+
+### Due Date
+
+October 11 at midnight MST
+
+# Assignment Questions
+
