@@ -13,7 +13,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ### Purpose
 
-The goal of this assignment is to assess your ability to produce and interpret histograms and scatter plots.
+The goal of this assignment is to assess your ability to write custom functions and iterate code using a `for loop`. 
 
 ### Task
 
@@ -34,4 +34,34 @@ Write R code which produces the correct answers and correctly interpret the plot
 October 11 at midnight MST
 
 # Assignment Questions
+
+For this assignment, we will continue using the `penguins` data set from the `palmerpenguin` data package. 
+
+You should reference the [2_Functions]() and [3_SickFish]() lessons to complete this assignment.
+
+1. Load both the `tidyverse` and `palmerpenguin` packages into our workspace.
+```{r}
+library(tidyverse)
+library(palmerpenguins)
+```
+
+### Optional
+If you want the `penguins` data frame to show up in the environment, run the following code chunk.
+```{r}
+penguins <- penguins
+```
+Right now, the bill length, bill depth, and flipper length measurements are in millimeters (we know this from the column names). A colleague has asked for the data in centimeters. 
+
+2. First, let's write a custom function that will convert any value we give it from millimeters to centimeters. Add in all the necessary information, including:
+* argument(s)
+* code to convert from mm to cm (hint: divide by 10)
+* what value the function should return.
+```{r}
+mm_to_cm <- function(mm){
+  cm <- mm / 10
+  return(cm)
+}
+```
+
+Don't forget to run the code chunk above to add your function to the environment!
 

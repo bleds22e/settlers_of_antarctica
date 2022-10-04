@@ -1,0 +1,38 @@
+---
+title: "Module 2, Assignment 3"
+author: "Ellen Bledsoe"
+date: "2022-10-04"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Assignment Details
+
+### Purpose
+
+The goal of this assignment is to practice developing successful workflows to get from the starting data to a plot.
+
+### Task
+
+Write R code which produces the correct answers and reflect on workflow.
+
+### Criteria for Success
+
+-   Code is within the provided code chunks
+-   Code is commented with brief descriptions of what the code does
+-   Code chunks run without errors
+-   Code produces the correct result
+    -   Code that produces the correct answer will receive full credit
+    -   Code attempts with logical direction will receive partial credit
+-   Written answers address the questions in sufficient detail
+
+### Due Date
+
+October 11 at midnight MST
+
+# Assignment Questions
+
+1. Our goal for this assignment is to start with a dataframe, summarize the data in constructive ways and plot the data. To get from point a to point b to point c requires some planning.
