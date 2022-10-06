@@ -29,4 +29,4 @@ tilapia_growth$day_30_weight = abs(complement(y = tilapia_growth$perc_soy_protei
 tilapia_growth = as_tibble(tilapia_growth)
 tilapia_growth$avg_tank_temp = rnorm(320, mean = 75, sd = 2)
 
-write_csv(tilapia_growth, file = "../data/tilapia_growth.csv")
+write_csv(tilapia_growth, "")
