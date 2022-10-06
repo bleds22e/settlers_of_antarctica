@@ -35,6 +35,102 @@ October 11 at midnight MST
 
 # Assignment Questions
 
-Our goal for this assignment is to start with a dataframe, summarize the data in constructive ways and plot the data. To get from point a to point b to point c requires some planning. In this assignment, we will make a plan, execute how we would actually go about the process, and then evaluate how well our original plan matches with the path we actually used.
+Our goal for this assignment is to start with a data frame of data, summarize the data in constructive ways, and plot the data to answer some questions. To get from point a to point b to point c requires some planning. 
+
+In this assignment, we will make a plan, execute how we would actually go about the process, and then evaluate how well our original plan matches with the path we actually used. 
+
+## Data Summary
+The aquaculture scientists on Team Antarctica have been working on developing a new diet for tilapia based on soy-protein, and they are interested in whether incorporating this into fish diets will result in faster growth rates. They also want to know if those growth rates are related to average tank temperature. They've provided us with this data to analyze. 
 
 First, let's take a look at the data we will be using for the assignment. Use the `head` function to get an idea of what the data look like.
+
+1. As always, we start by loading the `tidyverse`. 
+
+```{r}
+library(tidyverse)
+```
+
+2. Next, we need to load in our tilapia growth dataset. Call the data frame `growth`. Then use both the `head` and `tail` functions to take a look at the data.
+```{r}
+growth <- read_csv("../data/tilapia_growth.csv")
+head(growth)
+tail(growth)
+```
+
+3. Before we can plan any strategy, we need to understand the data that we have. Answer the following questions about the data.
+  a. What does one row represent? (One tank? One temperature? One treatment? One fish?)
+  b. How many tanks of fish were sampled?
+  c. How many fish were sampled?
+  d. How many different "percent soy protein" levels are there?
+  
+## Our Task
+
+We have been asked by our aquaculture specialists to provide them with the following:
+  a. a data frame with the average growth (`day_30_weight`) per treatment (`perc_soy_protein`)
+  b. a scatter plot that shows the relationship (or lack thereof) between percent soy protein in the diet and the weight at 30 days
+  c. a data frame with the average growth per treatment (`perc_soy_protein`) *and* if tanks are above or below the temperature cutoff
+  d. a scatter plot that show the relationship (or lack thereof) between average tank temperature and the weight at 30 days
+
+## Prediction
+
+4. Spend some time thinking about each one of these steps. What steps will you need to take to produce the end result? What data frame will you use? What functions will you use? 
+
+For each of the 4 tasks listed above, _describe_ (do NOT code) how you will get from the starting point (a dataframe) to the result (another data frame or a plot). This question will not be graded on whether or not your plan is _correct_--only on completion.
+
+_Task (a)_:
+
+_Task (b)_:
+
+_Task (c)_:
+
+_Task (d)_:
+
+## Execution
+
+Now let's actually go ahead and complete our tasks with code.
+
+### Task (a)
+A data frame with the average growth (`day_30_weight`) per treatment (`perc_soy_protein`)
+
+5. 
+
+```{r}
+growth_by_treatment <- growth %>% 
+  group_by(perc_soy_protein) %>% 
+  summarize(mean_30weight = mean(day_30_weight),
+            sd_30weight = sd(day_30_weight))
+growth_by_treatment
+```
+
+
+### Task (b)
+A scatter plot that shows the relationship (or lack thereof) between percent soy protein in the diet and the weight at 30 days
+```{r}
+plot(x = growth$perc_soy_protein, y = growth$day_30_weight)
+```
+
+### Task (c)
+A data frame with the average growth per treatment (`perc_soy_protein`) *and* if tanks are above or below the temperature cutoff
+
+```{r}
+growth <- growth %>% 
+  mutate(temp_cutoff = if_else(avg_tank_temp >= 75, "above", "below"))
+
+
+growth_by_temp_and_treatment <- growth %>% 
+  group_by(perc_soy_protein, temp_cutoff) %>% 
+  summarise(mean = mean(day_30_weight))
+growth_by_temp_and_treatment
+```
+
+### Task (d)
+A scatter plot that show the relationship (or lack thereof) between average tank temperature and the weight at 30 days
+
+```{r}
+plot(x = growth$avg_tank_temp, y = growth$day_30_weight)
+```
+
+## Reflection
+Write 3-5 sentences about if and how your predictions and execution differed and what you learned through the process.
+
+Examples of questions to answer: How did your initial prediction of how you expected to accomplish the 4 tasks match up with how we actually went about doing it? Were they similar? Were there common mistakes that you made beforehand? Did you plan a different execution from what we did above that you think would also work? 
