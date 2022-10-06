@@ -29,4 +29,42 @@ tilapia_growth$day_30_weight = abs(complement(y = tilapia_growth$perc_soy_protei
 tilapia_growth = as_tibble(tilapia_growth)
 tilapia_growth$avg_tank_temp = rnorm(320, mean = 75, sd = 2)
 
-write_csv(tilapia_growth, "")
+write_csv(tilapia_growth, "../data/tilapia_growth.csv")
+
+## edit data to have more appropriate temperature data
+
+for (i in 1:nrow(tilapia_growth)){
+  if (tilapia_growth$tank_id[i] == 1) {
+    tilapia_growth$avg_tank_temp[i] =  77.2
+  } else if (tilapia_growth$tank_id[i] == 2) {
+    tilapia_growth$avg_tank_temp[i] = 75.9
+  } else if (tilapia_growth$tank_id[i] == 3) {
+    tilapia_growth$avg_tank_temp[i] = 74.8
+  } else if (tilapia_growth$tank_id[i] == 4) {
+    tilapia_growth$avg_tank_temp[i] = 72.4
+  } else if (tilapia_growth$tank_id[i] == 5) {
+    tilapia_growth$avg_tank_temp[i] = 75.2
+  } else if (tilapia_growth$tank_id[i] == 6) {
+    tilapia_growth$avg_tank_temp[i] = 76.0
+  } else if (tilapia_growth$tank_id[i] == 7) {
+    tilapia_growth$avg_tank_temp[i] = 73.9
+  } else if (tilapia_growth$tank_id[i] == 9) {
+    tilapia_growth$avg_tank_temp[i] = 73.1
+  } else if (tilapia_growth$tank_id[i] == 10) {
+    tilapia_growth$avg_tank_temp[i] = 75.2
+  } else if (tilapia_growth$tank_id[i] == 11) {
+    tilapia_growth$avg_tank_temp[i] = 76.4
+  } else if (tilapia_growth$tank_id[i] == 12) {
+    tilapia_growth$avg_tank_temp[i] = 71.9
+  } else if (tilapia_growth$tank_id[i] == 13) {
+    tilapia_growth$avg_tank_temp[i] = 75.9
+  } else if (tilapia_growth$tank_id[i] == 14) {
+    tilapia_growth$avg_tank_temp[i] = 73.2
+  } else if (tilapia_growth$tank_id[i] == 15) {
+    tilapia_growth$avg_tank_temp[i] = 74.7
+  } else {
+    tilapia_growth$avg_tank_temp[i] = 76.1
+  }
+}
+
+write_csv(tilapia_growth, "../data/tilapia_growth.csv")
