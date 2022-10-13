@@ -8,38 +8,146 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-## Packages
+
+# What is causing the food poisoning?
+
+## Set-up
+
+Let's load the package and data we will need.
+
+### Packages
+
 ```{r}
 library(tidyverse)
 ```
 
-## Data
+### Data
+
+We will likely want to look at both the fish tank dataset and the sick fish dataset, so we will read in both of them.
+
 ```{r}
-fish_tank_data <- read_csv("modules/module_2/data/fish_tank_data.csv")
-sick_fish <- read_csv("modules/module_2/data/fish_sick_data.csv")
+fish_tank_data <- read_csv("../data/fish_tank_data.csv")
+sick_fish <- read_csv("../data/fish_sick_data.csv")
 ```
 
-# Let's hone in on the problem - tilapia or trout
-sick_fish %>%
-  ggplot(aes(x = num_sick/num_fish, fill = species)) +
-  geom_density(alpha = 0.7) +
-  xlab("Percentage Sick/Tank") +
-  ylab("Density")
+## Was it Temperature?
 
-So trout are clearly the problem
-Let's isolate the trout data and figure out what tank parameters are wonky?
+Let's finish was we started in the "Sick Fish" project to see if temperature is the cause. We were working with 2 different data frames: one for each fish species.
 
 ```{r}
-trout <- fish_tank_data %>%
+# first, convert C to F
+c_to_f <- function(c = NULL){
+  f <- (c * (9/5)) + 32
+  return(f)
+}
+# create new column
+sick_fish <- sick_fish %>% 
+  mutate(avg_daily_tempF = c_to_f(avg_daily_temp))
+
+# create 2 data frames--one for each species
+sick_tilapia <- sick_fish %>% 
+  filter(species == "tilapia")
+sick_trout <- sick_fish %>% 
   filter(species == "trout")
-
-glimpse(trout)
-glimpse(sick_fish)
 ```
 
-Perhaps density is the issue...
+Let's create a new column in our data frame to indicate whether the tank temperature is above or below the cutoff temperature. We will use our fish-specific data frames to do this.
 
-Making a true density column
+```{r}
+sick_tilapia <- sick_tilapia %>% 
+  mutate(temp_cutoff = if_else(condition = avg_daily_tempF >= 75,
+                               true = "above",
+                               false = "below"))
+sick_trout <- sick_trout %>% 
+  mutate(temp_cutoff = if_else(condition = avg_daily_tempF >= 59,
+                               true = "above",
+                               false = "below"))
+```
+
+## Back to Data Exploration
+
+We now have 2 data frames, one with tilapia data and one with trout
+data. Each data frame also has a new column called `temp_cutoff`. On
+your own or with a partner, start exploring the data to figure out if
+there are differences between warm and cold tilapia and warm and cold
+trout.
+
+Can you pinpoint an issue? Let's start by comparing means.
+
+```{r}
+sick_tilapia %>% 
+  group_by(temp_cutoff) %>% 
+  summarise(mean_sick = mean(num_sick))
+
+sick_trout %>% 
+  group_by(temp_cutoff) %>% 
+  summarise(mean_sick = mean(num_sick))
+
+# recombine?
+sick_fish <- bind_rows(sick_tilapia, sick_trout)
+sick_fish %>% 
+  group_by(species, temp_cutoff) %>% 
+  summarise(mean_sick = mean(num_sick))
+```
+
+Not much popping out in the means. Next thing to check would be
+histograms of the number of sick fish for both species, above and below
+the cutoffs.
+
+For now, I would recommend making 4 different data frames (this isn't
+"best practice" but it is really helpful while you are learning).
+
+```{r}
+cold_tilapia <- sick_tilapia %>% 
+  filter(temp_cutoff == "below")
+warm_tilapia <- sick_tilapia %>% 
+  filter(temp_cutoff == "above")
+
+cold_trout <- sick_trout %>% 
+  filter(temp_cutoff == "below")
+warm_trout <- sick_trout %>% 
+  filter(temp_cutoff == "above")
+
+# tilapia
+hist(cold_tilapia$num_sick)
+hist(warm_tilapia$num_sick)
+
+# trout
+hist(cold_trout$num_sick)
+hist(warm_trout$num_sick)
+```
+
+There really doesn't seem to be a lot of difference here in temperature. Maybe we should persue a different tactic.
+
+## Trout or Tilapia?
+
+Maybe we can get to the answer by pinpointing which species is the problem.
+
+First, we need to add a density column to the `sick_fish` data frame to see how many fish are sick per tank.
+
+```{r}
+sick_fish <- sick_fish %>% 
+  mutate(sick_density = num_sick/num_fish)
+```
+
+Make different histograms for each species.
+
+```{r}
+hist(sick_fish$sick_density[sick_fish$species == "tilapia"])
+hist(sick_fish$sick_density[sick_fish$species == "trout"])
+
+# alternatively, we could have made two different dataframe using the tidyverse: one for sick tilapia and one for sick trout
+```
+
+Based on these plots, it looks like trout are likely the problem.
+
+## What's Causing the Problem?
+
+### Density
+
+Since temperature didn't seem to be the issue, let's try another tactic. Maybe density in the culprit. Higher densities of fish can lead to immunosuppresion, after all.
+
+
 ```{r}
 fish_tank_data %>%
   mutate(density = num_fish/tank_volume) %>%
@@ -60,11 +168,9 @@ sick_fish_trout <-  sick_fish %>%
   filter(species == "trout")
 ```
 
-
-Looks like density of trout is higher in the tanks with sick fish, let's visualize this.  
+Looks like density of trout is a higher in the tanks with sick fish, let's visualize this.
 
 ```{r}
 hist(fish_tank_data_trout$density)
 hist(sick_fish_trout$density)
 ```
-
