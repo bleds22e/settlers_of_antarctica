@@ -1,8 +1,10 @@
 ---
 title: "Module 2, Assignment 2"
-author: "Ellen Bledsoe" # <- Your name here
-date: "2022-10-04"      # <- New date here 
-output: html_document
+author: "Ellen Bledsoe"
+date: "2022-10-04"
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}

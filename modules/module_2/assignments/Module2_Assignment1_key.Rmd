@@ -1,8 +1,10 @@
 ---
 title: "Module 2, Assignment 1"
 author: "Ellen Bledsoe"
-date: '2022-09-29'
-output: html_document
+date: "2022-09-29"
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}

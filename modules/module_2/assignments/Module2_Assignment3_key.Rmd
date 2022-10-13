@@ -2,7 +2,9 @@
 title: "Module 2, Assignment 3"
 author: "Ellen Bledsoe"
 date: "2022-10-04"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -170,7 +172,7 @@ Based on our results above, do we think the tank being warm or cold has much of 
 
 ```{r}
 plot(x = growth$avg_tank_temp, y = growth$day_30_weight_kg,
-     xlab = "Average Tank Temperature (F)", y = "Tilapia Weight at 30 Days (kg)")
+     xlab = "Average Tank Temperature (F)", ylab = "Tilapia Weight at 30 Days (kg)")
 ```
 
 As we suspected, there does not seem to be a relationship between tank temperature and weight.
