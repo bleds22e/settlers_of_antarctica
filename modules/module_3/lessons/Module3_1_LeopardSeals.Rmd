@@ -1,0 +1,196 @@
+---
+title: 'Module 3: Wildlife Tracking'
+author: "Ellen Bledsoe"
+date: '2022-10-13'
+output: html_document
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introduction to the Problem
+
+## The Challenge
+
+Given the issues with our farmed fish, we will need to supplement our
+diets with some fish that are wild-caught for a while. These fish are
+caught by members of Team Antarctica, but there is quite a bit of risk
+involved.
+
+One of the main hazards to these fishing teams are [leopard
+seals](https://en.wikipedia.org/wiki/Leopard_seal). They're apex
+predators in this ecosystem and are quite large, averaging 2.4--3.5 m
+(7.9--11.5 ft) in length and 200-600 kilograms (440-1,320 lb) in weight.
+Due to their large size and predatory nature, they can cause serious
+injury, especially when large schools of fish are involved ([a
+researcher was killed by a leopard seal in Antarctica in
+2003](https://www.theguardian.com/uk/2003/jul/24/science.highereducation)).
+
+One way we're working to remove some of this danger is by working with
+data from large mammal researchers. They have been tracking leopard
+seals using radio collars, one of many ways to track wildlife.
+
+[Wildlife Tracking
+Powerpoint](https://docs.google.com/presentation/d/13ltfOa_roO-4DmKv1-hIOxtvKqt1i7uJKMKUf2HWG2c/edit#slide=id.g16730a957e3_0_20)
+
+They have radio collared on a number of seals that live in areas that
+could be fished. Fishing boats are equipped with radios that can detect
+the presence of seals in the area and avoid high-risk sites.
+
+In recent months, a problem has arisen. Some of the collars are failing,
+leading to some very close calls! While attempting to untangle a net,
+one team member was pulled into the water when a seal lunged at some
+fish trapped in the net.
+
+The large mammal team replaces collars frequently based on the two
+manufacturers' recommendations for battery life and general wear and
+tear, but it seems as if some of the collars are dying earlier than
+expected and putting our team in danger.
+
+We've been tasked with determining why the units are failing and if we
+can tie it to a particular manufacturer.
+
+## The Data
+
+Our data on collars is in a file called "collar_data.csv."
+
+```{r}
+library(tidyverse)
+collars <- read_csv("collar_data.csv")
+```
+
+### Explore the Data
+
+1.  Two manufacturers
+2.  Battery life: the average number of days a particular collar lasts
+    (this is recorded in the unit and stored when the battery dies)
+3.  Signal distance: the maximum signal distance at which that
+    particular collar has been recorded
+4.  Fail: collars that have failed in the past (e.g. they've been
+    recovered from seals that were noticed by the team but that didn't
+    ping the radio equipment).
+
+### Group Challenge 1: Summarizing
+
+Let's practice. Write some code to do the following:
+
+-   calculate the mean, min and max for:
+    -   battery life
+    -   signal distance
+-   count up the number of failures
+-   do this for both manufacturers
+
+```{r summarize}
+
+```
+
+## Visualizing the Data
+
+### Base R
+
+So far, we've used the base R plotting syntax. If we wanted to make
+scatter plots for how battery life in collars is related to signal
+distance, we would use the `plot()` function.
+
+```{r}
+
+```
+
+If we wanted to look at how battery life and signal distance are related
+in each of the two collar manufacturers, we would either have to make 2
+plots of use some unnecessarily complicated code to differentiate
+between the makers.
+
+Thankfully, there is another way!
+
+### An alternative
+
+While quick plots in base R can still be really useful ways to do
+preliminary data exploration and visualization, we often want plots that
+go beyond the basics without too much additional effort. This is where
+`ggplot2` comes in and really shines!
+
+Before we get into the nitty-gritty of how `ggplot2` works, let's run an
+example.
+
+```{r}
+ggplot(collars, aes(y = signal_distance, x = battery_life, col = maker)) +
+  geom_point() +
+  xlab("Battery Life") +
+  ylab("Signal Distance") +
+  scale_color_discrete(name = "Collar Maker") +
+  theme_bw()
+```
+
+Pretty, right? Ok, let's talk about how this works.
+
+## `ggplot2`
+
+The package `ggplot2` is part of the `tidyverse`.
+
+Here are some resources you might find helpful now or in the future:
+
+-   [ggplot2 Book](https://ggplot2-book.org/getting-started.html)
+-   [UC Business Analytics ggplot2
+    intro](https://uc-r.github.io/ggplot_intro)
+-   [R for Data Science Data Visualization
+    chapter](https://r4ds.had.co.nz/data-visualisation.html)
+
+The `gg` in `ggplot2` stands for "Grammar of Graphics." The "grammar"
+part is based on an idea that all statistical plots have the same
+fundamental features: data and mapping (and specific components of
+mapping. The design is that you work iteratively, building up layer upon
+layer until you have your final plot.
+
+The typical structure looks like this:
+
+```{r}
+# ggplot(data = <DATA>, mapping = aes(<MAPPINGS>)) +  
+# <GEOM_FUNCTION>()
+```
+
+A few things to note:
+
+-   we start with the `ggplot()` function
+-   we specify the dataset we want to use
+-   we specify the mappings (x- and y-axes and some other bits) with the
+    `aes()` function
+-   we use a `+` to add layers
+-   we specify the type of plot, or `geom` using one of many possible
+    geom functions
+
+Let's iteratively build up to the plot we have made above:
+
+1)  Specify the data
+
+```{r}
+
+```
+
+2)  Specify the axes
+
+```{r}
+
+```
+
+3)  Add the type of plot we want
+
+```{r}
+
+```
+
+4)  Specify that we want points differentiated by manufacturer
+
+```{r}
+
+```
+
+5.  Add some other bits and baubles to make it pretty
+
+```{r}
+
+```
