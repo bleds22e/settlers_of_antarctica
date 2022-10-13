@@ -1,0 +1,70 @@
+---
+title: "Module 2 Wrap-Up"
+author: "Ellen Bledsoe"
+date: "2022-10-13"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+## Packages
+```{r}
+library(tidyverse)
+```
+
+## Data
+```{r}
+fish_tank_data <- read_csv("modules/module_2/data/fish_tank_data.csv")
+sick_fish <- read_csv("modules/module_2/data/fish_sick_data.csv")
+```
+
+# Let's hone in on the problem - tilapia or trout
+sick_fish %>%
+  ggplot(aes(x = num_sick/num_fish, fill = species)) +
+  geom_density(alpha = 0.7) +
+  xlab("Percentage Sick/Tank") +
+  ylab("Density")
+
+So trout are clearly the problem
+Let's isolate the trout data and figure out what tank parameters are wonky?
+
+```{r}
+trout <- fish_tank_data %>%
+  filter(species == "trout")
+
+glimpse(trout)
+glimpse(sick_fish)
+```
+
+Perhaps density is the issue...
+
+Making a true density column
+```{r}
+fish_tank_data %>%
+  mutate(density = num_fish/tank_volume) %>%
+  group_by(species) %>%
+  summarize(mean_dens = mean(density))
+
+sick_fish %>%
+  mutate(density = num_fish/tank_volume) %>%
+  group_by(species) %>%
+  summarize(mean_dens = mean(density))
+
+fish_tank_data_trout <-  fish_tank_data %>%
+  mutate(density = num_fish/tank_volume) %>%
+  filter(species == "trout")
+
+sick_fish_trout <-  sick_fish %>%
+  mutate(density = num_fish/tank_volume) %>%
+  filter(species == "trout")
+```
+
+
+Looks like density of trout is higher in the tanks with sick fish, let's visualize this.  
+
+```{r}
+hist(fish_tank_data_trout$density)
+hist(sick_fish_trout$density)
+```
+
