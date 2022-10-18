@@ -1,0 +1,60 @@
+---
+title: 'Module 3: Data Visualization'
+author: "Ellen Bledsoe"
+date: '2022-10-18'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# A Visualization Primer
+
+Some figures to whet your palate:\
+<http://www.r-graph-gallery.com/19-map-leafletr/>\
+<http://www.r-graph-gallery.com/21-distribution-plot-using-ggplot2>\
+<http://www.r-graph-gallery.com/274-map-a-variable-to-ggplot2-scatterplot/>\
+<http://www.r-graph-gallery.com/123-circular-plot-circlize-package-2/>
+
+## Why Does Data Visualization Matter?
+
+On your own: take 3 minutes to write down your top 5 reasons why data visualization is important or useful to you
+
+Let's break up into small groups. 
+
+As a group, take 5 minutes to compare your notes and come to a group consensus on your top 5 reasons. Be sure to choose someone to report out!
+
+## Types of Visualization
+
+Small group activity
+
+In groups, discuss all of the types of visualization you can think of--it's ok if you don't know what they are called! Make a quick list.
+
+#### 1b.2 Activity - matching data types to visualization types
+
+Matching activity in group - can you match the visualization to the data type.
+
+File for activity is in the images folder.
+
+## Figure Critique
+
+First, read through (this blog post)[https://humansofdata.atlan.com/2019/02/dos-donts-data-visualization/] on the "Dos and Don'ts of Data Visualization"
+
+Now that you have some insights, let's critique these figures below. Yes, these are actual figures in the wild...
+
+ * what aspects don't work
+ * what aspects do work
+ * how how you present the data?
+
+Figures:
+
+1.  ![](https://raw.githubusercontent.com/keatonwilson/biostats/master/Images/3d-column-chart-of-awesome.png)
+
+2.  ![](https://raw.githubusercontent.com/keatonwilson/biostats/master/Images/Bling_fig3.jpg)
+
+3.  ![](https://raw.githubusercontent.com/keatonwilson/biostats/master/Images/cawley_fig1.jpg)
+
+4.  ![](https://raw.githubusercontent.com/keatonwilson/biostats/master/Images/roeder_fig4.jpg)
+
+
