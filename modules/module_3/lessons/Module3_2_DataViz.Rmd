@@ -21,17 +21,19 @@ Some figures to whet your palate:\
 
 ## Why Does Data Visualization Matter?
 
-### On your own 
+### On your own
+
 Take 3 minutes to write down your top 5 reasons why data visualization is important or useful to you
 
 ### Small Groups
+
 As a group, take 5 minutes to compare your notes and come to a group consensus on your top 5 reasons. Be sure to choose someone to report out!
 
 ## Types of Visualization
 
 ### Small group activity
 
-In groups, discuss all of the types of visualization you can think of--it's ok if you don't know what they are called! Make a quick list. Draw them out if you prefer.
+In groups, discuss as many all types of visualization that come to mind. It's ok if you don't know what they are called! Make a quick list or draw them out if you prefer.
 
 Data Visualization Types:
 
@@ -39,7 +41,16 @@ Data Visualization Types:
 
 ### Data matching activity
 
-Open the PDF called "data_viz_matching_exercise." Spend a few minutes figuring out which data visualization matches which data type.
+Still in your groups, open the PDF called "data_viz_matching_exercise"
+
+Spend a few minutes seeing if you can match the data descriptions to the types of data visualizations. Note: these plots do not represent the data, just a type of data visualization.
+
+This is a challenging exercise, so don't panic if you feel a little lost! Here are some things to help you think through which visualizations might be appropriate:
+
+-   how many variables are in the data description?
+-   how many variables are represented in the data visualization? Look at the axes, sizes, colors, etc.
+-   how is *one* data point represented on the plot?
+-   how is variation in the data represented on the plot, if at all?
 
 ## Figure Critique
 
@@ -60,3 +71,12 @@ Figures:
 3.  ![](https://raw.githubusercontent.com/keatonwilson/biostats/master/Images/cawley_fig1.jpg)
 
 4.  ![](https://raw.githubusercontent.com/keatonwilson/biostats/master/Images/roeder_fig4.jpg)
+
+## Plotting in `ggplot2`
+
+Hopefully you're excited to keep using `ggplot2` to make clean, interpretable data visualizations! With the remaining time in class, spend some time trying to recreate the plots you made in Module 2 Assignment 1. Try to recreate both histogram and the scatterplot.
+
+```{r}
+# load the tidyverse package and the penguins package
+
+```
