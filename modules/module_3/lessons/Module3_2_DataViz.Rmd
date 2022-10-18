@@ -17,35 +17,39 @@ Some figures to whet your palate:\
 <http://www.r-graph-gallery.com/274-map-a-variable-to-ggplot2-scatterplot/>\
 <http://www.r-graph-gallery.com/123-circular-plot-circlize-package-2/>
 
+[Here](https://extremepresentation.typepad.com/files/choosing-a-good-chart-09.pdf) is a decent overview of some of the core concepts of data visualization.
+
 ## Why Does Data Visualization Matter?
 
-On your own: take 3 minutes to write down your top 5 reasons why data visualization is important or useful to you
+### On your own 
+Take 3 minutes to write down your top 5 reasons why data visualization is important or useful to you
 
-Let's break up into small groups. 
-
+### Small Groups
 As a group, take 5 minutes to compare your notes and come to a group consensus on your top 5 reasons. Be sure to choose someone to report out!
 
 ## Types of Visualization
 
-Small group activity
+### Small group activity
 
-In groups, discuss all of the types of visualization you can think of--it's ok if you don't know what they are called! Make a quick list.
+In groups, discuss all of the types of visualization you can think of--it's ok if you don't know what they are called! Make a quick list. Draw them out if you prefer.
 
-#### 1b.2 Activity - matching data types to visualization types
+Data Visualization Types:
 
-Matching activity in group - can you match the visualization to the data type.
+[Reference](https://extremepresentation.typepad.com/files/choosing-a-good-chart-09.pdf)
 
-File for activity is in the images folder.
+### Data matching activity
+
+Open the PDF called "data_viz_matching_exercise." Spend a few minutes figuring out which data visualization matches which data type.
 
 ## Figure Critique
 
-First, read through (this blog post)[https://humansofdata.atlan.com/2019/02/dos-donts-data-visualization/] on the "Dos and Don'ts of Data Visualization"
+First, read through [this blog post](https://humansofdata.atlan.com/2019/02/dos-donts-data-visualization/) on the "Dos and Don'ts of Data Visualization"
 
 Now that you have some insights, let's critique these figures below. Yes, these are actual figures in the wild...
 
- * what aspects don't work
- * what aspects do work
- * how how you present the data?
+-   what aspects don't work
+-   what aspects do work
+-   how how you present the data?
 
 Figures:
 
@@ -56,5 +60,3 @@ Figures:
 3.  ![](https://raw.githubusercontent.com/keatonwilson/biostats/master/Images/cawley_fig1.jpg)
 
 4.  ![](https://raw.githubusercontent.com/keatonwilson/biostats/master/Images/roeder_fig4.jpg)
-
-
