@@ -17,7 +17,7 @@ Some figures to whet your palate:\
 <http://www.r-graph-gallery.com/274-map-a-variable-to-ggplot2-scatterplot/>\
 <http://www.r-graph-gallery.com/123-circular-plot-circlize-package-2/>
 
-[Here](https://extremepresentation.typepad.com/files/choosing-a-good-chart-09.pdf) is a decent overview of some of the core concepts of data visualization.
+[Here](http://paldhous.github.io/ucb/2016/dataviz/week2.html) is a decent overview of some of the core concepts of data visualization.
 
 ## Why Does Data Visualization Matter?
 
@@ -52,6 +52,27 @@ This is a challenging exercise, so don't panic if you feel a little lost! Here a
 -   how is *one* data point represented on the plot?
 -   how is variation in the data represented on the plot, if at all?
 
+#### Matches
+
+1.  B
+    -   circle plots or river plots
+    -   good for showing movement from one thing to another or relationships between two categorical variables
+2.  D
+    -   4! variables can be shown here---circles could be size of family
+    -   scatter plots are good at showing relationships between multiple *continuous* variables
+3.  C
+    -   Multiple samples for each treatment means we will want to show variation
+    -   Variation in the multiple samples is show through violin plot; show the mean *and* the distribution of the data
+    -   One categorical variable and one continuous variable
+    -   Second categorical variable could be shown through color of violin plot
+4.  E
+    -   Heatmaps are good at showing spatial distributions of data
+    -   x and y axes shows space; the color indicates continuous values
+5.  A
+    -   Bar plots are good for showing change through time
+    -   Categorical on x, continuous on y
+    -   mutliple stacks, 2 bars per year?
+
 ## Figure Critique
 
 First, read through [this blog post](https://humansofdata.atlan.com/2019/02/dos-donts-data-visualization/) on the "Dos and Don'ts of Data Visualization"
@@ -78,16 +99,21 @@ Hopefully you're excited to keep using `ggplot2` to make clean, interpretable da
 
 ```{r}
 # load the tidyverse package and the penguins package
-
+library(tidyverse)
+library(palmerpenguins)
 ```
 
 ```{r}
 # histogram of the body mass column
-
+ggplot(penguins, aes(body_mass_g, color = species, fill = species)) +
+  geom_density(alpha = .5)
 ```
 
 ```{r}
 # scatterplot of flipper length vs. bill length
 # see if you can figure out how to make the markers different colors based on species
-
+ggplot(penguins, aes(flipper_length_mm, bill_length_mm, color = species, shape = sex)) +
+  geom_point() +
+  xlab("Flipper Length (mm)") +
+  ylab("Bill Length (mm)")
 ```
