@@ -17,7 +17,7 @@ Some figures to whet your palate:\
 <http://www.r-graph-gallery.com/274-map-a-variable-to-ggplot2-scatterplot/>\
 <http://www.r-graph-gallery.com/123-circular-plot-circlize-package-2/>
 
-[Here](https://extremepresentation.typepad.com/files/choosing-a-good-chart-09.pdf) is a decent overview of some of the core concepts of data visualization.
+[Here](https://paldhous.github.io/ucb/2016/dataviz/week2.html) is a decent overview of some of the core concepts of data visualization.
 
 ## Why Does Data Visualization Matter?
 
@@ -29,13 +29,27 @@ Take 3 minutes to write down your top 5 reasons why data visualization is import
 
 As a group, take 5 minutes to compare your notes and come to a group consensus on your top 5 reasons. Be sure to choose someone to report out!
 
+Reasons: Communication and Interpretation
+
+-   easier to interpret data
+
+-   presenting work
+
+-   easier to find patterns
+
+-   avoiding bias
+
+-   looking for outliers
+
+-   education
+
 ## Types of Visualization
 
 ### Small group activity
 
 In groups, discuss as many all types of visualization that come to mind. It's ok if you don't know what they are called! Make a quick list or draw them out if you prefer.
 
-Data Visualization Types:
+Data Visualization Types: histogram, line graph, pie chart, box-and-whisker plot, phase diagram, heatmap, gradient, river plot, topographic map, bar plots, stacked bar plots, scatter plot, pareto chart, table
 
 [Reference](https://extremepresentation.typepad.com/files/choosing-a-good-chart-09.pdf)
 
@@ -47,8 +61,8 @@ Spend a few minutes seeing if you can match the data descriptions to the types o
 
 This is a challenging exercise, so don't panic if you feel a little lost! Here are some things to help you think through which visualizations might be appropriate:
 
--   how many variables are in the data description?
--   how many variables are represented in the data visualization? Look at the axes, sizes, colors, etc.
+-   how many and what kind (continuous vs. categorical) variables are in the data description?
+-   how many and what kind (continuous vs. categorical) variables are represented in the data visualization? Look at the axes, sizes, colors, etc.
 -   how is *one* data point represented on the plot?
 -   how is variation in the data represented on the plot, if at all?
 
@@ -74,20 +88,85 @@ Figures:
 
 ## Plotting in `ggplot2`
 
-Hopefully you're excited to keep using `ggplot2` to make clean, interpretable data visualizations! With the remaining time in class, spend some time trying to recreate the plots you made in Module 2 Assignment 1. Try to recreate both histogram and the scatter plot.
+Let's practice making different kinds of plots with various `geom` functions to see how they work. We can use the collar data again.
+
+```{r}
+
+```
+
+### Scatter plot
+
+As a reminder, we use the `geom_point()` function to make a scatter plot of the relationship between *two continuous variables*.
+
+```{r}
+
+```
+
+### Histograms
+
+As we learned last modules, histograms are plots which let us look at *one continuous variable* and get a feel for the distribution of that data. To make histograms in `ggplot2`, we use the `geom_histogram()` function. Let's look at signal distance.
+
+```{r}
+
+```
+
+### Density plots
+
+Density plots are similar to histograms in that they show the distribution of a *continuous variable* but they are smoothed and continuous version estimated from the data. For this class, you can think of them as being basically the same thing (and use them interchangeably).
+
+```{r}
+
+```
+
+What if we wanted to create a histogram for signal distance for each collar manufacturer? In base R, we would need to filter or make a new dataframe. With `ggplot2`, we can specify that we want the `color` (or the `fill`) to be determined by the maker column.
+
+```{r}
+
+```
+
+Hooray! But...we can't really see the bars for Budget Collars LLC in the lower range of the values because they are hidden behind the Collarium Inc. bars. How might we address this?
+
+To fix this issue, we can use the `alpha` argument, which changes the transparency of the bars. The scale for `alpha` runs from 0 (completely transparent) to 1 (completely solid). Let's try 0.5.
+
+```{r}
+
+```
+
+### The powerful and pesky `aes()` function
+
+A quick note about the `aes()` function. It's one of the more confusing bits of `ggplot2`.
+
+When do I put the `color` (or `size` or `linetype` or `fill` or whatever) inside the `aes()` function versus in the `geom` function but outside of `aes()`? When we made our density plots, why did the `color` argument go inside of `aes()` but `alpha` went outside?
+
+Essentially, it boils down to this:
+
+-   if you want something (color, size, etc.) on your plot to change based on a **variable** from a data frame, you will want to put the argument *within* the `aes()` function.
+
+-   if you want something (color, size, etc.) on the plot to be **constant**, you will specify it *outside* of the function.
+
+For some additional examples and explanation, check out [this Stack Overflow page](https://stackoverflow.com/questions/41863049/when-does-the-argument-go-inside-or-outside-aes).
+
+### Bar plot
+
+Let's make a bar plot! They are typically used to represent the counts of *one categorical* variable or the relationship between *one categorical and one continuous variable*. We use the `geom_col` function.
+
+For our example, we can make a bar plot of the number of collars which failed and which did not.
+
+```{r}
+
+```
+
+What we just made is something called a "stacked" bar plot, meaning the values for the two collar makers are stacked one on top of the other. If we wanted them side-by-side, we add the argument `position = "dodge"`.
+
+```{r}
+
+```
+
+## Practice
+
+Hopefully you're excited to keep using `ggplot2` to make clean, interpretable data visualizations! With the remaining time in class, spend some time trying to recreate the plots you made in Module 2 Assignment 1. Try to recreate both histogram and the scatterplot.
 
 ```{r}
 # load the tidyverse package and the penguins package
-
-```
-
-```{r}
-# histogram of the body mass column
-
-```
-
-```{r}
-# scatterplot of flipper length vs. bill length
-# see if you can figure out how to make the markers different colors based on species
 
 ```
