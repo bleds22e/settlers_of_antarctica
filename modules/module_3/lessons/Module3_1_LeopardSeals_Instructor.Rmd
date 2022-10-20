@@ -143,13 +143,20 @@ The package `ggplot2` is part of the `tidyverse`.
 
 Here are some resources you might find helpful now or in the future:
 
-  * [ggplot2 Book](https://ggplot2-book.org/getting-started.html)
-  * [UC Business Analytics ggplot2 intro](https://uc-r.github.io/ggplot_intro)
-  * [R for Data Science Data Visualization chapter](https://r4ds.had.co.nz/data-visualisation.html)
-  
-The `gg` in `ggplot2` stands for "Grammar of Graphics." The "grammar" part is based on an idea that all statistical plots have the same fundamental features: data and mapping (and specific components of mapping. The design is that you work iteratively, building up layer upon layer until you have your final plot.
+-   [ggplot2 Book](https://ggplot2-book.org/getting-started.html)
+-   [UC Business Analytics ggplot2
+    intro](https://uc-r.github.io/ggplot_intro)
+-   [R for Data Science Data Visualization
+    chapter](https://r4ds.had.co.nz/data-visualisation.html)
+
+The `gg` in `ggplot2` stands for "Grammar of Graphics." The "grammar"
+part is based on an idea that all statistical plots have the same
+fundamental features: data and mapping (and specific components of
+mapping. The design is that you work iteratively, building up layer upon
+layer until you have your final plot.
 
 The typical structure looks like this:
+
 ```{r}
 # ggplot(data = <DATA>, mapping = aes(<MAPPINGS>)) +  
 # <GEOM_FUNCTION>()
@@ -157,31 +164,37 @@ The typical structure looks like this:
 
 A few things to note:
 
-  * we start with the `ggplot()` function
-  * we specify the dataset we want to use
-  * we specify the mappings (x- and y-axes and some other bits) with the `aes()` function
-  * we use a `+` to add layers
-  * we specify the type of plot, or `geom` using one of many possible geom functions
-  
+-   we start with the `ggplot()` function
+-   we specify the dataset we want to use
+-   we specify the mappings (x- and y-axes and some other bits) with the
+    `aes()` function
+-   we use a `+` to add layers
+-   we specify the type of plot, or `geom` using one of many possible
+    geom functions
+
 Let's iteratively build up to the plot we have made above:
 
-1) Specify the data
+1)  Specify the data
+
 ```{r}
 ggplot(collars)
 ```
 
-2) Specify the axes
+2)  Specify the axes
+
 ```{r}
 ggplot(collars, aes(x = battery_life, y = signal_distance))
 ```
 
-3) Add the type of plot we want
+3)  Add the type of plot we want
+
 ```{r}
 ggplot(collars, aes(x = battery_life, y = signal_distance)) +
   geom_point()
 ```
 
-4) Specify that we want points differentianted by manufactuer
+4)  Specify that we want points differentianted by manufactuer
+
 ```{r}
 ggplot(collars, aes(x = battery_life, y = signal_distance)) +
   geom_point(aes(col = maker))
