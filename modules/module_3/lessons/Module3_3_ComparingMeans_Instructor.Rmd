@@ -88,6 +88,22 @@ ggplot(collars, aes(x=signal_distance, fill = maker)) +
 
 What other ways could we plot this data?
 
+### Box-and-Whisker Plots 
+
+A great way to show the mean (or median) value and the distribution of data is with bow-and-whisker plots.
+
+Let's build one and then talk through what each component means. We use `geom_boxplot` to make these types of plots.
+
+```{r}
+
+```
+
+So what does the box represent? And the whiskers?
+
+-   the **box** represents the *middle 50% of the values* in the data set. The line that runs through the middle of the box represents the *middle value (**median**)* of the data
+-   the **whiskers** represent the *spread of the data* (we won't get into the mathematical details of exactly how they are calculated) and a roughly comparable to 95% confidence intervals (discussed below)
+-   values that fall outside of the whiskers can be considered outliers and are plotted individually
+
 ## Statistically
 
 How do we compare means statistically? Let's step back here for a second and think about the question we are actually asking.
