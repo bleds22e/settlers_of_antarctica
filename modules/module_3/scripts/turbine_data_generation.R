@@ -19,8 +19,8 @@ complement <- function(y, rho, x) {
 }
 
 wind_turbines = data.frame(turbine_id = seq(1:67),
-                     maker = c(rep("Turbines turbines turbines Inc", 47), 
-                               rep("Turbo turbines", 20)), 
+                     maker = c(rep("Windmill Inc", 47), 
+                               rep("Turbo Turbines", 20)), 
                      wind_speed = c(rtruncnorm(n = 47, 
                                                mean = 10, 
                                                sd = 5, 
@@ -32,7 +32,7 @@ wind_turbines = data.frame(turbine_id = seq(1:67),
   group_by(maker) %>%
     mutate(power_output = complement(wind_speed, 0.68)) %>%
   ungroup() %>%
-  mutate(power_output = ifelse(maker == "Turbines turbines turbines Inc", 
+  mutate(power_output = ifelse(maker == "Windmill Inc", 
                                abs(power_output*5.2), abs(power_output*2))) 
 
 #writing to csv
