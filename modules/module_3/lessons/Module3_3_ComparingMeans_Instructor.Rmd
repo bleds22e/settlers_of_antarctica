@@ -1,0 +1,166 @@
+---
+title: "Module 3: Comparing Means"
+author: "Ellen Bledsoe"
+output: pdf_document
+editor_options: 
+  markdown: 
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Comparing Means
+
+When we are comparing data from two groups, we often want to compare the mean values of the different groups to see if there are differences. We can do this in a number of ways:
+
+-   numerically
+-   visually
+-   statistically
+
+In this course so far, we have done the first 2: by calculating the mean values of groups and by plotting histograms.
+
+Now, we will explore how we compare means a bit more today, adding in the statistical aspect. Once again, we will be using our collars data, focusing on the battery life and the signal distance.
+
+Let's get set-up by loading the tidyverse and reading in our data.
+
+```{r}
+library(tidyverse)
+collars <- read_csv("collar_data.csv")
+```
+
+## Numerically
+
+To remind ourselves of which collar maker has the higher signal distance and battery life, let's summarize the data.
+
+Create a new data frame called `means_by_maker`. We want to calculate the average battery life and average signal distance for each collar maker. The new data frame should contain 2 columns, one called `mean_battery` and `mean_signal`.
+
+```{r}
+means_by_maker <- collars %>% 
+  group_by(maker) %>% 
+  summarise(mean_battery = mean(battery_life),
+            mean_signal = mean(signal_distance))
+```
+
+## Visually
+
+We've made histograms in base R and, using the `abline()` function, added a line to represent the mean value for the data plotted in the histogram.
+
+Let's practice building our own histograms in `ggplot2` and going one step further--adding lines to represent the mean values.
+
+### Histograms in `ggplot2`
+
+In small groups, work together to develop code that creates the following:
+
+1.  Two histograms: one for battery life and one for signal length
+2.  Each is color-coded for each manufacturer
+3.  Each has descriptive labels for the x- and y-axis (and the legend, if you want)
+4.  Each has a vertical line that plots the mean of each group
+    -   this will be the tricky bit, since we haven't done it before!
+    -   Try running `?geom_abline` to get some insight, or you can use Google to try to figure it out
+
+```{r}
+# battery life
+ggplot(collars, aes(battery_life, fill = maker)) +
+  geom_histogram(alpha = 0.5, bins = 10, position = "identity") +
+  geom_vline(data = means_by_maker, aes(xintercept = mean_battery, color = maker)) +
+  ylab("Count") +
+  xlab("Battery Life") +
+  scale_color_discrete(name = "Maker") +
+  scale_fill_discrete(name = "Maker") +
+  theme_bw()
+```
+
+```{r}
+# signal distance
+ggplot(collars, aes(x=signal_distance, fill = maker)) +
+  geom_histogram(alpha = 0.5, bins = 20, position = "identity") +
+  geom_vline(data = means_by_maker, 
+             aes(xintercept = mean_signal, color = maker)) +
+  labs(x = "Signal Distance",  # using the labs() function produces the same results as above
+       y = "Count",
+       color = "Maker",
+       fill = "Maker") + 
+  theme_bw()
+```
+
+### Other Plots?
+
+What other ways could we plot this data?
+
+## Statistically
+
+How do we compare means statistically? Let's step back here for a second and think about the question we are actually asking.
+
+**Fundamentally, we want to know if there a difference between the two manufacturers in two variables: battery life and signal distance**
+
+Numerically and visually, the mean values for the two different manufacturers *look* different. But are they different *enough*? What do we mean by *enough*?
+
+Let's take a quick look at the "histogram_example.pdf" file.
+
+How do we tell whether there is an *actual* or *meaningful* difference in the means?
+
+### Hypothesis Testing
+
+Before we jump into the statistics, let's talk about "hypothesis testing," which is basically what we are actually doing when we use statistics.
+
+We want to know if there is a *meaningful* (read: statistical) difference between the average values for each collar manufacturer. Based around this question, we can set up two different statistical hypotheses: the null hypothesis and the alternative hypothesis.
+
+We can think of the null hypothesis as our starting place--this is our default assumption. The alternative hypothesis is, well, the alternative to the null hypothesis. For example:
+
+-   **Null Hypothesis** (*H*~0~): There is no difference between mean values of battery life for the two manufacturers
+-   **Alternative Hypothesis** (*H*~A~): There is a different between the mean values of battery life for the two manufacturers
+
+So how can we determine whether we should accept or reject the null hypothesis? That's where statistics come in.
+
+*(Note: for reasons I won't go into here, we never accept the alternative hypothesis, we only reject the null hypothesis.)*
+
+### Introduction to t-tests
+
+There is a set of statistical tools that can help us whether or not there is a difference between two means. This group of tools are called t-tests.
+
+Let's briefly talk through the logic here.
+
+1.  Our data are a sample of a larger "population" (think of the population as all of the collars ever produced by both companies).
+    -   Remember how we sampled our fish tank data for sick fish instead of getting data for every single tank? Same idea.
+2.  We're interested in the the difference in the means between the two groups.
+    -   If they're exactly the same, the difference in means would be 0.
+    -   If they're different, the difference between the means will be something either larger or smaller than 0.
+3.  However, because we only have data from a random *sample* of collars, there will be some variation in our numbers.
+4.  We want to know if the difference in means is due to that variation from our random sample or due to an actual difference between manufacturers.
+
+The t-test allows us to determine if the means are different due to the random variation or if it represents an actual difference.
+
+Let's run some code to perform our first t-test!
+
+```{r}
+t.test(battery_life ~ maker, data = collars)
+
+```
+
+Thankfully, the code isn't too onerous. Interpreting the results is a different matter, though...
+
+Let's talk through it:
+
+-   `t`: this is what we call the t-value, or t-statistic.
+    -   For us, it is a metric of how different the difference of the two means is from 0.
+    -   Big values (can be positive or negative) indicate a big difference from 0 while small values are mean the difference is close to 0.
+-   `df`: stands for *degrees of freedom*
+    -   it's a measure of your sample size and some other stuff---honestly, this is not something we're really going to focus on here
+-   `p-value`: a measure of certainty of the difference outlined in the `t-statistic` above
+    -   For the test above, our p-value is *very* small: 0.00000000000000022
+    -   This means that there is an extremely low probability that obtaining a difference in means of 0 is very, very unlikely (or, another way to think of it--that the probability that the difference in means is due to random variation in our sample alone is very low) There are a lot of benchmarks in different fields for what this value should be below to consider the difference *significant*, typically \< 0.05 is considered significant.
+    -   Although this varies by field, we typically compare the p-value to 0.05. If a p-value is *below* 0.05, we consider the difference to be *statistically significant*.
+    -   Since our p-value \< 0.05, that means that we will reject the null hypothesis and can conclude that the difference in means is likely due to a *meaningful* difference in the collars make by different manufacturers
+-   `95 percent confidence interval`: this is the range that we can expect the test statistic (difference in means) to fall in 95% of the time given the data.
+    -   Our test statistic is the difference in means of Budget Collars and Collarium, or 86.8 - 121.5 = -34.7
+
+    -   If we randomly sample a group of collars from the "population", the difference in means will fall between -30.35 and -38.98 about 95% of the time
+
+### Practice running and interpreting
+
+Work on your own or in a group to run a t-test on the other variable we are interested in (signal distance). Be able to describe each piece of the output, what it means, and the overall finding for the test. Also be able to relate it back to the values and the figures we generated above.
+
+```{r}
+t.test(data = collars, signal_distance ~ maker)
+```
