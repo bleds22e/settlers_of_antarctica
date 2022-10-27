@@ -100,7 +100,7 @@ Let's practice making different kinds of plots with various `geom` functions to 
 
 ```{r}
 library(tidyverse)
-collars <- read_csv("collar_data.csv")
+collars <- read_csv("../data/collar_data.csv")
 ```
 
 ### Scatter plot
