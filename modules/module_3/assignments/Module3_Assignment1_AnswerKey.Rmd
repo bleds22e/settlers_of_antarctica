@@ -1,0 +1,70 @@
+---
+title: "Module 3 Assignment 1"
+output:
+  pdf_document: default
+date: '2022-10-25'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r message = FALSE}
+library(palmerpenguins)
+library(tidyverse)
+```
+
+```{r}
+penguins <- penguins
+```
+
+2.  
+
+```{r}
+head(penguins)
+```
+
+3.  
+
+```{r}
+ggplot(penguins, aes(body_mass_g)) +
+  geom_density()
+```
+
+4.  
+
+```{r}
+ggplot(penguins, aes(body_mass_g, color = species, fill = species)) +
+  geom_density(alpha = 0.5)
+```
+
+
+6.  
+
+```{r}
+ggplot(penguins, aes(body_mass_g, color = species, fill = species)) +
+  geom_density(alpha = 0.5) +
+  labs(x = "Body Mass (g)",
+       y = "Count",
+       color = "Species",
+       fill = "Species") +
+  theme_classic()
+```
+
+7.  
+
+```{r}
+ggplot(penguins, aes(flipper_length_mm, bill_length_mm)) +
+  geom_point()
+```
+
+8.  
+```{r}
+ggplot(penguins, aes(flipper_length_mm, bill_length_mm, color = species)) +
+  geom_point() + 
+  labs(x = "Flipper Length (mm)",
+       y = "Bill Length (mm)",
+       color = "Species") +
+  theme_classic()
+```
+
