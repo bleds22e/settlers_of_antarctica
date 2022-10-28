@@ -88,14 +88,20 @@ ggplot(collars, aes(x=signal_distance, fill = maker)) +
 
 What other ways could we plot this data?
 
-### Box-and-Whisker Plots 
+### Box-and-Whisker Plots
 
 A great way to show the mean (or median) value and the distribution of data is with bow-and-whisker plots.
 
 Let's build one and then talk through what each component means. We use `geom_boxplot` to make these types of plots.
 
 ```{r}
+ggplot(collars, aes(maker, signal_distance, color = maker)) +
+  geom_boxplot() + 
+  geom_jitter(alpha = 0.5, width = 0.1)
 
+ggplot(collars, aes(maker, battery_life)) +
+  geom_jitter(alpha = 0.5, width = 0.1) +
+  geom_boxplot()
 ```
 
 So what does the box represent? And the whiskers?
