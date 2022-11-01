@@ -35,3 +35,26 @@ ggplot(collars, aes(x = signal_distance, y = battery_life, col = maker)) +
 
 #writing to csv
 write_csv(collars, "./modules/module_3/data/collar_data.csv")
+
+
+## Add a new collar company to the existing data
+
+collars <- read_csv("./modules/module_3/data/collar_data.csv")
+collars_new <- tibble(collar_id = seq(1:50) + 100, 
+                      maker = rep("Darn Tuff Collars Company", 50), 
+                      battery_life = rnorm(n = 50, mean = 120, sd = 10), 
+                      signal_distance = rnorm(n = 50, mean = 4200, sd = 20),
+                      fail = rbinom(n = 50, size = 1, prob = 0.01))
+
+collars <- bind_rows(collars, collars_new)
+
+# test the new data out
+anova_battery <- aov(data = collars, battery_life ~ maker)
+summary(anova_battery)
+TukeyHSD(anova_battery)
+
+anova_signal <- aov(data = collars, signal_distance ~ maker)
+summary(anova_signal)
+TukeyHSD(anova_signal)
+
+write_csv(collars, "modules/module_3/data/more_collars.csv")
