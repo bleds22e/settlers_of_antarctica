@@ -1,0 +1,128 @@
+---
+title: 'Module 3: Comparing (Multiple) Means'
+author: "Ellen Bledsoe"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Comparing (Multiple) Means
+
+So far in this module, we have discussed comparing the means of two groups in multiple ways: numerically, visually, and statistically. Specifically, we learned about running t-tests to statistically compare the means of two groups.
+
+What if we have more than 2 groups, though? Often, we have 3, 4, 12...any number of groups that we might want to compare against each other. How do we do that?
+
+## ANOVA
+
+What is an ANOVA? It stands for **AN**alysis **O**f **VA**riance.
+
+Why is it called that? Well, ANOVAs compare the amount of variability in the data *between* and *within* groups. In plainer terms, it is looking at how different the data in each group are from each other (within) and also how different the groups are from each other (between).
+
+The group of statistical tests called ANOVAs are extensions of the t-test, using the same concepts but allowing us to compare the means of more than two groups at a time. There are lots of different types of ANOVAs, but we are going to stick with the most simple version.
+
+### When can I use an ANOVA?
+
+To run an ANOVA, the following things need to be true:
+
+-   The variable that we use to create our groups (independent variable) is categorical.
+-   The variable that we want to compare between groups (dependent or response variable) is numerical.
+
+The two facts above might sound familiar, because they also need to be true for t-tests! Why are the variables called *independent* and *response*, do you think?
+
+When we want to compare the means in *more* than two groups, we need to use the ANOVA.
+
+### Hypothesis Testing
+
+ANOVAs are another example of hypothesis testing.
+
+**Null Hypothesis** ($H_{0}$): The means of the populations we sampled from are all equal. 
+**Alternative Hypothesis** ($H_{A}$): The means of the populations we sampled from different from each other.
+
+### Example
+
+What if our large mammal team had deployed collars from 3 different companies rather than just two? How would be compare the means numerically, visually, and statistically? Let's find out.
+
+#### Set-Up
+
+First, as always, we need to load the `tidyverse` and the read in our collars data. This time, use the file `more_collars.csv`.
+
+```{r}
+library(tidyverse)
+collars <- read_csv("modules/module_3/data/more_collars.csv")
+```
+
+#### Conceptual
+
+What questions are we trying to answer about these collars?
+
+Which variable is the independent variable? What about the response/dependent variable?
+
+Let's write out our two hypotheses.
+
+#### Numeric
+
+#### Visual
+
+#### Statistic
+
+
+It's always a good idea to visualize your data first. This gives you some perspective on the distribution of the data. What type of data viz is best for viewing the distribution of one variable?
+
+4.  
+
+```{r}
+ggplot(data = fishManyBays, aes(x = num_fish)) + 
+  geom_histogram()  +
+  facet_wrap(~ bay)
+```
+
+5.  Now let's calculate some summary statistics. What do you notice?
+
+```{r}
+fishSummary <- fishManyBays %>% group_by(bay) %>% summarize(meanFish = mean(num_fish), standDevFish = sd(num_fish), sampleSize = n())
+fishSummary
+```
+
+6.  Let's create a bar graph to compare the summary stats between the groups. Does it seem like the groups are different?
+
+```{r}
+ggplot(data = fishSummary, aes(bay, meanFish, fill = bay)) + 
+  geom_bar(stat = "identity") +
+    geom_errorbar( aes(ymin = meanFish-standDevFish, ymax = meanFish + standDevFish), 
+                 data = fishSummary, width = 0.2) 
+```
+
+7.  Finally, let's code for the ANOVA. The syntax is dependent variable \~ independent variable
+
+```{r}
+fishModel <- aov(data = fishManyBays, num_fish ~ bay)
+summary(fishModel)
+
+```
+
+8.  How do we interpret this ANOVA?
+
+```{r}
+
+```
+
+9.  What is our recommendation for fishing based only off of this information?
+
+```{r}
+
+```
+
+ANOVAs are incredibly useful to tell you if there is a difference in the means of any of the groups. However, they do not tell you which means differ from another. To do that, you need to use a class of tests called Post Hoc Tests. Post hoc tests take into account the problem of running multiple pairwise comparisons, which is the increasing chance of error rates. The most common is Tukey's HSD, but there are others depending on the specifics of your data set. You don't need to worry about understanding Tukey's test, but here I am going to show you how it works and an overview of the interpretation of it.
+
+```{r}
+TukeyHSD(fishModel)
+```
+
+Want to nerd out about ANOVAs? I recommend Bio statistical Design and Analysis Using R: <https://primo.lclark.edu/permalink/01ALLIANCE_LCC/pajj6s/alma99900585075901844> (p254) A Primer of Ecological Statistics: <https://primo.lclark.edu/permalink/01ALLIANCE_LCC/pajj6s/alma99141374340101844>
