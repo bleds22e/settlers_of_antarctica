@@ -43,7 +43,7 @@ collars <- read_csv("./modules/module_3/data/collar_data.csv")
 collars_new <- tibble(collar_id = seq(1:50) + 100, 
                       maker = rep("Darn Tuff Collars Company", 50), 
                       battery_life = rnorm(n = 50, mean = 120, sd = 10), 
-                      signal_distance = rnorm(n = 50, mean = 4200, sd = 20),
+                      signal_distance = rnorm(n = 50, mean = 4175, sd = 35),
                       fail = rbinom(n = 50, size = 1, prob = 0.01))
 
 collars <- bind_rows(collars, collars_new)
