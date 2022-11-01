@@ -54,7 +54,8 @@ First up, in small groups, work through the set-up, numeric, and visual sections
 First, as always, we need to load the `tidyverse` and the read in our collars data. This time, use the file `more_collars.csv`.
 
 ```{r}
-
+library(tidyverse)
+collars <- read_csv("more_collars.csv")
 ```
 
 ### Conceptual
@@ -75,7 +76,15 @@ Let's calculate some summary values for our data to get some preliminary informa
 Calculate the means and the standard deviations (`sd()`, a measure related to variance) and the for the battery life and the signal distance for *each* collar maker. Also calculate the number of failures per collar maker (hint: use the `sum()` function).
 
 ```{r}
-summary_stats <- 
+summary_stats <- collars %>% 
+  group_by(maker) %>% 
+  summarise(mean_battery = mean(battery_life),
+            sd_battery = sd(battery_life),
+            mean_signal = mean(signal_distance),
+            sd_signal = sd(signal_distance),
+            n_fails = sum(fail))
+
+summary_stats
 ```
 
 Let's examine the data. Do you think the collar companies are all different from each other? Are there pairs of companies that look more similar?
@@ -90,24 +99,32 @@ First, explore the distribution of each variable by maker (no need to add a line
 
 ```{r}
 # battery life
-
+ggplot(collars, aes(battery_life, fill = maker)) +
+  geom_density(alpha = 0.5)
 ```
 
 ```{r}
 # signal distance
-
+# introduce facet_wrap
+ggplot(collars, aes(signal_distance)) +
+  geom_histogram() +
+  facet_wrap(~ maker)
 ```
 
 Let's do another type of visualization, as well. What type of data visualization have we covered that does a good job of showing both central tendency (median, in this case) and variation (middle 50% and 95% confidence intervals) in one continuous variable?
 
 ```{r}
 # battery life
-
+ggplot(collars, aes(maker, battery_life)) +
+  geom_boxplot() +
+  geom_point()
 ```
 
 ```{r}
 # signal distance
-
+ggplot(collars, aes(maker, signal_distance)) +
+  geom_boxplot() +
+  geom_point()
 ```
 
 Based on the numbers and your visualizations, what is your prediction? Are the 3 groups different *enough*, whatever that means?
@@ -124,7 +141,8 @@ To run an ANOVA, we use the `aov()` function. Some helpful tips about the `aov()
 First, let's run an ANOVA on the battery life variable.
 
 ```{r}
-
+battery_model <- aov(data = collars, battery_life ~ maker)
+summary(battery_model)
 ```
 
 For us, our main focus here in the ANOVA summary is on the `maker` row. We can ignore the `Residuals`.
@@ -144,7 +162,8 @@ What is our conclusion? Are these means different?
 How about for signal life? What is your interpretation of these results?
 
 ```{r}
-
+signal_model <- aov(data = collars, signal_distance ~ maker)
+summary(signal_model)
 ```
 
 ### Pairwise Comparisons
@@ -156,7 +175,7 @@ To figure that out, you need to use a class of tests called "post hoc tests," me
 The most common post hoc test for these pairwise comparisons is **Tukey's HSD**, but there are others depending on the specifics of your data set. You don't need to worry about understanding the nuances of Tukey's test, but you should know how to run the code and interpret it.
 
 ```{r}
-
+TukeyHSD(battery_model)
 ```
 
 What do these different columns represent?
@@ -177,7 +196,7 @@ How should we interpret these results?
 In your groups, run the Tukey's HSD test for signal distance and interpret the results.
 
 ```{r}
-
+TukeyHSD(signal_model)
 ```
 
 How should we interpret these results?
