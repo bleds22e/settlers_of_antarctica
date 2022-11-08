@@ -1,0 +1,82 @@
+---
+title: 'Module3: Assignment3'
+author: "Ellen Bledsoe"
+date: '2022-11-03'
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r message = FALSE}
+library(tidyverse)
+fish <- read_csv("fish.csv")
+seals <- read_csv("seals.csv")
+```
+
+3.  
+
+```{r}
+fish_summary <- fish %>% 
+  group_by(bay) %>% 
+  summarise(mean_fish = mean(fish_kg),
+            sd_fish = sd(fish_kg))
+fish_summary
+```
+
+
+4.  
+```{r}
+ggplot(fish, aes(bay, fish_kg)) +
+  geom_boxplot() +
+  geom_jitter(alpha = 0.5, width = 0.1) 
+```
+
+
+6.  
+
+```{r}
+fish_model <- aov(data = fish, fish_kg ~ bay)
+summary(fish_model)
+```
+
+
+8.  
+```{r}
+TukeyHSD(fish_model)
+```
+
+11. 
+
+```{r}
+seal_summary <- seals %>% 
+  group_by(bay) %>% 
+  summarise(mean_fish = mean(num_seals),
+            sd_fish = sd(num_seals))
+seal_summary
+```
+
+12. 
+
+```{r}
+ggplot(seals, aes(bay, num_seals)) +
+  geom_boxplot() +
+  geom_jitter(alpha = 0.5, width = 0.1) 
+```
+
+13. 
+
+```{r}
+seal_model <- aov(data = seals, num_seals ~ bay)
+summary(seal_model)
+```
+
+15. 
+
+```{r}
+TukeyHSD(seal_model)
+```
+

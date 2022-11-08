@@ -1,0 +1,195 @@
+---
+title: "Module3: Assignment3"
+author: "Ellen Bledsoe"
+date: "2022-11-03"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Assignment Details
+
+### Purpose
+
+The goal of this assignment is to assess your ability to compare *multiple* means numerically, visually, and statistically and interpret the results.
+
+### Task
+
+Write R code which produces the correct answers and correctly interpret the results of visualizations and statistical tests.
+
+### Criteria for Success
+
+-   Code is within the provided code chunks
+-   Code is commented with brief descriptions of what the code does
+-   Code chunks run without errors
+-   Code produces the correct result
+    -   Code that produces the correct answer will receive full credit
+    -   Code attempts with logical direction will receive partial credit
+-   Written answers address the questions in sufficient detail
+
+### Due Date
+
+November 8 at midnight MST
+
+# Assignment Questions
+
+In this assignment, we're going to explore data from 4 bays down in Antarctica: Emperor Bay, Hope Bay, Iceberg Bay, and Sulzberger Bay.
+
+We've assessed our fleet and feel like we have enough fishing boats to fish from two of the four nearby bays. How do we decide which two bays to fish?
+
+First, we need to assess which how many fish are in each bay. Then we will assess how many leopard seals hang around each bay. Based on these two aspects, we will make a determination for which two bays we can most safely fish and still get enough fish for the station.
+
+## Set-Up
+
+1.  As always, our first order of business is to load the `tidyverse` and our data sets. For this assignment, we have two different data sets: one for our survey of fish amounts and one for seal observations. Read both of them into the workspace and name them `fish` and `seals`, respectively.
+
+```{r}
+
+```
+
+## Fish
+
+The first question we've been asked to tackle is if the four bays have different amounts of fish. Let's find out.
+
+Explore the data set by using your favorite function to look at the data frame.
+
+```{r}
+
+```
+
+Early last year, we had our fishers head out into each of the four bays everyday for a month to sample fish. They sampled using 5 nets in both the morning and the afternoon. They recorded how many kilograms of fish they caught in each net. The two variables that we will be using to help us make our evaluation are `bay` and `fish_kg`.
+
+### Conceptual
+
+2.  Write out our two hypotheses for these data.
+
+    **Null Hypothesis** $H_{0}$:\
+    **Alternative Hypothesis** $H_{0}$:
+
+### Numeric
+
+3.  Let's first find out what the mean (average) and standard deviation (spread) of `fish_kg` is in each bay. Save this data in a new data frame called `fish_summary`.
+
+```{r}
+
+```
+
+Take a look at the values. Do you think the bays have different amounts of fish based on these values? Let's keep exploring.
+
+### Visual
+
+4.  Plot the fish data using a box-and-whisker plot. It doesn't need to be fancy (no need to fix axis labels and such) but be sure it has the following: Make sure your plot has the following:
+
+    -   data points overlaying the boxes
+    -   the points should be partially transparent and jittered
+
+```{r}
+
+```
+
+### Statistics
+
+5.  In our data set, which variable is the independent variable? Is it categorical or continuous? Which is the dependent/response variable and is it categorical or continuous?
+
+    **Independent:**
+
+    **Dependent:**
+
+6.  Run the appropriate statistical model to determine if there is an overall difference in means in the four bays. Save the model as an object called `fish_model`, then display the results of the model using the `summary()` function. Remember, the syntax for the model is: dependent \~ independent
+
+```{r}
+
+```
+
+7.  Interpret the results of the model and answer the following questions (2 points):
+
+    -   What is the value of the test statistic?
+
+    -   What is our p-value?
+
+    -   Is our p-value higher or lower than our cut-off value of 0.05
+
+    -   Write 2-3 sentences explaining that this result means. How do we interpret this value? what does it mean for our hypotheses?
+
+        *Answers:*
+
+8.  Run some code to compute pairwise comparisons.
+
+```{r}
+
+```
+
+9.  Write 2-3 sentences interpreting the pairwise comparisons. Which pairs of bays are significantly different from each other, if any?
+
+    *Answer:*
+
+## Seals
+
+Let's do the same for our seal data. The `seals` data frame has data on how many seals were observed each day in each survey area of the bay. The columns we will be focusing on are `bay` and `num_seals`.
+
+### Conceptual
+
+10. Write out our 2 hypotheses for the seal data.
+
+    *Answer:*
+
+### Numeric
+
+11. Calculate the mean and standard deviation for the number of seals in each bay. Save this to a new data frame called `seal_summary`.
+
+```{r}
+
+```
+
+Take a look at the values. Do you think the bays have different numbers of seals based on these values? Let's keep exploring.
+
+### Visual
+
+12. Plot the seal using a box-and-whisker plot. It doesn't need to be fancy (no need to fix axis labels and such) but be sure it has the following: Make sure your plot has the following:
+    -   data points overlaying the boxes
+    -   the points should be partially transparent and jittered
+
+```{r}
+
+```
+
+### Statistics
+
+13. Run the appropriate statistical model to determine if there is an overall difference in means in the four bays. Save the model as an object called `seal_model`, then display the results of the model using the `summary()` function.
+
+    Remember, the syntax for the model is: dependent \~ independent
+
+```{r}
+
+```
+
+14. Interpret the results of the model and answer the following questions (2 points):
+
+    -   What is the value of the test statistic?
+    -   What is our p-value?
+    -   Is our p-value higher or lower than our cut-off value of 0.05
+    -   Write 2-3 sentences explaining that this result means. How do we interpret this value? What does it mean for our hypotheses?
+
+    *Answers:*
+
+15. Run some code to compute pairwise comparisons.
+
+```{r}
+
+```
+
+16. Write 2-3 sentences interpreting the pairwise comparisons. Which pairs of bays are significantly different from each other, if any?
+
+    *Answer:*
+
+## Decision-Making
+
+Think through our goals in doing this analysis.
+
+We want to choose two out of four bays to fish in. We want bays that have enough fish to feed our station but the least number of leopard seals to keep our fishing crews as safe as possible.
+
+17. Based on *all* our results, which two bays do you think we should fish? Explain your rationale (2 points)
+
+    *Answer:*
