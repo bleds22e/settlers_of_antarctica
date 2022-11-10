@@ -2,7 +2,7 @@
 title: "Module3: Assignment3"
 author: "Ellen Bledsoe"
 date: "2022-11-03"
-output: html_document
+output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
@@ -47,8 +47,8 @@ First, we need to assess which how many fish are in each bay. Then we will asses
 
 ```{r}
 library(tidyverse)
-fish <- read_csv("fish.csv")
-seals <- read_csv("seals.csv")
+fish <- read_csv("../data/fish.csv")
+seals <- read_csv("../data/seals.csv")
 ```
 
 ## Fish
@@ -67,8 +67,8 @@ Early last year, we had our fishers head out into each of the four bays everyday
 
 2.  Write out our two hypotheses for these data.
 
-    **Null Hypothesis** $H_{0}$: \
-    **Alternative Hypothesis** $H_{0}$:
+    **Null Hypothesis** $H_{0}$: \ no difference in amount of fish per bay
+    **Alternative Hypothesis** $H_{0}$: difference in amount of fish per bay
 
 ### Numeric
 
@@ -113,10 +113,11 @@ summary(fish_model)
 
 7.  Interpret the results of the model and answer the following questions (2 points):
 
-    -   What is the value of the test statistic?
-    -   What is our p-value?
-    -   Is our p-value higher or lower than our cut-off value of 0.05
-    -   Write 2-3 sentences explaining that this result means. How do we interpret this value? what does it mean for our hypotheses?
+    -   What is the value of the test statistic? 1.751
+    -   What is our p-value? 0.155
+    -   Is our p-value higher or lower than our cut-off value of 0.05? higher
+    -   Write 2-3 sentences explaining that this result means. How do we interpret this value? what does it mean for our hypotheses? 
+        no significant difference in the amount of fish per bay, fail to reject null
 
 8.  Run some code to compute pairwise comparisons.
 
@@ -126,6 +127,8 @@ TukeyHSD(fish_model)
 
 9.  Write 2-3 sentences interpreting the pairwise comparisons. Which pairs of bays are significantly different from each other, if any?
 
+    *Answer:* none are different from each other (all above 0.05)
+
 ## Seals
 
 Let's do the same for our seal data. The `seals` data frame has data on how many seals were observed each day in each survey area of the bay. The columns we will be focusing on are `bay` and `num_seals`.
@@ -134,7 +137,8 @@ Let's do the same for our seal data. The `seals` data frame has data on how many
 
 10. Write out our 2 hypotheses for the seal data.
 
-    *Answer:*
+    *Answer:* null: no difference in seals by bay
+              alternative: difference in # of seals by bay
 
 ### Numeric
 
@@ -175,12 +179,12 @@ summary(seal_model)
 
 14. Interpret the results of the model and answer the following questions (2 points):
 
-    -   What is the value of the test statistic?
-    -   What is our p-value?
-    -   Is our p-value higher or lower than our cut-off value of 0.05
+    -   What is the value of the test statistic? 1467
+    -   What is our p-value? <2e-16
+    -   Is our p-value higher or lower than our cut-off value of 0.05? lower
     -   Write 2-3 sentences explaining that this result means. How do we interpret this value? What does it mean for our hypotheses?
 
-    *Answers:*
+    *Answers:* differences in num of seal per bay, reject null
 
 15. Run some code to compute pairwise comparisons.
 
@@ -190,6 +194,8 @@ TukeyHSD(seal_model)
 
 16. Write 2-3 sentences interpreting the pairwise comparisons. Which pairs of bays are significantly different from each other, if any?
 
+  *Answer:* all pairs are sig. difference except Sulzberger and Hope
+
 ## Decision-Making
 
 Think through our goals of doing this analysis.
@@ -197,3 +203,5 @@ Think through our goals of doing this analysis.
 We want to choose two out of four bays to fish in. We want bays that have enough fish to feed our station but the least number of leopard seals to keep our fishing crews as safe as possible.
 
 17. Based on *all* our results, which two bays do you think we should fish? Explain your rationale (2 points)
+
+Because there is no difference in the number of fish per bay, we will want to make our decision based on seal numbers. We are looking for the lowest seal numbers, which Sulzberger and Hope have. The other bays have significantly higher seal numbers than either of these two, so we would choose them.
