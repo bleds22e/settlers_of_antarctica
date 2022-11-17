@@ -20,10 +20,7 @@ complement <- function(y, rho, x) {
   rho * sd(y.perp) * y + y.perp * sd(y) * sqrt(1 - rho^2)
 }
 
-x = site_changes$num_nests
-y = -1.5*(x - 6)^2 + 4*(x) + 50
-var = sample(seq(from = 0.9, to = 1.1, by = 0.01), size = length(y), replace = TRUE)
-y_with_var = y*var
+
 
 site_changes = tibble(site_id = c(rep(1:100), rep(1:100)), 
                       year = c(rep(1971, 100), rep(2011, 100)),
@@ -48,4 +45,9 @@ points(x2, y2_with_var, pch = 16, col = "black")
 site_changes$num_nests = c(y1_with_var, y2_with_var)
 site_changes$num_nests = round(site_changes$num_nests)
 
-write_csv(site_changes, path = "./modules/module_4/data/site_changes.csv")
+x = site_changes$num_nests
+y = -1.5*(x - 6)^2 + 4*(x) + 50
+var = sample(seq(from = 0.9, to = 1.1, by = 0.01), size = length(y), replace = TRUE)
+y_with_var = y*var
+
+write_csv(site_changes, "modules/module_4/data/site_changes.csv")
