@@ -1,0 +1,132 @@
+---
+title: "Module 4 Assignment 1"
+author: "Ellen Bledsoe"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+In this assignment, we are going to continue using the hair grass data set from class. The first lesson (Roads and Regressions) will be particularly helpful to you in completing this assignment.
+
+We are going to look at the relationship between hair grass density and two other variables: phosphorus content and the average summer temperature.
+
+## Set-Up
+
+As always, we must get organized before we can do anything!
+
+First load the tidyverse and read in the hair grass data set.
+
+```{r}
+
+```
+
+## Phosphorus Content
+
+1.  Calculate the mean and standard deviation of the measured phosphorus content.
+
+```{r}
+
+```
+
+2.  Which variable is the independent variable? Which is the dependent?
+
+    *Independent:*
+
+    *Dependent:*
+
+3.  Create a scatter plot of hair grass density and phosphorus content. Be sure to make the labels easier to understand.
+
+```{r}
+
+```
+
+4.  Write 1-2 sentences interpreting the plot above. Is this a positive relationship, negative relationship or no relationship at all? Based on your prediction, do you think the correlation coefficient will be positive, negative, or zero?
+
+    *Answer:*
+
+5.  Calculate the correlation coefficient, `r`.
+
+```{r}
+
+```
+
+6.  Calculate the `r^2` value. Write a one sentence interpretation of what the `r^2` value means in the context of these two variables.
+
+```{r}
+
+```
+
+*Interpretation:* 
+
+7.  What are the null and alternative hypothesis regarding the relationship between these two variables? (2 pts)
+
+    **Null:** 
+
+    **Alternative:** 
+
+8.  Create the scatter plot that includes the line of best fit (have `ggplot2` calculate the linear equation for you)
+
+```{r}
+
+```
+
+9. Using code, create the regression model in R and obtain the summary of it.
+
+```{r}
+
+```
+
+10. Write out the equation for the line of best fit.
+
+    *Answer:* 
+
+11. Interpret the model summary. What is the p-value for our variable of interest? Do we accept or reject the null hypothesis regarding the relationship between these two variables? What can we conclude then about building a road? (2 pts)
+
+    *Answer:*
+
+
+## Summer Temperature
+
+Now let's do the same thing for the average summer temperatures.
+
+12. Create a scatter plot of hair grass density and average summer temperature. Remember to improve the axes labels!
+
+```{r}
+
+```
+
+13. Write 1-2 sentences interpreting the plot above. Is this a positive relationship, negative relationship or no relationship at all? Based on your prediction, do you think the correlation coefficient will be positive, negative, or zero?
+
+    *Answer:* 
+
+14. Calculate the correlation coefficient, `r`.
+
+```{r}
+
+```
+
+15. Calculate the `r^2` value. Write a one sentence interpretation of what the `r^2` value means in the context of these two variables.
+
+```{r}
+
+```
+
+*Interpretation:* 
+16. Create the scatter plot that includes the line of best fit (have `ggplot2` calculate the linear equation for you)
+```{r}
+
+```
+
+17. Using code, create the regression model in R and obtain the summary of it.
+
+```{r}
+
+```
+
+18. Interpret the model summary. What is the p-value for our variable of interest? Do we accept or reject the null hypothesis regarding the relationship between these two variables? What can we conclude then about building a road? (2 points)
+
+    *Answer:*
+
