@@ -1,0 +1,246 @@
+---
+title: "Final Project Practice"
+output: html_document
+date: "2022-11-22"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Practicing for the Final Project
+
+This is meant to help you prepare for the final project, which I will be handing out next week. The final project will have about the same amount of guidance (or maybe even a bit more) that I've given you here. If you can work your way through these practice problems, you'll be in good shape!
+
+I'm expecting you to be able to filter and summarize the data in ways you need, choose the appropriate visualization, choose the appropriate analysis, and correctly interpret the analysis for the question I've asked you.
+
+It is important to note that, like this this practice, I will not be giving you an answer key for your final project since part of your grade for the assignment is to choose the correct visualizations and analyses.
+
+For both this and the final project, we are going to use the `palmerpenguins` dataset, which we've used before! You can learn more about it [here](https://allisonhorst.github.io/palmerpenguins/).
+
+**Because we are working through this together in class, I will be grading this assignment on completion only! That said, make sure you actually answer every question that's in here...there are quite a few!**
+
+### Before we begin...
+
+There still seems to be some confusion about p-values, which is normal! If you want some more detailed explanations, I think watching some videos on YouTube can be really helpful. [This one](https://www.youtube.com/watch?v=eyknGvncKLw&t=1s&ab_channel=DrNic%27sMathsandStats) is pretty short and good (minus the old-school animation!).
+
+Put simply:
+
+The p-value represents the probability that we would observe a difference of means (or whatever difference you are testing) *randomly*. Basically, a p-value is the chance that we see a difference this large due to our random sampling; if that chance is less than 5% then it is reasonable to assume that the null hypothesis is not correct. 
+
+The key here is that we are pulling a *random* sample from our overall population. The p-value tells the probability that the difference we see between our samples is due to random chance. If that chance is below 5% (p \< 0.05), then we feel pretty confident that it is *not* due to random chance! We can reject the null hypothesis! Anything higher (p \> 0.05) is too high a chance for us to take, so we don't reject the null.
+
+## Set-Up
+
+Let's load our packages and get started!
+
+```{r}
+library(tidyverse)
+library(palmerpenguins)
+```
+
+We will be using the `penguins` data frame. It exists as part of the `palmerpenguins` package, but if you want it to show up in your environment, run the following code chunk.
+
+```{r}
+penguins <- penguins
+```
+
+## Problem Set 1
+
+For this problem set, we are going to look at the difference in flipper lengths for each species on Dream island.
+
+First things first, let's make a dataframe with only penguins on Dream island. We will want to use this dataframe for the rest of this problem set.
+
+```{r}
+dream <- penguins %>% 
+  filter(island == "Dream")
+```
+
+Based on our question, which variable is independent and which is dependent? Which is continuous and/or which is categorical?
+
+First, calculate the minimum, maximum, and mean of the flipper lengths for each species
+
+```{r}
+flippers <- dream %>% 
+  group_by(species) %>% 
+  summarise(min_flipper = min(flipper_length_mm, na.rm = TRUE),
+            max_flipper = max(flipper_length_mm, na.rm = TRUE),
+            mean_flipper = mean(flipper_length_mm, na.rm = TRUE))
+flippers
+```
+
+Choose an effective visualization method for this data. Use `ggplot2`.
+
+```{r}
+ggplot(dream, aes(x = species, y = flipper_length_mm)) +
+  geom_boxplot() +
+  geom_jitter(width = 0.1, alpha = 0.5)
+```
+
+Write out the null and alternative hypotheses.
+
+**Null:**
+
+**Alternative:**
+
+Run the appropriate statistical test.
+
+```{r}
+t.test(data = dream, flipper_length_mm ~ species)
+```
+
+Interpret the results of your statistical test:
+
+-   What is the p-value?
+-   Is the p-value above or below 0.05?
+-   What does your answer to the question above mean?
+-   Should we reject or fail to reject the null hypothesis?
+
+Should we run pairwise comparisons? If yes, do so below and interpret:
+
+```{r}
+
+```
+
+## Problem Set 2
+
+For this problem set, we want to know if there is a relationship between flipper length and bill length amongst all penguins (we aren't going to worry about species right now).
+
+Are our variables of interest continuous and/or categorical?
+
+Take note that in this example, there is no dependent or independent variable per say. We don't have any reason to think that flipper length influences bill length or vice versa. We just want to determine if there is a relationship or not.
+
+For now, put flipper length on the x-axis and bill length on the y-axis.
+
+First, calculate the mean and standard deviation for both bill length and flipper length.
+
+```{r}
+bill_flipper <- penguins %>% 
+  summarise(mean_bill = mean(bill_length_mm, na.rm = TRUE),
+            sd_bill = sd(bill_length_mm, na.rm = TRUE),
+            mean_flipper = mean(flipper_length_mm, na.rm = TRUE),
+            sd_flipper = sd(flipper_length_mm, na.rm = TRUE))
+bill_flipper
+```
+
+Choose the best way to visualize the relationship between these two variables
+
+```{r}
+ggplot(penguins, aes(flipper_length_mm, bill_length_mm)) +
+  geom_point() +
+  geom_smooth(method = "lm")
+```
+
+To do the rest of this problem set, the easiest way is to create a new data frame with no NA values. Run the code chunk below and use that new data frame for the rest of the problem set.
+
+```{r}
+penguins_noNA <- penguins %>% 
+  filter(!is.na(bill_length_mm),
+         !is.na(flipper_length_mm))
+```
+
+Calculate the correlation coefficient and the `r^2` value.
+
+-   According to the correlation coefficient, is the relationship positive, negative or is there no relationship?
+-   According to the `r^2` value, how much of the variation in this relationship is explained? Remember, we usually multiply the `r^2` by 100 to represent this as a percentage.
+
+```{r}
+r <- cor(x = penguins_noNA$flipper_length_mm, y = penguins_noNA$bill_length_mm)
+r^2
+```
+
+Run the appropriate model for this data.
+
+```{r}
+lm_model <- lm(data = penguins_noNA, bill_length_mm ~ flipper_length_mm)
+summary(lm_model)
+```
+
+Using variables and numbers from the summary above, write out the equation of the line
+
+*Answer:* bill_length_mm = 0.25\*flipper_length_mm - 7.26
+
+Interpret the results of your statistical test:
+
+-   What is the p-value?
+-   Is the p-value above or below 0.05?
+-   What does your answer to the question above mean?
+
+Should we run pairwise comparisons? If yes, do so below and interpret:
+
+```{r}
+
+```
+
+### Bonus
+
+In our plot, how do you think we could separate these points (and lines!) out by species?
+
+```{r}
+ggplot(penguins, aes(flipper_length_mm, bill_length_mm, color = species)) +
+  geom_point() +
+  geom_smooth(method = "lm")
+```
+
+## Problem Set 3
+
+For this problem set, we want to know if there is a difference in the body mass of the penguin species.
+
+Based on our question, which variable is independent and which is dependent? Which is continuous and/or which is categorical?
+
+First, calculate the minimum, maximum, and mean of the body mass for each species.
+
+```{r}
+body_mass <- penguins %>% 
+  group_by(species) %>% 
+  summarise(min_mass = min(body_mass_g, na.rm = TRUE),
+            max_mass = max(body_mass_g, na.rm = TRUE),
+            mean_mass = mean(body_mass_g, na.rm = TRUE))
+body_mass
+```
+
+Convert all the columns in the `body_mass` data frame from grams to kilograms. (Hint: I recommend using the `mutate()` function. Remember that you divide grams by 1000 to get kilograms)
+
+```{r}
+body_mass_kg <- body_mass %>% 
+  mutate(min_mass = min_mass / 1000,
+         max_mass = max_mass / 1000,
+         mean_mass = mean_mass / 1000)
+```
+
+Create a new dataframe (start with `penguins`) called `big_or_small`. It should have a column that has "big" if the mass is greater than or equal to 4500 grams and "small" if the mass is below 4500 grams.
+
+```{r}
+big_or_small <- penguins %>% 
+  mutate(big_small = ifelse(body_mass_g >= 4500, "big", "small"))
+```
+
+Choose an effective visualization method for this data. Use `ggplot2`.
+
+```{r}
+ggplot(penguins, aes(x = species, y = body_mass_g)) +
+  geom_boxplot() +
+  geom_jitter(width = 0.1, alpha = 0.5)
+```
+
+Write out the null and alternative hypotheses.
+
+Run the appropriate statistical test.
+
+```{r}
+aov_mod <- aov(data = penguins, body_mass_g ~ species)
+summary(aov_mod)
+```
+
+Interpret the results of your statistical test:
+
+-   What is the p-value?
+-   Is the p-value above or below 0.05?
+-   What does your answer to the question above mean?
+-   Should we reject or fail to reject the null hypothesis?
+
+Should we run pairwise comparisons? If yes, do so below and interpret:
+
+```{r}
+TukeyHSD(aov_mod)
+```
