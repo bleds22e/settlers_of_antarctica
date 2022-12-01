@@ -122,3 +122,9 @@ summary(stone_size_mod)
 ```
 
 Wow, a bunch of significant variables! Not only are stone size and year significant, but so is the interaction between stone size and year. What does this mean? It means that penguins in different years seems to respond different to stone size. In 1971, the number of nests increases with stone size, but in 2011, the number of nests doesn't seem impacted by stone size. Therefore, there is an *interaction* between stone size and year.
+
+### Resources
+
+Still feeling a bit confused about multiple regression and interactions? I recommend checking out this website. You can skip all the equation stuff at the beginning. Below that, though, I think they do a nice job of laying out what interactions are.
+
+<https://stattrek.com/multiple-regression/interaction?tutorial=reg>
