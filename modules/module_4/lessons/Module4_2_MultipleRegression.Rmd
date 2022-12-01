@@ -1,0 +1,124 @@
+---
+title: 'Module 4: Multiple Regression'
+author: "Ellen Bledsoe"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Multiple Regression
+
+Sometimes (often!), we have multiple independent variables that we think might be influencing our dependent variable. In order to take into account more than one variable, we can perform what is called a "multiple regression."
+
+Multiple regressions can become complicated beasts, but we are going to focus on adding in just one additional variable and how it can impact our interpretations.
+
+Let's use some penguins nesting site data to demonstrate.
+
+## Set-Up
+
+As usual, we want to load our packages and our data before we begin.
+
+```{r}
+library(tidyverse)
+site_data <- read_csv("modules/module_4/data/site_changes.csv") %>% 
+  mutate(year = as.factor(year)) # don't worry about this code too much--we just want the year column treated as a category, not a number
+```
+
+We want to understand what factors influence penguin nesting---we wouldn't want to build our road through important penguin nesting territories!
+
+Let's quickly take a look at the data we have.
+
+```{r}
+head(site_data)
+```
+
+Ok, it looks like we have data for 100 different sites collected in two different years. We have the number of penguin nests, which is the variable that we are interested in. We also have a few other variables that might be influencing the number of nests at each site: the number of tussocks of grass, the stone size, the distance to water, and the year that data were collected.
+
+Let's start with looking at how the number of grass tussocks affects nest numbers.
+
+### Multiple Variables
+
+Let's start by plotting our tussocks data and run a model.
+
+```{r}
+ggplot(site_data, aes(x = tussocks, y = num_nests)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  theme_classic()
+
+tussocks_model <- lm(data = site_data, num_nests ~ tussocks)
+summary(tussocks_model)
+```
+
+This model is showing us a positive relationship between the number of tussocks and number of nests. It is also highly significant.
+
+### Running a Multiple Regression
+
+What if we incorporate the year the data were collected into our model? Do we see the same patterns?
+
+```{r}
+ggplot(site_data, aes(x = tussocks, y = num_nests, color = year)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  theme_classic()
+```
+
+Huh, that looks a little bit different...we no longer seem to have much of a positive relationship. Instead, both lines are looking pretty flat! Let's see what happens when we add year into our regression model. Does it change our significance?
+
+By adding the year variable into the model, we are also asking if the number of nests changes by year.
+
+In this case, we add the year variable here with an asterisk: `*`. This does something special. Not only does it incorporate year into the model, but it also incorporates the *interaction* between year and tussocks into the model, as well.
+
+That means, instead of just asking if the number of nest changes by year, we are also asking if the number of tussocks is changing by year and impacting the number of nests.
+
+```{r}
+tussocks_model <- lm(data = site_data, num_nests ~ tussocks*year)
+summary(tussocks_model)
+```
+
+We have a bunch of estimates now! Don't worry, I won't be asking you to put them into an equation :) For now, we will just take a look at significance values.
+
+-   `tussocks`: the p-value for the tussocks row shows whether the number of tussocks is a significant driver of nest numbers (it isn't!)
+-   `year2011`: this p-value is also not significant
+    -   (you don't need to know this, but if you are curious...): the reason this says `year2011` and not just `year` is because year is acting as a category, we can get different coefficient estimates for year. The first option in the categorical variable (1971, in this case) is incorporated into the current intercept estimate, so `year2011` indicates the difference from the original.
+-   `tussocks:year2011`: this p-value represents the *interaction* between the tussocks data and year data. These slopes are the same, indicating no interaction. See the next section for a better understanding of interactions!
+
+It turns out that adding in the year variable has changed the significance in our model, and the interaction term is also not significant.
+
+-   The positive relationship we originally observed is no longer present when we account for the year.
+-   There is no significant interaction is that penguins respond to the number of tussocks the same way in each year---they simply don't seem to care about the number of grass tussocks!
+
+Let's explore another example to get a better understanding.
+
+### Significant Interactions
+
+Let's investigate how stone size influences nest numbers.
+
+```{r}
+ggplot(site_data, aes(x = stone_size, y = num_nests)) +
+  geom_point() +
+  geom_smooth(method = "lm")
+
+stone_size_mod = lm(num_nests ~ stone_size, data = site_data)
+summary(stone_size_mod)
+```
+
+Cool, a significant relationship! What about when we add in year?
+
+```{r}
+ggplot(site_data, aes(x = stone_size, y = num_nests, color = year)) +
+  geom_point() +
+  geom_smooth(method = "lm")
+```
+
+This plot looks pretty different from the one with tussocks. We can see that the slopes for the two different years are quite different: one is pretty flat while the other is definitely positive. Different slopes often indicates that an *interaction* might be at work. Let's find out.
+
+```{r}
+stone_size_mod = lm(num_nests ~ stone_size*year, data = site_data)
+summary(stone_size_mod)
+```
+
+Wow, a bunch of significant variables! Not only are stone size and year significant, but so is the interaction between stone size and year. What does this mean? It means that penguins in different years seems to respond different to stone size. In 1971, the number of nests increases with stone size, but in 2011, the number of nests doesn't seem impacted by stone size. Therefore, there is an *interaction* between stone size and year.
