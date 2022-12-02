@@ -1,0 +1,135 @@
+---
+title: "Module 4 Assignment 3"
+author: "Ellen Bledsoe"
+date: "2022-12-02"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Assignment Details
+
+### Purpose
+
+The goal of this assignment is to assess your ability to perform and interpret multiple regressions.
+
+### Task
+
+Write R code which produces the correct answers and correctly interpret the results of visualizations and statistical tests.
+
+### Criteria for Success
+
+-   Code is within the provided code chunks
+-   Code is commented with brief descriptions of what the code does
+-   Code chunks run without errors
+-   Code produces the correct result
+    -   Code that produces the correct answer will receive full credit
+    -   Code attempts with logical direction will receive partial credit
+-   Written answers address the questions in sufficient detail
+
+### Due Date
+
+December 6 at midnight MST
+
+# Assignment Questions
+
+In this assignment, we will continue exploring data that will inform where we should build our fishing roads.
+
+We've looked at data for Antarctic hair grass, a vascular plant. Now we are going to take into consideration two groups of non-vascular plants: mosses and liverworts.
+
+Penguins are important players in the Antarctic ecosystem because they cycle nutrients from the ocean onto the land (or ice). Penguin poop is high in nutrients that plants need, such as nitrogen and phosphorus. We are curious to discover if the density of penguins at a given site corresponds to how much area of each site is covered in plants.
+
+## Set-Up
+
+1.  As always, let's load the `tidyverse` to get started.
+
+```{r}
+library(tidyverse)
+```
+
+2.  Now read in the data set, which is called `nonvascular_plants.csv`. Name the data frame `plants`.
+
+```{r}
+plants <- read_csv("../data/nonvascular_plants.csv")
+```
+
+3.  Take a look at the data; use the `head()` and `tail()` functions to look at the beginning of the data set and the end of the data set respectively. (2 points)
+
+```{r}
+head(plants)
+tail(plants)
+```
+
+The data set has 4 columns: the number of the site, which type of non-vascular plant is found at the site, how much of the ground is covered by plants, and the density of penguins.
+
+## Regression
+
+Our first goal is to determine if there is a relationship between the amount of plant cover and penguin density.
+
+4.  Which of our two variables is dependent and which is independent (hint: re-read the introduction if you're feeling confused). Determine whether each is continuous or categorical. (2 points)
+
+-   `penguin_density_m2`: independent, continuous
+-   `percent_plant_cover`: dependent, continuous
+
+5.  Plot the data (disregard plant type for now) using the appropriate plot from `ggplot2`. Remember to add a line of best fit (and remember to make that line a straight line using the `method = "lm"` argument!). (2 points)
+
+```{r}
+ggplot(plants, aes(penguin_density_m2, percent_plant_cover)) +
+  geom_point() +
+  geom_smooth(method = "lm")
+```
+
+6.  Calculate the correlation coefficient. What does this tell us about the relationship? (2 points)
+
+    *Answer:* perhaps a slight negative relationship but probably none at all
+
+```{r}
+r <- cor(plants$penguin_density_m2, plants$percent_plant_cover)
+r
+```
+
+7.  Calculate R\^2. How much variation does our line of best fit explain (report in %)? (2 points)
+
+    *Answer:* 0.3% aka not very much
+
+```{r}
+r^2
+```
+
+8.  Run a linear regression model for these days and interpret the results. Does it seem like penguin density is a significant driver of plant cover? (3 points)
+
+    *Answer:* p \> 0.05 so not a likely driver of plant cover
+
+```{r}
+summary(lm(data = plants, percent_plant_cover ~ penguin_density_m2))
+```
+
+## Multiple Regression and Interaction
+
+Maybe we can get more information if we include the plant type in the model.
+
+9.  First, let's plot the data again, but this time make the color different for each type of plant. (2 points)
+
+```{r}
+ggplot(plants, aes(penguin_density_m2, percent_plant_cover, color = plant_type)) +
+  geom_point() +
+  geom_smooth(method = "lm")
+```
+
+Woah, that's quite different! Our interpretation of whether penguin density affects plant cover might need to change...
+
+10. Run a multiple regression model, incorporating the plant type into the model using the `*` notation. Write 2-3 sentences interpreting the results. (3 points)
+
+-   Which variables are significant? How do we know?
+
+-   Is the interaction term significant? How do we know?
+
+    *Answer:* all variables are highly significant including the interaction term--all p \< 0.05
+
+```{r}
+summary(lm(data = plants, percent_plant_cover ~ penguin_density_m2 * plant_type))
+```
+
+Why might different plants respond differently to penguin densities? Perhaps one group is more sensitive to trampling or perhaps penguins like to snack on them. Any number of causes could be at play. What is important to recognize is that there is an interactive effect here: different plants respond to differently to penguin densities!

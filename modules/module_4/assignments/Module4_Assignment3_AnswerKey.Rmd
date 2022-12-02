@@ -1,0 +1,68 @@
+---
+title: "Module 4 Assignment 3"
+author: "Ellen Bledsoe"
+date: "2022-12-02"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# 
+
+```{r warning = FALSE, message = FALSE}
+library(tidyverse)
+```
+
+```{r}
+plants <- read_csv("../data/nonvascular_plants.csv")
+```
+
+3.  
+
+```{r}
+head(plants)
+tail(plants)
+```
+
+5.  
+
+```{r}
+ggplot(plants, aes(penguin_density_m2, percent_plant_cover)) +
+  geom_point() +
+  geom_smooth(method = "lm")
+```
+
+6.  
+
+```{r}
+r <- cor(plants$penguin_density_m2, plants$percent_plant_cover)
+r
+```
+
+7.  
+
+```{r}
+r^2
+```
+
+8.  
+
+```{r}
+summary(lm(data = plants, percent_plant_cover ~ penguin_density_m2))
+```
+
+9.  
+
+```{r}
+ggplot(plants, aes(penguin_density_m2, percent_plant_cover, color = plant_type)) +
+  geom_point() +
+  geom_smooth(method = "lm")
+```
+
+10. 
+
+```{r}
+summary(lm(data = plants, percent_plant_cover ~ penguin_density_m2 * plant_type))
+```
