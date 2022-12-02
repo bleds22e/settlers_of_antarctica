@@ -24,7 +24,7 @@ of the variables of interest.
 library(tidyverse)
 
 # importing the data
-site_data = read_csv("../data/site_changes.csv")
+site_data = read_csv("https://tinyurl.com/yardhofj")
 glimpse(site_data)
 
 # filtering so we just have the most current data set at our dispsoal
@@ -137,7 +137,6 @@ site_data_2011 = site_data %>%
 
 full_mod = lm(num_nests ~ tussocks*dist_to_water*stone_size, 
               data = site_data_2011)
-summary(full_mod)
 # Be sure to explain interaction here (plus verus *)
 # Ok, so this doesn't tell us much
 ```
@@ -150,13 +149,11 @@ would be here?
 ```{r}
 tussock_mod = lm(num_nests ~ tussocks, 
                  data = site_data_2011)
-summary(tussock_mod)
 
 # So this is weird right, because we saw a pattern in tussocks before... with 
 # the full dataset. So what's going on?
 
 tussock_time_mod = lm(num_nests ~ tussocks*year, data = site_data)
-summary(tussock_time_mod)
 
 # This is a bit harder to interpret, lets look at a figure
 ggplot(site_data, aes(x = tussocks, y = num_nests, color = year)) +
@@ -176,14 +173,11 @@ ggplot(site_data, aes(x = stone_size, y = num_nests, color = year)) +
   geom_smooth(method = "lm")
 
 stone_size_mod = lm(num_nests ~ stone_size*year, data = site_data)
-summary(stone_size_mod)
 
 ggplot(site_data, aes(x = dist_to_water, y = num_nests, color = year)) +
   geom_point() +
   geom_smooth(method = "lm")
 
-dist_to_water_mod = lm(num_nests ~ dist_to_water*year, data = site_data)
-summary(dist_to_water_mod)
 ```
 
 So... this is not the best situation to be in. We have variables we thought 
