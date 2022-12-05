@@ -1,0 +1,345 @@
+---
+title: "Final Project"
+author: "Ellen Bledsoe"
+date: "2022-12-03"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Final Project Details
+
+### Purpose
+
+The goal of this final assignment is to assess your ability to integrate the many skills you have learned over the semester: filtering and summarizing data, creating new columns, choosing the appropriate data visualizations, and performing and interpreting the appropriate statistical tests.
+
+### Task
+
+Write R code which produces the correct data, summaries, plots and analyses. Correctly interpret the results of these plots and analyses.
+
+### Criteria for Success
+
+-   Code chunks run without errors
+-   Code produces the correct result
+    -   Code that produces the correct answer will receive **full** credit
+    -   Code attempts with logical direction will receive **partial** credit
+-   Appropriate plot types are used to visualize the data
+-   Appropriate statistical tests are used to analyze the data
+-   Written answers address the questions in sufficient detail
+
+### Due Date
+
+December 12 at midnight MST
+
+# Final Project
+
+For your final "project" this semester, I am presenting you with 3 problem sets, each worth 20 points (for a total of 60 points).
+
+I'm expecting you to be able to filter and summarize the data in ways you need, choose the appropriate visualization, choose the appropriate analysis, and correctly interpret the analysis for the question I've asked you.
+
+It is important to note that I will not be giving you an answer key for this final project since part of your grade for the assignment is being able to choose the appropriate visualizations and analyses for the question and the data.
+
+We are going to use the `palmerpenguins` R package and data set, which we've used many times before! You can learn more about it [here](https://allisonhorst.github.io/palmerpenguins/). This is a real data set from a Long-Term Ecological Research (LTER) site in Antarctica.
+
+## Set-Up
+
+#### Be sure to run both of these code chunks before you begin!
+
+I've gone ahead and included the code to load the two packages you will need to successfully complete this project: the `tidyverse` and `palmerpenguins`. Be sure to run this code chunk!
+
+```{r}
+library(tidyverse)
+library(palmerpenguins)
+```
+
+#### Important!
+
+I've also included one more code chunk below. Be sure to run this code chunk, as well! It does two key things:
+
+-   first, it add the `penguins` data frame to your environment, which I imagine you will find helpful
+-   second, it removes all rows that have any NA values, which will make completing this assignment a bit easier.
+
+Once you've run this line of code, you should see the `penguins` data frame pop up in your environment with 333 observations (rows) and 8 variables (columns).
+
+```{r}
+penguins <- penguins %>% drop_na()
+```
+
+## Structure & Guidelines
+
+Like the practice version, this final project is structured as 3 different problem sets. For each problem set, I am presenting you with a initial question to guide your thinking and analysis.
+
+### Data
+
+Assume that nothing carries over between problem sets.
+
+Each problem set is stand-alone, meaning that you should always start with the `penguins` data frame at the beginning of each problem set. If you should use a data frame that you created *within* the problem set, I explicitly state so.
+
+For example, in Problem Set 2, you should use the `biscoe` data frame that you create for the entire problem set; at the start of Problem Set 3, start over with the `penguins` data frame.
+
+### Interpreting Statistical Results
+
+When I ask you to interpret statistical results, you should roughly follow these guidelines.
+
+-   the cut-off for our p-values is always 0.05
+-   report the p-value that we are focused on
+-   if there are multiple p-values of interest, report all of them
+-   state whether the p-value indicates a significant difference/relationship
+-   if applicable, state whether we should or should not reject the null hypothesis
+
+### Plotting
+
+All plots should be made using `ggplot2`.
+
+You options for plot types to choose from are:
+
+-   histogram (use transparency (`alpha`) and `position = "identity"` with multiple groups to see the full distributions)
+-   density (use transparency (`alpha`) with multiple groups to see the full distributions)
+-   box-and-whisker (adding points on top is encouraged but not required)
+-   scatter plot
+
+**Note: All plots should have modified axis labels and legend labels.**
+
+In many cases, this might mean capitalizing the axis label or legend label. In other cases, you might want to put units in parentheses after the words (e.g., Body Mass (g)).
+
+## Problem Set 1 (20 points)
+
+#### Question: **Are there differences in the average bill length across the 3 islands in the data set: Dream, Biscoe, and Torgersen? (Ignore species)**
+
+Let's start by summarizing the bill length data.
+
+1.  Calculate the minimum, maximum, and mean bill length for *each* island. (3 points)
+
+```{r}
+penguins %>% 
+  group_by(island) %>% 
+  summarise(min_bill = min(bill_length_mm),
+            max_bill = max(bill_length_mm),
+            mean_bill = mean(bill_length_mm))
+```
+
+2.  Which of our variables would be considered *independent* and which one *dependent*? Also determine whether each is *continuous* or *categorical*. (4 points)
+    -   **island**: independent, categorical
+    -   **bill length**: dependent, continuous
+
+Now that we have an idea numerically of the differences between the islands, let's plot the differences.
+
+3.  Choose an appropriate plot (there are a few options). Ensure that you follow the plotting guidelines in the Structure & Guidelines section above! (3 points)
+
+```{r}
+ggplot(penguins, aes(island, bill_length_mm)) +
+  geom_boxplot() +
+  geom_jitter(width = 0.1, alpha = 0.5) +
+  labs(x = "Island",
+       y = "Bill Length (mm)")
+
+# OR 
+
+ggplot(penguins, aes(bill_length_mm, fill = island)) +
+  geom_density(alpha = 0.5) +
+  labs(x = "Bill Length (mm)",
+       y = "Density",
+       fill = "Island")
+  
+# OR
+  
+ggplot(penguins, aes(bill_length_mm, fill = island)) +
+  geom_histogram(alpha = 0.5, position = "identity") +
+  labs(x = "Bill Length (mm)",
+       y = "Frequency",
+       fill = "Island")
+```
+
+4.  Write the correct pair of statistical hypotheses for our question. (2 points)
+
+    **Null**: no difference in the mean bill length between penguins on different islands\
+    **Alternative**: true difference in the mean bill length between penguins on different islands
+
+5.  Run the appropriate statistical analysis for our question. (2 points)
+
+```{r}
+aov_model <- aov(data = penguins, bill_length_mm ~ island)
+summary(aov_model)
+```
+
+6.  Interpret the results of this test. (3 points)
+
+    -   is there a significant difference?
+    -   what does that significant difference mean?
+    -   should we reject the null hypothesis?
+
+    *Answer: yes, p = 9.21e-12, which is smaller than 0.05, reject null. penguins on different islands have significantly different beak lengths*
+
+7.  Should we run pairwise comparisons? If no, explain why not. If yes, do so and interpret the results. (3 points)
+
+    *Answer:* yes; significant differences between all pairs except Dream-Biscoe because p \> 0.05
+
+```{r}
+TukeyHSD(aov_model)
+```
+
+## Problem Set 2 (20 points)
+
+#### Question: Is there a significant relationship between bill length and bill depth for penguins on Biscoe Island?
+
+For this problem set, we are going to use data from Biscoe island only.
+
+1.  Create a new data frame called `biscoe` that includes only penguins from Biscoe island. This new data frame should have 163 rows. (1 point)
+
+```{r}
+biscoe <- penguins %>% 
+  filter(island == "Biscoe")
+```
+
+You will want to use the `biscoe` data set for the rest of Problem Set #2.
+
+This is a scenario where there is no independent and no dependent variable. Go ahead and **put bill length on the x-axis and bill depth on the y-axis.**
+
+For now, ignore species. We will address that later in the problem set.
+
+2.  Plot the relationship between bill length and bill depth using the appropriate plot type. (2 points)
+
+    -   Be sure to add a line of best fit using the `geom_smooth` function---and make sure it is a straight line (no wiggles, which the default will produce).
+    -   Ensure that the plot has clear labels on the axes (follow the Structure & Guidelines).
+    -   Remember, we are ignoring species for now.
+
+```{r}
+ggplot(biscoe, aes(bill_length_mm, bill_depth_mm)) +
+  geom_point() +
+  geom_smooth(method = "lm")
+```
+
+3.  Calculate the correlation coefficient, `r`. What does this value tell us about the relationship (positive, negative, no relationship)? (2 points)
+
+    *Answer:* negative relationship
+
+```{r}
+r <- cor(biscoe$bill_length_mm, biscoe$bill_depth_mm)
+```
+
+4.  Calculate the `r^2` value. How much variation is explained by the line of best fit? Remember, this number is typically expressed as a percent (x 100). (2 points)
+
+    *Answer:* About 20% variation explained
+
+```{r}
+r^2
+```
+
+5.  Let's see if there is a significant relationship between bill length and bill depth. Perform the correct statistical analysis (1 point) and interpret the results. (4 points total)
+
+    -   What is the equation of the line of best fit? (1 point)
+    -   What is the p-value? (1 point)
+    -   Is there a significant relationship? (1 point)
+
+    *Answer: bill_depth = -0.168\*bill_length + 23.5; p = 2.74e-9, highly significant*
+
+```{r}
+summary(lm(data = biscoe, bill_depth_mm ~ bill_length_mm))
+```
+
+When we look at the plot of the data, it looks like there might be two different groups in the data.
+
+6.  Let's make the color of the points and the linear models differ by species on Biscoe Island. Be sure to adjust *all* labels on the plot accordingly. (2 points)
+
+```{r}
+ggplot(biscoe, aes(bill_length_mm, bill_depth_mm, color = species)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  labs(x = "Bill Length (mm)",
+       y = "Bill Depth (mm)",
+       color = "Species")
+```
+
+7.  Run the appropriate statistical test, adding species into the model. (2 points)
+
+```{r}
+summary(lm(data = biscoe, bill_depth_mm ~ bill_length_mm * species))
+```
+
+8.  Interpret the results of the test above. Is species significant? Is there a significant interaction between bill length and species? (2 points)
+
+    *Answer: neither species nor interaction is significant*
+
+9.  Write 2-3 sentences discussing if and/or how adding species into our linear model changes our interpretation of the data. Did the type of relationship change? Do the two linear models tell us different things? (3 points)
+
+    *Answer: negative to positive; models still tell us similar things in terms of significance, though*
+
+## Problem Set 3 (20 points)
+
+#### Question: Is there a difference in the average *body mass* between penguins with long flippers and penguins with short flippers?
+
+In order to address this question, our first step is to create a new column in our data frame that tells us whether each penguin has a long flipper or a short flipper.
+
+-   flippers are considered "long" if they are at least 200 mm in length (\>= 200)
+-   flippers are considered "short" if they are less than 200 mm (\< 200)
+
+1.  Using the `mutate()` and `if_else()` functions, create a new column called `long_or_short` with the correct term ("long" or "short") for each flipper length. Be sure to save this in a new data frame called `flippers`. (3 points)
+
+```{r}
+flippers <- penguins %>% 
+  mutate(long_or_short = if_else(flipper_length_mm >= 200, "long", "short"))
+```
+
+We will be using the `flippers` data frame for the rest of this problem set! It has the `long_or_short` column that we will be referencing.
+
+2.  Now let's summarize our data using this new column. Calculate the mean and standard deviation *body mass* for penguins with long flippers and penguins with short flippers. (2 points)
+
+    Take a few seconds to think this through before you start coding. We want the values for *body mass*. We want our groups determined by the values in the `long_or_short` column that we just created.
+
+```{r}
+flippers %>% 
+  group_by(long_or_short) %>% 
+  summarise(mean_mass = mean(body_mass_g),
+            sd_mass = sd(body_mass_g))
+```
+
+Ok, we have summarized the body mass data for our two groups, and it looks like there might be a real difference in the body masses between the long group and the short group.
+
+3.  Determine which variable is dependent and which is independent. Also determine if each variable is continuous or categorical. (4 points)
+
+-   **body mass**: dependent, continuous
+-   **flipper group (`long_or_short`)**: independent, categorical
+
+Let's plot the body mass data for the two groups.
+
+4.  Choose an appropriate plot for data with one continuous variable and one categorical variable (there are a few options). Be sure to adjust the x- and y-axis labels appropriately. (2 points)
+
+```{r}
+ggplot(flippers, aes(long_or_short, body_mass_g)) +
+  geom_boxplot() +
+  geom_jitter(width = 0.1, alpha = 0.5) +
+  labs(x = "Flipper Length Category",
+       y = "Body Mass (g)")
+```
+
+5.  Write the pair of statistical hypotheses for our question. (2 points)
+
+    **Null**: no difference in the mean body mass between penguins with short flippers and long flippers **Alternative**: true difference in the mean body mass between penguins with short flippers and long flippers
+
+6.  Perform the appropriate analysis to compare the body mass means of our two groups: long and short. (2 points)
+
+```{r}
+t.test(data = flippers, body_mass_g ~ long_or_short)
+```
+
+7.  Interpret the results of this test. (3 points)
+
+    -   is there a significant difference?
+    -   what does that significant difference mean?
+    -   should we reject the null hypothesis?
+
+    *Answer:*
+
+8.  Should we run pairwise comparisons? If no, explain why not. If yes, do so and interpret the results. (2 points)
+
+    *Answer:* no, t-test is comparing just one pair
+
+```{r}
+
+```
+
+## The End!
+
+Great work, and thanks for a wonderful semester!
