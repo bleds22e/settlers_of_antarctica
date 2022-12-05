@@ -1,0 +1,269 @@
+---
+title: "Module 4: Roads and Regressions"
+author: "Mila Pruiett, edited by Ellen Bledsoe"
+date: "2022-11-15"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Roads and Regressions
+
+## The Scenario
+
+Last module, we tried to figure out which bays we should prioritize for fishing based on the following data sets:
+
+-   radio collar data
+-   fish catch data
+-   leopard seal abundance data
+
+Based on our results from Assignment 3, it looks like Sulzberger Bay and Hope Bay are our best bets. Now, we need to make these bays accessible over land to transport the fish we've caught to our home base.
+
+**We want to build a road while minimizing our impact on the delicate antarctic ecosystem.**
+
+Our first order of business is to make sure that we avoid areas with that are well-suited for [Antarctica hair grass](https://oceanwide-expeditions.com/blog/the-plants-of-antarctic) (*Deschamsia antarctica*), one of only two flowering species of plants on the continent.
+
+We want to know what environmental conditions are associated with hair grass. This way, we can avoid areas where these conditions are met and not destroy precious habitat for the hair grass.
+
+It would take far too long to survey every bit of land between our base and our fishing spots, so we are going to build a **model** based on some samples of where hair grass is found to help us predict where else it might be.
+
+### What is a model?
+
+A model is a way for us to take complex systems and break them down into small, more understandable bits. We can use models to help us understand the relationship between different variables. We can then use those model to make predictions based on those relationships.
+
+## Data
+
+Knowing that we would soon be building roads, we asked our botanists to collect data for us on key components of the hair grass' environment. They collected data for the following variables:
+
+-   *soil pH*: most plants prefer mildly acidic to neutral environments
+-   *nitrogen (N) content*: as percentage per 100 mL soil sample; important for plant growth and tissue building
+-   *phosphorous (P) content*: as percentage per 100 mL soil sample; important for plant growth and tissue building
+-   *percent rock*: how rocky the location is; rocks in soil impact water drainage and temperature
+-   *max windspeed (mph)*: extreme wind can pose a challenge to plants of all types
+-   *average summer temperature (C)*: temperature in the growing season
+-   *penguin density*: the number of penguins per 1 m\^2 within 100 m of the sample quadrant for hair grass; penguin poop increases nitrogen content in the system
+-   *hair grass density*: number of individual clumps (tussocks) of hair grass per 1 m\^2
+
+This data is based on this article: [Parnikoza, et al. 2007](https://doi.org/10.1016/j.polar.2007.10.002)
+
+## Summarize and Visualize
+
+As we see above, there are many environmental conditions that may be associated with hair grass density.
+
+For this lesson, we are going to focus on two: *nitrogen (N) content* and *soil pH*.
+
+### Set-Up
+
+As usual, we start with loading our packages and our data.
+
+```{r}
+library(tidyverse)
+hairgrass <- read_csv("hairgrass_data.csv")
+```
+
+Let's take a look at the data in the data set. What does each row represent?
+
+```{r}
+head(hairgrass)
+tail(hairgrass)
+```
+
+### Nitrogen Content
+
+Let's start by investigating any relationship between hair grass density and nitrogen content.
+
+First, we should spend a little time thinking about our variables. Spend a few minutes in small groups discussing the answer to the questions below.
+
+-   Which columns are we interested in right now? N_content, hairgrass_density
+-   Which one is the independent variable and which is the dependent variable?
+    -   independent: N_content
+
+    -   dependent: hairgrass_density_m2
+-   Are the variables categorical or continuous? both are continuous
+-   Which type of data visualization should we use? scatterplot
+
+Next, calculate the minimum (`min()`), maximum (`max()`), mean (`mean()`), and standard deviation (`sd()`) for the nitrogen content.
+
+```{r}
+hairgrass %>% 
+  summarise(min_N = min(N_content),
+            max_N = max(N_content),
+            mean_N = mean(N_content),
+            sd_N = sd(N_content))
+```
+
+Now that we have summarized the data, let's take a look at the data visually.
+
+```{r}
+ggplot(hairgrass, aes(N_content, hairgrass_density_m2)) +
+  geom_point()
+```
+
+Do you see a pattern? What type of relationship do you see?
+
+How do we analyze this type of relationship statistically?
+
+## Statistical Analysis
+
+We are going to use two (related) statistical methods to understand the relationship between two continuous (numeric) variables:
+
+-   correlation coefficients (`r` and `r^2`)
+-   regression analysis
+
+For more details about these, take a look at this [powerpoint](https://docs.google.com/presentation/d/1yZjRYvwi7MsU8l_mVDkA_et0ZF0cER8U/edit?usp=sharing&ouid=103537286572390245832&rtpof=true&sd=true)!
+
+### Correlation Coefficient
+
+Let's calculate the correlation coefficient, `r`. We do this by creating a *line of best fit* (R is going to do that for us, thankfully). We will talk more about this in a bit.
+
+The line of best fit aims to minimize the distance between each observation (point) and the line. The distances between each observation and the line of best fit are called *residuals*.
+
+The correlation coefficient is a number between -1 and 1 that looks at the relationship between two numeric variables. If the value is negative, there is a negative relationship between the two variable; if the value is positive, there is a positive relationship.
+
+The greater the magnitude (size) of the correlation coefficient, the stronger the relationship between the two variables. If all the points fall exactly on the line of best fit, r = 1 or -1).
+
+Based on the plot we did above, do you expect the correlation coefficient to be positive or negative?
+
+```{r}
+r <- cor(x = hairgrass$N_content, y = hairgrass$hairgrass_density_m2)
+```
+
+We often think about the correlation in terms of r-squared. To calculate `r^2`, we square the correlation coefficient value we calculated above. It is always positive because we are squaring it `r` value.
+
+The `r^2` value tells us how much of the variation in the *dependent* variable is explained by the *independent* variable.
+
+```{r}
+r^2
+```
+
+How would we interpret this `r^2` value?
+
+### Line of Best Fit
+
+A regression model gives us additional insights into the *line of best fit* for the data. In this class, all our regressions will be linear, but there are many types of regressions that you can fit.
+
+First, let's use `ggplot2` to visually add our line of best fit to the data. We do this with `geom_smooth()`. We specify that the method we want ggplot to use when adding the line of best fit is a linear model: `method = "lm"`
+
+```{r}
+ggplot(hairgrass, aes(N_content, hairgrass_density_m2)) +
+  geom_point() +
+  geom_smooth(method = "lm")
+```
+
+If we want to add statistical rigor, we need to use regression analysis. A regression analysis approximates the relationship between a dependent variable and one or more independent variables. It evaluates the strength of that relationship, ultimately giving us a p-value.
+
+Since we are using linear regressions in this course, the regression model will take the form of a line: `y = mx + b`
+
+-   `y` = dependent variable
+-   `x` = independent variable
+-   `m` = slope of the line is the slope,
+-   `b` = y-intercept.
+
+Using our variables, what would our linear regression model look like (we don't know `m` or `b` yet...)?
+
+hairgrass_density_m2 = `m` \* N_content + `b`
+
+### Hypothesis Testing
+
+What is the null hypothesis? What is the alternative hypothesis?
+
+**Null Hypothesis** ($H_{0}$): There is no relationship between hair grass density and nitrogen content.
+
+**Alternative Hypothesis** ($H_{A}$): There is a relationship between hair grass density and nitrogen content.
+
+What do you this this means for the slopes?
+
+```{r}
+# null: 0
+# alt: positive or negative number; different from zero
+```
+
+### Regression Analysis
+
+Thankfully, R can calculate the slope (`m`) and y-intercept (`b`) of the "line of best fit" for us.
+
+Let's find the equation for our line of best fit. To do this, we use a function called `lm()`: this stand for "linear model." We will then want to use the `summary()` function to get out the values we need.
+
+```{r}
+nitrogen_model <- lm(hairgrass_density_m2 ~ N_content, data = hairgrass)
+summary(nitrogen_model)
+```
+
+As with our other statistical tests---t-tests and ANOVAs---the results give us some important values:
+
+-   `b` (y-intercept): part of our line of best fit equation
+    -   The "intercept estimate", in this case 0.867, is our y-intercept in our line of best fit
+-   `m` (slope): also part of our line of best fit equation
+    -   this is the estimate for our independent variable (N_content in this case)
+    -   in this model, m = 0.662
+-   *F-statistic*: this is our test statistic
+-   *p-value*: calculated from our regression model, used to determine significance (0.05 cut-off, as usual)
+-   *R-squared*: this is our R\^2 value
+    -   you can report either the "multiple" or the "adjusted"
+    -   the "multiple" will typically match the one we calculate with code
+
+You will note that running this linear regression model also gives us `r^2` values. That's because the correlation coefficient (and, thus, the `r^2` value) are also calculated from this line of best fit.
+
+What can we conclude about nitrogen content and hair grass density?
+
+There is a positive relationship that is statistically significant. About 40% of the variation in hairgrass densities is explained by nitrogen content. Therefore, we want to take nitrogen content into account when determining where to place our road. To minimize impact on hairgrass, we would want to avoid areas of high nitrogen.
+
+## Soil pH
+
+Let's do the same series of steps to determine how soil pH impacts hair grass densities. Work on this in your small groups, and we will go over it in about 15 minutes.
+
+Start with summarizing the data: minimum, maximum, mean, and standard deviation.
+
+```{r}
+hairgrass %>% 
+  summarise(min_pH = min(soil_pH),
+            max_pH = max(soil_pH),
+            mean_pH = mean(soil_pH),
+            sd_pH = sd(soil_pH))
+```
+
+Visualize the data. Remember to add in the line of best fit using `ggplot2`.
+
+```{r}
+ggplot(hairgrass, aes(soil_pH, hairgrass_density_m2)) +
+  geom_point() +
+  geom_smooth(method = "lm")
+```
+
+Calculate the correlation coefficient (`r`)? What does this tell us?
+
+```{r}
+r <- cor(x = hairgrass$soil_pH, y = hairgrass$hairgrass_density_m2)
+```
+
+How much variation does soil pH explain in the hair grass density data?
+
+```{r}
+r^2
+0.0052%
+```
+
+Write out the model for our question about soil pH (without values)?
+
+```{r}
+# hairgrass density = m * soil_pH + b
+```
+
+Run the regression model and write out the equation for the line of best fit.
+
+```{r}
+pH_model <- lm(hairgrass_density_m2 ~ soil_pH, data = hairgrass)
+summary(pH_model)
+```
+
+y = 0.006x + 7.41
+
+Interpret the results of the regression (our p-value cutoff is still = 0.05). What do we conclude about the relationship between soil pH and hair grass density? Why?
+
+## Data-driven Decision Making
+
+The reason we are using regression analysis is to inform where we should (or should not) build our road so we don't harm the sensitive hair grass or take away their prime habitat.
+
+What do results above for nitrogen content and soil pH mean for the road we are building?
