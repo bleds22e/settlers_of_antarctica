@@ -2,7 +2,7 @@
 title: "Final Project"
 author: "Ellen Bledsoe"
 date: "2022-12-03"
-output: html_document
+output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
@@ -312,6 +312,22 @@ ggplot(flippers, aes(long_or_short, body_mass_g)) +
   geom_jitter(width = 0.1, alpha = 0.5) +
   labs(x = "Flipper Length Category",
        y = "Body Mass (g)")
+
+# OR
+
+ggplot(flippers, aes(body_mass_g, fill = long_or_short)) +
+  geom_histogram(alpha = 0.5, position = "identity") +
+  labs(x = "Body Mass (g)",
+       y = "Frequency",
+       fill = "Flipper Length (mm) Category")
+
+# OR
+
+ggplot(flippers, aes(body_mass_g, fill = long_or_short)) +
+  geom_density(alpha = 0.5) +
+  labs(x = "Body Mass (g)",
+       y = "Density",
+       fill = "Flipper Length (mm) Category")
 ```
 
 5.  Write the pair of statistical hypotheses for our question. (2 points)
@@ -330,7 +346,7 @@ t.test(data = flippers, body_mass_g ~ long_or_short)
     -   what does that significant difference mean?
     -   should we reject the null hypothesis?
 
-    *Answer:*
+    *Answer: yes, there is a significant difference in the means of body mass between penguins with long flippers and short flippers (p = 2.2e-16); reject null*
 
 8.  Should we run pairwise comparisons? If no, explain why not. If yes, do so and interpret the results. (2 points)
 
