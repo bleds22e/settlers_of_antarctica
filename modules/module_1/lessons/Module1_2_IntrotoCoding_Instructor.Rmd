@@ -77,10 +77,11 @@ There are a few main types in R, and they behave differently.
 
 -   numeric (numbers)
     -   integer (no decimals allowed)
-    -   double (decimals allowed--interchangeable with numeric)
+    -   double (decimals allowed---interchangeable with numeric)
 -   character (letters or mixture)
 -   logical (True or False; T or F)
--   factors (best used for ordinal data; levels indicate the order)
+-   factors (best used for data that need to be in a specific order;
+    levels indicate the order)
 
 ```{r}
 # Examples of different data classes
@@ -104,7 +105,7 @@ vec <- (1, 1.000, "1", TRUE)
 
 Sometimes we want to pull out and work with specific values from a
 vector. This is called sub-setting (taking a smaller set of the
-original)
+original).
 
 ```{r}
 # Use square brackets
@@ -118,7 +119,7 @@ Functions are pre-written bits of codes that perform specific tasks for
 us.
 
 Functions are always followed by parentheses. Anything you type into the
-parentheses are called arguments
+parentheses are called arguments.
 
 ```{r}
 ## Functions
@@ -129,7 +130,8 @@ round(mass_kg_mean)             # rounding
 round(mass_kg_mean, digits = 2) # round to 2 digits past 0
 ```
 
-To get more information about a function, use the `help()` function.
+To get more information about a function, use the `help()` function or
+`?name_of_function`.
 
 ```{r}
 help(round) # or type ?help
@@ -269,35 +271,33 @@ names(plants) # list of column or object names
 
 # Rmarkdown and Code Chunks (10 minutes)
 
-Rmarkdown (.Rmd) is a file format that let's us incorporate text and
-code into one document seamlessly. In fact, it is the file format for
-this document!
-
-To open a new Rmarkdown file, go the File \> New File \> R Markdown.
-Enter a title for the document (short but descriptive), your name, and
-make sure the default output HTML is selected.
-
-When the Rmd file opens, you'll see that there is already stuff in it!
-The file will have a header with the information you entered, some code
-chunks, and some text explaining how Rmd files work.
+Rmarkdown (.Rmd) is a file format that lets us incorporate text and code
+into one document seamlessly. In fact, it is the file format for this
+document!
 
 -   For writing text, you can type as you would normally
--   Code chunks are a bit different. To include text in them, you will
-    need to put a \# in front. R will not read anything after the \# as
-    code. Chunks look like this:
+-   Code chunks are a bit different.
+    -   Type your R code in the lines under the `{r}`.
+
+    -   To include text in them, you will need to put a `#` in front. R
+        will not read anything after the `#` as code. Chunks look like
+        this:
 
 ```{r}
 
 ```
 
-Type your R code in between the lines with the \`\`\`. A quick shortcut
-for adding a code chunk is Ctrl + Atl + i (Cmd + Opt + i on a Mac).
-Alternatively, you can go to Code \> Insert Chunk.
+A quick shortcut for adding a code chunk is `Ctrl + Atl + i`
+(`Cmd + Opt + i` on a Mac). Alternatively, you can go to Code \> Insert
+Chunk.
 
 To run a chunk of code, click the green arrow on the far right side of
-the chunk.
+the chunk. You can also run one or a few lines of code at a time by
+having your cursor on the line or highlighting multiple lines and
+hitting `Ctrl` + `Enter` (or `Cmd` + `Enter` on a Mac).
 
-Let's work with an example code chunk:
+Let's work with an example code chunk. Practice entering a new code
+chunk below.
 
 ```{r}
 # My first code chunk!
@@ -312,6 +312,11 @@ max(Orange$circumference)
 
 ```
 
+If you run code in the console (below) rather than the code chunk in a
+.Rmd file, you don't need to add the `{r}` to tell it that you are
+typing R code. The console only understand R code, so we don't need to
+tell it!
+
 ### Group challenge
 
 Construct a new Rmarkdown script (with all of the appropriate formatting
@@ -320,10 +325,14 @@ in the orange data set. Save the mean as an object called "avg_circ."
 
 Save the script and be ready to share it.
 
-If you're already finished, try this challenge. Find the average circumference of 
-trees aged 484 days.
+If you're already finished, try this challenge. Find the average
+circumference of trees aged 484 days.
+
 ```{r}
+head(Orange)
+avg_circ <- mean(Orange$circumference, na.rm = TRUE)
+avg_circ
+
 trees484 <- Orange[Orange$age == 484, 3]
 mean(trees484)
 ```
-

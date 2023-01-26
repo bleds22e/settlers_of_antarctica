@@ -3,7 +3,6 @@ title: "Module 1: Introduction to R and RStudio"
 author: "Keaton Wilson, Ellen Bledsoe"
 date: "11/22/2019, revised July 2022"
 output:
-  html_document: default
   pdf_document: default
 ---
 
@@ -11,14 +10,14 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Introduction to R/RStudio  
+# Introduction to R/RStudio
 
 ## Learning Outcomes
-* Students will be able to describe what computer programming languages (code) are,
-with R as an example.
-* Students will be able to describe the role of RStudio in programming with R.
-* Students will be able to describe the utility of each panel in RStudio.  
-* Students will be able to perform basic math functions in the R console.
+
+-   Students will be able to describe what computer programming languages (code) are, with R as an example.
+-   Students will be able to describe the role of RStudio in programming with R.
+-   Students will be able to describe the utility of each panel in RStudio.
+-   Students will be able to perform basic math functions in the R console.
 
 ## Check-in (5 minutes)
 
@@ -26,19 +25,18 @@ Let's all sign-up for RStudio Cloud!
 
 ## RStudio exploration (10 minutes)
 
-Open up RStudio Cloud. Spend some time familiarizing
-yourself with the structure of what is in front of you. Individually, come up with
-a question or something you don't really understand about R/RStudio. Be ready to report out.  
+Open up RStudio Cloud. Spend some time familiarizing yourself with the structure of what is in front of you. Individually, come up with a question or something you don't really understand about R/RStudio. Be ready to report out.
 
-## Rstudio Mini-tour (10 minutes)  
+## Rstudio Mini-tour (10 minutes)
 
-Perform a live-coding mini-tour of RStudio.   
-1. What the different panels do  
-2. Console versus a script/Rmarkdown file?  
+Perform a live-coding mini-tour of RStudio.\
+1. What the different panels do\
+2. Console versus a script/Rmarkdown file?
 
+## Using R as a calculator
 
-## Using R as a calculator   
-For example: 
+For example:
+
 ```{r}
 3 + 5
 
@@ -49,12 +47,14 @@ For example:
 ```
 
 ### Let's practice in the console, too.
-You can do basic math in the console (the bottom left part of the screen). The console only understands R code, so we don't need to use the ```{r}``` notation; we can type numbers and mathematical symbols. Try multiplying 5 and 3 (hint: * means multiply) in the console.
 
-### Math: Small Group Challenge  
-Run the following equation in the console. You'll need to be creative, dig into the help files and probably the web to figure out a few of the more complicated operations. Be ready to share your code.  
+You can do basic math in the console (the bottom left part of the screen). The console only understands R code, so we don't need to use the `{r}` notation; we can type numbers and mathematical symbols. Try multiplying 5 and 3 (hint: \* means multiply) in the console.
 
-The log (base 10) of the square root of pi, all of which is raised to the power of 12. 
+### Math: Small Group Challenge
+
+Run the following equation in the console. You'll need to be creative, dig into the help files and probably the web to figure out a few of the more complicated operations. Be ready to share your code.
+
+The log (base 10) of the square root of pi, all of which is raised to the power of 12.
 
 ```{r}
 log10(sqrt(pi))^12
