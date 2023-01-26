@@ -77,10 +77,11 @@ There are a few main types in R, and they behave differently.
 
 -   numeric (numbers)
     -   integer (no decimals allowed)
-    -   double (decimals allowed--interchangeable with numeric)
+    -   double (decimals allowed---interchangeable with numeric)
 -   character (letters or mixture)
 -   logical (True or False; T or F)
--   factors (best used for ordinal data; levels indicate the order)
+-   factors (best used for data that need to be in a specific order;
+    levels indicate the order)
 
 ```{r}
 # Examples of different data classes
@@ -104,7 +105,7 @@ vec <- (1, 1.000, "1", TRUE)
 
 Sometimes we want to pull out and work with specific values from a
 vector. This is called sub-setting (taking a smaller set of the
-original)
+original).
 
 ```{r}
 # Use square brackets
@@ -118,7 +119,7 @@ Functions are pre-written bits of codes that perform specific tasks for
 us.
 
 Functions are always followed by parentheses. Anything you type into the
-parentheses are called arguments
+parentheses are called arguments.
 
 ```{r}
 ## Functions
@@ -129,7 +130,8 @@ round(mass_kg_mean)             # rounding
 round(mass_kg_mean, digits = 2) # round to 2 digits past 0
 ```
 
-To get more information about a function, use the `help()` function.
+To get more information about a function, use the `help()` function or
+`?name_of_function`.
 
 ```{r}
 help(round) # or type ?help
@@ -169,3 +171,4 @@ vec <- seq(6, 1)
 sum(vec[4:6])
 ```
 
+## 
