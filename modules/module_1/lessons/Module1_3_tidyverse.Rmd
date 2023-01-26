@@ -47,7 +47,7 @@ If you want to learn more about the tidyverse, head over to [www.tidyverse.org](
 
 ### Download and install
 
-In most scenarios, you will need to download a package from the internet onto your computer before you can use it in RStudio. However, with RStudio Cloud, I've already done this step for you!
+In most scenarios, you will need to download a package from the internet onto your computer before you can use it in RStudio. However, with `posit Cloud`, I've already done this step for you!
 
 For future reference, though:
 
@@ -113,14 +113,6 @@ You might have noticed that we haven't put any column names in quotations, unlik
 Write a line of code to select the following columns from the `climate_df`: AverageTemperature, Latitude, Longitude
 
 ```{r}
-
-```
-
-### `slice()` rows out of the data frame
-
-If we want to pull out specific rows based on position alone, we can use the `slice()` function. It works similarly to `select()` for columns except usually uses numbers to indicate positions because rows typically don't have names in R.
-
-```{r slice}
 
 ```
 

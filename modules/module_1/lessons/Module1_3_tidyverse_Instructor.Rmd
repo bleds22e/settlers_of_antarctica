@@ -132,18 +132,6 @@ Write a line of code to select the following columns from the `climate_df`: Aver
 select(climate_df, AverageTemperature, Latitude, Longitude)
 ```
 
-### `slice()` rows out of the data frame
-
-If we want to pull out specific rows based on position alone, we can use the `slice()` function. It works similarly to `select()` for columns except usually uses numbers to indicate positions because rows typically don't have names in R.
-
-```{r slice}
-# base R
-climate_df[1:4,]
-
-# using slice from the tidyverse
-slice(climate_df, 1:4)
-```
-
 ## `filter()`ing rows
 
 `filter()` allows you filter rows by certain conditions. Recall that we did this a bit with base R.
