@@ -1,7 +1,7 @@
 ---
 title: 'Module 1, Assignment 2: Answer Key'
 author: "Ellen Bledsoe"
-date: "2022-07-29"
+date: "2023-01-24"
 output: pdf_document
 ---
 
@@ -46,27 +46,27 @@ head(team_data, 10)
 
 5. 
 ```{r}
-team_data[7, 9]
+team_data[9, 7]
 ```
 
 
 6. 
 ```{r average_cold_tolerance}
-mean(team_data$Cold_tolerance)
+mean(team_data$cold_tolerance)
 ```
 
 7. 
 ```{r min_max_distance}
 # minimum distance
-min(team_data$Distance_mi)
+min(team_data$distance_mi)
 
 # maximum distance
-max(team_data$Distance_mi)
+max(team_data$distance_mi)
 ```
 
 8.
 ```{r cooking_skill}
-team_data[team_data$Cooking_skill == 5, ]
+team_data[team_data$cooking_skill == 5, ]
 ```
 
 
@@ -74,7 +74,7 @@ team_data[team_data$Cooking_skill == 5, ]
 
 ```{r parka_colors}
 # 9a
-colors <- unique(team_data$Parka_color)
+colors <- unique(team_data$parka_color)
 colors
 
 #9b
@@ -84,8 +84,8 @@ length(colors)
 Bonus
 ```{r flag_mascot}
 # UA data frame
-UA <- team_data[team_data$Team == "University of Arizona",]
-# count of each animal
-table(UA$Team_flag)
+mascot <- team_data$flag_mascot
+# mascot count
+table(mascot)
 ```
 

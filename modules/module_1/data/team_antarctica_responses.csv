@@ -1,70 +1,33 @@
-﻿UniqueID,Team,Cooking_skill,Fishing_skill,Swim,Cold_tolerance,Animals,Remote_location,Parka_color,Team_flag,Distance_mi
-1,University of Arizona,4,1,Yes,4,Yes,4,Gold,Penguin,10000
-2,University of Arizona,5,2,Yes,4,Yes,5,Blue,Bear,8630
-3,University of Arizona,4,2,Yes,4,Yes,3,Green,Penguin,9600
-4,University of Arizona,1,1,Yes,1,Yes,1,Blue,Seal,8625
-5,University of Arizona,2,1,Yes,3,Yes,3,White,Sea Spider (Pycnogonida - google it),8000
-6,University of Arizona,5,1,Yes,3,Yes,3,Pink,Penguin,8625
-7,University of Arizona,4,1,Yes,2,Yes,3,Blue,Sea Spider (Pycnogonida - google it),"8,800"
-8,University of Arizona,4,2,Yes,2,Yes,4,Blue,Penguin,8625
-9,University of Arizona,4,2,Yes,2,Yes,5,White,Bear,8949
-10,University of Arizona,4,5,Yes,5,Yes,5,Blue,Penguin,9000
-11,University of Arizona,3,1,Yes,4,Maybe,3,Purple,Seal,9165
-12,University of Arizona,1,2,Yes,4,Yes,3,White,Penguin,8747
-13,University of Arizona,2,2,Yes,4,Yes,4,Green,Seal,8700
-14,University of Arizona,2,1,I can dog paddle,3,Maybe,2,Black,Penguin,7456
-15,University of Arizona,2,5,Yes,4,Maybe,3,White,Bear,8625
-16,University of Arizona,4,3,Yes,3,Yes,3,Orange,Penguin,8635
-17,University of Arizona,4,4,Yes,3,Yes,4,Orange,Sea Spider (Pycnogonida - google it),8900
-18,University of Arizona,4,4,Yes,3,Yes,5,Orange,Seal,9285
-19,University of Arizona,3,4,Yes,4,Yes,5,White,Penguin,8625
-20,University of Arizona,3,2,I can dog paddle,5,Yes,4,Blue,Penguin,9622
-21,University of Arizona,5,1,Yes,4,Yes,3,Black,Penguin,2000
-22,University of Arizona,3,2,Yes,3,Yes,3,Blue,Penguin,9439
-23,University of Arizona,3,2,Yes,3,Yes,2,Pink,Bear,9413
-24,University of Arizona,4,3,Yes,5,Yes,5,Green,Sea Spider (Pycnogonida - google it),8624
-25,University of Arizona,4,2,Yes,2,Yes,4,Black,Bear,5000
-26,University of Arizona,5,1,Yes,3,Yes,3,Black,Penguin,8747
-27,University of Arizona,5,2,No,1,Yes,4,White,,8800
-28,University of Arizona,3,2,Yes,4,Maybe,5,Black,Penguin,9450
-29,Lewis & Clark College,4,2,Yes,4,Yes,1,White,Sea Spider (Pycnogonida - google it),9165
-30,Lewis & Clark College,3,1,Yes,3,Maybe,4,Blue,Penguin,9084
-31,Lewis & Clark College,3,5,Yes,5,Yes,5,Green,Bear,9739
-32,Lewis & Clark College,4,2,Yes,4,Yes,4,Blue,Seal,9839
-33,Lewis & Clark College,4,3,Yes,4,Yes,5,Black,Penguin,7782
-34,Lewis & Clark College,3,1,Yes,3,Yes,2,Blue,Penguin,9577
-35,Lewis & Clark College,4,4,Yes,5,Yes,5,White,Sea Spider (Pycnogonida - google it),8864
-36,Lewis & Clark College,1,5,Yes,5,Yes,5,Blue,Bear,9421
-37,Lewis & Clark College,4,2,Yes,4,Yes,4,Green,Penguin,9629
-38,Lewis & Clark College,3,2,Yes,2,Yes,3,Blue,Seal,9432
-39,Lewis & Clark College,4,2,Yes,3,Yes,4,Black,Penguin,8638
-40,Lewis & Clark College,1,1,I can dog paddle,4,Yes,2,Blue,Penguin,9432
-41,Lewis & Clark College,4,1,Yes,2,Yes,2,Blue,Seal,8774
-42,Lewis & Clark College,2,1,Yes,5,Yes,2,Black,Penguin,8864
-43,Lewis & Clark College,3,1,Yes,4,Yes,3,Blue,Seal,9432
-44,Lewis & Clark College,2,2,Yes,3,Yes,2,Black,Bear,8925
-45,Lewis & Clark College,4,3,Yes,4,Yes,4,Blue,Penguin,909
-46,Lewis & Clark College,2,1,Yes,3,Maybe,3,Orange,Bear,9739
-47,Lewis & Clark College,2,1,Yes,4,Yes,2,Orange,Penguin,"8,963"
-48,Lewis & Clark College,2,2,Yes,4,Yes,4,Blue,Bear,1000
-49,Lewis & Clark College,4,1,Yes,3,Yes,4,Orange,Penguin,7493
-50,Lewis & Clark College,4,3,Yes,4,Yes,2,Black,Penguin,9628
-51,Lewis & Clark College,1,1,I can dog paddle,4,No,2,Black,Penguin,10413
-52,Lewis & Clark College,5,1,Yes,3,Yes,2,Pink,Bear,9859
-53,Lewis & Clark College,3,1,Yes,3,Yes,4,Pink,Penguin,9000
-54,Lewis & Clark College,3,1,Yes,5,Yes,3,Blue,Penguin,9455
-55,Lewis & Clark College,4,2,Yes,4,Yes,2,Purple,Penguin,9647
-56,Lewis & Clark College,2,2,Yes,3,Yes,2,White,Penguin,9405
-57,Lewis & Clark College,4,5,Yes,3,Yes,4,Black,Bear,8701
-58,Lewis & Clark College,2,3,Yes,3,Yes,2,Black,Penguin,8800
-59,Lewis & Clark College,3,1,Yes,4,Yes,3,Blue,Penguin,9684
-60,Lewis & Clark College,3,1,Yes,3,Yes,4,Black,Sea Spider (Pycnogonida - google it),9427
-61,Lewis & Clark College,2,1,Yes,3,Yes,3,Orange,Bear,9432
-62,Lewis & Clark College,1,1,Yes,2,Maybe,4,Blue,Penguin,9577
-63,Lewis & Clark College,3,2,Yes,4,Maybe,2,Blue,Sea Spider (Pycnogonida - google it),9184
-64,Lewis & Clark College,4,1,Yes,3,Yes,3,Blue,Penguin,
-65,Lewis & Clark College,2,3,I can dog paddle,3,Yes,3,Orange,Sea Spider (Pycnogonida - google it),9432
-66,Lewis & Clark College,5,2,Yes,1,Yes,3,White,Penguin,
-67,Lewis & Clark College,5,5,Yes,2,Yes,1,Orange,Penguin,9311
-68,Lewis & Clark College,3,1,Yes,4,Yes,4,Black,Bear,8907
-69,Lewis & Clark College,5,2,I can dog paddle,2,Yes,4,Black,Seal,8606
+uniqueID,fishing_skill,swim,cold_tolerance,good_with_animals,remote_location,parka_color,flag_mascot,distance_mi,bedside_manner,cooking_skill
+1,1,I can dog paddle,4,Yes,3,blue,Leopard Seal,8527,2,3
+2,4,Yes,1,Yes,3,red,Orca,8277,3,3
+3,1,Yes,2,Yes,5,white,Emperor Penguin,8862,1,1
+4,3,Yes,2,Yes,3,orange,Leopard Seal,8563,3,3
+5,1,No,4,Maybe,2,orange,Leopard Seal,8290,3,3
+6,2,I can dog paddle,2,Yes,4,blue,Sea Spider,8277,2,4
+7,2,I can dog paddle,1,Yes,3,orange,Leopard Seal,8277,4,2
+8,2,Yes,4,Yes,3,blue,Emperor Penguin,8277,2,4
+9,4,Yes,2,Yes,4,white,Orca,8277,3,4
+10,2,Yes,3,Yes,2,black,Leopard Seal,8286,4,3
+11,1,Yes,1,Yes,5,blue,Emperor Penguin,8341,2,4
+12,1,No,3,Maybe,3,black,Emperor Penguin,8444.3,4,3
+13,2,Yes,4,Yes,3,black,Sea Spider,8276,3,5
+14,1,Yes,4,Yes,3,black,Leopard Seal,9521,4,2
+15,1,Yes,1,Yes,3,blue,Leopard Seal,8341,4,2
+16,1,Yes,3,Yes,2,black,Orca,9269,4,3
+17,1,Yes,2,Yes,2,white,Emperor Penguin,8356,4,4
+18,1,Yes,4,Yes,3,red,Leopard Seal,8255,3,1
+19,1,No,3,Yes,4,blue,Emperor Penguin,9109,3,4
+20,2,Yes,3,Yes,4,black,Sea Spider,8277,5,4
+21,1,Yes,4,Yes,3,black,Orca,8277,3,2
+22,1,Yes,2,No,1,blue,Orca,8341,4,2
+23,1,Yes,3,Yes,2,blue,Leopard Seal,8340,3,5
+24,2,Yes,4,Yes,5,orange,Emperor Penguin,9241,4,3
+25,4,Yes,4,Yes,3,white,Emperor Penguin,8297,3,3
+26,2,Yes,5,Yes,3,white,Emperor Penguin,15075,5,3
+27,1,Yes,4,Yes,4,white,Sea Spider,10000,2,3
+28,3,Yes,5,Yes,3,orange,Emperor Penguin,9026,3,4
+29,1,Yes,5,Yes,5,black,Orca,8276,3,3
+30,1,Yes,3,Yes,3,blue,Orca,9377,3,4
+31,1,Yes,4,Yes,2,black,Emperor Penguin,8276,2,4
+32,1,Yes,2,Yes,3,white,Orca,8395,3,2
