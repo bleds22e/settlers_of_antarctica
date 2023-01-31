@@ -11,7 +11,7 @@ library(tidyverse)
 weather <- read_csv("../data/aggregated_station_data.csv")
 ```
 
-4.  
+5. 
 
 ```{r paged.print=TRUE}
 filter(weather, temp > 0)

@@ -2,7 +2,7 @@
 title: "Module 1 Assignment 3: Getting to Know your Home"
 author: "Ellen Bledsoe"     # <- your name here!
 date: "`r Sys.Date()`"      # <- uses the current date when rendered
-output: github_document
+output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
@@ -13,23 +13,24 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ### Purpose
 
-The goal of this assignment is to get comfortable using the `tidyverse` with 2-dimensional data sets and compare this process to using base R.
+The goal of this assignment is to get comfortable using the `tidyverse` with 2-dimensional data sets (data frames).
 
 ### Task
 
-Write R code using the `tidyverse` to successfully answer each question below.
+Write R code to successfully answer each question below.
 
 ### Criteria for Success
 
 -   Code is within the provided code chunks
--   Code is commented with brief descriptions of what the code does
 -   Code chunks run without errors
 -   Code produces the correct result
--   This is the one time I *will* take points off for not using `tidyverse`...
+    -   Code that produces the correct answer will receive full credit
+    -   Code attempts with logical direction will receive partial credit
+-   Written answers address the questions in sufficient detail
 
 ### Due Date
 
-Sept 15 at midnight MDT
+February 7 at midnight MST
 
 # Assignment Questions
 
@@ -37,19 +38,21 @@ For this final assignment for Module 1, you'll be working with another real-worl
 
 1.  In your own words, describe what the `tidyverse` is. Your answer should be between 1-3 sentences.
 
+    *Answer:*
+
 2.  Load in the `tidyverse` package.
 
 ```{r load_tidyverse}
 
 ```
 
-3.  Load in the data file (called aggregated_station_data.csv). Save the data as an object called `weather`.
+3.  Load in the data file (called "aggregated_station_data.csv") using the `read_csv()` function. Save the data as an object called `weather`.
 
 ```{r load_data}
 
 ```
 
-4.  Take a look at the data in whichever way you would like (e.g., `glimpse()`, `slice()`, `str()`, `head()`, etc.). How many rows and columns are in the data? Type your answers below:
+4.  Take a look at the data in whichever way you would like (looking in the environment, viewing the data, typing a function into the console below, etc.). How many rows and columns are in the data? Type your answers below:
 
     rows:\
     columns:
@@ -66,7 +69,7 @@ For this final assignment for Module 1, you'll be working with another real-worl
 
 ```
 
-7.  Using the data frame you created in Q5 above (`temp`), add a new column to that data frame that converts the temperature column (currently in Celsius) to Fahrenheit. Call the new column `tempF`. (Hint: we did this in class--use that same equation)
+7.  Using the data frame you created in Q6 above (`temp`), add a new column to that data frame that converts the temperature column (currently in Celsius) to Fahrenheit. Call the new column `tempF`. (Hint: we did this in class---use that same equation!)
 
 ```{r tempF}
 
@@ -74,7 +77,11 @@ For this final assignment for Module 1, you'll be working with another real-worl
 
 8.  In your own words (either bullet points or sentence form is fine), explain two benefits of using the pipe (`%>%`).
 
-9.  Find the minimum temperature recorded for each month (in Celsius, the original column). (Hint: think about months first (split) and then temperature (apply). You will also want to remove all the NA values.)
+    *Answer:*
+
+9.  Starting with the `temp` data frame, find the minimum (`min()`) temperature recorded for each month (in Celsius, the original column).
+
+    Hint: think about months first (split) and then temperature (apply). You will also want to remove all the NA values.
 
 ```{r}
 
