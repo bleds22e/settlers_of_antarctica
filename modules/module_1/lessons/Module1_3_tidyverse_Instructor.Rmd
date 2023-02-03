@@ -2,8 +2,7 @@
 title: "Module 1, Introduction to the `tidyverse`"
 author: "Keaton Wilson, Ellen Bledsoe"
 date: "12/4/2019, revised August 2022"
-output:
-  html_document: default
+output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
@@ -93,7 +92,7 @@ The `tidyverse` converts 2D data into something called a tibble! For our intents
 
 This data set clearly has a lot of data! The `tidyverse` offers a great function called `glimpse()` that lets us take a quick look at the dataset.
 
-```{r glimpse_data, options(climate_df = 1)}
+```{r glimpse_data}
 # explore the data set
 glimpse(climate_df)
 ```
@@ -106,7 +105,7 @@ First, let's remind ourselves how we would accomplish this in base R.
 
 ```{r select_baseR}
 # column selection in base R
-climate_df$dt
+# climate_df$dt
 climate_df[,1:2]
 ```
 
@@ -138,7 +137,7 @@ select(climate_df, AverageTemperature, Latitude, Longitude)
 
 ```{r filter_baseR}
 # base R
-climate_df[climate_df$Country == "United States",]
+# climate_df[climate_df$Country == "United States",]
 ```
 
 The code above is, in my opinion, a bit unwieldy. Filter feels more intuitive. We still need the double equal signs, though!
