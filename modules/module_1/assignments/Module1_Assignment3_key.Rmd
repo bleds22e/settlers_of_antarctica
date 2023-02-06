@@ -2,7 +2,7 @@
 title: "Module 1 Assignment 3: Getting to Know your Home"
 author: "Ellen Bledsoe"     # <- your name here!
 date: "`r Sys.Date()`"      # <- uses the current date when rendered
-output: github_document
+output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
@@ -66,7 +66,10 @@ filter(weather, temp > 0)
 6.  Create a new data frame called `temp` that includes *only* the following columns: year, day, month, temp, station_id.
 
 ```{r temp_df}
-temp <- select(weather, hour:month, temp, station_id)
+# note to graders: I accidently had the wrong code in the answer key
+# some students might have year, day month columns, other might have what matches the answer key (hour, running_day, month)
+# either is fine!
+temp <- select(weather, year:month, temp, station_id)
 temp
 ```
 
