@@ -61,14 +61,13 @@ First we're going to pull in the data and give it a quick inspection/exploration
 As usual, we start by calling the `tidyverse`.
 
 ```{r}
-library(tidyverse)
+
 ```
 
 To bring our data into R, we use a function called `read_csv()`. CSV (comma-separated values) are efficient ways to save 2-dimensional ("spreadsheet") data.
 
 ```{r}
-sick <- read_csv("../data/sick_data.csv")
-head(sick)
+
 ```
 
 How many observations (rows) do we have? How about variables (columns)?
@@ -80,11 +79,7 @@ Which variables are we particularly interested in? Are they continuous or catego
 Now that we have a more formalized understanding of measures of central tendency and measures of variation, let's put them into use to learn a little bit more about our data. In small groups, calculate the mean (`mean()`) and standard deviation (`sd()`) for the percent fish and percent plant in our sick crew's diets.
 
 ```{r}
-sick %>% 
-  summarize(mean_fish = mean(perc_fish),
-            sd_fish = sd(perc_fish),
-            mean_plant = mean(perc_plant),
-            sd_plant = sd(perc_plant))
+
 ```
 
 How do we interpret our results?
@@ -103,7 +98,7 @@ We've calculated some descriptive statistics about the percents of fish and plan
 
 ```{r}
 # histogram in base R
-hist(sick$perc_plant)
+
 ```
 
 ### Group Discussion
@@ -128,7 +123,7 @@ Scatter plots allow us to visualize the relationship between two continuous (num
 
 ```{r}
 # scatter plot in base R
-plot(x = sick$age, y = sick$perc_fish)
+
 ```
 
 This isn't super informative, because there isn't really a relationship between a person's age and the amount of fish they consume. At least not in this sample.
@@ -138,6 +133,5 @@ This isn't super informative, because there isn't really a relationship between 
 In your group, create a scatter plot to determine whether there is a correlation between the percentage of fish eaten and the number of trips to the doctor in the past 6 months.
 
 ```{r}
-plot(x = sick$perc_fish, y = sick$doctor_trips)
 
 ```
