@@ -1,0 +1,33 @@
+uniqueID,fishing_skill,swim,cold_tolerance,good_with_animals,remote_location,parka_color,flag_mascot,distance_mi,bedside_manner,cooking_skill
+1,1,I can dog paddle,4,Yes,3,blue,Leopard Seal,8527,2,3
+2,4,Yes,1,Yes,3,red,Orca,8277,3,3
+3,1,Yes,2,Yes,5,white,Emperor Penguin,8862,1,1
+4,3,Yes,2,Yes,3,orange,Leopard Seal,8563,3,3
+5,1,No,4,Maybe,2,orange,Leopard Seal,8290,3,3
+6,2,I can dog paddle,2,Yes,4,blue,Sea Spider,8277,2,4
+7,2,I can dog paddle,1,Yes,3,orange,Leopard Seal,8277,4,2
+8,2,Yes,4,Yes,3,blue,Emperor Penguin,8277,2,4
+9,4,Yes,2,Yes,4,white,Orca,8277,3,4
+10,2,Yes,3,Yes,2,black,Leopard Seal,8286,4,3
+11,1,Yes,1,Yes,5,blue,Emperor Penguin,8341,2,4
+12,1,No,3,Maybe,3,black,Emperor Penguin,8444.3,4,3
+13,2,Yes,4,Yes,3,black,Sea Spider,8276,3,5
+14,1,Yes,4,Yes,3,black,Leopard Seal,9521,4,2
+15,1,Yes,1,Yes,3,blue,Leopard Seal,8341,4,2
+16,1,Yes,3,Yes,2,black,Orca,9269,4,3
+17,1,Yes,2,Yes,2,white,Emperor Penguin,8356,4,4
+18,1,Yes,4,Yes,3,red,Leopard Seal,8255,3,1
+19,1,No,3,Yes,4,blue,Emperor Penguin,9109,3,4
+20,2,Yes,3,Yes,4,black,Sea Spider,8277,5,4
+21,1,Yes,4,Yes,3,black,Orca,8277,3,2
+22,1,Yes,2,No,1,blue,Orca,8341,4,2
+23,1,Yes,3,Yes,2,blue,Leopard Seal,8340,3,5
+24,2,Yes,4,Yes,5,orange,Emperor Penguin,9241,4,3
+25,4,Yes,4,Yes,3,white,Emperor Penguin,8297,3,3
+26,2,Yes,5,Yes,3,white,Emperor Penguin,15075,5,3
+27,1,Yes,4,Yes,4,white,Sea Spider,10000,2,3
+28,3,Yes,5,Yes,3,orange,Emperor Penguin,9026,3,4
+29,1,Yes,5,Yes,5,black,Orca,8276,3,3
+30,1,Yes,3,Yes,3,blue,Orca,9377,3,4
+31,1,Yes,4,Yes,2,black,Emperor Penguin,8276,2,4
+32,1,Yes,2,Yes,3,white,Orca,8395,3,2
