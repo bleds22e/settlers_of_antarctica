@@ -1,10 +1,8 @@
 ---
 title: "Module 2, Assignment 1"
+subtitle: "Answer Key"
 author: "Ellen Bledsoe"
-date: '2022-09-29'
 output:
-  html_document:
-    df_print: paged
   pdf_document: default
 ---
 
@@ -23,41 +21,36 @@ library(tidyverse)
 ```{r}
 head(penguins)
 ```
-4.
-```{r}
-hist(penguins$body_mass_g)
+
+3.
+```{r, fig.height = 4, fig.width = 5}
+# I used ggplot2 to make the answer key.
+# If you used base R, that's fine! The plots will just look a little bit different but should be showing the same data
+ggplot(penguins, aes(body_mass_g)) +
+  geom_histogram()
 ```
 
-
-5.  
-
+5. 
 ```{r}
-hist(penguins$body_mass_g, main = NULL,
-     xlab = "[Insert more descriptive axis label here]",
-     ylab = "Frequency of [insert]",
-     labels = TRUE)
+penguins %>% summarize(mean_body_mass = mean(body_mass_g, na.rm = TRUE),
+                       sd_body_mass = sd(body_mass_g, na.rm = TRUE))
 ```
+
 
 6.  
-```{r}
-hist(penguins$body_mass_g, main = NULL,
-     xlab = "[Insert better label here]",
-     ylab = "Frequency of [value]",
-     labels = TRUE)
-abline(v = mean(penguins$body_mass_g, na.rm = TRUE), col = "red")
-```
 
-7.  
-
-```{r}
-plot(x = penguins$flipper_length_mm, y = penguins$bill_length_mm)
+```{r, fig.height = 4, fig.width = 5}
+ggplot(penguins, aes(flipper_length_mm, bill_length_mm)) +
+  geom_point()
 ```
 
 
-9.  
+8.  
 
 ```{r}
-plot(penguins$flipper_length_mm, penguins$bill_length_mm,
-     xlab = "[Insert better label here]",
-     ylab = "[Insert better label here]")
+penguins %>% 
+  summarise(mean_flipper_length = mean(flipper_length_mm, na.rm = TRUE),
+        sd_flipper_length = sd(flipper_length_mm, na.rm = TRUE),
+        mean_bill_length = mean(bill_length_mm, na.rm = TRUE),
+        sd_bill_length = sd(bill_length_mm, na.rm = TRUE))
 ```
