@@ -1,0 +1,156 @@
+---
+title: '4: Exploring `geom` functions'
+author: "Ellen Bledsoe"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Plotting in `ggplot2`
+
+## Data Visualization Types and When to Use Them
+
+### Scavenger Hunt
+
+Head over to [data-to-viz.com](https://www.data-to-viz.com/) and do some exploration! I'll give your group a certain type of plot, and I want you to hunt down as many locations in the flow chart where your plot type is found as you can find.
+
+Once you've done so, click on your plot type and read more about it. Check out the examples that were made in R, including many using `ggplot2`. Take note of the following:
+
+-   which `geom` function is being used to create the plot
+-   you'll see a number of other things in the `ggplot` code, some which will be new. What are they? Any idea what they are doing?
+
+## Using `geom` Functions to Make Plots
+
+Let's practice making different kinds of plots with various `geom` functions to see how they work.
+
+```{r}
+library(tidyverse)
+collars <- read_csv("../data/collar_data.csv")
+```
+
+### Histograms
+
+As we learned last modules, histograms are plots which let us look at *one continuous variable* and get a feel for the distribution of that data. To make histograms in `ggplot2`, we use the `geom_histogram()` function. Let's look at signal distance.
+
+```{r}
+ggplot(collars, aes(signal_distance)) +
+  geom_histogram(bins = 10)
+
+# we can change the number of bins (essentially, the number of columns) by modifying the bins argument in the geom_histogram function
+```
+
+### Density plots
+
+Density plots are similar to histograms in that they show the distribution of a *continuous variable* but they are smoothed and continuous version estimated from the data. For this class, you can think of them as being basically the same thing (and use them interchangeably).
+
+```{r}
+ggplot(collars, aes(signal_distance)) +
+  geom_density()
+```
+
+What if we wanted to create a histogram for signal distance for each collar manufacturer? In base R, we would need to filter or make a new dataframe. With `ggplot2`, we can specify that we want the `color` (or the `fill`) to be determined by the maker column.
+
+```{r}
+ggplot(collars, aes(signal_distance, color = maker, fill = maker)) +
+  geom_density()
+```
+
+Hooray! But...we can't really see the bars for Budget Collars LLC in the lower range of the values because they are hidden behind the Collarium Inc. bars. How might we address this?
+
+To fix this issue, we can use the `alpha` argument, which changes the transparency of the bars. The scale for `alpha` runs from 0 (completely transparent) to 1 (completely solid). Let's try 0.5.
+
+```{r}
+ggplot(collars, aes(signal_distance, fill = maker)) +
+  geom_density(alpha = .5)
+```
+
+------------------------------------------------------------------------
+
+#### The powerful and pesky `aes()` function
+
+A quick note about the `aes()` function. It's one of the more confusing bits of `ggplot2`.
+
+When do I put the `color` (or `size` or `linetype` or `fill` or whatever) inside the `aes()` function versus in the `geom` function but outside of `aes()`? When we made our density plots, why did the `color` argument go inside of `aes()` but `alpha` went outside?
+
+Essentially, it boils down to this:
+
+-   if you want something (color, size, etc.) on your plot to change based on a **variable** from a data frame, you will want to put the argument *within* the `aes()` function.
+
+-   if you want something (color, size, etc.) on the plot to be **constant**, you will specify it *outside* of the function.
+
+For some additional examples and explanation, check out [this Stack Overflow page](https://stackoverflow.com/questions/41863049/when-does-the-argument-go-inside-or-outside-aes).
+
+------------------------------------------------------------------------
+
+### Scatter Plot
+
+As a reminder, we use the `geom_point()` function to make a scatter plot of the relationship between *two continuous variables*.
+
+```{r}
+ggplot(collars, aes(battery_life, signal_distance)) +
+  geom_point()
+```
+
+### Bar plot
+
+Let's make a bar plot! They are typically used to represent the counts of *one categorical* variable or the relationship between *one categorical and one continuous variable*. We use the `geom_col` function.
+
+For our example, we can make a bar plot of the number of collars which failed and which did not.
+
+```{r}
+
+fails <- collars %>% 
+  group_by(maker, fail) %>% 
+  count()
+fails
+  
+ggplot(fails, aes(fail, n, fill = maker)) +
+  geom_col()
+```
+
+What we just made is something called a "stacked" bar plot, meaning the values for the two collar makers are stacked one on top of the other. If we wanted them side-by-side, we add the argument `position = "dodge"`.
+
+```{r}
+ggplot(fails, aes(fail, n, fill = maker)) +
+  geom_col(position = "dodge")
+```
+
+## Practice
+
+Hopefully you're excited to keep using `ggplot2` to make clean, interpretable data visualizations! With the remaining time in class, spend some time trying to recreate the plots you made in the Module2_1\_DescriptiveStats lesson. Try to recreate both the histogram and the scatter plot.
+
+```{r}
+# load the tidyverse package and the penguins package
+
+```
+
+## Summary
+
+Let's summarize some of what we've learned in this module
+
+### Data Visualization Types and When to Use Them
+
+Histogram or Density Plot:
+
+-   one continuous variable
+
+Multiple Histogram or Multiple Density Plot:
+
+-   one continuous variable and one categorical variable
+
+Scatter Plot:
+
+-   two continuous variables
+-   can add in a categorical variable as well, but the main relationship is between the two continuous variables
+
+Bar Plot:
+
+-   one continuous variable
+-   one continuous and one categorical
+
+Box Plot:
+
+-   one continuous and at least one categorical
