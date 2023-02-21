@@ -1,8 +1,8 @@
 ---
 title: 'Module 3: Data Visualization'
 author: "Ellen Bledsoe"
-date: '2022-10-18'
-output: html_document
+date: '2023-02-21'
+output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
@@ -10,14 +10,6 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 # A Visualization Primer
-
-Some figures to whet your palate:\
-<http://www.r-graph-gallery.com/19-map-leafletr/>\
-<http://www.r-graph-gallery.com/21-distribution-plot-using-ggplot2>\
-<http://www.r-graph-gallery.com/274-map-a-variable-to-ggplot2-scatterplot/>\
-<http://www.r-graph-gallery.com/123-circular-plot-circlize-package-2/>
-
-[Here](http://paldhous.github.io/ucb/2016/dataviz/week2.html) is a decent overview of some of the core concepts of data visualization.
 
 ## Why Does Data Visualization Matter?
 
@@ -30,6 +22,17 @@ Take 3 minutes to write down your top 5 reasons why data visualization is import
 As a group, take 5 minutes to compare your notes and come to a group consensus on your top 5 reasons. Be sure to choose someone to report out!
 
 ## Types of Visualization
+
+### Visual cues for communicating data
+
+[Here](http://paldhous.github.io/ucb/2016/dataviz/week2.html) is a decent overview of some of the core concepts of data visualization.
+
+This website is pretty great and goes into a lot of detail about good practices in data visualization. If this is something that really piques your interest, I encourage you to check it out!
+
+In this course, our main take-away from this website is the use of visual cues to communicate data and which ones are better than others.
+
+![](data_viz_cues.jpg)
+
 
 ### Small group activity
 
@@ -92,7 +95,6 @@ Figures:
 3.  ![](https://raw.githubusercontent.com/keatonwilson/biostats/master/Images/cawley_fig1.jpg)
 
 4.  ![](https://raw.githubusercontent.com/keatonwilson/biostats/master/Images/roeder_fig4.jpg)
-
 
 ## Plotting in `ggplot2`
 
