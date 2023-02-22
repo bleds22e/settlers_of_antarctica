@@ -93,20 +93,20 @@ Let's iteratively build up to the plot we have made above:
 
 1)  Specify the data
 
-```{r}
+```{r fig.width=4.5, fig.height=3}
 ggplot(data = sick)
 ```
 
 2)  Specify the x-axis (horizontal) and the y-axis (vertical) in the
     `aes()` function.
 
-```{r}
+```{r fig.width=4.5, fig.height=3}
 ggplot(data = sick, mapping = aes(x = perc_fish, y = doctor_trips))
 ```
 
 3)  Add the type of plot we want using a `geom` function.
 
-```{r}
+```{r fig.width=4.5, fig.height=3}
 ggplot(data = sick, mapping = aes(x = perc_fish, y = doctor_trips)) +
   geom_point()
 ```
@@ -114,7 +114,7 @@ ggplot(data = sick, mapping = aes(x = perc_fish, y = doctor_trips)) +
 4)  Clean up the axis labels with the `lab()` function so they are more
     easily interpreted.
 
-```{r}
+```{r fig.width=4.5, fig.height=3}
 ggplot(data = sick, mapping = aes(x = perc_fish, y = doctor_trips)) +
   geom_point() +
   labs(x = "Percent Fish in Diet",
@@ -124,7 +124,7 @@ ggplot(data = sick, mapping = aes(x = perc_fish, y = doctor_trips)) +
 5)  Choose a `theme` function to make the plot more aesthetically
     pleasing.
 
-```{r}
+```{r fig.width=4.5, fig.height=3}
 # theme_bw(), theme_classic(), and theme_light() are my favorites
 ggplot(sick, aes(x = perc_fish, y = doctor_trips)) +
   geom_point() +

@@ -35,11 +35,13 @@ In this course, our main take-away from this website is the use of visual cues t
 
 ### Small group activity
 
-In groups, discuss as many all types of visualization that come to mind. It's ok if you don't know what they are called! Make a quick list or draw them out if you prefer.
+In groups, discuss as many all types of visualization that come to mind. It's okay if you don't know what they are called! Make a quick list or draw them out if you prefer.
 
-Data Visualization Types:
+Types of data visualizations: bar graphs, bow-and-whisker plot, pie chart, line graph, histogram, pyramid chart, gantt chart, scatter plot, time series, word cloud, venn diagram, heatmap, density plot, topographic map
 
-[Reference](https://extremepresentation.typepad.com/files/choosing-a-good-chart-09.pdf)
+[This website](https://www.data-to-viz.com/) is an amazing reference for data visualization methods and when to use what. It also has examples of each type plotted in `ggplot2`.
+
+We will talk more about how to choose the right visualization for your data now and also in the rest of the module.
 
 ### Data matching activity
 

@@ -35,11 +35,13 @@ In this course, our main take-away from this website is the use of visual cues t
 
 ### Small group activity
 
-In groups, discuss as many all types of visualization that come to mind. It's ok if you don't know what they are called! Make a quick list or draw them out if you prefer.
+In groups, discuss as many all types of visualization that come to mind. It's okay if you don't know what they are called! Make a quick list or draw them out if you prefer.
 
-Data Visualization Types:
+Types of data visualizations: bar graphs, bow-and-whisker plot, pie chart, line graph, histogram, pyramid chart, gantt chart, scatter plot, time series, word cloud, venn diagram, heatmap, density plot, topographic map
 
-[Reference](https://extremepresentation.typepad.com/files/choosing-a-good-chart-09.pdf)
+[This website](https://www.data-to-viz.com/) is an amazing reference for data visualization methods and when to use what. It also has examples of each type plotted in `ggplot2`.
+
+We will talk more about how to choose the right visualization for your data now and also in the rest of the module.
 
 ### Data matching activity
 
@@ -57,7 +59,7 @@ This is a challenging exercise, so don't panic if you feel a little lost! Here a
 #### Matches
 
 1.  B
-    -   circle plots or river plots
+    -   river plots or a chord plot
     -   good for showing movement from one thing to another or relationships between two categorical variables
 2.  D
     -   4! variables can be shown here---circles could be size of family
@@ -87,10 +89,18 @@ Now that you have some insights, let's critique these figures below. Yes, these 
 
 Figures:
 
-1.  ![](https://raw.githubusercontent.com/keatonwilson/biostats/master/Images/3d-column-chart-of-awesome.png)
+1.  
 
-2.  ![](https://raw.githubusercontent.com/keatonwilson/biostats/master/Images/Bling_fig3.jpg)
+![](../assets/image1.png)
 
-3.  ![](https://raw.githubusercontent.com/keatonwilson/biostats/master/Images/cawley_fig1.jpg)
+2.  
 
-4.  ![](https://raw.githubusercontent.com/keatonwilson/biostats/master/Images/roeder_fig4.jpg)
+![](../assets/image2.jpg)
+
+3.  
+
+![](../assets/image3.jpg)
+
+4.  
+
+![](../assets/image4.png)
