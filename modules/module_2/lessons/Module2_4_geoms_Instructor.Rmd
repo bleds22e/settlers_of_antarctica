@@ -128,6 +128,7 @@ ggplot(tanks, aes(species, num_fish, color = species)) +
   geom_boxplot() +
   geom_point(alpha = 0.5)
 ```
+
 The `geom_jitter()` function is a special version of `geom_point()`. It adds a little bit of randomness to the points (both horizontally and vertically) so that they don't overlap as much. We can control how much randomness we allow with the `width` and/or `height` arguments. I usually ignore `height` and set the `width` argument to 0.1.
 
 ```{r}

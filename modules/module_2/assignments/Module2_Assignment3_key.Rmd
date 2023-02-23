@@ -14,11 +14,11 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ### Purpose
 
-The goal of this assignment is to practice developing successful workflows to get from the starting data to a plot.
+The goal of this assignment is to practice choosing the correct types of variables for certain plots and to practice writing code for those plots.
 
 ### Task
 
-Write R code which produces the correct answers and reflect on workflow.
+Write R code which produces the correct plot style.
 
 ### Criteria for Success
 
@@ -36,155 +36,115 @@ March 2 at midnight MST
 
 # Assignment Questions
 
-Our goal for this assignment is to start with a data frame of data, summarize the data in constructive ways, and plot the data to answer some questions. To get from point a to point b to point c requires some planning.
+For this assignment, we are going to be making even *more* plots using `ggplot2`! We are going to go back to our trusty data called `penguins` from the `palmerpenguins` package.
 
-In this assignment, we will make a plan, execute how we would actually go about the process, and then evaluate how well our original plan matches with the path we actually used.
-
-## Data Summary
-
-The aquaculture scientists on Team Antarctica have been working on developing a new diet for tilapia based on soy-protein, and they are interested in whether incorporating this into fish diets will result in faster growth rates. They also want to know if those growth rates are related to average tank temperature. They've provided us with this data to analyze.
-
-First, let's take a look at the data we will be using for the assignment.
-
-1.  As always, we start by loading the `tidyverse`. (1 point)
+1.  Load both the `palmerpenguins` package and the `tidyverse` package into the work space. (2 points)
 
     ```{r}
+    library(palmerpenguins)
     library(tidyverse)
     ```
 
-2.  Next, we need to load in our tilapia growth dataset. Call the data frame `growth`. Then use both the `head` and `tail` functions to take a look at the data. (1 point)
+    ------------------------------------------------------------------------
 
-    ```{r}
-    growth <- read_csv("../data/tilapia_growth.csv")
-    head(growth)
-    tail(growth)
-    ```
+#### OPTIONAL
 
-3.  Before we can plan any strategy, we need to understand the data that we have. Answer the following questions about the data. (0.5 points each, 2 points total)
+When we use data from a data package, it doesn't automatically show up in our environment. Run this code chunk so it does show up in the environment.
 
-    a\. What does one row represent? (One tank? One temperature? One treatment? One fish?)
+```{r}
+penguins <- penguins
+```
 
-    b\. How many tanks of fish were sampled?
+------------------------------------------------------------------------
 
-    c\. How many fish were sampled?
+2.  There are 8 columns in the `penguins` data frame. Determine if each variable is continuous or categorical and record your answer below.
 
-    d\. How many different "percent soy protein" levels (treatments) are there?
-
-## Our Task
-
-We have been asked by our aquaculture specialists to provide them with the following:
-
-a.  a data frame with the average growth (`day_30_weight`) per treatment (`perc_soy_protein`)
-b.  a scatter plot that shows the relationship (or lack thereof) between percent soy protein in the diet and the weight at 30 days
-c.  a data frame with the average growth per treatment (`perc_soy_protein`) *and* if tanks are warm or cold
-d.  a scatter plot that shows the relationship (or lack thereof) between average tank temperature and the weight at 30 days
-
-They've also asked that we provide all weights in kilograms instead of grams (the `day_30_weight` is currently in grams).
-
-## Prediction
-
-4.  Spend some time thinking about each one of these steps. What steps will you need to take to produce the end result? What data frame will you use? What columns will you use? What functions will you use? How will you plot things?
-
-    For each of the 4 tasks listed above, *describe* (do NOT code) how you will get from the starting point (a data frame) to the result (another data frame or a plot).
-
-    This question will be grade ***only on completion***, not on whether or not your plan is *correct*. (2 points)
-
-    *Task (a)*:
-
-    *Task (b)*:
-
-    *Task (c)*:
-
-    *Task (d)*:
-
-## Execution
-
-Now let's actually go ahead and complete our tasks with code.
-
-Because the aquaculture team has asked for everything to use kilograms instead of grams, it makes sense for us to add a `day_30_weight_kg` column before we tackle any of the specific tasks.
-
-5.  Use the `mutate()` function to add a `day_30_weight_kg` column to the growth data frame. (Hint: divide grams by 1000 to get kg)
-
-    Remember to "overwrite" the growth data frame (use the assignment operator) so the new column is permanently added to the `growth` data frame for us to use in the rest of the assignment. (2 points)
-
-    ```{r}
-    growth <- growth %>% 
-      mutate(day_30_weight_kg = day_30_weight / 1000)
-    ```
-
-### Task (a)
-
-**A data frame with the average growth (`day_30_weight_kg`) per treatment (`perc_soy_protein`)**
-
-6.  Create a new data frame called `growth_by_treatment`. We first want to group the data by treatment (`perc_soy_protein`) then calculate the average weight in kg. (2 points)
-
-    ```{r}
-    growth_by_treatment <- growth %>% 
-      group_by(perc_soy_protein) %>% 
-      summarize(mean_weight_kg = mean(day_30_weight_kg))
-    growth_by_treatment
-    ```
-
-### Task (b)
-
-**A scatter plot that shows the relationship (or lack thereof) between percent soy protein in the diet and the weight at 30 days**
-
-Based on the values we calculated in task (a), it looks like there is probably a positive relationship between the percent of soy protein in tilapia diet and growth. Let's plot the data to confirm.
-
-7.  Make a scatter plot with `perc_soy_protein` on the x-axis (horizontal) and `day_30_weight_kg` on the y-axis (vertical). Change the axis labels to be more easily understood and add a theme. (2 point)
-
-    (Hint: because we want to plot *all* of the values, not just the mean values, we need to use the original `growth` data frame)
-
-    ```{r}
-    ggplot(growth, aes(perc_soy_protein, day_30_weight_kg)) +
-      geom_point() +
-      labs(x = "Percent Diet Comprised of Soy Protein",
-       y = "Tilapia Weight at 30 Days (kg)") +
-      theme_light()
-    ```
-
-### Task (c)
-
-**A data frame with the average growth per treatment (`perc_soy_protein`) *and* if tanks are warm or cold**
-
-8.  Now that we have our `tank_category` column, we can use it in our `group_by` function, along with `perc_soy_protein`, to calculate the average `day_30_weight_kg` for warm and cold tanks in each treatment. Call this new data frame `growth_by_temp_treatment`. (2 points)
-
-    ```{r}
-    growth_by_treatment_and_temp <- growth %>% 
-      group_by(perc_soy_protein, tank_category) %>% 
-      summarise(mean_weight_kg = mean(day_30_weight_kg))
-    growth_by_treatment_and_temp
-    ```
-
-### Task (d)
-
-**A scatter plot that show the relationship (or lack thereof) between average tank temperature and the weight at 30 days**
-
-Based on our results above, do we think the tank being warm or cold has much of an influence? Let's plot our data to confirm.
-
-9.  Make a scatter plot with `avg_tank_temp` on the x-axis (horizontal) and `day_30_weight_kg` on the y-axis (vertical). Change the axis labels to be more easily understood and add a theme. (2 point)
-
-    (Hint: because we want to plot *all* of the values, not just the mean values, we need to use the original `growth` data frame)
-
-    ```{r}
-    ggplot(growth, aes(perc_soy_protein, day_30_weight_kg, color = tank_category)) +
-      geom_point() +
-      labs(x = "Percent Diet Comprised of Soy Protein",
-       y = "Tilapia Weight at 30 Days (kg)",
-       color = "Tank Temperature") +
-      theme_light()
-    ```
-
-As suspected, there doesn't seem to be much of a difference based on tank temperatures.
-
-## Reflection
-
-10. We used scatter plots to plot the data because that's what our aquatic specialists asked for. However, this might not be the best way to visualize this data. What other type of plot would you suggest that the aquatic specialists use next time? Why? (2 points)
+    Note: the `year` column can be considered continuous or categorical. *For this assignment, we will consider it continuous.*
 
     *Answer:*
 
-11. Write 3-5 sentences about if and how your predictions and execution differed and what you learned through the process. (3 points)
+    -   `species`:
+    -   `island`:
+    -   `bill_length_mm`:
+    -   `bill_depth_mm`:
+    -   `flipper_length`:
+    -   `body_mass_g`:
+    -   `sex`:
+    -   `year`: continuous
 
-    *Examples of questions to answer: How did your initial prediction of how you expected to accomplish the 4 tasks match up with how we actually went about doing it? Were they similar? Were there common mistakes that you made beforehand? Did you plan a different execution from what we did above that you think would also work?*
+------------------------------------------------------------------------
 
-    *Answer:*
+### Important Instructions!
+
+(a) For *all* of the plots below, be sure to add:
+
+    -   improved labels for the x-axis, y-axis, and the legend (if present)
+    -   one of the following themes to your code: `theme_bw`, `theme_classic`, or `theme_light`.
+
+(b) For each question, you get to choose the variables you use for each plot! Pay attention to which variables are continuous vs. categorical and where they should go in the code to produce the correct type of plot.
+
+(c) Because I'm having you choose your own variables, the examples in the provided Answer Key likely will not match yours (though they might). You should strive to produce a plot that looks *similar in style* to those in the Answer Key, but the number of categories and the actual data points will likely be different.
+
+(d) You *cannot* use the same plots that you produced in Module 2 Assignment 1. You can use them for inspiration, but don't use the exact same variables.
+
+(e) Each plot is worth 3 points. Your interpretation is worth 1 point.
+
+------------------------------------------------------------------------
+
+3.  Produce a histogram plot (just one, not multiple on the same plot). Write 1-2 sentences describing what information you can gather from plot.
+
+```{r warning=FALSE}
+ggplot(penguins, aes(bill_depth_mm)) +
+  geom_histogram(bins = 20) +
+  labs(x = "Descriptive Axis Label",
+       y = "Descriptive Axis Label") +
+  theme_bw()
+```
+
+*Answer: Dependent on their plot.*
+
+4.  Create a multiple density plot. Make sure we can see each density plot (make sure one isn't blocking another)(3 points). Write 1-2 sentences describing what information you can gather from plot.
+
+```{r}
+ggplot(penguins, aes(body_mass_g, color = island, fill = island)) +
+  geom_density(alpha = 0.5) +
+  labs(x = "Descriptive Axis Label",
+       y = "Descriptive Axis Label",
+       color = "Legend Label",
+       fill = "Capitalized Label") +
+  scale_fill_discrete(labels = c("[redacted]", "[redacted]", "[redacted]")) +
+  scale_color_discrete(labels = c("[redacted]", "[redacted]", "[redacted]")) +
+  theme_bw()
+```
+
+*Answer: Dependent on their plot.*
+
+5.  Create a box-and-whisker plot. Changing the color of the boxes is optional (if you want to get super fancy, you can change the color based on a different variable). Make sure to add points to the plot. Write 1-2 sentences describing what information you can gather from plot.
+
+```{r warning=FALSE}
+ggplot(penguins, aes(species, flipper_length_mm, color = species)) +
+  geom_boxplot() +
+  geom_jitter(alpha = 0.5, width = 0.1) +
+  labs(x = "Descriptive Axis Label",
+       y = "Descriptive Axis Label",
+       color = "Capitalized Label") +
+  scale_x_discrete(labels = c("[redacted]", "[redacted]", "[redacted]")) +
+  scale_color_discrete(labels = c("[redacted]", "[redacted]", "[redacted]")) +
+  theme_classic()
+```
+
+*Answer: Dependent on their plot.*
+
+6.  Create a scatter plot. Change the color of the points to create a "grouped" scatter plot. Write 1-2 sentences describing what information you can gather from plot. (4 points)
+
+```{r warning=FALSE}
+ggplot(penguins, aes(bill_length_mm, bill_depth_mm, color = island)) +
+  geom_point() +
+  labs(x = "Descriptive Axis Label",
+       y = "Descriptive Axis Label",
+       color = "Capitalized Label") +
+  scale_color_discrete(labels = c("[redacted]", "[redacted]", "[redacted]")) +
+  theme_light()
+```
+
+*Answer: Dependent on their plot.*
