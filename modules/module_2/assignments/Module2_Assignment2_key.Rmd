@@ -1,10 +1,9 @@
 ---
 title: "Module 2, Assignment 2"
 author: "Ellen Bledsoe"
-date: "2022-10-04"
+date: "2023-02-23"
 output:
   pdf_document: default
-  html_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -15,11 +14,11 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ### Purpose
 
-The goal of this assignment is to assess your ability to write custom functions and iterate code using a `for loop`.
+The goal of this assignment is to practice developing successful workflows to get from the starting data to a plot.
 
 ### Task
 
-Write R code which produces the correct answers and correctly interpret the plots produced.
+Write R code which produces the correct answers and reflect on workflow.
 
 ### Criteria for Success
 
@@ -33,114 +32,159 @@ Write R code which produces the correct answers and correctly interpret the plot
 
 ### Due Date
 
-October 11 at midnight MST
+March 2 at midnight MST
 
 # Assignment Questions
 
-For this assignment, we will continue using the `penguins` data set from the `palmerpenguin` data package.
+Our goal for this assignment is to start with a data frame of data, summarize the data in constructive ways, and plot the data to answer some questions. To get from point a to point b to point c requires some planning.
 
-You should reference the [2_Functions](https://rstudio.cloud/spaces/269799/content/4572764) and [3_SickFish](https://rstudio.cloud/spaces/269799/content/4606658) lessons to complete this assignment.
+In this assignment, we will make a plan, execute how we would actually go about the process, and then evaluate how well our original plan matches with the path we actually used.
 
-1.  Load both the `tidyverse` and `palmerpenguin` packages into our work space. (2 points)
+## Data Summary
 
-```{r}
-library(tidyverse)
-library(palmerpenguins)
-```
+The aquaculture scientists on Team Antarctica have been working on developing a new diet for tilapia based on soy-protein, and they are interested in whether incorporating this into fish diets will result in faster growth rates. They also want to know if those growth rates are related to average tank temperature. They've provided us with this data to analyze.
 
-------------------------------------------------------------------------
+First, let's take a look at the data we will be using for the assignment.
 
-#### *Optional*
+1.  As always, we start by loading the `tidyverse`. (1 point)
 
-If you want the `penguins` data frame to show up in the environment, run the following code chunk.
+    ```{r}
+    library(tidyverse)
+    ```
 
-```{r}
-penguins <- penguins
-```
+2.  Next, we need to load in our tilapia growth dataset. Call the data frame `growth`. Then use both the `head` and `tail` functions to take a look at the data. (1 point)
 
-Right now, the bill length, bill depth, and flipper length measurements are in millimeters (we know this from the column names). A colleague has asked for the data in centimeters.
+    ```{r}
+    growth <- read_csv("../data/tilapia_growth.csv")
+    head(growth)
+    tail(growth)
+    ```
 
-------------------------------------------------------------------------
+3.  Before we can plan any strategy, we need to understand the data that we have. Answer the following questions about the data. (0.5 points each, 2 points total)
 
-2.  First, let's write a custom function that will convert any value we give it from millimeters to centimeters. (3 points)
+    a\. What does one row represent? (One tank? One temperature? One treatment? One fish?)
 
-    Add in all the necessary information, including:
+    b\. How many tanks of fish were sampled?
 
-    -   argument(s)
-    -   code to convert from mm to cm (hint: divide by 10)
-    -   what value the function should return
+    c\. How many fish were sampled?
 
-```{r}
-mm_to_cm <- function(mm){
-  cm <- mm / 10
-  return(cm)
-}
-```
+    d\. How many different "percent soy protein" levels (treatments) are there?
 
-Don't forget to run the code chunk above to add your function to the environment!
+## Our Task
 
-3.  Let's test out our function to make sure it works. First, test the function with the number 42. Then test it with the vector called `vec` that is already in the code. (2 points)
+We have been asked by our aquaculture specialists to provide them with the following:
 
-```{r}
-# run the line of code below to create a vector called `vec`
-vec <- c(66, 39, 40, 2, 439, 0, 54)
+a.  a data frame with the average growth (`day_30_weight`) per treatment (`perc_soy_protein`)
+b.  a scatter plot that shows the relationship (or lack thereof) between percent soy protein in the diet and the weight at 30 days
+c.  a data frame with the average growth per treatment (`perc_soy_protein`) *and* if tanks are warm or cold
+d.  a scatter plot that shows the relationship (or lack thereof) between average tank temperature and the weight at 30 days
 
-mm_to_cm(42)
-mm_to_cm(vec)
-```
+They've also asked that we provide all weights in kilograms instead of grams (the `day_30_weight` is currently in grams).
 
-4.  Now that we have our new function working, we can iterate! Let's use it to create 3 new columns: `bill_length_cm`, `bill_depth_cm`, and `flipper_length_cm`. (3 points)
+## Prediction
 
-    Use the `mutate` function to do this, and call this new data frame `penguins_cm`.
+4.  Spend some time thinking about each one of these steps. What steps will you need to take to produce the end result? What data frame will you use? What columns will you use? What functions will you use? How will you plot things?
 
-    Note: you can either put multiple arguments into the `mutate` function (as we've done with `filter` and `summarize`) or you can overwrite `penguins_cm` multiple times, but I want all three new columns in the new `penguins_cm` data frame.
+    For each of the 4 tasks listed above, *describe* (do NOT code) how you will get from the starting point (a data frame) to the result (another data frame or a plot).
 
-```{r}
-penguins_cm <- penguins %>% 
-  mutate(bill_length_cm = mm_to_cm(bill_length_mm),
-         bill_depth_cm = mm_to_cm(bill_depth_mm),
-         flipper_length_cm = mm_to_cm(flipper_length_mm))
-```
+    This question will be grade ***only on completion***, not on whether or not your plan is *correct*. (2 points)
 
-Our colleague has now also asked us for the penguin body mass data to be in kilograms, not grams. (If he learned how to code, he could easily convert this data himself!)
+    *Task (a)*:
 
-5.  First, we want to write a function that will convert grams into kilograms. (3 points)
+    *Task (b)*:
 
-    Add in all the necessary information, including:
+    *Task (c)*:
 
-    -   argument(s)
-    -   code to convert from g to kg (hint: there are 1000 g in 1 kg)
-    -   what value the function should return
+    *Task (d)*:
 
-```{r}
-g_to_kg <- function(g){
-  kg <- g / 1000
-  return(kg)
-}
-```
+## Execution
 
-6.  Again, let's check that our function works, also using 42 and `vec`. (1 points)
+Now let's actually go ahead and complete our tasks with code.
 
-```{r}
-g_to_kg(42)
-g_to_kg(vec)
-```
+Because the aquaculture team has asked for everything to use kilograms instead of grams, it makes sense for us to add a `day_30_weight_kg` column before we tackle any of the specific tasks.
 
-7.  This time, instead of using `mutate`, let's write a `for loop` to create a new column in the `penguins_cm` data frame. (4 points)
+5.  Use the `mutate()` function to add a `day_30_weight_kg` column to the growth data frame. (Hint: divide grams by 1000 to get kg)
 
-    First, we need to create a new column called `body_mass_kg`. Fill in the missing code (\_\_\_) with the appropriate code. Remember to use the `$` operator to indicate the column!
+    Remember to "overwrite" the growth data frame (use the assignment operator) so the new column is permanently added to the `growth` data frame for us to use in the rest of the assignment. (2 points)
 
-```{r}
-penguins_cm$body_mass_kg <- NA
+    ```{r}
+    growth <- growth %>% 
+      mutate(day_30_weight_kg = day_30_weight / 1000)
+    ```
 
-for (i in 1:nrow(penguins_cm)){
-  penguins_cm$body_mass_kg[i] <- g_to_kg(penguins_cm$body_mass_g[i])
-}
-```
+### Task (a)
 
-8.  Finally, let's create a data frame with only the columns our colleague needs--no columns with millimeters or grams. Call this data frame `penguins2`. (2 points)
+**A data frame with the average growth (`day_30_weight_kg`) per treatment (`perc_soy_protein`)**
 
-```{r}
-penguins2 <- penguins_cm %>% 
-  select(-bill_length_mm, -bill_depth_mm, -flipper_length_mm, -body_mass_g)
-```
+6.  Create a new data frame called `growth_by_treatment`. We first want to group the data by treatment (`perc_soy_protein`) then calculate the average weight in kg. (2 points)
+
+    ```{r}
+    growth_by_treatment <- growth %>% 
+      group_by(perc_soy_protein) %>% 
+      summarize(mean_weight_kg = mean(day_30_weight_kg))
+    growth_by_treatment
+    ```
+
+### Task (b)
+
+**A scatter plot that shows the relationship (or lack thereof) between percent soy protein in the diet and the weight at 30 days**
+
+Based on the values we calculated in task (a), it looks like there is probably a positive relationship between the percent of soy protein in tilapia diet and growth. Let's plot the data to confirm.
+
+7.  Make a scatter plot with `perc_soy_protein` on the x-axis (horizontal) and `day_30_weight_kg` on the y-axis (vertical). Change the axis labels to be more easily understood and add a theme. (2 point)
+
+    (Hint: because we want to plot *all* of the values, not just the mean values, we need to use the original `growth` data frame)
+
+    ```{r}
+    ggplot(growth, aes(perc_soy_protein, day_30_weight_kg)) +
+      geom_point() +
+      labs(x = "Percent Diet Comprised of Soy Protein",
+       y = "Tilapia Weight at 30 Days (kg)") +
+      theme_light()
+    ```
+
+### Task (c)
+
+**A data frame with the average growth per treatment (`perc_soy_protein`) *and* if tanks are warm or cold**
+
+8.  Now that we have our `tank_category` column, we can use it in our `group_by` function, along with `perc_soy_protein`, to calculate the average `day_30_weight_kg` for warm and cold tanks in each treatment. Call this new data frame `growth_by_temp_treatment`. (2 points)
+
+    ```{r}
+    growth_by_treatment_and_temp <- growth %>% 
+      group_by(perc_soy_protein, tank_category) %>% 
+      summarise(mean_weight_kg = mean(day_30_weight_kg))
+    growth_by_treatment_and_temp
+    ```
+
+### Task (d)
+
+**A scatter plot that show the relationship (or lack thereof) between average tank temperature and the weight at 30 days**
+
+Based on our results above, do we think the tank being warm or cold has much of an influence? Let's plot our data to confirm.
+
+9.  Make a scatter plot with `avg_tank_temp` on the x-axis (horizontal) and `day_30_weight_kg` on the y-axis (vertical). Change the axis labels to be more easily understood and add a theme. (2 point)
+
+    (Hint: because we want to plot *all* of the values, not just the mean values, we need to use the original `growth` data frame)
+
+    ```{r}
+    ggplot(growth, aes(perc_soy_protein, day_30_weight_kg, color = tank_category)) +
+      geom_point() +
+      labs(x = "Percent Diet Comprised of Soy Protein",
+       y = "Tilapia Weight at 30 Days (kg)",
+       color = "Tank Temperature") +
+      theme_light()
+    ```
+
+As suspected, there doesn't seem to be much of a difference based on tank temperatures.
+
+## Reflection
+
+10. We used scatter plots to plot the data because that's what our aquatic specialists asked for. However, this might not be the best way to visualize this data. What other type of plot would you suggest that the aquatic specialists use next time? Why? (2 points)
+
+    *Answer:*
+
+11. Write 3-5 sentences about if and how your predictions and execution differed and what you learned through the process. (3 points)
+
+    *Examples of questions to answer: How did your initial prediction of how you expected to accomplish the 4 tasks match up with how we actually went about doing it? Were they similar? Were there common mistakes that you made beforehand? Did you plan a different execution from what we did above that you think would also work?*
+
+    *Answer:*
