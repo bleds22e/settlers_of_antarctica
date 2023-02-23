@@ -33,7 +33,7 @@ Let's practice making different kinds of plots with various `geom` functions to 
 
 ```{r}
 library(tidyverse)
-tanks <- read_csv("fish_tank_data.csv")
+tanks <- read_csv("../data/fish_tank_data.csv")
 ```
 
 ### Histograms
@@ -41,6 +41,9 @@ tanks <- read_csv("fish_tank_data.csv")
 As we learned last modules, histograms are plots which let us look at *one continuous variable* and get a feel for the distribution of that data. To make histograms in `ggplot2`, we use the `geom_histogram()` function. Let's look at signal distance.
 
 ```{r}
+ggplot(tanks, aes(num_fish)) +
+  geom_histogram(bins = 20)
+
 # we can change the number of bins (essentially, the number of columns) by modifying the bins argument in the geom_histogram function
 ```
 
@@ -49,7 +52,8 @@ As we learned last modules, histograms are plots which let us look at *one conti
 Density plots are similar to histograms in that they show the distribution of a *continuous variable* but they are smoothed and continuous version estimated from the data. For this class, you can think of them as being basically the same thing (and use them interchangeably).
 
 ```{r}
-
+ggplot(tanks, aes(num_fish)) +
+  geom_density()
 ```
 
 ### Multiple Density Plots (or Histograms)
@@ -57,7 +61,8 @@ Density plots are similar to histograms in that they show the distribution of a 
 What if we wanted to create a density plot for signal distance for each collar manufacturer? In base R, we would need to filter or make a new dataframe. With `ggplot2`, we can specify that we want the `fill` (or the `color`) to be determined by the maker column.
 
 ```{r}
-
+ggplot(tanks, aes(num_fish, fill = species)) +
+  geom_density()
 ```
 
 Hooray! But...we can't really see the bars for Budget Collars LLC in the lower range of the values because they are hidden behind the Collarium Inc. bars. How might we address this?
@@ -65,7 +70,8 @@ Hooray! But...we can't really see the bars for Budget Collars LLC in the lower r
 To fix this issue, we can use the `alpha` argument, which changes the transparency of the bars. The scale for `alpha` runs from 0 (completely transparent) to 1 (completely solid). Let's try 0.5.
 
 ```{r}
-
+ggplot(tanks, aes(num_fish, fill = species)) +
+  geom_density(alpha = .5)
 ```
 
 ------------------------------------------------------------------------
@@ -91,7 +97,8 @@ For some additional examples and explanation, check out [this Stack Overflow pag
 As a reminder, we use the `geom_point()` function to make a scatter plot of the relationship between *two continuous variables*.
 
 ```{r}
-
+ggplot(tanks, aes(avg_daily_temp, num_fish)) +
+  geom_point()
 ```
 
 ### Box-and-Whisker Plots
@@ -121,17 +128,24 @@ ggplot(tanks, aes(species, num_fish, color = species)) +
   geom_boxplot() +
   geom_point(alpha = 0.5)
 ```
-
 The `geom_jitter()` function is a special version of `geom_point()`. It adds a little bit of randomness to the points (both horizontally and vertically) so that they don't overlap as much. We can control how much randomness we allow with the `width` and/or `height` arguments. I usually ignore `height` and set the `width` argument to 0.1.
 
 ```{r}
-
+ggplot(tanks, aes(species, num_fish, color = species)) +
+  geom_boxplot() +
+  geom_jitter(alpha = 0.5, width = 0.1) 
 ```
 
 That is looking really nice! We can keep improving it, though, with better labels for the axes and the legend as well as a nice `theme`.
 
 ```{r}
-
+ggplot(tanks, aes(species, num_fish, color = species)) +
+  geom_boxplot() +
+  geom_jitter(alpha = 0.5, width = 0.1) +
+  labs(x = "Species",
+       y = "Number of Fish Per Tank",
+       color = "Species") +
+  theme_light()
 ```
 
 ## Summary
