@@ -17,10 +17,10 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Head over to [data-to-viz.com](https://www.data-to-viz.com/) and do some exploration! In your groups, choose one of the following types of plots. Hunt down as many locations in the flow chart where your plot type is found as you can find.
 
--   histogram
--   density plot
--   scatter plot
--   box-and-whisker
+-   histogram: `geom_histogram()`
+-   density plot: `geom_density()`
+-   scatter plot: `geom_point()`
+-   box-and-whisker: `geom_boxplot()` + `geom_jitter()`
 
 If you've finished, click on your plot type and read more about it. Check out the examples that were made in R, including many using `ggplot2`. Take note of the following:
 
@@ -76,7 +76,7 @@ ggplot(tanks, aes(num_fish, fill = species)) +
 
 ------------------------------------------------------------------------
 
-#### The powerful and pesky `aes()` function
+### The powerful and pesky `aes()` function
 
 A quick note about the `aes()` function. It's one of the more confusing bits of `ggplot2`.
 
@@ -149,40 +149,40 @@ ggplot(tanks, aes(species, num_fish, color = species)) +
   theme_light()
 ```
 
-## Summary
+# Summary
 
 Let's summarize some of what we've learned in this module
 
-### Data Visualization Types and When to Use Them
+## Data Visualization Types and When to Use Them
 
-#### Histogram or Density Plot:
+### Histogram or Density Plot
 
 Good for looking at the distribution of one continuous variable
 
 -   one continuous variable (x-axis)
 
-#### Multiple Histogram or Multiple Density Plot:
+### Multiple Histogram or Multiple Density Plot
 
 Good for looking at differences in the distributions of one continuous variable based on a categorical variable
 
 -   one continuous variable (x-axis)
 -   one categorical variable via the `fill` or `color` argument in the `aes()` function
 
-#### Scatter Plot:
+### Scatter Plot
 
 Good for looking for the relationship between two continuous variables
 
 -   two continuous variables (x-axis and y-axis)
 -   can add in a categorical variable via `aes()`, but the main relationship is between the two continuous variables
 
-#### Box Plot:
+### Box Plot
 
 Good for looking at measures of central tendency and variation for a continuous variable and the differences between those measures between categories
 
 -   one continuous variable (y-axis)
 -   at least one categorical (x-axis and additional via `aes()`)
 
-### Layering
+## Layering
 
 We can add multiple layers to ggplots, which is part of what makes them so useful!
 
