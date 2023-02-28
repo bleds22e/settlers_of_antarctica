@@ -2,7 +2,7 @@
 title: "Module 2 Wrap-Up"
 author: "Ellen Bledsoe"
 date: "2022-10-13"
-output: html_document
+output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
