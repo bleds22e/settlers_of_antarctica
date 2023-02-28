@@ -167,11 +167,10 @@ Based on our results above, do we think the tank being warm or cold has much of 
     (Hint: because we want to plot *all* of the values, not just the mean values, we need to use the original `growth` data frame)
 
     ```{r}
-    ggplot(growth, aes(perc_soy_protein, day_30_weight_kg, color = tank_category)) +
+    ggplot(growth, aes(avg_tank_temp, day_30_weight_kg)) +
       geom_point() +
-      labs(x = "Percent Diet Comprised of Soy Protein",
-       y = "Tilapia Weight at 30 Days (kg)",
-       color = "Tank Temperature") +
+      labs(x = "Average Tank Temperature (C)",
+       y = "Tilapia Weight at 30 Days (kg)") +
       theme_light()
     ```
 

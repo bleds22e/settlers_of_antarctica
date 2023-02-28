@@ -10,24 +10,34 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-2.  
+1.  
 
     ```{r}
     library(tidyverse)
+    ```
+
+2.  
+
+    ```{r}
     growth <- read_csv("../data/tilapia_growth.csv")
     head(growth)
     tail(growth)
     ```
 
-3.  
+```{=html}
+<!-- -->
+```
+5.  
 
     ```{r}
     growth <- growth %>% 
       mutate(day_30_weight_kg = day_30_weight / 1000)
-    growth
     ```
 
-4.  
+```{=html}
+<!-- -->
+```
+6.  
 
     ```{r}
     growth_by_treatment <- growth %>% 
@@ -36,7 +46,10 @@ knitr::opts_chunk$set(echo = FALSE)
     growth_by_treatment
     ```
 
-5.  
+```{=html}
+<!-- -->
+```
+7.  
 
     ```{r}
     ggplot(growth, aes(perc_soy_protein, day_30_weight_kg)) +
@@ -46,7 +59,10 @@ knitr::opts_chunk$set(echo = FALSE)
       theme_light()
     ```
 
-6.  
+```{=html}
+<!-- -->
+```
+8.  
 
     ```{r}
     growth_by_treatment_and_temp <- growth %>% 
@@ -55,13 +71,15 @@ knitr::opts_chunk$set(echo = FALSE)
     growth_by_treatment_and_temp
     ```
 
-7.  
+```{=html}
+<!-- -->
+```
+9.  
 
     ```{r}
-    ggplot(growth, aes(perc_soy_protein, day_30_weight_kg, color = tank_category)) +
+    ggplot(growth, aes(avg_tank_temp, day_30_weight_kg)) +
       geom_point() +
-      labs(x = "Percent Diet Comprised of Soy Protein",
-       y = "Tilapia Weight at 30 Days (kg)",
-       color = "Tank Temperature") +
+      labs(x = "Average Tank Temperature (C)",
+       y = "Tilapia Weight at 30 Days (kg)") +
       theme_light()
     ```
