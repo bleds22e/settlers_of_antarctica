@@ -20,7 +20,7 @@ Let's load the package and data we will need.
 ### Packages
 
 ```{r}
-
+library(tidyverse)
 ```
 
 ### Data
@@ -30,13 +30,13 @@ We've already explored the tank data provided to us from our aquatic specialists
 It would be impossible to sample all 1000 tanks for sick fish on our timeline, so we asked our aquatic specialists to randomly choose 50 tanks to sample for sick fish. This is the data in the `fish_sick_data.csv` file.
 
 ```{r}
-
+sick_fish <- read_csv("../data/fish_sick_data.csv") 
 ```
 
 Let's check out our data and see what we are working with.
 
 ```{r}
-
+head(sick_fish)
 ```
 
 ## Which Fish?
@@ -46,13 +46,21 @@ A good first step would be to narrow down whether tilapia or trout are the likel
 To start, let's calculate the mean and standard deviation of sick fish per species.
 
 ```{r}
-
+sick_fish %>% 
+  group_by(species) %>% 
+  summarize(mean_sick_fish = mean(num_sick),
+            sd_sick_fish = sd(num_sick))
 ```
 
 Wow, trout aren't looking so good! Let's plot the data to see what's happening. We want a plot that will allow us to compare the data between the two groups of data (fish species). We actually have a few options! Let's go with a multiple density plot this time.
 
 ```{r}
-
+ggplot(sick_fish, aes(num_sick, fill = species)) +
+  geom_density(alpha = 0.5) +
+  labs(x = "Number of Sick Fish in Tanks",
+       y = "Density",
+       fill = "Species") +
+  theme_classic()
 ```
 
 ### Density
@@ -60,7 +68,9 @@ Wow, trout aren't looking so good! Let's plot the data to see what's happening. 
 Wait a second! Take a look back at the data. There is a "number of fish" column, indicating the total number of fish in the tank, and it looks like those numbers can differ pretty widely. We should probably take into account how many fish there are in the tank to begin with. 12 sick fish out of 50 is probably a bigger deal than 12 sick fish out of 100! What we need to do is calculate a density of fish--number of sick fish / number of total fish.
 
 ```{r}
-
+# take into account the number of fish in the tank: density of sick fish
+sick_fish <- sick_fish %>% 
+  mutate(density = num_sick/num_fish) 
 ```
 
 #### Small Groups
@@ -73,7 +83,22 @@ Work in small groups to do the following:
 -   make a plot that compares the distributions of sick fish numbers for both species (you have multiple options here!)
 
 ```{r}
+sick_fish %>% 
+  group_by(species) %>% 
+  summarize(mean_sick_fish = mean(density),
+            sd_sick_fish = sd(density))
 
+ggplot(sick_fish, aes(species, density, color = species)) +
+  geom_boxplot() + 
+  geom_jitter(alpha = 0.5, width = 0.1) +
+  labs(x = "Species",
+       y = "Density of Sick Fish in Tanks",
+       color = "Species") +
+  theme_light()
+
+# histogram
+ggplot(sick_fish, aes(density, fill = species)) +
+  geom_histogram(alpha = 0.5, bins = 15)
 
 ```
 
@@ -82,7 +107,8 @@ Uh oh...the trout densities look even worse than just the number of sick fish. W
 We should create a data frame that only contains trout to work with for the rest of our analyses. Take a few minutes to work on that; call it `sick_trout`.
 
 ```{r}
-
+sick_trout <- sick_fish %>% 
+  filter(species == "trout")
 ```
 
 ## What Environmental Factor?
@@ -94,7 +120,14 @@ Are those columns continuous or categorical? What plot type have we talked about
 In small groups, make plots using the `sick_trout` data to try to figure out which environmental factor is causing problems in the trout.
 
 ```{r}
- 
+ggplot(sick_trout, aes(x = density, y = num_fish)) +
+  geom_point() 
+
+ggplot(sick_trout, aes(x = density, y = avg_daily_temp)) +
+  geom_point()
+
+ggplot(sick_trout, aes(density, day_length)) +
+  geom_point() 
 ```
 
 What do we think is the environmental driver causing issues with the trout?

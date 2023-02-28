@@ -24,10 +24,7 @@ fish_tanks <- tibble(tank_id = c(1:1000),
                           (rnorm(n = 250, mean = 400, sd = 0.8))),
         num_sick = ifelse(species == "tilapia",
                           round(rtruncnorm(750, a = 0, mean = 2, sd = 5)),
-                          round(rtruncnorm(250, a = 0, mean = 10, sd = 5))),
-        size_day_30 = ifelse(species == "tilapia", 
-                             rnorm(750, mean = 2783, sd = 5),
-                             rnorm(250, mean = 150, sd = 2)))
+                          round(rtruncnorm(250, a = 0, mean = 10, sd = 5))))
 
 fish_sick <- fish_tanks %>%
   sample_n(50, weight = factor(species))
@@ -37,11 +34,14 @@ fish_tanks %>%
   ggplot(aes(x = num_sick, fill = factor(species))) +
   geom_histogram(binwidth = 1)
 
-sick_fish <- sick_fish_density %>% 
-  mutate(num_sick = if_else(species == "tilapia" & density > 0.075, 0,
+# for THIS specific iteration of sick_fish (Spring 2023)
+sick_fish <- sick_fish %>% 
+  mutate(density = num_sick/num_fish, 
+         num_sick = if_else(species == "tilapia" & density > 0.075, 0,
                            if_else(species == "trout", num_sick + 2, num_sick)),
          avg_daily_temp = if_else(species == "trout" & density < 0.08, 13.8, avg_daily_temp),
-         size_day_30 = if_else(species == "trout" & density < 0.08, 154, size_day_30))
+         day_length = if_else(density < 0.2 & density > 0.19, 13, day_length)) %>% 
+  select(-density)
 
 # writing to csv
 write_csv(fish_tanks %>% 
