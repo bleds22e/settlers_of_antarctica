@@ -37,10 +37,16 @@ fish_tanks %>%
   ggplot(aes(x = num_sick, fill = factor(species))) +
   geom_histogram(binwidth = 1)
 
+sick_fish <- sick_fish_density %>% 
+  mutate(num_sick = if_else(species == "tilapia" & density > 0.075, 0,
+                           if_else(species == "trout", num_sick + 2, num_sick)),
+         avg_daily_temp = if_else(species == "trout" & density < 0.08, 13.8, avg_daily_temp),
+         size_day_30 = if_else(species == "trout" & density < 0.08, 154, size_day_30))
+
 # writing to csv
 write_csv(fish_tanks %>% 
             select(-num_sick), "./modules/module_2/data/fish_tank_data.csv")
-write_csv(fish_sick, "./modules/module_2/data/fish_sick_data.csv")
+write_csv(sick_fish, "./modules/module_2/data/fish_sick_data.csv")
 # 
 # Note, be careful overwriting this - I cherrypicked high density tanks with 
 # high infection rates... if you re-run and re-write the csv file here, you'll 
