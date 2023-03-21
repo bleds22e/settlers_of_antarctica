@@ -2,7 +2,7 @@
 title: 'Module 3: Leopard Seals'
 author: "Ellen Bledsoe"
 date: '2022-10-13'
-output: html_document
+output: pdf_document
 editor_options: 
   markdown: 
     wrap: 72
@@ -60,7 +60,7 @@ can tie it to a particular manufacturer.
 
 Our data on collars is in a file called "collar_data.csv."
 
-```{r}
+```{r message = FALSE}
 library(tidyverse)
 collars <- read_csv("../data/collar_data.csv")
 ```
