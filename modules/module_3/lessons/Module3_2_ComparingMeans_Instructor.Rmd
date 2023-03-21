@@ -1,9 +1,8 @@
 ---
 title: "Module 3: Comparing Means"
 author: "Ellen Bledsoe"
+date: "`r Sys.Date()`"
 output: pdf_document
-editor_options: 
-  markdown: 
 ---
 
 ```{r setup, include=FALSE}
@@ -26,7 +25,7 @@ Let's get set-up by loading the tidyverse and reading in our data.
 
 ```{r}
 library(tidyverse)
-collars <- read_csv("collar_data.csv")
+collars <- read_csv("../data/collar_data.csv")
 ```
 
 ## Numerically
@@ -44,67 +43,32 @@ means_by_maker <- collars %>%
 
 ## Visually
 
-We've made histograms in base R and, using the `abline()` function, added a line to represent the mean value for the data plotted in the histogram.
+In the last lesson, we made histograms to plot the distribution of our data and, using the `geom_vline()` function, added a line to represent the mean value for the data plotted in the histogram. We also made a scatter plot with our data.
 
-Let's practice building our own histograms in `ggplot2` and going one step further--adding lines to represent the mean values.
-
-### Histograms in `ggplot2`
-
-In small groups, work together to develop code that creates the following:
-
-1.  Two histograms: one for battery life and one for signal length
-2.  Each is color-coded for each manufacturer
-3.  Each has descriptive labels for the x- and y-axis (and the legend, if you want)
-4.  Each has a vertical line that plots the mean of each group
-    -   this will be the tricky bit, since we haven't done it before!
-    -   Try running `?geom_abline` to get some insight, or you can use Google to try to figure it out
-
-```{r}
-# battery life
-ggplot(collars, aes(battery_life, fill = maker)) +
-  geom_histogram(alpha = 0.5, bins = 10, position = "identity") +
-  geom_vline(data = means_by_maker, aes(xintercept = mean_battery, color = maker)) +
-  ylab("Count") +
-  xlab("Battery Life") +
-  scale_color_discrete(name = "Maker") +
-  scale_fill_discrete(name = "Maker") +
-  theme_bw()
-```
-
-```{r}
-# signal distance
-ggplot(collars, aes(x=signal_distance, fill = maker)) +
-  geom_histogram(alpha = 0.5, bins = 20, position = "identity") +
-  geom_vline(data = means_by_maker, 
-             aes(xintercept = mean_signal, color = maker)) +
-  labs(x = "Signal Distance",  # using the labs() function produces the same results as above
-       y = "Count",
-       color = "Maker",
-       fill = "Maker") + 
-  theme_bw()
-```
-
-### Other Plots?
-
-What other ways could we plot this data?
+Let's practice another plot type that helps us visualize our data---box-and-whisker plots!
 
 ### Box-and-Whisker Plots
 
-A great way to show the mean (or median) value and the distribution of data is with bow-and-whisker plots.
-
-Let's build one and then talk through what each component means. We use `geom_boxplot` to make these types of plots.
+In small groups, practice making a box-and-whisker plot for either the battery life or signal distance data. Remember to add the points via the `geom_jitter()` function, and remember to add nice labels and a theme.
 
 ```{r}
+ggplot(collars, aes(maker, battery_life)) +
+  geom_boxplot() +
+  geom_jitter(alpha = 0.5, width = 0.1) +
+    labs(x = "Collar Maker",
+       y = "Battery Life") +
+  theme_bw()
+
 ggplot(collars, aes(maker, signal_distance, color = maker)) +
   geom_boxplot() + 
-  geom_jitter(alpha = 0.5, width = 0.1)
-
-ggplot(collars, aes(maker, battery_life)) +
   geom_jitter(alpha = 0.5, width = 0.1) +
-  geom_boxplot()
+  labs(x = "Collar Maker",
+       y = "Signal Distance",
+       color = "Collar Maker") +
+  theme_bw()
 ```
 
-So what does the box represent? And the whiskers?
+Let's remind ourselves what the box-and-whisker plots tell us.
 
 -   the **box** represents the *middle 50% of the values* in the data set. The line that runs through the middle of the box represents the *middle value (**median**)* of the data
 -   the **whiskers** represent the *spread of the data* (we won't get into the mathematical details of exactly how they are calculated) and a roughly comparable to 95% confidence intervals (discussed below)
