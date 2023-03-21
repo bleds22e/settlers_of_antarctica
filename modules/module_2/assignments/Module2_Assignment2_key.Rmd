@@ -167,6 +167,8 @@ Based on our results above, do we think the tank being warm or cold has much of 
     (Hint: because we want to plot *all* of the values, not just the mean values, we need to use the original `growth` data frame)
 
     ```{r}
+    ## note that the answer key that got uploaded had a different plot, so if they made the plot on the Answer Key file, that's fine, too
+
     ggplot(growth, aes(avg_tank_temp, day_30_weight_kg)) +
       geom_point() +
       labs(x = "Average Tank Temperature (C)",
