@@ -56,7 +56,7 @@ Let's load the `tidyverse` and read in the data set. Call the data `turbines`.
 
 ### Numeric
 
-2.  Generate a summary of the data set that calculates the mean wind speed and mean power output for each wind turbine company. (2 point)
+2.  Generate a summary of the data set that calculates the mean wind speed and mean power output for each wind turbine company. Save this as a data frame called `turbine_summary`. (2 point)
 
 ```{r}
 
@@ -67,7 +67,7 @@ Let's load the `tidyverse` and read in the data set. Call the data `turbines`.
 3.  Create a mutiple density plot for the power output variable. (3 points)
     -   be sure to have a density plot for each turbine producer; the color and the fill should be determined by the maker of the turbine
     -   add in vertical lines for the mean values in the same color as the turbine makers (remember to reference the correct data frame!)
-    -   make sure the x-axis, y-axis, and legend labels are capitalized and easier to understand (power output in measured in kilowatts, or kWh)
+    -   make sure the x-axis, y-axis, and legend labels are capitalized and easier to understand 
     -   use the `theme_classic()` function
 
 ```{r}
@@ -90,10 +90,16 @@ Let's load the `tidyverse` and read in the data set. Call the data `turbines`.
 
 5.  Write a null hypothesis and an alternative hypothesis for the question we are asking and that we will be using statistics to answer. (2 points)
 
+Power Output:
     **Null Hypothesis** (H~0~):\
     **Alternative Hypothesis** (H~A~):
+    
+Wind Speed:
 
-6.  Based on the mean values in the `turbine_summary` data frame and the plots you've created above, predict the outcome of each t-test (graded for completion, not accuracy). Explain your reasoning (1-2 sentences for each t-test is fine). (2 points)
+-   **Null Hypothesis** (H~0~):\
+-   **Alternative Hypothesis** (H~A~):
+
+6.  Based on the mean values in the `turbine_summary` data frame and the plots you've created above, predict the outcome of each t-test that we will run: 1 comparing wind speeds, 1 comparing power outputs (graded for completion, not accuracy). Explain your reasoning (1-2 sentences for each t-test is fine). (2 points)
 
     *Answer:*
 

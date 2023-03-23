@@ -33,7 +33,7 @@ turbine_summary
 ggplot(turbines, aes(power_output, color = manufacturer, fill = manufacturer)) +
   geom_density(alpha = 0.5) +
   geom_vline(data = turbine_summary, aes(xintercept = mean_power, color = manufacturer)) +
-  labs(x = "Wind Speed (km/hr)",
+  labs(x = "Power Output",
        y = "Density",
        color = "Manufacturer",
        fill = "Manufacturer") +
