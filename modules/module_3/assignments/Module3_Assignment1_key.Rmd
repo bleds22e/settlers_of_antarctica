@@ -1,7 +1,8 @@
 ---
-title: "Module 3 Assignment 1"
+title: "Module 3 Assignment 2"
+author: "Ellen Bledsoe"
+date: '2022-10-27'
 output: pdf_document
-date: "2022-10-25"
 ---
 
 ```{r setup, include=FALSE}
@@ -12,11 +13,11 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ### Purpose
 
-The goal of this assignment is to assess your ability to produce and interpret histograms and scatter plots using `ggplot2`.
+The goal of this assignment is to assess your ability to compare means numerically, visually, and statistically
 
 ### Task
 
-Write R code (using `ggplot2`, specifically) which produces the correct answers and correctly interpret the plots produced.
+Write R code which produces the correct answers and correctly interpret the results of visualizations and statistical tests.
 
 ### Criteria for Success
 
@@ -34,116 +35,105 @@ November 8 at midnight MST
 
 # Assignment Questions
 
-For this assignment, we are going to be making plots! Specifically, we are going to be reproducing plots that we made in base R with `ggplot2`. If you want a refresher about the data and plots we are working with, take a gander at Module2_Assignment 1.
+In this assignment, we're going to explore another data set on wind turbines that generate a significant portion of the energy for us down here in Antarctica.
 
-As before, we are going to use the data set called `penguins` from the `palmerpenguins` package.
+### Set-Up
 
-Most of the code you will need to complete this assignment is code we used in the first 3 lessons of this module.
-
-### Data
-
-1.  Load both the `palmerpenguins` package and the `tidyverse` package into the work space. (2 points)
+Let's load the `tidyverse` and read in the data set. Call the data `turbines`.
 
 ```{r}
 library(tidyverse)
-library(palmerpenguins)
+turbines <- read_csv("../data/wind_turbines.csv")
 ```
 
-When we use data from a data package, it doesn't automatically show up in our environment. Run this code chunk so it does show up in the environment.
+1.  Explore the data set, either through the environment or through code. Answer the following questions (2 point):
+
+    a.  How many turbine makers are there? 2
+    b.  What does each row of data represent? one turbine
+
+    ```{r}
+    # optional; only if you want space for coding
+    ```
+
+### Numeric
+
+2.  Generate a summary of the data set that calculates the mean wind speed and mean power output for each wind turbine company. (2 point)
 
 ```{r}
-penguins <- penguins
+turbine_summary <- turbines %>% 
+  group_by(manufacturer) %>% 
+  summarise(mean_wind_speed = mean(wind_speed),
+            mean_power = mean(power_output))
+turbine_summary
 ```
 
-2.  Use the `head()` function to refresh yourself on the `penguins` data frame. (1 points)
+### Visual
+
+3.  Create a density plot for the power output variable. (3 points)
+    -   be sure to have a density plot for each turbine producer; the color and the fill should be determined by the maker of the turbine
+    -   add in vertical lines for the mean values in the same color as the turbine makers
+    -   make sure the x-axis, y-axis, and legend labels are capitalized and easier to understand (power output in measured in kilowatts, or kWh)
+    -   use the `theme_classic()` function
 
 ```{r}
-head(penguins)
-```
-
-### Histogram (or Density Plot)
-
-3.  Use `ggplot2` to make a histogram of the body mass column for all species combined (AKA don't set color or fill yet). You can create either a true histogram or a density plot, whichever you prefer. (2 points)
-
-    *Note: it will produce a warning saying it removed some rows. That's fine!*
-
-```{r}
-ggplot(penguins, aes(body_mass_g)) +
-  geom_density()
-
-# OR 
-ggplot(penguins, aes(body_mass_g)) +
-  geom_histogram()
-
-```
-
-4.  Now, let's produce the same plot (histogram or density plot of the body mass column) but instead of a plot of all species combined, set the `color` and `fill` arguments to be determined by the species of penguin. Change the transparency of the fill (`alpha`) so we can see all three species. (2 points)
-
-    (Hint: if you make a histogram, you'll want to set `position = "identity"` so you can see the histograms for all 3 species)
-
-```{r}
-ggplot(penguins, aes(body_mass_g, color = species, fill = species)) +
-  geom_density(alpha = 0.5)
-
-# OR #
-
-ggplot(penguins, aes(body_mass_g, color = species, fill = species)) +
-  geom_histogram(alpha = 0.5, position = "identity")
-
-```
-
-5.  In 2-3 sentences, describe what the histogram is telling you. How are the two histograms from questions 3 and 4 different? What different bits of information can you glean from presenting the histogram these two different ways? I'm not necessarily looking for technical answers, but I want you to practice interpreting what histograms are telling you. (3 points)
-
-*Answer:*
-Generally, did they interpret the histogram more-or-less correctly? Stuff like which mean is likely higher or lower, spread of the data, overlap of the data, etc.
-
-6.  Let's spruce up the plot from question 4 a bit. (3 points)
-
-Make the following changes:
-
--   edit the x-axis and y-axis labels to be capitalized and easier to read
--   capitalize the legend title ("Species" instead of "species")
--   choose a pre-programmed theme for your plot; I recommend `theme_bw()` or `theme_classic()`, but you can choose whichever one you like, as long as the axes titles and legend remain!
-
-```{r}
-ggplot(penguins, aes(body_mass_g, color = species, fill = species)) +
+ggplot(turbines, aes(power_output, color = manufacturer, fill = manufacturer)) +
   geom_density(alpha = 0.5) +
-  labs(x = "Body Mass (g)",
-       y = "Count",
-       color = "Species",
-       fill = "Species") +
-  theme_classic() # any theme is fine
+  geom_vline(data = turbine_summary, aes(xintercept = mean_power, color = manufacturer)) +
+  labs(x = "Power Output", # any way of adding cleaner labels is fine
+       y = "Density",
+       color = "Manufacturer",
+       fill = "Manufacturer") +
+  theme_classic()
 
-# also fine if they use the xlab, ylab, scale_color_discrete, and scale_fill_discrete functions to relabel stuff
+### the answer key that I gave them accidentally had wind speed as the x-axis label
+### because of that, they can use wind speed OR power output in the question
 ```
 
-### Scatter Plot
+4.  Generate a box-and-whisker plot using `ggplot2` that compares the wind speed between different turbine makers (3 points).
 
-7.  Make a scatter plot with flipper length on the x-axis (horizontal) and bill length on the y-axis (vertical) for all penguins, regardless of species. (2 points)
+    The plot should:
+
+    -   have capitalized and more descriptive axis labels (hint: wind speed is measured in kilometers per hour---km/hr)
+    -   show raw data points in addition to the boxes. The points should be jittered.
+    -   use the `theme_classic()` function
 
 ```{r}
-ggplot(penguins, aes(flipper_length_mm, bill_length_mm)) +
-  geom_point()
+ggplot(turbines, aes(manufacturer, wind_speed)) +
+  geom_boxplot() +
+  geom_jitter(width = 0.1, alpha = 0.5) + #transparency & width are optional
+  labs(x = "Maker", # any way of adding cleaner labels is fine
+       y = "Wind Speed (km/hr)") +
+  theme_classic()
 ```
 
-8.  Now, let's make this plot shine. Make the following edits. (3 point)
+### Statistic
 
--   show a different marker color depending on the penguin species.
--   edit the x-axis and y-axis labels to be capitalized and easier to read
--   capitalize the legend title ("Species" instead of "species")
--   choose a pre-programmed theme for your plot; I recommend `theme_bw()` or `theme_classic()`, but you can choose whichever one you like, as long as the axes titles and legend remain!
+5.  Write a null hypothesis and an alternative hypothesis for the question we are asking and that we will be using statistics to answer. (2 points)
+
+    **Null Hypothesis** (H~0~):\ there is no difference in power output and wind speed between the turbine makers
+    **Alternative Hypothesis** (H~A~): there is a difference in power output and wind speed between the turbine makers
+
+6.  Based on the mean values in the `turbine_summary` data frame and the plots you've created above, predict the outcome of each t-test (graded for completion, not accuracy). Explain your reasoning (1-2 sentences for each t-test is fine). (2 points)
+
+    *Answer:* graded for completion only
+    * power output (histogram) looks like probably yes, p < 0.05; wind speed (boxplot) looks like maybe no
+
+7.  Perform a t-test on the power output by turbine maker. (1 point)
 
 ```{r}
-ggplot(penguins, aes(flipper_length_mm, bill_length_mm, color = species)) +
-  geom_point() + 
-  labs(x = "Flipper Length (mm)",
-       y = "Bill Length (mm)",
-       color = "Species") +
-  theme_classic() # any theme is fine
-
-# also fine if they use the xlab, ylab, scale_color_discrete, and scale_fill_discrete functions to relabel stuff
+t.test(data = turbines, power_output ~ manufacturer)
 ```
 
-9.  Write 1-2 sentences discussing why including color based on species is important, based on the two plots above. (2 points)
+8.  In 2-3 sentences, interpret the output from question 7. Focus on what the p-value is in reference to the cutoff of 0.05, what that means, and whether that means we accept or reject the null hypothesis. (2 points)
 
-*Answer:* something along the lines of it being clear that different species fall in clear groups
+    *Answer:* p < 0.05 so there is a significant difference and we reject the null
+
+9.  Perform another t-test, this time on the wind_speed variable by manufacturer. (1 point)
+
+```{r}
+t.test(data = turbines, wind_speed ~ manufacturer)
+```
+
+10. In 2-3 sentences, interpret the output from question 9 (focus on the same ideas as question 8). (2 points)
+
+    *Answer:* p > 0.05 so there is no difference and we fail to reject (it's ok if they say accept) the null

@@ -1,7 +1,8 @@
 ---
 title: "Module 3 Assignment 1"
-output: html_document
-date: "2022-10-25"
+author: "Ellen Bledsoe" # <- your name here!
+date: '2022-10-27'      # <- the date here!
+output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
@@ -12,11 +13,11 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ### Purpose
 
-The goal of this assignment is to assess your ability to produce and interpret histograms and scatter plots using `ggplot2`.
+The goal of this assignment is to assess your ability to compare means numerically, visually, and statistically
 
 ### Task
 
-Write R code (using `ggplot2`, specifically) which produces the correct answers and correctly interpret the plots produced.
+Write R code which produces the correct answers and correctly interpret the results of visualizations and statistical tests.
 
 ### Criteria for Success
 
@@ -30,90 +31,88 @@ Write R code (using `ggplot2`, specifically) which produces the correct answers 
 
 ### Due Date
 
-November 8 at midnight MST
+April 4 at midnight MST
 
 # Assignment Questions
 
-For this assignment, we are going to be making plots! Specifically, we are going to be reproducing plots that we made in base R with `ggplot2`. If you want a refresher about the data and plots we are working with, take a gander at Module2_Assignment 1.
+In this assignment, we're going to explore another data set on wind turbines that generate a significant portion of the energy for us down here in Antarctica.
 
-As before, we are going to use the data set called `penguins` from the `palmerpenguins` package.
+### Set-Up
 
-Most of the code you will need to complete this assignment is code we used in the first 3 lessons of this module.
-
-### Data
-
-1.  Load both the `palmerpenguins` package and the `tidyverse` package into the workspace. (2 points)
+Let's load the `tidyverse` and read in the data set. Call the data `turbines`.
 
 ```{r}
 
 ```
 
-When we use data from a data package, it doesn't automatically show up in our environment. Run this code chunk so it does show up in the environment.
+1.  Explore the data set, either through the environment or through code. Answer the following questions (2 point):
 
-```{r}
-penguins <- penguins
-```
+    a.  How many turbine makers are there?
+    b.  What does each row of data represent?
 
-2.  Use the `head()` function to refresh yourself on the `penguins` data frame. (1 points)
+    ```{r}
+    # optional; only if you want space for coding
+    ```
 
-```{r}
+### Numeric
 
-```
-
-### Histogram (or Density Plot)
-
-3.  Use `ggplot2` to make a histogram of the body mass column for all species combined (AKA don't set color or fill yet). You can create either a true histogram or a density plot, whichever you prefer. (2 points)
-
-    *Note: it will produce a warning saying it removed some rows. That's fine!*
+2.  Generate a summary of the data set that calculates the mean wind speed and mean power output for each wind turbine company. (2 point)
 
 ```{r}
 
 ```
 
-4.  Now, let's produce the same plot (histogram or density plot of the body mass column) but instead of a plot of all species combined, set the `color` and `fill` arguments to be determined by the species of penguin. Change the transparency of the fill (`alpha`) so we can see all three species. (2 points)
+### Visual
 
-    (Hint: if you make a histogram, you'll want to set `position = "identity"` so you can see the histograms for all 3 species)
-
-```{r}
-
-```
-
-5.  In 2-3 sentences, describe what the histogram is telling you. How are the two histograms from questions 3 and 4 different? What different bits of information can you glean from presenting the histogram these two different ways? I'm not necessarily looking for technical answers, but I want you to practice interpreting what histograms are telling you. (3 points)
-
-*Answer:*
-
-6.  Let's spruce up the plot from question 4 a bit. (3 points)
-
-Make the following changes:
-
--   edit the x-axis and y-axis labels to be capitalized and easier to read
--   capitalize the legend title ("Species" instead of "species")
--   choose a pre-programmed theme for your plot; I recommend `theme_bw()` or `theme_classic()`, but you can choose whichever one you like, as long as the axes titles and legend remain!
+3.  Create a mutiple density plot for the power output variable. (3 points)
+    -   be sure to have a density plot for each turbine producer; the color and the fill should be determined by the maker of the turbine
+    -   add in vertical lines for the mean values in the same color as the turbine makers (remember to reference the correct data frame!)
+    -   make sure the x-axis, y-axis, and legend labels are capitalized and easier to understand (power output in measured in kilowatts, or kWh)
+    -   use the `theme_classic()` function
 
 ```{r}
 
 ```
 
-### Scatter Plot
+4.  Generate a box-and-whisker plot using `ggplot2` that compares the wind speed between different turbine makers (3 points).
 
-7.  Make a scatter plot with flipper length on the x-axis (horizontal) and bill length on the y-axis (vertical) for all penguins, regardless of species. (2 points)
+    The plot should:
 
-```{r}
-ggplot(penguins, aes(flipper_length_mm, bill_length_mm)) +
-  geom_point()
-```
-
-8.  Now, let's make this plot shine. Make the following edits. (3 point)
-
--   show a different marker color depending on the penguin species.
--   edit the x-axis and y-axis labels to be capitalized and easier to read
--   capitalize the legend title ("Species" instead of "species")
--   choose a pre-programmed theme for your plot; I recommend `theme_bw()` or `theme_classic()`, but you can choose whichever one you like, as long as the axes titles and legend remain!
+    -   have capitalized and more descriptive axis labels (hint: wind speed is measured in kilometers per hour---km/hr)
+    -   show raw data points in addition to the boxes. The points should be jittered.
+    -   use the `theme_classic()` function
 
 ```{r}
 
 ```
 
-9.  Write 1-2 sentences discussing why including color based on species is important, based on the two plots above. (2 points)
+### Statistic
 
-*Answer:*
+5.  Write a null hypothesis and an alternative hypothesis for the question we are asking and that we will be using statistics to answer. (2 points)
+
+    **Null Hypothesis** (H~0~):\
+    **Alternative Hypothesis** (H~A~):
+
+6.  Based on the mean values in the `turbine_summary` data frame and the plots you've created above, predict the outcome of each t-test (graded for completion, not accuracy). Explain your reasoning (1-2 sentences for each t-test is fine). (2 points)
+
+    *Answer:*
+
+7.  Perform a t-test on the power output by turbine maker. (1 point)
+
+```{r}
+
+```
+
+8.  In 2-3 sentences, interpret the output from question 7. Focus on what the p-value is in reference to the cutoff of 0.05, what that means, and whether that means we accept or reject the null hypothesis. (2 points)
+
+    *Answer:*
+
+9.  Perform another t-test, this time on the wind_speed variable by manufacturer. (1 point)
+
+```{r}
+
+```
+
+10. In 2-3 sentences, interpret the output from question 9 (focus on the same ideas as question 8). (2 points)
+
+    *Answer:*

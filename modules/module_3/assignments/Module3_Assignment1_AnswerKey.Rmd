@@ -1,70 +1,66 @@
 ---
-title: "Module 3 Assignment 1"
+title: "Module 3 Assignment 2"
+author: "Ellen Bledsoe"
+date: '2022-10-27'
 output:
   pdf_document: default
-date: '2022-10-25'
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+
 ```{r message = FALSE}
-library(palmerpenguins)
 library(tidyverse)
+turbines <- read_csv("../data/wind_turbines.csv")
 ```
 
-```{r}
-penguins <- penguins
-```
 
 2.  
 
 ```{r}
-head(penguins)
+turbine_summary <- turbines %>% 
+  group_by(manufacturer) %>% 
+  summarise(mean_wind_speed = mean(wind_speed),
+            mean_power = mean(power_output))
+turbine_summary
 ```
 
 3.  
 
 ```{r}
-ggplot(penguins, aes(body_mass_g)) +
-  geom_density()
+ggplot(turbines, aes(power_output, color = manufacturer, fill = manufacturer)) +
+  geom_density(alpha = 0.5) +
+  geom_vline(data = turbine_summary, aes(xintercept = mean_power, color = manufacturer)) +
+  labs(x = "Wind Speed (km/hr)",
+       y = "Density",
+       color = "Manufacturer",
+       fill = "Manufacturer") +
+  theme_classic()
 ```
 
 4.  
 
 ```{r}
-ggplot(penguins, aes(body_mass_g, color = species, fill = species)) +
-  geom_density(alpha = 0.5)
-```
-
-
-6.  
-
-```{r}
-ggplot(penguins, aes(body_mass_g, color = species, fill = species)) +
-  geom_density(alpha = 0.5) +
-  labs(x = "Body Mass (g)",
-       y = "Count",
-       color = "Species",
-       fill = "Species") +
+ggplot(turbines, aes(manufacturer, wind_speed)) +
+  geom_boxplot() +
+  geom_jitter(width = 0.1, alpha = 0.5) +
+  labs(x = "Maker",
+       y = "Wind Speed (km/hr)") +
   theme_classic()
 ```
 
 7.  
 
 ```{r}
-ggplot(penguins, aes(flipper_length_mm, bill_length_mm)) +
-  geom_point()
+t.test(data = turbines, power_output ~ manufacturer)
 ```
 
-8.  
+
+9.  
+
 ```{r}
-ggplot(penguins, aes(flipper_length_mm, bill_length_mm, color = species)) +
-  geom_point() + 
-  labs(x = "Flipper Length (mm)",
-       y = "Bill Length (mm)",
-       color = "Species") +
-  theme_classic()
+t.test(data = turbines, wind_speed ~ manufacturer)
 ```
-
