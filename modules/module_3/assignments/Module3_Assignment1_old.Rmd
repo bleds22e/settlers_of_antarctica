@@ -1,6 +1,6 @@
 ---
 title: "Module 3 Assignment 1"
-output: html_document
+output: pdf_document
 date: "2022-10-25"
 ---
 

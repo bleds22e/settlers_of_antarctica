@@ -94,8 +94,7 @@ ggplot(penguins, aes(body_mass_g, color = species, fill = species)) +
 
 5.  In 2-3 sentences, describe what the histogram is telling you. How are the two histograms from questions 3 and 4 different? What different bits of information can you glean from presenting the histogram these two different ways? I'm not necessarily looking for technical answers, but I want you to practice interpreting what histograms are telling you. (3 points)
 
-*Answer:*
-Generally, did they interpret the histogram more-or-less correctly? Stuff like which mean is likely higher or lower, spread of the data, overlap of the data, etc.
+*Answer:* Generally, did they interpret the histogram more-or-less correctly? Stuff like which mean is likely higher or lower, spread of the data, overlap of the data, etc.
 
 6.  Let's spruce up the plot from question 4 a bit. (3 points)
 

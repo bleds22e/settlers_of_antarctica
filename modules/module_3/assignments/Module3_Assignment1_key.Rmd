@@ -1,7 +1,7 @@
 ---
-title: "Module 3 Assignment 2"
+title: "Module 3 Assignment 1"
 author: "Ellen Bledsoe"
-date: '2022-10-27'
+date: '2023-03-23'
 output: pdf_document
 ---
 
@@ -31,7 +31,7 @@ Write R code which produces the correct answers and correctly interpret the resu
 
 ### Due Date
 
-November 8 at midnight MST
+April 4 at midnight MST
 
 # Assignment Questions
 
@@ -41,9 +41,10 @@ In this assignment, we're going to explore another data set on wind turbines tha
 
 Let's load the `tidyverse` and read in the data set. Call the data `turbines`.
 
-```{r}
+```{r message = FALSE}
 library(tidyverse)
 turbines <- read_csv("../data/wind_turbines.csv")
+turbines
 ```
 
 1.  Explore the data set, either through the environment or through code. Answer the following questions (2 point):
@@ -110,13 +111,13 @@ ggplot(turbines, aes(manufacturer, wind_speed)) +
 
 5.  Write a null hypothesis and an alternative hypothesis for the question we are asking and that we will be using statistics to answer. (2 points)
 
-    **Null Hypothesis** (H~0~):\ there is no difference in power output and wind speed between the turbine makers
-    **Alternative Hypothesis** (H~A~): there is a difference in power output and wind speed between the turbine makers
+    **Null Hypothesis** (H~0~): there is no difference in power output and wind speed between the turbine makers **Alternative Hypothesis** (H~A~): there is a difference in power output and wind speed between the turbine makers
 
 6.  Based on the mean values in the `turbine_summary` data frame and the plots you've created above, predict the outcome of each t-test (graded for completion, not accuracy). Explain your reasoning (1-2 sentences for each t-test is fine). (2 points)
 
     *Answer:* graded for completion only
-    * power output (histogram) looks like probably yes, p < 0.05; wind speed (boxplot) looks like maybe no
+
+    -   power output (histogram) looks like probably yes, p \< 0.05; wind speed (boxplot) looks like maybe no
 
 7.  Perform a t-test on the power output by turbine maker. (1 point)
 
@@ -126,7 +127,7 @@ t.test(data = turbines, power_output ~ manufacturer)
 
 8.  In 2-3 sentences, interpret the output from question 7. Focus on what the p-value is in reference to the cutoff of 0.05, what that means, and whether that means we accept or reject the null hypothesis. (2 points)
 
-    *Answer:* p < 0.05 so there is a significant difference and we reject the null
+    *Answer:* p \< 0.05 so there is a significant difference and we reject the null
 
 9.  Perform another t-test, this time on the wind_speed variable by manufacturer. (1 point)
 
@@ -136,4 +137,4 @@ t.test(data = turbines, wind_speed ~ manufacturer)
 
 10. In 2-3 sentences, interpret the output from question 9 (focus on the same ideas as question 8). (2 points)
 
-    *Answer:* p > 0.05 so there is no difference and we fail to reject (it's ok if they say accept) the null
+    *Answer:* p \> 0.05 so there is no difference and we fail to reject (it's ok if they say accept) the null
