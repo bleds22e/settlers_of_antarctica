@@ -23,9 +23,9 @@ Today, we will be exploring the statistical side, using inferential statistics. 
 
 Let's get set-up by loading the tidyverse and reading in our data.
 
-```{r}
+```{r, message = FALSE}
 library(tidyverse)
-collars <- read_csv("collar_data.csv")
+collars <- read_csv("../data/collar_data.csv")
 ```
 
 Let's take a quick look at the data structure to remind ourselves what data we are using.
@@ -145,23 +145,23 @@ We want to know if there is a significant difference in the average signal dista
 
 1.  Identify your independent and dependent variables.
 
--   independent:
--   dependent:
+-   independent: maker, categorical
+-   dependent: signal_distance, continuous
 
 2.  Write out your null and alternative hypotheses.
 
--   **Null Hypothesis** ($H_{0}$):
--   **Alternative Hypothesis** ($H_{A}$):
+-   **Null Hypothesis** ($H_{0}$): there is no difference in average signal distance between collar makers
+-   **Alternative Hypothesis** ($H_{A}$): there is a difference in average signal distance between collar makers
 
 3.  Run the t-test
 
 ```{r}
-
+t.test(signal_distance ~ maker, data = collars)
 ```
 
 4.  Interpret the t-test
 
--   Is the p-value below our cut-off for significance (0.05)?
--   Is our result statistically significant?
--   Does that mean we should or should not reject the null hypothesis?
--   So...is there a "real" difference in the means between the two companies or not?
+-   Is the p-value below our cut-off for significance (0.05)? yes, p \< 0.05
+-   Is our result statistically significant? yes!
+-   Does that mean we should or should not reject the null hypothesis? REJECT
+-   So...is there a "real" difference in the means between the two companies or not? yes, there is a real difference
