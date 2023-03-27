@@ -2,7 +2,7 @@
 title: 'Module 3: Comparing (Multiple) Means'
 author: "Ellen Bledsoe"
 date: "`r Sys.Date()`"
-output: html_document
+output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
@@ -19,7 +19,7 @@ What if we have more than 2 groups, though? Often, we have 3, 4, 12...any number
 
 What is an ANOVA? It stands for **AN**alysis **O**f **VA**riance.
 
-Why is it called that? Well, ANOVAs compare the amount of variability in the data *between* and *within* groups. In plainer terms, it is looking at how different the data in each group are from each other (within) and also how different the groups are from each other (between).
+Why is it called that? Well, ANOVAs compare the amount of variability in the data *between* and *within* groups. In plainer terms, it is looking at how different the data in each group are from each other (within) and also how different the groups are from the other groups (between).
 
 The group of statistical tests called ANOVAs are extensions of the t-test, using the same concepts but allowing us to compare the means of more than two groups at a time. There are lots of different types of ANOVAs, but we are going to stick with the most simple version.
 
@@ -30,22 +30,23 @@ To run an ANOVA, the following things need to be true:
 -   The variable that we use to create our groups (independent variable) is categorical.
 -   The variable that we want to compare between groups (dependent or response variable) is numerical.
 
-Why are the variables called *independent* and *response*, do you think?
+These two aspects above might sound familiar, because they also need to be true for t-tests! 
 
-The two aspects above might sound familiar, because they also need to be true for t-tests! \* When we only have 2 groups to compare, we can use a t-test. \* When we have *more* than 2 groups to compare, we use an ANOVA.
+-   When we only have 2 groups to compare, we can use a t-test. 
+-   When we have *more* than 2 groups to compare, we use an ANOVA.
 
 ### Hypothesis Testing
 
 Like t-tests, ANOVAs are another example of statistical hypothesis testing. We always want to formulate a null hypothesis and an alternative hypothesis. The generic version of these for any ANOVA are:
 
 **Null Hypothesis** ($H_{0}$): The means of the populations we sampled from are all equal.\
-**Alternative Hypothesis** ($H_{A}$): The means of the populations we sampled from different from each other.
+**Alternative Hypothesis** ($H_{A}$): The means of the populations we sampled from differ from each other.
 
 ## Let's Run an Example
 
 Last week, we ran t-tests on the battery life and signal distance variables in order to determine if there was a statistically significant difference between two groups (the collar makers).
 
-What if our large mammal team had deployed collars from *three* different companies rather than just two? How would be compare the means numerically, visually, and statistically? Let's find out.
+What if our large mammal team had deployed collars from *three* different companies rather than just two? How would we compare the means numerically, visually, and statistically? Let's find out.
 
 First up, in small groups, work through the set-up, numeric, and visual sections. We'll spend 15-20 minutes on this.
 
@@ -55,34 +56,32 @@ First, as always, we need to load the `tidyverse` and the read in our collars da
 
 ```{r}
 library(tidyverse)
-collars <- read_csv("more_collars.csv")
+collars <- read_csv("../data/more_collars.csv")
 ```
 
 ### Conceptual
 
 What questions are we trying to answer about these collars?
 
--   Which variable is the independent variable? What about the response/dependent variable?
+-   Which variable is the independent variable? What about the dependent variable?
 
 Let's write out our two hypotheses.
 
-**Null hypothesis**:\
-**Alternative hypothesis**:
+**Null hypothesis**: There is no difference in means between the three collar makers.\
+**Alternative hypothesis**: There is a difference in means between the three collar makers.
 
 ### Numeric
 
 Let's calculate some summary values for our data to get some preliminary information about our collar companies.
 
-Calculate the means and the standard deviations (`sd()`, a measure related to variance) and the for the battery life and the signal distance for *each* collar maker. Also calculate the number of failures per collar maker (hint: use the `sum()` function).
-
+Calculate the means and the standard deviations (`sd()`) for the battery life and the signal distance for *each* collar maker. 
 ```{r}
 summary_stats <- collars %>% 
   group_by(maker) %>% 
   summarise(mean_battery = mean(battery_life),
             sd_battery = sd(battery_life),
             mean_signal = mean(signal_distance),
-            sd_signal = sd(signal_distance),
-            n_fails = sum(fail))
+            sd_signal = sd(signal_distance))
 
 summary_stats
 ```
@@ -93,9 +92,7 @@ Let's examine the data. Do you think the collar companies are all different from
 
 As always, we love (\<3) visualizing our data, especially as a form of data exploration and comparing means.
 
-Let's do this 2 different ways.
-
-First, explore the distribution of each variable by maker (no need to add a line for the mean, but you can if you really want to!). What type of plot is best for looking at the distribution of *one continuous* variable?
+First, explore the distribution of battery life by maker using a mutliple density plot (no need to add a line for the mean, but you can if you really want to!). 
 
 ```{r}
 # battery life
@@ -103,28 +100,13 @@ ggplot(collars, aes(battery_life, fill = maker)) +
   geom_density(alpha = 0.5)
 ```
 
-```{r}
-# signal distance
-# introduce facet_wrap
-ggplot(collars, aes(signal_distance)) +
-  geom_histogram() +
-  facet_wrap(~ maker)
-```
-
-Let's do another type of visualization, as well. What type of data visualization have we covered that does a good job of showing both central tendency (median, in this case) and variation (middle 50% and 95% confidence intervals) in one continuous variable?
-
-```{r}
-# battery life
-ggplot(collars, aes(maker, battery_life)) +
-  geom_boxplot() +
-  geom_point()
-```
+Let's do a different type of visualization for signal distance. What type of data visualization have we covered that does a good job of showing both central tendency (median, in this case) and variation (middle 50% and 95% confidence intervals) in one continuous variable?
 
 ```{r}
 # signal distance
 ggplot(collars, aes(maker, signal_distance)) +
   geom_boxplot() +
-  geom_point()
+  geom_jitter(width = 0.1, alpha = 0.5)
 ```
 
 Based on the numbers and your visualizations, what is your prediction? Are the 3 groups different *enough*, whatever that means?
@@ -136,7 +118,7 @@ Now that we have explored the data numerically and visually, let's interrogate t
 To run an ANOVA, we use the `aov()` function. Some helpful tips about the `aov()` function:
 
 -   unlike the `t.test()` function, the initial output for the `aov()` function isn't particularly helpful. We will want to save it to an object and then look at it using the `summary()` function
--   like `t.test()`, the syntax for `aov()` is dependent/response \~ independent
+-   like `t.test()`, the syntax for `aov()` is `dependent ~ independent`.
 
 First, let's run an ANOVA on the battery life variable.
 
@@ -152,7 +134,7 @@ We want to pay attention to the following:
 -   `F-value`: this is our test statistic. It determines our `p-value` (you don't need to know how)
 -   `Pr(>F)`: this is our `p-value`, which has roughly the same meaning as with a t-test.
     -   We want to know if this value is larger or smaller than our cut-off value. We will stick with 0.05.
-    -   The notation here, `Pr(>F)`, is saying "What is the probability of us getting an F-value larger than that we have by change alone?" If that probability is less that 0.05 (or 5%), then we reject the null hypothesis that the means are the same.
+    -   The notation here, `Pr(>F)`, is saying "What is the probability of us getting an F-value larger than the one we have by change alone?" If that probability is less that 0.05 (or 5%), then we reject the null hypothesis that the means are the same.
 -   `***`: the asterisks are reiterating what the p-value tells us, indicating just how small the p-value is.
 
 What is our conclusion? Are these means different?
@@ -172,7 +154,7 @@ ANOVAs are incredibly useful to tell you if there is a difference in the means o
 
 To figure that out, you need to use a class of tests called "post hoc tests," meaning "after the event." Post hoc tests take into account the fact that we are running multiple pairwise comparisons, which unfortunately increases our chance of error. To account for this, we need to adjust our p-values based on the number of pairwise comparisons we run.
 
-The most common post hoc test for these pairwise comparisons is **Tukey's HSD**, but there are others depending on the specifics of your data set. You don't need to worry about understanding the nuances of Tukey's test, but you should know how to run the code and interpret it.
+The most common post hoc test for these pairwise comparisons is `TukeyHSD()`, but there are others depending on the specifics of your data set. You don't need to worry about understanding the nuances of Tukey's test, but you should know how to run the code and interpret it.
 
 ```{r}
 TukeyHSD(battery_model)
@@ -187,9 +169,9 @@ What do these different columns represent?
 
 How should we interpret these results?
 
--   Are Collarium and Bugdet significantly different in battery life?
--   Are Darn Tuff and Budget significantly different in battery life?
--   Are Darn Tuff and Collarium significantly different in battery life?
+-   Are Collarium and Bugdet significantly different in battery life? **Yes (p < 0.05)**
+-   Are Darn Tuff and Budget significantly different in battery life? **Yes (p < 0.05)**
+-   Are Darn Tuff and Collarium significantly different in battery life? **No (p > 0.05)**
 
 #### Practice
 
@@ -201,6 +183,6 @@ TukeyHSD(signal_model)
 
 How should we interpret these results?
 
--   Are Collarium and Budget significantly different in signal distance?
--   Are Darn Tuff and Budget significantly different in signal distance?
--   Are Darn Tuff and Collarium significantly different in signal distance?
+-   Are Collarium and Budget significantly different in signal distance? **Yes (p < 0.05)**
+-   Are Darn Tuff and Budget significantly different in signal distance? **Yes (p < 0.05)**
+-   Are Darn Tuff and Collarium significantly different in signal distance? **Yes (p < 0.05)**
