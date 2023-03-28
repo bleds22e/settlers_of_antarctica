@@ -47,8 +47,10 @@ Once the top company has been chosen from either side, we will run another test 
 
 1.  As always, let's read in our first data set, `solar_panels.csv`. Remember to also load the `tidyverse` and to give the data frame a name!
 
-    ```{r}
-
+    ```{r message = FALSE}
+    library(tidyverse)
+    solar_panels <- read_csv("../data/solar_panels.csv")
+    solar_panels
     ```
 
 Once you bring in the data, take a look at it so you understand what each row means and what all the columns mean.
@@ -60,40 +62,43 @@ We are going to start with data comparing the watts per hours from solar panels 
 2.  As you might have noticed in the data you read in, there is a column that tells us whether the solar panels are located on the north side or the south side. Create a data frame that includes only solar panels that are on the north side (remember `filter()`?). Save the output as a new data frame called `north`.
 
     ```{r}
-
+    north <- solar_panels %>% 
+      filter(direction == "North")
     ```
 
 3.  Based on our task at hand, identify our dependent and independent variables:
 
-    -   **independent:**
-    -   **dependent:**
+    -   **independent:** maker
+    -   **dependent:** watts_per_hour
 
 4.  Let's first summarize our data so we know what we are working with. Calculate the mean number of watts per hour produced by each solar panel company on the north side.
 
     ```{r}
-
+    north %>% 
+      group_by(maker) %>% 
+      summarise(mean = mean(watts_per_hour))
     ```
 
 5.  Write out your two hypotheses for the test:
 
-    -   **Null Hypothesis:**
-    -   **Alternative Hypothesis:**
+    -   **Null Hypothesis:** there is no difference in the watts per hour produced by the two companies
+    -   **Alternative Hypothesis:** there is a difference in the watts per hour produced by the two companies
 
 6.  Write code to run the appropriate test. If this test involves a post-hoc comparison, add that line of code, as well.
 
     *Hint: remember to use the correct data frame!*
 
     ```{r}
-
+    t.test(watts_per_hour ~ maker, data = north)
     ```
 
 7.  Interpret the results of the statistical test you ran in question 6 above. In your answer, be sure to include whether the p-value is greater or smaller than our significance level (0.05), what that means in terms of statistical significance, and whether we should reject or fail to reject the null hypothesis. If your test involved a post hoc test, interpret those results as well (which companies are significantly different from each other, if any). (2 points)
 
-    *Answer:*
+    *Answer:* p \< 0.05 so there is a significant difference so we reject the null---there is a difference in means between the companies; no post-hoc
 
 8.  Using your results from this entire section, is one company a clear winner? If so, which company? Explain your rationale.
 
-    *Answer:*
+    *Answer:* Sunny Side Up is the winner (higher mean, statistically significant so difference is real)
 
 ## The South Side
 
@@ -102,28 +107,33 @@ Now, we are going to test the differences in the number of watts per hour for th
 9.  Create a data frame for the solar panels that were placed on the south side, and name the data frame `south`.
 
     ```{r}
-
+    south <- solar_panels %>% 
+      filter(direction == "South")
     ```
 
 10. Calculate the average number of watts per hour generated for each company.
 
     ```{r}
-
+    south %>% 
+      group_by(maker) %>% 
+      summarise(mean = mean(watts_per_hour))
     ```
 
 11. There is one company that has a higher average, but is that higher average a real one? Run the correct statistical test to find out. If that test involves a post-hoc test, run that as well.
 
     ```{r}
-
+    mod <- aov(watts_per_hour ~ maker, data = south)
+    summary(mod)
+    TukeyHSD(mod)
     ```
 
 12. Interpret the results of the statistical test you ran in question 11 above. In your answer, be sure to include whether the p-value is greater or smaller than our significance level (0.05), what that means in terms of statistical significance, and whether we should reject or fail to reject the null hypothesis. If your test involved a post hoc test, interpret those results as well (which companies are significantly different from each other, if any). (2 points)
 
-    *Answer:*
+    *Answer:* overall test is significant (p \< 0.05 so reject null). Performed pairwise comparisons, and Function in the Sun is significantly different from the other two companies (which are not significantly different from each other).
 
 13. Using your results from this entire section, is one company a clear winner? If so, which company? Explain your rationale.
 
-    *Answer:*
+    *Answer:* Function in the Sun is significantly different from the other two companies and has the higher wattage, so it is the winner.
 
 ## The Final Test
 
@@ -136,19 +146,21 @@ final <- read_csv("../data/final_solar.csv")
 14. Let's summarize! Calculate the means for the companies that are in the final test of which solar panels are best.
 
     ```{r}
-
+    final %>% 
+      group_by(maker) %>% 
+      summarise(mean = mean(watts_per_hour))
     ```
 
 15. Run the correct statistical test to determine if there is a real difference between the companies. If the test involves a post-hoc test, include that code, as well.
 
     ```{r}
-
+    t.test(watts_per_hour ~ maker, data = final)
     ```
 
 16. Interpret the results of the statistical test you ran in question 12 above. In your answer, be sure to include whether the p-value is greater or smaller than our significance level (0.05), what that means in terms of statistical significance, and whether we should reject or fail to reject the null hypothesis. If your test involved a post hoc test, interpret those results as well (which companies are significantly different from each other, if any). (2 points)
 
-    *Answer:*
+    *Answer:* p \> 0.05, so not significantly different and we do not reject the null.
 
-17. Using your results from this entire section, is one company a clear winner? If so, which company? Explain your rationale.
+17. Using your results from this entire section, is one company a clear winner? If so, which company? Explain your rationale. What if the cost of one company's solar panels were dramatically cheaper? How would that change our decision?
 
-    *Answer:*
+    *Answer:* No significant difference in wattage, so go with the cheap ones!

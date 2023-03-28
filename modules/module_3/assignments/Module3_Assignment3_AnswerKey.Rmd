@@ -1,0 +1,57 @@
+---
+title: 'Module 3: Assignment 3'
+author: "Ellen Bledsoe"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+```{r message = FALSE}
+    library(tidyverse)
+    solar_panels <- read_csv("../data/solar_panels.csv")
+    solar_panels
+```
+
+2.
+```{r}
+north <- solar_panels %>% 
+  filter(direction == "North")
+north
+```
+
+4.
+```{r}
+north %>% 
+  group_by(maker) %>% 
+  summarise(mean = mean(watts_per_hour))
+```
+
+9.
+```{r}
+south <- solar_panels %>% 
+  filter(direction == "South")
+south
+```
+
+10.
+```{r}
+south %>% 
+  group_by(maker) %>% 
+  summarise(mean = mean(watts_per_hour))
+```
+
+```{r}
+final <- read_csv("../data/final_solar.csv")
+final
+```
+
+14.
+```{r}
+final %>% 
+  group_by(maker) %>% 
+  summarise(mean = mean(watts_per_hour))
+```

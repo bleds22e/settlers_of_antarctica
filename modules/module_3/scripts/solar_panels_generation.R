@@ -14,7 +14,7 @@ solar_panels <- data.frame(panel_id = seq(1:250),
                                          rep("South", 150)),
                            watts_per_hour = c(rtruncnorm(n = 50, mean = 307, sd = 5, a = 0),
                                               rtruncnorm(n = 50, mean = 325, sd = 25, a = 0),
-                                              rtruncnorm(n = 50, mean = 307, sd = 25, a = 0),
+                                              rtruncnorm(n = 50, mean = 307, sd = 5, a = 0),
                                               rtruncnorm(n = 50, mean = 320, sd = 10, a = 0),
                                               rtruncnorm(n = 50, mean = 304, sd = 25, a = 0)))
 
