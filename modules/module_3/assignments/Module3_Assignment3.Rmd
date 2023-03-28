@@ -1,0 +1,143 @@
+---
+title: 'Module 3: Assignment 3'
+author: "Ellen Bledsoe"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Assignment Details
+
+### Purpose
+
+The goal of this assignment is to assess your ability to use the appropriate statistical test for comparing means between groups and make decisions based on the interpretation of the results.
+
+### Task
+
+Write R code which produces the correct answers and correctly interpret the results of visualizations and statistical tests.
+
+### Criteria for Success
+
+-   Code is within the provided code chunks
+-   Code is commented with brief descriptions of what the code does
+-   Code chunks run without errors
+-   Code produces the correct result
+    -   Code that produces the correct answer will receive full credit
+    -   Code attempts with logical direction will receive partial credit
+-   Written answers address the questions in sufficient detail
+
+### Due Date
+
+April 4 at midnight MST
+
+# Assignment Questions
+
+For this assignment, we will be using some data about solar panels.
+
+In addition to our wind turbines that are creating energy, we are also testing out solar panels from many different companies. We want to choose the company that makes solar panels that produce the most watts per hour.
+
+We've set up solar panels on two different sides of the station: the north and the south. The plan is to first compare the solar panels companies on the north side to see which company's panels are creating the most energy. From there, we will do the same with the solar panel companies from the southern side.
+
+Once the top company has been chosen from either side, we will run another test with the top two companies in the same location and choose the best one.
+
+## Set-Up
+
+1. As always, let's read in our first dataset, `solar_panels.csv`. Remember to also load the `tidyverse` and to give the dataframe a name!
+
+```{r}
+library(tidyverse)
+solar_panels <- read_csv("../data/solar_panels.csv")
+```
+
+Once you bring in the data, take a look at it so you understand what each row means and what all the columns mean.
+
+## The North Side
+
+We are going to start with data comparing the watts per hours from solar panels on the north side of the station. 
+
+2. As you might have noticed in the data you read in, there is a column that tells us whether the solar panels are located on the north side or the south side. Create a data frame that includes only solar panels that are on the north side (remember `filter()`?). Save the output as a new data frame called `north`.
+```{r}
+north <- solar_panels %>% 
+  filter(direction == "North")
+```
+
+3. Based on our task at hand, dentify our dependent and independent variables:
+
+-   **independent:**
+-   **dependent:**
+
+4. Let's first summarize our data so we know what we are working with. Calculate the mean number of watts per hour produced by each solar panel company on the north side.
+```{r}
+north %>% 
+  group_by(maker) %>% 
+  summarise(mean = mean(watts_per_hour))
+```
+
+5. How many solar panel companies are represented on the north side? Based on the number of companies, what statistical test should we run?
+
+_Answer:_
+
+6. Write out your two hypotheses for the test:
+
+-   **Null Hypothesis:**
+-   **Alternative Hypothesis:**
+
+7. Write code to run the appropriate test. If this test involves a post-hoc comparison, add that line of code, as well.
+
+Hint: remember to use the correct data frame!
+
+```{r}
+t.test(watts_per_hour ~ maker, data = north)
+```
+
+8. Interpret the results of the statistical test you ran in question 7 above. In your answer, be sure to include whether the p-value is greater or smaller than our significance level (0.05), what that means in terms of statistical significance, and whether we should reject or fail to reject the null hypothesis. If your test involved a post hoc test, interpret those results as well (which companies are significantly different from each other, if any). (2 points)
+
+_Answer:_
+
+9. Using your results from this entire section, is one company a clear winner? If so, which company? Explain your rationale.
+
+_Answer:_
+
+## The South Side
+
+Now, we are going to test the differences in the number of watts per hour for the solar panel companies we placed on the south side of the station.
+
+10. Create a data frame for the solar panels that were placed on the south side, and name the data frame `south`.
+```{r}
+south <- solar_panels %>% 
+  filter(direction == "South")
+```
+
+11. Calculate the average number of watts per hour generated for each company.
+```{r}
+south %>% 
+  group_by(maker) %>% 
+  summarise(mean = mean(watts_per_hour))
+```
+
+12. There is one company that has a higher average, but is that higher average a real one? Run the correct statistical test to find out. If that test involves a post-hoc test, run that as well.
+```{r}
+mod <- aov(watts_per_hour ~ maker, data = south)
+summary(mod)
+TukeyHSD(mod)
+```
+
+13. Interpret the results of the statistical test you ran in question 7 above. In your answer, be sure to include whether the p-value is greater or smaller than our significance level (0.05), what that means in terms of statistical significance, and whether we should reject or fail to reject the null hypothesis. If your test involved a post hoc test, interpret those results as well (which companies are significantly different from each other, if any). (2 points)
+
+_Answer:_
+
+14. Using your results from this entire section, is one company a clear winner? If so, which company? Explain your rationale.
+
+_Answer:_
+
+## The Final Test
+
+We are finally ready to pit our two winning companies against each other! We've moved both of their solar panels over to the north side and have re-run the experiment. We need to read in the second data set for the results of this second experiment.
+```{r}
+final <- read_csv("../data/final_solar.csv")
+```
+
+13. 
