@@ -30,9 +30,9 @@ To run an ANOVA, the following things need to be true:
 -   The variable that we use to create our groups (independent variable) is categorical.
 -   The variable that we want to compare between groups (dependent or response variable) is numerical.
 
-These two aspects above might sound familiar, because they also need to be true for t-tests! 
+These two aspects above might sound familiar, because they also need to be true for t-tests!
 
--   When we only have 2 groups to compare, we can use a t-test. 
+-   When we only have 2 groups to compare, we can use a t-test.
 -   When we have *more* than 2 groups to compare, we use an ANOVA.
 
 ### Hypothesis Testing
@@ -74,7 +74,8 @@ Let's write out our two hypotheses.
 
 Let's calculate some summary values for our data to get some preliminary information about our collar companies.
 
-Calculate the means and the standard deviations (`sd()`) for the battery life and the signal distance for *each* collar maker. 
+Calculate the means and the standard deviations (`sd()`) for the battery life and the signal distance for *each* collar maker.
+
 ```{r}
 summary_stats <- collars %>% 
   group_by(maker) %>% 
@@ -92,7 +93,7 @@ Let's examine the data. Do you think the collar companies are all different from
 
 As always, we love (\<3) visualizing our data, especially as a form of data exploration and comparing means.
 
-First, explore the distribution of battery life by maker using a mutliple density plot (no need to add a line for the mean, but you can if you really want to!). 
+First, explore the distribution of battery life by maker using a mutliple density plot (no need to add a line for the mean, but you can if you really want to!).
 
 ```{r}
 # battery life
@@ -169,9 +170,9 @@ What do these different columns represent?
 
 How should we interpret these results?
 
--   Are Collarium and Bugdet significantly different in battery life? **Yes (p < 0.05)**
--   Are Darn Tuff and Budget significantly different in battery life? **Yes (p < 0.05)**
--   Are Darn Tuff and Collarium significantly different in battery life? **No (p > 0.05)**
+-   Are Collarium and Bugdet significantly different in battery life? **Yes (p \< 0.05)**
+-   Are Darn Tuff and Budget significantly different in battery life? **Yes (p \< 0.05)**
+-   Are Darn Tuff and Collarium significantly different in battery life? **No (p \> 0.05)**
 
 #### Practice
 
@@ -183,6 +184,6 @@ TukeyHSD(signal_model)
 
 How should we interpret these results?
 
--   Are Collarium and Budget significantly different in signal distance? **Yes (p < 0.05)**
--   Are Darn Tuff and Budget significantly different in signal distance? **Yes (p < 0.05)**
--   Are Darn Tuff and Collarium significantly different in signal distance? **Yes (p < 0.05)**
+-   Are Collarium and Budget significantly different in signal distance? **Yes (p \< 0.05)**
+-   Are Darn Tuff and Budget significantly different in signal distance? **Yes (p \< 0.05)**
+-   Are Darn Tuff and Collarium significantly different in signal distance? **Yes (p \< 0.05)**
