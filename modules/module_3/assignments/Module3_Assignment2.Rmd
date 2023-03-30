@@ -1,5 +1,5 @@
 ---
-title: "Module3: Assignment3"
+title: "Module3: Assignment2"
 author: "Ellen Bledsoe"
 date: "2022-11-03"
 output: html_document
@@ -31,7 +31,7 @@ Write R code which produces the correct answers and correctly interpret the resu
 
 ### Due Date
 
-November 8 at midnight MST
+April 4 at midnight MST
 
 # Assignment Questions
 
