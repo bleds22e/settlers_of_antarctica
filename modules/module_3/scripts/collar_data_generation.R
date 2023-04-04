@@ -34,7 +34,7 @@ ggplot(collars, aes(x = signal_distance, y = battery_life, col = maker)) +
   geom_point()
 
 #writing to csv
-write_csv(collars, "./modules/module_3/data/collar_data.csv")
+#write_csv(collars, "./modules/module_3/data/collar_data.csv")
 
 
 ## Add a new collar company to the existing data
@@ -58,3 +58,27 @@ summary(anova_signal)
 TukeyHSD(anova_signal)
 
 write_csv(collars, "modules/module_3/data/more_collars.csv")
+
+
+# old collars new data
+
+trackers <- tibble(collar_id = seq(1:150), 
+                   company = c(rep("Hide-n-Seek", 50), 
+                               rep("Tiny Trackers", 50),
+                               rep("Bloodhound Tech", 50)), 
+                   antenna_length_cm = c(rnorm(n = 50, mean = 12, sd = 1), 
+                                         rnorm(n = 50, mean = 12, sd = 1),
+                                         rnorm(n = 50, mean = 11, sd = 1)),
+                   weight_kg = c(rnorm(n = 50, mean = 7.5, sd = 0.5),
+                                 rnorm(n = 50, mean = 6.9, sd = 0.5),
+                                 rnorm(n = 50, mean = 7.2, sd = 0.5)))
+
+antenna_model <- aov(antenna_length_cm ~ company, data = trackers)
+summary(antenna_model)
+TukeyHSD(antenna_model)
+
+weight_model <- aov(weight_kg ~ company, data = trackers)
+summary(weight_model)
+TukeyHSD(weight_model)
+
+#write_csv(trackers, "modules/module_3/data/radio_trackers.csv")
