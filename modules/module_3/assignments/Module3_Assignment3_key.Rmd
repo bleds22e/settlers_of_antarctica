@@ -89,6 +89,7 @@ We are going to start with data comparing the watts per hours from solar panels 
     *Hint: remember to use the correct data frame!*
 
     ```{r}
+    # students should be using a t-test here, not an ANOVA
     t.test(watts_per_hour ~ maker, data = north)
     ```
 
@@ -122,6 +123,7 @@ Now, we are going to test the differences in the number of watts per hour for th
 11. There is one company that has a higher average, but is that higher average a real one? Run the correct statistical test to find out. If that test involves a post-hoc test, run that as well.
 
     ```{r}
+    # half point for running ANOVA, half point for running TukeyHSD
     mod <- aov(watts_per_hour ~ maker, data = south)
     summary(mod)
     TukeyHSD(mod)
