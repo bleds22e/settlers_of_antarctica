@@ -2,7 +2,7 @@
 title: 'Module 4: Multiple Regression'
 author: "Ellen Bledsoe"
 date: "`r Sys.Date()`"
-output: html_document
+output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
