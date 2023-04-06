@@ -139,7 +139,11 @@ The correlation coefficient is a number between -1 and 1 that looks at the relat
 
 If all the points fall exactly on the line of best fit, r = 1 or -1. If there is no relationship between the variables, `r` is 0 (or something very close to it).
 
-![](images/coefficient_correlation.jpg) The greater the magnitude (size) of the correlation coefficient, the stronger the relationship between the two variables. ![](images/correlation.jpg)
+![](images/coefficient_correlation.jpg) 
+
+The greater the magnitude (size) of the correlation coefficient, the stronger the relationship between the two variables.
+
+![](images/correlation.jpg)
 
 It is also important to recognize that the correlation coefficient has nothing to do with the slope of the line (we use linear regression to assess that!)
 
@@ -164,7 +168,7 @@ To calculate R-squared, we square the correlation coefficient value we calculate
 r^2
 ```
 
-How would we interpret this `r^2` value for the ?
+How would we interpret this `r^2` value?
 
 ### Linear Regression Analysis
 
