@@ -13,7 +13,6 @@ knitr::opts_chunk$set(echo = FALSE)
 ```{r message = FALSE}
 library("tidyverse")
 hairgrass <- read_csv("../data/hairgrass_data.csv")
-hairgrass$P_content <- abs(hairgrass$P_content)
 ```
 
 
@@ -21,15 +20,15 @@ hairgrass$P_content <- abs(hairgrass$P_content)
 
 ```{r}
 hairgrass %>% 
-  summarize(mean_P = mean(P_content), 
-            stdev_P = sd(P_content))
+  summarize(mean_P = mean(p_content), 
+            stdev_P = sd(p_content))
 ```
 
 
 3. 
 
 ```{r}
-ggplot(hairgrass, aes(x = P_content, y = hairgrass_density_m2)) +
+ggplot(hairgrass, aes(x = p_content, y = hairgrass_density_m2)) +
   geom_point() +
   labs(x = "Phosphorus Content",
       y = "Hair Grass Density (m^2)")
@@ -39,7 +38,7 @@ ggplot(hairgrass, aes(x = P_content, y = hairgrass_density_m2)) +
 5.  
 
 ```{r}
-r <- cor(y = hairgrass$hairgrass_density_m2, x = hairgrass$P_content)
+r <- cor(y = hairgrass$hairgrass_density_m2, x = hairgrass$p_content)
 r
 ```
 
@@ -54,17 +53,18 @@ r^2
 
 ```{r}
 hairgrass %>% 
-  ggplot(aes(x = P_content, y = hairgrass_density_m2)) +
+  ggplot(aes(x = p_content, y = hairgrass_density_m2)) +
   geom_point() +
   geom_smooth(method = "lm") +
   ylab("Hairgrass Density (m^2)") +
-  xlab("Phosphorus Content") 
+  xlab("Phosphorus Content") +
+  theme_classic()
 ```
 
 9. 
 
 ```{r}
-mod <- lm(hairgrass$hairgrass_density_m2 ~ hairgrass$P_content)
+mod <- lm(hairgrass$hairgrass_density_m2 ~ hairgrass$p_content)
 summary(mod) 
 ```
 
@@ -75,7 +75,8 @@ summary(mod)
 ggplot(hairgrass, aes(x = avg_summer_temp, y = hairgrass_density_m2)) +
   geom_point() +
   labs(x = "Average Summer Temperature (F)",
-       y = "Hairgrass Density (m^2)")
+       y = "Hairgrass Density (m^2)") +
+  theme_classic()
 ```
 
 
@@ -99,7 +100,8 @@ ggplot(hairgrass, aes(x = avg_summer_temp, y = hairgrass_density_m2)) +
   geom_point() +
   geom_smooth(method = "lm") +
   ylab("Hairgrass Density (m^2)") +
-  xlab("Average Summer Temperature (F)") 
+  xlab("Average Summer Temperature (F)") +
+  theme_bw()
 ```
 
 17. 

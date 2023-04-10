@@ -21,7 +21,7 @@ First load the tidyverse and read in the hair grass data set.
 
 ```{r}
 library("tidyverse")
-hairgrass <- read_csv("hairgrass_data.csv")
+hairgrass <- read_csv("../data/hairgrass_data.csv")
 ```
 
 ### Phosphorus Content
@@ -30,8 +30,8 @@ hairgrass <- read_csv("hairgrass_data.csv")
 
 ```{r}
 hairgrass %>% 
-  summarize(mean_P = mean(P_content), 
-            stdev_P = sd(P_content))
+  summarize(mean_P = mean(p_content), 
+            stdev_P = sd(p_content))
 ```
 
 2.  Which variable is the independent variable? Which is the dependent?
@@ -40,13 +40,14 @@ hairgrass %>%
 
     *Dependent:*
 
-3.  Create a scatter plot of hair grass density and phosphorus content. Be sure to make the labels easier to understand.
+3.  Create a scatter plot of hair grass density and phosphorus content. Be sure to make the labels easier to understand and add a theme.
 
 ```{r}
-ggplot(hairgrass, aes(x = P_content, y = hairgrass_density_m2)) +
+ggplot(hairgrass, aes(x = p_content, y = hairgrass_density_m2)) +
   geom_point() +
   labs(x = "Phosphorus Content",
-      y = "Hair Grass Density (m^2)")
+      y = "Hair Grass Density (m^2)") +
+  theme_classic()
 ```
 
 4.  Write 1-2 sentences interpreting the plot above. Is this a positive relationship, negative relationship or no relationship at all? Based on your prediction, do you think the correlation coefficient will be positive, negative, or zero?
@@ -56,7 +57,7 @@ ggplot(hairgrass, aes(x = P_content, y = hairgrass_density_m2)) +
 5.  Calculate the correlation coefficient, `r`.
 
 ```{r}
-r <- cor(y = hairgrass$hairgrass_density_m2, x = hairgrass$P_content)
+r <- cor(y = hairgrass$hairgrass_density_m2, x = hairgrass$p_content)
 r
 ```
 
@@ -74,25 +75,26 @@ r^2
 
     **Alternative:** There is a relationship between hairgrass density and phosphorus content
 
-8.  Create the scatter plot that includes the line of best fit (have `ggplot2` calculate the linear equation for you)
+8.  Create the scatter plot that includes the line of best fit (have `ggplot2` calculate the linear equation for you). Again, make the labels clearer and add a theme
 
 ```{r}
 hairgrass %>% 
-  ggplot(aes(x = P_content, y = hairgrass_density_m2)) +
+  ggplot(aes(x = p_content, y = hairgrass_density_m2)) +
   geom_point() +
   geom_smooth(method = "lm") +
   ylab("Hairgrass Density (m^2)") +
-  xlab("Phosphorus Content") 
+  xlab("Phosphorus Content") +
+  theme_classic()
 ```
 
-9. Using code, create the regression model in R and obtain the summary of it.
+9.  Using code, create the regression model in R and obtain the summary of it.
 
 ```{r}
-mod <- lm(hairgrass$hairgrass_density_m2 ~ hairgrass$P_content)
+mod <- lm(hairgrass$hairgrass_density_m2 ~ hairgrass$p_content)
 summary(mod) # 1pt
 ```
 
-10. Write out the equation for the line of best fit.
+10. Write out the equation for the line of best fit using the values from the results above.
 
     *Answer:* y = 0.030x + 7.31
 
@@ -108,13 +110,14 @@ if they put in the wrong variables and get the incorrect model, they can still g
 
 Now let's do the same thing for the average summer temperatures.
 
-12. Create a scatter plot of hair grass density and average summer temperature. Remember to improve the axes labels!
+12. Create a scatter plot of hair grass density and average summer temperature. Remember to improve the axes labels and add a theme!
 
 ```{r}
 ggplot(hairgrass, aes(x = avg_summer_temp, y = hairgrass_density_m2)) +
   geom_point() +
-  labs(x = "Average Summer Temperature (F)",
-       y = "Hairgrass Density (m^2)")
+  labs(x = "Average Summer Temperature (C)",
+       y = "Hairgrass Density (m^2)") + 
+  theme_bw()
 ```
 
 13. Write 1-2 sentences interpreting the plot above. Is this a positive relationship, negative relationship or no relationship at all? Based on your prediction, do you think the correlation coefficient will be positive, negative, or zero?
@@ -136,14 +139,15 @@ r^2
 
 *Interpretation:* This means that 40% of the variation in hair grass density can be explained by variation in average summer temperature.
 
-16. Create the scatter plot that includes the line of best fit (have `ggplot2` calculate the linear equation for you)
+16. Create the scatter plot that includes the line of best fit (have `ggplot2` calculate the linear equation for you). Make the labels easier to interpret and add a theme.
 
 ```{r}
 ggplot(hairgrass, aes(x = avg_summer_temp, y = hairgrass_density_m2)) +
   geom_point() +
   geom_smooth(method = "lm") +
   ylab("Hairgrass Density (m^2)") +
-  xlab("Average Summer Temperature (F)") 
+  xlab("Average Summer Temperature (F)") +
+  theme_bw()
 ```
 
 17. Using code, create the regression model in R and obtain the summary of it.

@@ -139,7 +139,7 @@ The correlation coefficient is a number between -1 and 1 that looks at the relat
 
 If all the points fall exactly on the line of best fit, r = 1 or -1. If there is no relationship between the variables, `r` is 0 (or something very close to it).
 
-![](images/coefficient_correlation.jpg) 
+![](images/coefficient_correlation.jpg)
 
 The greater the magnitude (size) of the correlation coefficient, the stronger the relationship between the two variables.
 
