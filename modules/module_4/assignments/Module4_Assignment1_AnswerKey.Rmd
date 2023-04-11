@@ -31,7 +31,8 @@ hairgrass %>%
 ggplot(hairgrass, aes(x = p_content, y = hairgrass_density_m2)) +
   geom_point() +
   labs(x = "Phosphorus Content",
-      y = "Hair Grass Density (m^2)")
+      y = "Hair Grass Density (m^2)") +
+  theme_classic()
 ```
 
 
@@ -76,7 +77,7 @@ ggplot(hairgrass, aes(x = avg_summer_temp, y = hairgrass_density_m2)) +
   geom_point() +
   labs(x = "Average Summer Temperature (F)",
        y = "Hairgrass Density (m^2)") +
-  theme_classic()
+  theme_bw()
 ```
 
 
