@@ -1,5 +1,5 @@
 ---
-title: "Module 4 Assignment 3"
+title: "Module 4 Assignment 2"
 author: "Ellen Bledsoe"
 date: "2022-12-02"
 output: pdf_document
@@ -31,7 +31,7 @@ Write R code which produces the correct answers and correctly interpret the resu
 
 ### Due Date
 
-December 6 at midnight MST
+April 27 at midnight MST
 
 # Assignment Questions
 
@@ -126,4 +126,6 @@ Woah, that's quite different! Our interpretation of whether penguin density affe
 
 ```
 
-Why might different plants respond differently to penguin densities? Perhaps one group is more sensitive to trampling or perhaps penguins like to snack on them. Any number of causes could be at play. What is important to recognize is that there is an interactive effect here: different plants respond to differently to penguin densities!
+Why might different plants respond differently to penguin densities?
+
+Perhaps one group is more sensitive to trampling or perhaps penguins like to snack on them. Any number of causes could be at play. What is important to recognize is that there is an interactive effect here: different plants respond to differently to penguin densities!
