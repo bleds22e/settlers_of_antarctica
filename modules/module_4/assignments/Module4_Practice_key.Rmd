@@ -1,7 +1,7 @@
 ---
 title: "Final Project Practice"
-output: html_document
-date: "2022-11-22"
+output: pdf_document
+date: "2023-04-17"
 ---
 
 ```{r setup, include=FALSE}
@@ -14,27 +14,21 @@ This is meant to help you prepare for the final project, which I will be handing
 
 I'm expecting you to be able to filter and summarize the data in ways you need, choose the appropriate visualization, choose the appropriate analysis, and correctly interpret the analysis for the question I've asked you.
 
-It is important to note that, like this this practice, I will not be giving you an answer key for your final project since part of your grade for the assignment is to choose the correct visualizations and analyses.
+Some important notes:
 
-For both this and the final project, we are going to use the `palmerpenguins` dataset, which we've used before! You can learn more about it [here](https://allisonhorst.github.io/palmerpenguins/).
+-   For both this and the final project, we are going to use the `palmerpenguins` dataset, which we've used before! You can learn more about it [here](https://allisonhorst.github.io/palmerpenguins/).
 
-**Because we are working through this together in class, I will be grading this assignment on completion only! That said, make sure you actually answer every question that's in here...there are quite a few!**
+-   I will not be giving you an answer key for your final project since part of your grade for the assignment is to choose the correct visualizations and analyses.
 
-### Before we begin...
+-   For every plot you make, be sure to clarify and clean up the labels and add a theme.
 
-There still seems to be some confusion about p-values, which is normal! If you want some more detailed explanations, I think watching some videos on YouTube can be really helpful. [This one](https://www.youtube.com/watch?v=eyknGvncKLw&t=1s&ab_channel=DrNic%27sMathsandStats) is pretty short and good (minus the old-school animation!).
-
-Put simply:
-
-The p-value represents the probability that we would observe a difference of means (or whatever difference you are testing) *randomly*. Basically, a p-value is the chance that we see a difference this large due to our random sampling; if that chance is less than 5% then it is reasonable to assume that the null hypothesis is not correct. 
-
-The key here is that we are pulling a *random* sample from our overall population. The p-value tells the probability that the difference we see between our samples is due to random chance. If that chance is below 5% (p \< 0.05), then we feel pretty confident that it is *not* due to random chance! We can reject the null hypothesis! Anything higher (p \> 0.05) is too high a chance for us to take, so we don't reject the null.
+-   Because we are working through this together in class, I will be grading this assignment on completion only! That said, make sure you actually answer ***every question*** that's in here for full credit...there are quite a few!
 
 ## Set-Up
 
 Let's load our packages and get started!
 
-```{r}
+```{r message = FALSE}
 library(tidyverse)
 library(palmerpenguins)
 ```
@@ -72,9 +66,12 @@ flippers
 Choose an effective visualization method for this data. Use `ggplot2`.
 
 ```{r}
-ggplot(dream, aes(x = species, y = flipper_length_mm)) +
+ggplot(dream, aes(x = species, y = flipper_length_mm, color = species)) +
   geom_boxplot() +
-  geom_jitter(width = 0.1, alpha = 0.5)
+  geom_jitter(width = 0.1, alpha = 0.5) +
+  labs(x = "Species",
+       y = "Flipper Length (mm)") +
+  theme_classic()
 ```
 
 Write out the null and alternative hypotheses.
@@ -110,7 +107,7 @@ Are our variables of interest continuous and/or categorical?
 
 Take note that in this example, there is no dependent or independent variable per say. We don't have any reason to think that flipper length influences bill length or vice versa. We just want to determine if there is a relationship or not.
 
-For now, put flipper length on the x-axis and bill length on the y-axis.
+That said, treat flipper length as the *independent* variable (x-axis) and bill length as the *dependent* variable (y-axis).
 
 First, calculate the mean and standard deviation for both bill length and flipper length.
 
@@ -128,7 +125,10 @@ Choose the best way to visualize the relationship between these two variables
 ```{r}
 ggplot(penguins, aes(flipper_length_mm, bill_length_mm)) +
   geom_point() +
-  geom_smooth(method = "lm")
+  geom_smooth(method = "lm") +
+    labs(x = "Flipper Length (mm)",
+       y = "Bill Length (mm)") +
+  theme_bw()
 ```
 
 To do the rest of this problem set, the easiest way is to create a new data frame with no NA values. Run the code chunk below and use that new data frame for the rest of the problem set.
@@ -174,14 +174,31 @@ Should we run pairwise comparisons? If yes, do so below and interpret:
 
 ### Bonus
 
-In our plot, how do you think we could separate these points (and lines!) out by species?
+
+Let's add in the species variable into our analysis! Keep using the `penguins_noNA` data frame.
+
+First, plot the data, this time including species as a variable in the plot.
 
 ```{r}
 ggplot(penguins, aes(flipper_length_mm, bill_length_mm, color = species)) +
   geom_point() +
-  geom_smooth(method = "lm")
+  geom_smooth(method = "lm") +
+  labs(x = "Flipper Length (mm)",
+       y = "Bill Length (mm)", 
+       color = "Species") +
+  theme_bw()
 ```
 
+Run the model again, this time including species and the species interaction with "independent" variable.
+
+```{r}
+mlm_model <- lm(data = penguins_noNA, bill_length_mm ~ flipper_length_mm * species)
+summary(mlm_model)
+```
+
+Interpret the results from the model above. Focus on the p-values for the independent variables and/or interaction terms, not the overall model.
+
+*Answer:*
 ## Problem Set 3
 
 For this problem set, we want to know if there is a difference in the body mass of the penguin species.
@@ -208,19 +225,17 @@ body_mass_kg <- body_mass %>%
          mean_mass = mean_mass / 1000)
 ```
 
-Create a new dataframe (start with `penguins`) called `big_or_small`. It should have a column that has "big" if the mass is greater than or equal to 4500 grams and "small" if the mass is below 4500 grams.
+Back to the question at hand...choose an effective visualization method for this data (you will want to use the original `penguins` dataframe). Practice adding lines that represent to mean values in the plot. Thinking critically about which columns to use!
 
 ```{r}
-big_or_small <- penguins %>% 
-  mutate(big_small = ifelse(body_mass_g >= 4500, "big", "small"))
-```
-
-Choose an effective visualization method for this data. Use `ggplot2`.
-
-```{r}
-ggplot(penguins, aes(x = species, y = body_mass_g)) +
-  geom_boxplot() +
-  geom_jitter(width = 0.1, alpha = 0.5)
+ggplot(penguins, aes(x = body_mass_g, fill = species)) +
+  geom_density(alpha = 0.5) +
+  geom_vline(data = body_mass, aes(xintercept = mean_mass, color = species)) +
+  labs(x = "Body Mass (g)",
+       y = "Density/Frequency",
+       fill = "Species",
+       color = "Species") +
+  theme_classic()
 ```
 
 Write out the null and alternative hypotheses.
