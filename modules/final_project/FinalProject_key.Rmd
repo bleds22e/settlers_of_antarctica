@@ -31,7 +31,7 @@ Write R code which produces the correct data, summaries, plots and analyses. Cor
 
 ### Due Date
 
-December 12 at midnight MST
+May 9 at midnight MST
 
 # Final Project
 
@@ -43,13 +43,15 @@ It is important to note that I will not be giving you an answer key for this fin
 
 We are going to use the `palmerpenguins` R package and data set, which we've used many times before! You can learn more about it [here](https://allisonhorst.github.io/palmerpenguins/). This is a real data set from a Long-Term Ecological Research (LTER) site in Antarctica.
 
+------------------------------------------------------------------------
+
 ## Set-Up
 
 #### Be sure to run both of these code chunks before you begin!
 
 I've gone ahead and included the code to load the two packages you will need to successfully complete this project: the `tidyverse` and `palmerpenguins`. Be sure to run this code chunk!
 
-```{r}
+```{r message = FALSE}
 library(tidyverse)
 library(palmerpenguins)
 ```
@@ -66,6 +68,8 @@ Once you've run this line of code, you should see the `penguins` data frame pop 
 ```{r}
 penguins <- penguins %>% drop_na()
 ```
+
+------------------------------------------------------------------------
 
 ## Structure & Guidelines
 
@@ -95,14 +99,21 @@ All plots should be made using `ggplot2`.
 
 You options for plot types to choose from are:
 
--   histogram (use transparency (`alpha`) and `position = "identity"` with multiple groups to see the full distributions)
--   density (use transparency (`alpha`) with multiple groups to see the full distributions)
--   box-and-whisker (adding points on top is encouraged but not required)
+-   multiple histogram plots
+    -   use transparency (`alpha`)
+    -   use `position = "identity"` with multiple groups to see the full distributions
+-   multiple density plots
+    -   use transparency (`alpha`) with multiple groups to see the full distributions
+-   box-and-whisker
+    -   add points on top of the box plot to show the distribution of the points
 -   scatter plot
+    -   add the linear model to every scatter plot
 
 **Note: All plots should have modified axis labels and legend labels.**
 
 In many cases, this might mean capitalizing the axis label or legend label. In other cases, you might want to put units in parentheses after the words (e.g., Body Mass (g)).
+
+------------------------------------------------------------------------
 
 ## Problem Set 1 (20 points)
 
@@ -180,7 +191,13 @@ summary(aov_model)
 TukeyHSD(aov_model)
 ```
 
-## Problem Set 2 (20 points)
+------------------------------------------------------------------------
+
+## Problem Set 2 (30 points total)
+
+This problem set has 2 parts.
+
+### Part 1 (20 points)
 
 #### Question: Is there a significant relationship between bill length and bill depth for penguins on Biscoe Island?
 
@@ -239,7 +256,9 @@ r^2
 summary(lm(data = biscoe, bill_depth_mm ~ bill_length_mm))
 ```
 
-When we look at the plot of the data, it looks like there might be two different groups in the data.
+When we look at the plot of the data, it looks like there might be two different groups in the data. Let's see what happens when we add in species to this analysis.
+
+### Part 2 (10 points)
 
 6.  Let's make the color of the points and the linear models differ by species on Biscoe Island. Be sure to adjust *all* labels on the plot accordingly. (2 points)
 
@@ -252,7 +271,7 @@ ggplot(biscoe, aes(bill_length_mm, bill_depth_mm, color = species)) +
        color = "Species")
 ```
 
-7.  Run the appropriate statistical test, adding species into the model. (2 points)
+7.  Run the appropriate statistical test, adding species (and the interaction between the two independent variables) into the model. (2 points)
 
 ```{r}
 summary(lm(data = biscoe, bill_depth_mm ~ bill_length_mm * species))
@@ -266,68 +285,75 @@ summary(lm(data = biscoe, bill_depth_mm ~ bill_length_mm * species))
 
     *Answer: negative to positive; models still tell us similar things in terms of significance, though*
 
-## Problem Set 3 (20 points)
+------------------------------------------------------------------------
 
-#### Question: Is there a difference in the average *body mass* between penguins with long flippers and penguins with short flippers?
+## Problem Set 3 (15 points)
 
-In order to address this question, our first step is to create a new column in our data frame that tells us whether each penguin has a long flipper or a short flipper.
+#### Question: Is there a difference in the average flipper length between penguin species on Biscoe island?
 
--   flippers are considered "long" if they are at least 200 mm in length (\>= 200)
--   flippers are considered "short" if they are less than 200 mm (\< 200)
-
-1.  Using the `mutate()` and `if_else()` functions, create a new column called `long_or_short` with the correct term ("long" or "short") for each flipper length. Be sure to save this in a new data frame called `flippers`. (3 points)
+1.  Our first step is to create a new data frame that includes only the individuals found on Biscoe island. Call this new data frame `biscoe`.
 
 ```{r}
-flippers <- penguins %>% 
-  mutate(long_or_short = if_else(flipper_length_mm >= 200, "long", "short"))
+biscoe <- penguins %>% 
+  filter(island == "Biscoe")
 ```
 
-We will be using the `flippers` data frame for the rest of this problem set! It has the `long_or_short` column that we will be referencing.
+We will be using the `biscoe` data frame for the rest of this problem set.
 
-2.  Now let's summarize our data using this new column. Calculate the mean and standard deviation *body mass* for penguins with long flippers and penguins with short flippers. (2 points)
+2.  Before we continue, let's change our flipper length column from mm to inches. Each inch has 25.4 mm in it, so we will want to divide our flipper length column by 25.4 to get inches. Name this new column `flipper_length_in`.
 
-    Take a few seconds to think this through before you start coding. We want the values for *body mass*. We want our groups determined by the values in the `long_or_short` column that we just created.
+    *Hint: make sure you "re-assign" the `biscoe` data frame to itself so the new column shows up in the `biscoe` data frame. After you run the code, you should have 9 variables in `biscoe`.*
 
 ```{r}
-flippers %>% 
-  group_by(long_or_short) %>% 
-  summarise(mean_mass = mean(body_mass_g),
-            sd_mass = sd(body_mass_g))
+biscoe <- biscoe %>% 
+  mutate(flipper_length_in = flipper_length_mm / 25.4)
+```
+
+2.  Now let's summarize our data using this new column. Calculate the mean and standard deviation of the `flipper_length_in` column for each species. (2 points)
+
+```{r}
+biscoe %>% 
+  group_by(species) %>% 
+  summarise(mean_flipper_in = mean(flipper_length_in),
+            sd_flipper_in = sd(flipper_length_in))
 ```
 
 Ok, we have summarized the body mass data for our two groups, and it looks like there might be a real difference in the body masses between the long group and the short group.
 
 3.  Determine which variable is dependent and which is independent. Also determine if each variable is continuous or categorical. (4 points)
 
--   **body mass**: dependent, continuous
--   **flipper group (`long_or_short`)**: independent, categorical
+-   **flipper length**: dependent, continuous
+-   **species**: independent, categorical
 
 Let's plot the body mass data for the two groups.
 
 4.  Choose an appropriate plot for data with one continuous variable and one categorical variable (there are a few options). Be sure to adjust the x- and y-axis labels appropriately. (2 points)
 
 ```{r}
-ggplot(flippers, aes(long_or_short, body_mass_g)) +
+ggplot(biscoe, aes(species, flipper_length_in)) +
   geom_boxplot() +
   geom_jitter(width = 0.1, alpha = 0.5) +
-  labs(x = "Flipper Length Category",
-       y = "Body Mass (g)")
+  labs(x = "Species",
+       y = "Flipper Length (in)") +
+  theme_bw()
 
 # OR
 
-ggplot(flippers, aes(body_mass_g, fill = long_or_short)) +
+ggplot(biscoe, aes(flipper_length_in, fill = species)) +
   geom_histogram(alpha = 0.5, position = "identity") +
-  labs(x = "Body Mass (g)",
+  labs(x = "Flipper Length (in)",
        y = "Frequency",
-       fill = "Flipper Length (mm) Category")
+       fill = "Species") +
+  theme_bw()
 
 # OR
 
-ggplot(flippers, aes(body_mass_g, fill = long_or_short)) +
+ggplot(biscoe, aes(flipper_length_in, fill = species)) +
   geom_density(alpha = 0.5) +
-  labs(x = "Body Mass (g)",
+  labs(x = "Flipper Length (in)",
        y = "Density",
-       fill = "Flipper Length (mm) Category")
+       fill = "Species") +
+  theme_bw()
 ```
 
 5.  Write the pair of statistical hypotheses for our question. (2 points)
