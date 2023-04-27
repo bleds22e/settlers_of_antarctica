@@ -1,7 +1,7 @@
 ---
-title: "Final Project"
-author: ""  # <- your name here
-date: ""    # <- date here 
+title: "Final Project, Spring 2023"
+author: ""  # <- Your name here (inside the quotation marks)
+date: ""    # <- The date here (inside the quotation marks)
 output: pdf_document
 ---
 
@@ -68,7 +68,9 @@ I've also included one more code chunk below. Be sure to run this code chunk, as
 Once you've run this line of code, you should see the `penguins` data frame pop up in your environment with 333 observations (rows) and 8 variables (columns).
 
 ```{r}
-penguins <- penguins %>% drop_na()
+penguins <- penguins %>% 
+  drop_na() %>%                  # remove any rows that have NA in them
+  mutate(year = as.factor(year)) # treat the year column as categorical
 ```
 
 ## Structure & Guidelines
@@ -76,8 +78,6 @@ penguins <- penguins %>% drop_na()
 Like the practice version, this final project is structured as 3 different problem sets. For each problem set, I am presenting you with a initial question to guide your thinking and analysis.
 
 ### Data
-
-The following information will likely prove helpful for you as you make decisions.
 
 |  Island   |  Species  |
 |:---------:|:---------:|
@@ -87,7 +87,14 @@ The following information will likely prove helpful for you as you make decision
 |   Dream   | Chinstrap |
 | Torgerson |  Adelie   |
 
-We have 3 species total in the data set, and 3 islands total in the data set. Certain islands only have populations of certain species---Torgerson island only has 1 species of penguin (Adelie), while Dream and Biscoe islands each have 2 species of penguins.
+The following information about the dataset will likely prove helpful for you as you make decisions.
+
+-   There are 3 species total in the data set
+-   There are 3 islands total in the data set
+-   Certain islands only have populations of certain species
+    -   Torgerson island only has 1 species of penguin (Adelie)
+    -   Dream and Biscoe islands each have 2 species of penguins.
+-   Year
 
 ### Interpreting Statistical Results
 
@@ -116,11 +123,13 @@ In many cases, this might mean capitalizing the axis label or legend label. In o
 
 ------------------------------------------------------------------------
 
-## Problem Set 1: T-Test (20 points)
+## Problem Set 2: ANOVA (15 points)
 
-#### Question: **Are there differences in the average bill length across the 3 islands in the data set: Dream, Biscoe, and Torgersen? (Ignore species)**
+Take a look at the data and decide what subset (if any) data you want to use to run a ANOVA. There are many possible combinations.
 
-Let's start by summarizing the bill length data.
+1. Let's start with describing the data you plan to use. List the variable and whether it is continuous or categorical.
+
+
 
 1.  Calculate the minimum, maximum, and mean bill length for *each* island. (3 points)
 

@@ -174,7 +174,6 @@ Should we run pairwise comparisons? If yes, do so below and interpret:
 
 ### Bonus
 
-
 Let's add in the species variable into our analysis! Keep using the `penguins_noNA` data frame.
 
 First, plot the data, this time including species as a variable in the plot.
@@ -199,6 +198,7 @@ summary(mlm_model)
 Interpret the results from the model above. Focus on the p-values for the independent variables and/or interaction terms, not the overall model.
 
 *Answer:*
+
 ## Problem Set 3
 
 For this problem set, we want to know if there is a difference in the body mass of the penguin species.
