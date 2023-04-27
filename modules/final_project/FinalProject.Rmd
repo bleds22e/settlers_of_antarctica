@@ -1,7 +1,7 @@
 ---
 title: "Final Project"
-author: ""  # <- your name here
-date: ""    # <- date here 
+author: "Ellen Bledsoe"
+date: "2022-12-03"
 output: pdf_document
 ---
 
@@ -33,15 +33,13 @@ Write R code which produces the correct data, summaries, plots and analyses. Cor
 
 May 9 at midnight MST
 
-------------------------------------------------------------------------
-
 # Final Project
 
-For your final "project" this semester, I am presenting you with 3 problem sets, each worth 20 points (for a total of 60 points).
+For your final "project" this semester, I am presenting you with 3 problem sets, totaling up to 60 points.
 
 I'm expecting you to be able to filter and summarize the data in ways you need, choose the appropriate visualization, choose the appropriate analysis, and correctly interpret the analysis for the question I've asked you.
 
-It is important to note that I will not be giving you an answer key for this final project since part of your grade for the assignment is being able to choose the appropriate visualizations and analyses for the question and the data.
+It is important to note that I will not be giving you an answer key for this final project since a major part of your grade for the assignment is being able to choose the appropriate visualizations and analyses for the question and the data.
 
 We are going to use the `palmerpenguins` R package and data set, which we've used many times before! You can learn more about it [here](https://allisonhorst.github.io/palmerpenguins/). This is a real data set from a Long-Term Ecological Research (LTER) site in Antarctica.
 
@@ -53,7 +51,7 @@ We are going to use the `palmerpenguins` R package and data set, which we've use
 
 I've gone ahead and included the code to load the two packages you will need to successfully complete this project: the `tidyverse` and `palmerpenguins`. Be sure to run this code chunk!
 
-```{r}
+```{r message = FALSE}
 library(tidyverse)
 library(palmerpenguins)
 ```
@@ -62,7 +60,7 @@ library(palmerpenguins)
 
 I've also included one more code chunk below. Be sure to run this code chunk, as well! It does two key things:
 
--   first, it add the `penguins` data frame to your environment, which I imagine you will find helpful
+-   first, it adds the `penguins` data frame to your environment, which I imagine you will find helpful
 -   second, it removes all rows that have any NA values, which will make completing this assignment a bit easier.
 
 Once you've run this line of code, you should see the `penguins` data frame pop up in your environment with 333 observations (rows) and 8 variables (columns).
@@ -71,23 +69,19 @@ Once you've run this line of code, you should see the `penguins` data frame pop 
 penguins <- penguins %>% drop_na()
 ```
 
+------------------------------------------------------------------------
+
 ## Structure & Guidelines
 
 Like the practice version, this final project is structured as 3 different problem sets. For each problem set, I am presenting you with a initial question to guide your thinking and analysis.
 
 ### Data
 
-The following information will likely prove helpful for you as you make decisions.
+Assume that nothing carries over between problem sets.
 
-|  Island   |  Species  |
-|:---------:|:---------:|
-|  Biscoe   |  Adelie   |
-|  Biscoe   |  Gentoo   |
-|   Dream   |  Adelie   |
-|   Dream   | Chinstrap |
-| Torgerson |  Adelie   |
+Each problem set is stand-alone, meaning that you should always start with the `penguins` data frame at the beginning of each problem set. If you should use a data frame that you created *within* the problem set, I explicitly state so.
 
-We have 3 species total in the data set, and 3 islands total in the data set. Certain islands only have populations of certain species---Torgerson island only has 1 species of penguin (Adelie), while Dream and Biscoe islands each have 2 species of penguins.
+For example, in Problem Set 2, you should use the `biscoe` data frame that you create for the entire problem set; at the start of Problem Set 3, start over with the `penguins` data frame.
 
 ### Interpreting Statistical Results
 
@@ -103,12 +97,17 @@ When I ask you to interpret statistical results, you should roughly follow these
 
 All plots should be made using `ggplot2`.
 
-You options for plot types to choose from are:
+Your options for plot types to choose from are:
 
--   histogram (use transparency (`alpha`) and `position = "identity"` with multiple groups to see the full distributions)
--   density (use transparency (`alpha`) with multiple groups to see the full distributions)
--   box-and-whisker (adding points on top is encouraged but not required)
+-   [multiple]{.underline} histogram plots
+    -   use transparency (`alpha`)
+    -   use `position = "identity"` with multiple groups to see the full distributions
+-   [multiple]{.underline} density plots
+    -   use transparency (`alpha`) with multiple groups to see the full distributions
+-   box-and-whisker plot
+    -   add points on top of the box plot to show the distribution of the points
 -   scatter plot
+    -   add the linear model to every scatter plot
 
 **Note: All plots should have modified axis labels and legend labels.**
 
@@ -116,25 +115,25 @@ In many cases, this might mean capitalizing the axis label or legend label. In o
 
 ------------------------------------------------------------------------
 
-## Problem Set 1: T-Test (20 points)
+## Problem Set 1 (15 points)
 
 #### Question: **Are there differences in the average bill length across the 3 islands in the data set: Dream, Biscoe, and Torgersen? (Ignore species)**
 
 Let's start by summarizing the bill length data.
 
-1.  Calculate the minimum, maximum, and mean bill length for *each* island. (3 points)
+1.  Calculate at least one measure of central tendency and one measure of variability for the bill length for *each* island. (2 points)
 
 ```{r}
 
 ```
 
-2.  Which of our variables would be considered *independent* and which one *dependent*? Also determine whether each is *continuous* or *categorical*. (4 points)
+2.  Which of our variables would be considered *independent* and which one *dependent*? Also determine whether each is *continuous* or *categorical*. (2 points)
     -   **island**:
     -   **bill length**:
 
 Now that we have an idea numerically of the differences between the islands, let's plot the differences.
 
-3.  Choose an appropriate plot (there are a few options). Ensure that you follow the plotting guidelines in the Structure & Guidelines section above! (3 points)
+3.  Choose an appropriate plot (there are a few options). Ensure that you follow the plotting guidelines in the Structure & Guidelines section above! (2 points)
 
 ```{r}
 
@@ -159,7 +158,7 @@ Now that we have an idea numerically of the differences between the islands, let
 
     *Answer:*
 
-7.  Should we run pairwise comparisons? If no, explain why not. If yes, do so and interpret the results. (3 points)
+7.  Should we run pairwise comparisons? If no, explain why not. If yes, do so and interpret the results. (2 points)
 
     *Answer:*
 
@@ -169,15 +168,17 @@ Now that we have an idea numerically of the differences between the islands, let
 
 ------------------------------------------------------------------------
 
-## Problem Set 2 (20 points)
+## Problem Set 2 (30 points total)
 
-### 
+This problem set has 2 parts.
+
+### Part 1 (20 points)
 
 #### Question: Is there a significant relationship between bill length and bill depth for penguins on Biscoe Island?
 
 For this problem set, we are going to use data from Biscoe island only.
 
-1.  Create a new data frame called `biscoe` that includes only penguins from Biscoe island. This new data frame should have 163 rows. (1 point)
+1.  Create a new data frame called `biscoe` that includes only penguins from Biscoe island. This new data frame should have 163 rows. (2 points)
 
 ```{r}
 
@@ -185,11 +186,20 @@ For this problem set, we are going to use data from Biscoe island only.
 
 You will want to use the `biscoe` data set for the rest of Problem Set #2.
 
-This is a scenario where there is no independent and no dependent variable. Go ahead and **put bill length on the x-axis and bill depth on the y-axis.**
+This is a scenario where there is no independent and no dependent variable. Go ahead and **treat bill length as the independent variable (x-axis) and bill depth as the dependent variable (y-axis).**
 
-For now, ignore species. We will address that later in the problem set.
+2.  Determine whether bill length and bill depth are continuous or categorical (2 points)
+    -   **bill depth**:
+    -   **bill length**:
 
-2.  Plot the relationship between bill length and bill depth using the appropriate plot type. (2 points)
+For now, ignore species. We will address species in Part 2 of the problem set.
+
+3.  Write the correct pair of statistical hypotheses for our question. (2 points)
+
+    **Null**:\
+    **Alternative**:
+
+4.  Plot the relationship between bill length and bill depth using the appropriate plot type. (3 points)
 
     -   Be sure to add a line of best fit using the `geom_smooth` function---and make sure it is a straight line (no wiggles, which the default will produce).
     -   Ensure that the plot has clear labels on the axes (follow the Structure & Guidelines).
@@ -199,108 +209,110 @@ For now, ignore species. We will address that later in the problem set.
 
 ```
 
-3.  Calculate the correlation coefficient, `r`. What does this value tell us about the relationship (positive, negative, no relationship)? (2 points)
+5.  Describe the relationship that you see in the plot you just made. Is the relationship positive, negative, or nonexistent? How do you know? (2 points)
 
     *Answer:*
 
-```{r}
+6.  Calculate the correlation coefficient, `r`. What does this value confirm for us about the relationship (positive, negative, no relationship)? (2 points)
 
-```
+    ```{r}
 
-4.  Calculate the `r^2` value. How much variation is explained by the line of best fit? Remember, this number is typically expressed as a percent (x 100). (2 points)
+    ```
 
     *Answer:*
 
-```{r}
+7.  Calculate the `r^2` value. How much variation is explained by the line of best fit? Remember, this number is typically expressed as a percent (x 100). (2 points)
 
-```
+    ```{r}
 
-5.  Let's see if there is a significant relationship between bill length and bill depth. Perform the correct statistical analysis (1 point) and interpret the results. (4 points total)
+    ```
 
-    -   What is the equation of the line of best fit? (1 point)
+    *Answer:*
+
+8.  Let's see if there is a significant relationship between bill length and bill depth. Perform the correct statistical analysis (1 point) and interpret the results. (5 points total)
+
+    -   What is the equation of the line of best fit? Use both variable names and values from the statistical analysis .(1 point)
     -   What is the p-value? (1 point)
     -   Is there a significant relationship? (1 point)
+    -   What should we do with the null hypothesis? (1 point)
+
+    ```{r}
+
+    ```
 
     *Answer:*
 
-```{r}
+### Part 2 (10 points)
 
-```
+When we look at the plot of the data, it looks like there might be two different groups in the data. Let's see what happens when we add in species to this analysis.
 
-When we look at the plot of the data, it looks like there might be two different groups in the data.
-
-6.  Let's make the color of the points and the linear models differ by species on Biscoe Island. Be sure to adjust *all* labels on the plot accordingly. (2 points)
+9.  Let's make the color of the points and the linear models differ by species on Biscoe Island. Be sure to adjust *all* labels on the plot accordingly. (3 points)
 
 ```{r}
 
 ```
 
-7.  Run the appropriate statistical test, adding species into the model. (2 points)
+10. Run the appropriate statistical test, adding species (and the interaction between the two independent variables) into the model. (2 points)
 
 ```{r}
 
 ```
 
-8.  Interpret the results of the test above. Is species significant? Is there a significant interaction between bill length and species? (2 points)
+11. Interpret the results of the test above. Is species significant? Is there a significant interaction between bill length and species? (2 points)
 
     *Answer:*
 
-9.  Write 2-3 sentences discussing if and/or how adding species into our linear model changes our interpretation of the data. Did the type of relationship change? Do the two linear models tell us different things? (3 points)
+12. Write 2-3 sentences discussing if and/or how adding species into our linear model changes our interpretation of the data. Did the type of relationship change? Do the two linear models tell us different things? (3 points)
 
     *Answer:*
 
-## Problem Set 3 (20 points)
+------------------------------------------------------------------------
 
-#### Question: Is there a difference in the average *body mass* between penguins with long flippers and penguins with short flippers?
+## Problem Set 3 (15 points)
 
-In order to address this question, our first step is to create a new column in our data frame that tells us whether each penguin has a long flipper or a short flipper.
+#### Question: Is there a difference in the average flipper length between penguin species on Dream island?
 
--   flippers are considered "long" if they are at least 200 mm in length (\>= 200)
--   flippers are considered "short" if they are less than 200 mm (\< 200)
-
-1.  Using the `mutate()` and `if_else()` functions, create a new column called `long_or_short` with the correct term ("long" or "short") for each flipper length. Be sure to save this in a new data frame called `flippers`. (3 points)
+1.  Our first step is to create a new data frame that includes only the individuals found on Biscoe island. Call this new data frame `dream`. (1 point)
 
 ```{r}
 
 ```
 
-We will be using the `flippers` data frame for the rest of this problem set! It has the `long_or_short` column that we will be referencing.
+We will be using the `dream` data frame for the rest of this problem set.
 
-2.  Now let's summarize our data using this new column. Calculate the mean and standard deviation *body mass* for penguins with long flippers and penguins with short flippers. (2 points)
-
-    Take a few seconds to think this through before you start coding. We want the values for *body mass*. We want our groups determined by the values in the `long_or_short` column that we just created.
+3.  Let's summarize our data. Calculate one measure of central tendency and one (complete) measure of variability of the flipper length column for *each* species. (2 points)
 
 ```{r}
 
 ```
 
-Ok, we have summarized the body mass data for our two groups, and it looks like there might be a real difference in the body masses between the long group and the short group.
+Ok, we have summarized the flipper length data for our two groups.
 
-3.  Determine which variable is dependent and which is independent. Also determine if each variable is continuous or categorical. (4 points)
+4.  Determine which variable is dependent and which is independent. Also determine if each variable is continuous or categorical. (2 points)
 
--   **body mass**:
--   **flipper group (`long_or_short`)**:
+-   **flipper length**:
+-   **species**:
 
 Let's plot the body mass data for the two groups.
 
-4.  Choose an appropriate plot for data with one continuous variable and one categorical variable (there are a few options). Be sure to adjust the x- and y-axis labels appropriately. (2 points)
+5.  Choose an appropriate plot for data with one continuous variable and one categorical variable (there are a few options). Be sure to adjust the x- and y-axis labels appropriately. (2 points)
 
 ```{r}
 
 ```
 
-5.  Write the pair of statistical hypotheses for our question. (2 points)
+6.  Write the pair of statistical hypotheses for our question. (2 points)
 
-    **Null**:\
+    **Null**: \
     **Alternative**:
 
-6.  Perform the appropriate analysis to compare the body mass means of our two groups: long and short. (2 points)
+7.  Perform the appropriate analysis to compare the flipper lengths of each species. (2 points)
 
 ```{r}
 
 ```
 
-7.  Interpret the results of this test. (3 points)
+8.  Interpret the results of this test. (2 points)
 
     -   is there a significant difference?
     -   what does that significant difference mean?
@@ -308,7 +320,7 @@ Let's plot the body mass data for the two groups.
 
     *Answer:*
 
-8.  Should we run pairwise comparisons? If no, explain why not. If yes, do so and interpret the results. (2 points)
+9.  Should we run pairwise comparisons? If no, explain why not. If yes, do so and interpret the results. (2 points)
 
     *Answer:*
 
@@ -318,4 +330,4 @@ Let's plot the body mass data for the two groups.
 
 ## The End!
 
-Nice work, and thanks for a great semester!
+Great work, and thanks for a wonderful semester!

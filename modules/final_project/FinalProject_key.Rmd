@@ -218,9 +218,9 @@ You will want to use the `biscoe` data set for the rest of Problem Set #2.
 This is a scenario where there is no independent and no dependent variable. Go ahead and **treat bill length as the independent variable (x-axis) and bill depth as the dependent variable (y-axis).**
 
 2.  Determine whether bill length and bill depth are continuous or categorical (2 points)
-    -   **bill depth**: dependent, 
+    -   **bill depth**: dependent,
     -   **bill length**: independent
-    
+
 For now, ignore species. We will address species in Part 2 of the problem set.
 
 3.  Write the correct pair of statistical hypotheses for our question. (2 points)
@@ -262,7 +262,7 @@ ggplot(biscoe, aes(bill_length_mm, bill_depth_mm)) +
     ```
 
     *Answer:* About 20% variation explained
-    
+
 8.  Let's see if there is a significant relationship between bill length and bill depth. Perform the correct statistical analysis (1 point) and interpret the results. (5 points total)
 
     -   What is the equation of the line of best fit? Use both variable names and values from the statistical analysis .(1 point)
@@ -292,19 +292,23 @@ ggplot(biscoe, aes(bill_length_mm, bill_depth_mm, color = species)) +
   theme_classic()
 ```
 
-10.  Run the appropriate statistical test, adding species (and the interaction between the two independent variables) into the model. (2 points)
+10. Run the appropriate statistical test, adding species (and the interaction between the two independent variables) into the model. (2 points)
 
 ```{r}
 summary(lm(data = biscoe, bill_depth_mm ~ bill_length_mm * species))
 ```
 
-11.  Interpret the results of the test above. Is species significant? Is there a significant interaction between bill length and species? (2 points)
+11. Interpret the results of the test above. Is species significant? Is there a significant interaction between bill length and species? (2 points)
 
-    *Answer: neither species nor interaction is significant*
+```         
+*Answer: neither species nor interaction is significant*
+```
 
-12.  Write 2-3 sentences discussing if and/or how adding species into our linear model changes our interpretation of the data. Did the type of relationship change? Do the two linear models tell us different things? (3 points)
+12. Write 2-3 sentences discussing if and/or how adding species into our linear model changes our interpretation of the data. Did the type of relationship change? Do the two linear models tell us different things? (3 points)
 
-    *Answer: negative to positive; models still tell us similar things in terms of significance, though*
+```         
+*Answer: negative to positive; models still tell us similar things in terms of significance, though*
+```
 
 ------------------------------------------------------------------------
 
@@ -342,7 +346,7 @@ Let's plot the body mass data for the two groups.
 5.  Choose an appropriate plot for data with one continuous variable and one categorical variable (there are a few options). Be sure to adjust the x- and y-axis labels appropriately. (2 points)
 
 ```{r}
-ggplot(dream, aes(species, flipper_length_in)) +
+ggplot(dream, aes(species, flipper_length_mm)) +
   geom_boxplot() +
   geom_jitter(width = 0.1, alpha = 0.5) +
   labs(x = "Species",
@@ -351,7 +355,7 @@ ggplot(dream, aes(species, flipper_length_in)) +
 
 # OR
 
-ggplot(dream, aes(flipper_length_in, fill = species)) +
+ggplot(dream, aes(flipper_length_mm, fill = species)) +
   geom_histogram(alpha = 0.5, position = "identity") +
   labs(x = "Flipper Length (mm)",
        y = "Frequency",
@@ -360,7 +364,7 @@ ggplot(dream, aes(flipper_length_in, fill = species)) +
 
 # OR
 
-ggplot(dream, aes(flipper_length_in, fill = species)) +
+ggplot(dream, aes(flipper_length_mm, fill = species)) +
   geom_density(alpha = 0.5) +
   labs(x = "Flipper Length (mm)",
        y = "Density",
@@ -384,7 +388,7 @@ t.test(data = dream, flipper_length_mm ~ species)
     -   what does that significant difference mean?
     -   should we reject the null hypothesis?
 
-    *Answer: yes, there is a significant difference (p = 4.724 x 10^-6); reject null*
+    *Answer: yes, there is a significant difference (p = 4.724 x 10\^-6); reject null*
 
 9.  Should we run pairwise comparisons? If no, explain why not. If yes, do so and interpret the results. (2 points)
 
