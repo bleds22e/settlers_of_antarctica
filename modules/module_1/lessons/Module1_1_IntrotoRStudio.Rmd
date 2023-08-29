@@ -58,7 +58,7 @@ To run a chunk of code, click the green arrow on the far right side of the chunk
 Let's work with an example code chunk.
 
 ```{r}
-8 / 4
+
 ```
 
 If you run code in the console (below) rather than the code chunk in a .Rmd file, you don't need to add the `{r}` to tell it that you are typing R code. The console only understand R code, so we don't need to tell it!
