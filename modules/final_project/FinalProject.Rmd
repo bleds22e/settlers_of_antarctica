@@ -1,7 +1,7 @@
 ---
 title: "Final Project"
-author: "Ellen Bledsoe"
-date: "2022-12-03"
+author: "" # <- your name here
+date: "2023-04-27" # <- the date here
 output: pdf_document
 ---
 
@@ -32,6 +32,8 @@ Write R code which produces the correct data, summaries, plots and analyses. Cor
 ### Due Date
 
 May 9 at midnight MST
+
+------------------------------------------------------------------------
 
 # Final Project
 
@@ -194,12 +196,18 @@ This is a scenario where there is no independent and no dependent variable. Go a
 
 For now, ignore species. We will address species in Part 2 of the problem set.
 
-3.  Write the correct pair of statistical hypotheses for our question. (2 points)
+3.  Summarize the data. Calculate one measure of central tendency and one measure of variability for *both* bill depth and bill length. (2 points)
+
+```{r}
+
+```
+
+4.  Write the correct pair of statistical hypotheses for our question. (2 points)
 
     **Null**:\
     **Alternative**:
 
-4.  Plot the relationship between bill length and bill depth using the appropriate plot type. (3 points)
+5.  Plot the relationship between bill length and bill depth using the appropriate plot type. (3 points)
 
     -   Be sure to add a line of best fit using the `geom_smooth` function---and make sure it is a straight line (no wiggles, which the default will produce).
     -   Ensure that the plot has clear labels on the axes (follow the Structure & Guidelines).
@@ -208,10 +216,6 @@ For now, ignore species. We will address species in Part 2 of the problem set.
 ```{r}
 
 ```
-
-5.  Describe the relationship that you see in the plot you just made. Is the relationship positive, negative, or nonexistent? How do you know? (2 points)
-
-    *Answer:*
 
 6.  Calculate the correlation coefficient, `r`. What does this value confirm for us about the relationship (positive, negative, no relationship)? (2 points)
 
@@ -231,7 +235,7 @@ For now, ignore species. We will address species in Part 2 of the problem set.
 
 8.  Let's see if there is a significant relationship between bill length and bill depth. Perform the correct statistical analysis (1 point) and interpret the results. (5 points total)
 
-    -   What is the equation of the line of best fit? Use both variable names and values from the statistical analysis .(1 point)
+    -   What is the equation of the line of best fit? Use both variable names and values from the statistical analysis. (1 point)
     -   What is the p-value? (1 point)
     -   Is there a significant relationship? (1 point)
     -   What should we do with the null hypothesis? (1 point)
@@ -280,7 +284,7 @@ When we look at the plot of the data, it looks like there might be two different
 
 We will be using the `dream` data frame for the rest of this problem set.
 
-3.  Let's summarize our data. Calculate one measure of central tendency and one (complete) measure of variability of the flipper length column for *each* species. (2 points)
+3.  Let's summarize our data. Calculate one measure of central tendency and one measure of variability of the flipper length column for *each* species. (2 points)
 
 ```{r}
 
@@ -303,7 +307,7 @@ Let's plot the body mass data for the two groups.
 
 6.  Write the pair of statistical hypotheses for our question. (2 points)
 
-    **Null**: \
+    **Null**:\
     **Alternative**:
 
 7.  Perform the appropriate analysis to compare the flipper lengths of each species. (2 points)
@@ -327,6 +331,8 @@ Let's plot the body mass data for the two groups.
 ```{r}
 
 ```
+
+------------------------------------------------------------------------
 
 ## The End!
 
