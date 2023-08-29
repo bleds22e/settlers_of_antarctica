@@ -66,6 +66,8 @@ flippers
 Choose an effective visualization method for this data. Use `ggplot2`.
 
 ```{r}
+# boxplot, multiple histogram, or multiple density plot are all acceptable
+
 ggplot(dream, aes(x = species, y = flipper_length_mm, color = species)) +
   geom_boxplot() +
   geom_jitter(width = 0.1, alpha = 0.5) +
@@ -76,9 +78,9 @@ ggplot(dream, aes(x = species, y = flipper_length_mm, color = species)) +
 
 Write out the null and alternative hypotheses.
 
-**Null:**
+**Null:** there is no difference in the mean flipper length between the two species
 
-**Alternative:**
+**Alternative:** there is a difference in the mean flipper length between the two species
 
 Run the appropriate statistical test.
 

@@ -276,7 +276,7 @@ When we look at the plot of the data, it looks like there might be two different
 
 #### Question: Is there a difference in the average flipper length between penguin species on Dream island?
 
-1.  Our first step is to create a new data frame that includes only the individuals found on Biscoe island. Call this new data frame `dream`. (1 point)
+1.  Our first step is to create a new data frame that includes only the individuals found on Dream island. Call this new data frame `dream`. (1 point)
 
 ```{r}
 

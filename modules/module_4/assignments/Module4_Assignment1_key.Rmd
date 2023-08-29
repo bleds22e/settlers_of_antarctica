@@ -19,7 +19,7 @@ As always, we must get organized before we can do anything!
 
 First load the tidyverse and read in the hair grass data set.
 
-```{r}
+```{r message = FALSE}
 library("tidyverse")
 hairgrass <- read_csv("../data/hairgrass_data.csv")
 ```

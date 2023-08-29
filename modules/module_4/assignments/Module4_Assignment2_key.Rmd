@@ -45,7 +45,7 @@ Penguins are important players in the Antarctic ecosystem because they cycle nut
 
 1.  As always, let's load the `tidyverse` to get started.
 
-```{r}
+```{r, message = FALSE}
 library(tidyverse)
 ```
 
