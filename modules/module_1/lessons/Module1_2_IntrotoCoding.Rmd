@@ -191,45 +191,4 @@ vectors and data frames:
 
 ```
 
-# Rmarkdown and Code Chunks (10 minutes)
-
-Rmarkdown (.Rmd) is a file format that lets us incorporate text and code into
-one document seamlessly. In fact, it is the file format for this document!
-
--   For writing text, you can type as you would normally
--   Code chunks are a bit different.
-    -   Type your R code in the lines under the `{r}`.
-
-    -   To include text in them, you will need to put a `#` in front. R will not
-        read anything after the `#` as code. Chunks look like this:
-
-```{r}
-
-```
-
-A quick shortcut for adding a code chunk is `Ctrl + Atl + i` (`Cmd + Opt + i` on
-a Mac). Alternatively, you can go to Code \> Insert Chunk.
-
-To run a chunk of code, click the green arrow on the far right side of the
-chunk. You can also run one or a few lines of code at a time by having your
-cursor on the line or highlighting multiple lines and hitting `Ctrl` + `Enter`
-(or `Cmd` + `Enter` on a Mac).
-
-Let's work with an example code chunk:
-
-```{r}
-
-```
-
-If you run code in the console (below) rather than the code chunk in a .Rmd
-file, you don't need to add the `{r}` to tell it that you are typing R code. The
-console only understand R code, so we don't need to tell it!
-
-### Group challenge
-
-Insert a new code chunk in this section. In the code chunk, calculate the
-average (mean) circumference of trees in the orange data set. Save the mean as
-an object called "avg_circ."
-
-If you're already finished, try this challenge. Find the average circumference
-of trees aged 484 days.
+# 
