@@ -35,11 +35,12 @@ The short-cut for `<-` is `Alt + -` (or `Option + -` on a Mac)
 
 ```{r}
 
+
 ```
 
 ## 1-Dimensional Data: Vectors
 
-We can also assign more complex group of elements of the same type to a particular object. This is a basic data structure in R.
+We can also assign more complex group of elements of the same type to a particular object. This is called a **vector**, a basic data structure in R.
 
 ```{r}
 
@@ -68,7 +69,7 @@ Vectors have to contain elements that are all of the same class.
 
 ### Sub-setting Vectors
 
-Sometimes we want to pull out and work with specific values from a vector. This is called sub-setting (taking a smaller set of the original)
+Sometimes we want to pull out and work with specific values from a vector. This is called sub-setting (taking a smaller set of the original).
 
 ```{r}
 
@@ -76,9 +77,9 @@ Sometimes we want to pull out and work with specific values from a vector. This 
 
 ## Functions
 
-Functions are pre-written bits of codes that perform specific tasks for us.
+**Functions** are pre-written bits of codes that perform specific tasks for us.
 
-Functions are always followed by parentheses. Anything you type into the parentheses are called arguments.
+Functions are always followed by parentheses. Anything you type into the parentheses are called **arguments**.
 
 ```{r}
 
@@ -90,7 +91,7 @@ To get more information about a function, use the `help()` function or `?name_of
 
 ```
 
-For examples, we can use a function called `class()` to figure out the data type of a vector.
+We can use a function called `class()` to figure out the data type of a vector.
 
 ```{r}
 
@@ -100,10 +101,12 @@ For examples, we can use a function called `class()` to figure out the data type
 
 Let's practice! Write a few lines of code that do the following:
 
--   create a vector with a number from 6 to 1
+-   create a vector with numbers from 6 to 1 (6, 5, 4, 3, 2, 1)
 -   assign the vector to an object named `vec`
 -   subset `vec` to include the last 3 numbers (should include 3, 2, 1)
 -   find the sum of the numbers (hint: use the `sum()` function)
+
+Answer: 6
 
 ```{r}
 
@@ -111,12 +114,18 @@ Let's practice! Write a few lines of code that do the following:
 
 Already finished? See if you can condense your code down any further or turn around and help out a neighbor.
 
+```{r}
+
+```
+
 ## 2-Dimensional Data: Data Frames
 
 Most of the data you will encounter is two-dimensional, i.e., it has columns and rows. Its structure resembles a spreadsheet. R is really good with these types of data.
 
 -   **rows** go side-to-side
 -   **columns** go up-and-down
+
+![](row_column.png)
 
 Data frames are made up of multiple vectors. Each vector becomes a column.
 
@@ -134,9 +143,17 @@ R always takes information for the row first, then the column.
 
 ```
 
-### Discussion point
+Another way to pull out a single column from a data frame is with the `$` operator. This can really come in handy when you know the name of the column but not the position.
 
-Plants is a simple data set, but let's come up with some questions.
+```{r}
+
+```
+
+### Discussion Point
+
+This is a simple data set, but let's come up with some questions.
+
+Example: height of plants treated with nitrogen vs. those not treated.
 
 ```{r}
 
@@ -144,15 +161,15 @@ Plants is a simple data set, but let's come up with some questions.
 
 ### Group Challenge (5 min)
 
-As a group, find the standard deviation (`sd()`)of the height of plants treated with nitrogen and those not treated with nitrogen. Which group has the larger standard deviation?
+Using help files on functions
+
+As a group, find the standard deviation (`sd()`) of the height of plants treated with nitrogen and those not treated with nitrogen. Which group has the larger standard deviation?
 
 ```{r}
 
 ```
 
-Come up with a definition of standard deviation, use the help file to find out how the `sd()` function works, and be prepared to show the code you used.
-
-*Definition*:
+Come up with a definition of standard deviation (Google is your friend!), use the help file to find out how the `sd()` function works, and be prepared to show the code you used.
 
 ## Helpful Functions
 
@@ -167,5 +184,3 @@ Below are some functions that I often find very helpful when working with vector
 ```{r}
 
 ```
-
-# 

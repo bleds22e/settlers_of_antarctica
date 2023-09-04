@@ -48,7 +48,7 @@ mass_sq <- mass^2       # raise to an exponent
 
 ## 1-Dimensional Data: Vectors
 
-We can also assign more complex group of elements of the same type to a particular object. This is a basic data structure in R.
+We can also assign more complex group of elements of the same type to a particular object. This is called a **vector**, a basic data structure in R.
 
 ```{r}
 mass_kg <- c(3, 2, 4, 9, 7, 3, 6)
@@ -76,7 +76,7 @@ mass_kg     # numeric, integer, double
 animals     # character
 
 animal_size <- as.factor(c("small", "medium", "large"))
-animal_size  # factor, put in order [ordinal data]
+animal_size  # factor, put in order 
 
 logic <- c(T, F, F, T)  # logical
 logic
@@ -85,7 +85,7 @@ logic
 Vectors have to contain elements that are all of the same class.
 
 ```{r, eval = FALSE}
-vec <- (1, 1.000, "1", TRUE)
+vec <- c(1, 1.000, "1")
 ```
 
 ### Sub-setting Vectors
@@ -100,9 +100,9 @@ mass_kg[2:4]
 
 ## Functions
 
-Functions are pre-written bits of codes that perform specific tasks for us.
+**Functions** are pre-written bits of codes that perform specific tasks for us.
 
-Functions are always followed by parentheses. Anything you type into the parentheses are called arguments.
+Functions are always followed by parentheses. Anything you type into the parentheses are called **arguments**.
 
 ```{r}
 ## Functions
@@ -122,17 +122,19 @@ help(round) # or type ?help
 We can use a function called `class()` to figure out the data type of a vector.
 
 ```{r}
-
+class(mass_kg)
 ```
 
 ### Group Challenge
 
 Let's practice! Write a few lines of code that do the following:
 
--   create a vector with a number from 6 to 1
+-   create a vector with numbers from 6 to 1 (6, 5, 4, 3, 2, 1)
 -   assign the vector to an object named `vec`
 -   subset `vec` to include the last 3 numbers (should include 3, 2, 1)
 -   find the sum of the numbers (hint: use the `sum()` function)
+
+Answer: 6
 
 ```{r}
 vec <- c(6, 5, 4, 3, 2, 1)
@@ -158,6 +160,8 @@ Most of the data you will encounter is two-dimensional, i.e., it has columns and
 -   **rows** go side-to-side
 -   **columns** go up-and-down
 
+![](row_column.png)
+
 Data frames are made up of multiple vectors. Each vector becomes a column.
 
 ```{r}
@@ -180,10 +184,12 @@ R always takes information for the row first, then the column.
 # plants[3] # doesn't work
 plants[4,1]
 plants[,2]
+```
 
-# We can also choose specific columns using `$`
+Another way to pull out a single column from a data frame is with the `$` operator. This can really come in handy when you know the name of the column but not the position.
+
+```{r}
 plants$height
-
 ```
 
 ### Discussion Point
@@ -204,11 +210,11 @@ mean(plants[plants$nitrogen == "Y", 1])
 
 Using help files on functions
 
-As a group, find the standard deviation `sd()` of the height of plants treated with nitrogen and those not treated with nitrogen. Which group has the larger standard deviation?
+As a group, find the standard deviation (`sd()`) of the height of plants treated with nitrogen and those not treated with nitrogen. Which group has the larger standard deviation?
 
 ```{r}
-sd(plants[plants$nitrogen == "Y", 1])
-sd(plants[plants$nitrogen == "N", 1])
+mean(plants[plants$nitrogen == "Y", 1])
+mean(plants[plants$nitrogen == "N", 1])
 ```
 
 Come up with a definition of standard deviation (Google is your friend!), use the help file to find out how the `sd()` function works, and be prepared to show the code you used.
