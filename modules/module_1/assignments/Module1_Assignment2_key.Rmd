@@ -5,7 +5,7 @@ date: "`r Sys.Date()`"      # <- uses the current date when rendered
 output: pdf_document
 ---
 
-```{r setup, include=FALSE}
+```{r setup, include=FALSE, message=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
@@ -107,7 +107,7 @@ When we have a large data set like this, it is often helpful to summarize the da
 mean(team_data$cold_tolerance)
 ```
 
-7.  What is the minimum and maximum distance that would be traveled by a team member to get to Antarctica? Use `min()` and `max()`.
+7.  What are the minimum and maximum distances that would be traveled by a team member to get to Antarctica? Use the `min()` and `max()` functions.
 
 ```{r min_max_distance}
 # minimum distance
@@ -117,13 +117,19 @@ min(team_data$distance_mi)
 max(team_data$distance_mi)
 ```
 
-8.  Create a data frame that only includes rows of data for people who rated their cooking skills as a 5. (Hint: numbers do not need quotation marks around them).
+8.  Create a data frame that only includes rows of data for people who rated their fishing skills as a 5. (Hint: numbers do not need quotation marks around them).
 
 ```{r cooking_skill}
-team_data[team_data$cooking_skill == 5,]
+team_data[team_data$fishing_skill == 1, ]
 ```
 
-9.  How many different parka colors will we have? This will require two steps (2 points per step).
+9.  Write a line of code that tells us what data class the `good_with_animals` column is.
+
+    ```{r}
+    class(team_data$good_with_animals)
+    ```
+
+10. How many different parka colors will we have? This will require two steps (2 points per step).
 
     a.  First, use the `unique()` function to pull out each distinct value from the `parka_color` column. Save this as an object called `colors`, which is now a vector.
     b.  Use the `length()` function to count how many distinct specialties are in the `colors` vector.
@@ -146,7 +152,7 @@ First, create a vector called `mascot` that has only the values from the `flag_m
 *Answer:*
 
 ```{r flag_mascot}
-# UA data frame
+# data frame
 mascot <- team_data$flag_mascot
 # mascot count
 table(mascot)
