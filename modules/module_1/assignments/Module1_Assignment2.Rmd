@@ -102,33 +102,43 @@ Running the code chunk above produces a message that gives us some useful inform
 
 When we have a large data set like this, it is often helpful to summarize the data in some way. The next few questions will help use get a better understanding of the content of the data set.
 
-6.  On average, how did people rate their cold tolerance?
+6.  On average, how did people rate their ability to be in a remote location?
 
 ```{r average_cold_tolerance}
 
 ```
 
-7.  What is the minimum and maximum distance that would be traveled by a team member to get to Antarctica? Use `min()` and `max()`.
+7.  What are the minimum and maximum distances that would be traveled by a team member to get to Antarctica? Use the `min()` and `max()` functions.
 
 ```{r min_max_distance}
+# minimum distance
+
+
+# maximum distance
 
 ```
 
-8.  Create a data frame that only includes rows of data for people who rated their cooking skills as a 5. (Hint: numbers do not need quotation marks around them).
+8.  Create a data frame that only includes rows of data for people who rated their fishing skills as a 5. (Hint: numbers do not need quotation marks around them).
 
 ```{r cooking_skill}
-team_data[team_data$cooking_skill == 5,]
+
 ```
 
-9.  How many different parka colors will we have? This will require two steps (2 points per step).
+9.  Write a line of code that tells us what data class the `good_with_animals` column is.
 
-    a.  First, use the `unique()` function to pull out each distinct value from the `parka_color` column. Save this as an object called `colors`, which is now a vector.
-    b.  Use the `length()` function to count how many distinct specialties are in the `colors` vector.
+```{r}
+
+```
+
+10. Calculate the average cold tolerance of people who want blue parkas. Use these steps to think through how to answer this question.
+
+    a.  First, think about how to create a data frame with only people who want blue parkas
+
+    b.  Next, think about how you select the column with the cold tolerance data
+
+    c.  Finally, think about how to calculate the average
 
 ```{r parka_colors}
-# 9a
-
-# 9b
 
 ```
 

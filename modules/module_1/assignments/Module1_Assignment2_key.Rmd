@@ -77,8 +77,7 @@ Remember that quiz we took in class with fun/silly questions about our trip to A
 The following code chunk will read in the data. Be sure to run it before try to answer the questions! A bunch of stuff will pop up, but it should work just fine.
 
 ```{r import_data}
-library(tidyverse)
-team_data <- read_csv("../data/team_antarctica_responses.csv") %>% drop_na()
+team_data <- read.csv("../data/team_antarctica_responses.csv")
 ```
 
 Running the code chunk above produces a message that gives us some useful information, even before we look at the data set (alternatively, you can check it out in the environment tab to the right).
@@ -101,10 +100,10 @@ team_data[9, 7]
 
 When we have a large data set like this, it is often helpful to summarize the data in some way. The next few questions will help use get a better understanding of the content of the data set.
 
-6.  On average, how did people rate their cold tolerance?
+6.  On average, how did people rate their ability to be in a remote location?
 
 ```{r average_cold_tolerance}
-mean(team_data$cold_tolerance)
+mean(team_data$remote_location)
 ```
 
 7.  What are the minimum and maximum distances that would be traveled by a team member to get to Antarctica? Use the `min()` and `max()` functions.
@@ -129,18 +128,16 @@ team_data[team_data$fishing_skill == 1, ]
     class(team_data$good_with_animals)
     ```
 
-10. How many different parka colors will we have? This will require two steps (2 points per step).
+10. Calculate the average cold tolerance of people who want blue parkas. Use these steps to think through how to answer this question.
 
-    a.  First, use the `unique()` function to pull out each distinct value from the `parka_color` column. Save this as an object called `colors`, which is now a vector.
-    b.  Use the `length()` function to count how many distinct specialties are in the `colors` vector.
+    a.  First, think about how to create a data frame with only people who want blue parkas
+
+    b.  Next, think about how you select the column with the cold tolerance data
+
+    c.  Finally, think about how to calculate the average
 
 ```{r parka_colors}
-# 9a
-colors <- unique(team_data$parka_color)
-colors
-
-# 9b
-length(colors)
+mean(team_data[team_data$parka_color == "Blue", 4])
 ```
 
 ## Bonus (up to 2 points)!

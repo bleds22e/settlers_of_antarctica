@@ -1,13 +1,13 @@
 ---
 title: 'Module 1, Assignment 2: Answer Key'
 author: "Ellen Bledsoe"
-date: "2023-01-24"
+date: "2023-09-05"
 output: pdf_document
 ---
 
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 ```
 ```{r vector}
 # vector with counts of penguins
@@ -35,8 +35,7 @@ mean(counts)
 
 
 ```{r import_data}
-library(tidyverse)
-team_data <- read_csv("../data/team_antarctica_responses.csv") %>% drop_na()
+team_data <- read.csv("../data/team_antarctica_responses.csv")
 ```
 
 4. 
@@ -49,13 +48,14 @@ head(team_data, 10)
 team_data[9, 7]
 ```
 
+6.  
 
-6. 
-```{r average_cold_tolerance}
-mean(team_data$cold_tolerance)
+```{r average_remote_location}
+mean(team_data$remote_location)
 ```
 
-7. 
+7.  
+
 ```{r min_max_distance}
 # minimum distance
 min(team_data$distance_mi)
@@ -64,21 +64,22 @@ min(team_data$distance_mi)
 max(team_data$distance_mi)
 ```
 
-8.
+8.  
+
 ```{r cooking_skill}
-team_data[team_data$cooking_skill == 5, ]
+team_data[team_data$fishing_skill == 1, ]
 ```
 
+9.  
 
-9. 
+```{r}
+class(team_data$good_with_animals)
+```
+
+10. 
 
 ```{r parka_colors}
-# 9a
-colors <- unique(team_data$parka_color)
-colors
-
-#9b
-length(colors)
+mean(team_data[team_data$parka_color == "Blue", 4])
 ```
 
 Bonus
