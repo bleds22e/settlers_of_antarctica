@@ -213,8 +213,8 @@ Using help files on functions
 As a group, find the standard deviation (`sd()`) of the height of plants treated with nitrogen and those not treated with nitrogen. Which group has the larger standard deviation?
 
 ```{r}
-mean(plants[plants$nitrogen == "Y", 1])
-mean(plants[plants$nitrogen == "N", 1])
+sd(plants[plants$nitrogen == "Y", 1])
+sd(plants[plants$nitrogen == "N", 1])
 ```
 
 Come up with a definition of standard deviation (Google is your friend!), use the help file to find out how the `sd()` function works, and be prepared to show the code you used.
