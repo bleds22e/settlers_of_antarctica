@@ -14,8 +14,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Learning Outcomes
 
--   Students will be able to load packages, use help files, and navigate file paths.
--   Students will be able to use some functions of the tidyverse: select, filter, mutate, summarize and the pipe.
+-   Students will be able to load packages.
+-   Students will be able to use some functions of the tidyverse: select, filter, the pipe, mutate, summarize, and group by.
 -   Students will compare and contrast base R and tidyverse methodology for sub-setting data frames.
 -   Students will able to use tidyverse functions to summarize real-world data.
 
@@ -84,9 +84,9 @@ To learn about the `tidyverse` syntax, we're going to use a real data set on cli
 
 The `tidyverse` converts 2D data into something called a tibble! For our intents and purposes, it is basically the same as a data frame (and I'll probably call it a data frame, in reality).
 
-This data set clearly has a lot of data! The `tidyverse` offers a great function called `glimpse()` that lets us take a quick look at the dataset.
+This data set clearly has a lot of data! Let's take a look at our tibble (AKA data frame).
 
-```{r glimpse_data}
+```{r}
 
 ```
 
@@ -110,11 +110,13 @@ You might have noticed that we haven't put any column names in quotations, unlik
 
 ### Let's practice!
 
-Write a line of code to select the following columns from the `climate_df`: AverageTemperature, Latitude, Longitude
+Write a line of code to select the following data from the `climate_df`: average temperature, latitude and longitude
 
 ```{r}
 
 ```
+
+It is important to remember that the computer interprets everything literally. We need to tell the function the **exact** names of the columns. R will interpret `latitude` and `Latitude` as different things; it doesn't know that they are probably the same!
 
 ## `filter()`ing rows
 
@@ -151,6 +153,9 @@ This is helpful for a lot of reasons, including:
 1.  removing the clutter of creating a lot of intermediate objects in your work space, which reduces the chance of errors caused by using the wrong input object
 2.  makes things more human-readable (in addition to computer-readable)
 
+The shortcut for typing a pipe is `Ctrl` + `Shift` + `M` (or `Cmd` + `Shift` + `M` on a Mac)
+
+
 ```{r pipes}
 
 ```
@@ -178,11 +183,15 @@ To help us out, here is the equation for converting: `Fahrenheit = Celcius * (9/
 
 ```
 
+The first part of the argument in the mutate function (before the `=`) is the name of the new column we want to create (or, sometime, the name of a column we want to overwrite). After the `=` is what we want the new column to contain.
+
 ## Understanding data through `summarize()`
 
 Like we have talked about in previous classes, some of the best ways for us to understand our data is through what we call summary statistics such as the mean, standard deviation, minimums, maximums, etc.
 
 Fortunately, the `tidyverse` has a handy-dandy function to make this easy to do with data frames.
+
+The `summarize()` function creates a new dataframe with columns and values we give it. Similar to `mutate()`, what is on the left of the `=` is the name of the new column, and what is on the right of the `=` is the value(s) to put in the new column.
 
 ```{r summarize}
 
@@ -196,6 +205,8 @@ It is important to note that if any of the values in the column that you are try
 
 ```
 
+Pay attention to where the `na.rm = TRUE` argument is placed. We are putting it inside the parentheses for the `mean()` and `sd()` function, not as an argument in the `summarize()` function.
+
 ## Split, Apply, Combine with `group_by()`
 
 One common way we analyze data is through something we call the "split, apply, combine" approach. This means that we:
@@ -206,7 +217,7 @@ One common way we analyze data is through something we call the "split, apply, c
 
 The `group_by()` function lets us do this. It is most often used in combination with `mutate()` or `summarize()`.
 
-For example, we can use this method to calculate the mean temperatures of each country instead of the overall mean of the entire dataset
+For example, we can use this method to calculate the mean temperatures of **each** country instead of the overall mean of the entire dataset. In order to do these, we create groups in the data based on the country.
 
 ```{r group_by}
 
@@ -220,7 +231,7 @@ Practice using the combination of `group_by()` and `summarize()` to calculate th
 
 ```
 
-Already accomplished this task? Try to figure out how you can keep the "Country" column in the final data frame. This is trickier than you might think!
+Already accomplished this task? Try to figure out how you can keep the "Country" column in the final data frame. This might be trickier than you think!
 
 ```{r group_by_city_country}
 
