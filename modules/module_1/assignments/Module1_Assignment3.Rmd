@@ -17,7 +17,7 @@ The goal of this assignment is to get comfortable using the `tidyverse` with 2-d
 
 ### Task
 
-Write R code to successfully answer each question below.
+Write R code using the `tidyverse` to successfully answer each question below.
 
 ### Criteria for Success
 
@@ -30,7 +30,7 @@ Write R code to successfully answer each question below.
 
 ### Due Date
 
-February 7 at midnight MST
+Sept. 19 at 4pm MST
 
 # Assignment Questions
 
@@ -57,19 +57,21 @@ For this final assignment for Module 1, you'll be working with another real-worl
     rows:\
     columns:
 
-5.  Create a data frame that includes temperatures which are above freezing (AKA greater than 0)
+5.  Create a new data frame that only includes temperatures which are above freezing (AKA greater than 0)
 
 ```{r above0}
 
 ```
 
-6.  Create a new data frame that includes *only* the following columns: year, day, month, temp, station_id. Save this new data frame as an object called `temp`.
+6.  Create a new data frame that includes *only* the following columns: year, day, month, temp, station_id. Save this new data frame as an object called `station_temp`.
 
 ```{r temp_df}
 
 ```
 
-7.  Using the data frame you created in Q6 above (`temp`), add a new column to that data frame that converts the temperature column (currently in Celsius) to Fahrenheit. Call the new column `tempF`. (Hint: we did this in class---use that same equation!)
+7.  Using the data frame you created in Q6 above (`temp`), add a new column to that data frame that converts the temperature column (currently in Celsius) to Fahrenheit. Call the new column `tempF`. 
+
+    _Hint: we did this in class---use that same equation!_
 
 ```{r tempF}
 
@@ -79,15 +81,15 @@ For this final assignment for Module 1, you'll be working with another real-worl
 
     *Answer:*
 
-9.  Starting with the `temp` data frame, find the minimum (`min()`) temperature recorded for each month (in Celsius, the original column).
+9.  Using the *original* data frame (`weather`), find the minimum (`min()`) temperature recorded for each month (in Celsius, the original column).
 
-    Hint: think about months first (split) and then temperature (apply). You will also want to remove all the NA values.
+    _Hint: think about months first (split) and then temperature (apply). You will also want to remove all the NA values._
 
 ```{r}
 
 ```
 
-10. Create a data frame with the mean temperature for the month of January for each station.
+10. Again, using the *original* data frame, create a data frame with the mean temperature for the month of January for each station.
 
     Some hints:
 
@@ -108,7 +110,6 @@ Write code to determine how many unique stations are in the `weather` data set. 
 ```{r unique_stations}
 
 ```
-
 
 # Turning in Your Assignment
 

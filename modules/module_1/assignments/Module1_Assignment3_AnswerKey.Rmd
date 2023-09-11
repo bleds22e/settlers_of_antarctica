@@ -20,21 +20,21 @@ filter(weather, temp > 0)
 6.  
 
 ```{r temp_df}
-temp <- select(weather, hour:month, temp, station_id)
-temp
+station_temp <- select(weather, year:month, temp, station_id)
+station_temp
 ```
 
 7.  
 
 ```{r tempF}
-temp %>% 
+station_temp %>% 
   mutate(tempF = temp*(9/5) + 32)
 ```
 
 9.  
 
 ```{r}
-temp %>% 
+weather %>% 
   group_by(month) %>% 
   summarise(min_temp = min(temp, na.rm = TRUE))
 ```
