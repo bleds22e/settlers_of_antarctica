@@ -18,9 +18,13 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Introduction to the problem
 
+![](aquaponics-system.png)
+
 We have a wave of people getting sick across the team. People are coming in complaining of stomach sickness. Doctors have ruled out a communicable viral infection like norovirus, so it seems likely to be a food contamination issue.
 
-The two main sources of food that are grown on site and distributed to team members are [plants grown in hydroponic greenhouses](https://thespoon.tech/scientists-in-antarctica-grow-food-without-soil-or-sunlight-get-ready-mars/) (mostly Swiss chard, cucumbers and radishes) and fish (tilapia, a tolerant warm-water species, and rainbow trout, a cold-water species). The combination of aquaculture and hydroponics is called [**aquaponics**](https://docs.google.com/presentation/d/1CciKgqhu9WhS3x-YaTgEF15B0TefFhqevufThvmEfSk/edit#slide=id.p) Team members' diets vary in composition; people are allowed to choose how much of different food sources they eat.
+The two main sources of food that are grown on site and distributed to team members are [plants grown in hydroponic greenhouses](https://thespoon.tech/scientists-in-antarctica-grow-food-without-soil-or-sunlight-get-ready-mars/) (mostly Swiss chard, cucumbers and radishes) and fish (tilapia, a tolerant warm-water species, and rainbow trout, a cold-water species). The combination of aquaculture and hydroponics is called [**aquaponics**](https://docs.google.com/presentation/d/1CciKgqhu9WhS3x-YaTgEF15B0TefFhqevufThvmEfSk/edit#slide=id.p).
+
+Team members' diets vary in composition; people are allowed to choose how much of different food sources they eat.
 
 Fortunately, we have some data we can use to investigate! We have data on the following:
 
