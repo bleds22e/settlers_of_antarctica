@@ -1,0 +1,25 @@
+---
+title: "Module2_1_Challenge"
+format: pdf
+editor: visual
+---
+
+## Bonus Content
+
+Looking for a bit more of a challenge? We won't be covering any of the "Bonus Content" in class, but this can be a way to expand your knowledge if you are interested. Answer keys will be posted at the end of the module.
+
+First, figure out how to add your own code chunks into this document. Then, start exploring [this website](http://www.sthda.com/english/wiki/r-plot-pch-symbols-the-different-point-shapes-available-in-r) for some additional information on how to customize histograms and scatter plots in base R.
+
+See if you can recreate the following plots:
+
+### Plot 1: Histogram
+
+Check about the function `abline()` to add in the line representing the mean value. As a note, you will need to run the entire code chunk to successfully create this plot (it doesn't play nicely with in-line outputs).
+
+![](challenge_hist.png)
+
+### Plot 2: Scatter Plot
+
+I don't condone this way of plotting as good data visualization, but it is fun to create.
+
+![](challenge_plot.png)
