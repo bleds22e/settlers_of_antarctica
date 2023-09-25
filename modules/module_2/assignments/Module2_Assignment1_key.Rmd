@@ -1,7 +1,7 @@
 ---
 title: "Module 2, Assignment 1"
 author: "Ellen Bledsoe"
-date: "2023-02-20"
+date: "2023-09-24"
 output:
   pdf_document: default
 ---
@@ -14,16 +14,15 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ### Purpose
 
-The goal of this assignment is to assess your ability to produce and interpret histograms and scatter plots.
+The goal of this assignment is to assess your ability to produce and interpret scatter plots in both base R and `ggplot2`.
 
 ### Task
 
-Write R code which produces the correct answers and correctly interpret the plots produced.
+Write R code which produces the correct answers and text to correctly interpret the plots produced.
 
 ### Criteria for Success
 
 -   Code is within the provided code chunks
--   Code is commented with brief descriptions of what the code does
 -   Code chunks run without errors
 -   Code produces the correct result
     -   Code that produces the correct answer will receive full credit
@@ -32,78 +31,96 @@ Write R code which produces the correct answers and correctly interpret the plot
 
 ### Due Date
 
-October 11 at midnight MST
+Oct 3 at 4pm MST
 
 # Assignment Questions
 
-For this assignment, we are going to be making plots! We are going to use a data set called `penguins` from the `palmerpenguins` package.
+For this assignment, we are going to be making plots! We are going to use a data set containing data from a sample of our fish tanks. The data contains information about the tanks sampled and how many sick fish are contained in each tank.
 
-1.  Load both the `palmerpenguins` package and the `tidyverse` package into the work space. (2 points)
+First, let's prepare our data.
+
+1.  Load the `tidyverse` package into the work space.
 
     ```{r}
-    library(palmerpenguins)
     library(tidyverse)
     ```
 
-------------------------------------------------------------------------
-
-#### OPTIONAL
-
-When we use data from a data package, it doesn't automatically show up in our environment. Run this code chunk so it does show up in the environment.
-
-```{r}
-penguins <- penguins
-```
-
-------------------------------------------------------------------------
-
-2.  Use the `head()` function to take a look at the `penguins` data frame. (1 points)
+2.  Read in the data using the `read_csv()` function. Name the data frame `sick_fish`.
 
     ```{r}
-    head(penguins)
+    sick_fish <- read_csv("../data/fish_sick_data.csv")
     ```
 
-3.  Make a histogram of the body mass column. You can use either base R or `ggplot2`. (2 points)
+3.  Use the `head()` function to take a look at the columns in the data frame.
 
     ```{r}
-    # if you use ggplot2, you will get some warnings, but it should still make a plot
-    ggplot(penguins, aes(body_mass_g)) +
-      geom_histogram()
+    head(sick_fish)
     ```
 
-4.  In 2-3 sentences, describe what the histogram is telling you. I'm not necessarily looking for technical answers, but I want you to practice interpreting what histograms are telling you. (Examples: Are there even numbers of each body mass or different? Where is the peak? Are there lots of heavy penguins or not?) (3 points)
+4.  How many rows does the data frame have? How many columns?
 
-    *Answer:*
+    *Answer:* 50 rows, 7 columns
 
-5.  Now that we have plotted the data in the histogram, let's calculate some descriptive statistics for penguin body masses. Calculate the mean and the standard deviation. (2 points)
+5.  Take a look at the data frame.
 
-    Hint: remember to use `na.rm = T` in the mean and standard deviation functions!
+    -   What does one row (observation) represent (e.g., an individual fish?, all fish of a certain species? all tanks of a certain species? etc.)? (1 point)
+
+    *Answer:* one row represents one fish tank that was sampled
+
+    -   Based on the column names, briefly (just a few words) describe what data is included in each column. (2 points)
+
+    *Answer:* tank_id = identifier for individual tanks; species = fish species in the tank; avg_daily_temperature = average water temp in the tank; num_fish = total number of fish in the tank; day_length = amount of daylight provided for tanks; tank_volume = water volume in the tank; num_sick = number of sick fish per tank
+
+6.  Take a look at the columns that have the total number of fish in the tank and the number of sick fish per tank. Determine whether these two columns are continuous or categorical.
+
+    *Answer:* both num_fish and num_sick are continuous
+
+7.  Using base R, create a scatter plot. Put the total number of fish on the x-axis and the number of sick fish on the y-axis.
 
     ```{r}
-    penguins %>% summarize(mean_body_mass = mean(body_mass_g, na.rm = TRUE),
-                           sd_body_mass = sd(body_mass_g, na.rm = TRUE))
+    plot(sick_fish$num_fish, sick_fish$num_sick)
     ```
 
-6.  Now, let's make a scatter plot with flipper length on the x-axis (horizontal) and bill length on the y-axis (vertical). Again, you can use either base R or `ggplot2`. (2 points)
+8.  Interpret the scatter plot. What is the plot telling you? Is there a positive or negative relationship between the two variables. What does that mean? (2 points)
+
+    *Answer:* negative relationship, meaning that the more fish that are in the tank, the fewer sick fish there are (which is counter-intuitive).
+
+Now, let's use what we've learned about `ggplot2` to recreate the same scatter plot. We will do this in 2 steps. In the first step, we will add the data, axes, and geom. In the second step, we will modify the plot to increase interpretability by renaming axes and adding a theme.
+
+9.  Create the scatter plot using the proper `geom` function.
 
     ```{r}
-    # if you use ggplot2, you will get some warnings, but it should still make a plot
-    ggplot(penguins, aes(flipper_length_mm, bill_length_mm)) +
+    ggplot(sick_fish, aes(num_fish, num_sick)) +
       geom_point()
     ```
 
-7.  Write 1-2 sentences interpreting this plot. (Examples: Is there a positive relationship or a negative relationship? As flipper length increases, does bill length tend to increase, decrease, or stay the same? Is a penguin with a long flipper likely to have a long bill, too?) (3 points)
-
-    *Answer:*
-
-8.  Calculate descriptive statistics (mean and standard deviation) for both variables (flipper length and bill length). (2 points)
+10. Now, add to the plot that we created above to make it clearer to understand. Add better axes labels and choose a theme. (2 point)
 
     ```{r}
-    penguins %>% 
-      summarise(mean_flipper_length = mean(flipper_length_mm, na.rm = TRUE),
-            sd_flipper_length = sd(flipper_length_mm, na.rm = TRUE),
-            mean_bill_length = mean(bill_length_mm, na.rm = TRUE),
-            sd_bill_length = sd(bill_length_mm, na.rm = TRUE))
+    ggplot(sick_fish, aes(num_fish, num_sick)) +
+      geom_point() + 
+      labs(x = "Total Number of Fish per Tank",
+           y = "Number of Sick Fish per Tank") +
+      theme_bw()
     ```
 
-9.  Write 3-4 sentences explaining the importance of data visualization and also explain brainstorming what we might be missing. What have you gathered from the plots that you don't know from the summary statistics and vice-versa? What additional data would we maybe want to add to the plots to get a better understanding of our data? (3 points)
+Looking at the scatter plots, there seem to be two distinct groups. Let's investigate this a bit further.
+
+11. For *each* fish species, calculate the average and the standard deviation for the number of sick fish. (2 points)
+
+    *Hint: think back to Module 1 and which function we can use to "split, apply, combine"*
+
+    ```{r}
+    sick_fish %>% 
+      group_by(species) %>% 
+      summarise(mean_sick = mean(num_sick),
+            sd_sick = sd(num_sick))
+    ```
+
+12. Based on the summary data you've calculated above, do you think the two clumps of data correspond to the two species? Which species seems to be the one that is causing the most problems? (2 points)
+
+    *Answer:* seems like trout are driving the issues; seems reasonable that clumps could belong to species
+
+13. Do some brainstorming. Based on the plots we've made and the calculations we've done so far, are we *sure* that the two clumps of data we see in the data visualization do, in fact, correlate to the two different species? How could we confirm? How might we include that information in the plot? (2 points)
+
+    *Answer:* many answer options here. could take average of total num fish to see if that corresponds to what is on the plot; could change some characteristic of the plot (point shape, color, size) to represent fish species; could add labels (would get busy)

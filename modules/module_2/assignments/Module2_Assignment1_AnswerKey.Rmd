@@ -1,56 +1,63 @@
 ---
 title: "Module 2, Assignment 1"
-subtitle: "Answer Key"
 author: "Ellen Bledsoe"
+date: "2023-09-24"
 output:
   pdf_document: default
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, fig_crop = FALSE)
+```{r setup, include=FALSE, warning = FALSE}
+knitr::opts_chunk$set(echo = FALSE)
 ```
 
 
-```{r message = FALSE}
-library(palmerpenguins)
+```{r, message = FALSE}
 library(tidyverse)
 ```
 
-2. 
+2.  
+    ```{r}
+    sick_fish <- read_csv("../data/fish_sick_data.csv")
+    ```
 
-```{r}
-head(penguins)
-```
+3.  
 
-3.
-```{r, fig.height = 4, fig.width = 5}
-# I used ggplot2 to make the answer key.
-# If you used base R, that's fine! The plots will just look a little bit different but should be showing the same data
-ggplot(penguins, aes(body_mass_g)) +
-  geom_histogram()
-```
+    ```{r}
+    head(sick_fish)
+    ```
 
-5. 
-```{r}
-penguins %>% summarize(mean_body_mass = mean(body_mass_g, na.rm = TRUE),
-                       sd_body_mass = sd(body_mass_g, na.rm = TRUE))
-```
+7.  
+    ```{r}
+    plot(sick_fish$num_fish, sick_fish$num_sick)
+    ```
 
 
-6.  
+9.  
 
-```{r, fig.height = 4, fig.width = 5}
-ggplot(penguins, aes(flipper_length_mm, bill_length_mm)) +
-  geom_point()
-```
+    ```{r}
+    ggplot(sick_fish, aes(num_fish, num_sick)) +
+      geom_point()
+    ```
+
+10. 
+
+    ```{r}
+    ggplot(sick_fish, aes(num_fish, num_sick)) +
+      geom_point() + 
+      labs(x = "Total Number of Fish per Tank",
+           y = "Number of Sick Fish per Tank") +
+      theme_bw()
+    ```
 
 
-8.  
 
-```{r}
-penguins %>% 
-  summarise(mean_flipper_length = mean(flipper_length_mm, na.rm = TRUE),
-        sd_flipper_length = sd(flipper_length_mm, na.rm = TRUE),
-        mean_bill_length = mean(bill_length_mm, na.rm = TRUE),
-        sd_bill_length = sd(bill_length_mm, na.rm = TRUE))
-```
+11. 
+
+    ```{r}
+    sick_fish %>% 
+      group_by(species) %>% 
+      summarise(mean_sick = mean(num_sick),
+            sd_sick = sd(num_sick))
+    ```
+
+
