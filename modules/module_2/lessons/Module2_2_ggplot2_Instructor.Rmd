@@ -67,8 +67,10 @@ Here are some resources you might find helpful now or in the future:
 The `gg` in `ggplot2` stands for "Grammar of Graphics." The "grammar"
 part is based on an idea that all statistical plots have the same
 fundamental features: data and mapping (and specific components of
-mapping. The design is that you work iteratively, building up layer upon
-layer until you have your final plot.
+mapping).
+
+The design is that you work iteratively, building up layer upon layer
+until you have your final plot.
 
 The typical structure looks like this:
 
@@ -87,7 +89,7 @@ A few things to note:
 -   we specify the type of plot, or `geom` using one of many possible
     geom functions
 -   we use the `labs()` function to clean up the labels
--   we add a `theme` function to make it look extra pretty
+-   we add a `theme` function to make it more visually readable
 
 Let's iteratively build up to the plot we have made above:
 

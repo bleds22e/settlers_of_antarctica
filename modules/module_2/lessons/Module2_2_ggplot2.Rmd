@@ -41,7 +41,11 @@ fish in diets and how many trips to the doctor.
 
 ```{r}
 # example ggplot
-
+ggplot(sick, aes(x = perc_fish, y = doctor_trips)) +
+  geom_point() +
+  labs(x = "Percent Fish in Diet",
+       y = "Number of Trips to the Doctor") +
+  theme_light()
 ```
 
 Nice, right? In the next few classes, we will really start to see the
