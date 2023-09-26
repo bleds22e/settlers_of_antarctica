@@ -1,0 +1,101 @@
+---
+title: "Module2_Assignment1_ChatGPT"
+author: "Ellen Bledsoe"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Let's work through these assignment questions step by step:
+
+1.  Load the `tidyverse` package into the workspace.
+
+``` r
+library(tidyverse)
+```
+
+2.  Read in the data using the `read_csv()` function. Name the data frame `sick_fish`.
+
+``` r
+sick_fish <- read_csv("your_data_file.csv")  # Replace "your_data_file.csv" with the actual file path.
+```
+
+3.  Use the `head()` function to take a look at the columns in the data frame.
+
+``` r
+head(sick_fish)
+```
+
+4.  How many rows does the data frame have? How many columns?
+
+Answer: To find the number of rows and columns, you can use the `dim()` function:
+
+``` r
+dim(sick_fish)
+```
+
+5.  Take a look at the data frame.
+
+    -   What does one row (observation) represent? (e.g., an individual fish?, all fish of a certain species? all tanks of a certain species? etc.)
+
+Answer: One row (observation) likely represents information about a single fish tank.
+
+-   Based on the column names, briefly describe what data is included in each column.
+
+Answer: Please provide a description of the columns based on your data.
+
+6.  Take a look at the columns that have the total number of fish in the tank and the number of sick fish per tank. Determine whether these two columns are continuous or categorical.
+
+Answer: The columns for total number of fish and number of sick fish per tank are likely continuous since they represent quantities.
+
+7.  Using base R, create a scatter plot. Put the total number of fish on the x-axis and the number of sick fish on the y-axis.
+
+``` r
+plot(sick_fish$total_number_of_fish, sick_fish$number_of_sick_fish, 
+     xlab = "Total Number of Fish", ylab = "Number of Sick Fish", 
+     main = "Scatter Plot of Total vs. Sick Fish")
+```
+
+8.  Interpret the scatter plot. What is the plot telling you? Is there a positive or negative relationship between the two variables? What does that mean?
+
+Answer: Interpret the scatter plot based on the data you observe. Determine if there is a positive or negative relationship between the total number of fish and the number of sick fish.
+
+9.  Create the scatter plot using the proper `geom` function.
+
+``` r
+ggplot(data = sick_fish, aes(x = total_number_of_fish, y = number_of_sick_fish)) +
+  geom_point() +
+  labs(x = "Total Number of Fish", y = "Number of Sick Fish", 
+       title = "Scatter Plot of Total vs. Sick Fish") +
+  theme_minimal()
+```
+
+10. Add to the plot that we created above to make it clearer to understand. Add better axes labels and choose a theme.
+
+``` r
+ggplot(data = sick_fish, aes(x = total_number_of_fish, y = number_of_sick_fish)) +
+  geom_point() +
+  labs(x = "Total Fish in Tank", y = "Sick Fish in Tank", 
+       title = "Relationship between Total Fish and Sick Fish") +
+  theme_bw()
+```
+
+11. For each fish species, calculate the average and the standard deviation for the number of sick fish.
+
+``` r
+sick_fish_summary <- sick_fish %>%
+  group_by(fish_species) %>%
+  summarize(avg_sick_fish = mean(number_of_sick_fish), 
+            sd_sick_fish = sd(number_of_sick_fish))
+```
+
+12. Based on the summary data you've calculated above, do you think the two clumps of data correspond to the two species? Which species seems to be the one that is causing the most problems?
+
+Answer: Examine the summary data to determine if the two clumps of data correspond to different species and which species has the most sick fish.
+
+13. Do some brainstorming. Based on the plots we've made and the calculations we've done so far, are we sure that the two clumps of data we see in the data visualization do, in fact, correlate to the two different species? How could we confirm? How might we include that information in the plot?
+
+Answer: Consider how you could further confirm the relationship between the two clumps of data and the two species. Think about incorporating color or other visual cues in the plot to represent the species.
