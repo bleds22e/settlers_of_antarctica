@@ -41,7 +41,7 @@ First, let's prepare our data.
 
 1.  Load the `tidyverse` package into the work space.
 
-    ```{r}
+    ```{r, message = FALSE}
     library(tidyverse)
     ```
 

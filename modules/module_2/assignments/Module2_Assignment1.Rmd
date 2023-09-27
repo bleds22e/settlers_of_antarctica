@@ -27,6 +27,7 @@ Write R code which produces the correct answers and text to correctly interpret 
 -   Code produces the correct result
     -   Code that produces the correct answer will receive full credit
     -   Code attempts with logical direction will receive partial credit
+    Code used is based on what we have learned in this course
 -   Written answers address the questions in sufficient detail
 
 ### Due Date
@@ -41,7 +42,7 @@ First, let's prepare our data.
 
 1.  Load the `tidyverse` package into the work space.
 
-    ```{r}
+    ```{r, message = FALSE}
 
     ```
 
@@ -85,9 +86,6 @@ First, let's prepare our data.
 
     *Answer:*
 
-```{=html}
-<!-- -->
-```
 9.  Create the scatter plot using the proper `geom` function.
 
     ```{r}

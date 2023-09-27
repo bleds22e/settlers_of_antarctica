@@ -16,48 +16,48 @@ library(tidyverse)
 ```
 
 2.  
-    ```{r}
-    sick_fish <- read_csv("../data/fish_sick_data.csv")
-    ```
+```{r}
+sick_fish <- read_csv("../data/fish_sick_data.csv")
+```
 
 3.  
 
-    ```{r}
-    head(sick_fish)
-    ```
+```{r}
+head(sick_fish)
+```
 
 7.  
-    ```{r}
-    plot(sick_fish$num_fish, sick_fish$num_sick)
-    ```
+```{r}
+plot(sick_fish$num_fish, sick_fish$num_sick)
+```
 
 
 9.  
 
-    ```{r}
-    ggplot(sick_fish, aes(num_fish, num_sick)) +
-      geom_point()
-    ```
+```{r}
+ggplot(sick_fish, aes(num_fish, num_sick)) +
+  geom_point()
+```
 
 10. 
 
-    ```{r}
-    ggplot(sick_fish, aes(num_fish, num_sick)) +
-      geom_point() + 
-      labs(x = "Total Number of Fish per Tank",
-           y = "Number of Sick Fish per Tank") +
-      theme_bw()
-    ```
+```{r}
+ggplot(sick_fish, aes(num_fish, num_sick)) +
+  geom_point() + 
+  labs(x = "Total Number of Fish per Tank",
+       y = "Number of Sick Fish per Tank") +
+  theme_bw()
+```
 
 
 
 11. 
 
-    ```{r}
-    sick_fish %>% 
-      group_by(species) %>% 
-      summarise(mean_sick = mean(num_sick),
-            sd_sick = sd(num_sick))
-    ```
+```{r}
+sick_fish %>% 
+  group_by(species) %>% 
+  summarise(mean_sick = mean(num_sick),
+        sd_sick = sd(num_sick))
+```
 
 
