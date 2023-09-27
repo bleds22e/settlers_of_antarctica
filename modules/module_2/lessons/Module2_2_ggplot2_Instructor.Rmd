@@ -29,7 +29,7 @@ First, we need to load in both the `tidyverse` package and our data. We
 can remind oursevles what the data look like using the `head()`
 function.
 
-```{r}
+```{r, message = FALSE}
 # load package
 library(tidyverse)
 
