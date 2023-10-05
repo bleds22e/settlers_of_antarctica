@@ -23,7 +23,6 @@ Write R code which produces the correct plot style.
 ### Criteria for Success
 
 -   Code is within the provided code chunks
--   Code is commented with brief descriptions of what the code does
 -   Code chunks run without errors
 -   Code produces the correct result
     -   Code that produces the correct answer will receive full credit
@@ -84,9 +83,7 @@ penguins <- penguins
 
 (c) Because I'm having you choose your own variables, the examples in the ***provided Answer Key likely will not match yours*** (though they might). You should strive to produce a plot that looks *similar in style* to those in the Answer Key, but the number of categories and the actual data points will likely be different.
 
-(d) You *cannot* use the same plots that you produced in Module 2 Assignment 1. You can use them for inspiration, but don't use the exact same variables.
-
-(e) Each plot is worth 3 points. Your interpretation is worth 1 point.
+(d) Each plot is worth 3 points. Your interpretation is worth 1 point.
 
 ------------------------------------------------------------------------
 

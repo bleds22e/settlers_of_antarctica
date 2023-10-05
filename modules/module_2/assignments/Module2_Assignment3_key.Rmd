@@ -40,7 +40,7 @@ For this assignment, we are going to be making even *more* plots using `ggplot2`
 
 1.  Load both the `palmerpenguins` package and the `tidyverse` package into the work space. (2 points)
 
-    ```{r}
+    ```{r message = FALSE}
     library(palmerpenguins)
     library(tidyverse)
     ```
@@ -85,9 +85,7 @@ penguins <- penguins
 
 (c) Because I'm having you choose your own variables, the examples in the provided Answer Key likely will not match yours (though they might). You should strive to produce a plot that looks *similar in style* to those in the Answer Key, but the number of categories and the actual data points will likely be different.
 
-(d) You *cannot* use the same plots that you produced in Module 2 Assignment 1. You can use them for inspiration, but don't use the exact same variables.
-
-(e) Each plot is worth 3 points. Your interpretation is worth 1 point.
+(d) Each plot is worth 3 points. Your interpretation is worth 1 point.
 
 ------------------------------------------------------------------------
 
@@ -135,7 +133,7 @@ ggplot(penguins, aes(species, flipper_length_mm, color = species)) +
 
 *Answer: Dependent on their plot.*
 
-6.  Create a scatter plot. Change the color of the points to create a "grouped" scatter plot. Write 1-2 sentences describing what information you can gather from plot. (4 points)
+6.  Create a scatter plot. Change the color of the points to create a multiple scatter plot. Write 1-2 sentences describing what information you can gather from plot. (4 points)
 
 ```{r warning=FALSE}
 ggplot(penguins, aes(bill_length_mm, bill_depth_mm, color = island)) +

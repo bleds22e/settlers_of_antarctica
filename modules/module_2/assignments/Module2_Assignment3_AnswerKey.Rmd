@@ -35,7 +35,7 @@ ggplot(penguins, aes(body_mass_g, color = island, fill = island)) +
   geom_density(alpha = 0.5) +
   labs(x = "Descriptive Axis Label",
        y = "Descriptive Axis Label",
-       color = "Legend Label",
+       color = "Capitalized Label",
        fill = "Capitalized Label") +
   scale_fill_discrete(labels = c("[redacted]", "[redacted]", "[redacted]")) +
   scale_color_discrete(labels = c("[redacted]", "[redacted]", "[redacted]")) +
@@ -45,14 +45,12 @@ ggplot(penguins, aes(body_mass_g, color = island, fill = island)) +
 5.  
 
 ```{r warning=FALSE, message=FALSE, fig.width=6, fig.height=4}
-ggplot(penguins, aes(species, flipper_length_mm, color = species)) +
+ggplot(penguins, aes(species, flipper_length_mm)) +
   geom_boxplot() +
   geom_jitter(alpha = 0.5, width = 0.1) +
   labs(x = "Descriptive Axis Label",
-       y = "Descriptive Axis Label",
-       color = "Capitalized Label") +
+       y = "Descriptive Axis Label") +
   scale_x_discrete(labels = c("[redacted]", "[redacted]", "[redacted]")) +
-  scale_color_discrete(labels = c("[redacted]", "[redacted]", "[redacted]")) +
   theme_classic()
 ```
 
