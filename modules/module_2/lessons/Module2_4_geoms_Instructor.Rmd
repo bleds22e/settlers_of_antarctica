@@ -27,13 +27,17 @@ If you've finished, click on your plot type and read more about it. Check out th
 -   which `geom` function is being used to create the plot
 -   you'll see a number of other things in the `ggplot` code, some which will be new. What are they? Any idea what they are doing?
 
+TODO: add more practice for students
+
+TODO: add more content about color and fill arguments (in plots and in legends)
+
 ## Using `geom` Functions to Make Plots
 
 Let's practice making different kinds of plots with various `geom` functions to see how they work.
 
 ```{r}
 library(tidyverse)
-tanks <- read_csv("../data/fish_tank_data.csv")
+fish <- read_csv("../data/fish_sick_data.csv")
 ```
 
 ### Histograms
@@ -41,7 +45,7 @@ tanks <- read_csv("../data/fish_tank_data.csv")
 As we learned last modules, histograms are plots which let us look at *one continuous variable* and get a feel for the distribution of that data. To make histograms in `ggplot2`, we use the `geom_histogram()` function. Let's look at signal distance.
 
 ```{r}
-ggplot(tanks, aes(num_fish)) +
+ggplot(fish, aes(num_sick)) +
   geom_histogram(bins = 20)
 
 # we can change the number of bins (essentially, the number of columns) by modifying the bins argument in the geom_histogram function
@@ -52,27 +56,47 @@ ggplot(tanks, aes(num_fish)) +
 Density plots are similar to histograms in that they show the distribution of a *continuous variable* but they are smoothed and continuous version estimated from the data. For this class, you can think of them as being basically the same thing (and use them interchangeably).
 
 ```{r}
-ggplot(tanks, aes(num_fish)) +
+ggplot(fish, aes(num_sick)) +
   geom_density()
 ```
 
 ### Multiple Density Plots (or Histograms)
 
-What if we wanted to create a density plot for signal distance for each collar manufacturer? In base R, we would need to filter or make a new dataframe. With `ggplot2`, we can specify that we want the `fill` (or the `color`) to be determined by the maker column.
+What if we wanted to create a density plot for signal distance for each fish species? In base R, we would need to filter or make a new dataframe. With `ggplot2`, we can specify that we want the `fill` (or the `color`) to be determined by the maker column.
 
 ```{r}
-ggplot(tanks, aes(num_fish, fill = species)) +
+ggplot(fish, aes(num_sick, color = species)) +
   geom_density()
 ```
 
-Hooray! But...we can't really see the bars for Budget Collars LLC in the lower range of the values because they are hidden behind the Collarium Inc. bars. How might we address this?
+Hooray! But...what about the potential overlap in tilapia and trout around 6-9?
 
-To fix this issue, we can use the `alpha` argument, which changes the transparency of the bars. The scale for `alpha` runs from 0 (completely transparent) to 1 (completely solid). Let's try 0.5.
+To fix this issue, we can use the `alpha` argument, which changes the transparency of the plots. The scale for `alpha` runs from 0 (completely transparent) to 1 (completely solid). Let's try 0.5.
 
 ```{r}
-ggplot(tanks, aes(num_fish, fill = species)) +
+ggplot(fish, aes(num_sick, fill = species)) +
   geom_density(alpha = .5)
 ```
+
+## Multiple Histograms (with `geom_histogram()`)
+
+When we create a multiple histogram, we have to add one additional argument to `geom_histogram()`. Let's see what happens if we just specify `fill`.
+
+```{r}
+ggplot(fish, aes(num_fish, fill = species)) +
+  geom_histogram(bins = 20)
+```
+
+What is happening in the column with both green and red?
+
+Let's take a look at what happens when we change the transparency and add the argument `position = "stacked"`.
+
+```{r}
+ggplot(fish, aes(num_fish, fill = species)) +
+  geom_histogram(bins = 20, alpha = 0.5, position = "identity")
+```
+
+This is different from above. We need to change the transparency and add `position = "identity"` when creating a multiple histogram; if we don't, we won't see potential overlap!
 
 ------------------------------------------------------------------------
 
@@ -121,7 +145,7 @@ So what does the box represent? And the whiskers?
 
 ### Layering
 
-One of the beautiful parts of working with `ggplot2` is that you can add multiple layers to each plot. One of the key things missing from box-and-whisker plots is any indication of how many data points we have. In the plot above, there could be 5 tanks per species or 500 tanks per species. How can we add an indication of how many points there are? We can layer each indiividual data point on top of the boxes!
+One of the beautiful parts of working with `ggplot2` is that you can add multiple layers to each plot. One of the key things missing from box-and-whisker plots is any indication of how many data points we have. In the plot above, there could be 5 tanks per species or 500 tanks per species. How can we add an indication of how many points there are? We can layer each individual data point on top of the boxes!
 
 ```{r}
 ggplot(tanks, aes(species, num_fish, color = species)) +
@@ -167,6 +191,7 @@ Good for looking at differences in the distributions of one continuous variable 
 
 -   one continuous variable (x-axis)
 -   one categorical variable via the `fill` or `color` argument in the `aes()` function
+-   we always want to add transparency (`alpha`) and, for histograms, `position = "identity"`
 
 ### Scatter Plot
 

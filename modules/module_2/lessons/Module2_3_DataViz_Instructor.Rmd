@@ -13,6 +13,10 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Why Does Data Visualization Matter?
 
+### On your own
+
+Take a few minutes to write down your top 3 reasons why data visualization is important or useful to you
+
 ### Small Groups
 
 As a group, take 5 minutes to compare your notes and come to a group consensus on your top 3 reasons. Be sure to choose someone to report out!
@@ -33,7 +37,7 @@ In this course, our main take-away from this website is the use of visual cues t
 
 In groups, discuss as many all types of visualization that come to mind. It's okay if you don't know what they are called! Make a quick list or draw them out if you prefer.
 
-Types of data visualizations:
+Types of data visualizations: bar graphs, bow-and-whisker plot, pie chart, line graph, histogram, pyramid chart, gantt chart, scatter plot, time series, word cloud, venn diagram, heatmap, density plot, topographic map
 
 [This website](https://www.data-to-viz.com/) is an amazing reference for data visualization methods and when to use what. It also has examples of each type plotted in `ggplot2`.
 
@@ -41,32 +45,37 @@ We will talk more about how to choose the right visualization for your data now 
 
 ### Data matching activity
 
-Still in your groups, open the PDF called "data_viz_matching"
+Still in your groups, open the PDF called "data_viz_matching_exercise"
 
-Spend a few minutes seeing if you can match the data descriptions to the types of data visualizations.
+Spend a few minutes seeing if you can match the data descriptions to the types of data visualizations. Note: these plots do not represent the data, just a type of data visualization.
 
-Each “dataset” is pulled from the same overall dataset: measurements from 344 individual penguins from different species and on different islands over 3 years. Some datasets created multiple plots.
+This is a challenging exercise, so don't panic if you feel a little lost! Here are some things to help you think through which visualizations might be appropriate:
 
-A.	Penguin body mass and flipper lengths
-B.	Penguin flipper lengths 
-C.	Penguin species and flipper lengths 
-D.	Penguins body mass, species, and flipper lengths
+-   how many variables are in the data description?
+-   how many variables are represented in the data visualization? Look at the axes, sizes, colors, etc.
+-   how is *one* data point represented on the plot?
+-   how is variation in the data represented on the plot, if at all?
 
 #### Matches
 
-1.  
-
-2.  
-
-3.  
-
-4.  
-
-5.  
-
-6.
-
-See the PowerPoint on D2L for full details!
+1.  B
+    -   river plots or a chord plot
+    -   good for showing movement from one thing to another or relationships between two categorical variables
+2.  D
+    -   4! variables can be shown here---circles could be size of family
+    -   scatter plots are good at showing relationships between multiple *continuous* variables
+3.  C
+    -   Multiple samples for each treatment means we will want to show variation
+    -   Variation in the multiple samples is show through violin plot; show the mean *and* the distribution of the data
+    -   One categorical variable and one continuous variable
+    -   Second categorical variable could be shown through color of violin plot
+4.  E
+    -   Heatmaps are good at showing spatial distributions of data
+    -   x and y axes shows space; the color indicates continuous values
+5.  A
+    -   Bar plots are good for showing change through time
+    -   Categorical on x, continuous on y
+    -   mutliple stacks, 2 bars per year?
 
 ## Figure Critique
 
