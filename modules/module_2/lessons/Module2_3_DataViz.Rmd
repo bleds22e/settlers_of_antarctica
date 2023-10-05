@@ -37,7 +37,7 @@ In this course, our main take-away from this website is the use of visual cues t
 
 In groups, discuss as many all types of visualization that come to mind. It's okay if you don't know what they are called! Make a quick list or draw them out if you prefer.
 
-Types of data visualizations: bar graphs, bow-and-whisker plot, pie chart, line graph, histogram, pyramid chart, gantt chart, scatter plot, time series, word cloud, venn diagram, heatmap, density plot, topographic map
+Types of data visualizations: 
 
 [This website](https://www.data-to-viz.com/) is an amazing reference for data visualization methods and when to use what. It also has examples of each type plotted in `ggplot2`.
 
@@ -45,18 +45,16 @@ We will talk more about how to choose the right visualization for your data now 
 
 ### Data matching activity
 
-Still in your groups, open the PDF called "data_viz_matching_exercise"
+Still in your groups, open the PDF called "data_viz_matching"
 
 Spend a few minutes seeing if you can match the data descriptions to the types of data visualizations.
 
-*Note: these plots do not represent the data, just a type of data visualization.*
+Each “dataset” is pulled from the same overall dataset: measurements from 344 individual penguins from different species and on different islands over 3 years. Some datasets created multiple plots.
 
-This is a challenging exercise, so don't panic if you feel a little lost! Here are some things to help you think through which visualizations might be appropriate:
-
--   how many variables are in the data description?
--   how many variables are represented in the data visualization? Look at the axes, sizes, colors, etc.
--   how is *one* data point represented on the plot?
--   how is variation in the data represented on the plot, if at all?
+A.	Penguin body mass and flipper lengths
+B.	Penguin flipper lengths 
+C.	Penguin species and flipper lengths 
+D.	Penguins body mass, species, and flipper lengths
 
 #### Matches
 
@@ -69,6 +67,10 @@ This is a challenging exercise, so don't panic if you feel a little lost! Here a
 4.  
 
 5.  
+
+6.
+
+See the PowerPoint on D2L for full details!
 
 ## Figure Critique
 
