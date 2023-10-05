@@ -138,15 +138,16 @@ Because the aquaculture team has asked for everything to use kilograms instead o
 
 ### Task (b)
 
-**A scatter plot that shows the relationship (or lack thereof) between percent soy protein in the diet and the weight at 30 days**
+**A box plot that shows the relationship (or lack thereof) between percent soy protein in the diet and the weight at 30 days**
 
 Based on the values we calculated in task (a), it looks like there is probably a positive relationship between the percent of soy protein in tilapia diet and growth. Let's plot the data to confirm.
 
-7.  Make a scatter plot with `perc_soy_protein` on the x-axis (horizontal) and `day_30_weight_kg` on the y-axis (vertical). Change the axis labels to be more easily understood and add a theme. (2 point)
+7.  Make a box plot with `perc_soy_protein` on the x-axis (horizontal) and `day_30_weight_kg` on the y-axis (vertical). Change the axis labels to be more easily understood and add a theme. (2 point)
 
     (Hint: because we want to plot *all* of the values, not just the mean values, we need to use the original `growth` data frame)
 
     ```{r}
+    # a few people might have a scatter plot because I made a mistake with the wording; that's fine
     ggplot(growth, aes(perc_soy_protein, day_30_weight_kg)) +
       geom_boxplot() +
       geom_jitter(width = 0.1) +
@@ -193,10 +194,10 @@ As suspected, there doesn't seem to be much of a difference based on tank temper
 
 10. Imagine we had decided to treat `perc_soy_protein` as a continuous variable. What type of plot we have used for task (b)? Would we have been able to complete task (d)? Why or why not? (2 points)
 
-    *Answer:*
+    *Answer:* Yes or no is acceptable. I have not taught them how to plot 3 continuous variables on a scatter plot, but it is doable. If they say no, you can only plot 2 continuous and 1 categorical, that is valid. If they say you _can_ plot 3 because you can use color as a spectrum, that is also viable. Just make sure they explain why it would (or would not) work.
 
 11. Write 3-5 sentences about if and how your predictions and execution differed and what you learned through the process. (3 points)
 
     *Examples of questions to answer: How did your initial prediction of how you expected to accomplish the 4 tasks match up with how we actually went about doing it? Were they similar? Were there common mistakes that you made beforehand? Did you plan a different execution from what we did above that you think would also work?*
 
-    *Answer:*
+    *Answer:* 

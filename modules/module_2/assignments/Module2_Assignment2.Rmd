@@ -132,11 +132,11 @@ Because the aquaculture team has asked for everything to use kilograms instead o
 
 ### Task (b)
 
-**A scatter plot that shows the relationship (or lack thereof) between percent soy protein in the diet and the weight at 30 days**
+**A box plot that shows the relationship (or lack thereof) between percent soy protein in the diet and the weight at 30 days**
 
 Based on the values we calculated in task (a), it looks like there is probably a positive relationship between the percent of soy protein in tilapia diet and growth. Let's plot the data to confirm.
 
-7.  Make a scatter plot with `perc_soy_protein` on the x-axis (horizontal) and `day_30_weight_kg` on the y-axis (vertical). Change the axis labels to be more easily understood and add a theme. (2 point)
+7.  Make a box plot with `perc_soy_protein` on the x-axis (horizontal) and `day_30_weight_kg` on the y-axis (vertical). Change the axis labels to be more easily understood and add a theme. (2 point)
 
     (Hint: because we want to plot *all* of the values, not just the mean values, we need to use the original `growth` data frame)
 
