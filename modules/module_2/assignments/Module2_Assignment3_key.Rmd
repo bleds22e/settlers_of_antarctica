@@ -23,7 +23,6 @@ Write R code which produces the correct plot style.
 ### Criteria for Success
 
 -   Code is within the provided code chunks
--   Code is commented with brief descriptions of what the code does
 -   Code chunks run without errors
 -   Code produces the correct result
     -   Code that produces the correct answer will receive full credit
@@ -63,13 +62,13 @@ penguins <- penguins
 
     *Answer:*
 
-    -   `species`:
-    -   `island`:
-    -   `bill_length_mm`:
-    -   `bill_depth_mm`:
-    -   `flipper_length`:
-    -   `body_mass_g`:
-    -   `sex`:
+    -   `species`: categorical
+    -   `island`: categorical
+    -   `bill_length_mm`: continuous
+    -   `bill_depth_mm`: continuous
+    -   `flipper_length`: continuous
+    -   `body_mass_g`: continuous
+    -   `sex`: categorical
     -   `year`: continuous
 
 ------------------------------------------------------------------------
