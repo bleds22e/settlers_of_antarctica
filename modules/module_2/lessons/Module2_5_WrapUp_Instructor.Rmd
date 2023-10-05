@@ -19,21 +19,19 @@ Let's load the package and data we will need.
 
 ### Packages
 
-```{r}
+```{r message = FALSE}
 library(tidyverse)
 ```
 
 ### Data
 
-We've already explored the tank data provided to us from our aquatic specialists. Unfortunately, those data didn't really give us what we needed to answer our question. What we really need is data on where the sick fish are coming from! From there, we can hopefully narrow down what information about those tanks different from other tanks.
-
-It would be impossible to sample all 1000 tanks for sick fish on our timeline, so we asked our aquatic specialists to randomly choose 50 tanks to sample for sick fish. This is the data in the `fish_sick_data.csv` file.
+First, we need our dataset!
 
 ```{r}
 sick_fish <- read_csv("../data/fish_sick_data.csv") 
 ```
 
-Let's check out our data and see what we are working with.
+Let's check out our data and remind ourselves what we are working with.
 
 ```{r}
 head(sick_fish)
@@ -41,21 +39,10 @@ head(sick_fish)
 
 ## Which Fish?
 
-A good first step would be to narrow down whether tilapia or trout are the likely culprits.
-
-To start, let's calculate the mean and standard deviation of sick fish per species.
+Last class, we plotted the number of sick fish. Let's remind ourselves what that looked like. Make a plot that compares the numbers of sick fish per species. We actually have a few options!
 
 ```{r}
-sick_fish %>% 
-  group_by(species) %>% 
-  summarize(mean_sick_fish = mean(num_sick),
-            sd_sick_fish = sd(num_sick))
-```
-
-Wow, trout aren't looking so good! Let's plot the data to see what's happening. We want a plot that will allow us to compare the data between the two groups of data (fish species). We actually have a few options! Let's go with a multiple density plot this time.
-
-```{r}
-ggplot(sick_fish, aes(num_sick, fill = species)) +
+ggplot(sick_fish, aes(num_sick, color = species)) +
   geom_density(alpha = 0.5) +
   labs(x = "Number of Sick Fish in Tanks",
        y = "Density",
@@ -65,7 +52,11 @@ ggplot(sick_fish, aes(num_sick, fill = species)) +
 
 ### Density
 
-Wait a second! Take a look back at the data. There is a "number of fish" column, indicating the total number of fish in the tank, and it looks like those numbers can differ pretty widely. We should probably take into account how many fish there are in the tank to begin with. 12 sick fish out of 50 is probably a bigger deal than 12 sick fish out of 100! What we need to do is calculate a density of fish--number of sick fish / number of total fish.
+Wait a second! Take a look back at the data. There is a "number of fish" column, indicating the total number of fish in the tank, and it looks like those numbers can differ pretty widely.
+
+We should probably take into account how many fish there are in the tank to begin with. 12 sick fish out of 50 is probably a bigger deal than 12 sick fish out of 100!
+
+What we need to do is calculate a density of fish--number of sick fish / number of total fish.
 
 ```{r}
 # take into account the number of fish in the tank: density of sick fish
@@ -117,16 +108,19 @@ Take a look back at the data frame. Which columns are environmental variables th
 
 Are those columns continuous or categorical? What plot type have we talked about that might help us find a relationship between density and each of these variables (one at a time...)?
 
-In small groups, make plots using the `sick_trout` data to try to figure out which environmental factor is causing problems in the trout.
+In small groups, make plots using `density` column in the `sick_trout` data to try to figure out which environmental factor is causing problems in the trout. Treat your variables as continuous.
 
 ```{r}
 ggplot(sick_trout, aes(x = density, y = num_fish)) +
+  #geom_smooth(method = 'lm', se = FALSE) +
   geom_point() 
 
 ggplot(sick_trout, aes(x = density, y = avg_daily_temp)) +
+  #geom_smooth(method = 'lm', se = FALSE) +
   geom_point()
 
 ggplot(sick_trout, aes(density, day_length)) +
+  #geom_smooth(method = 'lm', se = FALSE) +
   geom_point() 
 ```
 
