@@ -36,19 +36,23 @@ March 2 at midnight MST
 
 # Assignment Questions
 
-Our goal for this assignment is to start with a data frame of data, summarize the data in constructive ways, and plot the data to answer some questions. To get from point a to point b to point c requires some planning.
+Our goal for this assignment is to start with a data frame of data, summarize the data in constructive ways, and plot the data to answer some questions. To get from Point A to Point B to Point C requires some planning.
 
 In this assignment, we will make a plan, execute how we would actually go about the process, and then evaluate how well our original plan matches with the path we actually used.
 
 ## Data Summary
 
-The aquaculture scientists on Team Antarctica have been working on developing a new diet for tilapia based on soy-protein, and they are interested in whether incorporating this into fish diets will result in faster growth rates. They also want to know if those growth rates are related to average tank temperature. They've provided us with this data to analyze.
+The aquaculture scientists on Team Antarctica have been working on developing a new diet for tilapia based on soy-protein, and they are interested in whether incorporating this into fish diets will result in faster growth rates.
+
+They also want to know if those growth rates are related to average tank temperature.
+
+They've provided us with the data below to analyze.
 
 First, let's take a look at the data we will be using for the assignment.
 
 1.  As always, we start by loading the `tidyverse`. (1 point)
 
-    ```{r}
+    ```{r message = FALSE}
     library(tidyverse)
     ```
 
@@ -68,16 +72,16 @@ First, let's take a look at the data we will be using for the assignment.
 
     c\. How many fish were sampled?
 
-    d\. How many different "percent soy protein" levels (treatments) are there?
+    d\. How many different "percent soy protein" levels (treatments) are there? In this assignment, we will treat `perc_soy_protein` as a *categorical* variable, so another way to ask this question is: how many categories of percent soy protein do we have?
 
 ## Our Task
 
 We have been asked by our aquaculture specialists to provide them with the following:
 
 a.  a data frame with the average growth (`day_30_weight`) per treatment (`perc_soy_protein`)
-b.  a scatter plot that shows the relationship (or lack thereof) between percent soy protein in the diet and the weight at 30 days
+b.  a boxplot plot that shows the relationship (or lack thereof) between percent soy protein in the diet and the weight at 30 days
 c.  a data frame with the average growth per treatment (`perc_soy_protein`) *and* if tanks are warm or cold
-d.  a scatter plot that shows the relationship (or lack thereof) between average tank temperature and the weight at 30 days
+d.  a multiple scatter plot that shows the relationship (or lack thereof) between average tank temperature, the weight at 30 days, and the percent soy in the diet.
 
 They've also asked that we provide all weights in kilograms instead of grams (the `day_30_weight` is currently in grams).
 
@@ -100,6 +104,13 @@ They've also asked that we provide all weights in kilograms instead of grams (th
 ## Execution
 
 Now let's actually go ahead and complete our tasks with code.
+
+FIRST! We need to run the line of code below. It's a little wonky, but for the rest of the assignment to work the way I want it to, we need to tell R that we want to treat the `perc_soy_protein` as a categorical variable.
+
+```{r}
+growth <- growth %>% 
+  mutate(perc_soy_protein = as.factor(perc_soy_protein))
+```
 
 Because the aquaculture team has asked for everything to use kilograms instead of grams, it makes sense for us to add a `day_30_weight_kg` column before we tackle any of the specific tasks.
 
@@ -137,7 +148,8 @@ Based on the values we calculated in task (a), it looks like there is probably a
 
     ```{r}
     ggplot(growth, aes(perc_soy_protein, day_30_weight_kg)) +
-      geom_point() +
+      geom_boxplot() +
+      geom_jitter(width = 0.1) +
       labs(x = "Percent Diet Comprised of Soy Protein",
        y = "Tilapia Weight at 30 Days (kg)") +
       theme_light()
@@ -162,17 +174,16 @@ Based on the values we calculated in task (a), it looks like there is probably a
 
 Based on our results above, do we think the tank being warm or cold has much of an influence? Let's plot our data to confirm.
 
-9.  Make a scatter plot with `avg_tank_temp` on the x-axis (horizontal) and `day_30_weight_kg` on the y-axis (vertical). Change the axis labels to be more easily understood and add a theme. (2 point)
+9.  Make a multiple scatter plot with `avg_tank_temp` (not `tank_category`!) on the x-axis (horizontal) and `day_30_weight_kg` on the y-axis (vertical). Change the color so it represents the percent soy protein. Change the axis labels to be more easily understood and add a theme. (2 point)
 
     (Hint: because we want to plot *all* of the values, not just the mean values, we need to use the original `growth` data frame)
 
     ```{r}
-    ## note that the answer key that got uploaded had a different plot, so if they made the plot on the Answer Key file, that's fine, too
-
-    ggplot(growth, aes(avg_tank_temp, day_30_weight_kg)) +
+    ggplot(growth, aes(avg_tank_temp, day_30_weight_kg, color = perc_soy_protein)) +
       geom_point() +
       labs(x = "Average Tank Temperature (C)",
-       y = "Tilapia Weight at 30 Days (kg)") +
+           y = "Tilapia Weight at 30 Days (kg)",
+           color = "Percent Soy Protein") +
       theme_light()
     ```
 
@@ -180,7 +191,7 @@ As suspected, there doesn't seem to be much of a difference based on tank temper
 
 ## Reflection
 
-10. We used scatter plots to plot the data because that's what our aquatic specialists asked for. However, this might not be the best way to visualize this data. What other type of plot would you suggest that the aquatic specialists use next time? Why? (2 points)
+10. Imagine we had decided to treat `perc_soy_protein` as a continuous variable. What type of plot we have used for task (b)? Would we have been able to complete task (d)? Why or why not? (2 points)
 
     *Answer:*
 
