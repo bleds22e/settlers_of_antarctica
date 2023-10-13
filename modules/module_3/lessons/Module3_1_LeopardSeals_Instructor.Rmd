@@ -102,6 +102,10 @@ to each maker.
 collars %>% 
   group_by(maker) %>% 
   summarize(fail_count = sum(fail))
+
+collars %>% 
+  group_by(maker) %>% 
+  count(fail)
 ```
 
 Looks like one of these makers is definitely the one having some

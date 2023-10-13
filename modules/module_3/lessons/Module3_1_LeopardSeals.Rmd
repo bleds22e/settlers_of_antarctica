@@ -37,7 +37,7 @@ data from large mammal researchers. They have been tracking leopard
 seals using radio collars, one of many ways to track wildlife.
 
 [Wildlife Tracking
-Powerpoint](https://docs.google.com/presentation/d/1n-rPHVoB9tydIj_yEQ1TxGTHXn6VWaliRbOszRnbCoc/edit#slide=id.g16730a957e3_0_20)
+Powerpoint](https://docs.google.com/presentation/d/1XiBC-M0j82N-T4XS1EEMdGRaZhbXZciKifNnm2Q9ubk/edit?usp=sharing)
 
 They have radio collared on a number of seals that live in areas that
 could be fished. Fishing boats are equipped with radios that can detect
@@ -190,5 +190,5 @@ relationship between signal distance and battery life? What is it
 telling us about that relationship between the two collar makers?
 
 As it turns out, this trade-off between signal distance and battery
-lenght is very real when it comes to wildlife tracking! Why do you think
+length is very real when it comes to wildlife tracking! Why do you think
 that is?
