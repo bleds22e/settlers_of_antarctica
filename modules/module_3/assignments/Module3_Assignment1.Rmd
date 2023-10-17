@@ -22,7 +22,6 @@ Write R code which produces the correct answers and correctly interpret the resu
 ### Criteria for Success
 
 -   Code is within the provided code chunks
--   Code is commented with brief descriptions of what the code does
 -   Code chunks run without errors
 -   Code produces the correct result
     -   Code that produces the correct answer will receive full credit
@@ -31,7 +30,7 @@ Write R code which produces the correct answers and correctly interpret the resu
 
 ### Due Date
 
-April 4 at midnight MST
+Oct 24 at 4pm MST
 
 # Assignment Questions
 
