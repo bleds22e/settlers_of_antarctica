@@ -66,8 +66,15 @@ What questions are we trying to answer about these collars?
 
 Let's write out our two hypotheses.
 
-**Null hypothesis**: There is no difference in means between the three collar makers.\
-**Alternative hypothesis**: There is a difference in means between the three collar makers.
+First, for battery life:
+
+**Null hypothesis**: 
+**Alternative hypothesis**: 
+
+Next, for signal distance:
+
+**Null hypothesis**: 
+**Alternative hypothesis**: 
 
 ### Numeric
 
@@ -85,7 +92,7 @@ Let's examine the data. Do you think the collar companies are all different from
 
 As always, we love (\<3) visualizing our data, especially as a form of data exploration and comparing means.
 
-First, explore the distribution of battery life by maker using a mutliple density plot (no need to add a line for the mean, but you can if you really want to!).
+First, explore the distribution of battery life by maker using a multiple density plot (no need to add a line for the mean, but you can if you really want to!).
 
 ```{r}
 
@@ -98,6 +105,8 @@ Let's do a different type of visualization for signal distance. What type of dat
 ```
 
 Based on the numbers and your visualizations, what is your prediction? Are the 3 groups different *enough*, whatever that means?
+
+Finished these sections already? Take a look around and see if you can help a neighbor.
 
 ### Statistic
 

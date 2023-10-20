@@ -34,7 +34,7 @@ Let's take a quick look at the data structure to remind ourselves what data we a
 head(collars)
 ```
 
-Before we dive in, if you need a refresher on inferential statistics, check out [this powerpoint](https://docs.google.com/presentation/d/1_RngIrIerHn2oAt7EUF7QvYhBQfEcoCTvu1gcXyYP6M/edit?usp=sharing).
+Before we dive in, if you need a refresher on inferential statistics, check out [this powerpoint](https://docs.google.com/presentation/d/1N2fxiNa5mw_fVukXFPWMuynFcts3gD4SvMO4VKzyZFI/edit?usp=sharing).
 
 ## T-Tests
 
@@ -45,7 +45,7 @@ When we have a categorical variable with 2 categories, the statistical test that
 To run a t-test, the following things need to be true:
 
 -   The variable that we use to create our groups (***independent*** variable) is *categorical* and has only 2 categories.
--   The variable that we want to compare between groups (***dependent*** or response variable) is *numerical*.
+-   The variable that we want to compare between groups (***dependent*** or response variable) is *numeric*.
 
 #### Independent vs. Dependent Variables
 

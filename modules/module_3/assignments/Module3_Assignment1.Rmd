@@ -76,7 +76,6 @@ Let's load the `tidyverse` and read in the data set. Call the data `turbines`.
 4.  Generate a box-and-whisker plot using `ggplot2` that compares the wind speed between different turbine makers (3 points).
 
     The plot should:
-
     -   have capitalized and more descriptive axis labels (hint: wind speed is measured in kilometers per hour---km/hr)
     -   show raw data points in addition to the boxes. The points should be jittered.
     -   use the `theme_classic()` function
@@ -87,11 +86,12 @@ Let's load the `tidyverse` and read in the data set. Call the data `turbines`.
 
 ### Statistic
 
-5.  Write a null hypothesis and an alternative hypothesis for the question we are asking and that we will be using statistics to answer. (2 points)
+5.  Write a null hypothesis and an alternative hypothesis for each question we are asking. (2 points)
 
 Power Output:
-    **Null Hypothesis** (H~0~):\
-    **Alternative Hypothesis** (H~A~):
+
+-   **Null Hypothesis** (H~0~):\
+-   **Alternative Hypothesis** (H~A~):
     
 Wind Speed:
 

@@ -65,10 +65,17 @@ What questions are we trying to answer about these collars?
 
 -   Which variable is the independent variable? What about the dependent variable?
 
-Let's write out our two hypotheses.
+Let's write out our hypotheses.
 
-**Null hypothesis**: There is no difference in means between the three collar makers.\
-**Alternative hypothesis**: There is a difference in means between the three collar makers.
+First, for battery life:
+
+**Null hypothesis**: There is no difference in the average battery life between the three collar makers.\
+**Alternative hypothesis**: There is a difference in the average battery life the three collar makers.
+
+Next, for signal distance:
+
+**Null hypothesis**: There is no difference in the average signal distance between the three collar makers.\
+**Alternative hypothesis**: There is a difference in the average signal distance between the three collar makers.
 
 ### Numeric
 
@@ -93,7 +100,7 @@ Let's examine the data. Do you think the collar companies are all different from
 
 As always, we love (\<3) visualizing our data, especially as a form of data exploration and comparing means.
 
-First, explore the distribution of battery life by maker using a mutliple density plot (no need to add a line for the mean, but you can if you really want to!).
+First, explore the distribution of battery life by maker using a multiple density plot (no need to add a line for the mean, but you can if you really want to!).
 
 ```{r}
 # battery life
