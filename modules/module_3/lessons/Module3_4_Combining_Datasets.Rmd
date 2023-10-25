@@ -1,0 +1,283 @@
+---
+title: "Combining Data (Joins and Binds)"
+author: "Ellen Bledsoe"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## The Context
+
+After the series of incidents where a number of the collars made by Budget Collars LLC seem to be failing, our team decided to try and replace as many of them as possible. Besides, their battery life is far inferior.
+
+We're placing as many collars on as many seals as we can, and we are starting to run short on collars.
+
+One of our intrepid data science team members found an old box of collars and some data on all of the collars (it was a real challenge getting this data off of an old floppy drive, but she managed).
+
+### Our Tasks
+
+We're going to spend the next lessons tackling two tasks:
+
+**1) First, we'll work to join data sets together.**
+
+Our main goal is to create a single data set that includes the data we have previously looked at for collars, the data on the new collars, as well as the additional data on the old collars.
+
+This is a little tricky, as the collar IDs need to be matched up with their counterparts across datasets, and new collars need be added. Unfortunately, the new collars have IDs and some additional data, but we don't know the maker of the new collars.
+
+**2) Second, we will try to identify the maker of mystery collars.**
+
+In order to do this, we will skim the surface of machine learning. We can use a common classification algorithm, K-Nearnest Neighbors (KNN), to predict which maker made which of our unidentified collars. Don't worry, we won't go into *too* much detail here, but I want to you to at least have a general idea of how it works.
+
+## Combining Data (Joins and Binds)
+
+Often times, we have a lot of data for one project that are related but storing all of the data in one file would add unnecessary redundancy (e.g., data in certain rows would need to be repeated too often). Other times, data has been collected separately and needs to be combined before analysis.
+
+Being able to join together data from related tables is a key skill in data science, and for working with larger data structures (databases with their own languages, like SQL).
+
+### The Data
+
+Let's load in the `tidyverse` and the data we're working.
+
+```{r message=FALSE}
+# load the tidyverse
+library(tidyverse)
+
+#loading in the data
+collars <- read_csv("../data/collar_data.csv")
+new_collars <- read_csv("../data/new_collars.csv")
+old_collars_new_data <- read_csv("../data/old_collars_new_data.csv")
+
+# Tell me about these data, how are we going to join them?
+```
+
+First, let's explore our data. We want to focus on 2 things here:
+
+(1) the columns: which ones match columns in other datasets
+(2) collar identity: which datasets have matching collars or new collars
+
+```{r}
+head(collars)
+head(new_collars)
+head(old_collars_new_data)
+```
+
+### Diagramming
+
+In small groups, talk through the process of combining these three datasets. Think about the following:
+
+-   which columns match and which ones don't?
+-   which rows match and which ones don't?
+-   does the order in which we combine datasets matter?
+
+Draw out a diagram that represents how this process might go.
+
+## Joins vs. Binds
+
+Now that we've decided on a process for how to combine our data, let's figure out which functions we are going to use to accomplish this task.
+
+We have 2 main methods of combining datasets, and they work in different ways.
+
+### Joins
+
+Joins are arguably the more complicated of the two types of ways to combine data, but they are, therefore, the more flexible and useful.
+
+The magic of comes comes because they match up columns of data based on unique identifiers in each row of data.
+
+In the following diagram, the two example data frames have the column `x1` in common, and each of the values in `x1` are unique (no repeats in the same data frame). When combining the datasets, all of the columns are added, and their rows are matched up to their respective values in the `x1` column.
+
+This can happen a couple ways, depending on which data frame is the reference and how much data you want to retain.
+
+![](joins.png)
+
+### Binds
+
+The other way we can combine data sets in through binds. Binds act similarly to gluing datasets together.
+
+They don't match up data based on unique identifiers; instead they match up data by column name (`bind_rows`) or row position (`bind_cols`)
+
+![](binds.png)
+
+How should we go about combining our three datasets? Come up with a plan that you think will work.
+
+## Task 1: Combine Our Data
+
+### Step 1
+
+Our first step in to merge the old collar data with the new data about those old collars.
+
+```{r}
+# use a left join
+# full join would accomplish the same thing in this case because we don't have any missing rows
+old_collars_combined <- collars %>% 
+  left_join(old_collars_new_data, by = c("collar_id", "maker"))
+
+```
+
+If we take a look our new data frame, we should hopefully see that the values for `antenna_length` and `weight` have been matched up with their respective collar id.
+
+Could we have used another tactic to combine these two datasets? What would the pros and cons be?
+
+### Step 2
+
+Now we need to add the new collars to our dataset. What is our best method for combining?
+
+```{r}
+full <- bind_rows(old_collars_combined, new_collars)
+```
+
+Let's take a look at our new data frame! Have we correctly accomplished our first task?
+
+### Saving our New Data
+
+Now that we've accomplished our first task, we are going to want to use this combined dataset to accomplish our next task, which is using a classification algorithm to help us predict which maker made the mystery collars.
+
+To save our data as a .csv file that we can use in another analysis, we are going to use a function that exports the dataset (`write_csv`) instead of importing it (`read_csv`).
+
+The `write_csv` function requires the name of the dataframe to export as the first argument and the name of the file we want to create as the second argument.
+
+```{r}
+write_csv(full, "all_collar_data.csv")
+```
+
+If we look over in our Files tab, you should see your new .csv file!
+
+## Prediction, Machine Learning
+
+Now, we're going to work through an example of machine learning, which is used in a variety of ways in data science - and across industries and discplines.
+
+The goal here is that we have \~ 50 unlabeled collars, and we want to be able to predict who made them. Remember that Budget Collars LLC provided us with collars that are failing, which is a risk to human life! So we need to throw out any collars that we think were made by this company, and only incorporate new collars from our unlabeled batch that we think were made by Collarium Inc.
+
+### What is machine learning? Group reading and discussion.
+
+Take 10 minutes to read ![this article](https://medium.com/@randylaosat/a-beginners-guide-to-machine-learning-dfadc19f6caf).
+
+I'll signal when 10 minutes is up. Get into your groups and discuss the following questions.\
+1. What is machine learning? Is it different than AI?\
+2. What types of general problems do machine learning techniques tackle?\
+3. Given what you've read, what kind algorithm type might we employ for our problem?
+
+## knn in R
+
+K-nearest neighbors is a classification algorithm (e.g. it attempts to predict labels that are classes in R). We're going to work through a small example on our data set before attempting to build the full model.
+
+### Check-in
+
+What are our classes/labels here?
+
+### Data cleaning and prepping, splitting and normalizing
+
+First, we need to process our data a bit before we jump into our algorithm.
+
+```{r}
+# remind ourselves of what full contains
+glimpse(full)
+
+
+# First, we want to filter out the missing data - we'll run our full algorithm 
+# on this later. 
+
+full_filtered = full %>%
+  filter(!is.na(maker))
+
+collars_to_label = full %>%
+  filter(is.na(maker))
+
+
+# Next, let's get rid of some unneeded columns
+filtered = full_filtered %>%
+  dplyr::select(-collar_id, -fail,-antenna_length, -weight) %>% 
+  mutate(maker = as.factor(maker))
+```
+
+### Check-in
+
+Why are we doing this? We're keeping it to two variables here... later on we'll do more!
+
+On to normalization.
+
+```{r}
+
+# custom function for normalizing
+nor <-function(x){
+  (x -min(x))/(max(x)-min(x))
+}
+
+knn_data = filtered %>%
+  mutate(battery_life_norm = nor(filtered$battery_life),
+         signal_distance_norm = nor(filtered$signal_distance)) %>%
+  dplyr::select(-battery_life, -signal_distance)
+
+```
+
+### Check-in
+
+Why are we doing this? Can you think of a good reason why we have to normalize the values here? What does normalize mean?
+
+### We have data that we're ready to put into our algorithm - but first we need
+
+to figure out how the algorithm actually works.
+
+We're going to watch a brief video: <https://www.youtube.com/watch?v=MDniRwXizWo>
+
+After we're finished, get into your groups and discuss the following points:\
+1. For our small, filtered data set with two variables, how would you draw a simple diagram like in the video that demonstrates how k-nn is working?\
+2. Can you envision how this would work/what it would look like with more than two variables?\
+3. What would happen if you increase or decrease K in the GoT example above, or generally?
+
+## Let's try our hand at k-nn
+
+```{r}
+#loading package to do knn
+#install.packages('class')
+library(class)
+
+#splitting the data up 
+train = as.data.frame(knn_data[,-1])
+cl = knn_data[,1] %>% pull()
+
+test = expand.grid(x=seq(min(train[,1]-0.5), max(train[,1]+0.5),
+                            by=0.1),
+                  y=seq(min(train[,2]-0.5), max(train[,2]+0.5), 
+                            by=0.1))
+
+mod_test = knn(train, test = test, cl, k = 5, prob=TRUE)
+
+# Let's plot our outcome. 
+
+# We're going to use a complicated plotting function I built to inpsect things
+# You don't need to understand the guts of this....
+source("../scripts/knn_plot.R")
+
+knn_plot(knn_data, mod = mod_test)
+
+```
+
+### Group discussion
+
+Can you interpret this plot? Focus on a few points:\
+1. What are the gridded points?\
+2. What do the large points represent?\
+3. What are the lines here?
+
+### Final steps - making predictions
+
+So we've gotten to a point where we have a model we think is good (let's go with k = 5). Let's use it on the test data we want to predict labels for!
+
+```{r}
+glimpse(collars_to_label)
+
+# Getting ready to feed data in
+collars_to_label_norm = collars_to_label %>%
+  dplyr::select(battery_life, signal_distance) %>%
+  mutate(battery_life_norm = nor(battery_life), 
+         signal_distance_norm = nor(signal_distance)) %>%
+  dplyr::select(battery_life_norm, signal_distance_norm)
+
+mod = knn(train = train, test = collars_to_label_norm, cl = cl, k = 5)
+
+collars_to_label %>%
+  mutate(pred_class = mod)
+```
