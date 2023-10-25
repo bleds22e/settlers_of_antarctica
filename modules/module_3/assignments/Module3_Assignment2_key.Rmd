@@ -45,7 +45,7 @@ First, we need to assess which how many fish are in each bay. Then we will asses
 
 1.  As always, our first order of business is to load the `tidyverse` and our datasets. For this assignment, we have two different datasets: one for our survey of fish amounts and one for seal observations. Read both of them into the workspace and name them `fish` and `seals`, respectively.
 
-```{r}
+```{r message=FALSE}
 library(tidyverse)
 fish <- read_csv("../data/fish.csv")
 seals <- read_csv("../data/seals.csv")
@@ -117,7 +117,9 @@ summary(fish_model)
     -   What is the value of the test statistic? 1.751
     -   What is our p-value? 0.155
     -   Is our p-value higher or lower than our cut-off value of 0.05? higher
-    -   Write 2-3 sentences explaining that this result means. How do we interpret this value? What does it mean for our hypotheses? no significant difference in the amount of fish per bay, fail to reject null
+    -   Write 2-3 sentences explaining that this result means. How do we interpret this value? What does it mean for our hypotheses? 
+
+    *Answers:*   no significant difference in the amount of fish per bay, fail to reject null
 
 8.  Run some code to compute pairwise comparisons.
 

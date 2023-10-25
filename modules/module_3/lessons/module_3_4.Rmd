@@ -62,9 +62,9 @@ our joins.
 library(tidyverse)
 
 #loading in the data
-collars = read_csv("https://tinyurl.com/sp7b25x")
-new_collars = read_csv("https://tinyurl.com/t3of8rk")
-old_collars_new_data = read_csv("https://tinyurl.com/ufawycq")
+collars = read_csv("../data/collar_data.csv")
+new_collars = read_csv("../data/new_collars.csv")
+old_collars_new_data = read_csv("../data/old_collars_new_data.csv")
 
 
 #explore 
@@ -144,7 +144,7 @@ collars_to_label = full %>%
 
 # Next, let's get rid of some unneeded columns
 filtered = full_filtered %>%
-  select(-collar_id, -fail,-antenna_length, -weight) %>% 
+  dplyr::select(-collar_id, -fail,-antenna_length, -weight) %>% 
   mutate(maker = as.factor(maker))
 ```
 
@@ -163,7 +163,7 @@ nor <-function(x){
 knn_data = filtered %>%
   mutate(battery_life_norm = nor(filtered$battery_life),
          signal_distance_norm = nor(filtered$signal_distance)) %>%
-  select(-battery_life, -signal_distance)
+  dplyr::select(-battery_life, -signal_distance)
 
 ```
 
@@ -197,16 +197,16 @@ cl = knn_data[,1] %>% pull()
 
 test = expand.grid(x=seq(min(train[,1]-0.5), max(train[,1]+0.5),
                             by=0.1),
-                      y=seq(min(train[,2]-0.5), max(train[,2]+0.5), 
+                  y=seq(min(train[,2]-0.5), max(train[,2]+0.5), 
                             by=0.1))
 
-mod_test = knn(train, test = test, cl, k = 7, prob=TRUE)
+mod_test = knn(train, test = test, cl, k = 5, prob=TRUE)
 
 # Let's plot our outcome. 
 
 # We're going to use a complicated plotting function I built to inpsect things
 # You don't need to understand the guts of this....
-source("https://tinyurl.com/r5bgd5h")
+source("../scripts/knn_plot.R")
 
 knn_plot(knn_data, mod = mod_test)
 

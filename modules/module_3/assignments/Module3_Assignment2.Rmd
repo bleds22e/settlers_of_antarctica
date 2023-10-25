@@ -31,7 +31,7 @@ Write R code which produces the correct answers and correctly interpret the resu
 
 ### Due Date
 
-April 4 at midnight MST
+October 31 at 4pm MST
 
 # Assignment Questions
 
