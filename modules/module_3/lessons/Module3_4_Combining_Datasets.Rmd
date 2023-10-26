@@ -80,7 +80,7 @@ In the following diagram, the two example data frames have the column `x1` in co
 
 This can happen a couple ways, depending on which data frame is the reference and how much data you want to retain.
 
-![](joins.png)
+![](joins.png){width=50%}
 
 ### Binds
 
@@ -88,7 +88,7 @@ The other way we can combine data sets in through binds. Binds act similarly to 
 
 They don't match up data based on unique identifiers; instead they match up data by column name (`bind_rows`) or row position (`bind_cols`)
 
-![](binds.png)
+![](binds.png){width=50%}
 
 How should we go about combining our three datasets? Come up with a plan that you think will work.
 

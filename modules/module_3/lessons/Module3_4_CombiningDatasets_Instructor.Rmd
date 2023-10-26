@@ -90,7 +90,7 @@ In the following diagram, the two example data frames have the column `x1` in co
 
 This can happen a couple ways, depending on which data frame is the reference and how much data you want to retain.
 
-![](joins.png)
+![](joins.png){width=50%}
 
 ### Binds
 
@@ -98,7 +98,7 @@ The other way we can combine data sets in through binds. Binds act similarly to 
 
 They don't match up data based on unique identifiers; instead they match up data by column name (`bind_rows`) or row position (`bind_cols`)
 
-![](binds.png)
+![](binds.png){width="50%"}
 
 How should we go about combining our three datasets? Come up with a plan that you think will work.
 
@@ -139,7 +139,7 @@ To save our data as a .csv file that we can use in another analysis, we are goin
 The `write_csv` function requires the name of the dataframe to export as the first argument and the name of the file we want to create as the second argument.
 
 ```{r}
-write_csv(full, "all_collar_data.csv")
+write_csv(full, "../data/all_collar_data.csv")
 ```
 
 If we look over in our Files tab, you should see your new .csv file!
