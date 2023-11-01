@@ -51,8 +51,9 @@ First, we need our data!
 
 ### Data Cleaning and Prepping
 
-```{r}
-
+```{r message=FALSE}
+library(tidyverse)
+full_collars <- read_csv("../data/all_collar_data.csv")
 ```
 
 Next, we need to scale our data.
@@ -64,12 +65,27 @@ Before scaling, battery life (\~100) and signal distance (\~4000) were working i
 ```{r}
 # standardize the data and remove unnecessary data
 
+# start with the full data set
+knn_data <- full_collars %>%
+  # mutate the battery and signal columns to be scaled
+  mutate(battery_scaled = scale(battery_life),
+         signal_scaled = scale(signal_distance)) %>%
+  # remove columns we aren't using anymore
+  dplyr::select(-battery_life, -signal_distance, -fail:-weight) %>% 
+  # make the maker column a factor (categorical)
+  mutate(maker = as.factor(maker))
+
 ```
 
 Let's summarize and plot the scaled data to see what it looks like. Let's focus on battery life.
 
 ```{r}
+knn_data %>% 
+  summarise(mean_bat = mean(battery_scaled),
+            sd_bat = sd(battery_scaled))
 
+ggplot(knn_data, aes(battery_scaled, fill = maker)) +
+  geom_histogram()
 ```
 
 Right now, we have 3 collar categories because we haven't separated the unknown collars. Let's do that.
@@ -79,6 +95,17 @@ Right now, we have 3 collar categories because we haven't separated the unknown 
 Before we continue, we need to make separate data frames to work with, one with collars with known makers and one with collars with unknown labels
 
 ```{r}
+# we also need to remove the collar_id labels
+collars_to_label <- knn_data %>%
+  filter(is.na(maker))
+
+# we need to save the collar ids before removing them
+unknown_collar_ids <- collars_to_label %>% dplyr::select(collar_id)
+collars_to_label <- collars_to_label %>% dplyr::select(-maker, -collar_id)
+
+labeled_collars <- knn_data %>%
+  filter(!is.na(maker)) %>% 
+  select(-collar_id)
 
 ```
 
@@ -94,13 +121,14 @@ Note: this is where the code starts getting a bit complicated. It's ok if you ar
 # because we know the actual makers of those 30 collars, we will know if our model made any mistakes
 
 # since randomly choosing, we will use set.seed() to make sure everyone is getting the same values
-
+set.seed(411)
 
 # randomly select 30 row positions (70%) to pull out
+rows_to_pull <- sample(1:100, 30)
+rows_to_pull
 
-# remove test data from labeled collars
-
-# pull out the 30 rows for testing
+training <- labeled_collars[-rows_to_pull, ] # remove test data from labeled collars
+testing <- labeled_collars[rows_to_pull, ] # pull out the 30 rows for testing
 
 ```
 
@@ -116,14 +144,17 @@ library(caret)
 
 # set seed again
 # training the model and finding the best k value
-
+set.seed(411)
+knn_training_model <- train(maker ~ ., data = training, method = "knn")
+knn_training_model # best k value is 5
 ```
 
 Ok, we have determined that our best k value is 5. Now we can use our training model on the testing data to see if it makes any mistakes. We use the `predict` function from `caret` to do this.
 
 ```{r}
 # making predictions with the test data
-
+knn_predict_test <- predict(knn_training_model, testing)
+confusionMatrix(knn_predict_test, testing$maker) # no mistakes!
 ```
 
 Great, our model didn't make any mistakes! It is probably ready to apply to our collars of unknown origin.
@@ -134,14 +165,17 @@ We will apply the same model but now to the new data.
 
 ```{r}
 # making predictions for the collars without makers
-
+knn_predict <- predict(knn_training_model, collars_to_label)
+knn_predict
+table(knn_predict)
 ```
 
 We have predictions! Our last step is to recombine our data so that the collars now have their new labels.
 
 ```{r}
 # let's bind the columns together
-
+new_labels <- bind_cols(unknown_collar_ids, knn_predict)
+new_labels
 ```
 
 Typically, you would want to replace the columns in the entire dataframe, but we will end here for today :) Our goal of labeling our unlabeled collars is complete! We will deploy any that are now labeled as Collarium LLC.

@@ -13,35 +13,24 @@ library(tidyverse)
 
 knn_plot = function(data, model){
   
-  # separating data into predictors and classes
-  train = as.data.frame(data[,-1])
-  cl = data[,1] %>% pull()
-  
-  # test grid
-  test = expand.grid(x=seq(min(train[,1]-0.5), max(train[,1]+0.5),
-                            by=0.1),
-                      y=seq(min(train[,2]-0.5), max(train[,2]+0.5), 
-                            by=0.1))
-  
   # loading model
   classif = model
   
   prob = attr(classif, "prob")
   
-  dataf <- bind_rows(mutate(test,
-                            #prob=prob,
+  dataf <- bind_rows(mutate(collars_to_label,
+                            prob=prob,
                             cls="Budget Collars LLC",
                             prob_cls=ifelse(classif==cls,
                                             1, 0)),
-                     mutate(test,
-                            #prob=prob,
+                     mutate(collars_to_label,
+                            prob=prob,
                             cls="Collarium Inc.",
                             prob_cls=ifelse(classif==cls,
                                             1, 0)))
   print("Ready to plot")
-  print(dataf)
   
-  ggplot(dataf) +
+  ggplot() +
     #geom_point(aes(x=x, y=y, col=cls, size=prob),
      #          data = mutate(test, cls=classif)) +
     #scale_size(range=c(0.8, 2)) +
@@ -59,6 +48,38 @@ knn_plot = function(data, model){
   
 }
 
+
+boundary <- function(model, data, class = NULL, predict_type = "class",
+                     resolution = 100, showgrid = TRUE, ...) {
+  
+  if(!is.null(class)) cl <- data[,class] else cl <- 1
+  data <- data[,2:3]
+  k <- nrow(unique(cl))
+  
+  plot(data, col = cl$maker) #, pch = as.integer(cl)+1)
+  
+  d# make grid
+  r <- sapply(data, range, na.rm = TRUE)
+  xs <- seq(r[1,1], r[2,1], length.out = resolution)
+  ys <- seq(r[1,2], r[2,2], length.out = resolution)
+  g <- cbind(rep(xs, each=resolution), rep(ys, time = resolution))
+  colnames(g) <- colnames(r)
+  g <- as.data.frame(g)
+  
+  ### guess how to get class labels from predict
+  ### (unfortunately not very consistent between models)
+  p <- predict(model, g, type = predict_type)
+  if(is.list(p)) p <- p$class
+  p <- as.factor(p)
+  
+  if(showgrid) points(g, col = as.integer(p)+1L, pch = ".")
+  
+  z <- matrix(as.integer(p), nrow = resolution, byrow = TRUE)
+  contour(xs, ys, z, add = TRUE, drawlabels = FALSE,
+          lwd = 2, levels = (1:(k-1))+.5)
+  
+  invisible(z)
+}
 
 
 #Manual testing
