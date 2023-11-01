@@ -1,4 +1,4 @@
-panel_id,maker,direction,watts_per_hour
+panel_id,company,direction,watts_per_hour
 1,Sunny Side Up,North,325.2107335338838
 2,Sunny Side Up,North,352.07385972000793
 3,Sunny Side Up,North,357.49217228765775
@@ -6,7 +6,7 @@ panel_id,maker,direction,watts_per_hour
 5,Sunny Side Up,North,290.3396383028705
 6,Sunny Side Up,North,342.1223534684298
 7,Sunny Side Up,North,366.9038907047181
-8,Sunny Side Up,North,300.377853131271
+8,Sunny Side Up,North,300.3778531
 9,Sunny Side Up,North,329.99942653647776
 10,Sunny Side Up,North,326.81428455502453
 11,Sunny Side Up,North,290.71834559737613
@@ -37,7 +37,7 @@ panel_id,maker,direction,watts_per_hour
 36,Sunny Side Up,North,356.98336127471475
 37,Sunny Side Up,North,362.13837421920687
 38,Sunny Side Up,North,296.92520698425193
-39,Sunny Side Up,North,331.849603499517
+39,Sunny Side Up,North,331.8496035
 40,Sunny Side Up,North,349.6531960910441
 41,Sunny Side Up,North,288.25337982794656
 42,Sunny Side Up,North,316.4438072118283
@@ -45,7 +45,7 @@ panel_id,maker,direction,watts_per_hour
 44,Sunny Side Up,North,322.5002102179741
 45,Sunny Side Up,North,350.38628047866894
 46,Sunny Side Up,North,342.0102613009256
-47,Sunny Side Up,North,333.941104608031
+47,Sunny Side Up,North,333.9411046
 48,Sunny Side Up,North,312.67221336325963
 49,Sunny Side Up,North,320.2198419244877
 50,Sunny Side Up,North,312.27431015488236
@@ -62,7 +62,7 @@ panel_id,maker,direction,watts_per_hour
 61,Function in the Sun,North,324.2177061393414
 62,Function in the Sun,North,323.4648478960724
 63,Function in the Sun,North,309.4733159426196
-64,Function in the Sun,North,320.224374112535
+64,Function in the Sun,North,320.2243741
 65,Function in the Sun,North,321.45762350875333
 66,Function in the Sun,North,305.7202420432631
 67,Function in the Sun,North,316.0564676270727
@@ -76,13 +76,13 @@ panel_id,maker,direction,watts_per_hour
 75,Function in the Sun,North,297.3272654246659
 76,Function in the Sun,North,315.7538423340772
 77,Function in the Sun,North,310.8538576349092
-78,Function in the Sun,North,332.839048665183
+78,Function in the Sun,North,332.8390487
 79,Function in the Sun,North,329.28604644319006
 80,Function in the Sun,North,314.99221383419274
 81,Function in the Sun,North,333.78561630628644
 82,Function in the Sun,North,334.0682465715761
 83,Function in the Sun,North,299.59059183341145
-84,Function in the Sun,North,307.320289547848
+84,Function in the Sun,North,307.3202895
 85,Function in the Sun,North,325.48377065941236
 86,Function in the Sun,North,334.8865099768399
 87,Function in the Sun,North,331.52464392708566

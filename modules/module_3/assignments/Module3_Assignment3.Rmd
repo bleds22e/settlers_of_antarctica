@@ -22,7 +22,6 @@ Write R code which produces the correct answers and correctly interpret the resu
 ### Criteria for Success
 
 -   Code is within the provided code chunks
--   Code is commented with brief descriptions of what the code does
 -   Code chunks run without errors
 -   Code produces the correct result
     -   Code that produces the correct answer will receive full credit
@@ -31,7 +30,7 @@ Write R code which produces the correct answers and correctly interpret the resu
 
 ### Due Date
 
-April 4 at midnight MST
+November 7 at midnight MST
 
 # Assignment Questions
 
@@ -41,13 +40,15 @@ In addition to our wind turbines that are creating energy, we are also testing o
 
 We've set up solar panels on two different sides of the station: the north and the south. The plan is to first compare the solar panels companies on the north side to see which company's panels are creating the most energy. From there, we will do the same with the solar panel companies from the southern side.
 
-Once the top company has been chosen from either side, we will run another test with the top two companies in the same location and choose the best one.
+Once the company that produces the most energy has been determined for each side, we will run another test with the top two companies in the same location and choose the best one.
+
+(Note: This is pretty clearly not the best way to actually test solar panels, but it works best for the assignment...)
 
 ## Set-Up
 
 1.  As always, let's read in our first data set, `solar_panels.csv`. Remember to also load the `tidyverse` and to give the data frame a name!
 
-    ```{r}
+    ```{r message = FALSE}
 
     ```
 
@@ -65,8 +66,8 @@ We are going to start with data comparing the watts per hours from solar panels 
 
 3.  Based on our task at hand, identify our dependent and independent variables:
 
-    -   **independent:**
-    -   **dependent:**
+    -   **independent:** 
+    -   **dependent:** 
 
 4.  Let's first summarize our data so we know what we are working with. Calculate the mean number of watts per hour produced by each solar panel company on the north side.
 
@@ -74,10 +75,10 @@ We are going to start with data comparing the watts per hours from solar panels 
 
     ```
 
-5.  Write out your two hypotheses for the test:
+5.  Write out your two statistical hypotheses for the test:
 
-    -   **Null Hypothesis:**
-    -   **Alternative Hypothesis:**
+    -   **Null Hypothesis:** 
+    -   **Alternative Hypothesis:** 
 
 6.  Write code to run the appropriate test. If this test involves a post-hoc comparison, add that line of code, as well.
 
@@ -89,11 +90,11 @@ We are going to start with data comparing the watts per hours from solar panels 
 
 7.  Interpret the results of the statistical test you ran in question 6 above. In your answer, be sure to include whether the p-value is greater or smaller than our significance level (0.05), what that means in terms of statistical significance, and whether we should reject or fail to reject the null hypothesis. If your test involved a post hoc test, interpret those results as well (which companies are significantly different from each other, if any). (2 points)
 
-    *Answer:*
+    *Answer:* 
 
-8.  Using your results from this entire section, is one company a clear winner? If so, which company? Explain your rationale.
+8.  Using your results from this entire section, do the solar panels from one company obviously outperform the others? If so, which company? Explain your rationale.
 
-    *Answer:*
+    *Answer:* 
 
 ## The South Side
 
@@ -119,18 +120,18 @@ Now, we are going to test the differences in the number of watts per hour for th
 
 12. Interpret the results of the statistical test you ran in question 11 above. In your answer, be sure to include whether the p-value is greater or smaller than our significance level (0.05), what that means in terms of statistical significance, and whether we should reject or fail to reject the null hypothesis. If your test involved a post hoc test, interpret those results as well (which companies are significantly different from each other, if any). (2 points)
 
-    *Answer:*
+    *Answer:* 
 
-13. Using your results from this entire section, is one company a clear winner? If so, which company? Explain your rationale.
+13. Using your results from this entire section, is one company clearly above the others or is that not very clear? If so, which company? Explain your rationale.
 
-    *Answer:*
+    *Answer:* 
 
 ## The Final Test
 
-We are finally ready to pit our two winning companies against each other! We've moved both of their solar panels over to the north side and have re-run the experiment. We need to read in the second data set for the results of this second experiment.
+We are finally ready to pit our two top companies against each other! We've moved both of their solar panels over to the north side and have re-run the experiment. We need to read in the second data set for the results of this second experiment.
 
 ```{r}
-final <- read_csv("../data/final_solar.csv")
+
 ```
 
 14. Let's summarize! Calculate the means for the companies that are in the final test of which solar panels are best.
@@ -147,8 +148,8 @@ final <- read_csv("../data/final_solar.csv")
 
 16. Interpret the results of the statistical test you ran in question 12 above. In your answer, be sure to include whether the p-value is greater or smaller than our significance level (0.05), what that means in terms of statistical significance, and whether we should reject or fail to reject the null hypothesis. If your test involved a post hoc test, interpret those results as well (which companies are significantly different from each other, if any). (2 points)
 
-    *Answer:*
+    *Answer:* 
 
-17. Using your results from this entire section, is one company a clear winner? If so, which company? Explain your rationale.
+17. Using your results from this entire section, is one company a clear winner? If so, which company? Explain your rationale. What if the cost of one company's solar panels were dramatically cheaper? Would that change our decision?
 
     *Answer:*

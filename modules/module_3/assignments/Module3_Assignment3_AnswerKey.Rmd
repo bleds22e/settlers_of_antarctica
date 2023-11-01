@@ -26,7 +26,7 @@ north
 4.
 ```{r}
 north %>% 
-  group_by(maker) %>% 
+  group_by(company) %>% 
   summarise(mean = mean(watts_per_hour))
 ```
 
@@ -40,7 +40,7 @@ south
 10.
 ```{r}
 south %>% 
-  group_by(maker) %>% 
+  group_by(company) %>% 
   summarise(mean = mean(watts_per_hour))
 ```
 
@@ -52,6 +52,6 @@ final
 14.
 ```{r}
 final %>% 
-  group_by(maker) %>% 
+  group_by(company) %>% 
   summarise(mean = mean(watts_per_hour))
 ```

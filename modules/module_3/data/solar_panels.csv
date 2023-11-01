@@ -1,4 +1,4 @@
-panel_id,maker,direction,watts_per_hour
+panel_id,company,direction,watts_per_hour
 1,Solar Gain,North,311.38206619670603
 2,Solar Gain,North,308.82227584134284
 3,Solar Gain,North,303.74986303685455
@@ -16,10 +16,10 @@ panel_id,maker,direction,watts_per_hour
 15,Solar Gain,North,304.5761905751765
 16,Solar Gain,North,304.9573533528335
 17,Solar Gain,North,308.23619821456407
-18,Solar Gain,North,303.343120363108
+18,Solar Gain,North,303.3431204
 19,Solar Gain,North,305.2264078663677
 20,Solar Gain,North,307.7040575442102
-21,Solar Gain,North,307.842196932579
+21,Solar Gain,North,307.8421969
 22,Solar Gain,North,311.2921968233364
 23,Solar Gain,North,307.94999811103986
 24,Solar Gain,North,316.1000688675412
@@ -51,7 +51,7 @@ panel_id,maker,direction,watts_per_hour
 50,Solar Gain,North,306.09419477497124
 51,Sunny Side Up,North,322.3209483318914
 52,Sunny Side Up,North,358.39015178429565
-53,Sunny Side Up,North,342.299515250729
+53,Sunny Side Up,North,342.2995153
 54,Sunny Side Up,North,318.32606842675284
 55,Sunny Side Up,North,350.72141419804535
 56,Sunny Side Up,North,338.2563351084763
@@ -67,7 +67,7 @@ panel_id,maker,direction,watts_per_hour
 66,Sunny Side Up,North,321.4046185793492
 67,Sunny Side Up,North,341.84933981785065
 68,Sunny Side Up,North,320.44032027410447
-69,Sunny Side Up,North,333.755349423934
+69,Sunny Side Up,North,333.7553494
 70,Sunny Side Up,North,381.1331722260411
 71,Sunny Side Up,North,301.0331213430862
 72,Sunny Side Up,North,334.8599810483396
@@ -78,7 +78,7 @@ panel_id,maker,direction,watts_per_hour
 77,Sunny Side Up,North,305.1807355106882
 78,Sunny Side Up,North,273.66618366938536
 79,Sunny Side Up,North,323.08659721221244
-80,Sunny Side Up,North,321.784586183104
+80,Sunny Side Up,North,321.7845862
 81,Sunny Side Up,North,349.70481408819865
 82,Sunny Side Up,North,326.3468728323626
 83,Sunny Side Up,North,349.12007561764136
@@ -104,10 +104,10 @@ panel_id,maker,direction,watts_per_hour
 103,Panel du Soliel,South,312.39552095694046
 104,Panel du Soliel,South,305.9870360779366
 105,Panel du Soliel,South,304.68219559447584
-106,Panel du Soliel,South,314.056108005489
+106,Panel du Soliel,South,314.056108
 107,Panel du Soliel,South,310.8877945959518
 108,Panel du Soliel,South,308.22753840243774
-109,Panel du Soliel,South,295.233892652424
+109,Panel du Soliel,South,295.2338927
 110,Panel du Soliel,South,312.6113167267656
 111,Panel du Soliel,South,310.39750217319806
 112,Panel du Soliel,South,306.8625190197215
@@ -133,7 +133,7 @@ panel_id,maker,direction,watts_per_hour
 132,Panel du Soliel,South,309.2060453724003
 133,Panel du Soliel,South,309.02653808301073
 134,Panel du Soliel,South,310.76848540575304
-135,Panel du Soliel,South,310.383416427427
+135,Panel du Soliel,South,310.3834164
 136,Panel du Soliel,South,310.1751810589203
 137,Panel du Soliel,South,303.60168030541337
 138,Panel du Soliel,South,303.98535223626095
@@ -180,20 +180,20 @@ panel_id,maker,direction,watts_per_hour
 179,Function in the Sun,South,306.8894877485104
 180,Function in the Sun,South,326.94192274932607
 181,Function in the Sun,South,305.4068381467237
-182,Function in the Sun,South,324.055282513857
+182,Function in the Sun,South,324.0552825
 183,Function in the Sun,South,332.9830460453243
 184,Function in the Sun,South,310.9955189524897
 185,Function in the Sun,South,331.0257673353558
 186,Function in the Sun,South,321.7972683014924
 187,Function in the Sun,South,303.7192702462219
 188,Function in the Sun,South,309.59954151561107
-189,Function in the Sun,South,306.566325777948
+189,Function in the Sun,South,306.5663258
 190,Function in the Sun,South,331.30088068250456
 191,Function in the Sun,South,328.5124773881917
 192,Function in the Sun,South,322.1639348722422
 193,Function in the Sun,South,324.7904254750958
 194,Function in the Sun,South,314.81827167435875
-195,Function in the Sun,South,306.182478576079
+195,Function in the Sun,South,306.1824786
 196,Function in the Sun,South,302.86390737597503
 197,Function in the Sun,South,309.1238827557814
 198,Function in the Sun,South,325.1322117273623
@@ -210,7 +210,7 @@ panel_id,maker,direction,watts_per_hour
 209,Bright Future,South,323.40210073885544
 210,Bright Future,South,312.6459413269487
 211,Bright Future,South,336.4084823834293
-212,Bright Future,South,296.491295073205
+212,Bright Future,South,296.4912951
 213,Bright Future,South,279.79212763282163
 214,Bright Future,South,350.63790623558214
 215,Bright Future,South,289.1122593342411
@@ -232,14 +232,14 @@ panel_id,maker,direction,watts_per_hour
 231,Bright Future,South,297.9710069192349
 232,Bright Future,South,305.9519712666888
 233,Bright Future,South,304.4131935485701
-234,Bright Future,South,323.166417604785
+234,Bright Future,South,323.1664176
 235,Bright Future,South,294.4583993789266
 236,Bright Future,South,303.2835627619197
 237,Bright Future,South,332.5735084669895
 238,Bright Future,South,315.9622833255022
 239,Bright Future,South,278.8220010704468
-240,Bright Future,South,285.204707250204
-241,Bright Future,South,321.627331838543
+240,Bright Future,South,285.2047073
+241,Bright Future,South,321.6273318
 242,Bright Future,South,306.84714297736406
 243,Bright Future,South,309.0264408120011
 244,Bright Future,South,303.4070197790956
