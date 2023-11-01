@@ -1,7 +1,7 @@
 ---
 title: "Module 1: Introduction to R and RStudio"
 author: "Keaton Wilson, Ellen Bledsoe"
-date: "11/22/2019, revised October 2023"
+date: "11/22/2019, revised July 2022"
 output:
   pdf_document: default
 ---
@@ -16,7 +16,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 -   Students will be able to describe what computer programming languages (code) are, with R as an example.
 -   Students will be able to describe the role of RStudio in programming with R.
--   Students will be able to describe the utility of each panel in RStudio.
+-   Students will be able to describe the utility of each panel in RStudio.\
 -   Students will be able to perform basic math functions in the R console.
 
 ## Check-in (5 minutes)
@@ -26,68 +26,56 @@ Let's all sign-up for RStudio Cloud!
 ## Rstudio Mini-tour
 
 Perform a live-coding mini-tour of RStudio.\
-1. What do the different panels do?\
-2. Console versus a script/Rmarkdown file
+1. What the different panels do\
+2. Console versus a script/Rmarkdown file?
 
-## Using R as a Calculator
+## Using R as a calculator
 
-### Using the Console 
+### Using the Console
 
-You can do basic math in the Console (the bottom left part of the screen). The Console only understands R code, but it can also be treated as a calculator! Hence, we can type in some numbers and mathematical symbols.
+You can do basic math in the console (the bottom left part of the screen). The console only understands R code; we can type numbers and mathematical symbols.
 
-Try multiplying 5 and 3 in the Console (hint: \* means multiply). Hit `Enter` to run that line of code.
+Try multiplying 5 and 3 (hint: \* means multiply) in the console. Hit `Enter` to run the line of code.
 
 ### Rmarkdown and Code Chunks
 
 Rmarkdown (.Rmd) is a file format that lets us incorporate text and code into one document seamlessly. In fact, it is the file format for this document!
 
--   For writing text, you can type as you normally would.
--   Code chunks are a bit different:
-    -   Near the top right of your screen you can toggle between viewing this document as under Source or Visual.
-    -   If you view this document under Source, you will see that all code chunks are sandwiched between " ```{r} " and " ``` ".
-    -   But under Visual, you can type R code in the lines under `{r}`.
-    -   To include text in chunks, you will need to put a `#` in front. R will not read anything in the line after `#` as code. 
+-   For writing text, you can type as you would normally
+-   Code chunks are a bit different.
+    -   Type your R code in the lines under the `{r}`.
 
-Code chunks look like this:
+    -   To include text in them, you will need to put a `#` in front. R will not read anything after the `#` as code. Chunks look like this:
 
 ```{r}
-# This is a code chunk!
 
 ```
 
-A quick shortcut for adding a code chunk is `Ctrl + Alt + i` (`Cmd + Opt + i` on a Mac). 
+A quick shortcut for adding a code chunk is `Ctrl + Atl + i` (`Cmd + Opt + i` on a Mac). Alternatively, you can go to Code \> Insert Chunk.
 
-Alternatively, you can go to Code \> Insert Chunk.
-
-To run a chunk of code, click the green arrow on the top right corner of the chunk. 
-
-You can also run one or a few lines of code at a time by having your cursor on the line or highlighting multiple lines and hitting `Ctrl` + `Enter` (or `Cmd` + `Enter` on a Mac).
-
-### Some Code Chunk Practice
+To run a chunk of code, click the green arrow on the far right side of the chunk. You can also run one or a few lines of code at a time by having your cursor on the line or highlighting multiple lines and hitting `Ctrl` + `Enter` (or `Cmd` + `Enter` on a Mac).
 
 Let's work with an example code chunk.
 
 ```{r}
 # I am adding a comment to my code here.
 
-432 - 11     # subtraction
+432 - 11 # subtraction
 
-12 + 18      # addition
+12 + 18  # addition
 
-8 / 4        # division
+8 / 4    # division
 
-3 * 5        # multiplication
+3 * 5    # multiplication
 ```
 
-Notice that if you run code in the Console (below) rather than the code chunk in a .Rmd file, you don't need to add the `{r}` to tell it that you are typing R code. The Console only understands R code anyway, so we don't need to tell it what it is!
+If you run code in the console (below) rather than the code chunk in a .Rmd file, you don't need to add the `{r}` to tell it that you are typing R code. The console only understand R code, so we don't need to tell it!
 
 ### Math: Small Group Challenge
 
 Write a line of code to raise 2 to the 3rd power (often represented as $2^3$). This will likely require a little bit of Googling to figure out.
 
-First, write and run the code in the console. 
-
-Next, write and run the code in the code chunk below. What did you have to do differently?
+First, write and run the code in the console. Next, write and run the code in the code chunk below. What did you have to do differently?
 
 ```{r}
 2^3
