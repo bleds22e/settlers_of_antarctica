@@ -43,13 +43,13 @@ Knowing that we would soon be building roads, we asked our botanists to collect 
 
 Our botanists collected data for the following variables:
 
--   *soil pH*: most plants prefer mildly acidic to neutral environments
--   *nitrogen (N) content*: as percentage per 100 mL soil sample; important for plant growth and tissue building
--   *phosphorous (P) content*: as percentage per 100 mL soil sample; important for plant growth and tissue building
--   *percent rock*: how rocky the location is; rocks in soil impact water drainage and temperature
--   *max windspeed (mph)*: extreme wind can pose a challenge to plants of all types
--   *average summer temperature (C)*: temperature in the growing season
--   *penguin density*: the number of penguins per 1 m\^2 within 100 m of the sample quadrant for hair grass; penguin poop increases nitrogen content in the system
+-   *soil pH*:
+-   *nitrogen (N) content*: as percentage per 100 mL soil sample;
+-   *phosphorous (P) content*: as percentage per 100 mL soil sample;
+-   *percent rock*: how rocky the location is;
+-   *max windspeed (mph)*:
+-   *average summer temperature (C)*:
+-   *penguin density*: the average number of penguins per 5 m\^2 within 100 m of the sample quadrant for hair grass
 -   *hairgrass density*: number of individual clumps (tussocks) of hairgrass per 1 m\^2
 
 This data is based on this article: [Parnikoza, et al. 2007](https://doi.org/10.1016/j.polar.2007.10.002)
@@ -80,12 +80,12 @@ Let's start by investigating any relationship between hair grass density and nit
 
 First, we should spend a little time thinking about our variables. Spend a few minutes in small groups discussing the answer to the questions below.
 
--   Which columns are we interested in right now? 
+-   Which columns are we interested in right now?
 -   Which one is the independent variable and which is the dependent variable?
-    -   independent: 
-    -   dependent: 
--   Are the variables categorical or continuous? 
--   Which type of data visualization should we use? 
+    -   independent:
+    -   dependent:
+-   Are the variables categorical or continuous?
+-   Which type of data visualization should we use?
 
 Next, calculate the mean (`mean()`) and standard deviation (`sd()`) for the nitrogen content.
 
@@ -114,37 +114,32 @@ We are going to use two (related) statistical methods to understand the relation
 
 To understand the correlation coefficient, R-squared, and linear regression, we first need to talk about something we call the *line of best fit*.
 
-The line of best fit aims to minimize the distance between each observation (points) and the line. The distances between each observation and any line are called *residuals* (the dotted gray lines). The line of best fit is the line that has the smallest *residuals*.
-![](images/residuals.jpg)
-We can add a line of best fit to ggplot by using the `stat_smooth()` function. We need to specify that the method we want should produce a straight line ("linear model").
+The line of best fit aims to minimize the distance between each observation (points) and the line. The distances between each observation and any line are called *residuals* (the dotted gray lines). The line of best fit is the line that has the smallest *residuals*. ![](images/residuals.jpg) We can add a line of best fit to ggplot by using the `stat_smooth()` function. We need to specify that the method we want should produce a straight line ("linear model").
 
 ```{r}
-ggplot(hairgrass, aes(N_content, hairgrass_density_m2)) +
-  geom_point() +
-  stat_smooth(method = "lm")
+
 ```
 
 ### Correlation Coefficient
 
 The correlation coefficient, `r`, is a measurement of the strength of the relationship between two continuous variables.
 
-The correlation coefficient is a number between -1 and 1 that looks at the relationship between two numeric variables. If the value is negative, there is a negative relationship between the two variable; if the value is positive, there is a positive relationship. 
+The correlation coefficient is a number between -1 and 1 that looks at the relationship between two numeric variables. If the value is negative, there is a negative relationship between the two variable; if the value is positive, there is a positive relationship.
 
 If all the points fall exactly on the line of best fit, the correlation coefficient with be 1 or -1. If there is no relationship between the variables, `r` is 0 (or something very close to it).
 
-![](images/coefficient_correlation.jpg)
-The greater the magnitude (size) of the correlation coefficient, the stronger the relationship between the two variables. 
-![](images/correlation.jpg)
+![](images/coefficient_correlation.jpg) The greater the magnitude (size) of the correlation coefficient, the stronger the relationship between the two variables. ![](images/correlation.jpg)
 
 It is also important to recognize that the correlation coefficient has nothing to do with the slope of the line (we use linear regression to assess that!)
 
 ![](images/steepness.jpeg)
 
-Based on the hairgrass plot we did above, do you expect the correlation coefficient to be positive or negative?
+Based on the hairgrass plot we did above, do you expect the correlation coefficient to be positive or negative? For this class, we'll say that any `r` value with 0.1 of 0 means there is no relationship.
 
 To calculate the correlation coefficient, we need to go back to base R and indicate which columns we are referencing with the `$` operator. We use the `cor()` function.
+
 ```{r}
-r <- cor(x = hairgrass$N_content, y = hairgrass$hairgrass_density_m2)
+
 ```
 
 ### R-squared ($R^2$)
@@ -176,9 +171,9 @@ Using our variables, what would our linear regression model look like (we don't 
 
 What is the null hypothesis? What is the alternative hypothesis?
 
-**Null Hypothesis** ($H_{0}$): 
+**Null Hypothesis** ($H_{0}$):
 
-**Alternative Hypothesis** ($H_{A}$): 
+**Alternative Hypothesis** ($H_{A}$):
 
 What do you think this means for the slopes?
 
@@ -186,7 +181,7 @@ What do you think this means for the slopes?
 
 Thankfully, R can calculate the slope (`m`) and y-intercept (`b`) of the line of best fit for us.
 
-Let's find the equation for our line of best fit, our test statistic, and our p-value. To do this, we use a function called `lm()`: this stand for "linear model." 
+Let's find the equation for our line of best fit, our test statistic, and our p-value. To do this, we use a function called `lm()`: this stand for "linear model."
 
 Like with ANOVA, we will then want to use the `summary()` function to get out the values we need.
 

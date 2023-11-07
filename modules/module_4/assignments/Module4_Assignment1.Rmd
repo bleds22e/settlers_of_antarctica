@@ -9,6 +9,31 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+## Assignment Details
+
+### Purpose
+
+The goal of this assignment is to assess your ability to perform and interpret linear regressions.
+
+### Task
+
+Write R code which produces the correct answers and correctly interpret the results of visualizations and statistical tests.
+
+### Criteria for Success
+
+-   Code is within the provided code chunks
+-   Code chunks run without errors
+-   Code produces the correct result
+    -   Code that produces the correct answer will receive full credit
+    -   Code attempts with logical direction will receive partial credit
+-   Written answers address the questions in sufficient detail
+
+### Due Date
+
+November 14 at 4 MST
+
+## Assignment Questions
+
 In this assignment, we are going to continue using the hair grass data set from class. The first lesson (Roads and Regressions) will be particularly helpful to you in completing this assignment.
 
 We are going to look at the relationship between hair grass density and two other variables: phosphorus content and the average summer temperature.
@@ -37,7 +62,7 @@ First load the tidyverse and read in the hair grass data set.
 
     *Dependent:*
 
-3.  Create a scatter plot of hair grass density and phosphorus content. Be sure to make the labels easier to understand and add a theme.
+3.  Create a scatter plot of hair grass density and phosphorus content (do not add a line of best fit yet). Be sure to make the labels easier to understand and add a theme.
 
 ```{r}
 
@@ -59,13 +84,13 @@ First load the tidyverse and read in the hair grass data set.
 
 ```
 
-    *Interpretation:* 
+*Interpretation:*
 
 7.  What are the null and alternative hypothesis regarding the relationship between these two variables? (2 pts)
 
-    **Null:** 
-    
-    **Alternative:** 
+    **Null:**
+
+    **Alternative:**
 
 8.  Create the scatter plot that includes the line of best fit (have `ggplot2` calculate the linear equation for you). Again, make the labels clearer and add a theme
 
@@ -79,14 +104,13 @@ First load the tidyverse and read in the hair grass data set.
 
 ```
 
-10. Write out the equation for the line of best fit using the values from the results above.
+10. Write out the equation for the line of best fit using the values from the results above and the variable names.
 
-    *Answer:* 
+    *Answer:*
 
 11. Interpret the model summary. What is the p-value for our variable of interest? Do we accept or reject the null hypothesis regarding the relationship between these two variables? What can we conclude then about building a road? (2 pts)
 
     *Answer:*
-
 
 ### Summer Temperature
 
@@ -100,7 +124,7 @@ Now let's do the same thing for the average summer temperatures.
 
 13. Write 1-2 sentences interpreting the plot above. Is this a positive relationship, negative relationship or no relationship at all? Based on your prediction, do you think the correlation coefficient will be positive, negative, or zero?
 
-    *Answer:* 
+    *Answer:*
 
 14. Calculate the correlation coefficient, `r`.
 
@@ -114,7 +138,7 @@ Now let's do the same thing for the average summer temperatures.
 
 ```
 
-    *Interpretation:*
+*Interpretation:*
 
 16. Create the scatter plot that includes the line of best fit (have `ggplot2` calculate the linear equation for you). Make the labels easier to interpret and add a theme.
 

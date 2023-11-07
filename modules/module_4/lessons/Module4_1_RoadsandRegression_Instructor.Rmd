@@ -47,9 +47,9 @@ Our botanists collected data for the following variables:
 -   *nitrogen (N) content*: as percentage per 100 mL soil sample; important for plant growth and tissue building
 -   *phosphorous (P) content*: as percentage per 100 mL soil sample; important for plant growth and tissue building
 -   *percent rock*: how rocky the location is; rocks in soil impact water drainage and temperature
--   *max windspeed (mph)*: extreme wind can pose a challenge to plants of all types
+-   *max windspeed (knots per hour)*: extreme wind can pose a challenge to plants of all types
 -   *average summer temperature (C)*: temperature in the growing season
--   *penguin density*: the number of penguins per 1 m\^2 within 100 m of the sample quadrant for hair grass; penguin poop increases nitrogen content in the system
+-   *penguin density*: the number of penguins per 5 m\^2 within 100 m of the sample quadrant for hair grass; penguin poop increases nitrogen content in the system
 -   *hairgrass density*: number of individual clumps (tussocks) of hairgrass per 1 m\^2
 
 This data is based on this article: [Parnikoza, et al. 2007](https://doi.org/10.1016/j.polar.2007.10.002)
@@ -101,7 +101,10 @@ Now that we have summarized the data, let's take a look at the data visually.
 
 ```{r}
 ggplot(hairgrass, aes(n_content, hairgrass_density_m2)) +
-  geom_point()
+  geom_point() +
+  labs(x = "N Content",
+       y = "Hairgrass Density (per m^2)") +
+  theme_bw()
 ```
 
 Do you see a pattern? What type of relationship do you see?
@@ -121,14 +124,17 @@ To understand correlation, R-squared, and linear regression, we first need to ta
 
 The line of best fit aims to minimize the distance between each observation (points) and the line. The distances between each observation and any line are called *residuals* (the dotted gray lines). The line of best fit is the line that has the smallest *residuals*.
 
-![](images/residuals.jpg)
+![](images/lines.png){width="48%"} ![](images/residuals.jpg){width="48%"}
 
-We can add a line of best fit to ggplot by using the `geom_smooth()` function. We need to specify that the method we want should produce a straight line ("linear model").
+We can add a line of best fit to a ggplot by using the `geom_smooth()` function. We need to specify that the method we want should produce a straight line ("linear model").
 
 ```{r}
 ggplot(hairgrass, aes(n_content, hairgrass_density_m2)) +
   geom_point() +
-  geom_smooth(method = "lm")
+  geom_smooth(method = "lm") +
+  labs(x = "N Content",
+       y = "Hairgrass Density (per m^2)") +
+  theme_bw()
 ```
 
 ### Correlation Coefficient
@@ -149,7 +155,7 @@ It is also important to recognize that the correlation coefficient has nothing t
 
 ![](images/steepness.jpeg)
 
-Based on the hairgrass plot we did above, do you expect the correlation coefficient to be positive or negative?
+Based on the hairgrass plot we did above, do you expect the correlation coefficient to be positive or negative? For this class, we'll say that any `r` value with 0.1 of 0 means there is no relationship.
 
 To calculate the correlation coefficient, we need to go back to base R and indicate which columns we are referencing with the `$` operator. We use the `cor()` function.
 
@@ -160,7 +166,11 @@ r
 
 ### R-squared ($R^2$)
 
-The R-squared ($R^2$) value is a representation of how much variation is explained by the line of best fit. When we have a dependent variable and an independent variable, the R-squared value tells us how much of the variation in the *dependent* variable is explained by the *independent* variable.
+The R-squared ($R^2$) value is a representation of how much variation is explained by the line of best fit.
+
+When we have a dependent variable and an independent variable, the R-squared value tells us how much of the variation in the *dependent* variable is explained by the *independent* variable.
+
+Sometimes we don't have obvious dependent and independent variables, but we can still use similar language ($R^2$ tells us how much of the variation in the data is explained).
 
 To calculate R-squared, we square the correlation coefficient value we calculated above. It is always positive because we are squaring it `r` value; that means that R-squared values range from 0 to 1. The closer to 1, the more variation is explained.
 
@@ -234,12 +244,15 @@ hairgrass %>%
             sd_pH = sd(soil_pH))
 ```
 
-Visualize the data. Remember to add in the line of best fit using `ggplot2`.
+Visualize the data. Remember to add in the line of best fit using `ggplot2`. Also add labels and a theme for practice.
 
 ```{r}
 ggplot(hairgrass, aes(soil_pH, hairgrass_density_m2)) +
   geom_point() +
-  stat_smooth(method = "lm")
+  geom_smooth(method = "lm") +
+  labs(x = "Soil pH",
+       y = "Hairgrass Density per m^2") + 
+  theme_bw()
 ```
 
 Calculate the correlation coefficient (`r`)? What does this tell us?

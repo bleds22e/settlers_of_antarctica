@@ -36,28 +36,28 @@ hairgrass %>%
 
 2.  Which variable is the independent variable? Which is the dependent?
 
-    *Independent:*
+    *Independent: phosphorus*
 
-    *Dependent:*
+    *Dependent: hairgrass*
 
-3.  Create a scatter plot of hair grass density and phosphorus content. Be sure to make the labels easier to understand and add a theme.
+3.  Create a scatter plot of hair grass density and phosphorus content (don't add the line of best fit yet). Be sure to make the labels easier to understand and add a theme.
 
 ```{r}
 ggplot(hairgrass, aes(x = p_content, y = hairgrass_density_m2)) +
   geom_point() +
   labs(x = "Phosphorus Content",
-      y = "Hair Grass Density (m^2)") +
+       y = "Hair Grass Density (m^2)") +
   theme_classic()
 ```
 
 4.  Write 1-2 sentences interpreting the plot above. Is this a positive relationship, negative relationship or no relationship at all? Based on your prediction, do you think the correlation coefficient will be positive, negative, or zero?
 
-    *Answer:*
+    *Answer: looks like no relationship, therefore the correlation coefficient will be close to 0*
 
 5.  Calculate the correlation coefficient, `r`.
 
 ```{r}
-r <- cor(y = hairgrass$hairgrass_density_m2, x = hairgrass$p_content)
+r <- cor(x = hairgrass$p_content, y = hairgrass$hairgrass_density_m2)
 r
 ```
 
@@ -78,31 +78,28 @@ r^2
 8.  Create the scatter plot that includes the line of best fit (have `ggplot2` calculate the linear equation for you). Again, make the labels clearer and add a theme
 
 ```{r}
-hairgrass %>% 
-  ggplot(aes(x = p_content, y = hairgrass_density_m2)) +
+ggplot(hairgrass, aes(x = p_content, y = hairgrass_density_m2)) +
   geom_point() +
   geom_smooth(method = "lm") +
-  ylab("Hairgrass Density (m^2)") +
-  xlab("Phosphorus Content") +
+  labs(x = "Phosphorus Content per 100mL",
+       y = "Hairgrass Density per m^2") +
   theme_classic()
 ```
 
 9.  Using code, create the regression model in R and obtain the summary of it.
 
 ```{r}
-mod <- lm(hairgrass$hairgrass_density_m2 ~ hairgrass$p_content)
+mod <- lm(hairgrass_density_m2 ~ p_content, data = hairgrass)
 summary(mod) # 1pt
 ```
 
-10. Write out the equation for the line of best fit using the values from the results above.
+10. Write out the equation for the line of best fit using the values and variables from the results above.
 
-    *Answer:* y = 0.030x + 7.31
+    *Answer:* hairgrass density = -0.010\*phosphorus + 7.97
 
 11. Interpret the model summary. What is the p-value for our variable of interest? Do we accept or reject the null hypothesis regarding the relationship between these two variables? What can we conclude then about building a road? (2 pts)
 
-    *Answer:*
-
-the p-value is 0.0943, so we do not reject the null hypothesis There is a not a relationship between phosphorus content and hairgrass density, so we don't need to take it into account for our road
+    *Answer:* the p-value is 0.5538, so we do not reject the null hypothesis. There is not a relationship between phosphorus content and hairgrass density, so we don't need to take it into account for our road
 
 if they put in the wrong variables and get the incorrect model, they can still get the rest of the points as long as they interpret the one they made correctly
 
@@ -127,7 +124,7 @@ ggplot(hairgrass, aes(x = avg_summer_temp, y = hairgrass_density_m2)) +
 14. Calculate the correlation coefficient, `r`.
 
 ```{r}
-r <- cor(y = hairgrass$hairgrass_density_m2, x = hairgrass$avg_summer_temp)
+r <- cor(x = hairgrass$avg_summer_temp, y = hairgrass$hairgrass_density_m2)
 r
 ```
 
@@ -146,7 +143,7 @@ ggplot(hairgrass, aes(x = avg_summer_temp, y = hairgrass_density_m2)) +
   geom_point() +
   geom_smooth(method = "lm") +
   ylab("Hairgrass Density (m^2)") +
-  xlab("Average Summer Temperature (F)") +
+  xlab("Average Summer Temperature (C)") +
   theme_bw()
 ```
 
@@ -159,6 +156,4 @@ summary(mod)
 
 18. Interpret the model summary. What is the p-value for our variable of interest? Do we accept or reject the null hypothesis regarding the relationship between these two variables? What can we conclude then about building a road? (2 points)
 
-    *Answer:*
-
-p-value is \<2e-16, so super small and highly significant; reject the null; should think about temperature when we decide where to build the road
+    *Answer:* p-value is \<2e-16, so super small and highly significant; reject the null; should think about temperature when we decide where to build the road
