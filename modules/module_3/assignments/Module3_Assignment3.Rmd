@@ -66,8 +66,8 @@ We are going to start with data comparing the watts per hours from solar panels 
 
 3.  Based on our task at hand, identify our dependent and independent variables:
 
-    -   **independent:** 
-    -   **dependent:** 
+    -   **independent:**
+    -   **dependent:**
 
 4.  Let's first summarize our data so we know what we are working with. Calculate the mean number of watts per hour produced by each solar panel company on the north side.
 
@@ -77,8 +77,8 @@ We are going to start with data comparing the watts per hours from solar panels 
 
 5.  Write out your two statistical hypotheses for the test:
 
-    -   **Null Hypothesis:** 
-    -   **Alternative Hypothesis:** 
+    -   **Null Hypothesis:**
+    -   **Alternative Hypothesis:**
 
 6.  Write code to run the appropriate test. If this test involves a post-hoc comparison, add that line of code, as well.
 
@@ -90,11 +90,11 @@ We are going to start with data comparing the watts per hours from solar panels 
 
 7.  Interpret the results of the statistical test you ran in question 6 above. In your answer, be sure to include whether the p-value is greater or smaller than our significance level (0.05), what that means in terms of statistical significance, and whether we should reject or fail to reject the null hypothesis. If your test involved a post hoc test, interpret those results as well (which companies are significantly different from each other, if any). (2 points)
 
-    *Answer:* 
+    *Answer:*
 
 8.  Using your results from this entire section, do the solar panels from one company obviously outperform the others? If so, which company? Explain your rationale.
 
-    *Answer:* 
+    *Answer:*
 
 ## The South Side
 
@@ -120,11 +120,11 @@ Now, we are going to test the differences in the number of watts per hour for th
 
 12. Interpret the results of the statistical test you ran in question 11 above. In your answer, be sure to include whether the p-value is greater or smaller than our significance level (0.05), what that means in terms of statistical significance, and whether we should reject or fail to reject the null hypothesis. If your test involved a post hoc test, interpret those results as well (which companies are significantly different from each other, if any). (2 points)
 
-    *Answer:* 
+    *Answer:*
 
 13. Using your results from this entire section, is one company clearly above the others or is that not very clear? If so, which company? Explain your rationale.
 
-    *Answer:* 
+    *Answer:*
 
 ## The Final Test
 
@@ -148,7 +148,7 @@ We are finally ready to pit our two top companies against each other! We've move
 
 16. Interpret the results of the statistical test you ran in question 12 above. In your answer, be sure to include whether the p-value is greater or smaller than our significance level (0.05), what that means in terms of statistical significance, and whether we should reject or fail to reject the null hypothesis. If your test involved a post hoc test, interpret those results as well (which companies are significantly different from each other, if any). (2 points)
 
-    *Answer:* 
+    *Answer:*
 
 17. Using your results from this entire section, is one company a clear winner? If so, which company? Explain your rationale. What if the cost of one company's solar panels were dramatically cheaper? Would that change our decision?
 
