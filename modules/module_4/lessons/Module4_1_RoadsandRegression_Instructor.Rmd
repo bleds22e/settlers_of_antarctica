@@ -19,7 +19,7 @@ Last module, we tried to figure out which bays we should prioritize for fishing 
 -   fish catch data
 -   leopard seal abundance data
 
-Based on our results from Assignment 3, it looks like Sulzberger Bay and Hope Bay are our best bets. Now, we need to make these bays accessible over land to transport the fish we've caught to our home base.
+Based on our results from Assignment 2, it looks like Sulzberger Bay and Hope Bay are our best bets. Now, we need to make these bays accessible over land to transport the fish we've caught to our home base.
 
 **We want to build a road while minimizing our impact on the delicate antarctic ecosystem.**
 
@@ -123,12 +123,12 @@ The line of best fit aims to minimize the distance between each observation (poi
 
 ![](images/residuals.jpg)
 
-We can add a line of best fit to ggplot by using the `stat_smooth()` function. We need to specify that the method we want should produce a straight line ("linear model").
+We can add a line of best fit to ggplot by using the `geom_smooth()` function. We need to specify that the method we want should produce a straight line ("linear model").
 
 ```{r}
 ggplot(hairgrass, aes(n_content, hairgrass_density_m2)) +
   geom_point() +
-  stat_smooth(method = "lm")
+  geom_smooth(method = "lm")
 ```
 
 ### Correlation Coefficient
@@ -189,7 +189,7 @@ What is the null hypothesis? What is the alternative hypothesis?
 
 **Null Hypothesis** ($H_{0}$): There is no relationship between hair grass density and nitrogen content.
 
-**Alternative Hypothesis** ($H_{A}$): There is a relationship between hair grass density.
+**Alternative Hypothesis** ($H_{A}$): There is a relationship between hair grass density and nitrogen content.
 
 What do you think this means for the slopes?
 
@@ -224,7 +224,7 @@ This means our equation for the line of best fit is: y = 0.659x + 1.385 and ther
 
 ## Soil pH
 
-Let's do the same series of steps to determine how soil pH impacts hair grass densities. Work on this in your small groups, and we will go over it in about 15 minutes.
+Let's do the same series of steps to determine how soil pH impacts hair grass densities. Work on this in your small groups, and we will go over it in about 10 minutes.
 
 Start with summarizing the data: mean and standard deviation.
 
