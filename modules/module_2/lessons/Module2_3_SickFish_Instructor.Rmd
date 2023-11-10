@@ -9,7 +9,9 @@ editor_options:
 ---
 
 ```{r setup, include=FALSE}
+
 knitr::opts_chunk$set(echo = TRUE)
+
 ```
 
 ## Scenario
@@ -34,22 +36,32 @@ tanks. It's too expensive and takes too long. Instead of sampling all
 Let's scope it out:
 
 ```{r}
+
+# Load tidyverse
 library(tidyverse)
 
+# Load data
 sick_fish <- read_csv("../data/fish_sick_data.csv")
+
+# View data
 head(sick_fish)
+
 ```
 
-Oh no, we might need to add a Fahrenheit column...let's practice.
+Oh no, we might need to add a Fahrenheit column... let's practice.
 
 ```{r}
+
+# Celsius to Farenheit function
 c_to_f <- function(c = NULL){
   f <- (c * (9/5)) + 32
   return(f)
 }
 
+# Convert C to F in sick_fish data
 sick_fish <- sick_fish %>% 
   mutate(avg_daily_tempF = c_to_f(avg_daily_temp))
+
 ```
 
 ## Data Exploration
@@ -64,16 +76,18 @@ data we have been given.
 
 Write some code that produces the following values *per species*.
 
--   mean (average) number of sick fish
--   mean (average) percentage of sick fish per tank
--   how many tanks
+-   Mean (average) number of sick fish
+-   Mean (average) percentage of sick fish per tank
+-   How many tanks have sick fish
 
 ```{r}
+
 sick_fish %>%
   group_by(species) %>%
   summarize(mean_sick = mean(num_sick),
             mean_perc = mean(num_sick/num_fish), 
-            n = n()) # counts
+            n = n()) # Counts
+
 ```
 
 Summary statistics (such as means) are helpful for giving us some ideas
@@ -84,10 +98,15 @@ Before we plot, let's create two different data frames: one for tilapia
 and one for trout.
 
 ```{r}
+
+# Tilapia data
 sick_tilapia <- sick_fish %>% 
   filter(species == "tilapia")
+
+# Trout data
 sick_trout <- sick_fish %>% 
   filter(species == "trout")
+
 ```
 
 Now, let's plot our data to get an idea of the distribution (spread) of
@@ -101,15 +120,20 @@ to have about the same number of sick fish.
 What would these two different scenarios tell us?
 
 ```{r}
+
+# Tilapia histogram
 hist(sick_tilapia$num_sick)
+
+# Trout histogram
 hist(sick_trout$num_sick)
+
 ```
 
 Let's compare values from tanks which are below the temperature cutoffs
 to those which are above the cutoffs to see if there are major
 difference or we can figure out some answers.
 
-## Using the `if_else()` function
+## Using the `if_else()` Function
 
 Before we start calculating means and plotting, let's create a new
 column in our data frame to indicate whether the tank temperature is
@@ -122,11 +146,13 @@ operates the following way: 1. IF a condition is true, do [something].
 2. IF a condition is false, do [something ELSE].
 
 ```{r}
-# start with tilapia dataframe
+
+# Start with tilapia dataframe
 sick_tilapia %>% 
   mutate(temp_cutoff = if_else(condition = avg_daily_tempF >= 75,
                                true = "above",
                                false = "below"))
+
 ```
 
 ### Individual Challenge
@@ -136,11 +162,13 @@ the sick_trout dataframe. Remember to change the bits of the code that
 you need to!
 
 ```{r}
-# create new column for sick trout
+
+# Create new column for sick trout
 sick_tilapia %>% 
   mutate(temp_cutoff = if_else(condition = avg_daily_tempF >= 75,
                                true = "above",
                                false = "below"))
+
 ```
 
 ## Another Type of Iteration: `for loop`
@@ -157,6 +185,7 @@ brackets, similar to a function that we write.
 
 ```{r}
 # for loop structure
+
 # for ([value] in [list]){
   # Do the things I've written between the curly brackets
 # }
@@ -165,23 +194,27 @@ brackets, similar to a function that we write.
 for (year in 2020:2022){
   print(paste("The year is", year))
 }
+
 ```
 
 Now that we know the general structure of a `for loop`, we can combine
 it with the `if_else()` function to create a new column.
 
 ```{r}
-# create an empty column
+
+# Create an empty column
 sick_tilapia$temp_cutoff <- NA
 
-# for each value (i) in a list going from 1 to the number of rows in sick_tilapia,
+# For each value (i) in a list going from 1 to the number of rows in sick_tilapia,
 # put either "above" or "below" in the same place as (i) in the dataframe, but this time in the new column
 # in this case, i is equivalent to the row 
+
 for (i in 1:nrow(sick_tilapia)){
   sick_tilapia$temp_cutoff[i] <- if_else(condition = sick_tilapia$avg_daily_tempF[i] >= 75,
                                          true = "above",
                                          false = "below")
 }
+
 ```
 
 *Note: I will never ask you to write a for loop completely from scratch.
@@ -195,6 +228,7 @@ temperature cutoff column in the `sick_trout` data frame. Remember, the
 cutoff for trout was 59 F.
 
 ```{r}
+
 sick_trout$temp_cutoff <- NA
 
 for (i in 1:nrow(sick_trout)){
@@ -202,6 +236,7 @@ for (i in 1:nrow(sick_trout)){
                                        true = "above",
                                        false = "below")
 }
+
 ```
 
 ### Why `for loops`?
@@ -224,19 +259,23 @@ trout.
 Can you pinpoint an issue? Let's start by comparing means.
 
 ```{r}
+
+# Tilapia means
 sick_tilapia %>% 
   group_by(temp_cutoff) %>% 
   summarise(mean_sick = mean(num_sick))
 
+# Trout means
 sick_trout %>% 
   group_by(temp_cutoff) %>% 
   summarise(mean_sick = mean(num_sick))
 
-# recombine?
+# Recombine?
 sick_fish <- bind_rows(sick_tilapia, sick_trout)
 sick_fish %>% 
   group_by(species, temp_cutoff) %>% 
   summarise(mean_sick = mean(num_sick))
+
 ```
 
 Not much popping out in the means. Next thing to check would be
@@ -247,21 +286,29 @@ For now, I would recommend making 4 different data frames (this isn't
 "best practice" but it is really helpful while you are learning).
 
 ```{r}
+
+# Tilapia: temp below
 cold_tilapia <- sick_tilapia %>% 
   filter(temp_cutoff == "below")
+
+# Tilapia: temp above
 warm_tilapia <- sick_tilapia %>% 
   filter(temp_cutoff == "above")
 
+# Trout: temp below
 cold_trout <- sick_trout %>% 
   filter(temp_cutoff == "below")
+
+# Trout: temp above
 warm_trout <- sick_trout %>% 
   filter(temp_cutoff == "above")
 
-# tilapia
+# Tilapia histograms
 hist(cold_tilapia$num_sick)
 hist(warm_tilapia$num_sick)
 
-# trout
+# Trout histograms
 hist(cold_trout$num_sick)
 hist(warm_trout$num_sick)
+
 ```
