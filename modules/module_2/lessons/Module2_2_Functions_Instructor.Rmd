@@ -6,7 +6,9 @@ output:
 ---
 
 ```{r setup, include=FALSE}
+
 knitr::opts_chunk$set(echo = TRUE)
+
 ```
 
 # Writing Functions
@@ -25,25 +27,29 @@ Given the correlation we found earlier, it does seem like the fish are our likel
 
 ## Data Exploration
 
-Given the correlation we found earlier, it does seem like the fish are our likely culprit.
-
 Since we've narrowed down the issue, we should ask our aquaculture specialists to provide us with some data about the tanks.
 
 ### Group Brainstorm
 
-Based on what we know about aquaculture systems, what types of data should we ask for to get to the bottom of this issue? Spend about 3 minutes brainstorming with your group and be ready to report back.
+Based on what we know about aquaculture systems, what types of data should we ask for to get to the bottom of this issue? 
+
+Spend about 3 minutes brainstorming with your group and be ready to report back.
 
 ### The Data We Have
 
+We've received the data from our aquaculture specialists -- maybe we should take a look at it.
+
 ```{r}
-# load the tidyverse
+
+# Load the tidyverse
 library(tidyverse)
 
-# read in the data
+# Read in the data
 tank_data <- read_csv("../data/fish_tank_data.csv")
 
-# look at the data
+# Look at the data
 glimpse(tank_data)
+
 ```
 
 ## Discussion of the problem
@@ -52,7 +58,7 @@ Trout are a cold-water species while tilapia are a warm-water species. After doi
 
 Water temperatures below 59º F for trout and below 75º F for tilapia are critically low temperatures and can result in suppression of the immune system.
 
-Great, we now know what the critical temperature cutoffs are for both species--but there's a problem. The cut-off temperatures that we have are in Fahrenheit but the temperature values in our data frame are in Celsius.
+Great, we now know what the critical temperature cutoffs are for both species -- but there's a problem. The cut-off temperatures that we have are in Fahrenheit but the temperature values in our data frame are in Celsius.
 
 Our goal with this data is to ascertain if any of the tanks are below the critical temperature. Before we can do this, though, we need to convert tank temperatures from Celsius to Fahrenheit. Luckily for us, we've already done this before! (Hint: remember the `mutate()` function?).
 
@@ -67,16 +73,18 @@ This has lot of varied uses and can be very powerful. The key takeaway here, tho
 ### General Syntax Example
 
 ```{r}
-# general syntax
+
+# General syntax
 new_sum <- function(x,y){
   z <- x + y
   return(z)
 }
 
-# examples
+# Examples
 new_sum(x = 2, y = 4)
 new_sum(2, 4)
 new_sum(7, 19)
+
 ```
 
 ### Building Our Custom Function
@@ -86,21 +94,26 @@ In your groups, build a custom function called `c_to_f()` that converts a single
 Be prepared to show your code and run some test values.
 
 ```{r}
+
 c_to_f <- function(c = NULL){
   f <- (c * (9/5)) + 32
   return(f)
 }
 
 c_to_f(c = 40)
+
 ```
 
 ## Thinking about Iteration
 
 So, we have a great function that we can use to convert a Celsius value to Fahrenheit, but how do we apply that to *every* value in the temperature column, not just one? We've built the function for one value, not for a vector of values...
 
-This is where `mutate()` comes in! As we've seen in the past, `mutate()` applies whatever function or mathematical formula we've given to it to each value in the column. It essentially is going row by row: applying the function or formula to one row, returning the new value in a new column, then moving to the next row to do the same.
+This is where `mutate()` comes in! As we've seen in the past, `mutate()` applies whatever function or mathematical formula we've given to it to each value in the column. 
+
+It essentially is going row by row: applying the function or formula to one row, returning the new value in a new column, then moving to the next row to do the same.
 
 ```{r}
+
 # Let's first demonstrate applying to a vector
 c_to_f(tank_data$avg_daily_temp)
 
@@ -109,6 +122,7 @@ tank_data <- tank_data %>%
   mutate(avg_daily_temp_F = c_to_f(avg_daily_temp))
 
 tank_data
+
 ```
 
 ### Why Functions?
@@ -117,11 +131,13 @@ We can easily fit the equation for converting from Celsius to Fahrenheit into a 
 
 ### Main Ways to Iterate
 
-There are many different approaches to iterating in R, especially because we are typically working with vectorized data (columns in data frames). We will talk about the other options down the road. Today, we used #3, the `mutate()` function from the `tidyverse`.
+There are many different approaches to iterating in R, especially because we are typically working with vectorized data (columns in data frames). We will talk about the other options down the road:
 
 1.  for loops
 2.  `apply`/`map` functions
 3.  using `dplyr` (`tidyverse`) functions
+
+Today, we used #3, the `mutate()` function from the `tidyverse`.
 
 ## Filtering Our Data
 
@@ -132,7 +148,8 @@ Thankfully, we've solved our first problem! However, we haven't yet answered the
 Let's tackle that question:
 
 ```{r}
-# count is a new function for most of us
+
+# Count is a new function for most of us
 tank_data %>% 
   filter(species == "tilapia" & avg_daily_temp_F < 75) %>% 
   count()
@@ -140,11 +157,11 @@ tank_data %>%
   filter(species == "trout" & avg_daily_temp_F < 59) %>% 
   count()
 
-# let's introduce some additional syntax: & and |
+# Let's introduce some additional syntax: & and |
 tank_data %>%
   filter(species == "tilapia" & avg_daily_temp_F < 75 |
          species == "trout" & avg_daily_temp_F < 59) %>%
   group_by(species) %>%
-  summarize(n = n()) # another way to get the count in summarize and the n() function
+  summarize(n = n()) # Another way to get the count in summarize and the n() function
 
 ```
