@@ -6,7 +6,9 @@ output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
+
 knitr::opts_chunk$set(echo = TRUE)
+
 ```
 
 # A Visualization Primer
@@ -33,7 +35,7 @@ In this course, our main take-away from this website is the use of visual cues t
 
 In groups, discuss as many all types of visualization that come to mind. It's okay if you don't know what they are called! Make a quick list or draw them out if you prefer.
 
-Types of data visualizations:
+*Types of data visualizations:*
 
 [This website](https://www.data-to-viz.com/) is an amazing reference for data visualization methods and when to use what. It also has examples of each type plotted in `ggplot2`.
 
@@ -41,7 +43,7 @@ We will talk more about how to choose the right visualization for your data now 
 
 ### Data matching activity
 
-Still in your groups, open the PDF called "data_viz_matching"
+Still in your groups, open the PDF called "data_viz_matching".
 
 Spend a few minutes seeing if you can match the data descriptions to the types of data visualizations.
 
@@ -70,13 +72,13 @@ See the PowerPoint on D2L for full details!
 
 ## Figure Critique
 
-First, read through [this blog post](https://humansofdata.atlan.com/2019/02/dos-donts-data-visualization/) on the "Dos and Don'ts of Data Visualization"
+First, read through [this blog post](https://humansofdata.atlan.com/2019/02/dos-donts-data-visualization/) on the "Dos and Don'ts of Data Visualization".
 
 Now that you have some insights, let's critique these figures below. Yes, these are actual figures in the wild...
 
--   what aspects don't work
--   what aspects do work
--   how how you present the data?
+-   What aspects don't work?
+-   What aspects do work?
+-   How how you present the data?
 
 Figures:
 
