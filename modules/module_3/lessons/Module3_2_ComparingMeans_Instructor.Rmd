@@ -6,26 +6,33 @@ output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
+
 knitr::opts_chunk$set(echo = TRUE)
+
 ```
 
 # Comparing Means
 
 When we are comparing data from two groups, we often want to compare the mean values of the different groups to see if there are differences. We can do this in a number of ways:
 
--   numerically (descriptive statistics)
--   visually
--   statistically (inferential statistics)
+-   Numerically (descriptive statistics)
+-   Visually
+-   Statistically (inferential statistics)
 
-In this course so far, we have done the first 2: by calculating the mean values of groups and by plotting histograms.
+In this course so far, we have done the first two -- by calculating the mean values of groups and by plotting histograms.
 
 Now, we will explore how we compare means a bit more today, adding in the statistical aspect. Once again, we will be using our collars data, focusing on the battery life and the signal distance.
 
 Let's get set-up by loading the tidyverse and reading in our data.
 
 ```{r}
+
+# Load library
 library(tidyverse)
+
+# Load data
 collars <- read_csv("../data/collar_data.csv")
+
 ```
 
 ## Numerically
@@ -35,10 +42,13 @@ To remind ourselves of which collar maker has the higher signal distance and bat
 Create a new data frame called `means_by_maker`. We want to calculate the average battery life and average signal distance for each collar maker. The new data frame should contain 2 columns, one called `mean_battery` and `mean_signal`.
 
 ```{r}
+
+# New columns for mean battery life and signal distance
 means_by_maker <- collars %>% 
   group_by(maker) %>% 
   summarise(mean_battery = mean(battery_life),
             mean_signal = mean(signal_distance))
+
 ```
 
 ## Visually
@@ -52,6 +62,8 @@ Let's practice another plot type that helps us visualize our data---box-and-whis
 In small groups, practice making a box-and-whisker plot for either the battery life or signal distance data. Remember to add the points via the `geom_jitter()` function, and remember to add nice labels and a theme.
 
 ```{r}
+
+# Battery life
 ggplot(collars, aes(maker, battery_life)) +
   geom_boxplot() +
   geom_jitter(alpha = 0.5, width = 0.1) +
@@ -59,6 +71,7 @@ ggplot(collars, aes(maker, battery_life)) +
        y = "Battery Life") +
   theme_bw()
 
+# Signal distance
 ggplot(collars, aes(maker, signal_distance, color = maker)) +
   geom_boxplot() + 
   geom_jitter(alpha = 0.5, width = 0.1) +
@@ -66,19 +79,20 @@ ggplot(collars, aes(maker, signal_distance, color = maker)) +
        y = "Signal Distance",
        color = "Collar Maker") +
   theme_bw()
+
 ```
 
 Let's remind ourselves what the box-and-whisker plots tell us.
 
--   the **box** represents the *middle 50% of the values* in the data set. The line that runs through the middle of the box represents the *middle value (**median**)* of the data
--   the **whiskers** represent the *spread of the data* (we won't get into the mathematical details of exactly how they are calculated) and a roughly comparable to 95% confidence intervals (discussed below)
--   values that fall outside of the whiskers can be considered outliers and are plotted individually
+-   The **box** represents the *middle 50% of the values* in the data set. The line that runs through the middle of the box represents the *middle value (**median**)* of the data.
+-   The **whiskers** represent the *spread of the data* (we won't get into the mathematical details of exactly how they are calculated) and a roughly comparable to 95% confidence intervals (discussed below).
+-   Values that fall outside of the whiskers can be considered outliers and are plotted individually.
 
 ## Statistically
 
 How do we compare means statistically? Let's step back here for a second and think about the question we are actually asking.
 
-**Fundamentally, we want to know if there a difference between the two manufacturers in two variables: battery life and signal distance**
+**Fundamentally, we want to know if there a difference between the two manufacturers in two variables: battery life and signal distance.**
 
 Numerically and visually, the mean values for the two different manufacturers *look* different. But are they different *enough*? What do we mean by *enough*?
 
@@ -120,6 +134,8 @@ The t-test allows us to determine if the means are different due to the random v
 Let's run some code to perform our first t-test!
 
 ```{r}
+
+# Our first t-test!
 t.test(battery_life ~ maker, data = collars)
 
 ```
@@ -135,18 +151,21 @@ Let's talk through it:
     -   it's a measure of your sample size and some other stuff---honestly, this is not something we're really going to focus on here
 -   `p-value`: a measure of certainty of the difference outlined in the `t-statistic` above
     -   For the test above, our p-value is *very* small: 0.00000000000000022
-    -   This means that there is an extremely low probability that obtaining a difference in means of 0 is very, very unlikely (or, another way to think of it--that the probability that the difference in means is due to random variation in our sample alone is very low) There are a lot of benchmarks in different fields for what this value should be below to consider the difference *significant*, typically \< 0.05 is considered significant.
+    -   This means that there is an extremely low probability that obtaining a difference in means of 0 is very, very unlikely (or, another way to think of it--that the probability that the difference in means is due to random variation in our sample alone is very low). There are a lot of benchmarks in different fields for what this value should be below to consider the difference *significant*, typically \< 0.05 is considered significant.
     -   Although this varies by field, we typically compare the p-value to 0.05. If a p-value is *below* 0.05, we consider the difference to be *statistically significant*.
     -   Since our p-value \< 0.05, that means that we will reject the null hypothesis and can conclude that the difference in means is likely due to a *meaningful* difference in the collars make by different manufacturers
 -   `95 percent confidence interval`: this is the range that we can expect the test statistic (difference in means) to fall in 95% of the time given the data.
     -   Our test statistic is the difference in means of Budget Collars and Collarium, or 86.8 - 121.5 = -34.7
-
     -   If we randomly sample a group of collars from the "population", the difference in means will fall between -30.35 and -38.98 about 95% of the time
 
-### Practice running and interpreting
+### Practice Running and Interpreting
 
-Work on your own or in a group to run a t-test on the other variable we are interested in (signal distance). Be able to describe each piece of the output, what it means, and the overall finding for the test. Also be able to relate it back to the values and the figures we generated above.
+Work on your own or in a group to run a t-test on the other variable we are interested in (signal distance). 
+
+Be able to describe each piece of the output, what it means, and the overall finding for the test. Also be able to relate it back to the values and the figures we generated above.
 
 ```{r}
+
 t.test(data = collars, signal_distance ~ maker)
+
 ```
