@@ -74,6 +74,7 @@ As usual, we start by calling the `tidyverse`.
 
 ```{r, message = FALSE}
 
+# Load library
 library(tidyverse)
 
 ```
@@ -82,7 +83,10 @@ To bring our data into R, we use a function called `read_csv()`. CSV (Comma-Sepa
 
 ```{r}
 
+# Load data
 sick <- read_csv("../data/sick_data.csv")
+
+# View first 6 rows of data
 head(sick)
 
 ```
