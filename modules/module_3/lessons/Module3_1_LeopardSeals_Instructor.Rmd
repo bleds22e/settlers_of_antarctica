@@ -9,7 +9,9 @@ editor_options:
 ---
 
 ```{r setup, include=FALSE}
+
 knitr::opts_chunk$set(echo = TRUE)
+
 ```
 
 # Introduction to the Problem
@@ -61,18 +63,23 @@ can tie it to a particular manufacturer.
 Our data on collars is in a file called "collar_data.csv."
 
 ```{r message = FALSE}
+
+# Load library
 library(tidyverse)
+
+# Load data
 collars <- read_csv("../data/collar_data.csv")
+
 ```
 
 ### Explore the Data
 
-1.  Two manufacturers
-2.  Battery life: the average number of days a particular collar lasts
-    (this is recorded in the unit and stored when the battery dies)
-3.  Signal distance: the maximum signal distance at which that
-    particular collar has been recorded
-4.  Fail: collars that have failed in the past (e.g. they've been
+1.  Two manufacturers.
+2.  Battery life: The average number of days a particular collar lasts
+    (this is recorded in the unit and stored when the battery dies).
+3.  Signal distance: The maximum signal distance at which that
+    particular collar has been recorded.
+4.  Fail: Collars that have failed in the past (e.g. they've been
     recovered from seals that were noticed by the team but that didn't
     ping the radio equipment).
 
@@ -80,32 +87,43 @@ collars <- read_csv("../data/collar_data.csv")
 
 Let's practice. Write some code to do the following:
 
--   calculate the mean and sd for:
+-   Calculate the mean and standard deviation for:
     -   battery life
     -   signal distance
--   do this for both manufacturers
+-   Do this for both manufacturers.
 
 ```{r summarize}
+
+# Find mean and standard deviation
 bat_life_and_signal <- collars %>%
   group_by(maker) %>%
   summarize(bat_life_mean = mean(battery_life),
             bat_life_sd = sd(battery_life),
             signal_mean = mean(signal_distance),
             signal_sd = min(signal_distance)) 
+
+# Print results
 bat_life_and_signal
+
 ```
 
 We also might want to count up how many collar failures are attributed
 to each maker.
 
 ```{r}
+
+# Number of failed collars by maker
+
+# Using summarize()
 collars %>% 
   group_by(maker) %>% 
   summarize(fail_count = sum(fail))
 
+# Using count()
 collars %>% 
   group_by(maker) %>% 
   count(fail)
+
 ```
 
 Looks like one of these makers is definitely the one having some
@@ -122,23 +140,29 @@ remind ourselves how this works!
 What types of plots can we use to explore one continuous variable (and
 one categorical variable--in this case, maker)?
 
--   multiple histogram
--   multiple density plot
--   box-and-whisker plot
+-   Multiple histogram
+-   Multiple density plot
+-   Box-and-whisker plot
 
 We can start with a histogram of the battery life of the collars.
 
 ```{r}
+
+# Histogram for battery life of collars
 ggplot(collars, aes(battery_life)) +
   geom_histogram()
+
 ```
 
 We probably want to add in the collar maker to see some differences
 there.
 
 ```{r}
+
+# Histogram for battery life of collars, by maker
 ggplot(collars, aes(battery_life, fill = maker)) +
   geom_histogram(alpha = 0.5, position = "identity")
+
 ```
 
 What if we want to add the mean value of each collar maker to the plot?
@@ -159,16 +183,22 @@ Let's take a look at the help file for `geom_vline()` to see what
 arguments it takes. Scroll down to the "Aesthetics" section.
 
 ```{r}
-?geom_vline
+
+# What does geom_vline do?
+? geom_vline
+
 ```
 
 It looks like we will need to specify the data and the x-intercept, the
 place on the x-axis that matches the mean value.
 
 ```{r}
+
+# Add geom_vline to histogram
 ggplot(collars, aes(battery_life, fill = maker)) +
   geom_histogram(alpha = 0.5, position = "identity") +
   geom_vline(data = bat_life_and_signal, aes(xintercept = bat_life_mean))
+
 ```
 
 Nice! We have name the data argument in the `geom_vline()` function
@@ -181,6 +211,8 @@ Let's wrap this up and make it extra nice by adding color, labels, and a
 theme.
 
 ```{r}
+
+# Add color, labels, and a theme to histogram
 ggplot(collars, aes(battery_life, fill = maker)) +
   geom_histogram(alpha = 0.5, position = "identity") +
   geom_vline(data = bat_life_and_signal, aes(xintercept = bat_life_mean, color = maker)) + 
@@ -189,6 +221,7 @@ ggplot(collars, aes(battery_life, fill = maker)) +
        color = "Maker",
        fill = "Maker") +
   theme_light()
+
 ```
 
 #### Group Challenge!
@@ -196,6 +229,7 @@ ggplot(collars, aes(battery_life, fill = maker)) +
 Make the same plot that we made above expect for the signal distance.
 
 ```{r}
+
 ggplot(collars, aes(signal_distance, fill = maker)) +
   geom_histogram(alpha = 0.5, position = "identity") +
   geom_vline(data = bat_life_and_signal, aes(xintercept = signal_mean, color = maker)) + 
@@ -204,6 +238,7 @@ ggplot(collars, aes(signal_distance, fill = maker)) +
        color = "Maker",
        fill = "Maker") +
   theme_light()
+
 ```
 
 ### Two Continuous Variables at a Time
@@ -213,8 +248,11 @@ let's bring them together into one plot to see what the relationship
 between them is like. What type of plot will be use for that?
 
 ```{r}
+
+# Relationship between signal distance and battery life
 ggplot(collars, aes(x = signal_distance, y = battery_life, color = maker)) +
   geom_point()
+
 ```
 
 How do we interpret this plot? What is it telling us about the
