@@ -9,7 +9,9 @@ editor_options:
 ---
 
 ```{r setup, include=FALSE}
+
 knitr::opts_chunk$set(echo = TRUE)
+
 ```
 
 # Plotting with `ggplot2`
@@ -30,23 +32,27 @@ can remind oursevles what the data look like using the `head()`
 function.
 
 ```{r, message = FALSE}
-# load package
+
+# Load package
 library(tidyverse)
 
-# load data
+# Load data
 sick <- read_csv("../data/sick_data.csv")
 head(sick)
+
 ```
 
 Here is code to make a scatter plot of the relationship between percent
 fish in diets and how many trips to the doctor.
 
 ```{r}
+
 ggplot(sick, aes(x = perc_fish, y = doctor_trips)) +
   geom_point() +
   labs(x = "Percent Fish in Diet",
        y = "Number of Trips to the Doctor") +
   theme_light()
+
 ```
 
 Nice, right? In the next few classes, we will really start to see the
@@ -75,62 +81,74 @@ until you have your final plot.
 The typical structure looks like this:
 
 ```{r}
+
 # ggplot(data = <DATA>, mapping = aes(<MAPPINGS>)) +  
 # <GEOM_FUNCTION>()
+
 ```
 
 A few things to note:
 
--   we always start with the `ggplot()` function
--   we specify the dataset we want to use
--   we specify the mappings (x- and y-axes and some other bits) with the
-    `aes()` function
--   we use a `+` to add layers
--   we specify the type of plot, or `geom` using one of many possible
-    geom functions
--   we use the `labs()` function to clean up the labels
--   we add a `theme` function to make it more visually readable
+-   We always start with the `ggplot()` function.
+-   We specify the dataset we want to use.
+-   We specify the mappings (x- and y-axes and some other bits) with the
+    `aes()` function.
+-   We use a `+` to add layers.
+-   We specify the type of plot, or `geom` using one of many possible
+    geom functions.
+-   We use the `labs()` function to clean up the labels.
+-   We add a `theme` function to make it more visually readable.
 
 Let's iteratively build up to the plot we have made above:
 
 1)  Specify the data
 
 ```{r fig.width=4.5, fig.height=3}
+
 ggplot(data = sick)
+
 ```
 
 2)  Specify the x-axis (horizontal) and the y-axis (vertical) in the
     `aes()` function.
 
 ```{r fig.width=4.5, fig.height=3}
+
 ggplot(data = sick, mapping = aes(x = perc_fish, y = doctor_trips))
+
 ```
 
 3)  Add the type of plot we want using a `geom` function.
 
 ```{r fig.width=4.5, fig.height=3}
+
 ggplot(data = sick, mapping = aes(x = perc_fish, y = doctor_trips)) +
   geom_point()
+
 ```
 
 4)  Clean up the axis labels with the `lab()` function so they are more
     easily interpreted.
 
 ```{r fig.width=4.5, fig.height=3}
+
 ggplot(data = sick, mapping = aes(x = perc_fish, y = doctor_trips)) +
   geom_point() +
   labs(x = "Percent Fish in Diet",
        y = "Number of Trips to the Doctor") 
+
 ```
 
 5)  Choose a `theme` function to make the plot more aesthetically
     pleasing.
 
 ```{r fig.width=4.5, fig.height=3}
+
 # theme_bw(), theme_classic(), and theme_light() are my favorites
 ggplot(sick, aes(x = perc_fish, y = doctor_trips)) +
   geom_point() +
   labs(x = "Percent Fish in Diet",
        y = "Number of Trips to the Doctor") +
   theme_light()
+
 ```

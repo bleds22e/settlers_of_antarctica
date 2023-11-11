@@ -29,20 +29,26 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Assigning Objects
 
-Assignments are really key to almost everything we do in R. This is how we create permanence in R. Anything can be saved to an object, and we do this with the assignment operator, `<-`.
+Assignments are really key to almost everything we do in R. This is how we create permanence in R (e.g. make things that you can reuse throughout your code). Anything can be saved to an object, and we do this with the assignment operator, `<-`. Think of it as having an empty box and putting something in it!
 
-The short-cut for `<-` is `Alt + -` (or `Option + -` on a Mac)
+The short-cut for `<-` is `Alt + -` (or `Option + -` on a Mac).
 
 ```{r}
-# Assigning Objects
-mass <- 47.5            # this is the mass in kg
-age <- 122
-mass <- mass * 2        # multiply
-age <- age - 20         # subtract
-mass_index <- mass/age  # divide
-mass_sq <- mass^2       # raise to an exponent
+# So what does an assignment look like?
 
-# This is simple and you'll rarely do it in real-world scenarios. 
+mass <- 47.5                # (this is the mass in kg)
+
+age <- 122
+
+mass <- mass * 2            # multiply mass by 2
+
+age <- age - 20             # subtract age by 20
+
+mass_index <- mass/age      # divide mass by age
+
+mass_sq <- mass^2           # raise mass to an exponent
+
+# However, these assignments are simple and you'll rarely do it in real-world scenarios. 
 
 ```
 
@@ -56,46 +62,56 @@ mass_kg
 
 animals <- c("cat", "rat", "bat")
 animals
+
 # R does everything in vectors
 ```
 
-## Data classes
+## Data Classes
 
-There are a few main types in R, and they behave differently.
+There are a few main data types in R, and they behave differently.
 
 -   numeric (numbers)
     -   integer (no decimals allowed)
-    -   double (decimals allowed---interchangeable with numeric)
+    -   double (decimals allowed --- interchangeable with numeric)
 -   character (letters or mixture)
 -   logical (True or False; T or F)
 -   factors (best used for data that need to be in a specific order; levels indicate the order)
 
 ```{r}
 # Examples of different data classes
-mass_kg     # numeric, integer, double
-animals     # character
+
+mass_kg         # numeric, integer, double
+
+animals         # character
 
 animal_size <- as.factor(c("small", "medium", "large"))
-animal_size  # factor, put in order 
+
+animal_size      # factor, put in order 
 
 logic <- c(T, F, F, T)  # logical
+
 logic
+
 ```
 
 Vectors have to contain elements that are all of the same class.
 
 ```{r, eval = FALSE}
 vec <- c(1, 1.000, "1")
+
 ```
 
-### Sub-setting Vectors
+## Sub-setting Vectors
 
 Sometimes we want to pull out and work with specific values from a vector. This is called sub-setting (taking a smaller set of the original).
 
 ```{r}
-# Use square brackets
-mass_kg[2]
-mass_kg[2:4]
+# Use square brackets to pull something out of the vector
+
+mass_kg[2]        # Pull out second element in vector
+
+mass_kg[2:4]      # Pull out second, third, and fourth elements from the vector
+
 ```
 
 ## Functions
@@ -106,26 +122,30 @@ Functions are always followed by parentheses. Anything you type into the parenth
 
 ```{r}
 ## Functions
-mass_kg_mean <- mean(mass_kg)   # average of the mass_kg vector from above
+mass_kg_mean <- mean(mass_kg)       # The mean() function takes the average of the mass_kg vector (from above)
 mass_kg_mean
 
-round(mass_kg_mean)             # rounding
-round(mass_kg_mean, digits = 2) # round to 2 digits past 0
+round(mass_kg_mean)                 # The round() function will round our mean value
+
+round(mass_kg_mean, digits = 2)     # We can tell round() to round to 2 digits past zero
+
 ```
 
-To get more information about a function, use the `help()` function or `?name_of_function`.
+To get more information about a function, use the `help()` function or `? name_of_function`.
 
 ```{r}
-help(round) # or type ?help
+help(round)                         # Or type "? help"
+
 ```
 
 We can use a function called `class()` to figure out the data type of a vector.
 
 ```{r}
 class(mass_kg)
+
 ```
 
-### Group Challenge
+## Group Challenge
 
 Let's practice! Write a few lines of code that do the following:
 
@@ -144,18 +164,20 @@ vec <- vec[4:6]
 vec
 
 sum(vec)
+
 ```
 
-Already finished? See if you can condense your code down any further or turn around and help out a neighbor.
+Already finished? See if you can condense your code down any further (which may require finding a function we haven't talked about yet) or turn around and help out a neighbor.
 
 ```{r}
 vec <- seq(6, 1)
 sum(vec[4:6])
+
 ```
 
 ## 2-Dimensional Data: Data Frames
 
-Most of the data you will encounter is two-dimensional, i.e., it has columns and rows. Its structure resembles a spreadsheet. R is really good with these types of data.
+Most of the data you will encounter is two-dimensional, i.e., it has columns and rows. Its structure resembles a spreadsheet (like Excel). R is really good with these types of data.
 
 -   **rows** go side-to-side
 -   **columns** go up-and-down
@@ -169,55 +191,77 @@ Data frames are made up of multiple vectors. Each vector becomes a column.
 plants <- data.frame(height = c(55, 17, 42, 47, 68, 39),
                      nitrogen = c("Y", "N", "N", "Y", "Y", "N"))
 
+# View data frame
 plants
+
 ```
 
-### Sub-setting Data Frames
+## Sub-setting Data Frames
 
 Because data frames are two-dimensional, we can subset data in different ways. We can select specific columns, specific rows, or filter rows by values.
 
-R always takes information for the row first, then the column.
+**R always takes information for the row first, then the column.**
 
 ```{r}
 # Sub-setting data frames
+
 # 2-dimensional, so you need to specify row and then column
-# plants[3] # doesn't work
-plants[4,1]
-plants[,2]
+
+# Attempting to do plants[3] will lead to code that doesn't work
+
+# Specify a row (4) and a column (1)
+plants[4,1]        
+
+# Or just specify a column (2), but note that we still need the comma in "[ , ]"
+plants[,2]         
+
 ```
 
 Another way to pull out a single column from a data frame is with the `$` operator. This can really come in handy when you know the name of the column but not the position.
 
 ```{r}
+# Example of pulling columns using a "$"
 plants$height
+
 ```
 
-### Discussion Point
+## Discussion Point
 
 This is a simple data set, but let's come up with some questions.
 
-Example: height of plants treated with nitrogen vs. those not treated.
+Example: Height of plants treated with nitrogen vs. those not treated.
 
 ```{r}
 # Example: height of plants treated with nitrogen vs. those not treated. 
 
-# filter rows based on values in the nitrogen column
+# Filter rows based on values in the nitrogen column, here we filter those treated with nitrogen
 plants[plants$nitrogen == "Y", ]
+
+# Mean height of plants that are treated with nitrogen
 mean(plants[plants$nitrogen == "Y", 1])
+
 ```
 
-### Group Challenge (5 min)
+## Group Challenge (5 min)
 
-Using help files on functions
+Using help files on functions ~ 
 
-As a group, find the standard deviation (`sd()`) of the height of plants treated with nitrogen and those not treated with nitrogen. Which group has the larger standard deviation?
+As a group, find the standard deviation (`sd()`) of the height of plants treated with nitrogen and those not treated with nitrogen. 
+
+Which group has the larger standard deviation?
 
 ```{r}
+# Standard deviation of plants treated with nitrogen
 sd(plants[plants$nitrogen == "Y", 1])
+
+# Standard deviation of plants treated with nitrogen
 sd(plants[plants$nitrogen == "N", 1])
+
 ```
 
-Come up with a definition of standard deviation (Google is your friend!), use the help file to find out how the `sd()` function works, and be prepared to show the code you used.
+Come up with a definition of standard deviation (Google is your friend!).
+
+Use the help file to find out how the `sd()` function works, and be prepared to show the code you used.
 
 ## Helpful Functions
 
@@ -230,19 +274,31 @@ Below are some functions that I often find very helpful when working with vector
 -   `names()`
 
 ```{r}
-str(plants) # structure of the object
+# Structure of the object
+str(plants) 
 
-head(plants) # first 6 values or rows
-head(plants, n = 4) # first n values or rows
-tail(plants, n = 4) # last n values or rows
+ # View first 6 values or rows
+head(plants)
 
-length(plants)  # for a dataframe, number of columns
-length(plants$height) # for a column, number of rows
+# First n values or rows
+head(plants, n = 4) 
 
-ncol(plants)  # number of columns
-nrow(plants)  # number of rows
+# Last n values or rows
+tail(plants, n = 4) 
 
-names(plants) # list of column or object names
+# For a dataframe, this gives the number of columns
+length(plants) 
+
+# For a column in a data frame, this gives the number of rows
+length(plants$height) 
+
+# Number of columns
+ncol(plants) 
+
+# Number of rows
+nrow(plants)  
+
+# List of names in a column or object
+names(plants) 
 ```
 
-# 

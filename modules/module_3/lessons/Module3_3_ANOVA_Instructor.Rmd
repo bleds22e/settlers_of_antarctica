@@ -6,14 +6,16 @@ output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
+
 knitr::opts_chunk$set(echo = TRUE)
+
 ```
 
 # Comparing (Multiple) Means
 
 So far in this module, we have discussed comparing the means of two groups in multiple ways: numerically, visually, and statistically. Specifically, we learned about running t-tests to statistically compare the means of two groups.
 
-What if we have more than 2 groups, though? Often, we have 3, 4, 12...any number of groups that we might want to compare against each other. How do we do that?
+What if we have more than 2 groups, though? Often, we have 3, 4, 12... any number of groups that we might want to compare against each other. How do we do that?
 
 ## ANOVA
 
@@ -23,7 +25,7 @@ Why is it called that? Well, ANOVAs compare the amount of variability in the dat
 
 The group of statistical tests called ANOVAs are extensions of the t-test, using the same concepts but allowing us to compare the means of more than two groups at a time. There are lots of different types of ANOVAs, but we are going to stick with the most simple version.
 
-### When to use an ANOVA
+### When to Use an ANOVA
 
 To run an ANOVA, the following things need to be true:
 
@@ -55,7 +57,11 @@ First up, in small groups, work through the set-up, numeric, and visual sections
 First, as always, we need to load the `tidyverse` and the read in our collars data. This time, use the file `more_collars.csv`.
 
 ```{r}
+
+# Load library
 library(tidyverse)
+
+# Load data
 collars <- read_csv("../data/more_collars.csv")
 ```
 
@@ -84,6 +90,8 @@ Let's calculate some summary values for our data to get some preliminary informa
 Calculate the means and the standard deviations (`sd()`) for the battery life and the signal distance for *each* collar maker.
 
 ```{r}
+
+# Mean and standard deviation
 summary_stats <- collars %>% 
   group_by(maker) %>% 
   summarise(mean_battery = mean(battery_life),
@@ -91,7 +99,9 @@ summary_stats <- collars %>%
             mean_signal = mean(signal_distance),
             sd_signal = sd(signal_distance))
 
+# View results
 summary_stats
+
 ```
 
 Let's examine the data. Do you think the collar companies are all different from each other? Are there pairs of companies that look more similar?
@@ -103,18 +113,22 @@ As always, we love (\<3) visualizing our data, especially as a form of data expl
 First, explore the distribution of battery life by maker using a multiple density plot (no need to add a line for the mean, but you can if you really want to!).
 
 ```{r}
-# battery life
+
+# Battery life
 ggplot(collars, aes(battery_life, fill = maker)) +
   geom_density(alpha = 0.5)
+
 ```
 
 Let's do a different type of visualization for signal distance. What type of data visualization have we covered that does a good job of showing both central tendency (median, in this case) and variation (middle 50% and 95% confidence intervals) in one continuous variable?
 
 ```{r}
-# signal distance
+
+# Signal distance
 ggplot(collars, aes(maker, signal_distance)) +
   geom_boxplot() +
   geom_jitter(width = 0.1, alpha = 0.5)
+
 ```
 
 Based on the numbers and your visualizations, what is your prediction? Are the 3 groups different *enough*, whatever that means?
@@ -125,14 +139,19 @@ Now that we have explored the data numerically and visually, let's interrogate t
 
 To run an ANOVA, we use the `aov()` function. Some helpful tips about the `aov()` function:
 
--   unlike the `t.test()` function, the initial output for the `aov()` function isn't particularly helpful. We will want to save it to an object and then look at it using the `summary()` function
--   like `t.test()`, the syntax for `aov()` is `dependent ~ independent`.
+-   Unlike the `t.test()` function, the initial output for the `aov()` function isn't particularly helpful. We will want to save it to an object and then look at it using the `summary()` function
+-   Like `t.test()`, the syntax for `aov()` is `dependent ~ independent`.
 
 First, let's run an ANOVA on the battery life variable.
 
 ```{r}
+
+# ANOVA
 battery_model <- aov(data = collars, battery_life ~ maker)
+
+# Summary of ANOVA
 summary(battery_model)
+
 ```
 
 For us, our main focus here in the ANOVA summary is on the `maker` row. We can ignore the `Residuals`.
@@ -152,8 +171,13 @@ What is our conclusion? Are these means different?
 How about for signal life? What is your interpretation of these results?
 
 ```{r}
+
+# ANOVA
 signal_model <- aov(data = collars, signal_distance ~ maker)
+
+# Summary of ANOVA
 summary(signal_model)
+
 ```
 
 ### Pairwise Comparisons
@@ -165,15 +189,18 @@ To figure that out, you need to use a class of tests called "post hoc tests," me
 The most common post hoc test for these pairwise comparisons is `TukeyHSD()`, but there are others depending on the specifics of your data set. You don't need to worry about understanding the nuances of Tukey's test, but you should know how to run the code and interpret it.
 
 ```{r}
+
+# Tukey's HSD (Honestly Significant Difference)
 TukeyHSD(battery_model)
+
 ```
 
 What do these different columns represent?
 
--   `diff`: the difference in the means for that pair
--   `lwr`: the lower end of the 95% confidence interval
--   `upr`: the upper end of the 95% confidence interval
--   `p adj`: the adjusted p-value for that pair. We interpret it as normal.
+-   `diff`: The difference in the means for that pair
+-   `lwr`: The lower end of the 95% confidence interval
+-   `upr`: The upper end of the 95% confidence interval
+-   `p adj`: The adjusted p-value for that pair. We interpret it as normal.
 
 How should we interpret these results?
 
@@ -186,7 +213,10 @@ How should we interpret these results?
 In your groups, run the Tukey's HSD test for signal distance and interpret the results.
 
 ```{r}
+
+# Tukey's HSD for signal distance
 TukeyHSD(signal_model)
+
 ```
 
 How should we interpret these results?

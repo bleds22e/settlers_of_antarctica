@@ -5,7 +5,9 @@ output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
+
 knitr::opts_chunk$set(echo = TRUE)
+
 ```
 
 # Introduction Descriptive Statistics and Data Visualization
@@ -16,20 +18,24 @@ knitr::opts_chunk$set(echo = TRUE)
 2.  Students will be able to generate two types of plots using base R syntax to visualize a single continuous variable (histograms and distributions) and two continuous variables (scatter plots).
 3.  Students will be able to use visual-thinking skills to create visualizations that allow them to explore patterns in data, draw inferences, and create solutions.
 
-## Introduction to the problem
+## Introduction to the Problem
 
 ![](aquaponics-system.png)
 
-We have a wave of people getting sick across the team. People are coming in complaining of stomach sickness. Doctors have ruled out a communicable viral infection like norovirus, so it seems likely to be a food contamination issue.
+We have a wave of people getting sick across the team. People are coming in complaining of stomach sickness. 
 
-The two main sources of food that are grown on site and distributed to team members are [plants grown in hydroponic greenhouses](https://thespoon.tech/scientists-in-antarctica-grow-food-without-soil-or-sunlight-get-ready-mars/) (mostly Swiss chard, cucumbers and radishes) and fish (tilapia, a tolerant warm-water species, and rainbow trout, a cold-water species). The combination of aquaculture and hydroponics is called [**aquaponics**](https://docs.google.com/presentation/d/12Q1wIMO-b5ZfylHnA4dOsaLUBERtvVREzwQuO7Sc53A/edit?usp=sharing).
+Doctors have ruled out a communicable viral infection like norovirus, so it seems likely to be a food contamination issue.
+
+The two main sources of food that are grown on site and distributed to team members are [plants grown in hydroponic greenhouses](https://thespoon.tech/scientists-in-antarctica-grow-food-without-soil-or-sunlight-get-ready-mars/) (mostly Swiss chard, cucumbers and radishes) and fish (tilapia, a tolerant warm-water species, and rainbow trout, a cold-water species). 
+
+The combination of aquaculture and hydroponics is called [**aquaponics**](https://docs.google.com/presentation/d/12Q1wIMO-b5ZfylHnA4dOsaLUBERtvVREzwQuO7Sc53A/edit?usp=sharing).
 
 Team members' diets vary in composition; people are allowed to choose how much of different food sources they eat.
 
 Fortunately, we have some data we can use to investigate! We have data on the following:
 
--   which team members are sick and how many times they've gone to the doctor
--   some information about each team member, such as:
+-   Which team members are sick and how many times they've gone to the doctor.
+-   Some information about each team member, such as:
     -   sex, age, height, occupation
     -   how much fish and/or plant material they incorporate into their diets
 
@@ -45,16 +51,16 @@ In order to begin addressing the question of what might be causing illness in ou
 
 In this course, we will be working with two types of statistics: *descriptive* and *inferential*.
 
--   **Descriptive** statistics--also called **summary** statistics--are ways of presenting, organizing, and summarizing data. Data visualization is often associated with descriptive statistics
+-   **Descriptive** statistics -- also called **summary** statistics -- are ways of presenting, organizing, and summarizing data. Data visualization is often associated with descriptive statistics
 -   **Inferential** statistics help us draw reasonable conclusions about a population based on the data we observed in a sample.
 
 In Module 2, we will be focusing exclusively on descriptive statistics and data visualization techniques.
 
 As a quick overview, descriptive statistics often include 3 elements:
 
--   *distribution* of the data
--   measures of *central tendency*: mean, median, and mode
--   measures of *variation*: range and standard deviation
+-   *Distribution* of the data
+-   Measures of *central tendency*: mean, median, and mode
+-   Measures of *variation*: range and standard deviation
 
 The slide deck with more information about descriptive statistics is linked on D2L and [here](https://docs.google.com/presentation/d/1pAnGupJqgU5t7YucGwMsbAdusoplY4GcJMdOWCic4hs/edit?usp=sharing).
 
@@ -67,14 +73,22 @@ First we're going to pull in the data and give it a quick inspection/exploration
 As usual, we start by calling the `tidyverse`.
 
 ```{r, message = FALSE}
+
+# Load library
 library(tidyverse)
+
 ```
 
-To bring our data into R, we use a function called `read_csv()`. CSV (comma-separated values) are efficient ways to save 2-dimensional ("spreadsheet") data.
+To bring our data into R, we use a function called `read_csv()`. CSV (Comma-Separated Values) are efficient ways to save 2-dimensional ("spreadsheet") data.
 
 ```{r}
+
+# Load data
 sick <- read_csv("../data/sick_data.csv")
+
+# View first 6 rows of data
 head(sick)
+
 ```
 
 How many observations (rows) do we have? How about variables (columns)?
@@ -83,12 +97,16 @@ Which variables are we particularly interested in? Are they continuous or catego
 
 ### Let's Practice
 
-Now that we have a more formalized understanding of measures of central tendency and measures of variation, let's put them into use to learn a little bit more about our data. In small groups, calculate the mean (`mean()`) and standard deviation (`sd()`) for the percent fish in our sick crew's diets.
+Now that we have a more formalized understanding of measures of central tendency and measures of variation, let's put them into use to learn a little bit more about our data. 
+
+In small groups, calculate the mean (`mean()`) and standard deviation (`sd()`) for the percent fish in our sick crew's diets.
 
 ```{r}
+
 sick %>% 
   summarize(mean_fish = mean(perc_fish),
             sd_fish = sd(perc_fish))
+
 ```
 
 ## Data Visualization in R
@@ -104,8 +122,10 @@ For the majority of the semester, we will be plotting in with `ggplot2`, which i
 We've calculated some descriptive statistics about the percents of fish and plants in our sick crew members' diets, but it didn't tell us too much. Let's try some data visualization to see if that gives us any additional information.
 
 ```{r}
-# histogram in base R
+
+# Histogram in base R
 hist(sick$perc_plant)
+
 ```
 
 ### Group Discussion
@@ -122,15 +142,21 @@ Take about 5 minutes. Be ready to report out.
 
 ### Group Brainstorm
 
-We've covered one type of visualization that just shows one variable...but what we're really interested in is figuring out if fish or plants are the culprit in food poisoning. Spend about 5 minutes in your groups sketching out a visualization that might give us insight into this.
+We've covered one type of visualization that just shows one variable...but what we're really interested in is figuring out if fish or plants are the culprit in food poisoning. 
 
-## Scatter plots
+Spend about 5 minutes in your groups sketching out a visualization that might give us insight into this.
 
-Scatter plots allow us to visualize the relationship between two continuous (or numeric) variables. For example, we can use a scatter plot to see if there is a relationship between how old a crew member is and how much fish is in their diet.
+### Scatter plots
+
+Scatter plots allow us to visualize the relationship between two continuous (or numeric) variables. 
+
+For example, we can use a scatter plot to see if there is a relationship between how old a crew member is and how much fish is in their diet.
 
 ```{r}
-# scatter plot in base R
+
+# Scatter plot in base R
 plot(x = sick$age, y = sick$perc_fish)
+
 ```
 
 This isn't super informative, because there isn't really a relationship between a person's age and the amount of fish they consume. At least not in this sample.
@@ -140,7 +166,9 @@ This isn't super informative, because there isn't really a relationship between 
 In your group, create a scatter plot to determine whether there is a correlation between the percentage of fish eaten and the number of trips to the doctor in the past 6 months.
 
 ```{r}
+
 plot(x = sick$perc_fish, y = sick$doctor_trips)
+
 ```
 
 How do we interpret this plot?
