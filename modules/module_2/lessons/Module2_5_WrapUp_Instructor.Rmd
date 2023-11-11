@@ -6,12 +6,16 @@ output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
+
 knitr::opts_chunk$set(echo = TRUE)
+
 ```
 
 # What is causing the food poisoning?
 
-At the beginning of Module 2, we set out to discover what was causing food poisoning among our colleagues at our Antarctic base. Let's put everything we've learned about descriptive statistics and data visualization to use to try to hunt down what the problem is.
+At the beginning of Module 2, we set out to discover what was causing food poisoning among our colleagues at our Antarctic base. 
+
+Let's put everything we've learned about descriptive statistics and data visualization to use to try to hunt down what the problem is.
 
 ## Set-up
 
@@ -20,7 +24,10 @@ Let's load the package and data we will need.
 ### Packages
 
 ```{r message = FALSE}
+
+# Load library
 library(tidyverse)
+
 ```
 
 ### Data
@@ -28,13 +35,19 @@ library(tidyverse)
 First, we need our dataset!
 
 ```{r}
+
+# Load data
 sick_fish <- read_csv("../data/fish_sick_data.csv") 
+
 ```
 
 Let's check out our data and remind ourselves what we are working with.
 
 ```{r}
+
+# View first 6 rows of data
 head(sick_fish)
+
 ```
 
 ## Which Fish?
@@ -42,12 +55,15 @@ head(sick_fish)
 Last class, we plotted the number of sick fish. Let's remind ourselves what that looked like. Make a plot that compares the numbers of sick fish per species. We actually have a few options!
 
 ```{r}
+
+# Density plot of sick fish per species
 ggplot(sick_fish, aes(num_sick, color = species)) +
   geom_density(alpha = 0.5) +
   labs(x = "Number of Sick Fish in Tanks",
        y = "Density",
        fill = "Species") +
   theme_classic()
+
 ```
 
 ### Density
@@ -59,9 +75,11 @@ We should probably take into account how many fish there are in the tank to begi
 What we need to do is calculate a density of fish--number of sick fish / number of total fish.
 
 ```{r}
-# take into account the number of fish in the tank: density of sick fish
+
+# Take into account the number of fish in the tank: density of sick fish
 sick_fish <- sick_fish %>% 
   mutate(density = num_sick/num_fish) 
+
 ```
 
 #### Small Groups
@@ -70,15 +88,18 @@ Let's make sure our conclusions about trout being the true culprits still hold w
 
 Work in small groups to do the following:
 
--   find the average number and standard deviation of sick fish for both species
--   make a plot that compares the distributions of sick fish numbers for both species (you have multiple options here!)
+-   Find the average number and standard deviation of sick fish for both species
+-   Make a plot that compares the distributions of sick fish numbers for both species (you have multiple options here!)
 
 ```{r}
+
+# Summary statistics to find mean and standard deviation
 sick_fish %>% 
   group_by(species) %>% 
   summarize(mean_sick_fish = mean(density),
             sd_sick_fish = sd(density))
 
+# Plot sick fish by species as density plot
 ggplot(sick_fish, aes(species, density, color = species)) +
   geom_boxplot() + 
   geom_jitter(alpha = 0.5, width = 0.1) +
@@ -87,7 +108,7 @@ ggplot(sick_fish, aes(species, density, color = species)) +
        color = "Species") +
   theme_light()
 
-# histogram
+# Histogram
 ggplot(sick_fish, aes(density, fill = species)) +
   geom_histogram(alpha = 0.5, bins = 15)
 
@@ -98,8 +119,11 @@ Uh oh...the trout densities look even worse than just the number of sick fish. W
 We should create a data frame that only contains trout to work with for the rest of our analyses. Take a few minutes to work on that; call it `sick_trout`.
 
 ```{r}
+
+# Only trout data
 sick_trout <- sick_fish %>% 
   filter(species == "trout")
+
 ```
 
 ## What Environmental Factor?
@@ -111,17 +135,22 @@ Are those columns continuous or categorical? What plot type have we talked about
 In small groups, make plots using `density` column in the `sick_trout` data to try to figure out which environmental factor is causing problems in the trout. Treat your variables as continuous.
 
 ```{r}
+
+# Is it density?
 ggplot(sick_trout, aes(x = density, y = num_fish)) +
   #geom_smooth(method = 'lm', se = FALSE) +
   geom_point() 
 
+# Is it the water temperature?
 ggplot(sick_trout, aes(x = density, y = avg_daily_temp)) +
   #geom_smooth(method = 'lm', se = FALSE) +
   geom_point()
 
+# Is it how long the days are?
 ggplot(sick_trout, aes(density, day_length)) +
   #geom_smooth(method = 'lm', se = FALSE) +
   geom_point() 
+
 ```
 
 What do we think is the environmental driver causing issues with the trout?
