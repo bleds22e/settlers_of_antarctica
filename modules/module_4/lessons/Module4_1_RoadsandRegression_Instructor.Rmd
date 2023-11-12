@@ -6,7 +6,9 @@ output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
+
 knitr::opts_chunk$set(echo = TRUE)
+
 ```
 
 # Roads and Regressions
@@ -15,9 +17,9 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Last module, we tried to figure out which bays we should prioritize for fishing based on the following data sets:
 
--   radio collar data
--   fish catch data
--   leopard seal abundance data
+-   Radio collar data
+-   Fish catch data
+-   Leopard seal abundance data
 
 Based on our results from Assignment 3, it looks like Sulzberger Bay and Hope Bay are our best bets. Now, we need to make these bays accessible over land to transport the fish we've caught to our home base.
 
@@ -43,14 +45,14 @@ Knowing that we would soon be building roads, we asked our botanists to collect 
 
 Our botanists collected data for the following variables:
 
--   *soil pH*: most plants prefer mildly acidic to neutral environments
--   *nitrogen (N) content*: as percentage per 100 mL soil sample; important for plant growth and tissue building
--   *phosphorous (P) content*: as percentage per 100 mL soil sample; important for plant growth and tissue building
--   *percent rock*: how rocky the location is; rocks in soil impact water drainage and temperature
--   *max windspeed (mph)*: extreme wind can pose a challenge to plants of all types
--   *average summer temperature (C)*: temperature in the growing season
--   *penguin density*: the number of penguins per 1 m\^2 within 100 m of the sample quadrant for hair grass; penguin poop increases nitrogen content in the system
--   *hairgrass density*: number of individual clumps (tussocks) of hairgrass per 1 m\^2
+-   *Soil pH*: Most plants prefer mildly acidic to neutral environments
+-   *Nitrogen (N) content*: As percentage per 100 mL soil sample; important for plant growth and tissue building
+-   *Phosphorous (P) content*: As percentage per 100 mL soil sample; important for plant growth and tissue building
+-   *Percent rock*: How rocky the location is; rocks in soil impact water drainage and temperature
+-   *Max windspeed (mph)*: Extreme wind can pose a challenge to plants of all types
+-   *Average summer temperature (C)*: Temperature in the growing season
+-   *Penguin density*: The number of penguins per 1 m\^2 within 100 m of the sample quadrant for hair grass; penguin poop increases nitrogen content in the system
+-   *Hairgrass density*: Number of individual clumps (tussocks) of hairgrass per 1 m\^2
 
 This data is based on this article: [Parnikoza, et al. 2007](https://doi.org/10.1016/j.polar.2007.10.002)
 
@@ -65,15 +67,24 @@ For this lesson, we are going to focus on two: *nitrogen (N) content* and *soil 
 As usual, we start with loading our packages and our data.
 
 ```{r message=FALSE}
+
+# Load library
 library(tidyverse)
+
+# Load data
 hairgrass <- read_csv("../data/hairgrass_data.csv")
 ```
 
 Let's take a look at the data in the data set. What does each row represent?
 
 ```{r}
+
+# First six rows
 head(hairgrass)
+
+# Last six rows
 tail(hairgrass)
+
 ```
 
 ### Nitrogen Content
@@ -84,24 +95,30 @@ First, we should spend a little time thinking about our variables. Spend a few m
 
 -   Which columns are we interested in right now? N_content, hairgrass_density
 -   Which one is the independent variable and which is the dependent variable?
-    -   independent: N_content
-    -   dependent: hairgrass_density_m2
--   Are the variables categorical or continuous? both are continuous
--   Which type of data visualization should we use? scatterplot
+    -   Independent: N_content
+    -   Dependent: hairgrass_density_m2
+-   Are the variables categorical or continuous? Both are continuous
+-   Which type of data visualization should we use? Scatterplot
 
 Next, calculate the mean (`mean()`) and standard deviation (`sd()`) for the nitrogen content.
 
 ```{r}
+
+# Mean and standard deviation
 hairgrass %>% 
   summarise(mean_N = mean(n_content),
             sd_N = sd(n_content))
+
 ```
 
 Now that we have summarized the data, let's take a look at the data visually.
 
 ```{r}
+
+# Visualize
 ggplot(hairgrass, aes(n_content, hairgrass_density_m2)) +
   geom_point()
+
 ```
 
 Do you see a pattern? What type of relationship do you see?
@@ -112,8 +129,8 @@ How do we analyze this type of relationship statistically?
 
 We are going to use two (related) statistical methods to understand the relationship between two continuous (numeric) variables:
 
--   correlation coefficient ($r$) and R-squared ($R^2$)
--   linear regression
+-   Correlation coefficient ($r$) and R-squared ($R^2$)
+-   Linear regression
 
 ### Line of Best Fit
 
@@ -126,9 +143,12 @@ The line of best fit aims to minimize the distance between each observation (poi
 We can add a line of best fit to ggplot by using the `stat_smooth()` function. We need to specify that the method we want should produce a straight line ("linear model").
 
 ```{r}
+
+# Linear model plot
 ggplot(hairgrass, aes(n_content, hairgrass_density_m2)) +
   geom_point() +
   stat_smooth(method = "lm")
+
 ```
 
 ### Correlation Coefficient
@@ -154,8 +174,13 @@ Based on the hairgrass plot we did above, do you expect the correlation coeffici
 To calculate the correlation coefficient, we need to go back to base R and indicate which columns we are referencing with the `$` operator. We use the `cor()` function.
 
 ```{r}
+
+# Correlation coefficient
 r <- cor(x = hairgrass$n_content, y = hairgrass$hairgrass_density_m2)
+
+# View
 r
+
 ```
 
 ### R-squared ($R^2$)
@@ -165,7 +190,10 @@ The R-squared ($R^2$) value is a representation of how much variation is explain
 To calculate R-squared, we square the correlation coefficient value we calculated above. It is always positive because we are squaring it `r` value; that means that R-squared values range from 0 to 1. The closer to 1, the more variation is explained.
 
 ```{r}
+
+# R-squared
 r^2
+
 ```
 
 How would we interpret this `r^2` value?
@@ -202,23 +230,28 @@ Let's find the equation for our line of best fit, our test statistic, and our p-
 Like with ANOVA, we will then want to use the `summary()` function to get out the values we need.
 
 ```{r}
+
+# Linear model
 nitrogen <- lm(hairgrass_density_m2 ~ n_content, hairgrass)
+
+# Summary of linear model
 summary(nitrogen)
+
 ```
 
-As with our other statistical tests---t-tests and ANOVAs---the results give us some important values:
+As with our other statistical tests --- t-tests and ANOVAs --- the results give us some important values:
 
--   `b` (y-intercept): part of our line of best fit equation
-    -   The "intercept estimate", in this case 1.385, is our y-intercept in our line of best fit
+-   `b` (y-intercept): Part of our line of best fit equation
+    -   The "intercept estimate", in this case 1.385, is our y-intercept in our line of best fit.
 -   `m` (slope): also part of our line of best fit equation
-    -   this is the estimate for our independent variable (N_content in this case)
-    -   in this model, m = 0.659
--   *F-statistic*: this is our test statistic
--   *p-value*: calculated from our regression model, used to determine significance (0.05 cut-off, as usual)
-    -   There are multiple p-values here. Focus either on the p-value for the independent variable (N_content) or the overall p-value displayed in the last line of the results summary (p \< 2.2e-16)
--   *R-squared*: this is our R-squared value that we calculated earlier
-    -   You can report either the "multiple" or the "adjusted"
-    -   The "multiple" will typically match the one we calculate with code
+    -   This is the estimate for our independent variable (N_content in this case).
+    -   In this model, m = 0.659.
+-   *F-statistic*: This is our test statistic
+-   *p-value*: Calculated from our regression model, used to determine significance (0.05 cut-off, as usual)
+    -   There are multiple p-values here. Focus either on the p-value for the independent variable (N_content) or the overall p-value displayed in the last line of the results summary (p \< 2.2e-16).
+-   *R-squared*: This is our R-squared value that we calculated earlier
+    -   You can report either the "multiple" or the "adjusted".
+    -   The "multiple" will typically match the one we calculate with code.
 
 This means our equation for the line of best fit is: y = 0.659x + 1.385 and there is a statistically significant relationship between nitrogen content and hairgrass density.
 
@@ -229,42 +262,61 @@ Let's do the same series of steps to determine how soil pH impacts hair grass de
 Start with summarizing the data: mean and standard deviation.
 
 ```{r}
+
+# Mean and standard deviation
 hairgrass %>% 
   summarize(mean_pH = mean(soil_pH),
             sd_pH = sd(soil_pH))
+
 ```
 
 Visualize the data. Remember to add in the line of best fit using `ggplot2`.
 
 ```{r}
+
+# Linear model
 ggplot(hairgrass, aes(soil_pH, hairgrass_density_m2)) +
   geom_point() +
   stat_smooth(method = "lm")
+
 ```
 
 Calculate the correlation coefficient (`r`)? What does this tell us?
 
 ```{r}
+
+# Correlation coefficient
 r <- cor(x = hairgrass$soil_pH, y = hairgrass$hairgrass_density_m2)
+
 ```
 
 How much variation does soil pH explain in the hair grass density data?
 
 ```{r}
+
+# R-squared
 r^2
+
 ```
 
 Write out the model for our question about soil pH (without values)?
 
 ```{r}
+
 # hairgrass density  = m(soil_pH) + b
+
 ```
 
 Run the regression model and write out the equation for the line of best fit.
 
 ```{r}
+
+# Linear model
 soil_pH <- lm(hairgrass_density_m2 ~ soil_pH, data = hairgrass)
+
+# Summary of results
 summary(soil_pH)
+
 ```
 
 Equation for line of best fit: y = 0.005x + 7.65
