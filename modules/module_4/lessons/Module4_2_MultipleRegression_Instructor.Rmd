@@ -49,6 +49,7 @@ Let's start by plotting our tussocks data and run a model.
 ggplot(site_data, aes(x = tussocks, y = num_nests)) +
   geom_point() +
   geom_smooth(method = "lm") +
+  labs(x = "Tussocks", y = "Number of Nests") +
   theme_classic()
 ```
 
@@ -71,6 +72,7 @@ First, let's plot a multiple scatterplot. Do we see the same patterns?
 ggplot(site_data, aes(x = tussocks, y = num_nests, color = year)) +
   geom_point() +
   geom_smooth(method = "lm") +
+  labs(x = "Tussocks", y = "Number of Nests") +
   theme_classic()
 ```
 
@@ -93,11 +95,13 @@ We have a bunch of estimates now! Don't worry, I won't be asking you to put them
 
 ### Interactions
 
-Sometimes, we might expect that there will be in interactive effect between the two independent variables we are including in our model.
+Sometimes, we might expect that there will be in interactive effect between the two independent variables we are including in our model. This means that the combinations of independent variables impact the dependent variable in different ways.
+
+We can typically spot interactive effects in a plot when the slopes of the regression lines differ from each other a lot.
 
 Let's talk through the visual demonstration below to hopefully get a better understanding of how interaction effects work. These plots are showing different possible relationships between two independent variables: how many cups of coffee someone has had and whether they drank them in the morning or the afternoon (categorical variable), and how those might impact the dependent variable, how long it takes to complete a task.
 
--   The top two panels show examples of no interactive effect. It looks like there is an effect of time of day; in each, drinking coffee in the morning makes tasks take longer. However, the slopes between time of day are the same. In the first panel (top left), there also looks to be an impact from the number of cups of coffee.
+-   The top two panels show examples of no interactive effect. It looks like there is an effect of time of day; in each, drinking coffee in the morning makes tasks take longer. However, the *slopes* between time of day are the same. In the first panel (top left), there also looks to be an impact from the number of cups of coffee.
 -   The bottom four panels demonstrate possible variations of *interactive* effects. Not only does time of day and/or number of cups of coffee impact how long it takes to complete a task, but those independent variable affect how long it takes to complete a task *in different ways*.
 
 ![](images/coffee_interaction.jpg)
