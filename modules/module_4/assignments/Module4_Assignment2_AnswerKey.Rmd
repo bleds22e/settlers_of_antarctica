@@ -31,7 +31,10 @@ tail(plants)
 ```{r}
 ggplot(plants, aes(penguin_density_m2, percent_plant_cover)) +
   geom_point() +
-  geom_smooth(method = "lm")
+  geom_smooth(method = "lm") +
+  labs(x = "Penguin Density per m^2",
+       y = "Percent Plant Cover") +
+  theme_bw()
 ```
 
 6.  
@@ -58,7 +61,11 @@ summary(lm(data = plants, percent_plant_cover ~ penguin_density_m2))
 ```{r}
 ggplot(plants, aes(penguin_density_m2, percent_plant_cover, color = plant_type)) +
   geom_point() +
-  geom_smooth(method = "lm")
+  geom_smooth(method = "lm") +
+  labs(x = "Penguin Density per m^2",
+       y = "Percent Plant Cover",
+       color = "Plant Type") +
+  theme_bw()
 ```
 
 10. 

@@ -22,7 +22,6 @@ Write R code which produces the correct answers and correctly interpret the resu
 ### Criteria for Success
 
 -   Code is within the provided code chunks
--   Code is commented with brief descriptions of what the code does
 -   Code chunks run without errors
 -   Code produces the correct result
     -   Code that produces the correct answer will receive full credit
@@ -31,7 +30,7 @@ Write R code which produces the correct answers and correctly interpret the resu
 
 ### Due Date
 
-April 27 at midnight MST
+Nov 21 at 4pm MST
 
 # Assignment Questions
 
@@ -73,12 +72,15 @@ Our first goal is to determine if there is a relationship between the amount of 
 -   `penguin_density_m2`: independent, continuous
 -   `percent_plant_cover`: dependent, continuous
 
-5.  Plot the data (disregard plant type for now) using the appropriate plot from `ggplot2`. Remember to add a line of best fit (and remember to make that line a straight line using the `method = "lm"` argument!). (2 points)
+5.  Plot the data (disregard plant type for now) using the appropriate plot from `ggplot2`. Remember to add a line of best fit (and remember to make that line a straight line using the `method = "lm"` argument!). Modify the axes labels and add a theme. (2 points)
 
 ```{r}
 ggplot(plants, aes(penguin_density_m2, percent_plant_cover)) +
   geom_point() +
-  geom_smooth(method = "lm")
+  geom_smooth(method = "lm") +
+  labs(x = "Penguin Density (per m^2)",
+       y = "Percent Plant Cover") +
+  theme_bw()
 ```
 
 6.  Calculate the correlation coefficient. What does this tell us about the relationship? (2 points)
@@ -95,7 +97,7 @@ r
     *Answer:* 0.3% aka not very much
 
 ```{r}
-r^2
+r^2 * 100
 ```
 
 8.  Run a linear regression model for these days and interpret the results. Does it seem like penguin density is a significant driver of plant cover? (3 points)
@@ -110,12 +112,15 @@ summary(lm(data = plants, percent_plant_cover ~ penguin_density_m2))
 
 Maybe we can get more information if we include the plant type in the model.
 
-9.  First, let's plot the data again, but this time make the color different for each type of plant. (2 points)
+9.  First, let's plot the data again, but this time make the color different for each type of plant. Again, adjust all necessary labels and add a theme. (2 points)
 
 ```{r}
 ggplot(plants, aes(penguin_density_m2, percent_plant_cover, color = plant_type)) +
   geom_point() +
-  geom_smooth(method = "lm")
+  geom_smooth(method = "lm") +
+  labs(x = "Penguin Density per m^2",
+       y = "Percent Plant Cover") +
+  theme_minimal()
 ```
 
 Woah, that's quite different! Our interpretation of whether penguin density affects plant cover might need to change...

@@ -22,7 +22,6 @@ Write R code which produces the correct answers and correctly interpret the resu
 ### Criteria for Success
 
 -   Code is within the provided code chunks
--   Code is commented with brief descriptions of what the code does
 -   Code chunks run without errors
 -   Code produces the correct result
     -   Code that produces the correct answer will receive full credit
@@ -31,7 +30,9 @@ Write R code which produces the correct answers and correctly interpret the resu
 
 ### Due Date
 
-April 27 at midnight MST
+November 21 at 4pm MST
+
+----
 
 # Assignment Questions
 
@@ -72,7 +73,7 @@ Our first goal is to determine if there is a relationship between the amount of 
 -   `penguin_density_m2`:
 -   `percent_plant_cover`:
 
-5.  Plot the data (disregard plant type for now) using the appropriate plot from `ggplot2`. Remember to add a line of best fit (and remember to make that line a straight line using the `method = "lm"` argument!). (2 points)
+5.  Plot the data (disregard plant type for now) using the appropriate plot from `ggplot2`. Remember to add a line of best fit (and remember to make that line a straight line using the `method = "lm"` argument!). Modify your axes labels and add a theme. (2 points)
 
 ```{r}
 
@@ -80,33 +81,33 @@ Our first goal is to determine if there is a relationship between the amount of 
 
 6.  Calculate the correlation coefficient. What does this tell us about the relationship? (2 points)
 
-    *Answer:*
-
 ```{r}
 
 ```
+
+*Answer:*
 
 7.  Calculate R\^2. How much variation does our line of best fit explain (report in %)? (2 points)
 
-    *Answer:*
-
 ```{r}
 
 ```
+
+*Answer:*
 
 8.  Run a linear regression model for these days and interpret the results. Does it seem like penguin density is a significant driver of plant cover? (3 points)
 
-    *Answer:*
-
 ```{r}
 
 ```
+
+*Answer:*
 
 ## Multiple Regression and Interaction
 
 Maybe we can get more information if we include the plant type in the model.
 
-9.  First, let's plot the data again, but this time make the color different for each type of plant. (2 points)
+9.  First, let's plot the data again, but this time make the color different for each type of plant. Modify all labels and add a theme. (2 points)
 
 ```{r}
 
@@ -116,15 +117,17 @@ Woah, that's quite different! Our interpretation of whether penguin density affe
 
 10. Run a multiple regression model, incorporating the plant type into the model using the `*` notation. Write 2-3 sentences interpreting the results. (3 points)
 
+```{r}
+
+```
+
 -   Which variables are significant? How do we know?
 
 -   Is the interaction term significant? How do we know?
 
     *Answer:*
 
-```{r}
-
-```
+------------------------------------------------------------------------
 
 Why might different plants respond differently to penguin densities?
 
