@@ -1,0 +1,167 @@
+---
+title: 'Module 4: Using Functions to Automate Tasks'
+author: "Lily McMullen"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Functions
+
+Note! If I ask you to do something like this on an assignment or the final, it will be a very basic function (like the example or exercise 1).
+
+## Introduction
+
+In this lesson, we'll learn how to write functions in R. Functions are essential for automating tasks and making your code more efficient and reusable. Let's get started!
+
+### What is a function?
+
+We've been using functions quite a lot in the course, but let's remind ourselves *exactly* what a function actually is.
+
+A function is a block of code designed to perform a specific task. A function is **executed** when it is **called.** This means that the block of code is run every time you use the function!
+
+A function takes specific **arguments** as input, processes them, and **returns** the output.
+
+![](https://www.learnbyexample.org/wp-content/uploads/r/r-function-syntax.png){width="515"}
+
+We've used a lot of built-in functions already, like the `mean()` function.
+
+Now, we are going to write our own, user-defined functions!
+
+### Writing Our First Function
+
+Following the syntax from the image above, let's write a function called `add_numbers` that takes **two numbers as arguments and returns their sum.**
+
+```{r}
+
+```
+
+Notice that we didn't put any actual numbers in the function! Instead, we used generic (undefined) arguments (e.g., `x` and `y`) to represent the values that we will eventually supply to the function when we execute it.
+
+Using our undefined arguments, we set up a statement (or series of statements) for the function to perform: add `x` and `y` together and save that value as an object called `z`.
+
+We use the `return()` function to indicate that `z` is the value we want the `add_numbers` function to give back to us when it is executed.
+
+Let's test our function with numbers, now!
+
+```{r}
+
+```
+
+#### Let's Practice
+
+Now try to write a function called `multiply_numbers` that takes **three** numbers as arguments and returns the **product.**
+
+Make sure to test your function, and remember a function should have a name, a list of arguments, and return something.
+
+```{r}
+
+```
+
+### Exercise 1: Simple Function
+
+**Objective:** Write a function called `inspect` that takes a data frame as an argument and prints the head and tail of the data frame.
+
+Setup:
+
+```{r}
+# load in tidyverse first!
+
+```
+
+```{r}
+# load the dataframe into your environment by reading the hairgrass_data.csv file
+
+```
+
+Before we attempt to write this function, you'll need to know about the `print()` function.
+
+In R, if you have multiple expressions (in our case, head and tail) and you want to see the output of each, you need to explicitly print them using the `print()` function. Otherwise, R will just show the last expression it ran.
+
+```{r}
+# demonstration of the print function
+
+```
+
+Now we can start to write our function! Write a function that prints the head and tail of the dataframe. If you're up for an extra challenge, have the function print out the first 10 and last 10 rows (instead of 6 and 6).
+
+```{r}
+# write your function here
+
+```
+
+Test your function with the hairgrass data frame.
+
+```{r}
+
+```
+
+### Exercise 2: Linear Regression Function
+
+**Objective**: Develop a function that performs linear regression between two columns of a data frame and returns the model summary.
+
+Some helpful hints:
+
+-   have 2 arguments, one for each column
+-   in the `lm()` function, you'll want to run it by specifying the dataframe and column (like `dataframe$column`) rather than just using the name of the column and setting the `data = dataframe` argument. It will look similar to how we run the code to get a correlation coefficient.
+
+```{r}
+# write your function here!
+
+```
+
+Test the function with two columns from the hairgrass data set.
+
+```{r}
+
+```
+
+### Exercise 3: Plotting Function
+
+**Objective:** Create a function to plot a scatter plot between two variables and add a regression line.
+
+For complicated reasons we won't get into, we need to do a few important things in this function to make it work:
+
+-   when you write the `ggplot` code, you'll need to use `aes_string()` in place of our usual `aes()` function
+-   when you test your function with the hairgrass data, you'll need to put the names of the two columns in quotation marks (e.g., "penguin_density_m2" instead of penguin_density_m2)
+-   don't worry about adding labels to your plot, but do add a theme
+
+```{r}
+# write your function here!
+
+```
+
+Test the function with two columns from the hairgrass data set.
+
+```{r}
+
+```
+
+### Bonus:
+
+**Objective:** Create a function, `plot_data_with_r2`, that modifies the scatter plot to include the R\^2 value from the linear regression.
+
+First, outside of the function, calculate the R\^2 value for your chosen variables. Then, modify your plotting function to add an `r_squared` argument.
+
+Use the `annotate()` to add the R\^2 value to the plot. You can learn more about `annotate()` [here!](https://ggplot2.tidyverse.org/reference/annotate.html)
+
+You might also want to learn about the `paste()` function [here](https://www.educative.io/answers/what-is-the-paste-function-in-r) to specify what the value you are putting on the plot represents. It might look something like `R squared = 0.4`.
+
+\*\*Remember to use `aes_string()` instead of `aes()`!
+
+```{r}
+# write your function here!
+
+
+```
+
+Test your function here:
+
+```{r}
+
+```
+
+#### Great Work!
