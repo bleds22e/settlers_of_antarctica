@@ -40,7 +40,10 @@ For this assignment, we are going to be making even *more* plots using `ggplot2`
 1.  Load both the `palmerpenguins` package and the `tidyverse` package into the work space. (2 points)
 
     ```{r message = FALSE}
+    # Load library
     library(palmerpenguins)
+
+    # Load tidyverse
     library(tidyverse)
     ```
 
@@ -51,6 +54,7 @@ For this assignment, we are going to be making even *more* plots using `ggplot2`
 When we use data from a data package, it doesn't automatically show up in our environment. Run this code chunk so it does show up in the environment.
 
 ```{r}
+# Put data in environment
 penguins <- penguins
 ```
 
@@ -58,7 +62,7 @@ penguins <- penguins
 
 2.  There are 8 columns in the `penguins` data frame. Determine if each variable is continuous or categorical and record your answer below.
 
-    Note: the `year` column can be considered continuous or categorical. *For this assignment, we will consider it continuous.*
+    Note: The `year` column can be considered continuous or categorical. *For this assignment, we will consider it continuous.*
 
     *Answer:*
 
@@ -77,8 +81,8 @@ penguins <- penguins
 
 (a) For *all* of the plots below, be sure to add:
 
-    -   improved labels for the x-axis, y-axis, and the legend (if present)
-    -   one of the following themes to your code: `theme_bw`, `theme_classic`, or `theme_light`.
+    -   Improved labels for the x-axis, y-axis, and the legend (if present).
+    -   One of the following themes to your code: `theme_bw`, `theme_classic`, or `theme_light`.
 
 (b) For each question, you get to choose the variables you use for each plot! Pay attention to which variables are continuous vs. categorical and where they should go in the code to produce the correct type of plot.
 
@@ -91,6 +95,7 @@ penguins <- penguins
 3.  Produce a histogram plot (just one, not multiple on the same plot). Write 1-2 sentences describing what information you can gather from plot.
 
 ```{r warning=FALSE}
+# Histogram of bill_depth_mm
 ggplot(penguins, aes(bill_depth_mm)) +
   geom_histogram(bins = 20) +
   labs(x = "Descriptive Axis Label",
@@ -103,6 +108,7 @@ ggplot(penguins, aes(bill_depth_mm)) +
 4.  Create a multiple density plot. Make sure we can see each density plot (make sure one isn't blocking another)(3 points). Write 1-2 sentences describing what information you can gather from plot.
 
 ```{r}
+# Multiple density plot of body_mass_g
 ggplot(penguins, aes(body_mass_g, color = island, fill = island)) +
   geom_density(alpha = 0.5) +
   labs(x = "Descriptive Axis Label",
@@ -119,6 +125,7 @@ ggplot(penguins, aes(body_mass_g, color = island, fill = island)) +
 5.  Create a box-and-whisker plot. Changing the color of the boxes is optional (if you want to get super fancy, you can change the color based on a different variable). Make sure to add points to the plot. Write 1-2 sentences describing what information you can gather from plot.
 
 ```{r warning=FALSE}
+# Box-and-whisker of flipper_length_mm v. species
 ggplot(penguins, aes(species, flipper_length_mm, color = species)) +
   geom_boxplot() +
   geom_jitter(alpha = 0.5, width = 0.1) +
@@ -135,6 +142,7 @@ ggplot(penguins, aes(species, flipper_length_mm, color = species)) +
 6.  Create a scatter plot. Change the color of the points to create a multiple scatter plot. Write 1-2 sentences describing what information you can gather from plot. (4 points)
 
 ```{r warning=FALSE}
+# Scatterplot of bill_depth_mm v. bill_length_mm
 ggplot(penguins, aes(bill_length_mm, bill_depth_mm, color = island)) +
   geom_point() +
   labs(x = "Descriptive Axis Label",
