@@ -75,7 +75,7 @@ penguins <- penguins %>%
 
 ## Structure & Guidelines
 
-Like the practice version, this final project is structured as 3 different problem sets. For each problem set, I am presenting you with a initial question to guide your thinking and analysis.
+Like the practice version, this final project is structured as 3 different problem sets. For each problem set, I am presenting you with an initial question to guide your thinking and analysis.
 
 ### Data
 
@@ -94,7 +94,7 @@ The following information about the dataset will likely prove helpful for you as
 -   Certain islands only have populations of certain species
     -   Torgerson island only has 1 species of penguin (Adelie)
     -   Dream and Biscoe islands each have 2 species of penguins.
--   Year
+-   Year is categorical.
 
 ### Interpreting Statistical Results
 
@@ -127,11 +127,9 @@ In many cases, this might mean capitalizing the axis label or legend label. In o
 
 Take a look at the data and decide what subset (if any) data you want to use to run a ANOVA. There are many possible combinations.
 
-1. Let's start with describing the data you plan to use. List the variable and whether it is continuous or categorical.
+1.  Let's start with describing the data you plan to use. List the variable and whether it is continuous or categorical.
 
-
-
-1.  Calculate the minimum, maximum, and mean bill length for *each* island. (3 points)
+2.  Calculate the minimum, maximum, and mean bill length for *each* island. (3 points)
 
 ```{r}
 
@@ -257,6 +255,8 @@ When we look at the plot of the data, it looks like there might be two different
 9.  Write 2-3 sentences discussing if and/or how adding species into our linear model changes our interpretation of the data. Did the type of relationship change? Do the two linear models tell us different things? (3 points)
 
     *Answer:*
+
+---- 
 
 ## Problem Set 3 (20 points)
 

@@ -31,7 +31,7 @@ Write R code which produces the correct data, summaries, plots and analyses. Cor
 
 ### Due Date
 
-May 9 at midnight MST
+Dec 11 at midnight MST
 
 # Final Project
 
