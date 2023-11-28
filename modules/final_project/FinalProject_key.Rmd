@@ -1,7 +1,7 @@
 ---
 title: "Final Project"
-author: "Ellen Bledsoe"
-date: "2022-12-03"
+author: "Your Name Here"
+date: "`r Sys.Date()`"
 output: pdf_document
 ---
 
@@ -303,13 +303,11 @@ summary(lm(data = biscoe, bill_depth_mm ~ bill_length_mm * species))
 
 11. Interpret the results of the test above. Is species significant? Is there a significant interaction between bill length and species? (2 points)
 
-  *Answer: neither species nor interaction is significant*
-
+*Answer: neither species nor interaction is significant*
 
 12. Write 2-3 sentences discussing if and/or how adding species into our linear model changes our interpretation of the data. Did the type of relationship change? Did significance levels change? Do the two linear models tell us different things? (3 points)
 
-  *Answer: negative to positive; models still tell us similar things in terms of significance, though*
-
+*Answer: negative to positive; models still tell us similar things in terms of significance, though*
 
 ------------------------------------------------------------------------
 
