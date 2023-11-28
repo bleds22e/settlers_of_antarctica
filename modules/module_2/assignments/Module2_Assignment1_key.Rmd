@@ -42,18 +42,21 @@ First, let's prepare our data.
 1.  Load the `tidyverse` package into the work space.
 
     ```{r, message = FALSE}
+    # Load tidyverse
     library(tidyverse)
     ```
 
 2.  Read in the data using the `read_csv()` function. Name the data frame `sick_fish`.
 
     ```{r}
+    # Read data
     sick_fish <- read_csv("../data/fish_sick_data.csv")
     ```
 
 3.  Use the `head()` function to take a look at the columns in the data frame.
 
     ```{r}
+    # View first ten rows of data
     head(sick_fish)
     ```
 
@@ -65,31 +68,41 @@ First, let's prepare our data.
 
     -   What does one row (observation) represent (e.g., an individual fish?, all fish of a certain species? all tanks of a certain species? etc.)? (1 point)
 
-    *Answer:* one row represents one fish tank that was sampled
+    *Answer:* One row represents one fish tank that was sampled.
 
     -   Based on the column names, briefly (just a few words) describe what data is included in each column. (2 points)
 
-    *Answer:* tank_id = identifier for individual tanks; species = fish species in the tank; avg_daily_temperature = average water temp in the tank; num_fish = total number of fish in the tank; day_length = amount of daylight provided for tanks; tank_volume = water volume in the tank; num_sick = number of sick fish per tank
+    *Answer:* 
+    tank_id = identifier for individual tanks; 
+    species = fish species in the tank; 
+    avg_daily_temperature = average water temp in the tank; 
+    num_fish = total number of fish in the tank; 
+    day_length = amount of daylight provided for tanks; 
+    tank_volume = water volume in the tank; 
+    num_sick = number of sick fish per tank
 
 6.  Take a look at the columns that have the total number of fish in the tank and the number of sick fish per tank. Determine whether these two columns are continuous or categorical.
 
-    *Answer:* both num_fish and num_sick are continuous
+    *Answer:* Both num_fish and num_sick are continuous.
 
 7.  Using base R, create a scatter plot. Put the total number of fish on the x-axis and the number of sick fish on the y-axis.
 
     ```{r}
+    # Scatterplot number sick fish v. total number fish
     plot(sick_fish$num_fish, sick_fish$num_sick)
     ```
 
 8.  Interpret the scatter plot. What is the plot telling you? Is there a positive or negative relationship between the two variables. What does that mean? (2 points)
 
-    *Answer:* negative relationship, meaning that the more fish that are in the tank, the fewer sick fish there are (which is counter-intuitive).
+    *Answer:* Negative relationship, meaning that the more fish that are in the tank, the fewer sick fish there are (which is counter-intuitive).
 
 Now, let's use what we've learned about `ggplot2` to recreate the same scatter plot. We will do this in 2 steps. In the first step, we will add the data, axes, and geom. In the second step, we will modify the plot to increase interpretability by renaming axes and adding a theme.
 
 9.  Create the scatter plot using the proper `geom` function.
 
     ```{r}
+    # Scatterplot number sick fish v. total number fish
+    # Using ggplot this time
     ggplot(sick_fish, aes(num_fish, num_sick)) +
       geom_point()
     ```
@@ -97,6 +110,7 @@ Now, let's use what we've learned about `ggplot2` to recreate the same scatter p
 10. Now, add to the plot that we created above to make it clearer to understand. Add better axes labels and choose a theme. (2 point)
 
     ```{r}
+    # Add labels and theme to scatterplot
     ggplot(sick_fish, aes(num_fish, num_sick)) +
       geom_point() + 
       labs(x = "Total Number of Fish per Tank",
@@ -108,9 +122,10 @@ Looking at the scatter plots, there seem to be two distinct groups. Let's invest
 
 11. For *each* fish species, calculate the average and the standard deviation for the number of sick fish. (2 points)
 
-    *Hint: think back to Module 1 and which function we can use to "split, apply, combine"*
+    *Hint: Think back to Module 1 and which function we can use to "split, apply, combine".*
 
     ```{r}
+    # Find average and standard deviation of sick fish for each species
     sick_fish %>% 
       group_by(species) %>% 
       summarise(mean_sick = mean(num_sick),
@@ -119,8 +134,11 @@ Looking at the scatter plots, there seem to be two distinct groups. Let's invest
 
 12. Based on the summary data you've calculated above, do you think the two clumps of data correspond to the two species? Which species seems to be the one that is causing the most problems? (2 points)
 
-    *Answer:* seems like trout are driving the issues; seems reasonable that clumps could belong to species
+    *Answer:* Seems like trout are driving the issues; seems reasonable that clumps could belong to species.
 
 13. Do some brainstorming. Based on the plots we've made and the calculations we've done so far, are we *sure* that the two clumps of data we see in the data visualization do, in fact, correlate to the two different species? How could we confirm? How might we include that information in the plot? (2 points)
 
-    *Answer:* many answer options here. could take average of total num fish to see if that corresponds to what is on the plot; could change some characteristic of the plot (point shape, color, size) to represent fish species; could add labels (would get busy)
+    *Answer:* Many answer options here. 
+    Could take average of total num fish to see if that corresponds to what is on the plot;
+    Could change some characteristic of the plot (point shape, color, size) to represent fish species; 
+    Could add labels (would make a busy plot)
