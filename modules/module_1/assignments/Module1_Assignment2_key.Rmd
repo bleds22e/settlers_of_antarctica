@@ -43,28 +43,28 @@ Let's start working with vectors, or 1-dimensional data, first.
 Run this chunk of code to create a vector of data to use.
 
 ```{r vector}
-# vector with counts of penguins
+# Vector with counts of penguins
 counts <- c(2, 9, 4, 3, 6, 7, 1, 0, 3)
 ```
 
 1.  What data class is `counts`? Write a line of code that tells you.
 
 ```{r data_class}
-# data class for counts
+# Data class for counts
 class(counts)
 ```
 
 2.  Write a line of code that pulls out the 2nd value in the `counts` vector.
 
 ```{r second_value}
-# second value of counts vector
+# Second value of counts vector
 counts[2]
 ```
 
 3.  Calculate the average number of penguins that were counted.
 
 ```{r avg_penguins}
-# mean number of penguins
+# Mean number of penguins
 mean(counts)
 ```
 
@@ -77,6 +77,7 @@ Remember that quiz we took in class with fun/silly questions about our trip to A
 The following code chunk will read in the data. Be sure to run it before try to answer the questions! A bunch of stuff will pop up, but it should work just fine.
 
 ```{r import_data}
+# Load data
 team_data <- read.csv("../data/team_antarctica_responses.csv")
 ```
 
@@ -89,12 +90,14 @@ Running the code chunk above produces a message that gives us some useful inform
 4.  Take a look at the data frame using the `head()` function. Typically, `head()` provides the first 6 rows of data. Modify one of the arguments in `head()` so that the line of code prints the first 10 rows. (If you aren't sure how to do that, remember how you can look for help about functions!)
 
 ```{r examine_data}
+# Show first 10 rows of the data
 head(team_data, 10)
 ```
 
 5.  Using what you know about sub-setting data frames, write a line of code the pulls out the parka color for UniqueID 9 (row 9). (Hint: count the columns!)
 
 ```{r parka7}
+# View parka color for UniqueID 9
 team_data[9, 7]
 ```
 
@@ -103,30 +106,33 @@ When we have a large data set like this, it is often helpful to summarize the da
 6.  On average, how did people rate their ability to be in a remote location?
 
 ```{r average_cold_tolerance}
+# Average rating for ability to be in a remote location
 mean(team_data$remote_location)
 ```
 
 7.  What are the minimum and maximum distances that would be traveled by a team member to get to Antarctica? Use the `min()` and `max()` functions.
 
 ```{r min_max_distance}
-# minimum distance
+# Minimum distance
 min(team_data$distance_mi)
 
-# maximum distance
+# Maximum distance
 max(team_data$distance_mi)
 ```
 
 8.  Create a data frame that only includes rows of data for people who rated their fishing skills as a 5. (Hint: numbers do not need quotation marks around them).
 
 ```{r cooking_skill}
-team_data[team_data$fishing_skill == 1, ]
+# People who rated their fishing skills as 5
+team_data[team_data$fishing_skill == 5, ]
 ```
 
 9.  Write a line of code that tells us what data class the `good_with_animals` column is.
 
-    ```{r}
-    class(team_data$good_with_animals)
-    ```
+```{r}
+# Data class of good_with_animals column
+class(team_data$good_with_animals)
+```
 
 10. Calculate the average cold tolerance of people who want blue parkas. Use these steps to think through how to answer this question.
 
@@ -137,6 +143,7 @@ team_data[team_data$fishing_skill == 1, ]
     c.  Finally, think about how to calculate the average
 
 ```{r parka_colors}
+# Average cold tolerance of those with a blue parka
 mean(team_data[team_data$parka_color == "Blue", 4])
 ```
 
@@ -149,8 +156,9 @@ First, create a vector called `mascot` that has only the values from the `flag_m
 *Answer:*
 
 ```{r flag_mascot}
-# data frame
+# Data frame with only flag_mascot column
 mascot <- team_data$flag_mascot
-# mascot count
+
+# Make table of mascot count
 table(mascot)
 ```
