@@ -53,14 +53,20 @@ First, let's take a look at the data we will be using for the assignment.
 1.  As always, we start by loading the `tidyverse`. (1 point)
 
     ```{r message = FALSE}
+    # Load tidyverse
     library(tidyverse)
     ```
 
 2.  Next, we need to load in our tilapia growth dataset. Call the data frame `growth`. Then use both the `head` and `tail` functions to take a look at the data. (1 point)
 
     ```{r}
+    # Load data
     growth <- read_csv("../data/tilapia_growth.csv")
+
+    # View first ten rows of data
     head(growth)
+
+    # View last ten rows of data
     tail(growth)
     ```
 
@@ -68,28 +74,28 @@ First, let's take a look at the data we will be using for the assignment.
 
     a\. What does one row represent? (One tank? One temperature? One treatment? One fish?)
 
-    One fish
+    *Answer:* One fish
 
     b\. How many tanks of fish were sampled?
 
-    16
+    *Answer:* 16
 
     c\. How many fish were sampled?
 
-    320
+    *Answer:* 320
 
-    d\. How many different "percent soy protein" levels (treatments) are there? In this assignment, we will treat `perc_soy_protein` as a *categorical* variable, so another way to ask this question is: how many categories of percent soy protein do we have?
+    d\. How many different "percent soy protein" levels (treatments) are there? In this assignment, we will treat `perc_soy_protein` as a *categorical* variable, so another way to ask this question is: How many categories of percent soy protein do we have?
 
-    4
+    *Answer:* 4
 
 ## Our Task
 
 We have been asked by our aquaculture specialists to provide them with the following:
 
-a.  a data frame with the average growth (`day_30_weight`) per treatment (`perc_soy_protein`)
-b.  a boxplot plot that shows the relationship (or lack thereof) between percent soy protein in the diet and the weight at 30 days
-c.  a data frame with the average growth per treatment (`perc_soy_protein`) *and* if tanks are warm or cold
-d.  a multiple scatter plot that shows the relationship (or lack thereof) between average tank temperature, the weight at 30 days, and the percent soy in the diet.
+a.  A data frame with the average growth (`day_30_weight`) per treatment (`perc_soy_protein`).
+b.  A boxplot plot that shows the relationship (or lack thereof) between percent soy protein in the diet and the weight at 30 days.
+c.  A data frame with the average growth per treatment (`perc_soy_protein`) *and* if tanks are warm or cold.
+d.  A multiple scatter plot that shows the relationship (or lack thereof) between average tank temperature, the weight at 30 days, and the percent soy in the diet.
 
 They've also asked that we provide all weights in kilograms instead of grams (the `day_30_weight` is currently in grams).
 
@@ -116,6 +122,7 @@ Now let's actually go ahead and complete our tasks with code.
 FIRST! We need to run the line of code below. It's a little wonky, but for the rest of the assignment to work the way I want it to, we need to tell R that we want to treat the `perc_soy_protein` as a categorical variable.
 
 ```{r}
+# Convert perc_soy_protein to a categorical variable
 growth <- growth %>% 
   mutate(perc_soy_protein = as.factor(perc_soy_protein))
 ```
@@ -127,6 +134,7 @@ Because the aquaculture team has asked for everything to use kilograms instead o
     Remember to "overwrite" the growth data frame (use the assignment operator) so the new column is permanently added to the `growth` data frame for us to use in the rest of the assignment. (2 points)
 
     ```{r}
+    # Convert day_30_weight to kilograms
     growth <- growth %>% 
       mutate(day_30_weight_kg = day_30_weight / 1000)
     ```
@@ -138,9 +146,13 @@ Because the aquaculture team has asked for everything to use kilograms instead o
 6.  Create a new data frame called `growth_by_treatment`. We first want to group the data by treatment (`perc_soy_protein`) then calculate the average weight in kg. (2 points)
 
     ```{r}
+    # Add new column to data frame
+    # Mean weight of each percent of soy protein
     growth_by_treatment <- growth %>% 
       group_by(perc_soy_protein) %>% 
       summarize(mean_weight_kg = mean(day_30_weight_kg))
+
+    # View updated data frame
     growth_by_treatment
     ```
 
@@ -152,10 +164,10 @@ Based on the values we calculated in task (a), it looks like there is probably a
 
 7.  Make a box plot with `perc_soy_protein` on the x-axis (horizontal) and `day_30_weight_kg` on the y-axis (vertical). Change the axis labels to be more easily understood and add a theme. (2 point)
 
-    (Hint: because we want to plot *all* of the values, not just the mean values, we need to use the original `growth` data frame)
+    (Hint: Because we want to plot *all* of the values, not just the mean values, we need to use the original `growth` data frame.)
 
     ```{r}
-    # a few people might have a scatter plot because I made a mistake with the wording; that's fine
+    # Box plot of day_30_weight_kg v. perc_soy_protein
     ggplot(growth, aes(perc_soy_protein, day_30_weight_kg)) +
       geom_boxplot() +
       geom_jitter(width = 0.1) +
@@ -171,6 +183,7 @@ Based on the values we calculated in task (a), it looks like there is probably a
 8.  Now that we have our `tank_category` column, we can use it in our `group_by` function, along with `perc_soy_protein`, to calculate the average `day_30_weight_kg` for warm and cold tanks in each treatment. Call this new data frame `growth_by_temp_treatment`. (2 points)
 
     ```{r}
+    # Mean weight of each percent soy protein by tank category
     growth_by_treatment_and_temp <- growth %>% 
       group_by(perc_soy_protein, tank_category) %>% 
       summarise(mean_weight_kg = mean(day_30_weight_kg))
@@ -185,9 +198,10 @@ Based on our results above, do we think the tank being warm or cold has much of 
 
 9.  Make a multiple scatter plot with `avg_tank_temp` (not `tank_category`!) on the x-axis (horizontal) and `day_30_weight_kg` on the y-axis (vertical). Change the color so it represents the percent soy protein. Change the axis labels to be more easily understood and add a theme. (2 point)
 
-    (Hint: because we want to plot *all* of the values, not just the mean values, we need to use the original `growth` data frame)
+    (Hint: Because we want to plot *all* of the values, not just the mean values, we need to use the original `growth` data frame.)
 
     ```{r}
+    # Multiple scatterplot of day_30_weight_kg v. perc_soy_protein
     ggplot(growth, aes(avg_tank_temp, day_30_weight_kg, color = perc_soy_protein)) +
       geom_point() +
       labs(x = "Average Tank Temperature (C)",
