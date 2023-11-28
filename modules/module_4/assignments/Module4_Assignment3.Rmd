@@ -1,18 +1,20 @@
 ---
-title: "Module 4: Assignment 3"
+title: "Practice for the Final"
 output: pdf_document
-date: "2023-04-17"
+date: "`r Sys.Date()`"
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Practicing for the Final Project
+# Practicing for the Final 
 
-This is meant to help you prepare for the final project, which I will be handing out next week. The final project will have about the same amount of guidance (or maybe even a bit more) than I've given you here. If you can work your way through these practice problems, you'll be in good shape!
+This is meant to help you prepare for the final "project" (really just an elongated assignment) which I will be handing out after the Module 4 quiz. The final will have about the same amount of guidance (or maybe even a bit more) that I've given you here. If you can work your way through these practice problems, you'll be in good shape!
 
-I'm expecting you to be able to filter and summarize the data in ways you need, choose the appropriate visualization, choose the appropriate analysis, and correctly interpret the analysis for the question I've asked you.
+I'm expecting you to be able to filter, summarize, and wrangle the data in ways you need, choose the appropriate visualization, choose the appropriate analysis, and correctly interpret the analysis for the question I've asked you.
+
+![](lter_penguins.png)
 
 Some important notes:
 
@@ -20,17 +22,60 @@ Some important notes:
 
 -   I will not be giving you an answer key for your final project since part of your grade for the assignment is to choose the correct visualizations and analyses.
 
--   For every plot you make, be sure to clarify and clean up the labels and add a theme.
-
 -   Because we are working through this together in class, I will be grading this assignment on completion only! That said, make sure you actually answer ***every question*** that's in here for full credit...there are quite a few!
+
+------------------------------------------------------------------------
+
+## Structure & Guidelines
+
+This practice/review is structured as 3 different problem sets. For each problem set, I am presenting you with a initial question to guide your thinking and analysis.
+
+### Data
+
+Assume that nothing carries over between problem sets.
+
+Each problem set is stand-alone, meaning that you should always start with the `penguins` data frame at the beginning of each problem set. If you should use a data frame that you created *within* the problem set, I explicitly state so.
+
+For example, in Problem Set 1, you should use the `dream` data frame that you create for the entire problem set; at the start of Problem Set 2, start over with the `penguins` data frame.
+
+### Interpreting Statistical Results
+
+When I ask you to interpret statistical results, you should roughly follow these guidelines.
+
+-   the cut-off for our p-values is always 0.05
+-   report the p-value that we are focused on
+-   if there are multiple p-values of interest, report all of them
+-   state whether the p-value indicates a significant difference/relationship
+-   if applicable, state whether we should or should not reject the null hypothesis
+
+### Plotting
+
+All plots should be made using `ggplot2`.
+
+Your options for plot types to choose from are:
+
+-   [multiple]{.underline} histogram plots
+    -   use transparency (`alpha`)
+    -   use `position = "identity"` with multiple groups to see the full distributions
+-   [multiple]{.underline} density plots
+    -   use transparency (`alpha`) with multiple groups to see the full distributions
+-   box-and-whisker plot
+    -   add points on top of the box plot to show the distribution of the points
+-   scatter plot
+    -   add the linear model to every scatter plot
+
+**Note: All plots should have modified axis labels and legend labels and a theme.**
+
+In many cases, this might mean capitalizing the axis label or legend label. In other cases, you might want to put units in parentheses after the words (e.g., Body Mass (g)).
+
+------------------------------------------------------------------------
 
 ## Set-Up
 
-Let's load our packages and get started!
+Let's load our packages and get started! Load the `tidyverse` and `palmerpengiuns` packages.
 
-```{r}
-library(tidyverse)
-library(palmerpenguins)
+```{r message = FALSE}
+
 ```
 
 We will be using the `penguins` data frame. It exists as part of the `palmerpenguins` package, but if you want it to show up in your environment, run the following code chunk.
@@ -41,23 +86,28 @@ penguins <- penguins
 
 ## Problem Set 1
 
-For this problem set, we want to know if there is a significant difference between the flipper lengths of the species on Dream island.
+**Objective**: For this problem set, we are going to look at the difference in flipper lengths for each species on Dream island.
 
-First things first, let's make a data frame with only penguins on Dream island. Name this dataframe `dream`. *We will want to use this data frame for the rest of this problem set.*
-
-```{r}
-
-```
-
-Based on our question, identify which variable is independent and which is dependent. Also identify if they are continuous or categorical.
-
-Using the `dream` data frame that you created above, calculate the minimum, maximum, and mean of the flipper lengths for each species
+First things first, let's make a dataframe with only the penguins on Dream island. We will want to use this dataframe for the rest of this problem set; call it `dream`.
 
 ```{r}
 
 ```
 
-Choose an effective visualization method for this data and plot the data using `ggplot2`.
+Based on our question, which variable is independent and which is dependent? Which is continuous and/or which is categorical?
+
+*Answer:*
+
+flipper length: dependent, continuous\
+species: independent, categorical
+
+First, calculate the range (minimum and maximum) and mean of the flipper lengths for each species
+
+```{r}
+
+```
+
+Choose an effective visualization method for this data. Use `ggplot2`.
 
 ```{r}
 
@@ -81,6 +131,8 @@ Interpret the results of your statistical test:
 -   Is the p-value above or below 0.05?
 -   What does your answer to the question above mean?
 -   Should we reject or fail to reject the null hypothesis?
+
+*Answer:*
 
 Should we run pairwise comparisons? If yes, do so below and interpret:
 
@@ -104,7 +156,7 @@ First, calculate the mean and standard deviation for both bill length and flippe
 
 ```
 
-Choose the best way to visualize the relationship between these two variables and create that plot.
+Choose the best way to visualize the relationship between these two variables
 
 ```{r}
 
@@ -118,22 +170,27 @@ penguins_noNA <- penguins %>%
          !is.na(flipper_length_mm))
 ```
 
-Using the `penguins_noNA` data frame, calculate the correlation coefficient and the `r^2` value.
+Calculate the correlation coefficient and the `r^2` value in the code chunk below.
 
 -   According to the correlation coefficient, is the relationship positive, negative or is there no relationship?
--   According to the `r^2` value, how much of the variation in this relationship is explained? Remember, we usually multiply the `r^2` by 100 to represent this as a percentage.
+
+*Answer:*
+
+-   What does the `r^2` value tell us? Remember, we usually multiply the `r^2` by 100 to represent this as a percentage.
+
+*Answer:*
 
 ```{r}
 
 ```
 
-Run the appropriate model for this data.
+Run the appropriate statistical test for this data.
 
 ```{r}
 
 ```
 
-Using both variables and numbers from the summary above, write out the equation of the line
+Using variables and numbers from the summary above, write out the equation of the line of best fit.
 
 *Answer:*
 
@@ -143,13 +200,15 @@ Interpret the results of your statistical test:
 -   Is the p-value above or below 0.05?
 -   What does your answer to the question above mean?
 
+*Answer:*
+
 Should we run pairwise comparisons? If yes, do so below and interpret:
 
 ```{r}
 
 ```
 
-### Bonus
+### Adding a Variable
 
 Let's add in the species variable into our analysis! Keep using the `penguins_noNA` data frame.
 
@@ -159,7 +218,7 @@ First, plot the data, this time including species as a variable in the plot.
 
 ```
 
-Run the model again, this time including species and the species interaction with "independent" variable.
+Run the model again, this time including species and the species *interaction* with "independent" variable.
 
 ```{r}
 
@@ -171,23 +230,36 @@ Interpret the results from the model above. Focus on the p-values for the indepe
 
 ## Problem Set 3
 
-For this problem set, we want to know if there is a difference in the body mass between the penguin species.
+For this problem set, we want to know if there is a difference in the body mass of the penguin species.
 
 Based on our question, which variable is independent and which is dependent? Which is continuous and/or which is categorical?
 
-First, calculate the minimum, maximum, and mean of the body mass for each species. Call this data frame `body_mass`.
+First, calculate the minimum, maximum, and mean of the body mass for each species. Call this dataframe `body_mass`.
 
 ```{r}
 
 ```
 
-Convert all the columns in the `body_mass` data frame from grams to kilograms. (Remember that you divide grams by 1000 to get kilograms)
+What if we wanted the values in the newly created `body_mass` column to be in kilograms instead of grams?
+
+Let's do this in 2 parts.
+
+-   First, we will create a function that converts a number from grams to kilograms.
+-   Second, we will use that function that we just created to modify each column (hint: we will want to use `mutate`).
+
+Our first step is to write a function that converts a number (not a column, mind you) from grams to kilograms.
 
 ```{r}
 
 ```
 
-Back to the question at hand...choose an effective visualization method for this data (you will want to use the original `penguins` dataframe). Practice adding lines that represent to mean values in the plot.
+Convert all the columns in the `body_mass` data frame from grams to kilograms using the function you wrote above. You don't need to save this dataframe as anything, but if you do, call it `body_mass_kg`.
+
+```{r}
+
+```
+
+Back to the question at hand...choose an effective visualization method for this data (you will want to use the original `penguins` dataframe---and grams are fine). Practice adding lines that represent to mean values in the plot. Thinking critically about which columns to use!
 
 ```{r}
 
@@ -211,6 +283,8 @@ Interpret the results of your statistical test:
 -   Is the p-value above or below 0.05?
 -   What does your answer to the question above mean?
 -   Should we reject or fail to reject the null hypothesis?
+
+*Answers:*
 
 Should we run pairwise comparisons? If yes, do so below and interpret:
 
