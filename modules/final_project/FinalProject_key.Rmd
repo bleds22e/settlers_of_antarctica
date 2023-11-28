@@ -73,7 +73,7 @@ penguins <- penguins %>% drop_na()
 
 ## Structure & Guidelines
 
-Like the practice version, this final project is structured as 3 different problem sets. For each problem set, I am presenting you with a initial question to guide your thinking and analysis.
+Like the practice version, this final project is structured as 3 different problem sets. For each problem set, I am presenting you with an initial question to guide your thinking and analysis.
 
 ### Data
 
@@ -121,7 +121,7 @@ In many cases, this might mean capitalizing the axis label or legend label. In o
 
 Let's start by summarizing the bill length data.
 
-1.  Calculate at least one measure of central tendancy and one measure of variability for the bill length for *each* island. (2 points)
+1.  Calculate at least one measure of central tendency and one measure of variability for the bill length for *each* island. (2 points)
 
 ```{r}
 # measures of central tendancy include mean, median, or mode
@@ -139,7 +139,7 @@ penguins %>%
 
 Now that we have an idea numerically of the differences between the islands, let's plot the differences.
 
-3.  Choose an appropriate plot (there are a few options). Ensure that you follow the plotting guidelines in the Structure & Guidelines section above! (2 points)
+3.  Choose an appropriate plot. Ensure that you follow the plotting guidelines in the Structure & Guidelines section above! (2 points)
 
 ```{r}
 ggplot(penguins, aes(island, bill_length_mm)) + # adding color is optional
@@ -155,7 +155,8 @@ ggplot(penguins, aes(bill_length_mm, fill = island)) +
   geom_density(alpha = 0.5) +
   labs(x = "Bill Length (mm)",
        y = "Density",
-       fill = "Island")
+       fill = "Island") +
+  theme_bw()
   
 # OR
   
@@ -163,7 +164,8 @@ ggplot(penguins, aes(bill_length_mm, fill = island)) +
   geom_histogram(alpha = 0.5, position = "identity") +
   labs(x = "Bill Length (mm)",
        y = "Frequency",
-       fill = "Island")
+       fill = "Island") +
+  theme_bw()
 ```
 
 4.  Write the correct pair of statistical hypotheses for our question. (2 points)
@@ -251,6 +253,7 @@ ggplot(biscoe, aes(bill_length_mm, bill_depth_mm)) +
 
     ```{r}
     r <- cor(biscoe$bill_length_mm, biscoe$bill_depth_mm)
+    r
     ```
 
     *Answer:* negative relationship
@@ -258,14 +261,14 @@ ggplot(biscoe, aes(bill_length_mm, bill_depth_mm)) +
 7.  Calculate the `r^2` value. How much variation is explained by the line of best fit? Remember, this number is typically expressed as a percent (x 100). (2 points)
 
     ```{r}
-    r^2
+    r^2 * 100
     ```
 
     *Answer:* About 20% variation explained
 
 8.  Let's see if there is a significant relationship between bill length and bill depth. Perform the correct statistical analysis (1 point) and interpret the results. (5 points total)
 
-    -   What is the equation of the line of best fit? Use both variable names and values from the statistical analysis .(1 point)
+    -   What is the equation of the line of best fit? Use both variable names and values from the statistical analysis. (1 point)
     -   What is the p-value? (1 point)
     -   Is there a significant relationship? (1 point)
     -   What should we do with the null hypothesis? (1 point)
@@ -300,15 +303,13 @@ summary(lm(data = biscoe, bill_depth_mm ~ bill_length_mm * species))
 
 11. Interpret the results of the test above. Is species significant? Is there a significant interaction between bill length and species? (2 points)
 
-```         
-*Answer: neither species nor interaction is significant*
-```
+  *Answer: neither species nor interaction is significant*
 
-12. Write 2-3 sentences discussing if and/or how adding species into our linear model changes our interpretation of the data. Did the type of relationship change? Do the two linear models tell us different things? (3 points)
 
-```         
-*Answer: negative to positive; models still tell us similar things in terms of significance, though*
-```
+12. Write 2-3 sentences discussing if and/or how adding species into our linear model changes our interpretation of the data. Did the type of relationship change? Did significance levels change? Do the two linear models tell us different things? (3 points)
+
+  *Answer: negative to positive; models still tell us similar things in terms of significance, though*
+
 
 ------------------------------------------------------------------------
 
