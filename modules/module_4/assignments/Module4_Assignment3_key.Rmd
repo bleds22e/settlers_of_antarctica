@@ -14,7 +14,7 @@ This is meant to help you prepare for the final "project" (really just an elonga
 
 I'm expecting you to be able to filter, summarize, and wrangle the data in ways you need, choose the appropriate visualization, choose the appropriate analysis, and correctly interpret the analysis for the question I've asked you.
 
-![](lter_penguins.png)
+![](../../final_project/lter_penguins.png)
 
 Some important notes:
 
@@ -100,8 +100,7 @@ Based on our question, which variable is independent and which is dependent? Whi
 
 *Answer:*
 
-flipper length: dependent, continuous\
-species: independent, categorical
+
 
 First, calculate the range (minimum and maximum) and mean of the flipper lengths for each species
 
@@ -129,9 +128,9 @@ ggplot(dream, aes(x = species, y = flipper_length_mm, color = species)) +
 
 Write out the null and alternative hypotheses.
 
-**Null:** there is no difference in the mean flipper length between the two species
+**Null:** 
 
-**Alternative:** there is a difference in the mean flipper length between the two species
+**Alternative:** 
 
 Run the appropriate statistical test.
 
@@ -146,7 +145,7 @@ Interpret the results of your statistical test:
 -   What does your answer to the question above mean?
 -   Should we reject or fail to reject the null hypothesis?
 
-*Answer:* p = 2.58 x 10-6, smaller than 0.05, statistically significant, reject the null
+*Answer:* 
 
 Should we run pairwise comparisons? If yes, do so below and interpret:
 
@@ -198,11 +197,11 @@ Calculate the correlation coefficient and the `r^2` value.
 
 -   According to the correlation coefficient, is the relationship positive, negative or is there no relationship?
 
-*Answer: positive*
+*Answer: 
 
 -   What does the `r^2` value tell us? Remember, we usually multiply the `r^2` by 100 to represent this as a percentage.
 
-*Answer: 43% variation explained*
+*Answer: 
 
 ```{r}
 r <- cor(x = penguins_noNA$flipper_length_mm, y = penguins_noNA$bill_length_mm)
@@ -228,7 +227,7 @@ Interpret the results of your statistical test:
 -   Is the p-value above or below 0.05?
 -   What does your answer to the question above mean?
 
-*Answer: p \< 2x10-16, p smaller than 0.05, significant relationship*
+*Answer:
 
 Should we run pairwise comparisons? If yes, do so below and interpret:
 
@@ -261,7 +260,7 @@ summary(mlm_model)
 
 Interpret the results from the model above. Focus on the p-values for the independent variables and/or interaction terms, not the overall model.
 
-*Answer: flipper length is significant, Gentoo is significantly different from Adelie, interaction between flipper length and Gentoo is significant*
+*Answer: 
 
 ## Problem Set 3
 
@@ -303,6 +302,16 @@ body_mass %>%
   mutate(min_mass = g_to_kg(min_mass),
          max_mass = g_to_kg(max_mass),
          mean_mass = g_to_kg(mean_mass))
+
+# alternative option
+# copy code from above
+# add a mutate function before the summarise function and modify summarise function columns
+penguins %>% 
+  group_by(species) %>% 
+  mutate(body_mass_kg = g_to_kg(body_mass_g)) %>% 
+  summarise(min_mass = min(body_mass_kg, na.rm = TRUE), # body_mass_kg instead of body_mass_g
+            max_mass = max(body_mass_kg, na.rm = TRUE),
+            mean_mass = mean(body_mass_kg, na.rm = TRUE))
 ```
 
 Back to the question at hand...choose an effective visualization method for this data (you will want to use the original `penguins` dataframe---and grams are fine). Practice adding lines that represent to mean values in the plot. Thinking critically about which columns to use!
@@ -320,9 +329,9 @@ ggplot(penguins, aes(x = body_mass_g, fill = species)) +
 
 Write out the null and alternative hypotheses.
 
-**Null:** no different between mean body mass of species
+**Null:** 
 
-**Alternative:** there is a difference in mean body mass between species
+**Alternative:** 
 
 Run the appropriate statistical test.
 
@@ -338,7 +347,7 @@ Interpret the results of your statistical test:
 -   What does your answer to the question above mean?
 -   Should we reject or fail to reject the null hypothesis?
 
-*Answers: p \< 2 x 10-16, very small, significant difference, reject null*
+*Answers:
 
 Should we run pairwise comparisons? If yes, do so below and interpret:
 
@@ -346,4 +355,4 @@ Should we run pairwise comparisons? If yes, do so below and interpret:
 TukeyHSD(aov_mod)
 ```
 
-*Answer: Gentoo is significantly different from both Chinstrap and Adelie, but Chinstrap and Adelie are not significantly different from each other.*
+*Answer: 
