@@ -1,0 +1,375 @@
+---
+title: "Final Project"
+author: "Your Name Here"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Final Details
+
+### Purpose
+
+The goal of this final assignment is to assess your ability to integrate the many skills you have learned over the semester: filtering and summarizing data, creating new columns, choosing the appropriate data visualizations, and performing and interpreting the appropriate statistical tests.
+
+### Task
+
+Write R code which produces the correct data, summaries, plots and analyses. Correctly interpret the results of these plots and analyses.
+
+### Criteria for Success
+
+-   Code chunks run without errors
+-   Code produces the correct result
+    -   Code that produces the correct answer will receive **full** credit
+    -   Code attempts with logical direction will receive **partial** credit
+-   Appropriate plot types are used to visualize the data
+-   Appropriate statistical tests are used to analyze the data
+-   Written answers address the questions in sufficient detail
+
+### Due Date
+
+Dec 11 at midnight MST
+
+# Final
+
+For your final this semester, I am presenting you with 3 problem sets, totaling up to 60 points.
+
+I'm expecting you to be able to filter and summarize the data in the ways you need, choose the appropriate visualization, choose the appropriate analysis, and correctly interpret the analysis for the question I've asked you.
+
+It is important to note that I will not be giving you an answer key for this final project since a major part of your grade for the assignment is being able to choose the appropriate visualizations and analyses for the question and the data.
+
+We are going to use the `palmerpenguins` R package and data set, which we've used many times before! You can learn more about it [here](https://allisonhorst.github.io/palmerpenguins/). This is a real data set from a Long-Term Ecological Research (LTER) site in Antarctica.
+
+------------------------------------------------------------------------
+
+## Set-Up
+
+#### Be sure to run both of these code chunks before you begin!
+
+I've gone ahead and included the code to load the two packages you will need to successfully complete this project: the `tidyverse` and `palmerpenguins`. Be sure to run this code chunk!
+
+```{r message = FALSE}
+library(tidyverse)
+library(palmerpenguins)
+```
+
+#### Important!
+
+I've also included one more code chunk below. Be sure to run this code chunk, as well! It does two key things:
+
+-   first, it adds the `penguins` data frame to your environment, which I imagine you will find helpful
+-   second, it removes all rows that have any NA values, which will make completing this assignment a bit easier.
+
+Once you've run this line of code, you should see the `penguins` data frame pop up in your environment with 333 observations (rows) and 8 variables (columns).
+
+```{r}
+penguins <- penguins %>% drop_na()
+```
+
+![](lter_penguins.png){width="50%"}
+
+------------------------------------------------------------------------
+
+## Structure & Guidelines
+
+Like the practice version, this final is structured as 3 different problem sets. For each problem set, I am presenting you with an initial question to guide your thinking and analysis.
+
+### Data
+
+Assume that nothing carries over between problem sets.
+
+Each problem set is stand-alone, meaning that you should always start with the `penguins` data frame at the beginning of each problem set. If you should use a data frame that you created *within* the problem set, I explicitly state so.
+
+For example, in Problem Set 1, you should use the `biscoe` data frame that you create for the entire problem set; at the start of Problem Set 2, start over with the `penguins` data frame.
+
+### Interpreting Statistical Results
+
+When I ask you to interpret statistical results, you should roughly follow these guidelines.
+
+-   the cut-off for our p-values is always 0.05
+-   report the p-value that we are focused on
+-   if there are multiple p-values of interest, report all of them
+-   state whether the p-value indicates a significant difference/relationship
+-   if applicable, state whether we should or should not reject the null hypothesis
+
+### Plotting
+
+All plots should be made using `ggplot2`.
+
+Your options for plot types to choose from are:
+
+-   [multiple]{.underline} histogram plots
+    -   use transparency (`alpha`)
+    -   use `position = "identity"` with multiple groups to see the full distributions
+-   [multiple]{.underline} density plots
+    -   use transparency (`alpha`) with multiple groups to see the full distributions
+-   box-and-whisker plot
+    -   add points on top of the box plot to show the distribution of the points
+-   scatter plot
+    -   add the linear model to every scatter plot
+
+**Note: All plots should have modified axis labels and legend labels.**
+
+In many cases, this might mean capitalizing the axis label or legend label. In other cases, you might want to put units in parentheses after the words (e.g., Body Mass (g)).
+
+### Generative AI Guidelines
+
+While I do not recommend using generative AI to complete this assignment (throughout the semester, I've seen it cause more problems than not...), you are allowed to use it on the final.
+
+However, you *must* do so according to the guidelines I've set out for all other assignments this semester.
+
+You can find clear examples of these guidelines on D2L in *Resources \> Helpful Info \> Assignment Reminders*.
+
+#### CAUTION!
+
+If you do use generative AI without following the course guidelines, you will receive a 0 for this final and you will not have the option to resubmit. Proceed wisely.
+
+------------------------------------------------------------------------
+
+# Let's Begin!
+
+-   Have you run the 2 code chunks in the "Set-Up" section?
+-   Have you read through the "Structure & Guidelines" section?
+
+If so, proceed! If not, scroll back up...
+
+## Problem Set 1 (30 points total)
+
+This problem set has 2 parts.
+
+### Part 1 (20 points)
+
+#### Question: Is there a significant relationship between bill length and bill depth for penguins on Biscoe Island?
+
+For this problem set, we are going to use data from Biscoe island only.
+
+1.  Create a new data frame called `biscoe` that includes only penguins from Biscoe island. This new data frame should have 163 rows. (2 points)
+
+    ```{r}
+
+    ```
+
+You will want to use the `biscoe` data set for the rest of Problem Set #1.
+
+This is a scenario where there is no independent and no dependent variable. Go ahead and **treat bill length as the independent variable (x-axis) and bill depth as the dependent variable (y-axis).**
+
+2.  Determine whether bill length and bill depth are continuous or categorical (2 points)
+    -   **bill depth**: dependent
+    -   **bill length**: independent
+
+For now, ignore species. We will address species in Part 2 of the problem set.
+
+3.  Write the correct pair of statistical hypotheses for our question. (2 points)
+
+    **Null**:
+
+    **Alternative**:
+
+4.  Plot the relationship between bill length and bill depth using the appropriate plot type. (3 points)
+
+    -   Be sure to add a line of best fit
+    -   Ensure that the plot has clear labels on the axes (follow the Structure & Guidelines).
+    -   Remember, we are ignoring species for now.
+
+    ```{r}
+
+    ```
+
+5.  Describe the relationship that you see in the plot you just made. Is the relationship positive, negative, or nonexistent? How do you know? (2 points)
+
+    *Answer:*
+
+6.  Calculate the correlation coefficient, `r`. What does this value confirm for us about the relationship (positive, negative, no relationship)? (2 points)
+
+    ```{r}
+
+    ```
+
+    *Answer:*
+
+7.  Calculate the `r^2` value. Remember, this number is typically expressed as a percent (x 100). What is this value telling us? (2 points)
+
+    ```{r}
+
+    ```
+
+    *Answer:*
+
+8.  Let's see if there is a significant relationship between bill length and bill depth. Perform the correct statistical analysis (1 point) and interpret the results. (5 points total)
+
+    ```{r}
+
+    ```
+
+    -   What is the equation of the line of best fit? Use both variable names and values from the statistical analysis. (1 point)
+    -   What is the p-value? (1 point)
+    -   Is there a significant relationship? (1 point)
+    -   What should we do with the null hypothesis? (1 point)
+
+    *Answer*:
+
+### Part 2 (10 points)
+
+When we look at the plot of the data, it looks like there might be two different groups in the data. Let's see what happens when we add in species to this analysis.
+
+9.  Make the color of the points and the linear models differ by species on Biscoe Island. Be sure to adjust *all* labels on the plot accordingly. (3 points)
+
+    ```{r}
+
+    ```
+
+10. Run the appropriate statistical test, adding species (and the interaction between the two independent variables) into the model. (2 points)
+
+    ```{r}
+
+    ```
+
+11. Interpret the results of the test above. Is species significant? Is there a significant interaction between bill length and species? (1 points)
+
+*Answer:*
+
+12. Based on the plots, the linear relationships, and the linear models, write 2-3 sentences discussing if and/or how adding species into our linear model changes our interpretation of the data. Did the type of relationship change? Did significance levels change? Do the two linear models tell us different things? (3 points)
+
+*Answer:*
+
+------------------------------------------------------------------------
+
+## Problem Set 2 (15 points)
+
+#### Question: Is there a difference in the average flipper length between male and female Chinstrap penguins?
+
+1.  Our first step is to create a new data frame that includes only Chinstrap penguins. Call this new data frame `chinstrap`. (1 point)
+
+    ```{r}
+
+    ```
+
+We will be using the `chinstrap` data frame for the rest of this problem set.
+
+2.  Let's summarize our data. Calculate one measure of central tendency and one measure of variability of the flipper length column for *each* sex: male and female. Save this dataframe as `chinstrap_summary`. (2 points)
+
+    ```{r}
+
+    ```
+
+3.  What if we wanted our summary data in centimeters instead of millimeters? We can acheive this in 2 steps.
+
+    a.  First, create a function called `mm_to_cm` that will convert a number from millimeters to centimeters. There are 10 millimeters in a centimeter. (1 point)
+
+    ```{r}
+
+    ```
+
+    b.  Now, using the same code from question 3 above, add one line of code (in the correct location) that uses your newly created `mm_to_cm` function to create a new column in the dataframe. Make sure to edit the arguments in summary functions accordingly, as well. The result should be the same data frame that you produced in question 3 but with the summary values in cm instead of mm.(1 point)
+
+    ```{r}
+
+    ```
+
+Ok, we have summarized the flipper length data for our two groups!
+
+Let's get back to the `chinstrap` dataframe (not the summary dataframe), and keep working.
+
+4.  Determine which variable is *dependent* and which is *independent*. Also determine if each variable is *continuous* or *categorical*. (1 point)
+    -   **flipper length**:
+    -   **species**:
+
+Let's plot the flipper length data for each sex.
+
+5.  Choose an appropriate plot for the data. Be sure to adjust the x- and y-axis labels appropriately. (2 points)
+
+    ```{r}
+
+    ```
+
+6.  Write the pair of statistical hypotheses for our question. (1 point)
+
+    **Null**:
+
+    **Alternative**:
+
+7.  Perform the appropriate analysis to compare the flipper lengths of male and female chinstrap penguins. (2 points)
+
+    ```{r}
+
+    ```
+
+8.  Interpret the results of this test. (2 points)
+
+    -   is there a significant difference?
+    -   what does that significant difference mean?
+    -   should we reject the null hypothesis?
+
+    *Answer:*
+
+9.  Should we run pairwise comparisons? If no, explain why not. If yes, do so and interpret the results. (2 points)
+
+    *Answer:*
+
+    ```{r}
+
+    ```
+
+------------------------------------------------------------------------
+
+## Problem Set 3 (15 points)
+
+#### Question: **Are there differences in the average bill length across the 3 islands in the data set: Dream, Biscoe, and Torgersen? (Ignore species)**
+
+Let's start by summarizing the bill length data.
+
+1.  Calculate at least one measure of central tendency and one measure of variability for the bill length for *each* island. (2 points)
+
+    ```{r}
+
+    ```
+
+2.  Which of our variables would be considered *independent* and which one *dependent*? Also determine whether each is *continuous* or *categorical*. (2 points)
+
+    -   **island**:
+    -   **bill length**:
+
+Now that we have an idea numerically of the differences between the islands, let's plot the differences.
+
+3.  Choose an appropriate plot. Ensure that you follow the plotting guidelines in the Structure & Guidelines section above! (2 points)
+
+    ```{r}
+
+    ```
+
+4.  Write the correct pair of statistical hypotheses for our question. (2 points)
+
+    **Null**:
+
+    **Alternative**:
+
+5.  Run the appropriate statistical analysis for our question. (2 points)
+
+    ```{r}
+
+    ```
+
+6.  Interpret the results of this test. (3 points)
+
+    -   what is the p-value?
+    -   is there a significant difference?
+    -   should we reject the null hypothesis?
+
+    *Answer:*
+
+7.  Should we run pairwise comparisons? If no, explain why not. If yes, do so and interpret the results. (2 points)
+
+    *Answer:*
+
+    ```{r}
+
+    ```
+
+------------------------------------------------------------------------
+
+## The End!
+
+Great work, and thanks for a wonderful semester!
