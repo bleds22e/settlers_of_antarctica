@@ -37,7 +37,7 @@ Dec 11 at midnight MST
 
 For your final this semester, I am presenting you with 3 problem sets, totaling up to 60 points.
 
-I'm expecting you to be able to filter and summarize the data in ways you need, choose the appropriate visualization, choose the appropriate analysis, and correctly interpret the analysis for the question I've asked you.
+I'm expecting you to be able to filter and summarize the data in the ways you need, choose the appropriate visualization, choose the appropriate analysis, and correctly interpret the analysis for the question I've asked you.
 
 It is important to note that I will not be giving you an answer key for this final project since a major part of your grade for the assignment is being able to choose the appropriate visualizations and analyses for the question and the data.
 
@@ -75,7 +75,7 @@ penguins <- penguins %>% drop_na()
 
 ## Structure & Guidelines
 
-Like the practice version, this final project is structured as 3 different problem sets. For each problem set, I am presenting you with an initial question to guide your thinking and analysis.
+Like the practice version, this final is structured as 3 different problem sets. For each problem set, I am presenting you with an initial question to guide your thinking and analysis.
 
 ### Data
 
@@ -83,7 +83,7 @@ Assume that nothing carries over between problem sets.
 
 Each problem set is stand-alone, meaning that you should always start with the `penguins` data frame at the beginning of each problem set. If you should use a data frame that you created *within* the problem set, I explicitly state so.
 
-For example, in Problem Set 2, you should use the `biscoe` data frame that you create for the entire problem set; at the start of Problem Set 3, start over with the `penguins` data frame.
+For example, in Problem Set 1, you should use the `biscoe` data frame that you create for the entire problem set; at the start of Problem Set 2, start over with the `penguins` data frame.
 
 ### Interpreting Statistical Results
 
@@ -115,9 +115,254 @@ Your options for plot types to choose from are:
 
 In many cases, this might mean capitalizing the axis label or legend label. In other cases, you might want to put units in parentheses after the words (e.g., Body Mass (g)).
 
+### Generative AI Guidelines
+
+While I do not recommend using generative AI to complete this assignment (throughout the semester, I've seen it cause more problems than not...), you are allowed to use it on the final.
+
+However, you *must* do so according to the guidelines I've set out for all other assignments this semester.
+
+You can find clear examples of these guidelines on D2L in *Resources \> Helpful Info \> Assignment Reminders*.
+
+#### CAUTION!
+
+If you do use generative AI without following the course guidelines, you will receive a 0 for this final and you will not have the option to resubmit. Proceed wisely.
+
 ------------------------------------------------------------------------
 
-## Problem Set 1 (15 points)
+# Let's Begin!
+
+-   Have you run the 2 code chunks in the "Set-Up" section?
+-   Have you read through the "Structure & Guidelines" section?
+
+If so, proceed! If not, scroll back up...
+
+## Problem Set 1 (30 points total)
+
+This problem set has 2 parts.
+
+### Part 1 (20 points)
+
+#### Question: Is there a significant relationship between bill length and bill depth for penguins on Biscoe Island?
+
+
+For this problem set, we are going to use data from Biscoe island only.
+
+1.  Create a new data frame called `biscoe` that includes only penguins from Biscoe island. This new data frame should have 163 rows. (2 points)
+
+```{r}
+biscoe <- penguins %>% 
+  filter(island == "Biscoe")
+```
+
+You will want to use the `biscoe` data set for the rest of Problem Set #1.
+
+This is a scenario where there is no independent and no dependent variable. Go ahead and **treat bill length as the independent variable (x-axis) and bill depth as the dependent variable (y-axis).**
+
+2.  Determine whether bill length and bill depth are continuous or categorical (2 points)
+    -   **bill depth**: dependent
+    -   **bill length**: independent
+
+For now, ignore species. We will address species in Part 2 of the problem set.
+
+3.  Write the correct pair of statistical hypotheses for our question. (2 points)
+
+    **Null**: no relationship between bill length and bill depth\
+    **Alternative**: there is a relationship between bill length and bill depth
+
+4.  Plot the relationship between bill length and bill depth using the appropriate plot type. (3 points)
+
+    -   Be sure to add a line of best fit
+    -   Ensure that the plot has clear labels on the axes (follow the Structure & Guidelines).
+    -   Remember, we are ignoring species for now.
+
+```{r}
+ggplot(biscoe, aes(bill_length_mm, bill_depth_mm)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  labs(x = "Bill Length (mm)",
+       y = "Bill Depth (mm)") +
+  theme_bw()
+```
+
+5.  Describe the relationship that you see in the plot you just made. Is the relationship positive, negative, or nonexistent? How do you know? (2 points)
+
+    *Answer:* negative; downward slope, high values associated with low values on the other axis
+
+6.  Calculate the correlation coefficient, `r`. What does this value confirm for us about the relationship (positive, negative, no relationship)? (2 points)
+
+    ```{r}
+    r <- cor(biscoe$bill_length_mm, biscoe$bill_depth_mm)
+    r
+    ```
+
+    *Answer:* negative relationship
+
+7.  Calculate the `r^2` value. Remember, this number is typically expressed as a percent (x 100). What is this value telling us? (2 points)
+
+    ```{r}
+    r^2 * 100
+    ```
+
+    *Answer:* About 20% variation explained
+
+8.  Let's see if there is a significant relationship between bill length and bill depth. Perform the correct statistical analysis (1 point) and interpret the results. (5 points total)
+
+    ```{r}
+    summary(lm(data = biscoe, bill_depth_mm ~ bill_length_mm))
+    ```
+
+    -   What is the equation of the line of best fit? Use both variable names and values from the statistical analysis. (1 point)
+    -   What is the p-value? (1 point)
+    -   Is there a significant relationship? (1 point)
+    -   What should we do with the null hypothesis? (1 point)
+
+    *Answer*: bill_depth = -0.168\*bill_length + 23.5; p = 2.74e-9, highly significant
+
+### Part 2 (10 points)
+
+When we look at the plot of the data, it looks like there might be two different groups in the data. Let's see what happens when we add in species to this analysis.
+
+9.  Make the color of the points and the linear models differ by species on Biscoe Island. Be sure to adjust *all* labels on the plot accordingly. (3 points)
+
+```{r}
+ggplot(biscoe, aes(bill_length_mm, bill_depth_mm, color = species)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  labs(x = "Bill Length (mm)",
+       y = "Bill Depth (mm)",
+       color = "Species") +
+  theme_classic()
+```
+
+10. Run the appropriate statistical test, adding species (and the interaction between the two independent variables) into the model. (2 points)
+
+```{r}
+summary(lm(data = biscoe, bill_depth_mm ~ bill_length_mm * species))
+```
+
+11. Interpret the results of the test above. Is species significant? Is there a significant interaction between bill length and species? (1 points)
+
+*Answer: neither species nor interaction is significant*
+
+12. Based on the plots, the linear relationships, and the linear models, write 2-3 sentences discussing if and/or how adding species into our linear model changes our interpretation of the data. Did the type of relationship change? Did significance levels change? Do the two linear models tell us different things? (3 points)
+
+*Answer: negative to positive; models still tell us similar things in terms of significance, though*
+
+------------------------------------------------------------------------
+
+## Problem Set 2 (15 points)
+
+#### Question: Is there a difference in the average flipper length between male and female Chinstrap penguins?
+
+1.  Our first step is to create a new data frame that includes only Chinstrap penguins. Call this new data frame `chinstrap`. (1 point)
+
+```{r}
+chinstrap <- penguins %>% 
+  filter(species == "Chinstrap")
+```
+
+We will be using the `chinstrap` data frame for the rest of this problem set.
+
+2.  Let's summarize our data. Calculate one measure of central tendency and one measure of variability of the flipper length column for *each* sex: male and female. Save this dataframe as `chinstrap_summary`. (2 points)
+
+```{r}
+chinstrap_summary <- chinstrap %>% 
+  group_by(sex) %>% 
+  summarise(mean_flipper = mean(flipper_length_mm),
+            sd_flipper = sd(flipper_length_mm))
+```
+
+3.  What if we wanted our summary data in centimeters instead of millimeters? We can acheive this in 2 steps.
+
+    a.  First, create a function that will convert a number from millimeters to centimeters. There are 10 millimeters in a centimeter. (1 point)
+
+    ```{r}
+    mm_to_cm <- function(mm) {
+      cm <- mm / 10
+      return(cm)
+    }
+    ```
+
+    b.  Now, using the same code from question 3 above, add one line of code (in the correct location) that uses your newly created `mm_to_cm` function to create a new column in the dataframe. Make sure to edit the arguments in summary functions accordingly, as well. The result should be the same data frame that you produced in question 3 but with the summary values in cm instead of mm.(1 point)
+
+    ```{r}
+    chinstrap_summary <- chinstrap %>% 
+      mutate(flipper_length_cm = mm_to_cm(flipper_length_mm)) %>% 
+      group_by(sex) %>% 
+      summarise(mean_flipper = mean(flipper_length_cm),
+                sd_flipper = sd(flipper_length_cm))
+    ```
+
+Ok, we have summarized the flipper length data for our two groups! 
+
+Let's get back to the `chinstrap` dataframe (not the summary dataframe), and keep working.
+
+4.  Determine which variable is *dependent* and which is *independent*. Also determine if each variable is *continuous* or *categorical*. (1 points)
+
+-   **flipper length**: dependent, continuous
+-   **species**: independent, categorical
+
+Let's plot the flipper length data for each sex.
+
+5.  Choose an appropriate plot for the data. Be sure to adjust the x- and y-axis labels appropriately. (2 points)
+
+```{r}
+ggplot(chinstrap, aes(sex, flipper_length_mm)) +
+  geom_boxplot() +
+  geom_jitter(width = 0.1, alpha = 0.5) +
+  labs(x = "Sex",
+       y = "Flipper Length (mm)") +
+  theme_bw()
+
+# OR
+
+ggplot(chinstrap, aes(flipper_length_mm, fill = sex)) +
+  geom_histogram(alpha = 0.5, position = "identity") +
+  labs(x = "Flipper Length (mm)",
+       y = "Frequency",
+       fill = "Sex") +
+  theme_bw()
+
+# OR
+
+ggplot(chinstrap, aes(flipper_length_mm, fill = sex)) +
+  geom_density(alpha = 0.5) +
+  labs(x = "Flipper Length (mm)",
+       y = "Density",
+       fill = "Sex") +
+  theme_bw()
+```
+
+6.  Write the pair of statistical hypotheses for our question. (1 points)
+
+    **Null**: no difference in the mean flipper length between male and female chinstrap penguins 
+    **Alternative**: true difference in the mean flipper length between male and female chinstrap penguins
+
+7.  Perform the appropriate analysis to compare the flipper lengths of male and female chinstrap penguins. (2 points)
+
+```{r}
+t.test(data = chinstrap, flipper_length_mm ~ sex)
+```
+
+8.  Interpret the results of this test. (2 points)
+
+    -   is there a significant difference?
+    -   what does that significant difference mean?
+    -   should we reject the null hypothesis?
+
+    *Answer: yes, there is a significant difference (p = 2.535 x 10\^-7); reject null*
+
+9.  Should we run pairwise comparisons? If no, explain why not. If yes, do so and interpret the results. (2 points)
+
+    *Answer:* no, t-test is comparing just one pair
+
+```{r}
+
+```
+
+---- 
+
+## Problem Set 3 (15 points)
 
 #### Question: **Are there differences in the average bill length across the 3 islands in the data set: Dream, Biscoe, and Torgersen? (Ignore species)**
 
@@ -184,8 +429,8 @@ summary(aov_model)
 
 6.  Interpret the results of this test. (3 points)
 
+    -   what is the p-value?
     -   is there a significant difference?
-    -   what does that significant difference mean?
     -   should we reject the null hypothesis?
 
     *Answer: yes, p = 9.21e-12, which is smaller than 0.05, reject null. penguins on different islands have significantly different beak lengths*
@@ -199,228 +444,6 @@ TukeyHSD(aov_model)
 ```
 
 ------------------------------------------------------------------------
-
-## Problem Set 2 (30 points total)
-
-This problem set has 2 parts.
-
-### Part 1 (20 points)
-
-#### Question: Is there a significant relationship between bill length and bill depth for penguins on Biscoe Island?
-
-For this problem set, we are going to use data from Biscoe island only.
-
-1.  Create a new data frame called `biscoe` that includes only penguins from Biscoe island. This new data frame should have 163 rows. (2 points)
-
-```{r}
-biscoe <- penguins %>% 
-  filter(island == "Biscoe")
-```
-
-You will want to use the `biscoe` data set for the rest of Problem Set #2.
-
-This is a scenario where there is no independent and no dependent variable. Go ahead and **treat bill length as the independent variable (x-axis) and bill depth as the dependent variable (y-axis).**
-
-2.  Determine whether bill length and bill depth are continuous or categorical (2 points)
-    -   **bill depth**: dependent,
-    -   **bill length**: independent
-
-For now, ignore species. We will address species in Part 2 of the problem set.
-
-3.  Write the correct pair of statistical hypotheses for our question. (2 points)
-
-    **Null**: no relationship between bill length and bill depth\
-    **Alternative**: there is a relationship between bill length and bill depth
-
-4.  Plot the relationship between bill length and bill depth using the appropriate plot type. (3 points)
-
-    -   Be sure to add a line of best fit using the `geom_smooth` function---and make sure it is a straight line (no wiggles, which the default will produce).
-    -   Ensure that the plot has clear labels on the axes (follow the Structure & Guidelines).
-    -   Remember, we are ignoring species for now.
-
-```{r}
-ggplot(biscoe, aes(bill_length_mm, bill_depth_mm)) +
-  geom_point() +
-  geom_smooth(method = "lm") +
-  labs(x = "Bill Length (mm)",
-       y = "Bill Depth (mm)") +
-  theme_bw()
-```
-
-5.  Describe the relationship that you see in the plot you just made. Is the relationship positive, negative, or nonexistent? How do you know? (2 points)
-
-    *Answer:* negative; downward slope, high values associated with low values on the other axis
-
-6.  Calculate the correlation coefficient, `r`. What does this value confirm for us about the relationship (positive, negative, no relationship)? (2 points)
-
-    ```{r}
-    r <- cor(biscoe$bill_length_mm, biscoe$bill_depth_mm)
-    r
-    ```
-
-    *Answer:* negative relationship
-
-7.  Calculate the `r^2` value. How much variation is explained by the line of best fit? Remember, this number is typically expressed as a percent (x 100). (2 points)
-
-    ```{r}
-    r^2 * 100
-    ```
-
-    *Answer:* About 20% variation explained
-
-8.  Let's see if there is a significant relationship between bill length and bill depth. Perform the correct statistical analysis (1 point) and interpret the results. (5 points total)
-
-    -   What is the equation of the line of best fit? Use both variable names and values from the statistical analysis. (1 point)
-    -   What is the p-value? (1 point)
-    -   Is there a significant relationship? (1 point)
-    -   What should we do with the null hypothesis? (1 point)
-
-    ```{r}
-    summary(lm(data = biscoe, bill_depth_mm ~ bill_length_mm))
-    ```
-
-    *Answer: bill_depth = -0.168\*bill_length + 23.5; p = 2.74e-9, highly significant*
-
-### Part 2 (10 points)
-
-When we look at the plot of the data, it looks like there might be two different groups in the data. Let's see what happens when we add in species to this analysis.
-
-9.  Let's make the color of the points and the linear models differ by species on Biscoe Island. Be sure to adjust *all* labels on the plot accordingly. (3 points)
-
-```{r}
-ggplot(biscoe, aes(bill_length_mm, bill_depth_mm, color = species)) +
-  geom_point() +
-  geom_smooth(method = "lm") +
-  labs(x = "Bill Length (mm)",
-       y = "Bill Depth (mm)",
-       color = "Species") +
-  theme_classic()
-```
-
-10. Run the appropriate statistical test, adding species (and the interaction between the two independent variables) into the model. (2 points)
-
-```{r}
-summary(lm(data = biscoe, bill_depth_mm ~ bill_length_mm * species))
-```
-
-11. Interpret the results of the test above. Is species significant? Is there a significant interaction between bill length and species? (2 points)
-
-*Answer: neither species nor interaction is significant*
-
-12. Write 2-3 sentences discussing if and/or how adding species into our linear model changes our interpretation of the data. Did the type of relationship change? Did significance levels change? Do the two linear models tell us different things? (3 points)
-
-*Answer: negative to positive; models still tell us similar things in terms of significance, though*
-
-------------------------------------------------------------------------
-
-## Problem Set 3 (15 points)
-
-#### Question: Is there a difference in the average flipper length between male and female Chinstrap penguins?
-
-1.  Our first step is to create a new data frame that includes only Chinstrap penguins. Call this new data frame `chinstrap`. (1 point)
-
-```{r}
-chinstrap <- penguins %>% 
-  filter(species == "Chinstrap")
-```
-
-We will be using the `chinstrap` data frame for the rest of this problem set.
-
-2.  Let's summarize our data. Calculate one measure of central tendency and one (complete) measure of variability of the flipper length column for *each* sex: male and female. Save this dataframe as `chinstrap_summary`. (2 points)
-
-```{r}
-chinstrap_summary <- chinstrap %>% 
-  group_by(sex) %>% 
-  summarise(mean_flipper = mean(flipper_length_mm),
-            sd_flipper = sd(flipper_length_mm))
-```
-
-3.  What if we wanted our summary data in centimeters instead of milimeters?
-
-<!-- -->
-
-a.  First, create a function that will convert a number from milimeters to centimeters. (1 point)
-
-```{r}
-mm_to_cm <- function(mm) {
-  cm <- mm / 10
-  return(cm)
-}
-```
-
-b.  Now, using the same code from question 3 above, but add one line (in the correct location) that uses your newly created `mm_to_cm` function and produces the same data frame but with the summary values in cm instead of mm. Made sure to edit the summary functions accordingly, as well. (1 point)
-
-```{r}
-chinstrap_summary <- chinstrap %>% 
-  mutate(flipper_length_cm = mm_to_cm(flipper_length_mm)) %>% 
-  group_by(sex) %>% 
-  summarise(mean_flipper = mean(flipper_length_cm),
-            sd_flipper = sd(flipper_length_cm))
-```
-
-Ok, we have summarized the flipper length data for our two groups! Let's get back to the `chinstrap` dataframe (not the summary data frame), and keep working.
-
-4.  Determine which variable is dependent and which is independent. Also determine if each variable is continuous or categorical. (1 points)
-
--   **flipper length**: dependent, continuous
--   **species**: independent, categorical
-
-Let's plot the body mass data for the two groups.
-
-5.  Choose an appropriate plot for data with one continuous variable and one categorical variable (there are a few options). Be sure to adjust the x- and y-axis labels appropriately. (2 points)
-
-```{r}
-ggplot(chinstrap, aes(sex, flipper_length_mm)) +
-  geom_boxplot() +
-  geom_jitter(width = 0.1, alpha = 0.5) +
-  labs(x = "Sex",
-       y = "Flipper Length (mm)") +
-  theme_bw()
-
-# OR
-
-ggplot(chinstrap, aes(flipper_length_mm, fill = sex)) +
-  geom_histogram(alpha = 0.5, position = "identity") +
-  labs(x = "Flipper Length (mm)",
-       y = "Frequency",
-       fill = "Sex") +
-  theme_bw()
-
-# OR
-
-ggplot(chinstrap, aes(flipper_length_mm, fill = sex)) +
-  geom_density(alpha = 0.5) +
-  labs(x = "Flipper Length (mm)",
-       y = "Density",
-       fill = "Sex") +
-  theme_bw()
-```
-
-6.  Write the pair of statistical hypotheses for our question. (1 points)
-
-    **Null**: no difference in the mean flipper length between male and female chinstrap penguins **Alternative**: true difference in the mean flipper length between male and female chinstrap penguins
-
-7.  Perform the appropriate analysis to compare the flipper lengths of each species. (2 points)
-
-```{r}
-t.test(data = chinstrap, flipper_length_mm ~ sex)
-```
-
-8.  Interpret the results of this test. (2 points)
-
-    -   is there a significant difference?
-    -   what does that significant difference mean?
-    -   should we reject the null hypothesis?
-
-    *Answer: yes, there is a significant difference (p = 2.535 x 10\^-7); reject null*
-
-9.  Should we run pairwise comparisons? If no, explain why not. If yes, do so and interpret the results. (2 points)
-
-    *Answer:* no, t-test is comparing just one pair
-
-```{r}
-
-```
 
 ## The End!
 
