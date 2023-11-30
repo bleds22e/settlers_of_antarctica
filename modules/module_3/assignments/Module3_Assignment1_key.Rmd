@@ -41,8 +41,13 @@ In this assignment, we're going to explore another data set on wind turbines tha
 Let's load the `tidyverse` and read in the data set. Call the data `turbines`.
 
 ```{r message = FALSE}
+# Load tidyverse
 library(tidyverse)
+
+# Load data
 turbines <- read_csv("../data/wind_turbines.csv")
+
+# View data
 turbines
 ```
 
@@ -52,7 +57,7 @@ turbines
     b.  What does each row of data represent? one turbine
 
     ```{r}
-    # optional; only if you want space for coding
+    # Optional; only if you want space for coding
     ```
 
 ### Numeric
@@ -60,10 +65,13 @@ turbines
 2.  Generate a summary of the data set that calculates the mean wind speed and mean power output for each wind turbine company. (2 point)
 
 ```{r}
+# Mean of wind speed and power output for each turbine company
 turbine_summary <- turbines %>% 
   group_by(manufacturer) %>% 
   summarise(mean_wind_speed = mean(wind_speed),
             mean_power = mean(power_output))
+
+# view results
 turbine_summary
 ```
 
@@ -76,6 +84,7 @@ turbine_summary
     -   use the `theme_classic()` function
 
 ```{r}
+# Density plot for power output of each turbine company
 ggplot(turbines, aes(power_output, color = manufacturer, fill = manufacturer)) +
   geom_density(alpha = 0.5) +
   geom_vline(data = turbine_summary, aes(xintercept = mean_power, color = manufacturer)) +
@@ -85,7 +94,7 @@ ggplot(turbines, aes(power_output, color = manufacturer, fill = manufacturer)) +
        fill = "Manufacturer") +
   theme_classic()
 
-### the answer key that I gave them accidentally had wind speed as the x-axis label
+### The answer key that I gave them accidentally had wind speed as the x-axis label
 ### because of that, they can use wind speed OR power output in the question
 ```
 
@@ -98,6 +107,7 @@ ggplot(turbines, aes(power_output, color = manufacturer, fill = manufacturer)) +
     -   use the `theme_classic()` function
 
 ```{r}
+# Box-and-whisker plot of wind speeds between different turbine makers
 ggplot(turbines, aes(manufacturer, wind_speed)) +
   geom_boxplot() +
   geom_jitter(width = 0.1, alpha = 0.5) + #transparency & width are optional
@@ -110,30 +120,33 @@ ggplot(turbines, aes(manufacturer, wind_speed)) +
 
 5.  Write a null hypothesis and an alternative hypothesis for the question we are asking and that we will be using statistics to answer. (2 points)
 
-    **Null Hypothesis** (H~0~): there is no difference in power output and wind speed between the turbine makers **Alternative Hypothesis** (H~A~): there is a difference in power output and wind speed between the turbine makers
+    **Null Hypothesis** (H~0~): There is no difference in power output and wind speed between the turbine makers.
+    **Alternative Hypothesis** (H~A~): There is a difference in power output and wind speed between the turbine makers.
 
 6.  Based on the mean values in the `turbine_summary` data frame and the plots you've created above, predict the outcome of each t-test (graded for completion, not accuracy). Explain your reasoning (1-2 sentences for each t-test is fine). (2 points)
 
-    *Answer:* graded for completion only
+    *Answer:* Graded for completion only.
 
-    -   power output (histogram) looks like probably yes, p \< 0.05; wind speed (boxplot) looks like maybe no
+    -   Power output (histogram) looks like probably yes, p \< 0.05; wind speed (boxplot) looks like maybe no.
 
 7.  Perform a t-test on the power output by turbine maker. (1 point)
 
 ```{r}
+# t-test of power output by maker
 t.test(data = turbines, power_output ~ manufacturer)
 ```
 
 8.  In 2-3 sentences, interpret the output from question 7. Focus on what the p-value is in reference to the cutoff of 0.05, what that means, and whether that means we accept or reject the null hypothesis. (2 points)
 
-    *Answer:* p \< 0.05 so there is a significant difference and we reject the null
+    *Answer:* p \< 0.05 so there is a significant difference and we reject the null.
 
 9.  Perform another t-test, this time on the wind_speed variable by manufacturer. (1 point)
 
 ```{r}
+# t-test of wind speed by maker
 t.test(data = turbines, wind_speed ~ manufacturer)
 ```
 
 10. In 2-3 sentences, interpret the output from question 9 (focus on the same ideas as question 8). (2 points)
 
-    *Answer:* p \> 0.05 so there is no difference and we fail to reject (it's ok if they say accept) the null
+    *Answer:* p \> 0.05 so there is no difference and we fail to reject (it's ok if they say accept) the null.
