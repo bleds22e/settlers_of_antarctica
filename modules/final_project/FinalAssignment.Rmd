@@ -33,7 +33,7 @@ Write R code which produces the correct data, summaries, plots and analyses. Cor
 
 Dec 11 at midnight MST
 
-# Final
+------------------------------------------------------------------------
 
 For your final this semester, I am presenting you with 3 problem sets, totaling up to 60 points.
 
@@ -42,8 +42,6 @@ I'm expecting you to be able to filter and summarize the data in the ways you ne
 It is important to note that I will not be giving you an answer key for this final project since a major part of your grade for the assignment is being able to choose the appropriate visualizations and analyses for the question and the data.
 
 We are going to use the `palmerpenguins` R package and data set, which we've used many times before! You can learn more about it [here](https://allisonhorst.github.io/palmerpenguins/). This is a real data set from a Long-Term Ecological Research (LTER) site in Antarctica.
-
-------------------------------------------------------------------------
 
 ## Set-Up
 
@@ -89,8 +87,8 @@ For example, in Problem Set 1, you should use the `biscoe` data frame that you c
 
 When I ask you to interpret statistical results, you should roughly follow these guidelines.
 
--   the cut-off for our p-values is always 0.05
--   report the p-value that we are focused on
+-   the cut-off for our p-values is always 0.05 ($\alpha = 0.05$)
+-   report the p-value that we are focused on in that question
 -   if there are multiple p-values of interest, report all of them
 -   state whether the p-value indicates a significant difference/relationship
 -   if applicable, state whether we should or should not reject the null hypothesis
@@ -113,7 +111,7 @@ Your options for plot types to choose from are:
 
 **Note: All plots should have modified axis labels and legend labels.**
 
-In many cases, this might mean capitalizing the axis label or legend label. In other cases, you might want to put units in parentheses after the words (e.g., Body Mass (g)).
+In many cases, this might mean capitalizing the axis label and/or legend label. In other cases, you might want to put units in parentheses after the words (e.g., Body Mass (g)).
 
 ### Generative AI Guidelines
 
@@ -152,15 +150,14 @@ For this problem set, we are going to use data from Biscoe island only.
 
     ```
 
-You will want to use the `biscoe` data set for the rest of Problem Set #1.
+You will want to use the `biscoe` data set for the rest of Problem Set #1 (Parts 1 and 2).
 
-This is a scenario where there is no independent and no dependent variable. Go ahead and **treat bill length as the independent variable (x-axis) and bill depth as the dependent variable (y-axis).**
+This is a scenario where there is no clear independent and dependent variable. Go ahead and treat **bill length as the independent variable (x-axis) and bill depth as the dependent variable (y-axis).**
 
-2.  Determine whether bill length and bill depth are continuous or categorical (2 points)
+2.  Determine whether bill length and bill depth are continuous or categorical (1 point)
+
     -   **bill depth**: dependent
     -   **bill length**: independent
-
-For now, ignore species. We will address species in Part 2 of the problem set.
 
 3.  Write the correct pair of statistical hypotheses for our question. (2 points)
 
@@ -182,7 +179,7 @@ For now, ignore species. We will address species in Part 2 of the problem set.
 
     *Answer:*
 
-6.  Calculate the correlation coefficient, `r`. What does this value confirm for us about the relationship (positive, negative, no relationship)? (2 points)
+6.  Calculate the correlation coefficient, `r`. What does this value tell us? (2 points)
 
     ```{r}
 
@@ -198,22 +195,22 @@ For now, ignore species. We will address species in Part 2 of the problem set.
 
     *Answer:*
 
-8.  Let's see if there is a significant relationship between bill length and bill depth. Perform the correct statistical analysis (1 point) and interpret the results. (5 points total)
+8.  Let's see if there is a significant relationship between bill length and bill depth. Perform the correct statistical analysis (1 point) and interpret the results. (6 points total)
 
     ```{r}
 
     ```
 
-    -   What is the equation of the line of best fit? Use both variable names and values from the statistical analysis. (1 point)
+    -   What is the equation of the line of best fit? Use both variable names and values from the statistical analysis. (2 point)
     -   What is the p-value? (1 point)
     -   Is there a significant relationship? (1 point)
-    -   What should we do with the null hypothesis? (1 point)
+    -   What should we do with the null hypothesis (reject or fail to reject)? (1 point)
 
     *Answer*:
 
 ### Part 2 (10 points)
 
-When we look at the plot of the data, it looks like there might be two different groups in the data. Let's see what happens when we add in species to this analysis.
+When we look at the plot of the data, it looks like there might be two different groups in the data. Let's see what happens when we add in species to this analysis. Keep using the `biscoe` dataframe.
 
 9.  Make the color of the points and the linear models differ by species on Biscoe Island. Be sure to adjust *all* labels on the plot accordingly. (3 points)
 
@@ -227,7 +224,7 @@ When we look at the plot of the data, it looks like there might be two different
 
     ```
 
-11. Interpret the results of the test above. Is species significant? Is there a significant interaction between bill length and species? (1 points)
+11. Interpret the results of the test above. Is species significant? Is there a significant interaction between bill length and species? (2 points)
 
 *Answer:*
 
@@ -255,7 +252,7 @@ We will be using the `chinstrap` data frame for the rest of this problem set.
 
     ```
 
-3.  What if we wanted our summary data in centimeters instead of millimeters? We can acheive this in 2 steps.
+3.  What if we wanted our summary data in centimeters instead of millimeters? We can achieve this in 2 steps.
 
     a.  First, create a function called `mm_to_cm` that will convert a number from millimeters to centimeters. There are 10 millimeters in a centimeter. (1 point)
 
@@ -263,7 +260,8 @@ We will be using the `chinstrap` data frame for the rest of this problem set.
 
     ```
 
-    b.  Now, using the same code from question 3 above, add one line of code (in the correct location) that uses your newly created `mm_to_cm` function to create a new column in the dataframe. Make sure to edit the arguments in summary functions accordingly, as well. The result should be the same data frame that you produced in question 3 but with the summary values in cm instead of mm.(1 point)
+    b.  Now, using the same code from question 3 above, add one line of code (in the correct location) that uses your newly created `mm_to_cm` function to create a new column in the dataframe. Make sure to edit the arguments in summary functions accordingly, as well. The result should be the same data frame that you produced in question 3 but with the summary values in cm instead of mm. (1 point)\
+        *Hint: if you're feeling confused about how to do this, check out the key for Module 4 Assignment 3*.
 
     ```{r}
 
@@ -271,7 +269,7 @@ We will be using the `chinstrap` data frame for the rest of this problem set.
 
 Ok, we have summarized the flipper length data for our two groups!
 
-Let's get back to the `chinstrap` dataframe (not the summary dataframe), and keep working.
+Let's get back to the `chinstrap` dataframe (not the summary dataframe) and keep working.
 
 4.  Determine which variable is *dependent* and which is *independent*. Also determine if each variable is *continuous* or *categorical*. (1 point)
     -   **flipper length**:
@@ -299,8 +297,8 @@ Let's plot the flipper length data for each sex.
 
 8.  Interpret the results of this test. (2 points)
 
+    -   what is the p-value?
     -   is there a significant difference?
-    -   what does that significant difference mean?
     -   should we reject the null hypothesis?
 
     *Answer:*
@@ -317,11 +315,11 @@ Let's plot the flipper length data for each sex.
 
 ## Problem Set 3 (15 points)
 
-#### Question: **Are there differences in the average bill length across the 3 islands in the data set: Dream, Biscoe, and Torgersen? (Ignore species)**
+#### Question: **Are there differences in the average bill length across the islands in the data set? (Ignore species)**
 
 Let's start by summarizing the bill length data.
 
-1.  Calculate at least one measure of central tendency and one measure of variability for the bill length for *each* island. (2 points)
+1.  Calculate a measure of central tendency and measure of variability for the bill length for *each* island. (2 points)
 
     ```{r}
 
