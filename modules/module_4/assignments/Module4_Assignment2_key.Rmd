@@ -46,19 +46,24 @@ Penguins are important players in the Antarctic ecosystem because they cycle nut
 1.  As always, let's load the `tidyverse` to get started.
 
 ```{r, message = FALSE}
+# Load tidyverse
 library(tidyverse)
 ```
 
 2.  Now read in the data set, which is called `nonvascular_plants.csv`. Name the data frame `plants`.
 
 ```{r}
+# Load data
 plants <- read_csv("../data/nonvascular_plants.csv")
 ```
 
 3.  Take a look at the data; use the `head()` and `tail()` functions to look at the beginning of the data set and the end of the data set respectively. (2 points)
 
 ```{r}
+# View first few rows of data
 head(plants)
+
+# View last few rows of data
 tail(plants)
 ```
 
@@ -76,6 +81,7 @@ Our first goal is to determine if there is a relationship between the amount of 
 5.  Plot the data (disregard plant type for now) using the appropriate plot from `ggplot2`. Remember to add a line of best fit (and remember to make that line a straight line using the `method = "lm"` argument!). (2 points)
 
 ```{r}
+# Scatterplot with line of best fit
 ggplot(plants, aes(penguin_density_m2, percent_plant_cover)) +
   geom_point() +
   geom_smooth(method = "lm")
@@ -83,26 +89,31 @@ ggplot(plants, aes(penguin_density_m2, percent_plant_cover)) +
 
 6.  Calculate the correlation coefficient. What does this tell us about the relationship? (2 points)
 
-    *Answer:* perhaps a slight negative relationship but probably none at all
+    *Answer:* Perhaps a slight negative relationship but probably none at all.
 
 ```{r}
+# Find correlation coefficient of scatterplot
 r <- cor(plants$penguin_density_m2, plants$percent_plant_cover)
+
+# View r
 r
 ```
 
 7.  Calculate R\^2. How much variation does our line of best fit explain (report in %)? (2 points)
 
-    *Answer:* 0.3% aka not very much
+    *Answer:* 0.3% (aka not very much)
 
 ```{r}
+# Find r-squared
 r^2
 ```
 
 8.  Run a linear regression model for these days and interpret the results. Does it seem like penguin density is a significant driver of plant cover? (3 points)
 
-    *Answer:* p \> 0.05 so not a likely driver of plant cover
+    *Answer:* p \> 0.05, so not a likely driver of plant cover
 
 ```{r}
+# Summary of linear regression results
 summary(lm(data = plants, percent_plant_cover ~ penguin_density_m2))
 ```
 
@@ -113,6 +124,7 @@ Maybe we can get more information if we include the plant type in the model.
 9.  First, let's plot the data again, but this time make the color different for each type of plant. (2 points)
 
 ```{r}
+# Scatterplot
 ggplot(plants, aes(penguin_density_m2, percent_plant_cover, color = plant_type)) +
   geom_point() +
   geom_smooth(method = "lm")
@@ -126,9 +138,10 @@ Woah, that's quite different! Our interpretation of whether penguin density affe
 
 -   Is the interaction term significant? How do we know?
 
-    *Answer:* all variables are highly significant including the interaction term--all p \< 0.05
+    *Answer:* All variables are highly significant including the interaction term--all p \< 0.05
 
 ```{r}
+# Summary of linear regression results
 summary(lm(data = plants, percent_plant_cover ~ penguin_density_m2 * plant_type))
 ```
 
