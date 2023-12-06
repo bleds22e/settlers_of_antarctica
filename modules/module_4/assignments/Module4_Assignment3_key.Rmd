@@ -29,13 +29,17 @@ Some important notes:
 Let's load our packages and get started!
 
 ```{r message = FALSE}
+# Load tidyverse
 library(tidyverse)
+
+# Load palmerpenguins
 library(palmerpenguins)
 ```
 
 We will be using the `penguins` data frame. It exists as part of the `palmerpenguins` package, but if you want it to show up in your environment, run the following code chunk.
 
 ```{r}
+# Show penguin data in environment
 penguins <- penguins
 ```
 
@@ -46,6 +50,7 @@ For this problem set, we are going to look at the difference in flipper lengths 
 First things first, let's make a dataframe with only penguins on Dream island. We will want to use this dataframe for the rest of this problem set.
 
 ```{r}
+# Separate data frame for Dream island
 dream <- penguins %>% 
   filter(island == "Dream")
 ```
@@ -55,19 +60,21 @@ Based on our question, which variable is independent and which is dependent? Whi
 First, calculate the minimum, maximum, and mean of the flipper lengths for each species
 
 ```{r}
+# Min, max, and mean flipper length per species
 flippers <- dream %>% 
   group_by(species) %>% 
   summarise(min_flipper = min(flipper_length_mm, na.rm = TRUE),
             max_flipper = max(flipper_length_mm, na.rm = TRUE),
             mean_flipper = mean(flipper_length_mm, na.rm = TRUE))
+
+# View results
 flippers
 ```
 
 Choose an effective visualization method for this data. Use `ggplot2`.
 
 ```{r}
-# boxplot, multiple histogram, or multiple density plot are all acceptable
-
+# Boxplot, multiple histogram, or multiple density plot are all acceptable
 ggplot(dream, aes(x = species, y = flipper_length_mm, color = species)) +
   geom_boxplot() +
   geom_jitter(width = 0.1, alpha = 0.5) +
@@ -78,13 +85,14 @@ ggplot(dream, aes(x = species, y = flipper_length_mm, color = species)) +
 
 Write out the null and alternative hypotheses.
 
-**Null:** there is no difference in the mean flipper length between the two species
+**Null:** There is no difference in the mean flipper length between the two species.
 
-**Alternative:** there is a difference in the mean flipper length between the two species
+**Alternative:** There is a difference in the mean flipper length between the two species.
 
 Run the appropriate statistical test.
 
 ```{r}
+# t-test
 t.test(data = dream, flipper_length_mm ~ species)
 ```
 
@@ -114,17 +122,21 @@ That said, treat flipper length as the *independent* variable (x-axis) and bill 
 First, calculate the mean and standard deviation for both bill length and flipper length.
 
 ```{r}
+# Mean / SD bill length and mean / SD flipper length
 bill_flipper <- penguins %>% 
   summarise(mean_bill = mean(bill_length_mm, na.rm = TRUE),
             sd_bill = sd(bill_length_mm, na.rm = TRUE),
             mean_flipper = mean(flipper_length_mm, na.rm = TRUE),
             sd_flipper = sd(flipper_length_mm, na.rm = TRUE))
+
+# View results
 bill_flipper
 ```
 
 Choose the best way to visualize the relationship between these two variables
 
 ```{r}
+# Scatterplot with line of best fit
 ggplot(penguins, aes(flipper_length_mm, bill_length_mm)) +
   geom_point() +
   geom_smooth(method = "lm") +
@@ -136,6 +148,7 @@ ggplot(penguins, aes(flipper_length_mm, bill_length_mm)) +
 To do the rest of this problem set, the easiest way is to create a new data frame with no NA values. Run the code chunk below and use that new data frame for the rest of the problem set.
 
 ```{r}
+# Remove NA values
 penguins_noNA <- penguins %>% 
   filter(!is.na(bill_length_mm),
          !is.na(flipper_length_mm))
@@ -147,14 +160,20 @@ Calculate the correlation coefficient and the `r^2` value.
 -   According to the `r^2` value, how much of the variation in this relationship is explained? Remember, we usually multiply the `r^2` by 100 to represent this as a percentage.
 
 ```{r}
+# Find correlation coefficient
 r <- cor(x = penguins_noNA$flipper_length_mm, y = penguins_noNA$bill_length_mm)
+
+# Find r-squared
 r^2
 ```
 
 Run the appropriate model for this data.
 
 ```{r}
+# Linear regression
 lm_model <- lm(data = penguins_noNA, bill_length_mm ~ flipper_length_mm)
+
+# View results
 summary(lm_model)
 ```
 
@@ -181,6 +200,7 @@ Let's add in the species variable into our analysis! Keep using the `penguins_no
 First, plot the data, this time including species as a variable in the plot.
 
 ```{r}
+# Scatterplot with line of best fit
 ggplot(penguins, aes(flipper_length_mm, bill_length_mm, color = species)) +
   geom_point() +
   geom_smooth(method = "lm") +
@@ -193,7 +213,10 @@ ggplot(penguins, aes(flipper_length_mm, bill_length_mm, color = species)) +
 Run the model again, this time including species and the species interaction with "independent" variable.
 
 ```{r}
+# Linear regression
 mlm_model <- lm(data = penguins_noNA, bill_length_mm ~ flipper_length_mm * species)
+
+# View results
 summary(mlm_model)
 ```
 
@@ -210,17 +233,21 @@ Based on our question, which variable is independent and which is dependent? Whi
 First, calculate the minimum, maximum, and mean of the body mass for each species.
 
 ```{r}
+# Min, max, and mean body mass for each species
 body_mass <- penguins %>% 
   group_by(species) %>% 
   summarise(min_mass = min(body_mass_g, na.rm = TRUE),
             max_mass = max(body_mass_g, na.rm = TRUE),
             mean_mass = mean(body_mass_g, na.rm = TRUE))
+
+# View results
 body_mass
 ```
 
 Convert all the columns in the `body_mass` data frame from grams to kilograms. (Hint: I recommend using the `mutate()` function. Remember that you divide grams by 1000 to get kilograms)
 
 ```{r}
+# Convert results to kilograms
 body_mass_kg <- body_mass %>% 
   mutate(min_mass = min_mass / 1000,
          max_mass = max_mass / 1000,
@@ -230,6 +257,7 @@ body_mass_kg <- body_mass %>%
 Back to the question at hand...choose an effective visualization method for this data (you will want to use the original `penguins` dataframe). Practice adding lines that represent to mean values in the plot. Thinking critically about which columns to use!
 
 ```{r}
+# Density plot with line designating the mean
 ggplot(penguins, aes(x = body_mass_g, fill = species)) +
   geom_density(alpha = 0.5) +
   geom_vline(data = body_mass, aes(xintercept = mean_mass, color = species)) +
@@ -245,7 +273,10 @@ Write out the null and alternative hypotheses.
 Run the appropriate statistical test.
 
 ```{r}
+# ANOVA
 aov_mod <- aov(data = penguins, body_mass_g ~ species)
+
+# View results
 summary(aov_mod)
 ```
 
@@ -259,5 +290,6 @@ Interpret the results of your statistical test:
 Should we run pairwise comparisons? If yes, do so below and interpret:
 
 ```{r}
+# Pairwise comparisons
 TukeyHSD(aov_mod)
 ```
