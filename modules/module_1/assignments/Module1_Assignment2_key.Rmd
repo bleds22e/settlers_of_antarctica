@@ -1,5 +1,5 @@
 ---
-title: "Module 1 Assignment 3: Getting to Know your Home"
+title: "Module 1 Assignment 2: Getting to Know your Home"
 author: "Ellen Bledsoe"     # <- your name here!
 date: "`r Sys.Date()`"      # <- uses the current date when rendered
 output: pdf_document
@@ -30,7 +30,7 @@ Write R code using the `tidyverse` to successfully answer each question below.
 
 ### Due Date
 
-Sept. 19 at 4pm MST
+Feb 1 at 11am MST
 
 # Assignment Questions
 
@@ -52,28 +52,28 @@ library(tidyverse)
 weather <- read_csv("../data/aggregated_station_data.csv")
 ```
 
-4.  Take a look at the data in whichever way you would like (e.g., `glimpse()`, `slice()`, `str()`, `head()`, etc.). How many rows and columns are in the data? Type your answers below:
+4.  Take a look at the data in whichever way you would like (e.g., `str()`, `head()`, etc.). How many rows and columns are in the data? Type your answers below:
 
     rows: 139, 160
 
     columns: 12
 
-5.  Create a new data frame that only includes temperatures which are above freezing (AKA greater than 0)
+5.  Choose rows that only includes temperatures which are above freezing (AKA greater than 0)
 
-```{r paged.print=TRUE}
+```{r}
 filter(weather, temp > 0)
 ```
 
-6.  Create a new data frame that includes *only* the following columns: year, day, month, temp, station_id. Save this new data frame as an object called `station_temp`.
+6.  Choose *only* the following columns: year, day, month, temp, station_id. Save these columns as a new object called `station_temp`.
 
 ```{r temp_df}
 station_temp <- select(weather, year:month, temp, station_id)
 station_temp
 ```
 
-7.  Using the data frame you created in Q6 above (`temp`), add a new column to that data frame that converts the temperature column (currently in Celsius) to Fahrenheit. Call the new column `tempF`.
+7.  Using the data frame you created in Q6 above (`station_temp`), add a new column to that data frame that converts the temperature column (currently in Celsius) to Fahrenheit. Call the new column `tempF`.
 
-    _(Hint: we did this in class---use that same equation!)_
+    *(Hint: we did this in class---use that same equation!)*
 
 ```{r tempF}
 station_temp %>% 
@@ -81,6 +81,8 @@ station_temp %>%
 ```
 
 8.  In *your own words* (either bullet points or sentence form is fine), explain two benefits of using the pipe (`%>%`).
+
+    *Answer:* fewer intermediates (meaning reduced risk of error); more readable code for humans
 
 9.  Using the *original* data frame (`weather`), find the minimum temperature recorded for each month (in Celsius, the original column called `temp`). (Hint: think about months first (split) and then temperature (apply). You will also want to remove all the NA values.)
 
@@ -115,3 +117,13 @@ weather %>%
   distinct(station_id) %>% 
   count() 
 ```
+
+# Turning in Your Assignment
+
+Follow these steps to successfully turn in your assignment on D2L.
+
+1.  Click the `Knit` button up near the top of this document. This should produce a PDF file that shows up in the `Files` panel on the bottom-right of your screen.
+2.  Click the empty box to the left of the PDF file.
+3.  Click on the blue gear near the top of the `Files` panel and choose Export.
+4.  Put your last name at the front of the file name when prompted, then click the Download button. The PDF file of your assignment is now in your "Downloads" folder on your device.
+5.  Head over to D2L and navigate to Module 1 Assignment 2. Submit the PDF file that you just downloaded.

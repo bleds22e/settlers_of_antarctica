@@ -1,5 +1,5 @@
 ---
-title: "Module 1 Assignment 3: Getting to Know your Home"
+title: "Module 1 Assignment 2: Getting to Know your Home"
 author: "Ellen Bledsoe"     # <- your name here!
 date: "`r Sys.Date()`"      # <- uses the current date when rendered
 output: pdf_document
