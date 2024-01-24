@@ -127,6 +127,10 @@ Most of the data you will encounter is two-dimensional, i.e., it has columns and
 
 ![](row_column.png)
 
+Columns typically represent variables (a factor, trait, or condition) we are interested in.
+
+Rows represent observations. Each row will be one set of observations.
+
 Data frames are made up of multiple vectors. Each vector becomes a column.
 
 ```{r}

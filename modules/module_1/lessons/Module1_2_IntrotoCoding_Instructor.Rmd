@@ -35,15 +35,16 @@ The short-cut for `<-` is `Alt + -` (or `Option + -` on a Mac)
 
 ```{r}
 # Assigning Objects
-mass <- 47.5            # this is the mass in kg
+height <- 47.5           
 age <- 122
-mass <- mass * 2        # multiply
+
+# We can do math with objects
+height <- height * 2    # multiply
 age <- age - 20         # subtract
-mass_index <- mass/age  # divide
-mass_sq <- mass^2       # raise to an exponent
+height_index <- height/age  # divide
+height_sq <- height^2       # raise to an exponent
 
 # This is simple and you'll rarely do it in real-world scenarios. 
-
 ```
 
 ## 1-Dimensional Data: Vectors
@@ -51,8 +52,8 @@ mass_sq <- mass^2       # raise to an exponent
 We can also assign more complex group of elements of the same type to a particular object. This is called a **vector**, a basic data structure in R.
 
 ```{r}
-mass_kg <- c(3, 2, 4, 9, 7, 3, 6)
-mass_kg
+weight_kg <- c(3, 2, 4, 9, 7, 3, 6)
+weight_kg
 
 animals <- c("cat", "rat", "bat")
 animals
@@ -72,7 +73,7 @@ There are a few main types in R, and they behave differently.
 
 ```{r}
 # Examples of different data classes
-mass_kg     # numeric, integer, double
+weight_kg     # numeric, integer, double
 animals     # character
 
 animal_size <- as.factor(c("small", "medium", "large"))
@@ -94,8 +95,8 @@ Sometimes we want to pull out and work with specific values from a vector. This 
 
 ```{r}
 # Use square brackets
-mass_kg[2]
-mass_kg[2:4]
+weight_kg[2]
+weight_kg[2:4]
 ```
 
 ## Functions
@@ -106,11 +107,11 @@ Functions are always followed by parentheses. Anything you type into the parenth
 
 ```{r}
 ## Functions
-mass_kg_mean <- mean(mass_kg)   # average of the mass_kg vector from above
-mass_kg_mean
+weight_kg_mean <- mean(weight_kg)   # average of the mass_kg vector from above
+weight_kg_mean
 
-round(mass_kg_mean)             # rounding
-round(mass_kg_mean, digits = 2) # round to 2 digits past 0
+round(weight_kg_mean)             # rounding
+round(weight_kg_mean, digits = 2) # round to 2 digits past 0
 ```
 
 To get more information about a function, use the `help()` function or `?name_of_function`.
@@ -122,7 +123,7 @@ help(round) # or type ?help
 We can use a function called `class()` to figure out the data type of a vector.
 
 ```{r}
-class(mass_kg)
+class(weight_kg)
 ```
 
 ### Group Challenge
@@ -162,6 +163,10 @@ Most of the data you will encounter is two-dimensional, i.e., it has columns and
 
 ![](row_column.png)
 
+Columns typically represent variables (a factor, trait, or condition) we are interested in.
+
+Rows represent observations. Each row will be one set of observations.
+
 Data frames are made up of multiple vectors. Each vector becomes a column.
 
 ```{r}
@@ -192,32 +197,11 @@ Another way to pull out a single column from a data frame is with the `$` operat
 plants$height
 ```
 
-### Discussion Point
-
-This is a simple data set, but let's come up with some questions.
-
-Example: height of plants treated with nitrogen vs. those not treated.
+Regardless of how you specify the column, you can put that code inside of a function, such as the `mean()`.
 
 ```{r}
-# Example: height of plants treated with nitrogen vs. those not treated. 
-
-# filter rows based on values in the nitrogen column
-plants[plants$nitrogen == "Y", ]
-mean(plants[plants$nitrogen == "Y", 1])
+mean(plants$height)
 ```
-
-### Group Challenge (5 min)
-
-Using help files on functions
-
-As a group, find the standard deviation (`sd()`) of the height of plants treated with nitrogen and those not treated with nitrogen. Which group has the larger standard deviation?
-
-```{r}
-sd(plants[plants$nitrogen == "Y", 1])
-sd(plants[plants$nitrogen == "N", 1])
-```
-
-Come up with a definition of standard deviation (Google is your friend!), use the help file to find out how the `sd()` function works, and be prepared to show the code you used.
 
 ## Helpful Functions
 
