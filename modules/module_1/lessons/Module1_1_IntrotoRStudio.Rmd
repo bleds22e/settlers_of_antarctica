@@ -16,7 +16,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 -   Students will be able to describe what computer programming languages (code) are, with R as an example.
 -   Students will be able to describe the role of RStudio in programming with R.
--   Students will be able to describe the utility of each panel in RStudio.\
+-   Students will be able to describe the utility of each panel in RStudio.
 -   Students will be able to perform basic math functions in the R console.
 
 ## Check-in (5 minutes)
@@ -51,8 +51,6 @@ Rmarkdown (.Rmd) is a file format that lets us incorporate text and code into on
 
 ```
 
-A quick shortcut for adding a code chunk is `Ctrl + Atl + i` (`Cmd + Opt + i` on a Mac). Alternatively, you can go to Code \> Insert Chunk.
-
 To run a chunk of code, click the green arrow on the far right side of the chunk. You can also run one or a few lines of code at a time by having your cursor on the line or highlighting multiple lines and hitting `Ctrl` + `Enter` (or `Cmd` + `Enter` on a Mac).
 
 Let's work with an example code chunk.
@@ -62,6 +60,8 @@ Let's work with an example code chunk.
 ```
 
 If you run code in the console (below) rather than the code chunk in a .Rmd file, you don't need to add the `{r}` to tell it that you are typing R code. The console only understand R code, so we don't need to tell it!
+
+A quick shortcut for adding a code chunk is `Ctrl + Atl + i` (`Cmd + Opt + i` on a Mac). Alternatively, you can go to Code \> Insert Chunk.
 
 ### Math: Small Group Challenge
 

@@ -25,13 +25,14 @@ Let's all sign-up for RStudio Cloud!
 
 ## Rstudio Mini-tour
 
-Perform a live-coding mini-tour of RStudio.\
-1. What do the different panels do?\
-2. Console versus a script/Rmarkdown file
+Perform a live-coding mini-tour of RStudio.
+
+1.  What do the different panels do?\
+2.  Console versus a script/Rmarkdown file
 
 ## Using R as a Calculator
 
-### Using the Console 
+### Using the Console
 
 You can do basic math in the Console (the bottom left part of the screen). The Console only understands R code, but it can also be treated as a calculator! Hence, we can type in some numbers and mathematical symbols.
 
@@ -44,9 +45,9 @@ Rmarkdown (.Rmd) is a file format that lets us incorporate text and code into on
 -   For writing text, you can type as you normally would.
 -   Code chunks are a bit different:
     -   Near the top right of your screen you can toggle between viewing this document as under Source or Visual.
-    -   If you view this document under Source, you will see that all code chunks are sandwiched between " ```{r} " and " ``` ".
+    -   If you view this document under Source, you will see that all code chunks are sandwiched between " `{r} " and "` ".
     -   But under Visual, you can type R code in the lines under `{r}`.
-    -   To include text in chunks, you will need to put a `#` in front. R will not read anything in the line after `#` as code. 
+    -   To include text in chunks, you will need to put a `#` in front. R will not read anything in the line after `#` as code.
 
 Code chunks look like this:
 
@@ -55,13 +56,11 @@ Code chunks look like this:
 
 ```
 
-A quick shortcut for adding a code chunk is `Ctrl + Alt + i` (`Cmd + Opt + i` on a Mac). 
-
-Alternatively, you can go to Code \> Insert Chunk.
-
-To run a chunk of code, click the green arrow on the top right corner of the chunk. 
+To run a chunk of code, click the green arrow on the top right corner of the chunk.
 
 You can also run one or a few lines of code at a time by having your cursor on the line or highlighting multiple lines and hitting `Ctrl` + `Enter` (or `Cmd` + `Enter` on a Mac).
+
+A quick shortcut for adding a code chunk is `Ctrl + Alt + i` (`Cmd + Opt + i` on a Mac). Alternatively, you can go to Code \> Insert Chunk.
 
 ### Some Code Chunk Practice
 
@@ -85,7 +84,7 @@ Notice that if you run code in the Console (below) rather than the code chunk in
 
 Write a line of code to raise 2 to the 3rd power (often represented as $2^3$). This will likely require a little bit of Googling to figure out.
 
-First, write and run the code in the console. 
+First, write and run the code in the console.
 
 Next, write and run the code in the code chunk below. What did you have to do differently?
 
