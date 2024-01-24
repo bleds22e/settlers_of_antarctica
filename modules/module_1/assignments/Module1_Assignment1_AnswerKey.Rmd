@@ -1,5 +1,5 @@
 ---
-title: 'Module 1, Assignment 2: Answer Key'
+title: 'Module 1, Assignment 1: Answer Key'
 author: "Ellen Bledsoe"
 date: "2023-09-05"
 output: pdf_document
@@ -35,26 +35,26 @@ mean(counts)
 
 
 ```{r import_data}
-team_data <- read.csv("../data/team_antarctica_responses.csv")
+team_data <- read.csv("../data/team_antarctica.csv")
 ```
 
-4. 
+5. 
 ```{r examine_data}
 head(team_data, 10)
 ```
 
-5. 
+6. 
 ```{r}
-team_data[9, 7]
+team_data[4, 8]
 ```
 
-6.  
+7.  
 
 ```{r average_remote_location}
 mean(team_data$remote_location)
 ```
 
-7.  
+8.  
 
 ```{r min_max_distance}
 # minimum distance
@@ -63,30 +63,3 @@ min(team_data$distance_mi)
 # maximum distance
 max(team_data$distance_mi)
 ```
-
-8.  
-
-```{r cooking_skill}
-team_data[team_data$fishing_skill == 1, ]
-```
-
-9.  
-
-```{r}
-class(team_data$good_with_animals)
-```
-
-10. 
-
-```{r parka_colors}
-mean(team_data[team_data$parka_color == "Blue", 4])
-```
-
-Bonus
-```{r flag_mascot}
-# UA data frame
-mascot <- team_data$flag_mascot
-# mascot count
-table(mascot)
-```
-
