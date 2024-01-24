@@ -144,7 +144,6 @@ This problem set has 2 parts.
 
 #### Question: Is there a significant relationship between bill length and bill depth for penguins on Biscoe Island?
 
-
 For this problem set, we are going to use data from Biscoe island only.
 
 1.  Create a new data frame called `biscoe` that includes only penguins from Biscoe island. This new data frame should have 163 rows. (2 points)
@@ -272,7 +271,7 @@ chinstrap_summary <- chinstrap %>%
             sd_flipper = sd(flipper_length_mm))
 ```
 
-3.  What if we wanted our summary data in centimeters instead of millimeters? We can acheive this in 2 steps.
+3.  What if we wanted our summary data in centimeters instead of millimeters? We can achieve this in 2 steps.
 
     a.  First, create a function that will convert a number from millimeters to centimeters. There are 10 millimeters in a centimeter. (1 point)
 
@@ -283,7 +282,7 @@ chinstrap_summary <- chinstrap %>%
     }
     ```
 
-    b.  Now, using the same code from question 3 above, add one line of code (in the correct location) that uses your newly created `mm_to_cm` function to create a new column in the dataframe. Make sure to edit the arguments in summary functions accordingly, as well. The result should be the same data frame that you produced in question 3 but with the summary values in cm instead of mm.(1 point)
+    b.  Now, using the same code from question 2 above, add one line of code (in the correct location) that uses your newly created `mm_to_cm` function to create a new column in the dataframe. Make sure to edit the arguments in summary functions accordingly, as well. The result should be the same data frame that you produced in question 3 but with the summary values in cm instead of mm.(1 point)
 
     ```{r}
     chinstrap_summary <- chinstrap %>% 
@@ -293,14 +292,14 @@ chinstrap_summary <- chinstrap %>%
                 sd_flipper = sd(flipper_length_cm))
     ```
 
-Ok, we have summarized the flipper length data for our two groups! 
+Ok, we have summarized the flipper length data for our two groups!
 
 Let's get back to the `chinstrap` dataframe (not the summary dataframe), and keep working.
 
 4.  Determine which variable is *dependent* and which is *independent*. Also determine if each variable is *continuous* or *categorical*. (1 points)
 
 -   **flipper length**: dependent, continuous
--   **species**: independent, categorical
+-   **sex**: independent, categorical
 
 Let's plot the flipper length data for each sex.
 
@@ -335,8 +334,7 @@ ggplot(chinstrap, aes(flipper_length_mm, fill = sex)) +
 
 6.  Write the pair of statistical hypotheses for our question. (1 points)
 
-    **Null**: no difference in the mean flipper length between male and female chinstrap penguins 
-    **Alternative**: true difference in the mean flipper length between male and female chinstrap penguins
+    **Null**: no difference in the mean flipper length between male and female chinstrap penguins **Alternative**: true difference in the mean flipper length between male and female chinstrap penguins
 
 7.  Perform the appropriate analysis to compare the flipper lengths of male and female chinstrap penguins. (2 points)
 
@@ -360,7 +358,7 @@ t.test(data = chinstrap, flipper_length_mm ~ sex)
 
 ```
 
----- 
+------------------------------------------------------------------------
 
 ## Problem Set 3 (15 points)
 

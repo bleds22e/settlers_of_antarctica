@@ -100,8 +100,6 @@ Based on our question, which variable is independent and which is dependent? Whi
 
 *Answer:*
 
-
-
 First, calculate the range (minimum and maximum) and mean of the flipper lengths for each species
 
 ```{r}
@@ -128,9 +126,9 @@ ggplot(dream, aes(x = species, y = flipper_length_mm, color = species)) +
 
 Write out the null and alternative hypotheses.
 
-**Null:** 
+**Null:**
 
-**Alternative:** 
+**Alternative:**
 
 Run the appropriate statistical test.
 
@@ -145,7 +143,7 @@ Interpret the results of your statistical test:
 -   What does your answer to the question above mean?
 -   Should we reject or fail to reject the null hypothesis?
 
-*Answer:* 
+*Answer:*
 
 Should we run pairwise comparisons? If yes, do so below and interpret:
 
@@ -197,11 +195,11 @@ Calculate the correlation coefficient and the `r^2` value.
 
 -   According to the correlation coefficient, is the relationship positive, negative or is there no relationship?
 
-*Answer: 
+\*Answer:
 
 -   What does the `r^2` value tell us? Remember, we usually multiply the `r^2` by 100 to represent this as a percentage.
 
-*Answer: 
+\*Answer:
 
 ```{r}
 r <- cor(x = penguins_noNA$flipper_length_mm, y = penguins_noNA$bill_length_mm)
@@ -227,7 +225,7 @@ Interpret the results of your statistical test:
 -   Is the p-value above or below 0.05?
 -   What does your answer to the question above mean?
 
-*Answer:
+\*Answer:
 
 Should we run pairwise comparisons? If yes, do so below and interpret:
 
@@ -260,7 +258,7 @@ summary(mlm_model)
 
 Interpret the results from the model above. Focus on the p-values for the independent variables and/or interaction terms, not the overall model.
 
-*Answer: 
+\*Answer:
 
 ## Problem Set 3
 
@@ -329,9 +327,9 @@ ggplot(penguins, aes(x = body_mass_g, fill = species)) +
 
 Write out the null and alternative hypotheses.
 
-**Null:** 
+**Null:**
 
-**Alternative:** 
+**Alternative:**
 
 Run the appropriate statistical test.
 
@@ -347,7 +345,7 @@ Interpret the results of your statistical test:
 -   What does your answer to the question above mean?
 -   Should we reject or fail to reject the null hypothesis?
 
-*Answers:
+\*Answers:
 
 Should we run pairwise comparisons? If yes, do so below and interpret:
 
@@ -355,4 +353,4 @@ Should we run pairwise comparisons? If yes, do so below and interpret:
 TukeyHSD(aov_mod)
 ```
 
-*Answer: 
+\*Answer:

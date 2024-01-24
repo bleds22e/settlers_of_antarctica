@@ -129,6 +129,11 @@ full <- bind_rows(old_collars_combined, new_collars)
 ```
 
 Let's take a look at our new data frame! Have we correctly accomplished our first task?
+```{r}
+head(full)
+tail(full)
+```
+
 
 ### Saving our New Data
 
