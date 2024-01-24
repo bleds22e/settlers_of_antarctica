@@ -136,7 +136,7 @@ It is important to remember that the computer interprets everything literally. W
 
 ## `filter()`ing rows
 
-`filter()` allows you filter rows by certain conditions. Recall that we did this a bit with base R.
+`filter()` allows you filter rows by certain conditions. The code below is how we would do this in base R.
 
 ```{r filter_baseR}
 # base R
@@ -223,6 +223,17 @@ climate_df %>%
 ```
 
 The first part of the argument in the mutate function (before the `=`) is the name of the new column we want to create (or, sometime, the name of a column we want to overwrite). After the `=` is what we want the new column to contain.
+
+### Let's Practice
+
+Write some code that uses the `round()` function to create a new column of average temperatures (Celsius) with only point value after the decimal point.
+
+```{r}
+climate_df %>% 
+  mutate(AverageTemperatureRound = round(AverageTemperature, digits = 1))
+```
+
+If we set the "new" column name in the `mutate()` function as the same name of a column that already exists, the code with replace that column with the new values.
 
 ## Understanding data through `summarize()`
 
