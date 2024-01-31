@@ -107,7 +107,7 @@ When we have a large data set like this, it is often helpful to summarize the da
 
 7.  On average, how did people rate their ability to be in a remote location?
 
-```{r average_cold_tolerance}
+```{r avg_remote_location}
 
 ```
 
