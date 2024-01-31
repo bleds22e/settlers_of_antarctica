@@ -1,0 +1,77 @@
+---
+title: 'Module 1: Assignment 3'
+author: "Ellen Bledsoe"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Assignment Description
+
+### Purpose
+
+The goal of this assignment is to get started working on the final project for the course.
+
+### Task
+
+Choose a dataset to work with for the final, write a research question, and summarise the data.
+
+### Criteria for Success
+
+-   Code is within the provided code chunks
+-   Code chunks run without errors
+-   Code produces the correct result
+    -   Code that produces the correct answer will receive full credit
+    -   Code attempts with logical direction will receive partial credit
+-   Written answers address the questions in sufficient detail
+
+### Due Date
+
+Feb 8 at 11am MST
+
+# Assignment Questions
+
+## Explore Datasets
+
+Read in each dataset
+
+Use a function (e.g., `head()` or `str()`) to look at the data in each one.
+
+Choose a datset that you would like to focus on for the final project
+
+Identify whether the columns in your chosen dataset are qualitative (categorical) or quantitative (numeric)
+
+## Writing a Research Question
+
+Independent vs. dependent variables
+
+-   dependent variable must be quantitative
+-   choose only 1 independent variable
+-   independent variable can be either qualitative or quantitative
+
+Write your questions
+
+## Literature Search
+
+Find guidelines for how to look up scientific articles through UA libraries
+
+https://lib.arizona.edu/find/articles
+
+We recommend either the "Advanced Search" or the "Google Scholar"
+
+Choose 2 papers that you think are related to the research question you just wrote. They don't have to be _exactly_ related but should be relevant.
+
+
+Put the citations of those 2 article here:
+
+## Summarize the Data
+
+Get to know the data a little better.
+
+Focus on your _dependent_ variable. Calculate the minimum value, maximum value, and average value
+
+-   If your research question has a qualitative (categorical) independent variable, use the `group_by` function to find those values for each category
+-   If your research question has a quantitative (numeric) independent variable, calculate the min, max, and mean for the independent variable
