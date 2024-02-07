@@ -41,7 +41,7 @@ Spend 5 minutes brainstorming in your groups how you might figure out whether pl
 
 ## Descriptive Statistics and Data Visualization
 
-In order to begin addressing the question of what might be causing illness in our crew (and lots of other questions!), we often want to start with *descriptive statistics* and *data visualization*.
+In order to begin addressing the question of what might be causing illness in our crew (and lots of other questions!), we want to start with *descriptive statistics* and *data visualization*.
 
 In this course, we will be working with two types of statistics: *descriptive* and *inferential*.
 
@@ -77,7 +77,11 @@ sick <- read_csv("../data/sick_data.csv")
 head(sick)
 ```
 
-How many observations (rows) do we have? How about variables (columns)?
+Let's talk about the data we have:
+
+-   How many observations (rows) do we have?
+-   What type of information does a single row represent?
+-   How many variables (columns) do we have?
 
 Which variables are we particularly interested in? Are they continuous or categorical? Does it matter?
 
@@ -87,8 +91,8 @@ Now that we have a more formalized understanding of measures of central tendency
 
 ```{r}
 sick %>% 
-  summarize(mean_fish = mean(perc_fish),
-            sd_fish = sd(perc_fish))
+  summarize(mean_fish = mean(perc_fish, na.rm = TRUE),
+            sd_fish = sd(perc_fish, na.rm = TRUE))
 ```
 
 ## Data Visualization in R

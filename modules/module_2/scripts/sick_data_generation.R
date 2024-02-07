@@ -55,3 +55,12 @@ team_sub_sick <- team_sub_sick %>%
 
 # export
 write_csv(team_sub_sick, "./modules/module_2/data/sick_data.csv")
+
+#### Add NAs to the data for more realistic data experiences
+
+sick_data <- read_csv("modules/module_2/data/sick_data.csv")
+sick_data_na <- sick_data %>% 
+  mutate(doctor_trips, doctor_trips = if_else(runif(length(doctor_trips))>0.1, doctor_trips, NA),
+         perc_fish, perc_fish = if_else(runif(length(perc_fish))>0.1, perc_fish, NA)) %>% 
+  mutate(perc_plant, perc_plant = if_else(!is.na(perc_fish), perc_plant, NA))
+write_csv(sick_data_na, "modules/module_2/data/sick_data.csv")

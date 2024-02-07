@@ -76,7 +76,11 @@ To bring our data into R, we use a function called `read_csv()`. CSV (comma-sepa
 
 ```
 
-How many observations (rows) do we have? How about variables (columns)?
+Let's talk about the data we have:
+
+-   How many observations (rows) do we have?
+-   What type of information does a single row represent?
+-   How many variables (columns) do we have?
 
 Which variables are we particularly interested in? Are they continuous or categorical? Does it matter?
 
@@ -122,7 +126,7 @@ We've covered one type of visualization that just shows one variable...but what 
 
 ## Scatter plots
 
-Scatter plots allow us to visualize the relationship between two continuous (or numeric) variables. For example, we can use a scatter plot to see if there is a relationship between how old a crew member is and how much fish is in their diet.
+Scatter plots allow us to visualize the relationship between two continuous (or quantitative) variables. For example, we can use a scatter plot to see if there is a relationship between how old a crew member is and how much fish is in their diet.
 
 ```{r}
 
