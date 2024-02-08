@@ -8,7 +8,7 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Introduction Descriptive Statistics and Data Visualization
+# Descriptive Statistics and Data Visualization
 
 ## Student Learning Outcomes
 
