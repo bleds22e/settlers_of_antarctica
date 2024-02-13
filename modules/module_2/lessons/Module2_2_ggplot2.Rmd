@@ -76,18 +76,6 @@ The typical structure looks like this:
 # <GEOM_FUNCTION>()
 ```
 
-A few things to note:
-
--   we always start with the `ggplot()` function
--   we specify the dataset we want to use
--   we specify the mappings (x- and y-axes and some other bits) with the
-    `aes()` function
--   we use a `+` to add layers
--   we specify the type of plot, or `geom` using one of many possible
-    geom functions
--   we use the `labs()` function to clean up the labels
--   we add a `theme` function to make it look extra pretty
-
 Let's iteratively build up to the plot we have made above:
 
 1)  Specify the data
@@ -117,9 +105,22 @@ Let's iteratively build up to the plot we have made above:
 ```
 
 5)  Choose a `theme` function to make the plot more aesthetically
-    pleasing.
+    pleasing and easier to read.
 
 ```{r}
 # theme_bw(), theme_classic(), and theme_light() are my favorites
 
 ```
+
+In Summary:
+A few things to note:
+
+-   we always start with the `ggplot()` function
+-   we specify the dataset we want to use
+-   we specify the mappings (x- and y-axes and some other bits) with the
+    `aes()` function
+-   we use a `+` to add layers
+-   we specify the type of plot, or `geom` using one of many possible
+    geom functions
+-   we use the `labs()` function to clean up the labels
+-   we add a `theme` function to make it look extra pretty
