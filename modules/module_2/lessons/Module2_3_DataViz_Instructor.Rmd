@@ -21,21 +21,19 @@ As a group, take 5 minutes to compare your notes and come to a group consensus o
 
 ### Visual cues for communicating data
 
-[Here](http://paldhous.github.io/ucb/2016/dataviz/week2.html) is a decent overview of some of the core concepts of data visualization.
+[Here](https://rafalab.dfci.harvard.edu/dsbook-part-1/dataviz/dataviz-principles.html) is a decent overview of some of the core concepts of data visualization.
 
 This website is pretty great and goes into a lot of detail about good practices in data visualization. If this is something that really piques your interest, I encourage you to check it out!
 
 In this course, our main take-away from this website is the use of visual cues to communicate data and which ones are better than others.
 
-![](data_viz_cues.jpg)
+![](data_viz_cues.jpg){width=50%}
 
 ### Small group activity
 
 In groups, discuss as many all types of visualization that come to mind. It's okay if you don't know what they are called! Make a quick list or draw them out if you prefer.
 
 Types of data visualizations:
-
-[This website](https://www.data-to-viz.com/) is an amazing reference for data visualization methods and when to use what. It also has examples of each type plotted in `ggplot2`.
 
 We will talk more about how to choose the right visualization for your data now and also in the rest of the module.
 
