@@ -32,7 +32,7 @@ Write R code which produces the correct answers and reflect on workflow.
 
 ### Due Date
 
-October 10 at 4pm MST
+Feb 22 at 11am MST
 
 # Assignment Questions
 
@@ -56,7 +56,7 @@ First, let's take a look at the data we will be using for the assignment.
 
     ```
 
-2.  Next, we need to load in our tilapia growth dataset. Call the data frame `growth`. Then use both the `head` and `tail` functions to take a look at the data. (1 point)
+2.  Next, we need to load in our tilapia growth dataset using the `read_csv` function. Call the data frame `soy_data`. Then use both the `head` and `tail` functions to take a look at the data. (1 point)
 
     ```{r}
 
@@ -78,7 +78,7 @@ We have been asked by our aquaculture specialists to provide them with the follo
 
 a.  a data frame with the average growth (`day_30_weight`) per treatment (`perc_soy_protein`)
 b.  a boxplot plot that shows the relationship (or lack thereof) between percent soy protein in the diet and the weight at 30 days
-c.  a data frame with the average growth per treatment (`perc_soy_protein`) *and* if tanks are warm or cold
+c.  a data frame with the average growth per treatment (`perc_soy_protein`) *and* tank category
 d.  a multiple scatter plot that shows the relationship (or lack thereof) between average tank temperature, the weight at 30 days, and the percent soy in the diet.
 
 They've also asked that we provide all weights in kilograms instead of grams (the `day_30_weight` is currently in grams).
@@ -89,7 +89,7 @@ They've also asked that we provide all weights in kilograms instead of grams (th
 
     For each of the 4 tasks listed above, *describe* (do NOT code) how you will get from the starting point (a data frame) to the result (another data frame or a plot).
 
-    This question will be grade ***only on completion***, not on whether or not your plan is *correct*. (2 points)
+    This question will be graded ***only on completion***, not on whether or not your plan is *correct*. (2 points)
 
     *Task (a)*:
 
@@ -106,7 +106,8 @@ Now let's actually go ahead and complete our tasks with code.
 FIRST! We need to run the line of code below. It's a little wonky, but for the rest of the assignment to work the way I want it to, we need to tell R that we want to treat the `perc_soy_protein` as a categorical variable.
 
 ```{r}
-growth <- growth %>% 
+# if the code isn't running, you probably named the data something different in Question
+soy_data <- soy_data %>% 
   mutate(perc_soy_protein = as.factor(perc_soy_protein))
 ```
 
@@ -114,7 +115,7 @@ Because the aquaculture team has asked for everything to use kilograms instead o
 
 5.  Use the `mutate()` function to add a `day_30_weight_kg` column to the growth data frame. (Hint: divide grams by 1000 to get kg)
 
-    Remember to "overwrite" the growth data frame (use the assignment operator) so the new column is permanently added to the `growth` data frame for us to use in the rest of the assignment. (2 points)
+    Save the output as `growth` (2 points)
 
     ```{r}
 
