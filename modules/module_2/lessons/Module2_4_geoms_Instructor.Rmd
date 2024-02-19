@@ -18,7 +18,6 @@ knitr::opts_chunk$set(echo = TRUE)
 Head over to [data-to-viz.com](https://www.data-to-viz.com/) and do some exploration! In your groups, choose one of the following types of plots. Hunt down as many locations in the flow chart where your plot type is found as you can find.
 
 -   histogram: `geom_histogram()`
--   density plot: `geom_density()`
 -   scatter plot: `geom_point()`
 -   box-and-whisker: `geom_boxplot()` + `geom_jitter()`
 
@@ -26,10 +25,6 @@ If you've finished, click on your plot type and read more about it. Check out th
 
 -   which `geom` function is being used to create the plot
 -   you'll see a number of other things in the `ggplot` code, some which will be new. What are they? Any idea what they are doing?
-
-TODO: add more practice for students
-
-TODO: add more content about color and fill arguments (in plots and in legends)
 
 ## Using `geom` Functions to Make Plots
 
@@ -40,42 +35,37 @@ library(tidyverse)
 fish <- read_csv("../data/fish_sick_data.csv")
 ```
 
-### Histograms
+### Plotting in `ggplot2`
 
-As we learned last modules, histograms are plots which let us look at *one continuous variable* and get a feel for the distribution of that data. To make histograms in `ggplot2`, we use the `geom_histogram()` function. Let's look at signal distance.
+First, let's remind ourselves of the general structure of how we make plots using the `ggplot2` syntax.
 
 ```{r}
-ggplot(fish, aes(num_sick)) +
+# ggplot(data = <DATA>, mapping = aes(x = <COLUMN1>, y = <COLUMN2)) +
+# geom_function() +
+# labs() +
+# theme()
+```
+
+## Histograms
+
+As we learned last modules, histograms are plots which let us look at *one continuous variable.*
+
+They help us get a feel for the distribution of that data. To make histograms in `ggplot2`, we use the `geom_histogram()` function. Let's look at the number of sick fish.
+
+```{r}
+ggplot(fish, aes(num_fish)) +
   geom_histogram(bins = 20)
 
 # we can change the number of bins (essentially, the number of columns) by modifying the bins argument in the geom_histogram function
 ```
 
-### Density plots
+### Let's Practice
 
-Density plots are similar to histograms in that they show the distribution of a *continuous variable* but they are smoothed and continuous version estimated from the data. For this class, you can think of them as being basically the same thing (and use them interchangeably).
+Make a histogram of the number of sick fish in the tanks. Create the histogram with 10 bins (10 groupings).
 
 ```{r}
 ggplot(fish, aes(num_sick)) +
-  geom_density()
-```
-
-### Multiple Density Plots (or Histograms)
-
-What if we wanted to create a density plot for signal distance for each fish species? In base R, we would need to filter or make a new dataframe. With `ggplot2`, we can specify that we want the `fill` (or the `color`) to be determined by the maker column.
-
-```{r}
-ggplot(fish, aes(num_sick, color = species)) +
-  geom_density()
-```
-
-Hooray! But...what about the potential overlap in tilapia and trout around 6-9?
-
-To fix this issue, we can use the `alpha` argument, which changes the transparency of the plots. The scale for `alpha` runs from 0 (completely transparent) to 1 (completely solid). Let's try 0.5.
-
-```{r}
-ggplot(fish, aes(num_sick, fill = species)) +
-  geom_density(alpha = .5)
+  geom_histogram(bins = 10)
 ```
 
 ## Multiple Histograms (with `geom_histogram()`)
@@ -84,19 +74,43 @@ When we create a multiple histogram, we have to add one additional argument to `
 
 ```{r}
 ggplot(fish, aes(num_fish, fill = species)) +
-  geom_histogram(bins = 20)
+  geom_histogram(bins = 10)
 ```
 
-What is happening in the column with both green and red?
+What is happening in the column with both green and red? Perhaps the teal histogram is in front of the red histogram and as blocking us from seeing some red?
 
-Let's take a look at what happens when we change the transparency and add the argument `position = "stacked"`.
+Let's change the transparency using an argument called `alpha`, which allows us to make layers transparent. The scale for `alpha` goes from 0 (completely transparent) to 1 (not transparent at all).
+
+We can set the transparency to 0.5 to see if there is any overlap.
 
 ```{r}
 ggplot(fish, aes(num_fish, fill = species)) +
-  geom_histogram(bins = 20, alpha = 0.5, position = "identity")
+  geom_histogram(bins = 10, alpha = 0.5)
 ```
 
-This is different from above. We need to change the transparency and add `position = "identity"` when creating a multiple histogram; if we don't, we won't see potential overlap!
+Not too much changed. It still doesn't look like we can see any red points behind the teal. Perhaps the teal values and red values are stacked on top of one another?
+
+Let's take a look at what happens when we add the argument `position = "identity"`.
+
+```{r}
+ggplot(fish, aes(num_fish, fill = species)) +
+  geom_histogram(bins = 10, alpha = 0.5, position = "identity")
+```
+
+Aha! This is different from above. Instead of red being stacked vertically on top of teal, we can now see that the red values start at 0 on the y-axis and are overlapping with the teal.
+
+The `position = "identity"` argument tell `geom_histogram` to plot the data for each group starting from 0 in the y-axis rather than stacking values from the same group, which is the default.
+
+Any time we plot a multiple histogram, we need to change the transparency and add `position = "identity"` when creating a multiple histogram; if we don't, we won't see potential overlap!
+
+### Let's Practice!
+
+Make a multiple histogram of the number of sick fish per species. Make sure your plot has 10 bins, is partially transparent, and the data are *not* stacked.
+
+```{r}
+ggplot(fish, aes(num_sick, fill = species)) +
+  geom_histogram(bins = 10, alpha = 0.5, position = "identity")
+```
 
 ------------------------------------------------------------------------
 
@@ -104,7 +118,7 @@ This is different from above. We need to change the transparency and add `positi
 
 A quick note about the `aes()` function. It's one of the more confusing bits of `ggplot2`.
 
-When do I put the `color` (or `size` or `linetype` or `fill` or whatever) inside the `aes()` function versus in the `geom` function but outside of `aes()`? When we made our density plots, why did the `color` argument go inside of `aes()` but `alpha` went outside?
+When do I put the `color` (or `size` or `linetype` or `fill` or whatever) inside the `aes()` function versus in the `geom` function but outside of `aes()`? When we made our multiple histogram plots, why did the `fill` argument go inside of `aes()` but `alpha` went outside?
 
 Essentially, it boils down to this:
 
@@ -116,23 +130,34 @@ For some additional examples and explanation, check out [this Stack Overflow pag
 
 ------------------------------------------------------------------------
 
-### Scatter Plot
+## Scatter Plot
 
 As a reminder, we use the `geom_point()` function to make a scatter plot of the relationship between *two continuous variables*.
 
 ```{r}
-ggplot(tanks, aes(avg_daily_temp, num_fish)) +
+ggplot(fish, aes(avg_daily_temp, num_fish)) +
   geom_point()
 ```
 
-### Box-and-Whisker Plots
+### Let's Practice: Multiple Scatterplot
+
+Using what you've learned about making histograms, see if you can create a "multiple scatterplot," where the color of the points are determined by the fish species.
+
+*Hint: you'll want to use an argument called `color`*.
+
+```{r}
+ggplot(fish, aes(avg_daily_temp, num_fish, color = species)) +
+  geom_point()
+```
+
+## Box-and-Whisker Plots
 
 Box-and whisker-plots (also known as box plots) are another great option for looking at one *continuous* variable and one or more *categorical* variables. They are particularly nice when you want to see measures of central tendency and variation in the same plot.
 
 Let's build one and then talk through what each component means. We use `geom_boxplot` to make these types of plots.
 
 ```{r}
-ggplot(tanks, aes(species, num_fish, color = species)) +
+ggplot(fish, aes(species, num_fish, color = species)) +
   geom_boxplot() 
 ```
 
@@ -145,18 +170,26 @@ So what does the box represent? And the whiskers?
 
 ### Layering
 
-One of the beautiful parts of working with `ggplot2` is that you can add multiple layers to each plot. One of the key things missing from box-and-whisker plots is any indication of how many data points we have. In the plot above, there could be 5 tanks per species or 500 tanks per species. How can we add an indication of how many points there are? We can layer each individual data point on top of the boxes!
+One of the beautiful parts of working with `ggplot2` is that you can add multiple layers to each plot.
+
+One of the key things missing from box-and-whisker plots is any indication of how many data points we have. In the plot above, there could be 5 tanks per species or 500 tanks per species.
+
+How can we add an indication of how many points there are? We can layer each individual data point on top of the boxes!
 
 ```{r}
-ggplot(tanks, aes(species, num_fish, color = species)) +
+ggplot(fish, aes(species, num_fish, color = species)) +
   geom_boxplot() +
   geom_point(alpha = 0.5)
 ```
 
-The `geom_jitter()` function is a special version of `geom_point()`. It adds a little bit of randomness to the points (both horizontally and vertically) so that they don't overlap as much. We can control how much randomness we allow with the `width` and/or `height` arguments. I usually ignore `height` and set the `width` argument to 0.1.
+This is nice, but there is still some overlap in points that makes it hard for us to see exactly how many points are there.
+
+The `geom_jitter()` function is a special version of `geom_point()`. It adds a little bit of randomness to the points (both horizontally and vertically) so that they don't overlap as much.
+
+We can control how much randomness we allow with the `width` and/or `height` arguments. I usually ignore `height` and set the `width` argument to 0.1.
 
 ```{r}
-ggplot(tanks, aes(species, num_fish, color = species)) +
+ggplot(fish, aes(species, num_fish, color = species)) +
   geom_boxplot() +
   geom_jitter(alpha = 0.5, width = 0.1) 
 ```
@@ -164,12 +197,82 @@ ggplot(tanks, aes(species, num_fish, color = species)) +
 That is looking really nice! We can keep improving it, though, with better labels for the axes and the legend as well as a nice `theme`.
 
 ```{r}
-ggplot(tanks, aes(species, num_fish, color = species)) +
+ggplot(fish, aes(species, num_fish, color = species)) +
   geom_boxplot() +
   geom_jitter(alpha = 0.5, width = 0.1) +
   labs(x = "Species",
        y = "Number of Fish Per Tank",
        color = "Species") +
+  theme_light()
+```
+
+------------------------------------------------------------------------
+
+### `color` and `fill`
+
+We have used two different arguments in the `aes()` function to specify that we want to colors in our plots to change based on one of the columns in our dataset. When do you want to use which one?
+
+#### `color`
+
+For the most part, the `color` argument refers to the color of the lines in a plot (e.g., in box plots, the colors of the lines change).
+
+The one exception to this is in `geom_point()`. We change the color of the points with the `color` argument, as well.
+
+#### `fill`
+
+When there is space that we want to fill in with color depending on the values in a column, we want to use the `fill` argument.
+
+For histograms, the `fill` argument changes the color inside the bins. If we use `color` in a histogram instead, only the outlines of the columns will change, but the columns will remain filled with gray.
+
+In boxplots, the inside area of the box will be filled with color, but the lines will stay black.
+
+### In Labels
+
+If we have specified either `color` or `fill` (or both) in the `aes()` function, `ggplot` will automatically create a legend for us. The key is determined by whichever argument we used.
+
+So, if you use the `color` argument in the `aes()` function, you would want to use the `color` argument in the `labs()` function to change the title of the legend. If you used the `fill` argument, you would then use the `fill` argument in the `labs()` function.
+
+If you have both `color` and `fill` in `aes()`, you will need to add both arguments to the `labs()` function. If you give the same label to each, it will create one key.
+
+------------------------------------------------------------------------
+
+### Let's Practice!
+
+Make 2 different types of plots with the same data: the average daily temperature of the tanks and fish species.
+
+First, think about the variables we are plotting. How many are there? Are they qualitative or quantitative?
+
+Based on those answers, determine which plot types you can produce for those variable types.
+
+Now, make your two plot! To each, add labels and a theme.
+
+```{r}
+# boxplot
+ggplot(fish, aes(species, avg_daily_temp, color = species)) +
+  geom_boxplot() +
+  geom_jitter(alpha = 0.5, width = 0.1) +
+  labs(x = "Average Daily Temp (C)",
+       y = "Frequency", 
+       color = "Fish Species") +
+  theme_bw()
+
+# histogram
+ggplot(fish, aes(avg_daily_temp, fill = species)) +
+  geom_histogram(bins = 10, alpha = 0.5, position = "identity") + 
+  labs(x = "Average Daily Temp (C)", 
+       y = "Frequency",
+       fill = "Fish Species") +
+  theme_bw()
+```
+
+Finished? Let's add another variable. Now, we want to plot average daily temperatures, the number of sick fish, and the fish species. Work through the same steps as above.
+
+```{r}
+ggplot(fish, aes(avg_daily_temp, num_sick, color = species)) +
+  geom_point(alpha = 0.5) +
+  labs(x = "Average Daily Temp (C)",
+       y = "Number of Sick Fish per Tank",
+       color = "Fish Species") +
   theme_light()
 ```
 
@@ -179,13 +282,13 @@ Let's summarize some of what we've learned in this module
 
 ## Data Visualization Types and When to Use Them
 
-### Histogram or Density Plot
+### Histogram
 
 Good for looking at the distribution of one continuous variable
 
 -   one continuous variable (x-axis)
 
-### Multiple Histogram or Multiple Density Plot
+### Multiple Histogram
 
 Good for looking at differences in the distributions of one continuous variable based on a categorical variable
 
