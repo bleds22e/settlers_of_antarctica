@@ -116,7 +116,7 @@ Because the aquaculture team has asked for everything to use kilograms instead o
 5.  Use the `mutate()` function to add a `day_30_weight_kg` column to the growth data frame. (Hint: divide grams by 1000 to get kg)
 
     Save the output as `growth_kg` (2 points)
-    
+
     This is the data frame you will use for the remainder of the assignment.
 
     ```{r}
@@ -151,7 +151,7 @@ Based on the values we calculated in task (a), it looks like there is probably a
 
 **A data frame with the average growth per treatment (`perc_soy_protein`) *and* if tanks are warm or cold**
 
-8.  Now that we have our `tank_category` column, we can use it in our `group_by` function. We also want  `perc_soy_protein` in the group_by function, as well. This will allow us to calculate the average `day_30_weight_kg` for warm and cold tanks in each treatment. Call this new data frame `growth_by_temp_treatment`. (2 points)
+8.  Now we want to use our `tank_category` column in our `group_by` function. We also want `perc_soy_protein` in the group_by function, as well. This will allow us to calculate the average `day_30_weight_kg` for warm and cold tanks in each treatment. Call this new data frame `growth_by_temp_treatment`. (2 points)
 
     ```{r}
 
