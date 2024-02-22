@@ -34,44 +34,119 @@ Feb 8 at 11am MST
 
 # Assignment Questions
 
+All questions are worth 1 point unless otherwise specified.
+
 ## Explore Datasets
 
-Read in each dataset
+1.  First, click on the links for each dataset and read a little bit about each one. *In your own words*, write 1-2 sentences describing each. (2 points)
 
-Use a function (e.g., `head()` or `str()`) to look at the data in each one.
+-   [KrillBase](https://www.bas.ac.uk/project/krillbase/#about):
+-   [Fur Seal Pups](https://ramadda.data.bas.ac.uk/repository/entry/show?entryid=bc6d802a-fce5-495d-b5e1-bb26f824847c) at Maiviken:
+-   [Gentoo Penguins](https://ramadda.data.bas.ac.uk/repository/entry/show?entryid=1fd5bc8a-96b5-4f53-aa15-33e5330e7705) on Bird Island:
+-   [Chinstrap Penguins](https://ramadda.data.bas.ac.uk/repository/entry/show?entryid=d784af69-c92b-444c-a12e-ee0361802cb1) on Signy Island:
 
-Choose a datset that you would like to focus on for the final project
+Now that you have an idea of what each data set is about, let's explore the actual data.
 
-Identify whether the columns in your chosen dataset are qualitative (categorical) or quantitative (numeric)
+2.  First, we need to load the `tidyverse` package. I've already *installed* the `tidyverse`, so you don't need to do that. You'll want to use the `library()` function.
+
+*Loading the `tidyverse` usually leads to some red text. This is normal! Unless your red text says that there has been an ERROR, you should be good to go.*
+
+```{r}
+# load the tidyverse
+library(tidyverse)
+```
+
+3.  Read all four datasets (.csv files) into RStudio using the `read_csv()` function (*not* `read.csv`). Remember to save each dataset as an object with a descriptive name. This is one time you do not need to print the objects! (2 points)
+
+```{r}
+
+```
+
+4.  Use a function (e.g., `head()` or `str()`) to look at the data in each data frame. (2 points)
+
+```{r}
+
+```
+
+## Choose Your Dataset
+
+5.  Now that you've explored the datsets, decide which one you would like to focus on for the final project. Below, tell us which one and why you find it interesting.
+
+*Answer*:
+
+6.  For each of the columns in your dataset, identify whether they contain are qualitative (categorical) or quantitative (numeric). (3 points)
+
+    Type out the name of the column and then the descriptor. For example:
+
+    -   island_name: qualitative (categorical)
+    -   island_size_km: quantitative (numeric)
+
+    *Note: some data, such as dates (month, year), can act as both types of data. Make note of how the data are represented in your chosen dataset. If you think that column could be used as both data types, say so.*
+
+*Answer*:
 
 ## Writing a Research Question
 
-Independent vs. dependent variables
+In order to write a successful research question, we need to identify our dependent variable and the independent variable that we think affects the dependent variable.
 
--   dependent variable must be quantitative
--   choose only 1 independent variable
--   independent variable can be either qualitative or quantitative
+7.  First, determine which variable is the *dependent* variable in your dataset. Remember, it must be quantitative.
 
-Write your questions
+*Answer*:
+
+8.  Next, choose 1 independent variable from your dataset (each dataset has more than one from which to choose). This should be a variable that you believe might affect the values of the dependent variable. It can be either qualitative/categorical OR quantitative/continuous.
+
+*Answer*:
+
+9.  Now, let's put those 2 variables into a research question.
+
+*Answer*:
 
 ## Literature Search
 
-Find guidelines for how to look up scientific articles through UA libraries
+When we ask a research question, we always want to find out what other people have already found out about that question to give us an idea of what outcome we might expect.
 
-https://lib.arizona.edu/find/articles
+To do that, we are going to look for some scientific articles about our research question.
 
-We recommend either the "Advanced Search" or the "Google Scholar"
+Use either the UA Libraries search tool or Google Scholar. You can find more information about how to use both of those [here](https://lib.arizona.edu/find/articles). To find related papers, you will want to search for journal articles that have both your dependent variable and your independent variable included. (e.g., plant height, water).
 
-Choose 2 papers that you think are related to the research question you just wrote. They don't have to be _exactly_ related but should be relevant.
+To determine whether the article is related to your research question, read the title and the abstract.
 
+10. Choose 2 papers that you think are related to the research question you just wrote. They don't have to be *exactly* related but should be relevant. (4 points)
 
-Put the citations of those 2 article here:
+    Write the citation for each paper below, doing your best to follow the structure below. Fill in as much info as you can (you won't always have all of it).
+
+    In your own words, write a 1-2 sentence summary of what the article is about, based on the title and the abstract.
+
+![](APA_citation.jpeg)
+
+*Article 1 Citation*:
+
+*Article 1 Description*:
+
+*Article 2 Citation*:
+
+*Article 2 Description*:
 
 ## Summarize the Data
 
-Get to know the data a little better.
+Let's get to know our data a little better.
 
-Focus on your _dependent_ variable. Calculate the minimum value, maximum value, and average value
+11. Focus on your *dependent* variable. Calculate the minimum value (`min()`), maximum (`max()`) value, and average (`mean()`) value using the `tidyverse` functions (you might need `na.rm = TRUE`!). (2 points)
 
--   If your research question has a qualitative (categorical) independent variable, use the `group_by` function to find those values for each category
--   If your research question has a quantitative (numeric) independent variable, calculate the min, max, and mean for the independent variable
+-   If your research question has a *qualitative (categorical)* independent variable, use the `group_by` function to find those values for each category of the independent variable
+-   If your research question has a *quantitative (numeric)* independent variable, calculate the minimum, maximum, and mean values for the independent variable
+
+```{r}
+
+
+```
+
+# Turning in Your Assignment
+
+Follow these steps to successfully turn in your assignment on D2L.
+
+1.  Click the `Knit` button up near the top of this document. This should produce a PDF file that shows up in the `Files` panel on the bottom-right of your screen.
+2.  Click the empty box to the left of the PDF file.
+3.  Click on the blue gear near the top of the `Files` panel and choose Export.
+4.  Put your last name at the front of the file name when prompted, then click the Download button. The PDF file of your assignment is now in your "Downloads" folder on your device.
+5.  Head over to D2L and navigate to appropriate assignment. Submit the PDF file that you just downloaded.
