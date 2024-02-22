@@ -31,11 +31,13 @@ Write R code which produces the correct plot style.
 
 ### Due Date
 
-March 2 at midnight MST
+Feb 29 at 11am MST
 
 # Assignment Questions
 
-For this assignment, we are going to be making even *more* plots using `ggplot2`! We are going to go back to our trusty data called `penguins` from the `palmerpenguins` package.
+For this assignment, we are going to be making even *more* plots using `ggplot2`! This time, you will be using the dataset you have chosen to work with for your final project.
+
+### Set-Up
 
 1.  Load the `tidyverse` package into the work space. (1 point)
 
@@ -43,32 +45,47 @@ For this assignment, we are going to be making even *more* plots using `ggplot2`
 
     ```
 
-    ------------------------------------------------------------------------
+2.  Load your chosen dataset (.csv file) into R using the `read_csv()` function. (1 point)
 
-#### OPTIONAL
+    *Note: the name of your .csv file might have changed.*
 
-When we use data from a data package, it doesn't automatically show up in our environment. Run this code chunk so it does show up in the environment.
+    -   krill data from KrillBase -\> `krill.csv`
+    -   fur seal pups on Maiviken Island -\> `fur_seals.csv`
+    -   Gentoo penguins from Bird Island -\> `gentoos_and_temps.csv`
+    -   Chinstrap penguins from Signy Island -\> `chinstraps_on_signy.csv`
 
 ```{r}
-penguins <- penguins
+
 ```
 
 ------------------------------------------------------------------------
 
-2.  There are 8 columns in the `penguins` data frame. Determine if each variable is continuous or categorical and record your answer below.
+Take a look at your dataset. Based on some feedback from Module 1 Assignment 3, we've made a few modifications to each of the dataset to make them a bit more manageable to work with. Please make note of the following changes and/or quirks for your particular dataset.
 
-    Note: the `year` column can be considered continuous or categorical. *For this assignment, we will consider it continuous.*
+#### Krill
 
-    *Answer:*
+-   You will want to use the `Krill_per_1m2_log` column as your dependent variable. This is a log-transformed version of the `Krill_per_1m2` column. You don't need to worry about *why* we transformed the data, but this column should be a bit easier to work with.
+-   The dataset now has a `Year` column and a `Month` column that you can use as an independent variable.
+-   The `Date`, `Year`, and `Month` columns should all be treated as *quantitative/continuous* variables.
+-   While the `Station` column can *technically* be considered a qualitative/categorical variable, please use the `Day_Night` column as your qualitative/categorical variable for this assignment and for your research question.
 
-    -   `species`:
-    -   `island`:
-    -   `bill_length_mm`:
-    -   `bill_depth_mm`:
-    -   `flipper_length`:
-    -   `body_mass_g`:
-    -   `sex`:
-    -   `year`: continuous
+#### Fur Seals
+
+-   The dataset now has a `Year` and `Month` column in addition to the `Date` column.
+-   If you choose to use the `Date` or `Year` column, treat them as *quantitative/continuous* variables.
+-   On the other hand, if you use the `Month` column, treat it as a *qualitative/categorical* variable.
+
+#### Gentoo Penguins
+
+-   The `Year` column has been fixed (there were some issues with years in the 2000s). If you are using the `Year` column, treat it as a *quantitative/continuous* variable.
+-   The `Colony` column has been modified to consolidate "Upper Natural Arch" and "Lower Natural Arch" into one colony: "Natural Arch." The same thing occurred with "Mountain Cwn."
+-   The dataset now has a column for the previous year's December temperature. Because counts of chicks took place in January or February (and nests were counted in October/November), the number of chicks is most likely to be related to the temperatures directly after chicks hatched (December of the previous year).
+
+#### Chinstrap Penguins
+
+-   No major changes.
+-   I do not recommend using the `MONTH` or `DAY` column.
+-   If you use the `YEAR` column, treat it as a *quantitative/continuous* variable.
 
 ------------------------------------------------------------------------
 
@@ -79,11 +96,11 @@ penguins <- penguins
     -   improved labels for the x-axis, y-axis, and the legend (if present)
     -   one of the following themes to your code: `theme_bw`, `theme_classic`, or `theme_light`.
 
-(b) For each question, ***you get to choose the variables you use for each plot!*** Pay attention to which variables are continuous vs. categorical and where they should go in the code to produce the correct type of plot.
+(b) For each question, ***you get to choose the variables you use for each plot!*** Pay attention to which variables are quantitative/continuous vs. qualitative/categorical and where they should go in the code to produce the correct type of plot.
 
-(c) Because I'm having you choose your own variables, the examples in the ***provided Answer Key likely will not match yours*** (though they might). You should strive to produce a plot that looks *similar in style* to those in the Answer Key, but the number of categories and the actual data points will likely be different.
+(c) Because I'm having you choose your own variables, the is no Answer Key for this assignment.
 
-(d) Each plot is worth 3 points. Your interpretation is worth 1 point.
+(d) Each plot is worth 3 points. Your interpretation is worth 1 point. Some of your plots may be hard to interpret. That's ok! In that case, explain why the plot is challenging to interpret.
 
 ------------------------------------------------------------------------
 
@@ -95,7 +112,7 @@ penguins <- penguins
 
 *Answer:*
 
-4.  Create a multiple histogram plot. Make sure we can see each density plot (make sure one isn't blocking another by modifying the transparency and position). Write 1-2 sentences describing what information you can gather from plot.
+4.  Create a multiple histogram plot. Make sure we can see each histogram plot (make sure one isn't blocking another by modifying the transparency and position). Write 1-2 sentences describing what information you can gather from plot.
 
 ```{r warning=FALSE}
 
@@ -111,10 +128,23 @@ penguins <- penguins
 
 *Answer:*
 
-6.  Create a scatter plot. Change the color of the points to create a "grouped" scatter plot. Write 1-2 sentences describing what information you can gather from plot. 
+6.  Create a scatter plot. Write 1-2 sentences describing what information you can gather from plot.
 
 ```{r warning=FALSE}
 
 ```
 
 *Answer:*
+
+------------------------------------------------------------------------
+
+7.  Restate your research question (it's ok if it is different from the one you wrote down in M1 Assignment 3 given the new columns in your dataset).
+
+*Research question:*
+
+Do any of the plots you made above match up with your research question? (2 pts)
+
+-   If so, identify which plot and explain how you know it matches up correctly (based on qualitative vs. quantitative variables).
+-   If not, explain which plot type *would* match your research question and how you know (based on qualitative vs, quantitative variables).
+
+*Answer*:
