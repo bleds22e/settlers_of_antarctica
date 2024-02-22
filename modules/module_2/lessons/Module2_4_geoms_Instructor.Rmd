@@ -50,7 +50,7 @@ First, let's remind ourselves of the general structure of how we make plots usin
 
 As we learned last modules, histograms are plots which let us look at *one continuous variable.*
 
-They help us get a feel for the distribution of that data. To make histograms in `ggplot2`, we use the `geom_histogram()` function. Let's look at the number of sick fish.
+They help us get a feel for the distribution of that data. To make histograms in `ggplot2`, we use the `geom_histogram()` function. Let's look at the number of fish.
 
 ```{r}
 ggplot(fish, aes(num_fish)) +
