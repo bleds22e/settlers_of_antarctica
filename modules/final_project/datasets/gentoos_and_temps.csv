@@ -1,0 +1,174 @@
+Species,Year,Colony,Num_Chicks,PrYear_Mean_TempC
+Gentoo penguin,1982,Johnson,NA,-28.016666666666666
+Gentoo penguin,1982,Mountain Cwm,NA,-28.016666666666666
+Gentoo penguin,1982,Natural Arch,NA,-28.016666666666666
+Gentoo penguin,1982,Square Pond,NA,-28.016666666666666
+Gentoo penguin,1983,Johnson,1880,-28.183333333333334
+Gentoo penguin,1983,Mountain Cwm,767,-28.183333333333334
+Gentoo penguin,1983,Natural Arch,829,-28.183333333333334
+Gentoo penguin,1983,Square Pond,282,-28.183333333333334
+Gentoo penguin,1984,Johnson,636,-29.441666666666666
+Gentoo penguin,1984,Mountain Cwm,NA,-29.441666666666666
+Gentoo penguin,1984,Natural Arch,NA,-29.441666666666666
+Gentoo penguin,1984,Square Pond,227,-29.441666666666666
+Gentoo penguin,1985,Johnson,636,-26.416666666666668
+Gentoo penguin,1985,Mountain Cwm,622,-26.416666666666668
+Gentoo penguin,1985,Natural Arch,925,-26.416666666666668
+Gentoo penguin,1985,Square Pond,235,-26.416666666666668
+Gentoo penguin,1986,Johnson,875,-27.25
+Gentoo penguin,1986,Mountain Cwm,871,-27.25
+Gentoo penguin,1986,Natural Arch,1109,-27.25
+Gentoo penguin,1986,Square Pond,NA,-27.25
+Gentoo penguin,1987,Johnson,962,-28.375
+Gentoo penguin,1987,Mountain Cwm,714,-28.375
+Gentoo penguin,1987,Natural Arch,1069,-28.375
+Gentoo penguin,1987,Square Pond,311,-28.375
+Gentoo penguin,1988,Johnson,963,-26.608333333333334
+Gentoo penguin,1988,Mountain Cwm,654,-26.608333333333334
+Gentoo penguin,1988,Natural Arch,864,-26.608333333333334
+Gentoo penguin,1988,Square Pond,343,-26.608333333333334
+Gentoo penguin,1989,Johnson,1164,-20.9
+Gentoo penguin,1989,Mountain Cwm,1227,-20.9
+Gentoo penguin,1989,Natural Arch,2032,-20.9
+Gentoo penguin,1989,Square Pond,637,-20.9
+Gentoo penguin,1990,Johnson,957,NA
+Gentoo penguin,1990,Mountain Cwm,907,NA
+Gentoo penguin,1990,Natural Arch,1249,NA
+Gentoo penguin,1990,Square Pond,427,NA
+Gentoo penguin,1991,Johnson,43,-32.388888888888886
+Gentoo penguin,1991,Mountain Cwm,0,-32.388888888888886
+Gentoo penguin,1991,Natural Arch,NA,-32.388888888888886
+Gentoo penguin,1991,Square Pond,1,-32.388888888888886
+Gentoo penguin,1992,Johnson,1108,-26.133333333333333
+Gentoo penguin,1992,Mountain Cwm,1024,-26.133333333333333
+Gentoo penguin,1992,Natural Arch,1815,-26.133333333333333
+Gentoo penguin,1992,Square Pond,603,-26.133333333333333
+Gentoo penguin,1993,Johnson,1530,-24.083333333333332
+Gentoo penguin,1993,Mountain Cwm,1185,-24.083333333333332
+Gentoo penguin,1993,Natural Arch,2067,-24.083333333333332
+Gentoo penguin,1993,Square Pond,654,-24.083333333333332
+Gentoo penguin,1994,Johnson,60,NA
+Gentoo penguin,1994,Mountain Cwm,46,NA
+Gentoo penguin,1994,Natural Arch,116,NA
+Gentoo penguin,1994,Square Pond,0,NA
+Gentoo penguin,1995,Johnson,538,-27.40909090909091
+Gentoo penguin,1995,Mountain Cwm,593,-27.40909090909091
+Gentoo penguin,1995,Natural Arch,1010,-27.40909090909091
+Gentoo penguin,1995,Square Pond,368,-27.40909090909091
+Gentoo penguin,1996,Johnson,965,-26.691666666666666
+Gentoo penguin,1996,Mountain Cwm,867,-26.691666666666666
+Gentoo penguin,1996,Natural Arch,1375,-26.691666666666666
+Gentoo penguin,1996,Square Pond,587,-26.691666666666666
+Gentoo penguin,1997,Johnson,754,-22.425
+Gentoo penguin,1997,Mountain Cwm,768,-22.425
+Gentoo penguin,1997,Natural Arch,944,-22.425
+Gentoo penguin,1997,Square Pond,347,-22.425
+Gentoo penguin,1998,Johnson,0,-26.233333333333334
+Gentoo penguin,1998,Mountain Cwm,0,-26.233333333333334
+Gentoo penguin,1998,Natural Arch,1,-26.233333333333334
+Gentoo penguin,1998,Square Pond,2,-26.233333333333334
+Gentoo penguin,1999,Johnson,1188,-26.533333333333335
+Gentoo penguin,1999,Mountain Cwm,1038,-26.533333333333335
+Gentoo penguin,1999,Natural Arch,1246,-26.533333333333335
+Gentoo penguin,1999,Square Pond,392,-26.533333333333335
+Gentoo penguin,2000,Johnson,414,-22.957142857142856
+Gentoo penguin,2000,Mountain Cwm,468,-22.957142857142856
+Gentoo penguin,2000,Natural Arch,551,-22.957142857142856
+Gentoo penguin,2000,Square Pond,246,-22.957142857142856
+Gentoo penguin,2001,Johnson,1097,-27.344444444444445
+Gentoo penguin,2001,Mountain Cwm,886,-27.344444444444445
+Gentoo penguin,2001,Natural Arch,1015,-27.344444444444445
+Gentoo penguin,2001,Square Pond,413,-27.344444444444445
+Gentoo penguin,2002,Johnson,881,NA
+Gentoo penguin,2002,Mountain Cwm,979,NA
+Gentoo penguin,2002,Natural Arch,1280,NA
+Gentoo penguin,2002,Square Pond,472,NA
+Gentoo penguin,2003,Johnson,407,-18.983333333333334
+Gentoo penguin,2003,Mountain Cwm,759,-18.983333333333334
+Gentoo penguin,2003,Natural Arch,1323,-18.983333333333334
+Gentoo penguin,2003,Square Pond,213,-18.983333333333334
+Gentoo penguin,2004,Johnson,525,-25.71818181818182
+Gentoo penguin,2004,Landing Beach,14,-25.71818181818182
+Gentoo penguin,2004,Mountain Cwm,649,-25.71818181818182
+Gentoo penguin,2004,Natural Arch,982,-25.71818181818182
+Gentoo penguin,2004,Square Pond,254,-25.71818181818182
+Gentoo penguin,2005,Johnson,620,-24.383333333333333
+Gentoo penguin,2005,Landing Beach,19,-24.383333333333333
+Gentoo penguin,2005,Mountain Cwm,364,-24.383333333333333
+Gentoo penguin,2005,Natural Arch,1133,-24.383333333333333
+Gentoo penguin,2005,Square Pond,245,-24.383333333333333
+Gentoo penguin,2006,Johnson,1444,-24.62
+Gentoo penguin,2006,Landing Beach,71,-24.62
+Gentoo penguin,2006,Mountain Cwm,1086,-24.62
+Gentoo penguin,2006,Natural Arch,2073,-24.62
+Gentoo penguin,2006,Square Pond,567,-24.62
+Gentoo penguin,2007,Johnson,993,-26.891666666666666
+Gentoo penguin,2007,Landing Beach,156,-26.891666666666666
+Gentoo penguin,2007,Mountain Cwm,967,-26.891666666666666
+Gentoo penguin,2007,Natural Arch,1706,-26.891666666666666
+Gentoo penguin,2007,Square Pond,685,-26.891666666666666
+Gentoo penguin,2008,Johnson,1325,-24.691666666666666
+Gentoo penguin,2008,Landing Beach,118,-24.691666666666666
+Gentoo penguin,2008,Mountain Cwm,686,-24.691666666666666
+Gentoo penguin,2008,Natural Arch,1210,-24.691666666666666
+Gentoo penguin,2008,Square Pond,637,-24.691666666666666
+Gentoo penguin,2009,Johnson,2,-23.918181818181818
+Gentoo penguin,2009,Landing Beach,0,-23.918181818181818
+Gentoo penguin,2009,Mountain Cwm,18,-23.918181818181818
+Gentoo penguin,2009,Natural Arch,20,-23.918181818181818
+Gentoo penguin,2009,Square Pond,0,-23.918181818181818
+Gentoo penguin,2010,Johnson,407,-25.925
+Gentoo penguin,2010,Landing Beach,85,-25.925
+Gentoo penguin,2010,Mountain Cwm,303,-25.925
+Gentoo penguin,2010,Natural Arch,521,-25.925
+Gentoo penguin,2010,Square Pond,288,-25.925
+Gentoo penguin,2011,Johnson,1002,-27.25
+Gentoo penguin,2011,Landing Beach,193,-27.25
+Gentoo penguin,2011,Mountain Cwm,512,-27.25
+Gentoo penguin,2011,Natural Arch,1087,-27.25
+Gentoo penguin,2011,Square Pond,530,-27.25
+Gentoo penguin,2012,Johnson,813,-25.90833333333333
+Gentoo penguin,2012,Landing Beach,231,-25.90833333333333
+Gentoo penguin,2012,Mountain Cwm,513,-25.90833333333333
+Gentoo penguin,2012,Natural Arch,1103,-25.90833333333333
+Gentoo penguin,2012,Square Pond,464,-25.90833333333333
+Gentoo penguin,2013,Johnson,1384,-26.675
+Gentoo penguin,2013,Landing Beach,407,-26.675
+Gentoo penguin,2013,Mountain Cwm,729,-26.675
+Gentoo penguin,2013,Natural Arch,1512,-26.675
+Gentoo penguin,2013,Square Pond,629,-26.675
+Gentoo penguin,2014,Johnson,1223,-27.891666666666666
+Gentoo penguin,2014,Landing Beach,417,-27.891666666666666
+Gentoo penguin,2014,Mountain Cwm,663,-27.891666666666666
+Gentoo penguin,2014,Natural Arch,1215,-27.891666666666666
+Gentoo penguin,2014,Square Pond,666,-27.891666666666666
+Gentoo penguin,2015,Johnson,1794,-26.316666666666666
+Gentoo penguin,2015,Landing Beach,608,-26.316666666666666
+Gentoo penguin,2015,Mountain Cwm,759,-26.316666666666666
+Gentoo penguin,2015,Natural Arch,1499,-26.316666666666666
+Gentoo penguin,2015,Square Pond,704,-26.316666666666666
+Gentoo penguin,2016,Johnson,0,-28.05
+Gentoo penguin,2016,Landing Beach,0,-28.05
+Gentoo penguin,2016,Mountain Cwm,0,-28.05
+Gentoo penguin,2016,Natural Arch,0,-28.05
+Gentoo penguin,2016,Square Pond,0,-28.05
+Gentoo penguin,2017,Johnson,1217,-26.916666666666668
+Gentoo penguin,2017,Landing Beach,476,-26.916666666666668
+Gentoo penguin,2017,Mountain Cwm,607,-26.916666666666668
+Gentoo penguin,2017,Natural Arch,1027,-26.916666666666668
+Gentoo penguin,2017,Square Pond,580,-26.916666666666668
+Gentoo penguin,2018,Johnson,1331,-27.008333333333333
+Gentoo penguin,2018,Landing Beach,495,-27.008333333333333
+Gentoo penguin,2018,Mountain Cwm,649,-27.008333333333333
+Gentoo penguin,2018,Natural Arch,1166,-27.008333333333333
+Gentoo penguin,2018,Square Pond,594,-27.008333333333333
+Gentoo penguin,2019,Johnson,1451,-27.583333333333332
+Gentoo penguin,2019,Landing Beach,474,-27.583333333333332
+Gentoo penguin,2019,Mountain Cwm,498,-27.583333333333332
+Gentoo penguin,2019,Natural Arch,1133,-27.583333333333332
+Gentoo penguin,2019,Square Pond,839,-27.583333333333332
+Gentoo penguin,2020,Johnson,1742,-25.791666666666668
+Gentoo penguin,2020,Landing Beach,634,-25.791666666666668
+Gentoo penguin,2020,Mountain Cwm,676,-25.791666666666668
+Gentoo penguin,2020,Natural Arch,1421,-25.791666666666668
+Gentoo penguin,2020,Square Pond,879,-25.791666666666668
