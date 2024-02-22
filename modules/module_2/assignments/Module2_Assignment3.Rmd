@@ -37,7 +37,7 @@ March 2 at midnight MST
 
 For this assignment, we are going to be making even *more* plots using `ggplot2`! We are going to go back to our trusty data called `penguins` from the `palmerpenguins` package.
 
-1.  Load both the `palmerpenguins` package and the `tidyverse` package into the work space. (2 points)
+1.  Load the `tidyverse` package into the work space. (1 point)
 
     ```{r}
 
@@ -95,7 +95,7 @@ penguins <- penguins
 
 *Answer:*
 
-4.  Create a multiple density plot. Make sure we can see each density plot (make sure one isn't blocking another)(3 points). Write 1-2 sentences describing what information you can gather from plot.
+4.  Create a multiple histogram plot. Make sure we can see each density plot (make sure one isn't blocking another by modifying the transparency and position). Write 1-2 sentences describing what information you can gather from plot.
 
 ```{r warning=FALSE}
 
@@ -103,7 +103,7 @@ penguins <- penguins
 
 *Answer:*
 
-5.  Create a box-and-whisker plot. Changing the color of the boxes is optional (if you want to get super fancy, you can change the color based on a different variable). Make sure to add points to the plot. Write 1-2 sentences describing what information you can gather from plot.
+5.  Create a box-and-whisker plot. Changing the color of the boxes is optional. Make sure to add points to the plot. Write 1-2 sentences describing what information you can gather from plot.
 
 ```{r warning=FALSE}
 
@@ -111,7 +111,7 @@ penguins <- penguins
 
 *Answer:*
 
-6.  Create a scatter plot. Change the color of the points to create a "grouped" scatter plot. Write 1-2 sentences describing what information you can gather from plot. (4 points)
+6.  Create a scatter plot. Change the color of the points to create a "grouped" scatter plot. Write 1-2 sentences describing what information you can gather from plot. 
 
 ```{r warning=FALSE}
 
