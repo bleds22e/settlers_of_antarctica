@@ -42,10 +42,10 @@ head(sick_fish)
 Last class, we plotted the number of sick fish. Let's remind ourselves what that looked like. Make a plot that compares the numbers of sick fish per species. We actually have a few options!
 
 ```{r}
-ggplot(sick_fish, aes(num_sick, color = species)) +
-  geom_density(alpha = 0.5) +
+ggplot(sick_fish, aes(num_sick, fill = species)) +
+  geom_histogram(alpha = 0.5, position = "identity", bins = 10) +
   labs(x = "Number of Sick Fish in Tanks",
-       y = "Density",
+       y = "Frequency",
        fill = "Species") +
   theme_classic()
 ```
@@ -103,6 +103,8 @@ sick_trout <- sick_fish %>%
 ```
 
 ## What Environmental Factor?
+
+Let's talk about fish physiology for a minute.
 
 Take a look back at the data frame. Which columns are environmental variables that could be driving the issues?
 
