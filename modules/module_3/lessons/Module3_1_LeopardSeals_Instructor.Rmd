@@ -37,7 +37,7 @@ data from large mammal researchers. They have been tracking leopard
 seals using radio collars, one of many ways to track wildlife.
 
 [Wildlife Tracking
-Powerpoint](https://docs.google.com/presentation/d/1n-rPHVoB9tydIj_yEQ1TxGTHXn6VWaliRbOszRnbCoc/edit#slide=id.g16730a957e3_0_20)
+Powerpoint](https://docs.google.com/presentation/d/1tAtap0hYy22rwNrdweHlEsimECT7AEjGFaCCQBtpMdc/edit?usp=sharing)
 
 They have radio collared on a number of seals that live in areas that
 could be fished. Fishing boats are equipped with radios that can detect
@@ -123,7 +123,6 @@ What types of plots can we use to explore one continuous variable (and
 one categorical variable--in this case, maker)?
 
 -   multiple histogram
--   multiple density plot
 -   box-and-whisker plot
 
 We can start with a histogram of the battery life of the collars.
