@@ -47,7 +47,7 @@ Let's load the `tidyverse` and read in the data set. Call the data `turbines`.
 1.  Explore the data set, either through the environment or through code. Answer the following questions (2 point):
 
     a.  How many turbine makers are there?
-    b.  What does each row of data represent?
+    b.  What do the data each row of data represent?
 
     ```{r}
     # optional; only if you want space for coding
@@ -63,8 +63,8 @@ Let's load the `tidyverse` and read in the data set. Call the data `turbines`.
 
 ### Visual
 
-3.  Create a mutiple density plot for the power output variable. (3 points)
-    -   be sure to have a density plot for each turbine producer; the color and the fill should be determined by the maker of the turbine
+3.  Create a multiple histogram plot for the power output variable. (3 points)
+    -   be sure to have a histogram for each turbine producer; the color and/or the fill should be determined by the maker of the turbine. They should also be transparent and not stacked vertically.
     -   add in vertical lines for the mean values in the same color as the turbine makers (remember to reference the correct data frame!)
     -   make sure the x-axis, y-axis, and legend labels are capitalized and easier to understand 
     -   use the `theme_classic()` function
@@ -73,7 +73,7 @@ Let's load the `tidyverse` and read in the data set. Call the data `turbines`.
 
 ```
 
-4.  Generate a box-and-whisker plot using `ggplot2` that compares the wind speed between different turbine makers (3 points).
+4.  Generate a box-and-whisker plot that compares the wind speed between different turbine makers (3 points).
 
     The plot should:
     -   have capitalized and more descriptive axis labels (hint: wind speed is measured in kilometers per hour---km/hr)
@@ -98,7 +98,9 @@ Wind Speed:
 -   **Null Hypothesis** (H~0~):\
 -   **Alternative Hypothesis** (H~A~):
 
-6.  Based on the mean values in the `turbine_summary` data frame and the plots you've created above, predict the outcome of each t-test that we will run: 1 comparing wind speeds, 1 comparing power outputs (graded for completion, not accuracy). Explain your reasoning (1-2 sentences for each t-test is fine). (2 points)
+6.  Based on the mean values in the `turbine_summary` data frame and the plots you've created above, predict the outcome of each t-test that we will run: 1 comparing wind speeds between turbine companies and another comparing power outputs between companies (graded for completion, not accuracy; 2 points). 
+
+    Explain your reasoning (1-2 sentences for each t-test is fine). 
 
     *Answer:*
 
@@ -108,7 +110,7 @@ Wind Speed:
 
 ```
 
-8.  In 2-3 sentences, interpret the output from question 7. Focus on what the p-value is in reference to the cutoff of 0.05, what that means, and whether that means we accept or reject the null hypothesis. (2 points)
+8.  In 2-3 sentences, interpret the output from question 7. Focus on what the p-value is in reference to the cutoff of 0.05, what that means, and whether that means we reject or fail to reject the null hypothesis. (2 points)
 
     *Answer:*
 

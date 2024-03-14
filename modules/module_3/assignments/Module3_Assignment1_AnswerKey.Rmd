@@ -30,8 +30,8 @@ turbine_summary
 3.  
 
 ```{r}
-ggplot(turbines, aes(power_output, color = manufacturer, fill = manufacturer)) +
-  geom_density(alpha = 0.5) +
+ggplot(turbines, aes(power_output, fill = manufacturer)) +
+  geom_histogram(alpha = 0.5, position = "identity") +
   geom_vline(data = turbine_summary, aes(xintercept = mean_power, color = manufacturer)) +
   labs(x = "Power Output",
        y = "Density",

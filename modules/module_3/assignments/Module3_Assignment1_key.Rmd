@@ -50,7 +50,7 @@ turbines
 1.  Explore the data set, either through the environment or through code. Answer the following questions (2 point):
 
     a.  How many turbine makers are there? 2
-    b.  What does each row of data represent? one turbine
+    b.  What does the data each row of data represent? one turbine
 
     ```{r}
     # optional; only if you want space for coding
@@ -71,14 +71,14 @@ turbine_summary
 ### Visual
 
 3.  Create a density plot for the power output variable. (3 points)
-    -   be sure to have a density plot for each turbine producer; the color and the fill should be determined by the maker of the turbine
-    -   add in vertical lines for the mean values in the same color as the turbine makers
+ -   be sure to have a histogram for each turbine producer; the color and/or the fill should be determined by the maker of the turbine. They should also be transparent and not stacked vertically.
+    -   add in vertical lines for the mean values in the same color as the turbine makers (remember to reference the correct data frame!)
     -   make sure the x-axis, y-axis, and legend labels are capitalized and easier to understand (power output in measured in kilowatts, or kWh)
     -   use the `theme_classic()` function
 
 ```{r}
-ggplot(turbines, aes(power_output, color = manufacturer, fill = manufacturer)) +
-  geom_density(alpha = 0.5) +
+ggplot(turbines, aes(power_output, fill = manufacturer)) +
+  geom_histogram(alpha = 0.5, position = "identity") +
   geom_vline(data = turbine_summary, aes(xintercept = mean_power, color = manufacturer)) +
   labs(x = "Power Output", # any way of adding cleaner labels is fine
        y = "Density",
