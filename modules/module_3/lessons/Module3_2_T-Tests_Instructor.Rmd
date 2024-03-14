@@ -34,7 +34,7 @@ Let's take a quick look at the data structure to remind ourselves what data we a
 head(collars)
 ```
 
-Before we dive in, if you need a refresher on inferential statistics, check out [this powerpoint](https://docs.google.com/presentation/d/1N2fxiNa5mw_fVukXFPWMuynFcts3gD4SvMO4VKzyZFI/edit?usp=sharing).
+Before we dive in, if you need a refresher on inferential statistics, check out [this powerpoint](https://docs.google.com/presentation/d/1WtMO7uPFQG6ouZifWi60_rOhUcXHR5H76l0JbYaNmlg/edit#slide=id.p).
 
 ## T-Tests
 
@@ -74,7 +74,7 @@ The null hypothesis always states that there is no difference or no relationship
 -   **Null Hypothesis** ($H_{0}$): there is no difference in the means of battery life between the two collar makers
 -   **Alternative Hypothesis** ($H_{A}$): there is no difference in the means of battery life between the two collar makers
 
-How can we determine whether we should *not reject* ("accept") or *reject* the null hypothesis? That's where statistics come in.
+How can we determine whether we should *fail to reject* ("accept") or *reject* the null hypothesis? That's where statistics come in.
 
 *(Note: for reasons I won't go into, we never accept the alternative hypothesis, we only reject the null hypothesis.)*
 
@@ -85,14 +85,13 @@ There is a set of statistical tools that can help us whether or not there is a d
 Let's briefly remind ourselves of the logic here.
 
 1.  Our data are a *sample* of a larger *population* (think of the population as all of the collars ever produced by both companies).
-    -   Remember how we sampled our fish tank data for sick fish instead of getting data for every single tank? Same idea.
 2.  We're interested in the the difference in the means between the two groups.
     -   If they're exactly the same, the difference in means would be 0.
     -   If they're different, the difference between the means will be something either larger or smaller than 0.
 3.  However, because we only have data from a random *sample* of collars, there will be some variation in our numbers due to sampling error.
 4.  We want to know if the difference in means is due to sampling error alone or due to an actual difference between manufacturers.
 
-The t-test allows us to determine if the means are different due to the random variation or if it represents an actual difference.
+The t-test allows us to determine if the means are likely different due to the random variation or if it represents an actual difference.
 
 Let's run some code to perform our first t-test!
 
@@ -145,8 +144,8 @@ We want to know if there is a significant difference in the average signal dista
 
 1.  Identify your independent and dependent variables.
 
--   independent: maker, categorical
--   dependent: signal_distance, continuous
+-   independent: maker, qualitative/categorical
+-   dependent: signal_distance, quantitative/continuous
 
 2.  Write out your null and alternative hypotheses.
 
