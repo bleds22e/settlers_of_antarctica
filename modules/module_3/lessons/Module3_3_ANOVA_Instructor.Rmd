@@ -27,8 +27,8 @@ The group of statistical tests called ANOVAs are extensions of the t-test, using
 
 To run an ANOVA, the following things need to be true:
 
--   The variable that we use to create our groups (independent variable) is categorical.
--   The variable that we want to compare between groups (dependent or response variable) is numerical.
+-   The variable that we use to create our groups (independent variable) is qualitative (categorical).
+-   The variable that we want to compare between groups (dependent or response variable) is qunatitative (numerical).
 
 These two aspects above might sound familiar, because they also need to be true for t-tests!
 
@@ -100,12 +100,16 @@ Let's examine the data. Do you think the collar companies are all different from
 
 As always, we love (\<3) visualizing our data, especially as a form of data exploration and comparing means.
 
-First, explore the distribution of battery life by maker using a multiple density plot (no need to add a line for the mean, but you can if you really want to!).
+First, explore the distribution of battery life by maker using a multiple histogram (no need to add a line for the mean, but you can if you really want to!).
 
 ```{r}
 # battery life
 ggplot(collars, aes(battery_life, fill = maker)) +
-  geom_density(alpha = 0.5)
+  geom_histogram(alpha = 0.5, position = "identity") +
+  labs(x = "Battery Life", 
+       y = "Frequency",
+       fill = "Collar Maker") +
+  theme_bw()
 ```
 
 Let's do a different type of visualization for signal distance. What type of data visualization have we covered that does a good job of showing both central tendency (median, in this case) and variation (middle 50% and 95% confidence intervals) in one continuous variable?
@@ -114,7 +118,10 @@ Let's do a different type of visualization for signal distance. What type of dat
 # signal distance
 ggplot(collars, aes(maker, signal_distance)) +
   geom_boxplot() +
-  geom_jitter(width = 0.1, alpha = 0.5)
+  geom_jitter(width = 0.1, alpha = 0.5) +
+  labs(x = "Collar Maker",
+       y = "Signal Distance") +
+  theme_classic()
 ```
 
 Based on the numbers and your visualizations, what is your prediction? Are the 3 groups different *enough*, whatever that means?
