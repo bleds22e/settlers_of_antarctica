@@ -68,13 +68,15 @@ Let's write out our two hypotheses.
 
 First, for battery life:
 
-**Null hypothesis**: 
-**Alternative hypothesis**: 
+**Null hypothesis**:
+
+**Alternative hypothesis**:
 
 Next, for signal distance:
 
-**Null hypothesis**: 
-**Alternative hypothesis**: 
+**Null hypothesis**:
+
+**Alternative hypothesis**:
 
 ### Numeric
 

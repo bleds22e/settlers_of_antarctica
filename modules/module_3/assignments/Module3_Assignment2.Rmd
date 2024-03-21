@@ -1,8 +1,8 @@
 ---
-title: "Module3: Assignment2"
+title: "Module 3: Assignment 2"
 author: "Ellen Bledsoe"
-date: "2022-11-03"
-output: html_document
+date: "`r Sys.dat()`"
+output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
@@ -31,7 +31,7 @@ Write R code which produces the correct answers and correctly interpret the resu
 
 ### Due Date
 
-October 31 at 4pm MST
+March 28 at 11am MST
 
 # Assignment Questions
 
@@ -91,7 +91,7 @@ Take a look at the values. Do you think the bays have different amounts of fish 
 
 ### Statistics
 
-5.  In our data set, which variable is the independent variable? Is it categorical or continuous? Which is the dependent variable and is it categorical or continuous?
+5.  In our data set, which variable is the independent variable? Is it qualitative/categorical or quantitative/continuous? Which is the dependent variable and is it qualitative/categorical or quantitative/continuous?
 
     **Independent:**
 
