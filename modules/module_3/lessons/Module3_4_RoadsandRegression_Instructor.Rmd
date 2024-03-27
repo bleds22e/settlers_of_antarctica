@@ -17,7 +17,7 @@ Last module, we tried to figure out which bays we should prioritize for fishing 
 
 -   radio collar data
 -   fish catch data
--   leopard seal abundance data 
+-   leopard seal abundance data
 
 Based on our results from Assignment 2, it looks like Sulzberger Bay and Hope Bay are our best bets. Now, we need to make these bays accessible over land to transport the fish we've caught to our home base.
 
