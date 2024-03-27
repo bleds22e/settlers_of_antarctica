@@ -1,0 +1,166 @@
+---
+title: "Module 3 Assignment 3"
+author: "Ellen Bledsoe"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Assignment Details
+
+### Purpose
+
+The goal of this assignment is to assess your ability to perform and interpret linear regressions and to perform a statistical analysis for your research question.
+
+### Task
+
+Write R code which produces the correct answers and correctly interpret the results of visualizations and statistical tests.
+
+### Criteria for Success
+
+-   Code is within the provided code chunks
+-   Code chunks run without errors
+-   Code produces the correct result
+    -   Code that produces the correct answer will receive full credit
+    -   Code attempts with logical direction will receive partial credit
+-   Written answers address the questions in sufficient detail
+
+### Due Date
+
+April 4 at 11am MST
+
+# Assignment Questions
+
+In this assignment, we are going to continue using the hair grass data set from class. 
+
+At the end of the assignment, you will perform the correct statistical analysis for your own research question.
+
+## Set-Up
+
+As always, we must get organized before we can do anything!
+
+First load the tidyverse and read in the hair grass data set.
+
+```{r}
+
+```
+
+## Linear Regression
+
+Take a look at the hairgrass data and choose one of the environmental variables we think might influence hairgrass density that we have not used in class (AKA choose one other than Location, Nitrogen content, or soil pH).
+
+1.  Calculate the mean and standard deviation of your chosen environmental variable.
+
+```{r}
+
+```
+
+Now, we are going to explore the relationship between your chosen variable and hairgrass densities.
+
+2.  Which variable is the independent variable? Which is the dependent?
+
+    *Independent:*
+
+    *Dependent:*
+
+3.  Create a scatter plot of hair grass density and phosphorus content (do not add a line of best fit yet). Be sure to make the labels easier to understand and add a theme. Also make sure that the dependent variable is on the y-axis.
+
+```{r}
+
+```
+
+4.  Write 1-2 sentences interpreting the plot above. Is this a positive relationship, negative relationship or no relationship at all? Based on your prediction, do you think the correlation coefficient will be positive, negative, or zero?
+
+    *Answer:*
+
+5.  Calculate the correlation coefficient, `r`.
+
+```{r}
+
+```
+
+6.  Calculate the `r^2` value. Write a one sentence interpretation of what the `r^2` value means in the context of these two variables. (2 points)
+
+```{r}
+
+```
+
+*Interpretation:*
+
+7.  What are the null and alternative hypothesis regarding the relationship between these two variables?
+
+    **Null:**
+
+    **Alternative:**
+
+8.  Create the scatter plot that includes the line of best fit. Again, make the labels clearer, add a theme, and make sure the correct variables are on the correct axes.
+
+```{r}
+
+```
+
+9.  Run a linear regression model and print out the summary.
+
+```{r}
+
+```
+
+10. Write out the equation for the line of best fit using numeric values from the results above and the variable names.
+
+    *Answer:*
+
+11. Interpret the model summary. What is the p-value for our variable of interest? Do we accept or reject the null hypothesis regarding the relationship between these two variables? What can we conclude, then, about building a road? (2 points)
+
+    *Answer:*
+
+## Running Your Statistical Model
+
+In this module, we have covered 3 different statistical analyses: t-tests, ANOVAs, and linear regression. 
+
+It is now time to decide how to apply these statistical analyses to your own research question!
+
+### Set-Up
+
+First, read in your chosen dataset for your final project.
+
+```{r}
+
+```
+
+Now, write your research question below.
+
+*Research question*: 
+
+12. Take a look back at Module 2, Assignment 3. Between questions 2 and 3, there is a lot of very important information about how you should treat certain variables in each dataset.
+
+Using that information, determine whether each variable in your research question in qualitative or quantitative.
+
+*Answer*:
+
+13. State which variable is dependent and which one is independent.
+
+*Answer*:
+
+14. Based on your answers to questions 12 and 13 above, determine which statistical analysis you should perform to answer your question. In 1-2 sentence, explain why.
+
+*Answer*:
+
+15. Perform the appropriate statistical analysis below. If necessary, add an additional line of code to print out the results.
+
+```{r}
+
+```
+
+16. If necessary, run a pairwise comparison. If a pairwise comparison is unnecessary for your statistical analysis, explain why.
+
+*Answer*:
+
+```{r}
+# space for code to run a pairwise comparison if needed
+```
+
+17. Interpret the results of your statistical analysis (including the pairwise comparison, if relevant). In your answer, include the p-value and if the result of your analysis is significant. What do these results mean in the context of your research question? (2 points)
+
