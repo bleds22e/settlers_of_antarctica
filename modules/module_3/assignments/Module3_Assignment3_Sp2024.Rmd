@@ -34,7 +34,7 @@ April 4 at 11am MST
 
 # Assignment Questions
 
-In this assignment, we are going to continue using the hair grass data set from class. 
+In this assignment, we are going to continue using the hair grass data set from class.
 
 At the end of the assignment, you will perform the correct statistical analysis for your own research question.
 
@@ -42,7 +42,7 @@ At the end of the assignment, you will perform the correct statistical analysis 
 
 As always, we must get organized before we can do anything!
 
-First load the tidyverse and read in the hair grass data set.
+First, load the `tidyverse` and read in the hair grass data set.
 
 ```{r}
 
@@ -50,7 +50,7 @@ First load the tidyverse and read in the hair grass data set.
 
 ## Linear Regression
 
-Take a look at the hairgrass data and choose one of the environmental variables we think might influence hairgrass density that we have not used in class (AKA choose one other than Location, Nitrogen content, or soil pH).
+Take a look at the hairgrass data and choose one of the environmental variables we think might influence hairgrass density that we have not used in class (AKA choose one *other than* Location, Nitrogen content, or soil pH).
 
 1.  Calculate the mean and standard deviation of your chosen environmental variable.
 
@@ -66,7 +66,9 @@ Now, we are going to explore the relationship between your chosen variable and h
 
     *Dependent:*
 
-3.  Create a scatter plot of hair grass density and phosphorus content (do not add a line of best fit yet). Be sure to make the labels easier to understand and add a theme. Also make sure that the dependent variable is on the y-axis.
+3.  Create a scatter plot of hair grass density and the environmental variable (do not add a line of best fit yet).
+
+    Be sure to make the labels easier to understand and add a theme. Also make sure that the dependent variable is on the y-axis.
 
 ```{r}
 
@@ -96,7 +98,7 @@ Now, we are going to explore the relationship between your chosen variable and h
 
     **Alternative:**
 
-8.  Create the scatter plot that includes the line of best fit. Again, make the labels clearer, add a theme, and make sure the correct variables are on the correct axes.
+8.  Create a scatter plot that includes the line of best fit. Again, make the labels clearer, add a theme, and make sure the correct variables are on the correct axes.
 
 ```{r}
 
@@ -108,17 +110,17 @@ Now, we are going to explore the relationship between your chosen variable and h
 
 ```
 
-10. Write out the equation for the line of best fit using numeric values from the results above and the variable names.
+10. Write out the equation for the line of best fit using *numeric values* from the results above and the *variable names*.
 
     *Answer:*
 
-11. Interpret the model summary. What is the p-value for our variable of interest? Do we accept or reject the null hypothesis regarding the relationship between these two variables? What can we conclude, then, about building a road? (2 points)
+11. Interpret the model summary. What is the p-value for our variable of interest? Do we reject or fail to reject the null hypothesis regarding the relationship between these two variables? What can we conclude, then, about building a road? (2 points)
 
     *Answer:*
 
 ## Running Your Statistical Model
 
-In this module, we have covered 3 different statistical analyses: t-tests, ANOVAs, and linear regression. 
+In this module, we have covered 3 different statistical analyses: t-tests, ANOVAs, and linear regression.
 
 It is now time to decide how to apply these statistical analyses to your own research question!
 
@@ -132,11 +134,11 @@ First, read in your chosen dataset for your final project.
 
 Now, write your research question below.
 
-*Research question*: 
+*Research question*:
 
 12. Take a look back at Module 2, Assignment 3. Between questions 2 and 3, there is a lot of very important information about how you should treat certain variables in each dataset.
 
-Using that information, determine whether each variable in your research question in qualitative or quantitative.
+    Using that information, determine whether each variable in your research question in qualitative or quantitative.
 
 *Answer*:
 
@@ -163,4 +165,3 @@ Using that information, determine whether each variable in your research questio
 ```
 
 17. Interpret the results of your statistical analysis (including the pairwise comparison, if relevant). In your answer, include the p-value and if the result of your analysis is significant. What do these results mean in the context of your research question? (2 points)
-
