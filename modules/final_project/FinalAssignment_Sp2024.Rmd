@@ -85,7 +85,7 @@ Have you read through the "Structure & Guidelines" section?
 
 If so, proceed! If not, scroll back up...
 
-## Set-Up (10 points)
+## Set-Up (5 points)
 
 1.  First, we need to load the `tidyverse` package.
 
@@ -111,7 +111,7 @@ Which dataset have you chosen to work with for this final assignment?
 
 ```
 
-## Understanding the Data (20 points)
+## Understanding the Data (12 points)
 
 4.  Use a function (e.g., `head()` or `str()`) to look at your data.
 
@@ -167,7 +167,7 @@ You might notice that the data at the links has many more columns than the datas
 
 *Answer*:
 
-## Building a Research Question (15 points)
+## Building a Research Question (6 points)
 
 In order to write a successful research question, we need to identify our dependent variable and the independent variable that we think affects the dependent variable.
 
@@ -185,7 +185,7 @@ This should be a variable that you believe might affect the values of the depend
 
 *Answer*:
 
-## Literature Search (10 points)
+## Literature Search (6 points)
 
 When we ask a research question, we always want to find out what other people have already found out about that question to give us an idea of what outcome we might expect.
 
@@ -212,7 +212,7 @@ To determine whether the article is related to your research question, read the 
 
 *Article 2 Description*:
 
-## Summarizing Our Data (5 points)
+## Summarizing Our Data (6 points)
 
 Let's get to know our data a little better.
 
@@ -228,7 +228,7 @@ Pay close attention here! How you summarize will differ based on whether your *i
 
 ```
 
-## Data Visualization (25 points)
+## Data Visualization (18 points)
 
 To continue our data exploration, we are going to plot our data. Some of the plots might be related to your research question; other may not. That's ok!
 
@@ -270,7 +270,7 @@ At least ONE of the plots should include both your dependent and independent var
 
 *Answer*:
 
-## Running Your Statistical Model
+## Running Your Statistical Model (15 points)
 
 In this course, we have covered 3 different statistical analyses: t-tests, ANOVAs, and linear regression.
 
@@ -302,7 +302,7 @@ It is now time to decide how to apply these statistical analyses to your own res
 
 *Answer*:
 
-## Expanding Our Horizons
+## Expanding Our Horizons (6 points)
 
 25. Spend some time thinking about the outcome of your research question. Is the outcome what you were expecting or not? Why or why not? What additional information would you like to have to add context to your results? Your answer should be 4-5 sentences.
 
@@ -310,7 +310,9 @@ It is now time to decide how to apply these statistical analyses to your own res
 
 26. Think about your research subjects in the context of ecosystem services. What type of ecosystem services might the study of your research question fall under? Explain your rationale.
 
-## Communicating Your Results
+*Answer*:
+
+## Communicating Your Results (6 points)
 
 When researchers have come to some type of conclusion about a research question they have asked, we usually write up our findings in a scientific article to share our results with the scientific community and beyond.
 
@@ -318,7 +320,7 @@ Just like the articles you found in the Literature Search section, most articles
 
 Now that you have completed the process of coming up with a research question and finding some results, we want to communicate these results through writing an abstract. Feel free to look at your scientific articles for inspiration.
 
-Your abstract should be structured in the following manner, with at least one sentence for each topic (6 sentence minimum):
+27. Your abstract should be structured in the following manner, with at least one sentence for each topic (6 sentence minimum):
 
 -   General information about your dataset
 -   The research question your have chosen to ask
@@ -328,6 +330,8 @@ Your abstract should be structured in the following manner, with at least one se
 -   Your final interpretation of your research question: does your independent variable impact your dependent variable and, if so, in what way?
 
 Be sure you include information from your articles for both of your articles from your literature search somewhere in your abstract! Use in-text citations (e.g., Bledsoe et al., 2024) to show where you do so.
+
+*Abstract*:
 
 ------------------------------------------------------------------------
 
