@@ -87,14 +87,14 @@ If so, proceed! If not, scroll back up...
 
 ## Set-Up (10 points)
 
-1.  First, we need to load the `tidyverse` package. 
+1.  First, we need to load the `tidyverse` package.
 
 ```{r}
 # load the tidyverse
 library(tidyverse)
 ```
 
-2. As a reminder, there are 4 datasets that you can use to complete this final assignment:
+2.  As a reminder, there are 4 datasets that you can use to complete this final assignment:
 
     -   krill data from KrillBase -\> `krill.csv`
     -   fur seal pups on Maiviken Island -\> `fur_seals.csv`
@@ -103,8 +103,7 @@ library(tidyverse)
 
 Which dataset have you chosen to work with for this final assignment?
 
-*Answer*: 
-
+*Answer*:
 
 3.  Bring your chosen data into R to work with using the `read_csv` function. Remember to save it as an object.
 
@@ -114,13 +113,13 @@ Which dataset have you chosen to work with for this final assignment?
 
 ## Understanding the Data (20 points)
 
-4.  Use a function (e.g., `head()` or `str()`) to look at your data. 
+4.  Use a function (e.g., `head()` or `str()`) to look at your data.
 
 ```{r}
 
 ```
 
-5. In 1-2 sentences, explain what the output from Question 4 is telling you about your dataset. The more detail, the better.
+5.  In 1-2 sentences, explain what the output from Question 4 is telling you about your dataset. The more detail, the better.
 
 *Answer*:
 
@@ -153,16 +152,18 @@ You might notice that the data at the links has many more columns than the datas
 
 ### Back to Assignment Questions
 
-6.  Based on your general knowledge, the information at the links above, and the additional information I've provided, list out the columns in your chosen dataset and give a brief description (just a phrase is fine) of what the data in each columns represents.
+6.  Based on your own general knowledge, the information at the links above, and the additional information I've provided, list out the columns (only those in the .csv file) in your chosen dataset and give a brief description (just a phrase is fine) of what the data in each columns represents.
 
 *Answer*:
 
-7.  For each of the columns in your dataset, identify whether they contain are qualitative (categorical) or quantitative (numeric). Be sure your answers align with the information I've provided for you above. Many of your answers to subsequent questions will depend heavily on whether variables are qualitative or quantitative.
+7.  For each of the columns in your dataset, identify whether the data points they contain are qualitative (categorical) or quantitative (numeric). Be sure your answers align with the information I've provided for you above.
+
+    Many of your answers to subsequent questions will depend heavily on whether variables are qualitative or quantitative.
 
     Type out the name of the column and then the descriptor. For example:
 
-    -   island_name: qualitative 
-    -   island_size_km: quantitative 
+    -   island_name: qualitative
+    -   island_size_km: quantitative
 
 *Answer*:
 
@@ -174,13 +175,13 @@ In order to write a successful research question, we need to identify our depend
 
 *Answer*:
 
-9.  Next, choose 1 independent variable from your dataset (each dataset has more than one from which to choose). 
+9.  Next, choose 1 independent variable from your dataset (each dataset has more than one from which to choose).
 
-This should be a variable that you believe might affect the values of the dependent variable. It can be either qualitative/categorical OR quantitative/continuous.
+This should be a variable that you believe might affect the values of the dependent variable. It can be either qualitative or quantitative.
 
 *Answer*:
 
-10.  Now, bring your dependent and independent variables together to form a research question based on the structure presented in class in Module 1 (also see Module 1 Assignment 3).
+10. Now, bring your dependent and independent variables together to form a research question based on the structure presented in class in Module 1 (also see Module 1 Assignment 3).
 
 *Answer*:
 
@@ -188,12 +189,14 @@ This should be a variable that you believe might affect the values of the depend
 
 When we ask a research question, we always want to find out what other people have already found out about that question to give us an idea of what outcome we might expect.
 
-Back in Module 1 Assignment 3, you were asked to find at least 2 articles that related to your research question. 
+Back in Module 1 Assignment 3, you were asked to find at least 2 articles that related to your research question.
 
--   If your research question for this assignment is the same as the one you wrote in M1 Assignment 3, you might not have to find new papers (unless given feedback to do so). 
--   If your research question is different, you will need to follow the process again to find 2 articles related to your research question. 
+-   If your research question for this assignment is the same as the one you wrote in M1 Assignment 3, you might not have to find new papers (unless given feedback to do so).
+-   If your research question is different, you will need to follow the process again to find 2 articles related to your research question.
 
-The articles you find don't have to be *exactly* related but should be relevant, as you will be using them at the end of this assignment to help interpret your statistical output. To find related papers, you will want to search for journal articles that have both your dependent variable and your independent variable included. (e.g., plant height, water).
+The articles you find don't have to be *exactly* related but should be relevant, as you will be using them at the end of this assignment to help interpret your statistical output.
+
+To find related papers, you will want to search for journal articles that have both your dependent variable and your independent variable included. (e.g., plant height, water).
 
 To determine whether the article is related to your research question, read the title and the abstract.
 
@@ -209,13 +212,13 @@ To determine whether the article is related to your research question, read the 
 
 *Article 2 Description*:
 
-## Summarizing Our Data
+## Summarizing Our Data (5 points)
 
 Let's get to know our data a little better.
 
-13. Summarize your data by calculating at least 1 measure of central tendency and 1 measure of variability for your your *dependent* variable using the `tidyverse` functions (you might need `na.rm = TRUE`!). 
+13. Summarize your data by calculating at least 1 measure of central tendency and 1 measure of variability for your your *dependent* variable using the `tidyverse` functions (you might need `na.rm = TRUE`!).
 
-Pay close attention here! How you summarize will differ based on whether your *independent* variable is qualitative or quantitive:
+Pay close attention here! How you summarize will differ based on whether your *independent* variable is qualitative or quantitative:
 
 -   If your research question has a *qualitative (categorical)* independent variable, find the measure of central tendency and the measure of variability of *each* individual category.
 -   If your research question has a *quantitative (numeric)* independent variable, find a measure of central tendency and the measure of variability for the independent variable in addition to the dependent variable
@@ -225,17 +228,13 @@ Pay close attention here! How you summarize will differ based on whether your *i
 
 ```
 
-## Data Visualization
+## Data Visualization (25 points)
 
-3.  Produce a histogram plot (just one, not multiple on the same plot). Write 1-2 sentences describing what information you can gather from plot.
+To continue our data exploration, we are going to plot our data. Some of the plots might be related to your research question; other may not. That's ok!
 
-```{r warning=FALSE}
+At least ONE of the plots should include both your dependent and independent variable. Think critically about which plot that should be based on your variable types.
 
-```
-
-*Answer:*
-
-4.  Create a multiple histogram plot. Make sure we can see each histogram plot (make sure one isn't blocking another by modifying the transparency and position). Write 1-2 sentences describing what information you can gather from plot.
+14. Produce a histogram plot (just one, not multiple on the same plot) of the dependent variable. Write 1-2 sentences describing what information you can gather from plot.
 
 ```{r warning=FALSE}
 
@@ -243,62 +242,51 @@ Pay close attention here! How you summarize will differ based on whether your *i
 
 *Answer:*
 
-5.  Create a box-and-whisker plot. Changing the color of the boxes is optional. Make sure to add points to the plot. Write 1-2 sentences describing what information you can gather from plot.
+15. Create a multiple histogram plot of your dependent variable and one other variable (this may or may not be your independent variable).
+
+    Make sure we can see each histogram plot (make sure one isn't blocking another by modifying the transparency and position). Write 1-2 sentences describing what information you can gather from plot.
 
 ```{r warning=FALSE}
 
 ```
 
-*Answer:*
-
-6.  Create a scatter plot. Write 1-2 sentences describing what information you can gather from plot.
+16. Create a box-and-whisker plot which includes your dependent variable. Changing the color of the boxes is optional. Make sure to add points to the plot. Write 1-2 sentences describing what information you can gather from plot.
 
 ```{r warning=FALSE}
 
 ```
 
-*Answer:*
+17. Create a scatter plot that includes your dependent variable. Write 1-2 sentences describing what information you can gather from plot.
 
-7.  Restate your research question (it's ok if it is different from the one you wrote down in M1 Assignment 3 given the new columns in your dataset).
+```{r warning=FALSE}
 
-*Research question:*
+```
 
-Do any of the plots you made above match up with your research question? (2 pts)
+18. Identify which plot(s) from Questions 15-17 match up with your research question. How you know it matches up correctly (based on qualitative vs. quantitative variables)?
 
--   If so, identify which plot and explain how you know it matches up correctly (based on qualitative vs. quantitative variables).
--   If not, explain which plot type *would* match your research question and how you know (based on qualitative vs, quantitative variables).
+*Answer*:
+
+19. In 2-3 sentences, interpret the plot(s) that you identified in the previous question. What does it tell you about your chosen research question?
 
 *Answer*:
 
 ## Running Your Statistical Model
 
-We have covered 3 different statistical analyses: t-tests, ANOVAs, and linear regression.
+In this course, we have covered 3 different statistical analyses: t-tests, ANOVAs, and linear regression.
 
 It is now time to decide how to apply these statistical analyses to your own research question!
 
-### Set-Up
-
-12. Take a look back at Module 2, Assignment 3. Between questions 2 and 3, there is a lot of very important information about how you should treat certain variables in each dataset.
-
-    Using that information, determine whether each variable in your research question in qualitative or quantitative.
+20. Based on everything you know about your independent and dependent variables and the requirements for each of the statistical analyses we covered in the course, determine which statistical analysis you should perform to answer your question. In 1-2 sentence, explain why.
 
 *Answer*:
 
-13. State which variable is dependent and which one is independent.
-
-*Answer*:
-
-14. Based on your answers to questions 12 and 13 above, determine which statistical analysis you should perform to answer your question. In 1-2 sentence, explain why.
-
-*Answer*:
-
-15. Perform the appropriate statistical analysis below. If necessary, add an additional line of code to print out the results.
+21. Perform the appropriate statistical analysis below. If necessary, add an additional line of code to print out the results.
 
 ```{r}
 
 ```
 
-16. If necessary, run a pairwise comparison. If a pairwise comparison is unnecessary for your statistical analysis, explain why.
+22. If necessary, run a pairwise comparison. If a pairwise comparison is unnecessary for your statistical analysis, explain why.
 
 *Answer*:
 
@@ -306,10 +294,43 @@ It is now time to decide how to apply these statistical analyses to your own res
 # space for code to run a pairwise comparison if needed
 ```
 
-17. Interpret the results of your statistical analysis (including the pairwise comparison, if relevant). In your answer, include the p-value and if the result of your analysis is significant. What do these results mean in the context of your research question? (2 points)
+23. Interpret the results of your statistical analysis (including the pairwise comparison, if relevant). In your answer, include the p-value and if the result of your analysis is significant.
+
+*Answer*:
+
+24. What do these results mean in the context of your research question?
+
+*Answer*:
+
+## Expanding Our Horizons
+
+25. Spend some time thinking about the outcome of your research question. Is the outcome what you were expecting or not? Why or why not? What additional information would you like to have to add context to your results? Your answer should be 4-5 sentences.
+
+*Answer:*
+
+26. Think about your research subjects in the context of ecosystem services. What type of ecosystem services might the study of your research question fall under? Explain your rationale.
+
+## Communicating Your Results
+
+When researchers have come to some type of conclusion about a research question they have asked, we usually write up our findings in a scientific article to share our results with the scientific community and beyond.
+
+Just like the articles you found in the Literature Search section, most articles have an abstract that gives any potential reader some information about the topic of the research paper and the conclusions the researchers have drawn.
+
+Now that you have completed the process of coming up with a research question and finding some results, we want to communicate these results through writing an abstract. Feel free to look at your scientific articles for inspiration.
+
+Your abstract should be structured in the following manner, with at least one sentence for each topic (6 sentence minimum):
+
+-   General information about your dataset
+-   The research question your have chosen to ask
+-   What your data summarization told you
+-   What your data visualization shows you
+-   What statistical analysis you performed and its outcome
+-   Your final interpretation of your research question: does your independent variable impact your dependent variable and, if so, in what way?
+
+Be sure you include information from your articles for both of your articles from your literature search somewhere in your abstract! Use in-text citations (e.g., Bledsoe et al., 2024) to show where you do so.
 
 ------------------------------------------------------------------------
 
 ## The End!
 
-Great work, and thanks for a wonderful semester!
+Great work, and thanks for a nice semester!
