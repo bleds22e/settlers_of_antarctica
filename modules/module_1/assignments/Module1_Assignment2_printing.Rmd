@@ -1,0 +1,122 @@
+---
+title: "Module 1 Assignment 2: Getting to Know your Home"
+author: "Ellen Bledsoe"     # <- your name here!
+date: "`r Sys.Date()`"      # <- uses the current date when rendered
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Assignment Description
+
+### Purpose
+
+The goal of this assignment is to get comfortable using the `tidyverse` with 2-dimensional data sets (data frames).
+
+### Task
+
+Write R code using the `tidyverse` to successfully answer each question below.
+
+### Criteria for Success
+
+-   Code is within the provided code chunks
+-   Code chunks run without errors
+-   Code produces the correct result
+    -   Code that produces the correct answer will receive full credit
+    -   Code attempts with logical direction will receive partial credit
+-   Written answers address the questions in sufficient detail
+
+### Due Date
+
+Feb 1 at 11am MST
+
+# Assignment Questions
+
+For this final assignment for Module 1, you'll be working with another real-world data set--a collection of data from climate stations scattered across Antarctica.
+
+1.  In your own words, describe what the `tidyverse` is. Your answer should be between 1-3 sentences.
+
+    *Answer:*
+
+2.  Load in the `tidyverse` package.
+
+```{r load_tidyverse, code="'\n\n'", results=F}
+
+```
+
+3.  Load in the data file (called "aggregated_station_data.csv") using the `read_csv()` function. Save the data as an object called `weather`.
+
+```{r load_data, code="'\n\n'", results=F}
+
+```
+
+4.  Take a look at the data in whichever way you would like (looking in the environment, viewing the data, typing a function into the console below, etc.). How many rows and columns are in the data? Type your answers below:
+
+    rows:\
+    columns:
+
+5.  Write some code to choose rows that only includes temperatures which are above freezing (AKA greater than 0)
+
+```{r above0, code="'\n\n'", results=F}
+
+```
+
+6.  Write some code to choose *only* the following columns: year, day, month, temp, station_id. Save these columns as a new object called `station_temp`.
+
+```{r temp_df, code="'\n\n'", results=F}
+
+```
+
+7.  Using the data frame you created in Q6 above (`station_temp`), add a new column to that data frame that converts the temperature column (currently in Celsius) to Fahrenheit. Call the new column `tempF`.
+
+    *Hint: we did this in class---use that same equation!*
+
+```{r tempF, code="'\n\n'", results=F}
+
+```
+
+8.  In your own words (either bullet points or sentence form is fine), explain two benefits of using the pipe (`%>%`).
+
+    *Answer:*
+
+9.  Using the *original* data frame (`weather`), find the minimum (`min()`) temperature recorded for each month (in Celsius, the original column).
+
+    *Hint: think about months first (split) and then temperature (apply). You will also want to remove all the NA values.*
+
+```{r, code="'\n\n'", results=F}
+
+```
+
+10. Again, using the *original* data frame, create a data frame with the mean temperature for the month of January for each station.
+
+    Some hints:
+
+    -   take note of how months are represented in the data
+
+    -   think about using the pipe, how we choose which rows we want, and how we split-apply-combine
+
+    -   remember to remove the NA values!
+
+```{r mean_jan_temp, code="'\n\n'", results=F}
+
+```
+
+## Bonus! (up to 2 points)
+
+Write code to determine how many unique stations are in the `weather` data set. (Hint: look up the help file for the `distinct()` and the `count()` functions).
+
+```{r unique_stations, code="'\n\n'", results=F}
+
+```
+
+# Turning in Your Assignment
+
+Follow these steps to successfully turn in your assignment on D2L.
+
+1.  Click the `Knit` button up near the top of this document. This should produce a PDF file that shows up in the `Files` panel on the bottom-right of your screen.
+2.  Click the empty box to the left of the PDF file.
+3.  Click on the blue gear near the top of the `Files` panel and choose Export.
+4.  Put your last name at the front of the file name when prompted, then click the Download button. The PDF file of your assignment is now in your "Downloads" folder on your device.
+5.  Head over to D2L and navigate to Module 1 Assignment 2. Submit the PDF file that you just downloaded.
