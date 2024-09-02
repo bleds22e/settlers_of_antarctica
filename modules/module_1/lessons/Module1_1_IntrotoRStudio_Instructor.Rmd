@@ -45,7 +45,7 @@ Rmarkdown (.Rmd) is a file format that lets us incorporate text and code into on
 -   For writing text, you can type as you normally would.
 -   Code chunks are a bit different:
     -   Near the top right of your screen you can toggle between viewing this document as under Source or Visual.
-    -   If you view this document under Source, you will see that all code chunks are sandwiched between " `{r} " and "` ".
+    -   If you view this document under Source, you will see that all code chunks are sandwiched between \`\`\`{r} and \`\`\`.
     -   But under Visual, you can type R code in the lines under `{r}`.
     -   To include text in chunks, you will need to put a `#` in front. R will not read anything in the line after `#` as code.
 
