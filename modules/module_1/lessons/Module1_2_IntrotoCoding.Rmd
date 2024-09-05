@@ -67,9 +67,28 @@ Vectors have to contain elements that are all of the same class.
 
 ```
 
-### Sub-setting Vectors
+
+## Sub-setting Vectors
 
 Sometimes we want to pull out and work with specific values from a vector. This is called sub-setting (taking a smaller set of the original).
+
+We can subset vectors in two different ways:
+
+-   by index
+-   conditional sub-setting
+
+### Sub-setting by Index
+
+When we subset by index, we are sub-setting based on the position of an element in the vector.
+```{r}
+
+```
+
+### Conditional Sub-setting
+
+Sometimes we don't know or don't want to list out all of the locations for the data we need. Instead, we might want to subset based on a quality of the data itself. 
+
+To do this, we set a "condition" that must be met in order for the data to be returned.
 
 ```{r}
 
@@ -137,11 +156,15 @@ Data frames are made up of multiple vectors. Each vector becomes a column.
 
 ```
 
-### Sub-setting Data Frames
+## Sub-setting Data Frames
 
 Because data frames are two-dimensional, we can subset data in different ways. We can select specific columns, specific rows, or filter rows by values.
 
 R always takes information for the row first, then the column.
+
+Just like with vectors, we can subset dataframes by index or by condition
+
+#### Sub-setting by Index
 
 ```{r}
 
@@ -153,11 +176,25 @@ Another way to pull out a single column from a data frame is with the `$` operat
 
 ```
 
-### Discussion Point
+Regardless of how you specify the column, you can put that code inside of a function, such as the `mean()`.
 
-This is a simple data set, but let's come up with some questions.
+```{r}
 
-Example: height of plants treated with nitrogen vs. those not treated.
+```
+
+### Conditional Sub-setting
+
+This is a simple data set, but we can use it to ask a question.
+
+Example: Are the heights of plants treated with nitrogen different from those not treated?
+
+First, we will need to pull out only the plants that were treated with nitrogen.
+
+```{r}
+
+```
+
+We can create a new dataframe by saving the subset dataframe to a new object.
 
 ```{r}
 
@@ -165,15 +202,11 @@ Example: height of plants treated with nitrogen vs. those not treated.
 
 ### Group Challenge (5 min)
 
-Using help files on functions
-
 As a group, find the standard deviation (`sd()`) of the height of plants treated with nitrogen and those not treated with nitrogen. Which group has the larger standard deviation?
 
 ```{r}
 
 ```
-
-Come up with a definition of standard deviation (Google is your friend!), use the help file to find out how the `sd()` function works, and be prepared to show the code you used.
 
 ## Helpful Functions
 
