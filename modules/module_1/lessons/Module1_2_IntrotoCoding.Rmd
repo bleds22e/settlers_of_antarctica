@@ -13,12 +13,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Learning Outcomes
 
--   Students will be able to define the following terms:
-    -   object
-    -   assignment
-    -   vector
-    -   function
-    -   data frame
+-   Students will be able to define the following terms: object, assignment, vector, function, data frame
 -   Students will be able to run code line-by-line and as code chunks from an Rmarkdown file.
 -   Students will be able to comment their code effectively.
 -   Students will be able to write code assign values to variables and use these variables to perform various operations.
@@ -153,7 +148,12 @@ Rows represent observations. Each row will be one set of observations.
 Data frames are made up of multiple vectors. Each vector becomes a column.
 
 ```{r}
+# Create a data frame from scratch
+# I will never ask you to do this on your own!
+plants <- data.frame(height = c(55, 17, 42, 47, 68, 39),
+                     nitrogen = c("Y", "N", "N", "Y", "Y", "N"))
 
+plants
 ```
 
 ## Sub-setting Data Frames
@@ -162,7 +162,7 @@ Because data frames are two-dimensional, we can subset data in different ways. W
 
 R always takes information for the row first, then the column.
 
-Just like with vectors, we can subset dataframes by index or by condition
+Just like with vectors, we can subset data frames by index or by condition
 
 #### Sub-setting by Index
 
@@ -194,7 +194,7 @@ First, we will need to pull out only the plants that were treated with nitrogen.
 
 ```
 
-We can create a new dataframe by saving the subset dataframe to a new object.
+We can create a new data frame by saving the subset data frame to a new object.
 
 ```{r}
 

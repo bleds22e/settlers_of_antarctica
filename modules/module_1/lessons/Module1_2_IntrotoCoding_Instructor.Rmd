@@ -96,11 +96,12 @@ Sometimes we want to pull out and work with specific values from a vector. This 
 We can subset vectors in two different ways:
 
 -   by index
--   conditional subsetting
+-   conditional sub-setting
 
 ### Sub-setting by Index
 
 When we subset by index, we are sub-setting based on the position of an element in the vector.
+
 ```{r}
 # Use square brackets
 weight_kg[2]    # returns the 2nd element in the vector
@@ -109,7 +110,7 @@ weight_kg[2:4]  # returns the 2nd, 3rd, and 4th elements in the vector
 
 ### Conditional Sub-setting
 
-Sometimes we don't know or don't want to list out all of the locations for the data we need. Instead, we might want to subset based on a quality of the data itself. 
+Sometimes we don't know or don't want to list out all of the locations for the data we need. Instead, we might want to subset based on a quality of the data itself.
 
 To do this, we set a "condition" that must be met in order for the data to be returned.
 
@@ -124,7 +125,6 @@ weight_kg[weight_kg > 5]
 animals == "cat"
 animals[animals == "cat"]
 ```
-
 
 ## Functions
 
@@ -210,7 +210,7 @@ Because data frames are two-dimensional, we can subset data in different ways. W
 
 R always takes information for the row first, then the column.
 
-Just like with vectors, we can subset dataframes by index or by condition
+Just like with vectors, we can subset data frames by index or by condition
 
 ### Sub-setting by Index
 
@@ -250,7 +250,7 @@ plants[plants$nitrogen == "Y", ]
 mean(plants[plants$nitrogen == "Y", 1])
 ```
 
-We can create a new dataframe by saving the subset dataframe to a new object.
+We can create a new data frame by saving the subset data frame to a new object.
 
 ```{r}
 plants_no_nitrogen <- plants[plants$nitrogen == "N", ]
