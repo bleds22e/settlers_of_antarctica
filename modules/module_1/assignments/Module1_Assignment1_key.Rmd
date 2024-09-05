@@ -58,7 +58,7 @@ counts[2]
 counts[counts > 5]
 ```
 
-3.  Calculate the average number of penguins that were counted.
+3.  Calculate the average number of penguins that were counted. (Hint: the `mean()` function will calculate the average.)
 
 ```{r avg_penguins}
 # mean number of penguins
@@ -105,7 +105,7 @@ team_data[4, 8]
 
 When we have a large data set like this, it is often helpful to summarize the data in some way. The next few questions will help use get a better understanding of the content of the data set.
 
-7.  On average, how did people rate their ability to be in a remote location? (Hint: the `mean()` function will calculate the average.)
+7.  On average, how did people rate their ability to be in a remote location? 
 
 ```{r average_cold_tolerance}
 mean(team_data$remote_location)

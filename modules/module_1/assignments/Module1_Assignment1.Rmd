@@ -24,9 +24,9 @@ Write R code to successfully answer each question below.
 -   Code is within the provided code chunks
 -   Code chunks run without errors
 -   Code will be assessed as follows:
-    -   Produces the correct answer using the requested approach: 100%
-    -   Attempts to solve the problem and makes some progress using the core concept, but returns the wrong answer and does not demonstrate comfort with the core concept: 50%
-    -   Answer demonstrates a lack of understanding of the core concept: 0%
+-   Code produces the correct result
+    -   Code that produces the correct answer will receive full credit
+    -   Code attempts with logical direction will receive partial credit
 -   Written answers address the questions in sufficient detail
 
 ### Due Date
@@ -54,13 +54,13 @@ counts <- c(2, 9, 4, 3, 6, 7, 1, 0, 3)
 
 ```
 
-2.  Use conditional sub-setting to return values from the vector tha are greater than 5.
+2.  Use conditional sub-setting to return values from the vector that are greater than 5.
 
 ```{r}
 
 ```
 
-3.  Calculate the average number of penguins that were counted.
+3.  Calculate the average number of penguins that were counted. (Hint: the `mean()` function will calculate the average.)
 
 ```{r avg_penguins}
 
@@ -72,7 +72,7 @@ Now that we've practiced with vectors, let's move on to 2-dimensional data.
 
 Remember those fun/silly questions about our trip to Antarctica? It's time to play around with that data!
 
-The following code chunk will read the data into RStudio. Be sure to run it before try to answer the questions! A bunch of stuff will pop up, but it should work just fine. Once you run the code, you will see a dataframe called `team_data` show up in the environment.
+The following code chunk will read the data into RStudio. Be sure to run it before try to answer the questions! A bunch of stuff will pop up, but it should work just fine. Once you run the code, you will see a data frame called `team_data` show up in the environment.
 
 ```{r import_data}
 team_data <- read.csv("team_antarctica.csv")
@@ -92,33 +92,33 @@ team_data <- read.csv("team_antarctica.csv")
 
 5.  Take a look at the data frame using the `head()` function. Typically, `head()` provides the first 6 rows of data. Modify one of the arguments in `head()` so that the line of code prints the first 10 rows. (If you aren't sure how to do that, remember how you can look for help about functions!)
 
-```{r examine_data}
+```{r}
 
 ```
 
 6.  Using what you know about sub-setting data frames, write a line of code the pulls out the parka color for Unique ID 4. (Hint: count the columns!)
 
-```{r parka7}
+```{r}
 
 ```
 
 When we have a large data set like this, it is often helpful to summarize the data in some way. The next few questions will help use get a better understanding of the content of the data set.
 
-7.  On average, how did people rate their ability to be in a remote location? (Hint: the `mean()` function will calculate the average.)
+7.  On average, how did people rate their ability to be in a remote location? 
 
-```{r average_cold_tolerance}
+```{r}
 
 ```
 
 8.  What are the minimum and maximum distances that would be traveled by a team member to get to Antarctica? Use the `min()` and `max()` functions.
 
-```{r min_max_distance}
+```{r}
 
 ```
 
 9.  Use conditional sub-setting to produce a new data frame that only includes rows of data for people who rated their fishing skills as a 5. (Hint: numbers do not need quotation marks around them).
 
-```{r cooking_skill}
+```{r}
 
 ```
 
@@ -131,7 +131,7 @@ When we have a large data set like this, it is often helpful to summarize the da
 
     c.  Finally, think about how to calculate the average
 
-```{r parka_colors}
+```{r}
 
 ```
 
