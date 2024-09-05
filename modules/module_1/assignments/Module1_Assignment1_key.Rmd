@@ -1,5 +1,5 @@
 ---
-title: "Module 1, Assignment 1: Getting to Know the Team"
+title: "Module 1, Assignment 2: Getting to Know the Team"
 author: "Ellen Bledsoe"     # <- your name here, inside quotation marks
 date: "`r Sys.Date()`"      # <- uses the current date when rendered
 output: pdf_document
@@ -28,35 +28,34 @@ Write R code to successfully answer each question below.
 
 ### Due Date
 
-Jan 25 at 11am MST
+Thursday, Sept 12 at 9:30 am MST
 
 # Assignment Questions
 
-Each question is worth 2 points.
+Each question is worth 2 points unless otherwise specified.
 
 ## Vectors
 
 Let's start working with vectors, or 1-dimensional data, first.
 
-Run this chunk of code to create a vector of data to use.
+Run this chunk of code to create a vector of data to use. It represents the number of penguins counted at different sites.
 
 ```{r vector}
 # vector with counts of penguins
 counts <- c(2, 9, 4, 3, 6, 7, 1, 0, 3)
 ```
 
-1.  What data class is `counts`? Use a function to find out.
-
-```{r data_class}
-# data class for counts
-class(counts)
-```
-
-2.  Write a line of code that pulls out the 2nd value in the `counts` vector.
+1.  Write a line of code that pulls out the 2nd value in the `counts` vector.
 
 ```{r second_value}
 # second value of counts vector
 counts[2]
+```
+
+2.  Use conditional sub-setting to return values from the vector tha are greater than 5.
+
+```{r}
+counts[counts > 5]
 ```
 
 3.  Calculate the average number of penguins that were counted.
@@ -78,11 +77,10 @@ The following code chunk will read the data into RStudio. Be sure to run it befo
 team_data <- read.csv("../data/team_antarctica.csv")
 ```
 
-4. Using either a function or looking in the environment, answer the following questions (2 points each).
+4.  Using either a function or looking in the environment, answer the following questions (1 point each).
 
 -   What are the dimensions of the data (how many rows and how many columns)?
 -   What are the names of the columns in the data?
--   What is the data *class* for each column? Also, determine which of these classes are qualitative vs. quantitative.
 
 *Answer:*
 
@@ -91,20 +89,6 @@ team_data <- read.csv("../data/team_antarctica.csv")
 dim(team_data) # 34 rows, 10 columns
 colnames(team_data) 
 str(team_data) 
-
-# uniqueID (integer/numeric)
-# cooking_skill (integer/numeric)
-# fishing_skill (integer/numeric)
-# swimming (character/text)
-# cold_tolerance (integer/numeric)
-# working_with_animals (logical)
-# remote_location (integer/numeric)
-# parka_color (character/text)
-# team_flag (character/text)
-# distance (numeric)
-
-# integer/numeric = quantitative
-# character and logical = qualitative
 ```
 
 5.  Take a look at the data frame using the `head()` function. Typically, `head()` provides the first 6 rows of data. Modify one of the arguments in `head()` so that the line of code prints the first 10 rows. (If you aren't sure how to do that, remember how you can look for help about functions!)
@@ -121,7 +105,7 @@ team_data[4, 8]
 
 When we have a large data set like this, it is often helpful to summarize the data in some way. The next few questions will help use get a better understanding of the content of the data set.
 
-7.  On average, how did people rate their ability to be in a remote location?
+7.  On average, how did people rate their ability to be in a remote location? (Hint: the `mean()` function will calculate the average.)
 
 ```{r average_cold_tolerance}
 mean(team_data$remote_location)
@@ -135,8 +119,26 @@ min(team_data$distance_mi)
 
 # maximum distance
 max(team_data$distance_mi)
-``` 
+```
 
+9.  Use conditional sub-setting to produce a new data frame that only includes rows of data for people who rated their fishing skills as a 5. (Hint: numbers do not need quotation marks around them).
+
+```{r cooking_skill}
+team_data[team_data$fishing_skill == 5, ]
+```
+
+
+10. Calculate the average cold tolerance of people who want blue parkas. Use these steps to think through how to answer this question.
+
+    a.  First, think about how to create a data frame with only people who want blue parkas
+
+    b.  Next, think about how you select the column with the cold tolerance data
+
+    c.  Finally, think about how to calculate the average
+
+```{r parka_colors}
+mean(team_data[team_data$parka_color == "Blue", 5])
+```
 
 ## Bonus (up to 2 points)!
 
@@ -144,7 +146,7 @@ What animal should be on our team flag?
 
 First, create a vector called `mascot` that has only the values from the `team_flag` column. Next, use the `table()` function on the `mascot`. This will give you the number of times each option was chosen. According to the results, which animal should be on our team flag?
 
-*Answer:*
+*Answer:* Orca!
 
 ```{r flag_mascot}
 # data frame

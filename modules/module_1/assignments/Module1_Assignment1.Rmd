@@ -1,7 +1,7 @@
 ---
-title: "Module 1, Assignment 1: Getting to Know the Team"
-author: "Ellen Bledsoe"     # <- your name here!
-date: "`r Sys.Date()`"      # <- no need to change; uses the current date when rendered
+title: "Module 1, Assignment 2: Getting to Know the Team"
+author: "Ellen Bledsoe"     # <- your name here, inside the quotation marks!
+date: "`r Sys.Date()`"      # <- no need to change
 output: pdf_document
 ---
 
@@ -25,14 +25,13 @@ Write R code to successfully answer each question below.
 -   Code chunks run without errors
 -   Code will be assessed as follows:
     -   Produces the correct answer using the requested approach: 100%
-    -   Generally uses the right approach, but a minor mistake results in an incorrect answer: 90%
     -   Attempts to solve the problem and makes some progress using the core concept, but returns the wrong answer and does not demonstrate comfort with the core concept: 50%
     -   Answer demonstrates a lack of understanding of the core concept: 0%
 -   Written answers address the questions in sufficient detail
 
 ### Due Date
 
-Jan 25 at 11am MST
+Thursday, Sept 12 by 9:30 am
 
 # Assignment Questions
 
@@ -42,22 +41,22 @@ Each question is worth 2 points unless otherwise specified.
 
 Let's start working with vectors, or 1-dimensional data, first.
 
-Run this chunk of code to create a vector of penguins counts. Once you run the code, the object `counts` should appear in the environment.
+Run this chunk of code to create a vector of data to use. It represents the number of penguins counted at different sites.
 
 ```{r vector}
 # vector with counts of penguins
 counts <- c(2, 9, 4, 3, 6, 7, 1, 0, 3)
 ```
 
-1.  What data class is `counts`? Use a function to find out.
+1.  Write a line of code that pulls out the 2nd value in the `counts` vector.
 
-```{r data_class}
+```{r second_value}
 
 ```
 
-2.  Write a line of code that pulls out the number 9 from the `counts` vector.
+2.  Use conditional sub-setting to return values from the vector tha are greater than 5.
 
-```{r second_value}
+```{r}
 
 ```
 
@@ -79,16 +78,16 @@ The following code chunk will read the data into RStudio. Be sure to run it befo
 team_data <- read.csv("team_antarctica.csv")
 ```
 
-4.  Using either a function or looking in the environment, answer the following questions (2 points each).
+4.  Using either a function or looking in the environment, answer the following questions (1 point each).
 
 -   What are the dimensions of the data (how many rows and how many columns)?
 -   What are the names of the columns in the data?
--   What is the data *class* for each column?
 
 *Answer:*
 
 ```{r}
 # using code is optional
+
 ```
 
 5.  Take a look at the data frame using the `head()` function. Typically, `head()` provides the first 6 rows of data. Modify one of the arguments in `head()` so that the line of code prints the first 10 rows. (If you aren't sure how to do that, remember how you can look for help about functions!)
@@ -105,15 +104,34 @@ team_data <- read.csv("team_antarctica.csv")
 
 When we have a large data set like this, it is often helpful to summarize the data in some way. The next few questions will help use get a better understanding of the content of the data set.
 
-7.  On average, how did people rate their ability to be in a remote location?
+7.  On average, how did people rate their ability to be in a remote location? (Hint: the `mean()` function will calculate the average.)
 
-```{r avg_remote_location}
+```{r average_cold_tolerance}
 
 ```
 
 8.  What are the minimum and maximum distances that would be traveled by a team member to get to Antarctica? Use the `min()` and `max()` functions.
 
 ```{r min_max_distance}
+
+```
+
+9.  Use conditional sub-setting to produce a new data frame that only includes rows of data for people who rated their fishing skills as a 5. (Hint: numbers do not need quotation marks around them).
+
+```{r cooking_skill}
+
+```
+
+
+10. Calculate the average cold tolerance of people who want blue parkas. Use these steps to think through how to answer this question.
+
+    a.  First, think about how to create a data frame with only people who want blue parkas
+
+    b.  Next, think about how you select the column with the cold tolerance data
+
+    c.  Finally, think about how to calculate the average
+
+```{r parka_colors}
 
 ```
 
@@ -137,4 +155,4 @@ Follow these steps to successfully turn in your assignment on D2L.
 2.  Click the empty box to the left of the PDF file.
 3.  Click on the blue gear near the top of the `Files` panel and choose Export.
 4.  Put your last name at the front of the file name when prompted, then click the Download button. The PDF file of your assignment is now in your "Downloads" folder on your device.
-5.  Head over to D2L and navigate to Module 1 Assignment 1. Submit the PDF file that you just downloaded.
+5.  Head over to D2L and navigate to Module 1 Assignment 2. Submit the PDF file that you just downloaded.
