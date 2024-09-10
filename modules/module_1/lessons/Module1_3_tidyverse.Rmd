@@ -106,7 +106,7 @@ The `select()` function does the same thing but with more power (and, in my opin
 
 ```
 
-You might have noticed that we haven't put any column names in quotations, unlike what we did with selecting columns by name in base R. This is one quirk of the `tidyverse` to which you will need to pay special attention. We *usually* will not need to put column names in quotations.
+Note that we haven't put any column names in quotations. Using the `tidyverse`, we will rarely (if ever, in this class) put column names in quotation marks.
 
 ### Let's practice!
 

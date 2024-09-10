@@ -82,7 +82,8 @@ To learn about the `tidyverse` syntax, we're going to use a real data set on cli
 # read in the data file
 
 # `read_csv()` is part of the `tidyverse` and gives us nice options when reading in data
-climate_df <- read_csv("global_temps.csv")
+# your file path should only be read_csv("global_temps.csv")
+climate_df <- read_csv("../data/global_temps.csv")
 
 # Let's take a look at the climate data. 
 climate_df
@@ -122,7 +123,7 @@ select(climate_df, dt:Country)
 select(climate_df, -City)
 ```
 
-You might have noticed that we haven't put any column names in quotations, unlike what we did with selecting columns by name in base R. This is one quirk of the `tidyverse` to which you will need to pay special attention. We *usually* will not need to put column names in quotations.
+Note that we haven't put any column names in quotations. Using the `tidyverse`, we will rarely (if ever, in this class) put column names in quotation marks.
 
 ### Let's practice!
 
