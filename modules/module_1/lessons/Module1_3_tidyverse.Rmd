@@ -25,7 +25,7 @@ Different programming languages have different syntax (language structure). The 
 
 Until now, all of the coding we have done is in the original R language, which is often called "base R." The syntax in the `tidyverse` is often pretty different from base R. Both are useful, and many people often combine them, which is why we start with base R.
 
-That said, we will be primarily using the `tidyverse` for the rest of the semester. With the exception of Module 1 Assignment 3, which is exclusively about `tidyverse`, I will never punish you for using base R in place of `tidyverse`, as long as you get the same answer!
+That said, we will be primarily using the `tidyverse` for the rest of the semester.
 
 ### Wait, what is a package??
 
@@ -155,7 +155,6 @@ This is helpful for a lot of reasons, including:
 2.  makes things more human-readable (in addition to computer-readable)
 
 The shortcut for typing a pipe is `Ctrl` + `Shift` + `M` (or `Cmd` + `Shift` + `M` on a Mac)
-
 
 ```{r pipes}
 

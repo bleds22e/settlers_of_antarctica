@@ -56,14 +56,19 @@ For this final assignment for Module 1, you'll be working with another real-worl
 
     rows:\
     columns:
+    
+```{r}
+# using code is optional for Question 4
+```
 
-5.  Write some code to choose rows that only includes temperatures which are above freezing (AKA greater than 0)
+
+5.  Write some code to choose rows that only includes temperatures which are above freezing (AKA greater than 0 because the temperature is currently in Celcius)
 
 ```{r above0}
 
 ```
 
-6.  Write some code to choose *only* the following columns: year, day, month, temp, station_id. Save these columns as a new object called `station_temp`.
+6.  Write some code to choose *only* columns with the following information:  the year, day, month, temperature, and the station ID. Save these columns as a new object called `station_temp`.
 
 ```{r temp_df}
 
