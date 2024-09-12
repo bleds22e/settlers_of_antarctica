@@ -38,7 +38,7 @@ All questions are worth 1 point unless otherwise specified.
 
 ## Explore Datasets
 
-1.  First, click on the links for each dataset and read a little bit about each one. *In your own words*, write 1-2 sentences describing each. (2 points)
+Click on the links for each dataset and read a little bit about each one. *In your own words*, write 1-2 sentences describing each. (2 points)
 
 -   [KrillBase](https://www.bas.ac.uk/project/krillbase/#about):
 -   [Fur Seal Pups](https://ramadda.data.bas.ac.uk/repository/entry/show?entryid=bc6d802a-fce5-495d-b5e1-bb26f824847c) at Maiviken:
@@ -47,16 +47,16 @@ All questions are worth 1 point unless otherwise specified.
 
 Now that you have an idea of what each data set is about, let's explore the actual data.
 
-2.  First, we need to load the `tidyverse` package. I've already *installed* the `tidyverse`, so you don't need to do that. You'll want to use the `library()` function.
+1.  First, we need to load the `tidyverse` package. You'll want to use the `library()` function.
 
 *Loading the `tidyverse` usually leads to some red text. This is normal! Unless your red text says that there has been an ERROR, you should be good to go.*
 
 ```{r}
 # load the tidyverse
-library(tidyverse)
+
 ```
 
-3.  Read all four datasets (.csv files) into RStudio using the `read_csv()` function (*not* `read.csv`). Remember to save each dataset as an object with a descriptive name. This is one time you do not need to print the objects! (2 points)
+3.  Read all four datasets (.csv files) into RStudio using the `read_csv()` function (*not* `read.csv`). Remember to save each dataset as an object with a descriptive name (use the assignment arrow, `<-`). This is one time you do not need to print the objects! (2 points)
 
 ```{r}
 
@@ -74,16 +74,60 @@ library(tidyverse)
 
 *Answer*:
 
-6.  For each of the columns in your dataset, identify whether they contain are qualitative (categorical) or quantitative (numeric). (3 points)
+6.  For each of the columns in your dataset, identify whether they contain categorical or continuous/numeric data. (3 points)
 
+    *Note: some data, such as dates (month, year), can act as both types of data. See the section below for clarification about columns in your chosen dataet. 
+    
     Type out the name of the column and then the descriptor. For example:
 
     -   island_name: qualitative (categorical)
     -   island_size_km: quantitative (numeric)
 
-    *Note: some data, such as dates (month, year), can act as both types of data. Make note of how the data are represented in your chosen dataset. If you think that column could be used as both data types, say so.*
-
 *Answer*:
+
+------------------------------------------------------------------------
+
+Find your dataset below. 
+
+I've made a few modifications to each of the dataset to make them a bit more manageable to work with. Also, based on how some of these variables will be used in future assignments, you should treat certain variables in the way I've listed below (even if they could be considered either *continuous* or *categorical*. 
+
+#### Krill
+
+-   You will want to use the `Krill_per_1m2_log` column as your dependent variable. This is a log-transformed version of the `Krill_per_1m2` column. You don't need to worry about *why* we transformed the data, but this column should be a bit easier to work with.
+-   The `Date`, `Year`, and `Month` columns should all be treated as *continuous* variables.
+-   While the `Station` column can *technically* be considered a qualitative/categorical variable, please use the `Day_Night` column as your qualitative/categorical variable for this assignment and for your research question.
+
+#### Fur Seals
+
+-   If you choose to use the `Date` or `Year` column, treat them as *continuous* variables.
+-   On the other hand, if you use the `Month` column, treat it as a *categorical* variable.
+
+#### Gentoo Penguins
+
+-   If you are using the `Year` column, treat it as a *continuous* variable.
+-   The dataset has a column for the previous year's December temperature. Because counts of chicks took place in January or February (and nests were counted in October/November), the number of chicks is most likely to be related to the temperatures directly after chicks hatched (December of the previous year).
+
+#### Chinstrap Penguins
+
+-   I do not recommend using the `MONTH` or `DAY` column.
+-   If you use the `YEAR` column, treat it as a *continuous* variable.
+
+------------------------------------------------------------------------
+
+## Summarize the Data
+
+Let's get to know our data a little better.
+
+11. Focus on your *dependent* variable. Calculate the minimum value (`min()`), maximum (`max()`) value, and average (`mean()`) value using the `tidyverse` functions (you might need `na.rm = TRUE`!). (2 points)
+
+-   If your research question has a *qualitative (categorical)* independent variable, use the `group_by` function to find those values for each category of the independent variable
+-   If your research question has a *quantitative (numeric)* independent variable, calculate the minimum, maximum, and mean values for the independent variable
+
+```{r}
+
+
+```
+
 
 ## Writing a Research Question
 
@@ -100,6 +144,8 @@ In order to write a successful research question, we need to identify our depend
 9.  Now, let's put those 2 variables into a research question.
 
 *Answer*:
+
+## Select and Filter the Data
 
 ## Literature Search
 
@@ -126,20 +172,6 @@ To determine whether the article is related to your research question, read the 
 *Article 2 Citation*:
 
 *Article 2 Description*:
-
-## Summarize the Data
-
-Let's get to know our data a little better.
-
-11. Focus on your *dependent* variable. Calculate the minimum value (`min()`), maximum (`max()`) value, and average (`mean()`) value using the `tidyverse` functions (you might need `na.rm = TRUE`!). (2 points)
-
--   If your research question has a *qualitative (categorical)* independent variable, use the `group_by` function to find those values for each category of the independent variable
--   If your research question has a *quantitative (numeric)* independent variable, calculate the minimum, maximum, and mean values for the independent variable
-
-```{r}
-
-
-```
 
 # Turning in Your Assignment
 
