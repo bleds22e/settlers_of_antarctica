@@ -22,7 +22,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 We have a wave of people getting sick across the team. People are coming in complaining of stomach sickness. Doctors have ruled out a communicable viral infection like norovirus, so it seems likely to be a food contamination issue.
 
-The two main sources of food that are grown on site and distributed to team members are [plants grown in hydroponic greenhouses](https://thespoon.tech/scientists-in-antarctica-grow-food-without-soil-or-sunlight-get-ready-mars/) (mostly Swiss chard, cucumbers and radishes) and fish (tilapia, a tolerant warm-water species, and rainbow trout, a cold-water species). The combination of aquaculture and hydroponics is called [**aquaponics**](https://docs.google.com/presentation/d/12Q1wIMO-b5ZfylHnA4dOsaLUBERtvVREzwQuO7Sc53A/edit?usp=sharing).
+The two main sources of food that are grown on site and distributed to team members are [plants grown in hydroponic greenhouses](https://thespoon.tech/scientists-in-antarctica-grow-food-without-soil-or-sunlight-get-ready-mars/) (mostly Swiss chard, cucumbers and radishes) and fish (tilapia, a tolerant warm-water species, and rainbow trout, a cold-water species). The combination of aquaculture and hydroponics is called [**aquaponics**](https://docs.google.com/presentation/d/1G1221qUahFfjbZMuiDDd0ckhvg7h4oOTox19y79gaLs/edit#slide=id.p).
 
 Team members' diets vary in composition; people are allowed to choose how much of different food sources they eat.
 
@@ -56,7 +56,7 @@ As a quick overview, descriptive statistics often include 3 elements:
 -   measures of *central tendency*: mean, median, and mode
 -   measures of *variation*: range and standard deviation
 
-The slide deck with more information about descriptive statistics is linked on D2L and [here](https://docs.google.com/presentation/d/1pAnGupJqgU5t7YucGwMsbAdusoplY4GcJMdOWCic4hs/edit?usp=sharing).
+The slide deck with more information about descriptive statistics is linked on D2L and [here](https://docs.google.com/presentation/d/1TA3h8t1LoXon0JyvZb9vaQaUWj7Fh7XUYbtIudVZ5T0/edit?usp=sharing).
 
 For a nice overview of descriptive statistics, check out [this website](https://www.scribbr.com/statistics/descriptive-statistics/) I showed in class. It goes a bit further than we go in this class, but it is a nice place to review!
 
@@ -98,7 +98,7 @@ Combining data visualization with descriptive statistics is a great way to under
 
 There are two main ways to make data visualizations in R: through base R, which is the syntax we learned in our first week of coding, and through `ggplot2`, which is a package in the `tidyverse`.
 
-For the majority of the semester, we will be plotting in with `ggplot2`, which is a fun and powerful tool. However, to plot even a simple plot, `ggplot2` takes some explanation. We will talk about `ggplot2` in our next class but for today, let's first make some quick-and-dirty plots in base R.
+For the majority of the semester, we will be plotting in with `ggplot2`, which is a fun and powerful tool. However, to plot even a simple plot, `ggplot2` takes some explanation. We will talk about `ggplot2` in our _next class_ but for today, let's first make some quick-and-dirty plots in _base R_.
 
 ### Histograms
 
