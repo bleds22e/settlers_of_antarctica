@@ -31,7 +31,7 @@ Write R code which produces the correct answers and text to correctly interpret 
 
 ### Due Date
 
-Feb 15 at 11am MST
+Oct 3 at 9:30 am MST
 
 # Assignment Questions
 
@@ -41,7 +41,7 @@ First, let's prepare our data.
 
 1.  Load the `tidyverse` package into the work space.
 
-    ```{r, message = FALSE}
+    ```{r}
 
     ```
 
@@ -51,13 +51,13 @@ First, let's prepare our data.
 
     ```
 
-3.  Use the `head()` function to take a look at the columns in the data frame.
+3.  Use the `head()` or the `str()` function to take a look at the `sick_fish` data frame.
 
     ```{r}
 
     ```
 
-4.  How many rows does the data frame have? How many columns?
+4.  How many rows does the `sick_fish` data frame have? How many columns? 
 
     *Answer:*
 
