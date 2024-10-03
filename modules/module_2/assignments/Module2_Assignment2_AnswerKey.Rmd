@@ -1,7 +1,7 @@
 ---
 title: "Module 2, Assignment 2"
 author: "Ellen Bledsoe"
-date: "2023-02-23"
+date: "`r Sys.Date()`"
 output:
   pdf_document: default
 ---
@@ -24,7 +24,7 @@ head(growth)
 tail(growth)
 
 growth <- growth %>% 
-  mutate(perc_soy_protein = as.factor(perc_soy_protein))
+  mutate(soy_protein = factor(soy_protein, levels = c("low", "medium", "high", "very high")))
 ```
 
 
@@ -33,14 +33,14 @@ growth <- growth %>%
 ```{r}
 growth <- growth %>%
   mutate(day_30_weight_kg = day_30_weight / 1000)
-print.data.frame(head(growth))
+print.data.frame(head(growth, 10))
 ```
 
 6.
 
 ```{r}
 growth_by_treatment <- growth %>%
-  group_by(perc_soy_protein) %>%
+  group_by(soy_protein) %>%
   summarize(mean_weight_kg = mean(day_30_weight_kg))
 growth_by_treatment
 ```
@@ -48,10 +48,10 @@ growth_by_treatment
 7.
 
 ```{r}
-ggplot(growth, aes(perc_soy_protein, day_30_weight_kg)) +
+ggplot(growth, aes(soy_protein, day_30_weight_kg)) +
   geom_boxplot() +
   geom_jitter(width = 0.1) +
-  labs(x = "Percent Diet Comprised of Soy Protein",
+  labs(x = "Amount of Soy Protein in Diet",
    y = "Tilapia Weight at 30 Days (kg)") +
   theme_light()
 ```
@@ -60,7 +60,7 @@ ggplot(growth, aes(perc_soy_protein, day_30_weight_kg)) +
 
 ```{r}
 growth_by_treatment_and_temp <- growth %>%
-  group_by(perc_soy_protein, tank_category) %>%
+  group_by(soy_protein, tank_category) %>%
   summarise(mean_weight_kg = mean(day_30_weight_kg))
 growth_by_treatment_and_temp
 ```
@@ -68,10 +68,10 @@ growth_by_treatment_and_temp
 9.
 
 ```{r}
-ggplot(growth, aes(avg_tank_temp, day_30_weight_kg, color = perc_soy_protein)) +
+ggplot(growth, aes(avg_tank_temp, day_30_weight_kg, color = soy_protein)) +
   geom_point() +
   labs(x = "Average Tank Temperature (C)",
    y = "Tilapia Weight at 30 Days (kg)",
-   color = "Percent Soy Protein") +
+   color = "Amount of Soy Protein") +
   theme_light()
 ```

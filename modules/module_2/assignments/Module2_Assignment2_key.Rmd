@@ -1,7 +1,7 @@
 ---
 title: "Module 2, Assignment 2"
 author: "Ellen Bledsoe"
-date: "2023-02-23"
+date: "`r Sys.Date()`"
 output:
   pdf_document: default
 ---
@@ -78,7 +78,7 @@ First, let's take a look at the data we will be using for the assignment.
 
     320
 
-    d\. How many different "percent soy protein" levels (treatments) are there? In this assignment, we will treat `perc_soy_protein` as a *categorical* variable, so another way to ask this question is: how many categories of percent soy protein do we have?
+    d\. How many different soy protein levels (treatments) are there? 
 
     4
 
@@ -86,10 +86,10 @@ First, let's take a look at the data we will be using for the assignment.
 
 We have been asked by our aquaculture specialists to provide them with the following:
 
-a.  a data frame with the average growth (`day_30_weight`) per treatment (`perc_soy_protein`)
+a.  a data frame with the average growth (`day_30_weight`) per treatment (`soy_protein`)
 b.  a boxplot plot that shows the relationship (or lack thereof) between percent soy protein in the diet and the weight at 30 days
-c.  a data frame with the average growth per treatment (`perc_soy_protein`) *and* tank category
-d.  a multiple scatter plot that shows the relationship (or lack thereof) between average tank temperature, the weight at 30 days, and the percent soy in the diet.
+c.  a data frame with the average growth per treatment (`soy_protein`) *and* tank category (warm or cold)
+d.  a multiple scatter plot that shows the relationship (or lack thereof) between average tank temperature, the weight at 30 days, and the amount of soy in the diet.
 
 They've also asked that we provide all weights in kilograms instead of grams (the `day_30_weight` is currently in grams).
 
@@ -113,11 +113,11 @@ They've also asked that we provide all weights in kilograms instead of grams (th
 
 Now let's actually go ahead and complete our tasks with code.
 
-FIRST! We need to run the line of code below. It's a little wonky, but for the rest of the assignment to work the way I want it to, we need to tell R that we want to treat the `perc_soy_protein` as a categorical variable.
+FIRST! We need to run the line of code below. It's a little wonky but will ultimately be helpful. This line of code tells R that we want the soy proteins levels to be listed in a specific order (low to very high) rather than alphabetically. 
 
 ```{r}
 growth <- growth %>% 
-  mutate(perc_soy_protein = as.factor(perc_soy_protein))
+  mutate(soy_protein = factor(soy_protein, levels = c("low", "medium", "high", "very high")))
 ```
 
 Because the aquaculture team has asked for everything to use kilograms instead of grams, it makes sense for us to add a `day_30_weight_kg` column before we tackle any of the specific tasks.
@@ -126,7 +126,7 @@ Because the aquaculture team has asked for everything to use kilograms instead o
 
     Save the output as `growth_kg` (2 points)
     
-    This is the data frame you will use for the remainder of the assignment.
+    ** NOTE: This is the data frame you will use for the remainder of the assignment.**
 
     ```{r}
     growth_kg <- growth %>% 
@@ -136,13 +136,13 @@ Because the aquaculture team has asked for everything to use kilograms instead o
 
 ### Task (a)
 
-**A data frame with the average growth (`day_30_weight_kg`) per treatment (`perc_soy_protein`)**
+**A data frame with the average growth (`day_30_weight_kg`) per treatment (`soy_protein`)**
 
-6.  Create a new data frame called `growth_by_treatment`. We first want to group the data by treatment (`perc_soy_protein`) then calculate the average weight in kg. (2 points)
+6.  Create a new data frame called `growth_by_treatment`. We first want to group the data by treatment (`soy_protein`) then calculate the average weight in kg. Remember to use the `growth_kg` dataframe. (2 points)
 
     ```{r}
     growth_by_treatment <- growth_kg %>% 
-      group_by(perc_soy_protein) %>% 
+      group_by(soy_protein) %>% 
       summarize(mean_weight_kg = mean(day_30_weight_kg))
     growth_by_treatment
     ```
@@ -153,29 +153,28 @@ Because the aquaculture team has asked for everything to use kilograms instead o
 
 Based on the values we calculated in task (a), it looks like there is probably a positive relationship between the percent of soy protein in tilapia diet and growth. Let's plot the data to confirm.
 
-7.  Make a box plot with `perc_soy_protein` on the x-axis (horizontal) and `day_30_weight_kg` on the y-axis (vertical). Change the axis labels to be more easily understood and add a theme. (2 point)
+7.  Make a box plot with `soy_protein` on the x-axis (horizontal) and `day_30_weight_kg` on the y-axis (vertical). Change the axis labels to be more easily understood and add a theme. (2 point)
 
     (Hint: because we want to plot *all* of the values, not just the mean values, we need to use the original `growth_kg` data frame)
 
     ```{r}
-    # a few people might have a scatter plot because I made a mistake with the wording; that's fine
-    ggplot(growth_kg, aes(perc_soy_protein, day_30_weight_kg)) +
+    ggplot(growth_kg, aes(soy_protein, day_30_weight_kg)) +
       geom_boxplot() +
       geom_jitter(width = 0.1) +
-      labs(x = "Percent Diet Comprised of Soy Protein",
+      labs(x = "Amount of Soy Protein in the Diet",
        y = "Tilapia Weight at 30 Days (kg)") +
       theme_light()
     ```
 
 ### Task (c)
 
-**A data frame with the average growth per treatment (`perc_soy_protein`) *and* if tanks are warm or cold**
+**A data frame with the average growth per treatment (`soy_protein`) *and* if tanks are warm or cold**
 
-8.  Now that we have our `tank_category` column, we can use it in our `group_by` function, along with `perc_soy_protein`, to calculate the average `day_30_weight_kg` for warm and cold tanks in each treatment. Call this new data frame `growth_by_temp_treatment`. (2 points)
+8.  We can use both the `tank_category` and `soy_protein` columns in the `group_by` function, along with to calculate the average `day_30_weight_kg` for warm and cold tanks in each treatment. Call this new data frame `growth_by_temp_treatment`. (2 points)
 
     ```{r}
     growth_by_treatment_and_temp <- growth_kg %>% 
-      group_by(perc_soy_protein, tank_category) %>% 
+      group_by(soy_protein, tank_category) %>% 
       summarise(mean_weight_kg = mean(day_30_weight_kg))
     growth_by_treatment_and_temp
     ```
@@ -191,11 +190,11 @@ Based on our results above, do we think the tank being warm or cold has much of 
     (Hint: because we want to plot *all* of the values, not just the mean values, we need to use the original `growth_kg` data frame)
 
     ```{r}
-    ggplot(growth_kg, aes(avg_tank_temp, day_30_weight_kg, color = perc_soy_protein)) +
+    ggplot(growth_kg, aes(avg_tank_temp, day_30_weight_kg, color = soy_protein)) +
       geom_point() +
       labs(x = "Average Tank Temperature (C)",
            y = "Tilapia Weight at 30 Days (kg)",
-           color = "Percent Soy Protein") +
+           color = "Amount of Soy Protein") +
       theme_light()
     ```
 
@@ -203,7 +202,7 @@ As suspected, there doesn't seem to be much of a difference based on tank temper
 
 ## Reflection
 
-10. Imagine we had decided to treat `perc_soy_protein` as a continuous variable. What type of plot we have used for task (b)? Would we have been able to complete task (d)? Why or why not? (2 points)
+10. Imagine we had decided to treat `soy_protein` as a continuous variable. What type of plot we have used for task (b)? Would we have been able to complete task (d)? Why or why not? (2 points)
 
     *Answer:* Yes or no is acceptable. I have not taught them how to plot 3 continuous variables on a scatter plot, but it is doable. If they say no, you can only plot 2 continuous and 1 categorical, that is valid. If they say you *can* plot 3 because you can use color as a spectrum, that is also viable. Just make sure they explain why it would (or would not) work.
 
