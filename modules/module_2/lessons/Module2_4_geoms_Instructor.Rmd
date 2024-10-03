@@ -1,5 +1,5 @@
 ---
-title: '4: Exploring `geom` functions'
+title: '4: Exploring `geom` Functions'
 author: "Ellen Bledsoe"
 date: "`r Sys.Date()`"
 output: pdf_document
@@ -12,21 +12,6 @@ knitr::opts_chunk$set(echo = TRUE)
 # Plotting in `ggplot2`
 
 ## Data Visualization Types and When to Use Them
-
-### Scavenger Hunt
-
-Head over to [data-to-viz.com](https://www.data-to-viz.com/) and do some exploration! In your groups, choose one of the following types of plots. Hunt down as many locations in the flow chart where your plot type is found as you can find.
-
--   histogram: `geom_histogram()`
--   scatter plot: `geom_point()`
--   box-and-whisker: `geom_boxplot()` + `geom_jitter()`
-
-If you've finished, click on your plot type and read more about it. Check out the examples that were made in R, including many using `ggplot2`. Take note of the following:
-
--   which `geom` function is being used to create the plot
--   you'll see a number of other things in the `ggplot` code, some which will be new. What are they? Any idea what they are doing?
-
-## Using `geom` Functions to Make Plots
 
 Let's practice making different kinds of plots with various `geom` functions to see how they work.
 
@@ -240,7 +225,7 @@ If you have both `color` and `fill` in `aes()`, you will need to add both argume
 
 Make 2 different types of plots with the same data: the average daily temperature of the tanks and fish species.
 
-First, think about the variables we are plotting. How many are there? Are they qualitative or quantitative?
+First, think about the variables we are plotting. How many are there? Are they categorical or numeric?
 
 Based on those answers, determine which plot types you can produce for those variable types.
 
