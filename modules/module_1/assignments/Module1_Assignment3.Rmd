@@ -1,5 +1,5 @@
 ---
-title: 'Module 1: Assignment 3'
+title: 'Module 2: Assignment 3'
 author: "Ellen Bledsoe"
 date: "`r Sys.Date()`"
 output: pdf_document
@@ -17,7 +17,7 @@ The goal of this assignment is to get started working on the final project for t
 
 ### Task
 
-Choose a dataset to work with for the final, write a research question, and summarise the data.
+Choose a dataset to work with for the final, write a research question, summarize and plot the data.
 
 ### Criteria for Success
 
@@ -30,7 +30,7 @@ Choose a dataset to work with for the final, write a research question, and summ
 
 ### Due Date
 
-Feb 8 at 11am MST
+Oct 17 at 9:30am MST
 
 # Assignment Questions
 
@@ -38,31 +38,29 @@ All questions are worth 1 point unless otherwise specified.
 
 ## Explore Datasets
 
-Click on the links for each dataset and read a little bit about each one. *In your own words*, write 1-2 sentences describing each. (2 points)
+Click on the links for each dataset and read a little bit about each one.
 
--   [KrillBase](https://www.bas.ac.uk/project/krillbase/#about):
--   [Fur Seal Pups](https://ramadda.data.bas.ac.uk/repository/entry/show?entryid=bc6d802a-fce5-495d-b5e1-bb26f824847c) at Maiviken:
--   [Gentoo Penguins](https://ramadda.data.bas.ac.uk/repository/entry/show?entryid=1fd5bc8a-96b5-4f53-aa15-33e5330e7705) on Bird Island:
--   [Chinstrap Penguins](https://ramadda.data.bas.ac.uk/repository/entry/show?entryid=d784af69-c92b-444c-a12e-ee0361802cb1) on Signy Island:
+-   [KrillBase](https://www.bas.ac.uk/project/krillbase/#about)
+-   [Fur Seal Pups](https://ramadda.data.bas.ac.uk/repository/entry/show?entryid=bc6d802a-fce5-495d-b5e1-bb26f824847c) at Maiviken
+-   [Gentoo Penguins](https://ramadda.data.bas.ac.uk/repository/entry/show?entryid=1fd5bc8a-96b5-4f53-aa15-33e5330e7705) on Bird Island
+-   [Chinstrap Penguins](https://ramadda.data.bas.ac.uk/repository/entry/show?entryid=d784af69-c92b-444c-a12e-ee0361802cb1) on Signy Island
 
 Now that you have an idea of what each data set is about, let's explore the actual data.
 
-1.  First, we need to load the `tidyverse` package. You'll want to use the `library()` function.
-
-*Loading the `tidyverse` usually leads to some red text. This is normal! Unless your red text says that there has been an ERROR, you should be good to go.*
+First, we need to load the `tidyverse` package.
 
 ```{r}
 # load the tidyverse
 
 ```
 
-3.  Read all four datasets (.csv files) into RStudio using the `read_csv()` function (*not* `read.csv`). Remember to save each dataset as an object with a descriptive name (use the assignment arrow, `<-`). This is one time you do not need to print the objects! (2 points)
+Read all four datasets (.csv files) into RStudio using the `read_csv()` function (*not* `read.csv`). Remember to save each dataset as an object with a descriptive name.
 
 ```{r}
 
 ```
 
-4.  Use a function (e.g., `head()` or `str()`) to look at the data in each data frame. (2 points)
+1.  Use a function (e.g., `head()` or `str()`) to look at the data in each data frame.
 
 ```{r}
 
@@ -70,108 +68,141 @@ Now that you have an idea of what each data set is about, let's explore the actu
 
 ## Choose Your Dataset
 
-5.  Now that you've explored the datsets, decide which one you would like to focus on for the final project. Below, tell us which one and why you find it interesting.
+2.  Now that you've explored the datsets, decide which one you would like to focus on for the final project. Below, tell us which one and why you find it interesting.
 
 *Answer*:
 
-6.  For each of the columns in your dataset, identify whether they contain categorical or continuous/numeric data. (3 points)
+3.  For each of the columns in your dataset, identify whether they contain categorical or continuous/numeric data.
 
-    *Note: some data, such as dates (month, year), can act as both types of data. See the section below for clarification about columns in your chosen dataet. 
-    
+    NOTE! Some data, such as dates (month, year), can act as both types of data. See the section below for clarification about columns in your chosen dataset.
+
     Type out the name of the column and then the descriptor. For example:
 
-    -   island_name: qualitative (categorical)
-    -   island_size_km: quantitative (numeric)
+    -   island_name: categorical
+    -   island_size_km: numeric or continuous (either descriptor is fine)
 
 *Answer*:
 
 ------------------------------------------------------------------------
 
-Find your dataset below. 
+Find your dataset below.
 
-I've made a few modifications to each of the dataset to make them a bit more manageable to work with. Also, based on how some of these variables will be used in future assignments, you should treat certain variables in the way I've listed below (even if they could be considered either *continuous* or *categorical*. 
+I've made a few modifications to each of the dataset to make them a bit more manageable to work with. Based on how some of these variables will be used in future assignments, you should treat certain variables in the way I've listed below (even if they could be considered either *numeric/continuous* or *categorical)*.
 
 #### Krill
 
 -   You will want to use the `Krill_per_1m2_log` column as your dependent variable. This is a log-transformed version of the `Krill_per_1m2` column. You don't need to worry about *why* we transformed the data, but this column should be a bit easier to work with.
--   The `Date`, `Year`, and `Month` columns should all be treated as *continuous* variables.
+-   The `Date`, `Year`, and `Month` columns should all be treated as *numeric/continuous* variables.
 -   While the `Station` column can *technically* be considered a qualitative/categorical variable, please use the `Day_Night` column as your qualitative/categorical variable for this assignment and for your research question.
 
 #### Fur Seals
 
--   If you choose to use the `Date` or `Year` column, treat them as *continuous* variables.
+-   If you choose to use the `Date` or `Year` column, treat them as *numeric/continuous* variables.
 -   On the other hand, if you use the `Month` column, treat it as a *categorical* variable.
 
 #### Gentoo Penguins
 
--   If you are using the `Year` column, treat it as a *continuous* variable.
+-   If you are using the `Year` column, treat it as a *numeric/continuous* variable.
 -   The dataset has a column for the previous year's December temperature. Because counts of chicks took place in January or February (and nests were counted in October/November), the number of chicks is most likely to be related to the temperatures directly after chicks hatched (December of the previous year).
 
 #### Chinstrap Penguins
 
 -   I do not recommend using the `MONTH` or `DAY` column.
--   If you use the `YEAR` column, treat it as a *continuous* variable.
+-   If you use the `YEAR` column, treat it as a *numeric/continuous* variable.
 
 ------------------------------------------------------------------------
+
+## Writing a Research Question
+
+In order to write a successful research question, we need to identify our *dependent* variable and the *independent* variable that we think affects the dependent variable.
+
+4.  First, determine which variable is the *dependent* variable in your dataset. Remember, it must be *numeric/continuous*.
+
+*Answer*:
+
+5.  Next, choose 1 *independent* variable from your dataset (each dataset has more than one from which to choose). This should be a variable that you believe might affect the values of the dependent variable. It can be either categorical OR continuous.
+
+*Answer*:
+
+6.  Now, let's put those 2 variables into a research question.
+
+*Answer*:
 
 ## Summarize the Data
 
 Let's get to know our data a little better.
 
-11. Focus on your *dependent* variable. Calculate the minimum value (`min()`), maximum (`max()`) value, and average (`mean()`) value using the `tidyverse` functions (you might need `na.rm = TRUE`!). (2 points)
+7.  Focus on your *dependent* variable. Calculate the minimum value (`min()`), maximum (`max()`) value, and average (`mean()`) value using the `tidyverse` functions (you might need `na.rm = TRUE`!).
 
--   If your research question has a *qualitative (categorical)* independent variable, use the `group_by` function to find those values for each category of the independent variable
--   If your research question has a *quantitative (numeric)* independent variable, calculate the minimum, maximum, and mean values for the independent variable
+-   If your research question has a *categorical* independent variable, use the `group_by` function to find the above values of your dependent variable for each category of the independent variable
+-   If your research question has a *numeric* independent variable, calculate the minimum, maximum, and mean values for the independent variable in addition to the dependent variable
 
 ```{r}
 
 
 ```
 
+## Plot the Data
 
-## Writing a Research Question
+------------------------------------------------------------------------
 
-In order to write a successful research question, we need to identify our dependent variable and the independent variable that we think affects the dependent variable.
+### Important Instructions and Info!
 
-7.  First, determine which variable is the *dependent* variable in your dataset. Remember, it must be quantitative.
+(a) For *all* of the plots below, be sure to add:
+
+    -   improved labels for the x-axis, y-axis, and the legend (if present)
+    -   one of the following themes to your code: `theme_bw`, `theme_classic`, or `theme_light`.
+
+(b) For each question, ***you get to choose the variables you use for each plot!*** Pay attention to which variables are numeric/continuous vs. categorical and where they should go in the code to produce the correct type of plot.
+
+(c) You can use *any* variable from the dataset, not sure the ones in your research question. In fact, you will *need* to use different variables to successfully create all of the plots.
+
+(d) Because I'm having you choose your own variables, the is no Answer Key for this assignment.
+
+(e) Each plot is worth 2 points. Your interpretation is worth 1 point. Some of your plots may be hard to interpret. That's ok! In that case, explain why the plot is challenging to interpret.
+
+------------------------------------------------------------------------
+
+8.  Produce a histogram plot (just one, not multiple on the same plot). Write 1-2 sentences describing what information you can gather from plot. (3 points)
+
+```{r warning=FALSE}
+
+```
+
+*Answer:*
+
+9.  Create a multiple histogram plot. Make sure we can see each histogram plot (make sure one isn't blocking another by modifying the transparency and position). Write 1-2 sentences describing what information you can gather from plot. (3 points)
+
+```{r warning=FALSE}
+
+```
+
+*Answer:*
+
+10. Create a box-and-whisker plot. Changing the color of the boxes is optional. Make sure to add points to the plot. Write 1-2 sentences describing what information you can gather from plot. (3 points)
+
+```{r warning=FALSE}
+
+```
+
+*Answer:*
+
+11. Create a scatter plot. Write 1-2 sentences describing what information you can gather from plot. (3 points)
+
+```{r warning=FALSE}
+
+```
+
+*Answer:*
+
+------------------------------------------------------------------------
+
+12. Do any of the plots you made above match up with your research question?
+
+-   If so, identify which plot and explain how you know it matches up correctly (based on qualitative vs. quantitative variables).
+-   If not, explain which plot type *would* match your research question and how you know (based on qualitative vs, quantitative variables).
 
 *Answer*:
-
-8.  Next, choose 1 independent variable from your dataset (each dataset has more than one from which to choose). This should be a variable that you believe might affect the values of the dependent variable. It can be either qualitative/categorical OR quantitative/continuous.
-
-*Answer*:
-
-9.  Now, let's put those 2 variables into a research question.
-
-*Answer*:
-
-## Select and Filter the Data
-
-## Literature Search
-
-When we ask a research question, we always want to find out what other people have already found out about that question to give us an idea of what outcome we might expect.
-
-To do that, we are going to look for some scientific articles about our research question.
-
-Use either the UA Libraries search tool or Google Scholar. You can find more information about how to use both of those [here](https://lib.arizona.edu/find/articles). To find related papers, you will want to search for journal articles that have both your dependent variable and your independent variable included. (e.g., plant height, water).
-
-To determine whether the article is related to your research question, read the title and the abstract.
-
-10. Choose 2 papers that you think are related to the research question you just wrote. They don't have to be *exactly* related but should be relevant. (4 points)
-
-    Write the citation for each paper below, doing your best to follow the structure below. Fill in as much info as you can (you won't always have all of it).
-
-    In your own words, write a 1-2 sentence summary of what the article is about, based on the title and the abstract.
-
-![](APA_citation.jpeg)
-
-*Article 1 Citation*:
-
-*Article 1 Description*:
-
-*Article 2 Citation*:
-
-*Article 2 Description*:
 
 # Turning in Your Assignment
 
