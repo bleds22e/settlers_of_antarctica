@@ -31,7 +31,7 @@ Write R code which produces the correct plot style.
 
 ### Due Date
 
-Feb 29 at 11am MST
+Oct 17 at 9:30 am MST
 
 # Assignment Questions
 
@@ -146,3 +146,29 @@ Do any of the plots you made above match up with your research question? (2 pts)
 -   If not, explain which plot type *would* match your research question and how you know (based on qualitative vs, quantitative variables).
 
 *Answer*:
+
+## Literature Search
+
+When we ask a research question, we always want to find out what other people have already found out about that question to give us an idea of what outcome we might expect.
+
+To do that, we are going to look for some scientific articles about our research question.
+
+Use either the UA Libraries search tool or Google Scholar. You can find more information about how to use both of those [here](https://lib.arizona.edu/find/articles). To find related papers, you will want to search for journal articles that have both your dependent variable and your independent variable included. (e.g., plant height, water).
+
+To determine whether the article is related to your research question, read the title and the abstract.
+
+8. Choose 2 papers that you think are related to the research question you just wrote. They don't have to be *exactly* related but should be relevant. (4 points)
+
+    Write the citation for each paper below, doing your best to follow the structure below. Fill in as much info as you can (you won't always have all of it).
+
+    In your own words, write a 1-2 sentence summary of what the article is about, based on the title and the abstract.
+
+![](APA_citation.jpeg)
+
+*Article 1 Citation*:
+
+*Article 1 Description*:
+
+*Article 2 Citation*:
+
+*Article 2 Description*:
