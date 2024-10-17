@@ -70,7 +70,7 @@ turbine_summary
 
 ### Visual
 
-3.  Create a density plot for the power output variable. (3 points)
+3.  Create a multiple histogram for the power output variable. (3 points)
  -   be sure to have a histogram for each turbine producer; the color and/or the fill should be determined by the maker of the turbine. They should also be transparent and not stacked vertically.
     -   add in vertical lines for the mean values in the same color as the turbine makers (remember to reference the correct data frame!)
     -   make sure the x-axis, y-axis, and legend labels are capitalized and easier to understand (power output in measured in kilowatts, or kWh)

@@ -31,10 +31,10 @@ turbine_summary
 
 ```{r}
 ggplot(turbines, aes(power_output, fill = manufacturer)) +
-  geom_histogram(alpha = 0.5, position = "identity") +
+  geom_histogram(alpha = 0.5, position = "identity", bins = 10) +
   geom_vline(data = turbine_summary, aes(xintercept = mean_power, color = manufacturer)) +
   labs(x = "Power Output",
-       y = "Density",
+       y = "Frequency",
        color = "Manufacturer",
        fill = "Manufacturer") +
   theme_classic()
