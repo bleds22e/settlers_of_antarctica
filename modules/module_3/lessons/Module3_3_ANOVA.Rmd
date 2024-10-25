@@ -94,7 +94,7 @@ Let's examine the data. Do you think the collar companies are all different from
 
 As always, we love (\<3) visualizing our data, especially as a form of data exploration and comparing means.
 
-First, explore the distribution of battery life by maker using a multiple density plot (no need to add a line for the mean, but you can if you really want to!).
+First, explore the distribution of battery life by maker using a multiple histogram (no need to add a line for the mean, but you can if you really want to!).
 
 ```{r}
 
