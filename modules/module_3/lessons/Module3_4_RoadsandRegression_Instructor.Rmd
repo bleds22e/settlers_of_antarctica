@@ -43,14 +43,15 @@ Knowing that we would soon be building roads, we asked our botanists to collect 
 
 Our botanists collected data for the following variables:
 
+-   *hairgrass density*: number of individual clumps (tussocks) of hairgrass (per 25 meters squared)
 -   *soil pH*: most plants prefer mildly acidic to neutral environments
--   *nitrogen (N) content*: as percentage per 100 mL soil sample; important for plant growth and tissue building
--   *phosphorous (P) content*: as percentage per 100 mL soil sample; important for plant growth and tissue building
+-   *nitrogen (N) content*: as parts per million (ppm); important for plant growth and tissue building
+-   *phosphorous (P) content*: as parts per million (ppm); important for plant growth and tissue building
 -   *percent rock*: how rocky the location is; rocks in soil impact water drainage and temperature
 -   *max windspeed (knots per hour)*: extreme wind can pose a challenge to plants of all types
 -   *average summer temperature (C)*: temperature in the growing season
--   *penguin density*: the number of penguins per 5 m\^2 within 100 m of the sample quadrant for hair grass; penguin poop increases nitrogen content in the system
--   *hairgrass density*: number of individual clumps (tussocks) of hairgrass per 1 m\^2
+-   *penguin density*: the number of penguins per the sample quadrant penguin poop increases nitrogen and phosphorus content in the system but penguins may trample the plants
+
 
 This data is based on this article: [Parnikoza, et al. 2007](https://doi.org/10.1016/j.polar.2007.10.002)
 
@@ -66,7 +67,7 @@ As usual, we start with loading our packages and our data.
 
 ```{r message=FALSE}
 library(tidyverse)
-hairgrass <- read_csv("../../module_4/data/hairgrass_data.csv")
+hairgrass <- read_csv("../../module_3/data/hairgrass_data.csv")
 ```
 
 Let's take a look at the data in the data set. What does each row represent?
@@ -82,10 +83,10 @@ Let's start by investigating any relationship between hair grass density and nit
 
 First, we should spend a little time thinking about our variables. Spend a few minutes in small groups discussing the answer to the questions below.
 
--   Which columns are we interested in right now? N_content, hairgrass_density
+-   Which columns are we interested in right now? soil_nitrogen, hairgrass_density
 -   Which one is the independent variable and which is the dependent variable?
-    -   independent: N_content
-    -   dependent: hairgrass_density_m2
+    -   independent: soil_nitrogen
+    -   dependent: hairgrass_density
 -   Are the variables categorical or continuous? both are continuous
 -   Which type of data visualization should we use? scatterplot
 
@@ -93,14 +94,14 @@ Next, calculate the mean (`mean()`) and standard deviation (`sd()`) for the nitr
 
 ```{r}
 hairgrass %>% 
-  summarise(mean_N = mean(n_content),
-            sd_N = sd(n_content))
+  summarise(mean_N = mean(soil_nitrogen),
+            sd_N = sd(soil_nitrogen))
 ```
 
 Now that we have summarized the data, let's take a look at the data visually.
 
 ```{r}
-ggplot(hairgrass, aes(n_content, hairgrass_density_m2)) +
+ggplot(hairgrass, aes(soil_nitrogen, hairgrass_density)) +
   geom_point() +
   labs(x = "N Content",
        y = "Hairgrass Density (per m^2)") +
@@ -129,7 +130,7 @@ The line of best fit aims to minimize the distance between each observation (poi
 We can add a line of best fit to a ggplot by using the `geom_smooth()` function. We need to specify that the method we want should produce a straight line ("linear model").
 
 ```{r}
-ggplot(hairgrass, aes(n_content, hairgrass_density_m2)) +
+ggplot(hairgrass, aes(soil_nitrogen, hairgrass_density)) +
   geom_point() +
   geom_smooth(method = "lm") +
   labs(x = "N Content",
@@ -160,7 +161,7 @@ Based on the hairgrass plot we did above, do you expect the correlation coeffici
 To calculate the correlation coefficient, we need to go back to base R and indicate which columns we are referencing with the `$` operator. We use the `cor()` function.
 
 ```{r}
-r <- cor(x = hairgrass$n_content, y = hairgrass$hairgrass_density_m2)
+r <- cor(x = hairgrass$soil_nitrogen, y = hairgrass$hairgrass_density)
 r
 ```
 
@@ -212,25 +213,25 @@ Let's find the equation for our line of best fit, our test statistic, and our p-
 Like with ANOVA, we will then want to use the `summary()` function to get out the values we need.
 
 ```{r}
-nitrogen <- lm(hairgrass_density_m2 ~ n_content, hairgrass)
+nitrogen <- lm(hairgrass_density ~ soil_nitrogen, hairgrass)
 summary(nitrogen)
 ```
 
 As with our other statistical tests---t-tests and ANOVAs---the results give us some important values:
 
 -   `b` (y-intercept): part of our line of best fit equation
-    -   The "intercept estimate", in this case 1.385, is our y-intercept in our line of best fit
+    -   The "intercept estimate", in this case 82.24, is our y-intercept in our line of best fit
 -   `m` (slope): also part of our line of best fit equation
-    -   this is the estimate for our independent variable (N_content in this case)
-    -   in this model, m = 0.659
+    -   this is the estimate for our independent variable (soil_nitrogen in this case)
+    -   in this model, m = 1.8
 -   *F-statistic*: this is our test statistic
 -   *p-value*: calculated from our regression model, used to determine significance (0.05 cut-off, as usual)
-    -   There are multiple p-values here. Focus either on the p-value for the independent variable (N_content) or the overall p-value displayed in the last line of the results summary (p \< 2.2e-16)
+    -   There are multiple p-values here. Focus either on the p-value for the independent variable (soil_nitrogen) or the overall p-value displayed in the last line of the results summary (p \< 2.2e-16)
 -   *R-squared*: this is our R-squared value that we calculated earlier
     -   You can report either the "multiple" or the "adjusted"
     -   The "multiple" will typically match the one we calculate with code
 
-This means our equation for the line of best fit is: y = 0.659x + 1.385 and there is a statistically significant relationship between nitrogen content and hairgrass density.
+This means our equation for the line of best fit is: y = 1.8x + 82.24 and there is a statistically significant relationship between nitrogen content and hairgrass density.
 
 ## Soil pH
 
@@ -240,14 +241,14 @@ Start with summarizing the data: mean and standard deviation.
 
 ```{r}
 hairgrass %>% 
-  summarize(mean_pH = mean(soil_pH),
-            sd_pH = sd(soil_pH))
+  summarize(mean_pH = mean(soil_ph),
+            sd_pH = sd(soil_ph))
 ```
 
 Visualize the data. Remember to add in the line of best fit using `ggplot2`. Also add labels and a theme for practice.
 
 ```{r}
-ggplot(hairgrass, aes(soil_pH, hairgrass_density_m2)) +
+ggplot(hairgrass, aes(soil_ph, hairgrass_density)) +
   geom_point() +
   geom_smooth(method = "lm") +
   labs(x = "Soil pH",
@@ -258,7 +259,7 @@ ggplot(hairgrass, aes(soil_pH, hairgrass_density_m2)) +
 Calculate the correlation coefficient (`r`)? What does this tell us?
 
 ```{r}
-r <- cor(x = hairgrass$soil_pH, y = hairgrass$hairgrass_density_m2)
+r <- cor(x = hairgrass$soil_ph, y = hairgrass$hairgrass_density)
 ```
 
 How much variation does soil pH explain in the hair grass density data?
@@ -270,17 +271,17 @@ r^2
 Write out the model for our question about soil pH (without values)?
 
 ```{r}
-# hairgrass density  = m(soil_pH) + b
+# hairgrass density  = m(soil_ph) + b
 ```
 
 Run the regression model and write out the equation for the line of best fit.
 
 ```{r}
-soil_pH <- lm(hairgrass_density_m2 ~ soil_pH, data = hairgrass)
-summary(soil_pH)
+soil_ph <- lm(hairgrass_density ~ soil_ph, data = hairgrass)
+summary(soil_ph)
 ```
 
-Equation for line of best fit: y = 0.005x + 7.65
+Equation for line of best fit: y = -4.648x + 150.24
 
 Interpret the results of the regression (our p-value cutoff is still = 0.05). What do we conclude about the relationship between soil pH and hair grass density? Why?
 
