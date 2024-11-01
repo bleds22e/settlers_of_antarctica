@@ -30,13 +30,15 @@ Write R code which produces the correct answers and correctly interpret the resu
 
 ### Due Date
 
-April 4 at 11am MST
+Nov 7at 9:30 am MST
 
 # Assignment Questions
 
 In this assignment, we are going to continue using the hair grass data set from class.
 
 At the end of the assignment, you will perform the correct statistical analysis for your own research question.
+
+**NOTE!** Because you are choosing which variables to use in both sections of the assignment, there is no Answer Key provided.
 
 ## Set-Up
 
@@ -45,12 +47,15 @@ As always, we must get organized before we can do anything!
 First, load the `tidyverse` and read in the hair grass data set.
 
 ```{r}
+# Load the tidyverse
+
+# Read in the dataset
 
 ```
 
 ## Linear Regression
 
-Take a look at the hairgrass data and choose one of the environmental variables we think might influence hairgrass density that we have not used in class (AKA choose one *other than* Location, Nitrogen content, or soil pH).
+Take a look at the hairgrass data and choose one of the environmental variables we think might influence hairgrass density that we have not used in class (AKA choose one *other than* nitrogen content or soil pH).
 
 1.  Calculate the mean and standard deviation of your chosen environmental variable.
 
@@ -120,25 +125,27 @@ Now, we are going to explore the relationship between your chosen variable and h
 
 ## Running Your Statistical Model
 
-In this module, we have covered 3 different statistical analyses: t-tests, ANOVAs, and linear regression.
+In this module, we have covered 3 different statistical analyses: t-tests, ANOVAs, and linear regression. It is now time to decide how to apply these statistical analyses to your own research question!
 
-It is now time to decide how to apply these statistical analyses to your own research question!
+For this part of the assignment, referring back to **Module 2 Assignment 3** will be very helpful!
 
-### Set-Up
+### Set-Up: Research Question and Data
 
-First, read in your chosen dataset for your final project.
+First, write your research question below (this really helps us when grading!).
+
+*Research question*:
+
+Now that you've written out your research question above, read in your chosen dataset for your final project.
 
 ```{r}
 
 ```
 
-Now, write your research question below.
-
-*Research question*:
+### Conceptual
 
 12. Take a look back at Module 2, Assignment 3. Between questions 2 and 3, there is a lot of very important information about how you should treat certain variables in each dataset.
 
-    Using that information, determine whether each variable in your research question in qualitative or quantitative.
+    Assisted by that information, determine whether each variable in your research question is numeric or categorical.
 
 *Answer*:
 
@@ -146,9 +153,11 @@ Now, write your research question below.
 
 *Answer*:
 
-14. Based on your answers to questions 12 and 13 above, determine which statistical analysis you should perform to answer your question. In 1-2 sentence, explain why.
+14. Based on your answers to questions 12 and 13 above and other information about your chosen dataset, determine which statistical analysis you should perform to answer your question. In 1-2 sentence, explain how you know.
 
 *Answer*:
+
+### Analysis
 
 15. Perform the appropriate statistical analysis below. If necessary, add an additional line of code to print out the results.
 
@@ -164,4 +173,6 @@ Now, write your research question below.
 # space for code to run a pairwise comparison if needed
 ```
 
-17. Interpret the results of your statistical analysis (including the pairwise comparison, if relevant). In your answer, include the p-value and if the result of your analysis is significant. What do these results mean in the context of your research question? (2 points)
+17. Interpret the results of your statistical analysis (including the pairwise comparison, if relevant). In your answer, include the p-value and if the result of your analysis is significant. Do you reject or fail to reject your null hypothesis? What do these results mean in the context of your research question? (2 points)
+
+*Answer:*

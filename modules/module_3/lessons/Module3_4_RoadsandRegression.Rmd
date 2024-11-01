@@ -1,7 +1,7 @@
 ---
-title: "Module 3: Roads and Regressions"
+title: "Module 4: Roads and Regressions"
 author: "Mila Pruiett and Ellen Bledsoe"
-date: "2022-04-05"
+date: "2023-04-05"
 output: pdf_document
 ---
 
@@ -13,7 +13,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## The Scenario
 
-In your latest assignment, we tried to figure out which bays we should prioritize for fishing based on the following data sets:
+Last module, we tried to figure out which bays we should prioritize for fishing based on the following data sets:
 
 -   radio collar data
 -   fish catch data
@@ -43,14 +43,14 @@ Knowing that we would soon be building roads, we asked our botanists to collect 
 
 Our botanists collected data for the following variables:
 
--   *soil pH*:
--   *nitrogen (N) content*: as percentage per 100 mL soil sample;
--   *phosphorous (P) content*: as percentage per 100 mL soil sample;
--   *percent rock*: how rocky the location is;
--   *max windspeed (mph)*:
--   *average summer temperature (C)*:
--   *penguin density*: the average number of penguins per 5 m\^2 within 100 m of the sample quadrant for hair grass
--   *hairgrass density*: number of individual clumps (tussocks) of hairgrass per 1 m\^2
+-   *hairgrass density*: number of individual clumps (tussocks) of hairgrass (per 25 meters squared)
+-   *soil pH*: most plants prefer mildly acidic to neutral environments
+-   *nitrogen (N) content*: as parts per million (ppm); important for plant growth and tissue building
+-   *phosphorous (P) content*: as parts per million (ppm); important for plant growth and tissue building
+-   *percent rock*: how rocky the location is; rocks in soil impact water drainage and temperature
+-   *max windspeed (knots per hour)*: extreme wind can pose a challenge to plants of all types
+-   *average summer temperature (C)*: temperature in the growing season
+-   *penguin density*: the number of penguins per the sample quadrant penguin poop increases nitrogen and phosphorus content in the system but penguins may trample the plants
 
 This data is based on this article: [Parnikoza, et al. 2007](https://doi.org/10.1016/j.polar.2007.10.002)
 
@@ -64,7 +64,7 @@ For this lesson, we are going to focus on two: *nitrogen (N) content* and *soil 
 
 As usual, we start with loading our packages and our data.
 
-```{r}
+```{r message=FALSE}
 
 ```
 
@@ -84,7 +84,7 @@ First, we should spend a little time thinking about our variables. Spend a few m
 -   Which one is the independent variable and which is the dependent variable?
     -   independent:
     -   dependent:
--   Are the variables categorical or continuous?
+-   Are the variables categorical or numeric/continuous?
 -   Which type of data visualization should we use?
 
 Next, calculate the mean (`mean()`) and standard deviation (`sd()`) for the nitrogen content.
@@ -112,9 +112,13 @@ We are going to use two (related) statistical methods to understand the relation
 
 ### Line of Best Fit
 
-To understand the correlation coefficient, R-squared, and linear regression, we first need to talk about something we call the *line of best fit*.
+To understand correlation, R-squared, and linear regression, we first need to talk about something we call the *line of best fit*.
 
-The line of best fit aims to minimize the distance between each observation (points) and the line. The distances between each observation and any line are called *residuals* (the dotted gray lines). The line of best fit is the line that has the smallest *residuals*. ![](images/residuals.jpg) We can add a line of best fit to ggplot by using the `stat_smooth()` function. We need to specify that the method we want should produce a straight line ("linear model").
+The line of best fit aims to minimize the distance between each observation (points) and the line. The distances between each observation and any line are called *residuals* (the dotted gray lines). The line of best fit is the line that has the smallest *residuals*.
+
+![](images/lines.png){width="48%"} ![](images/residuals.jpg){width="48%"}
+
+We can add a line of best fit to a ggplot by using the `geom_smooth()` function. We need to specify that the method we want should produce a straight line ("linear model").
 
 ```{r}
 
@@ -126,11 +130,13 @@ The correlation coefficient, `r`, is a measurement of the strength of the relati
 
 The correlation coefficient is a number between -1 and 1 that looks at the relationship between two numeric variables. If the value is negative, there is a negative relationship between the two variable; if the value is positive, there is a positive relationship.
 
-If all the points fall exactly on the line of best fit, the correlation coefficient with be 1 or -1. If there is no relationship between the variables, `r` is 0 (or something very close to it).
+If all the points fall exactly on the line of best fit, r = 1 or -1. If there is no relationship between the variables, `r` is 0 (or something very close to it).
 
 ![](images/coefficient_correlation.jpg)
 
-The greater the magnitude (size) of the correlation coefficient, the stronger the relationship between the two variables. ![](images/correlation.jpg)
+The greater the magnitude (size) of the correlation coefficient, the stronger the relationship between the two variables.
+
+![](images/correlation.jpg)
 
 It is also important to recognize that the correlation coefficient has nothing to do with the slope of the line (we use linear regression to assess that!)
 
@@ -146,12 +152,16 @@ To calculate the correlation coefficient, we need to go back to base R and indic
 
 ### R-squared ($R^2$)
 
-The R-squared ($R^2$) value is a representation of how much variation is explained by the line of best fit. When we have a dependent variable and an independent variable, the R-squared value tells us how much of the variation in the *dependent* variable is explained by the *independent* variable.
+The R-squared ($R^2$) value is a representation of how much variation is explained by the line of best fit.
+
+When we have a dependent variable and an independent variable, the R-squared value tells us how much of the variation in the *dependent* variable is explained by the *independent* variable.
+
+Sometimes we don't have obvious dependent and independent variables, but we can still use similar language ($R^2$ tells us how much of the variation in the data is explained).
 
 To calculate R-squared, we square the correlation coefficient value we calculated above. It is always positive because we are squaring it `r` value; that means that R-squared values range from 0 to 1. The closer to 1, the more variation is explained.
 
 ```{r}
-r^2
+r_nitrogen^2
 ```
 
 How would we interpret this `r^2` value?
@@ -160,11 +170,11 @@ How would we interpret this `r^2` value?
 
 A regression analysis approximates the relationship between a dependent variable and one or more independent variables. It evaluates the strength of that relationship, ultimately giving us a p-value.
 
-Since we are using linear regressions in this course, the regression model equation will take the form of a line: `y = mx + b`
+Since we are using linear regressions in this course, the regression model will take the form of a line: `y = mx + b`
 
 -   `y` = dependent variable (y-axis)
 -   `x` = independent variable (x-axis)
--   `m` = slope of the line
+-   `m` = slope of the line is the slope
 -   `b` = y-intercept
 
 Using our variables, what would our linear regression model look like (we don't know `m` or `b` yet...)?
@@ -183,7 +193,7 @@ What do you think this means for the slopes?
 
 Thankfully, R can calculate the slope (`m`) and y-intercept (`b`) of the line of best fit for us.
 
-Let's find the equation for our line of best fit, our test statistic, and our p-value. To do this, we use a function called `lm()`: this stand for "linear model."
+Let's find the equation for our line of best fit, our test statistic, and our p-value. To do this, we use a function called `lm()`: this stands for "linear model."
 
 Like with ANOVA, we will then want to use the `summary()` function to get out the values we need.
 
@@ -194,29 +204,30 @@ Like with ANOVA, we will then want to use the `summary()` function to get out th
 As with our other statistical tests---t-tests and ANOVAs---the results give us some important values:
 
 -   `b` (y-intercept): part of our line of best fit equation
-    -   The "intercept estimate", in this case 1.385, is our y-intercept in our line of best fit
+    -   The "intercept estimate", in this case 84.24, is our y-intercept in our line of best fit
 -   `m` (slope): also part of our line of best fit equation
-    -   this is the estimate for our independent variable (N_content in this case)
-    -   in this model, m = 0.659
+    -   this is the estimate for our independent variable (soil_nitrogen in this case)
+    -   in this model, m = 1.8
 -   *F-statistic*: this is our test statistic
 -   *p-value*: calculated from our regression model, used to determine significance (0.05 cut-off, as usual)
+    -   There are multiple p-values here. Focus either on the p-value for the independent variable (soil_nitrogen) or the overall p-value displayed in the last line of the results summary (p \< 2.2e-16)
 -   *R-squared*: this is our R-squared value that we calculated earlier
-    -   you can report either the "multiple" or the "adjusted"
-    -   the "multiple" will typically match the one we calculate with code
+    -   You can report either the "multiple" or the "adjusted"
+    -   The "multiple" will typically match the one we calculate with code
 
-This means our equation for the line of best fit is: y = 0.659x + 1.385 and there is a statistically significant relationship between nitrogen content and hairgrass density.
+This means our equation for the line of best fit is: y = 1.8x + 84.24 and there is a statistically significant relationship between nitrogen content and hairgrass density.
 
 ## Soil pH
 
-Let's do the same series of steps to determine how soil pH impacts hair grass densities. Work on this in your small groups, and we will go over it in about 15 minutes.
+Let's do the same series of steps to determine how soil pH impacts hair grass densities. Work on this in your small groups, and we will go over it in about 10 minutes.
 
-Start with summarizing the data: minimum, maximum, mean, and standard deviation.
+Start with summarizing the data: mean and standard deviation.
 
 ```{r}
 
 ```
 
-Visualize the data. Remember to add in the line of best fit using `ggplot2`.
+Visualize the data. Remember to add in the line of best fit using `ggplot2`. Also add labels and a theme for practice.
 
 ```{r}
 
@@ -237,14 +248,16 @@ How much variation does soil pH explain in the hair grass density data?
 Write out the model for our question about soil pH (without values)?
 
 ```{r}
-#
+
 ```
 
 Run the regression model and write out the equation for the line of best fit.
 
 ```{r}
-
+    
 ```
+
+Equation for line of best fit:
 
 Interpret the results of the regression (our p-value cutoff is still = 0.05). What do we conclude about the relationship between soil pH and hair grass density? Why?
 
