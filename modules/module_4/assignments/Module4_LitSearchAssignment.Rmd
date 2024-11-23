@@ -1,0 +1,126 @@
+---
+title: "Module 4 Assignment 1"
+author: "EKB"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Assignment Details
+
+### Purpose
+
+The goal of this assignment is to learn 
+
+### Task
+
+Write R code which produces the correct answers and correctly interpret the results of visualizations and statistical tests.
+
+### Criteria for Success
+
+
+
+### Due Date
+
+Dec 5 at 11 am MST
+
+## Assignment Instructions
+
+This assignment will guide you through the process of finding, citing, and summarizing scientific articles related to your research question. You will ultimately use these research articles to write an abstract for a scientific paper. You will use **ScholarGPT** to identify relevant sources and practice synthesizing scientific information. Additionally, you'll use an online tool to correctly format citations in APA style.
+
+------------------------------------------------------------------------
+
+## Instructions  
+
+### Part 1: Generate 10 Relevant Articles (5 Points)  
+
+## What is ScholarGPT, and Why Are We Using It?  
+
+ScholarGPT is a tool that utilizes OpenAI’s ChatGPT and specializes in helping users find academic articles. Unlike ChatGPT, ScholarGPT focuses on academic research and avoids fabricating citations, which ChatGPT is prone to do. Fabricated citations are misleading, unethical, and unacceptable in academic work.  
+
+### How to Access ScholarGPT:  
+
+Open [ScholarGPT](https://chatgpt.com/g/g-3DGi2iLag-scholargpt) 
+1. **Open ScholarGPT** and prompt it to provide **10 academic articles** related to your research question.  
+   - Include a clear and concise version of your research question in the prompt (e.g., *"Provide 10 peer-reviewed academic articles related to the effects of urbanization on bird migration patterns."*).  
+
+2. **Review the summaries provided by ScholarGPT.**  
+   - Copy the list of articles and their summaries into your document.  
+
+#### Example Output:  
+- **Article Title:** Urbanization and Avian Ecology  
+  - Summary: This study examines how urbanization disrupts bird migration patterns. It highlights the ecological impacts of habitat fragmentation.  
+- **Article Title:** Habitat Loss in Migratory Birds  
+  - Summary: This research explores how deforestation and urban growth affect migratory bird populations, emphasizing the role of climate change.  
+
+---
+
+### Part 2: Choose 3 Articles for Further Analysis (10 Points)  
+
+1. From the 10 articles, select the **3 most relevant** to your research question.  
+
+2. **Generate APA-style citations** for the 3 selected articles:  
+   - Use the **[CitationGenerator.AI](https://citationgenerator.ai/)** website to generate citations.  
+   - Enter the article title, DOI, or URL (if available) to produce accurate APA citations.  
+   - Copy the formatted citation into your document.  
+
+3. **Summarize each article in detail:**  
+   Write a **2-3 sentence summary** for each article, focusing on the main findings and their relevance to your research question.  
+
+#### Example APA Citation and Summary:  
+- **APA Citation:** Smith, J. A., & Doe, R. B. (2020). The impact of urban sprawl on avian ecology. *Journal of Urban Ecology, 45*(3), 234-245. https://doi.org/10.1234/jue.2020.045  
+  - **Summary:** This study investigates how urban sprawl disrupts traditional migratory routes for birds. The authors found that increased urban development leads to habitat fragmentation, negatively impacting bird populations.  
+
+4. **Explain why you selected these 3 articles:**  
+   Write **1-2 sentences per article** explaining why it is relevant or valuable to your research.  
+
+#### Example Explanation:  
+- I selected this article because it directly discusses the ecological impacts of urbanization, which is a central theme of my research question.
+
+---
+
+### Part 3: Write an Abstract Using Selected Articles (5 Points)
+
+Using at least 2 of the 3 articles you selected in Part 2, write an abstract for your research question. While you may not yet have the complete results for your research question, you can outline the data you are using, your research question, and your predicted results or actual results. The abstract should:
+
+1. Include **1-2 sentences about the data** (e.g., its source, type, or relevance).
+2. Clearly state your **research question** in **1 sentence.**
+3. Use **at least 2 sentences** to reference the selected articles, supporting your research question, predicted results, or actual results.
+
+#### Example Abstract:
+The study utilizes data from the National Bird Migration Database, focusing on population trends across urbanized regions. The research question examines how urbanization affects the migratory behaviors of birds. Smith and Doe (2020) demonstrated that urban sprawl leads to habitat fragmentation, which disrupts migratory routes. Similarly, Johnson et al. (2021) found that urbanized landscapes correlate with reduced bird populations. Based on these findings, we predict a decline in migratory bird populations in highly urbanized areas.
+
+---
+
+## Submission Guidelines  
+
+Submit a document (Word or PDF) containing the following:  
+1. Your research question.  
+2. The list of 10 articles with summaries (Part 1).  
+3. APA-style citations for the 3 selected articles.  
+4. Detailed summaries of the 3 selected articles.  
+5. Explanations for why you chose these articles.  
+6. An abstract based on Part 3.
+
+---
+
+## Grading Rubric  
+
+- **Part 1: Identifying 10 Articles (5 Points):**  
+  - 0.5 points per article summary (2 sentences each).  
+
+- **Part 2: Selecting and Analyzing 3 Articles (10 Points):**  
+  - APA Citations (3 Points): Proper formatting for 3 articles.  
+  - Summaries (5 Points): Clear, accurate, and concise (2 points per article).  
+  - Justifications (2 Points): Strong explanations for the selection of articles (1 point per article).  
+
+- **Part 3: Writing an Abstract (5 Points):**  
+  - 1 Point: Description of data.  
+  - 1 Point: Clear research question.  
+  - 3 Points: Use of at least 2 references to support your question and results.
+
+---
