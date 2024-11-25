@@ -34,7 +34,7 @@ Dec 5 at 11 am MST
 
 ## Assignment Instructions
 
-This assignment will guide you through the process of finding, citing, and summarizing scientific articles related to your research question.
+This assignment will guide you through the process of finding, citing, and summarizing scientific articles related to your research question for your final assignment (see M2 Assignment 3 and M3 Assignment 3 to refresh your memory).
 
 You will ultimately use these research articles to write an abstract for a scientific paper. You will use **ScholarGPT** to identify relevant sources and practice synthesizing scientific information. Additionally, you'll use an online tool to correctly format citations in APA style.
 
