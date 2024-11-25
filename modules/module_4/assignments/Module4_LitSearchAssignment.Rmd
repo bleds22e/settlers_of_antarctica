@@ -9,20 +9,22 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-
 ## Assignment Details
 
 ### Purpose
 
-The goal of this assignment is to learn 
+The goal of this assignment is to find, summarize, and cite research articles related to your research question and practice writing an abstract.
 
 ### Task
 
-Write R code which produces the correct answers and correctly interpret the results of visualizations and statistical tests.
+Use generative AI to find relevant articles, assess their relevance to your research question, and integrate scientific literature into your writing about your research question.
 
 ### Criteria for Success
 
-
+-   Find 10 scientific articles using the given prompts.
+-   Include the results of your search in the document.
+-   Determine which 3 articles are most related to your research question and provide a summary of those articles.
+-   Write an abstract to a scientific article focused on your research question using the resources selected and information about your dataset.
 
 ### Due Date
 
@@ -36,93 +38,105 @@ By the way, I used **ChatGPT** to help me create this assignment! It took a lot 
 
 ------------------------------------------------------------------------
 
-## Instructions  
+## Part 1: Find 10 Relevant Articles (5 Points)
 
-### Part 1: Generate 10 Relevant Articles (5 Points)  
+### What is ScholarGPT, and Why Are We Using It?
 
-## What is ScholarGPT, and Why Are We Using It?  
+ScholarGPT is a tool that utilizes OpenAI’s ChatGPT and specializes in helping users find academic articles. Unlike ChatGPT, ScholarGPT focuses on academic research and avoids fabricating citations, which ChatGPT is prone to do. Fabricated citations are misleading, unethical, and unacceptable in academic work.
 
-ScholarGPT is a tool that utilizes OpenAI’s ChatGPT and specializes in helping users find academic articles. Unlike ChatGPT, ScholarGPT focuses on academic research and avoids fabricating citations, which ChatGPT is prone to do. Fabricated citations are misleading, unethical, and unacceptable in academic work.  
+### How to Access ScholarGPT:
 
-### How to Access ScholarGPT:  
+Open [ScholarGPT](https://chatgpt.com/g/g-3DGi2iLag-scholargpt). If you have an account with ChatGPT, you're welcome to sign in, but you should be able to complete the assignment without an account.
 
-Open [ScholarGPT](https://chatgpt.com/g/g-3DGi2iLag-scholargpt) 
-1. **Open ScholarGPT** and prompt it to provide **10 academic articles** related to your research question.  
-   - Include a clear and concise version of your research question in the prompt (e.g., *"Provide 10 peer-reviewed academic articles related to the effects of urbanization on bird migration patterns."*).  
+### How to Write a Good Prompt
 
-2. **Review the summaries provided by ScholarGPT.**  
-   - Copy the list of articles and their summaries into your document.  
+In the text box, prompt **ScholarGPT** to provide **10 academic articles** related to your research question. The better your prompt is, the better the results will be!
 
-#### Example Output:  
-- **Article Title:** Urbanization and Avian Ecology  
-  - Summary: This study examines how urbanization disrupts bird migration patterns. It highlights the ecological impacts of habitat fragmentation.  
-- **Article Title:** Habitat Loss in Migratory Birds  
-  - Summary: This research explores how deforestation and urban growth affect migratory bird populations, emphasizing the role of climate change.  
+-   Include a clear and concise version of your research question in the prompt. That said, though, most research papers will be written about your general topic but rarely about your exact dataset or exact question. Think about the general trend that your research question is asking.
+-   Also include clear instructions for the outputs that ScholarGPT should provide. In this case, make sure that each article has a summary that is 3-5 sentences.
+-   You might have to ask again to get what you want. I gave ScholarGPT the following prompt: *"Provide 10 peer-reviewed academic articles related to the effects of urbanization on bird migration patterns. Return a 3-5 sentence summary of each article."*, but each summary was 1-2 sentences! I followed up with *"Each summary should be a minimum of 3 sentences"*, and the results were much more informative!
 
----
+You might need to write a few different versions of your prompt until you get results from ScholarGPT that make sense. This iterative process is a really important part of using generative AI responsibly!
 
-### Part 2: Choose 3 Articles for Further Analysis (10 Points)  
+### Including Your Results
 
-1. From the 10 articles, select the **3 most relevant** to your research question.  
+Once you have some results that look good, I want you to copy and paste them into this .Rmd file.
 
-2. **Generate APA-style citations** for the 3 selected articles:  
-   - Use the **[CitationGenerator.AI](https://citationgenerator.ai/)** website to generate citations.  
-   - Enter the article title, DOI, or URL (if available) to produce accurate APA citations.  
-   - Copy the formatted citation into your document.  
+1.  First, tell me what prompt you eventually used to get your answers. If you had to offer follow-up instructions (like I did above), include that as well. (1 point)
 
-3. **Summarize each article in detail:**  
-   Write a **2-3 sentence summary** for each article, focusing on the main findings and their relevance to your research question.  
+*Prompt*:
 
-#### Example APA Citation and Summary:  
-- **APA Citation:** Smith, J. A., & Doe, R. B. (2020). The impact of urban sprawl on avian ecology. *Journal of Urban Ecology, 45*(3), 234-245. https://doi.org/10.1234/jue.2020.045  
-  - **Summary:** This study investigates how urban sprawl disrupts traditional migratory routes for birds. The authors found that increased urban development leads to habitat fragmentation, negatively impacting bird populations.  
+2.  Copy the list of articles and their summaries into your document. Fun fact, anything you copy from ChatGPT or related (e.g., ScholarGPT) uses Markdown structure, the same as this RMarkdown file! (4 points)
 
-4. **Explain why you selected these 3 articles:**  
-   Write **1-2 sentences per article** explaining why it is relevant or valuable to your research.  
+    I *HIGHLY* recommend switching over into "Source" mode instead of "Visual" mode when you paste your results. This way, the Markdown language will be understood correctly and look much better when you knit your document.
 
-#### Example Explanation:  
-- I selected this article because it directly discusses the ecological impacts of urbanization, which is a central theme of my research question.
+*Results*:
 
----
+------------------------------------------------------------------------
 
-### Part 3: Write an Abstract Using Selected Articles (5 Points)
+## Part 2: Choose 3 Articles for Further Analysis (8 Points)
 
-Using at least 2 of the 3 articles you selected in Part 2, write an abstract for your research question. While you may not yet have the complete results for your research question, you can outline the data you are using, your research question, and your predicted results or actual results. The abstract should:
+From the 10 articles, select the **3 most relevant** to your research question.
 
-1. Include **1-2 sentences about the data** (e.g., its source, type, or relevance).
-2. Clearly state your **research question** in **1 sentence.**
-3. Use **at least 2 sentences** to reference the selected articles, supporting your research question, predicted results, or actual results.
+Now, we are going to ask ScholarGPT to provide us with 2 additional pieces of information about these articles: the abstract of the article and a citation for the article using a common citation format.
+
+-   An abstract in a published article is a concise summary of the main points of the research. It typically includes an object, the methodology of the study, the results of the study, and what conclusions we can draw from the results.
+-   We will be asking for citations in APA format, a common citation format. As you'll see in the prompt below, we have specifically requested ScholarGPT to include a Digital Object Identifier (DOI). This is a permanent location on the internet where this article can be found for hundred of years, at least.
+
+Use the following prompt to get more information and citations for each of the three articles you identified. You will want to replace the numbers to match your 3 articles of interest:
+
+*"Provide the abstracts and APA citations for articles #, #, and #. Make sure you include DOIs for each article."*
+
+3.  Copy the results here. Remember to switch over into "Source" mode before pasting your results! (3 points)
+
+*Results*:
+
+4.  Now that you've gotten your results, click on the link that ScholarGPT has provided (either the DOI or the link in the list of 10 articles). For most of your articles, even if you aren't logged into UA WiFi, you should still be able to see the abstract of the article.
+
+    Does the abstract of the article match the abstract that ScholarGPT provided? Does it contain more or less information? Do you see any issues with what ScholarGPT has provided? Write 3-5 sentences discussing this. (2 points)
+
+*Answer:*
+
+5.  For each article, write 1-2 sentences explaining why it is relevant or valuable to your research question. (3 points)
+
+*First Article*:
+
+*Second Article*:
+
+*Third Article*:
+
+------------------------------------------------------------------------
+
+## Part 3: Write an Abstract Using Selected Articles (5 Points)
+
+Using at least 2 of the 3 articles you selected in Part 2, write an abstract for your research question. While you may not yet have the complete results for your research question, you can outline the data you are using, your research question, and your predicted results or actual results.
+
+For full credit, the abstract should:
+
+-   Include an opening sentence about the general topic of interest.
+-   Include **1-2 sentences about the data** (e.g., its source, type, or relevance).
+-   Clearly state your **research question** in **1 sentence.**
+-   Use **at least 2 sentences** to reference the selected articles, supporting your research question, predicted results, or actual results. You should use in-text citations to reference your articles. See examples of in-text citations in the example abstract below.
+-   Your abstract should be a minimum of 4 sentences.
 
 #### Example Abstract:
-The study utilizes data from the National Bird Migration Database, focusing on population trends across urbanized regions. The research question examines how urbanization affects the migratory behaviors of birds. Smith and Doe (2020) demonstrated that urban sprawl leads to habitat fragmentation, which disrupts migratory routes. Similarly, Johnson et al. (2021) found that urbanized landscapes correlate with reduced bird populations. Based on these findings, we predict a decline in migratory bird populations in highly urbanized areas.
 
----
+Urbanization has been shown by many scholars to correlate with reduced bird populations (Johnson et al. 2021). Smith and Doe (2020) specifically demonstrated that urban sprawl leads to habitat fragmentation, which disrupts migratory routes. This study utilizes data from the National Bird Migration Database, focusing on population trends across urbanized regions. The research question examines how urbanization affects the migratory behaviors of birds. Based on these findings, I predict a decline in migratory bird populations in highly urbanized areas.
 
-## Submission Guidelines  
+6.  Write your abstract here. It can follow a similar structure of the one above or be a little different, but it should follow the guidelines above for full credit. (5 points)
 
-Submit a document (Word or PDF) containing the following:  
-1. Your research question.  
-2. The list of 10 articles with summaries (Part 1).  
-3. APA-style citations for the 3 selected articles.  
-4. Detailed summaries of the 3 selected articles.  
-5. Explanations for why you chose these articles.  
-6. An abstract based on Part 3.
+*Abstract*:
 
----
+------------------------------------------------------------------------
 
-## Grading Rubric  
+## Part 4: Reflection (2 points)
 
-- **Part 1: Identifying 10 Articles (5 Points):**  
-  - 0.5 points per article summary (2 sentences each).  
+In this assignment, you've used generative AI to help you find scientific literature related to your research topic, summarize and cite those research papers, and write an abstract.
 
-- **Part 2: Selecting and Analyzing 3 Articles (10 Points):**  
-  - APA Citations (3 Points): Proper formatting for 3 articles.  
-  - Summaries (5 Points): Clear, accurate, and concise (2 points per article).  
-  - Justifications (2 Points): Strong explanations for the selection of articles (1 point per article).  
+In some ways, generative AI probably did a great job; in other ways, it probably did not perform its task as directed. I know that I had to spend another 2 hours to finalize the creation of this assignment, even after generative AI produced a nice outline for me!
 
-- **Part 3: Writing an Abstract (5 Points):**  
-  - 1 Point: Description of data.  
-  - 1 Point: Clear research question.  
-  - 3 Points: Use of at least 2 references to support your question and results.
+7.  Based on your experiences in this assignment, what are your takeaways about using generative AI to help conduct research or generally answer questions? Where does it excel? What are potential pitfalls? Your response should be at least 4 sentences. (2 points)
 
----
+*Reflection*:
+
+------------------------------------------------------------------------
