@@ -30,9 +30,13 @@ Use generative AI to find relevant articles, assess their relevance to your rese
 
 Dec 5 at 11 am MST
 
+------------------------------------------------------------------------
+
 ## Assignment Instructions
 
-This assignment will guide you through the process of finding, citing, and summarizing scientific articles related to your research question. You will ultimately use these research articles to write an abstract for a scientific paper. You will use **ScholarGPT** to identify relevant sources and practice synthesizing scientific information. Additionally, you'll use an online tool to correctly format citations in APA style.
+This assignment will guide you through the process of finding, citing, and summarizing scientific articles related to your research question.
+
+You will ultimately use these research articles to write an abstract for a scientific paper. You will use **ScholarGPT** to identify relevant sources and practice synthesizing scientific information. Additionally, you'll use an online tool to correctly format citations in APA style.
 
 By the way, I used **ChatGPT** to help me create this assignment! It took a lot of iteration and very specific prompts, and I still needed to make numerous edits. Generative AI is awesome as a partner, but you need to make sure you are using it critically, not as the only tool.
 
