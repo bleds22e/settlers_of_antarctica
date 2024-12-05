@@ -31,7 +31,7 @@ Write R code which produces the correct data, summaries, plots and analyses. Cor
 
 ### Due Date
 
-May 7 at midnight MST
+December 17 at midnight MST
 
 ------------------------------------------------------------------------
 
@@ -125,30 +125,30 @@ Which dataset have you chosen to work with for this final assignment? (1 point)
 
 ### Data Exploration
 
-Now, spend some time really getting to know your dataset. Information about the datasets can be found below, both in terms of how you should treat each column (quantitative vs. qualitative) as well as at the links to the datasets below (click on the names of the datasets).
+Now, spend some time really getting to know your dataset. Information about the datasets can be found below, both in terms of how you should treat each column (continuous vs. categorical) as well as at the links to the datasets below (click on the names of the datasets).
 
 You might notice that the data at the links has many more columns than the datasets you have been given or some slightly different data. Focus only on the columns that are in the .csv file provided to you for this assignment.
 
 #### [Krill](https://www.bas.ac.uk/project/krillbase/#data)
 
 -   You will want to use the `Krill_per_1m2_log` column as your dependent variable. This is a log-transformed version of the `Krill_per_1m2` column. You don't need to worry about *why* we transformed the data, but this column should be a bit easier to work with.
--   The `Date`, `Year`, and `Month` columns should all be treated as *quantitative/continuous* variables.
--   While the `Station` column can *technically* be considered a qualitative/categorical variable, please use the `Day_Night` column as your qualitative/categorical variable for this assignment and for your research question.
+-   The `Date`, `Year`, and `Month` columns should all be treated as *continuous* variables.
+-   While the `Station` column can *technically* be considered a categorical variable, please use the `Day_Night` column as your categorical variable for this assignment and for your research question.
 
 #### [Fur Seals](https://ramadda.data.bas.ac.uk/repository/entry/show?entryid=bc6d802a-fce5-495d-b5e1-bb26f824847c)
 
--   If you choose to use the `Date` or `Year` column, treat them as *quantitative/continuous* variables.
--   On the other hand, if you use the `Month` column, treat it as a *qualitative/categorical* variable.
+-   If you choose to use the `Date` or `Year` column, treat them as *continuous* variables.
+-   On the other hand, if you use the `Month` column, treat it as a *categorical* variable.
 
 #### [Gentoo Penguins](https://ramadda.data.bas.ac.uk/repository/entry/show?entryid=1fd5bc8a-96b5-4f53-aa15-33e5330e7705)
 
--   If you are using the `Year` column, treat it as a *quantitative/continuous* variable.
+-   If you are using the `Year` column, treat it as a *continuous* variable.
 -   The dataset has a column for the previous year's December temperature. Because counts of chicks took place in January or February (and nests were counted in October/November), the number of chicks is most likely to be related to the temperatures directly after chicks hatched (December of the previous year).
 
 #### [Chinstrap Penguins](https://ramadda.data.bas.ac.uk/repository/entry/show?entryid=d784af69-c92b-444c-a12e-ee0361802cb1)
 
 -   I do not recommend using the `MONTH` or `DAY` column.
--   If you use the `YEAR` column, treat it as a *quantitative/continuous* variable.
+-   If you use the `YEAR` column, treat it as a *continuous* variable.
 
 ### Back to Assignment Questions
 
@@ -156,14 +156,14 @@ You might notice that the data at the links has many more columns than the datas
 
 *Answer*:
 
-7.  For each of the columns in your dataset, identify whether the data points they contain are qualitative (categorical) or quantitative (numeric). Be sure your answers align with the information I've provided for you above. (3 points)
+7.  For each of the columns in your dataset, identify whether the data points they contain are categorical or continuous/numeric. Be sure your answers align with the information I've provided for you above. (3 points)
 
-    Many of your answers to subsequent questions will depend heavily on whether variables are qualitative or quantitative.
+    Many of your answers to subsequent questions will depend heavily on whether variables are categorical or continuous.
 
     Type out the name of the column and then the descriptor. For example:
 
-    -   island_name: qualitative
-    -   island_size_km: quantitative
+    -   island_name: categorical
+    -   island_size_km: continuous
 
 *Answer*:
 
@@ -171,13 +171,13 @@ You might notice that the data at the links has many more columns than the datas
 
 In order to write a successful research question, we need to identify our dependent variable and the independent variable that we think affects the dependent variable.
 
-8.  First, determine which variable is the *dependent* variable in your dataset (there is usually only one, but there might be two). It must be quantitative. (2 points)
+8.  First, determine which variable is the *dependent* variable in your dataset (there is usually only one, but there might be two). It must be continuous/numeric. (2 points)
 
 *Answer*:
 
 9.  Next, choose 1 independent variable from your dataset (each dataset has more than one from which to choose). (2 points)
 
-    This should be a variable that you believe might affect the values of the dependent variable. It can be either qualitative or quantitative.
+    This should be a variable that you believe might affect the values of the dependent variable. It can be either categorical or continuous/numeric.
 
 *Answer*:
 
@@ -218,10 +218,10 @@ Let's get to know our data a little better.
 
 13. Summarize your data by calculating at least 1 measure of central tendency and 1 measure of variability for your your *dependent* variable using the `tidyverse` functions (you might need `na.rm = TRUE`!). (4 points)
 
-Pay close attention here! How you summarize will differ based on whether your *independent* variable is qualitative or quantitative (2 points):
+Pay close attention here! How you summarize will differ based on whether your *independent* variable is categorical or continuous/numeric (2 points):
 
--   If your research question has a *qualitative (categorical)* independent variable, find the measure of central tendency and the measure of variability of *each* individual category.
--   If your research question has a *quantitative (numeric)* independent variable, find a measure of central tendency and the measure of variability for the independent variable in addition to the dependent variable
+-   If your research question has a *categorical* independent variable, find the measure of central tendency and the measure of variability of *each* individual category.
+-   If your research question has a *continuous/numeric (numeric)* independent variable, find a measure of central tendency and the measure of variability for the independent variable in addition to the dependent variable
 
 ```{r}
 
@@ -230,7 +230,9 @@ Pay close attention here! How you summarize will differ based on whether your *i
 
 ## Data Visualization (18 points)
 
-To continue our data exploration, we are going to plot our data. Some of the plots might be related to your research question; other may not. That's ok!
+To continue our data exploration, we are going to plot our data.
+
+Some of the plots might be related to your research question; other may NOT. That's ok!
 
 At least ONE of the plots should include both your dependent and independent variable. Think critically about which plot that should be based on your variable types.
 
@@ -242,7 +244,7 @@ At least ONE of the plots should include both your dependent and independent var
 
 *Answer:*
 
-15. Create a multiple histogram plot of your dependent variable and one other variable (this may or may not be your independent variable). (3 points)
+15. Create a *multiple histogram* plot of your dependent variable and one other variable (this may or may not be your independent variable). (3 points)
 
     Make sure we can see each histogram plot (make sure one isn't blocking another by modifying the transparency and position).
 
@@ -250,7 +252,7 @@ At least ONE of the plots should include both your dependent and independent var
 
 ```
 
-16. Create a box-and-whisker plot which includes your dependent variable. Changing the color of the boxes is optional. Make sure to add points to the plot. (3 points)
+16. Create a *box-and-whisker* plot which includes your dependent variable. Changing the color of the boxes is optional. Make sure to add points to the plot. (3 points)
 
     *Hint: if your plot has `NA` values that you want to remove, you can remove them from the dataset with the `filter` function and the argument `!is.na(column_name)`.*
 
@@ -258,7 +260,7 @@ At least ONE of the plots should include both your dependent and independent var
 
 ```
 
-17. Create a scatter plot that includes your dependent variable. Write 1-2 sentences describing what information you can gather from plot. (3 points)
+17. Create a *scatter plot* that includes your dependent variable. Write 1-2 sentences describing what information you can gather from plot. (3 points)
 
     *Hint: if your plot has `NA` values that you want to remove, you can remove them from the dataset with the `filter` function and the argument `!is.na(column_name)`.*
 
@@ -266,7 +268,7 @@ At least ONE of the plots should include both your dependent and independent var
 
 ```
 
-18. Identify which plot(s) from Questions 15-17 match up with your research question. How you know it matches up correctly (based on qualitative vs. quantitative variables)? (3 point)
+18. Identify which plot(s) from Questions 15-17 match up with your research question. How you know it matches up correctly (based on categorical vs. continuous/numeric variables)? (3 point)
 
 *Answer*:
 
