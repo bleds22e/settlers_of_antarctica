@@ -28,7 +28,7 @@ Write R code to successfully answer each question below.
 
 ### Due Date
 
-Thursday, Sept 12 at 9:30 am MST
+Thursday, Sept 11 at 9:30 am MST
 
 # Assignment Questions
 
@@ -86,7 +86,7 @@ team_data <- read.csv("../data/team_antarctica.csv")
 
 ```{r}
 # using code is optional
-dim(team_data) # 34 rows, 10 columns
+dim(team_data) # 22 rows, 10 columns
 colnames(team_data) 
 str(team_data) 
 ```
@@ -146,7 +146,7 @@ What animal should be on our team flag?
 
 First, create a vector called `mascot` that has only the values from the `team_flag` column. Next, use the `table()` function on the `mascot`. This will give you the number of times each option was chosen. According to the results, which animal should be on our team flag?
 
-*Answer:* Orca!
+*Answer:* Leopard seal
 
 ```{r flag_mascot}
 # data frame

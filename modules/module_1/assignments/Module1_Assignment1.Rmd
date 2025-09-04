@@ -31,7 +31,7 @@ Write R code to successfully answer each question below.
 
 ### Due Date
 
-Thursday, Sept 12 by 9:30 am
+Thursday, Sept 11 by 9:30 am
 
 # Assignment Questions
 
