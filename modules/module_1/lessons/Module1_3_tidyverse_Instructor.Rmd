@@ -151,10 +151,14 @@ The code above is, in my opinion, a bit unwieldy. Filter feels more intuitive. W
 filter(climate_df, AverageTemperature > 25)
 
 # easy to write multiple conditions and to chain stuff together
-filter(climate_df, AverageTemperature > 25, Country == "United States")   # only rows that meet both conditions; could also use & instead of ,
+# only rows that meet both conditions; could also use & instead of ,
+filter(climate_df, AverageTemperature > 25, Country == "United States")   
 
-filter(climate_df, AverageTemperature > 25 | Country == "United States" ) # rows that meet one or the other condition; the | symbol means `or`
-filter(climate_df, Country == "United States" | Country == "Mexico")      # pulls rows in which the Country column has either "United States" OR "Mexico"
+# rows that meet one or the other condition; the | symbol means `or`
+filter(climate_df, AverageTemperature > 25 | Country == "United States" ) 
+
+# pulls rows in which the Country column has either "United States" OR "Mexico"
+filter(climate_df, Country == "United States" | Country == "Mexico")      
 
 # worth noting here that we haven't saved any of this. We need to write to a new object. 
 us_df <- filter(climate_df, AverageTemperature > 25)
