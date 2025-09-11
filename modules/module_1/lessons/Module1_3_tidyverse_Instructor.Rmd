@@ -91,6 +91,10 @@ climate_df
 
 The `tidyverse` converts 2D data into something called a tibble! For our intents and purposes, it is basically the same as a data frame (and I'll probably call it a data frame, in reality).
 
+As a quick reminder, *columns* represent variables and are vertical. *Rows* represent observations and are horizontal.
+
+![](row_column.png){fig-align="center" width="50%"}
+
 Let's take a look at our tibble (AKA data frame).
 
 ```{r}
