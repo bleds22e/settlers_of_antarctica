@@ -31,7 +31,7 @@ Write R code which produces the correct answers and text to correctly interpret 
 
 ### Due Date
 
-Oct 3 at 9:30 am MST
+Oct 2 at 9:30 am MST
 
 # Assignment Questions
 
@@ -69,13 +69,27 @@ First, let's prepare our data.
 
     -   Based on the column names, briefly (just a few words) describe what data is included in each column. (2 points)
 
-    *Answer:* tank_id = identifier for individual tanks; species = fish species in the tank; avg_daily_temperature = average water temp in the tank; num_fish = total number of fish in the tank; day_length = amount of daylight provided for tanks; tank_volume = water volume in the tank; num_sick = number of sick fish per tank
+    *Answer:*
 
-6.  Take a look at the columns that have the total number of fish in the tank and the number of sick fish per tank. Determine whether these two columns are continuous or categorical.
+    -   `tank_id` = identifier for individual tanks
 
-    *Answer:* both num_fish and num_sick are continuous
+    -   `species` = fish species in the tank
 
-7.  Using _base R_ (the code we learned in "Module2_1_DescriptiveStats"), create a scatter plot. Put the total number of fish on the x-axis and the number of sick fish on the y-axis.
+    -   `avg_daily_temperature` = average water temp in the tank
+
+    -   `num_fish` = total number of fish in the tank
+
+    -   `day_length` = amount of daylight provided for tanks
+
+    -   `tank_volume` = water volume in the tank
+
+    -   `num_sick` = number of sick fish per tank
+
+6.  Take a look at the columns that have the total number of fish in the tank and the number of sick fish per tank. Determine whether these two columns are numeric or categorical.
+
+    *Answer:* both `num_fish` and `num_sick` are continuous
+
+7.  Using *base R* (the code we learned in "Module2_1_DescriptiveStats"), create a scatter plot. Put the total number of fish on the x-axis and the number of sick fish on the y-axis.
 
     ```{r}
     plot(sick_fish$num_fish, sick_fish$num_sick)

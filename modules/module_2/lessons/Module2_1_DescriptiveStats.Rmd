@@ -82,7 +82,7 @@ Let's talk about the data we have:
 -   What type of information does a single row represent?
 -   How many variables (columns) do we have?
 
-Which variables are we particularly interested in? Are they continuous or categorical? Does it matter?
+Which variables are we particularly interested in? Are they numeric/continuous or categorical? Does it matter?
 
 ### Let's Practice
 

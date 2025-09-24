@@ -31,7 +31,7 @@ Write R code which produces the correct answers and text to correctly interpret 
 
 ### Due Date
 
-Oct 3 at 9:30 am MST
+Oct 2 at 9:30 am MST
 
 # Assignment Questions
 
@@ -51,13 +51,13 @@ First, let's prepare our data.
 
     ```
 
-3.  Use the `head()` or the `str()` function to take a look at the `sick_fish` data frame.
+3.  Use the `head()` function, which shows the first six rows of data, to take a look at the `sick_fish` data frame.
 
     ```{r}
 
     ```
 
-4.  How many rows does the `sick_fish` data frame have? How many columns? 
+4.  How many rows does the `sick_fish` data frame have? How many columns? Explain how you determined these values.
 
     *Answer:*
 
@@ -71,11 +71,13 @@ First, let's prepare our data.
 
     *Answer:*
 
-6.  Take a look at the columns that have the total number of fish in the tank and the number of sick fish per tank. Determine whether these two columns are qualitative or quantitative.
+6.  Take a look at the columns that have the total number of fish in the tank and the number of sick fish per tank. Determine whether these two columns are numeric or categorical.
 
     *Answer:*
 
-7.  Using base R, create a scatter plot (the `plot()` function). Put the total number of fish on the x-axis and the number of sick fish on the y-axis.
+7.  Using base R, create a scatter plot (the `plot()` function, which we used in the "Module2_1_DescriptiveStats" lesson).
+
+    Put the total number of fish on the x-axis and the number of sick fish on the y-axis.
 
     ```{r}
 
@@ -85,7 +87,7 @@ First, let's prepare our data.
 
     *Answer:*
 
-9.  Create the scatter plot using `ggplot2` and the proper `geom` function.
+9.  Create the scatter plot using `ggplot2` and the proper `geom` function (which we learned in the "Module2_2_ggplot2" lesson).
 
     ```{r}
 
@@ -101,7 +103,7 @@ Looking at the scatter plots, there seem to be two distinct groups. Let's invest
 
 11. For *each* fish species, calculate the average and the standard deviation for the number of sick fish. (2 points)
 
-    *Hint: think back to Module 1 and which function we can use to "split, apply, combine"*
+    *Hint: think back to Module 1 and which functions we can use to "split, apply, combine"*
 
     ```{r}
 
