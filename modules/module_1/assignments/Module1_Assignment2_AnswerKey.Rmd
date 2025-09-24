@@ -1,59 +1,77 @@
 ---
-title: "Module 1 Assignment 2: Getting to Know your Home"
-author: "Ellen Bledsoe"     # <- your name here!
-date: "`r Sys.Date()`"      # <- uses the current date when rendered
+title: 'Module 1, Assignment 2: Answer Key'
+author: "Ellen Bledsoe"
+date: "`r Sys.Date()`"
 output: pdf_document
 ---
 
+
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-library(tidyverse)
-weather <- read_csv("../data/aggregated_station_data.csv")
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+```
+```{r vector}
+# vector with counts of penguins
+counts <- c(2, 9, 4, 3, 6, 7, 1, 0, 3)
+```
+
+
+1. 
+```{r second_value}
+# second value of counts vector
+counts[2]
+```
+
+2.
+
+```{r}
+counts[counts > 5]
+```
+
+
+3. 
+```{r avg_penguins}
+# mean number of penguins
+mean(counts)
+```
+
+
+```{r import_data}
+team_data <- read.csv("../data/team_antarctica.csv")
 ```
 
 5. 
-
-```{r paged.print=TRUE}
-filter(weather, temp > 0)
+```{r examine_data}
+head(team_data, 10)
 ```
 
-6.  
-
-```{r temp_df}
-station_temp <- select(weather, year:month, temp, station_id)
-station_temp
+6. 
+```{r}
+team_data[4, 8]
 ```
 
 7.  
 
-```{r tempF}
-station_temp %>% 
-  mutate(tempF = temp*(9/5) + 32)
+```{r average_remote_location}
+mean(team_data$remote_location)
 ```
 
-9.  
+8.  
 
-```{r}
-weather %>% 
-  group_by(month) %>% 
-  summarise(min_temp = min(temp, na.rm = TRUE))
+```{r min_max_distance}
+# minimum distance
+min(team_data$distance_mi)
+
+# maximum distance
+max(team_data$distance_mi)
+```
+ 
+ 9.
+ 
+```{r cooking_skill}
+team_data[team_data$fishing_skill == 5, ]
 ```
 
 10. 
-
-```{r mean_jan_temp}
-weather %>% 
-  filter(month == 1) %>% 
-  group_by(station_id) %>% 
-  summarize(mean_temp = mean(temp, na.rm = TRUE))
+```{r parka_colors}
+mean(team_data[team_data$parka_color == "Blue", 5])
 ```
-
-## Bonus! (up to 2 points)
-
-```{r unique_stations}
-# number of unique stations
-weather %>% 
-  distinct(station_id) %>% 
-  count() 
-```
-

@@ -1,0 +1,59 @@
+---
+title: "Module 1 Assignment 2: Getting to Know your Home"
+author: "Ellen Bledsoe"     # <- your name here!
+date: "`r Sys.Date()`"      # <- uses the current date when rendered
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+weather <- read_csv("../data/aggregated_station_data.csv")
+```
+
+5. 
+
+```{r paged.print=TRUE}
+filter(weather, temp > 0)
+```
+
+6.  
+
+```{r temp_df}
+station_temp <- select(weather, year:month, temp, station_id)
+station_temp
+```
+
+7.  
+
+```{r tempF}
+station_temp %>% 
+  mutate(tempF = temp*(9/5) + 32)
+```
+
+9.  
+
+```{r}
+weather %>% 
+  group_by(month) %>% 
+  summarise(min_temp = min(temp, na.rm = TRUE))
+```
+
+10. 
+
+```{r mean_jan_temp}
+weather %>% 
+  filter(month == 1) %>% 
+  group_by(station_id) %>% 
+  summarize(mean_temp = mean(temp, na.rm = TRUE))
+```
+
+## Bonus! (up to 2 points)
+
+```{r unique_stations}
+# number of unique stations
+weather %>% 
+  distinct(station_id) %>% 
+  count() 
+```
+
