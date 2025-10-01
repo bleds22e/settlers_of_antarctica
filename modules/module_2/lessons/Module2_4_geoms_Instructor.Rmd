@@ -26,9 +26,9 @@ First, let's remind ourselves of the general structure of how we make plots usin
 
 ```{r}
 # ggplot(data = <DATA>, mapping = aes(x = <COLUMN1>, y = <COLUMN2)) +
-# geom_function() +
-# labs() +
-# theme()
+  # geom_function() +
+  # labs() +
+  # theme()
 ```
 
 ## Histograms
@@ -38,10 +38,16 @@ As we learned last modules, histograms are plots which let us look at *one conti
 They help us get a feel for the distribution of that data. To make histograms in `ggplot2`, we use the `geom_histogram()` function. Let's look at the number of fish.
 
 ```{r}
-ggplot(fish, aes(num_fish)) +
+ggplot(fish, aes(x = num_fish)) +
   geom_histogram(bins = 20)
 
 # we can change the number of bins (essentially, the number of columns) by modifying the bins argument in the geom_histogram function
+ggplot(fish, aes(x = num_fish)) +
+  geom_histogram(bins = 20)
+
+# we can also modify the colors, if we want
+ggplot(fish, aes(x = num_fish)) +
+  geom_histogram(bins = 20, fill = "lightblue", color = "black")
 ```
 
 ### Let's Practice
@@ -49,7 +55,7 @@ ggplot(fish, aes(num_fish)) +
 Make a histogram of the number of sick fish in the tanks. Create the histogram with 10 bins (10 groupings).
 
 ```{r}
-ggplot(fish, aes(num_sick)) +
+ggplot(fish, aes(x = num_sick)) +
   geom_histogram(bins = 10)
 ```
 
@@ -58,7 +64,7 @@ ggplot(fish, aes(num_sick)) +
 When we create a multiple histogram, we have to add one additional argument to `geom_histogram()`. Let's see what happens if we just specify `fill`.
 
 ```{r}
-ggplot(fish, aes(num_fish, fill = species)) +
+ggplot(fish, aes(x = num_fish, fill = species)) +
   geom_histogram(bins = 10)
 ```
 
@@ -69,7 +75,7 @@ Let's change the transparency using an argument called `alpha`, which allows us 
 We can set the transparency to 0.5 to see if there is any overlap.
 
 ```{r}
-ggplot(fish, aes(num_fish, fill = species)) +
+ggplot(fish, aes(x = num_fish, fill = species)) +
   geom_histogram(bins = 10, alpha = 0.5)
 ```
 
@@ -78,7 +84,7 @@ Not too much changed. It still doesn't look like we can see any red points behin
 Let's take a look at what happens when we add the argument `position = "identity"`.
 
 ```{r}
-ggplot(fish, aes(num_fish, fill = species)) +
+ggplot(fish, aes(x = num_fish, fill = species)) +
   geom_histogram(bins = 10, alpha = 0.5, position = "identity")
 ```
 
@@ -93,7 +99,7 @@ Any time we plot a multiple histogram, we need to change the transparency and ad
 Make a multiple histogram of the number of sick fish per species. Make sure your plot has 10 bins, is partially transparent, and the data are *not* stacked.
 
 ```{r}
-ggplot(fish, aes(num_sick, fill = species)) +
+ggplot(fish, aes(x = num_sick, fill = species)) +
   geom_histogram(bins = 10, alpha = 0.5, position = "identity")
 ```
 
