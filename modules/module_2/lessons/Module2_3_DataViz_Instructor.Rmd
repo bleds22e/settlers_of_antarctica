@@ -27,7 +27,7 @@ This website is pretty great and goes into a lot of detail about good practices 
 
 In this course, our main take-away from this website is the use of visual cues to communicate data and which ones are better than others.
 
-![](data_viz_cues.jpg){width=50%}
+![](data_viz_cues.jpg){width="50%"}
 
 ### Small group activity
 
@@ -45,10 +45,10 @@ Spend a few minutes seeing if you can match the data descriptions to the types o
 
 Each “dataset” is pulled from the same overall dataset: measurements from 344 individual penguins from different species and on different islands over 3 years. Some datasets created multiple plots.
 
-A.	Penguin body mass and flipper lengths
-B.	Penguin flipper lengths 
-C.	Penguin species and flipper lengths 
-D.	Penguins body mass, species, and flipper lengths
+A.  Penguin body mass and flipper lengths
+B.  Penguin flipper lengths
+C.  Penguin species and flipper lengths
+D.  Penguins body mass, species, and flipper lengths
 
 #### Matches
 

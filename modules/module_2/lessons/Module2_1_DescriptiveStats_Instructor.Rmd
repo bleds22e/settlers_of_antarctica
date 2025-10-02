@@ -101,7 +101,7 @@ Combining data visualization with descriptive statistics is a great way to under
 
 There are two main ways to make data visualizations in R: through base R, which is the syntax we learned in our first week of coding, and through `ggplot2`, which is a package in the `tidyverse`.
 
-For the majority of the semester, we will be plotting in with `ggplot2`, which is a fun and powerful tool. However, to plot even a simple plot, `ggplot2` takes some explanation. We will talk about `ggplot2` in our _next class_ but for today, let's first make some quick-and-dirty plots in _base R_.
+For the majority of the semester, we will be plotting in with `ggplot2`, which is a fun and powerful tool. However, to plot even a simple plot, `ggplot2` takes some explanation. We will talk about `ggplot2` in our *next class* but for today, let's first make some quick-and-dirty plots in *base R*.
 
 ### Histograms
 
