@@ -70,7 +70,7 @@ First, let's take a look at the data we will be using for the assignment.
 
     c\. How many fish were sampled?
 
-    d\. How many different soy protein levels (treatments) are there? 
+    d\. How many different soy protein levels (treatments) are there?
 
 ## Our Task
 
@@ -103,7 +103,7 @@ They've also asked that we provide all weights in kilograms instead of grams (th
 
 Now let's actually go ahead and complete our tasks with code.
 
-FIRST! We need to run the line of code below. It's a little wonky but will ultimately be helpful. This line of code tells R that we want the soy proteins levels to be listed in a specific order (low to very high) rather than alphabetically. 
+FIRST! We need to run the line of code below. It's a little wonky but will ultimately be helpful. This line of code tells R that we want the soy proteins levels to be listed in a specific order (low to very high) rather than alphabetically.
 
 ```{r}
 growth <- growth %>% 
@@ -115,8 +115,8 @@ Because the aquaculture team has asked for everything to use kilograms instead o
 5.  Use the `mutate()` function to add a `day_30_weight_kg` column to the growth data frame. (Hint: divide grams by 1000 to get kg)
 
     Save the output as `growth_kg` (2 points)
-    
-    ** NOTE: This is the data frame you will use for the remainder of the assignment.**
+
+    \*\* NOTE: This is the data frame you will use for the remainder of the assignment.\*\*
 
     ```{r}
 
