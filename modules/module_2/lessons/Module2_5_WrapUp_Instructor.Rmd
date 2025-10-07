@@ -108,9 +108,9 @@ Let's talk about fish physiology for a minute.
 
 Take a look back at the data frame. Which columns are environmental variables that could be driving the issues?
 
-Are those columns continuous or categorical? What plot type have we talked about that might help us find a relationship between density and each of these variables (one at a time...)?
+Are those columns numeric or categorical? What plot type have we talked about that might help us find a relationship between density and each of these variables (one at a time...)?
 
-In small groups, make plots using `density` column in the `sick_trout` data to try to figure out which environmental factor is causing problems in the trout. Treat your variables as continuous.
+In small groups, make plots using `density` column in the `sick_trout` data to try to figure out which environmental factor is causing problems in the trout. Treat your variables as numeric.
 
 ```{r}
 ggplot(sick_trout, aes(x = density, y = num_fish)) +

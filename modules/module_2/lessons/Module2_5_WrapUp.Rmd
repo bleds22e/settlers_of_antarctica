@@ -39,7 +39,7 @@ Let's check out our data and remind ourselves what we are working with.
 
 ## Which Fish?
 
-Last class, we plotted the number of sick fish. Let's remind ourselves what that looked like. Make a plot that compares the numbers of sick fish per species. We actually have a few options!
+Last class, we plotted the number of sick fish. Let's remind ourselves what that looked like. Make a plot that compares the numbers of sick fish per species. We actually have a few options.
 
 ```{r}
 
@@ -65,7 +65,7 @@ Let's make sure our conclusions about trout being the true culprits still hold w
 Work in small groups to do the following:
 
 -   find the average number and standard deviation of sick fish for both species
--   make a plot that compares the distributions of sick fish numbers for both species (you have multiple options here!)
+-   make a plot that compares the distributions of sick fish numbers for both species
 
 ```{r}
 
@@ -84,9 +84,9 @@ We should create a data frame that only contains trout to work with for the rest
 
 Take a look back at the data frame. Which columns are environmental variables that could be driving the issues?
 
-Are those columns continuous or categorical? What plot type have we talked about that might help us find a relationship between density and each of these variables (one at a time...)?
+Are those columns numeric or categorical? What plot type have we talked about that might help us find a relationship between density and each of these variables (one at a time...)?
 
-In small groups, make plots using `density` column in the `sick_trout` data to try to figure out which environmental factor is causing problems in the trout. Treat your variables as continuous.
+In small groups, make plots using `density` column in the `sick_trout` data to try to figure out which environmental factor is causing problems in the trout. Treat your variables as numeric.
 
 ```{r}
 
