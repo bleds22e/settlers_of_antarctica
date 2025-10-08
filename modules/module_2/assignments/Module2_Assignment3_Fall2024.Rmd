@@ -30,7 +30,7 @@ Choose a dataset to work with for the final, write a research question, summariz
 
 ### Due Date
 
-Oct 17 at 9:30am MST
+Oct 16 at 9:30am MST
 
 # Assignment Questions
 
@@ -72,18 +72,8 @@ Read all four datasets (.csv files) into RStudio using the `read_csv()` function
 
 *Answer*:
 
-3.  For each of the columns in your dataset, identify whether they contain categorical or continuous/numeric data.
 
-    NOTE! Some data, such as dates (month, year), can act as both types of data. See the section below for clarification about columns in your chosen dataset.
-
-    Type out the name of the column and then the descriptor. For example:
-
-    -   island_name: categorical
-    -   island_size_km: numeric or continuous (either descriptor is fine)
-
-*Answer*:
-
-------------------------------------------------------------------------
+### Modifications
 
 Find your dataset below.
 
@@ -114,6 +104,17 @@ I've made a few modifications to each of the dataset to make them a bit more man
 
 ## Writing a Research Question
 
+3.  For each of the columns in your dataset, identify whether they contain categorical or continuous/numeric data.
+
+    *NOTE! Some data, such as dates (month, year), can act as both types of data. See the section above for clarification about columns in your chosen dataset.*
+
+    Type out the name of the column and then the descriptor. For example:
+
+    -   island_name: categorical
+    -   island_size_km: numeric or continuous (either descriptor is fine)
+
+*Answer*:
+
 In order to write a successful research question, we need to identify our *dependent* variable and the *independent* variable that we think affects the dependent variable.
 
 4.  First, determine which variable is the *dependent* variable in your dataset. Remember, it must be *numeric/continuous*.
@@ -124,7 +125,7 @@ In order to write a successful research question, we need to identify our *depen
 
 *Answer*:
 
-6.  Now, let's put those 2 variables into a research question.
+6.  Now, let's put those 2 variables into a research question (see the last few slides of the "Aquaponics" lecture for a reminder of how to write a research question).
 
 *Answer*:
 
@@ -148,20 +149,22 @@ Let's get to know our data a little better.
 
 ### Important Instructions and Info!
 
-(a) For *all* of the plots below, be sure to add:
+(a) You can use *any* variable from the dataset, not only the ones in your research question. In fact, you will *need* to use different variables to successfully create all of the plots.
+
+(b) For *all* of the plots below, be sure to add:
 
     -   improved labels for the x-axis, y-axis, and the legend (if present)
     -   one of the following themes to your code: `theme_bw`, `theme_classic`, or `theme_light`.
 
-(b) For each question, ***you get to choose the variables you use for each plot!*** Pay attention to which variables are numeric/continuous vs. categorical and where they should go in the code to produce the correct type of plot.
+(c) For each question, ***you get to choose the variables you use for each plot!*** Pay attention to which variables are numeric/continuous vs. categorical and where they should go in the code to produce the correct type of plot.
 
-(c) You can use *any* variable from the dataset, not sure the ones in your research question. In fact, you will *need* to use different variables to successfully create all of the plots.
-
-(d) Because I'm having you choose your own variables, the is no Answer Key for this assignment.
+(d) Because I'm having you choose your own variables, there is no Answer Key for this assignment.
 
 (e) Each plot is worth 2 points. Your interpretation is worth 1 point. Some of your plots may be hard to interpret. That's ok! In that case, explain why the plot is challenging to interpret.
 
 ------------------------------------------------------------------------
+
+_STOP! Did you read the "Important Instructions and Info" section above?_
 
 8.  Produce a histogram plot (just one, not multiple on the same plot). Write 1-2 sentences describing what information you can gather from plot. (3 points)
 
@@ -199,8 +202,8 @@ Let's get to know our data a little better.
 
 12. Do any of the plots you made above match up with your research question?
 
--   If so, identify which plot and explain how you know it matches up correctly (based on qualitative vs. quantitative variables).
--   If not, explain which plot type *would* match your research question and how you know (based on qualitative vs, quantitative variables).
+-   If so, identify which plot and explain how you know it matches up correctly (based on numeric vs. categorical variables).
+-   If not, explain which plot type *would* match your research question and how you know (based on numeric vs. categorical variables).
 
 *Answer*:
 
