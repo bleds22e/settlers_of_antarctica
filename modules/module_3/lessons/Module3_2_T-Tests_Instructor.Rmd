@@ -117,15 +117,16 @@ Let's talk through it:
 -   `df`: stands for *degrees of freedom*
     -   it's a measure of your sample size and some other stuff---honestly, this is not something we're really going to focus on here
 -   `p-value`: a measure of certainty of the difference outlined in the `t-statistic` above
-    -   For the test above, our p-value is *very* small: 0.00000000000000022
-        -   Wait, how did I get from `2.2e-16` to 0.00000000000000022?
-        -   The `e-16` means that we need to move the decimal space to the left 16 times, creating a very small number!
+    -   For the test above, our p-value is *very* small: 0.0000003646
+        -   Wait, how did I get from `3.646e-7` to 0.0000003646?
+        -   The `e-7` means that we need to move the decimal space to the left 7 times, creating a very small number!
         -   If the number after the `e` were positive (e.g., `e+5`), I would move the decimal 5 places to the right, creating a very big number.
     -   This means that there is an extremely low probability that the difference in means is due to random variation in our sample alone.
     -   There are a lot of benchmarks in different fields for what this value should be below to consider the difference *significant*; typically a p-value below 0.05 is considered significant.
--   `95 percent confidence interval`: this is the range that we can expect the test statistic (difference in means) to fall in 95% of the time given the data.
-    -   Our test statistic is the difference in means of Budget Collars and Collarium, or 86.8 - 121.5 = -34.7
-    -   If we randomly sample a group of collars from the "population", the difference in means will fall between -30.35 and -38.98 about 95% of the time
+-   `95 percent confidence interval`: while not exactly accurate, we can think of this as the range that we can expect the difference in the two means to fall in 95% of the time given the data.
+    -   The difference in means of Budget Collars and Collarium: 100.59 - 111.19 = -10.6
+    -   If we randomly sample a group of collars from the "population", the difference in means will fall between -14.4 and -6.8 about 95% of the time
+    -   the values are negative because the smaller group (Budget Collars) is first, so we are subtracting the larger number (Collarium average) from the smaller number (Budget Collars)
 
 Let's quickly remind ourselves how p-values work:
 
@@ -144,8 +145,8 @@ We want to know if there is a significant difference in the average signal dista
 
 1.  Identify your independent and dependent variables.
 
--   independent: maker, qualitative/categorical
--   dependent: signal_distance, quantitative/continuous
+-   independent: maker, categorical
+-   dependent: signal_distance, continuous
 
 2.  Write out your null and alternative hypotheses.
 
@@ -162,5 +163,5 @@ t.test(signal_distance ~ maker, data = collars)
 
 -   Is the p-value below our cut-off for significance (0.05)? yes, p \< 0.05
 -   Is our result statistically significant? yes!
--   Does that mean we should or should not reject the null hypothesis? REJECT
+-   Does that mean we should reject or fail to reject the null hypothesis? REJECT
 -   So...is there a "real" difference in the means between the two companies or not? yes, there is a real difference

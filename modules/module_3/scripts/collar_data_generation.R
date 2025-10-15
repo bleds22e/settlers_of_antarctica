@@ -13,14 +13,13 @@ library(tidyverse)
 # longer signalling distance. Also a column for failure (i.e. a collar was 
 # noted or collected by fishing teams on a leopard seal that posed a threat, 
 # but didn't ping on their instruments).
-
 collars <- tibble(collar_id = seq(1:100), 
                   maker = c(rep("Collarium Inc.", 47), 
                             rep("Budget Collars LLC", 53)), 
-                  battery_life = c(rnorm(n = 47, mean = 120, sd =10), 
-                                   rnorm(n = 53, mean = 86, sd = 10)), 
+                  battery_life = c(rnorm(n = 47, mean = 112, sd =10), 
+                                   rnorm(n = 53, mean = 102, sd = 10)), 
                   signal_distance = c(rnorm(n = 47, mean = 4200, sd = 35),
-                                      rnorm(n = 53, mean = 4300, sd = 35)), 
+                                      rnorm(n = 53, mean = 4250, sd = 35)), 
                   fail = c(rbinom(n = 47, size = 1, prob = 0.07), 
                            rbinom(n = 53, size = 1, prob = 0.3)))
 
@@ -33,8 +32,17 @@ collars %>%
 ggplot(collars, aes(x = signal_distance, y = battery_life, col = maker)) +
   geom_point()
 
+ggplot(collars, aes(signal_distance, fill = maker)) +
+  geom_histogram(position = "identity", alpha = 0.5)
+t.test(signal_distance ~ maker, data = collars)
+
+ggplot(collars, aes(battery_life, fill = maker)) +
+  geom_histogram(position = "identity", alpha = 0.5)
+t.test(battery_life ~ maker, data = collars)
+
+
 #writing to csv
-#write_csv(collars, "./modules/module_3/data/collar_data.csv")
+write_csv(collars, "./modules/module_3/data/collar_data.csv")
 
 
 ## Add a new collar company to the existing data
