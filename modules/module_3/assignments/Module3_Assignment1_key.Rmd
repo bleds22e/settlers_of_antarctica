@@ -71,23 +71,18 @@ turbine_summary
 ### Visual
 
 3.  Create a multiple histogram for the power output variable. (3 points)
- -   be sure to have a histogram for each turbine producer; the color and/or the fill should be determined by the maker of the turbine. They should also be transparent and not stacked vertically.
-    -   add in vertical lines for the mean values in the same color as the turbine makers (remember to reference the correct data frame!)
-    -   make sure the x-axis, y-axis, and legend labels are capitalized and easier to understand (power output in measured in kilowatts, or kWh)
-    -   use the `theme_classic()` function
+
+-   be sure to have a histogram for each turbine producer; the color and/or the fill should be determined by the maker of the turbine. They should also be transparent and not stacked vertically. - add in vertical lines for the mean values in the same color as the turbine makers (remember to reference the correct data frame!) - make sure the x-axis, y-axis, and legend labels are capitalized and easier to understand (power output in measured in kilowatts, or kWh) - use the `theme_classic()` function
 
 ```{r}
 ggplot(turbines, aes(power_output, fill = manufacturer)) +
-  geom_histogram(alpha = 0.5, position = "identity") +
+  geom_histogram(alpha = 0.5, position = "identity", bins = 10) +
   geom_vline(data = turbine_summary, aes(xintercept = mean_power, color = manufacturer)) +
   labs(x = "Power Output", # any way of adding cleaner labels is fine
-       y = "Density",
-       color = "Manufacturer",
-       fill = "Manufacturer") +
+       y = "Frequency",
+       color = "Company",
+       fill = "Company") +
   theme_classic()
-
-### the answer key that I gave them accidentally had wind speed as the x-axis label
-### because of that, they can use wind speed OR power output in the question
 ```
 
 4.  Generate a box-and-whisker plot using `ggplot2` that compares the wind speed between different turbine makers (3 points).
@@ -102,7 +97,7 @@ ggplot(turbines, aes(power_output, fill = manufacturer)) +
 ggplot(turbines, aes(manufacturer, wind_speed)) +
   geom_boxplot() +
   geom_jitter(width = 0.1, alpha = 0.5) + #transparency & width are optional
-  labs(x = "Maker", # any way of adding cleaner labels is fine
+  labs(x = "Company", # any way of adding cleaner labels is fine
        y = "Wind Speed (km/hr)") +
   theme_classic()
 ```

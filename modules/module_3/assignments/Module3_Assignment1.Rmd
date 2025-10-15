@@ -30,7 +30,7 @@ Write R code which produces the correct answers and correctly interpret the resu
 
 ### Due Date
 
-Oct 24 at 9:30 am MST
+Oct 23 at 9:30 am MST
 
 # Assignment Questions
 
@@ -46,8 +46,8 @@ Let's load the `tidyverse` and read in the data set. Call the data `turbines`.
 
 1.  Explore the data set, either through the environment or through code. Answer the following questions (2 point):
 
-    a.  How many turbine makers are there?
-    b.  What do the data each row of data represent?
+    a.  How many turbine companies are represented in the data?
+    b.  What do the data in each row of data represent?
 
     ```{r}
     # optional; only if you want space for coding
@@ -55,7 +55,7 @@ Let's load the `tidyverse` and read in the data set. Call the data `turbines`.
 
 ### Numeric
 
-2.  Generate a summary of the data set that calculates the mean wind speed and mean power output for each wind turbine company. Save this as a data frame called `turbine_summary`. (2 point)
+2.  Generate a summary of the data set that calculates the average required [wind speed]{.underline} and mean [power output]{.underline} for each wind turbine company. Save this as a data frame called `turbine_summary`. (2 point)
 
 ```{r}
 
@@ -63,20 +63,22 @@ Let's load the `tidyverse` and read in the data set. Call the data `turbines`.
 
 ### Visual
 
-3.  Create a multiple histogram plot for the power output variable. (3 points)
+3.  Create a multiple histogram plot for the [power output]{.underline} variable. (3 points)
+
     -   be sure to have a histogram for each turbine producer; the color and/or the fill should be determined by the maker of the turbine. They should also be transparent and not stacked vertically.
     -   set the number of bins to 10
     -   add in vertical lines for the mean values in the same color as the turbine makers (remember to reference the correct data frame!)
-    -   make sure the x-axis, y-axis, and legend labels are capitalized and easier to understand 
+    -   make sure the x-axis, y-axis, and legend labels are capitalized and easier to understand
     -   use the `theme_classic()` function
 
 ```{r}
 
 ```
 
-4.  Generate a box-and-whisker plot that compares the wind speed between different turbine makers (3 points).
+4.  Generate a box-and-whisker plot that compares the required [wind speed]{.underline} between different turbine makers (3 points).
 
     The plot should:
+
     -   have capitalized and more descriptive axis labels (hint: wind speed is measured in kilometers per hour---km/hr)
     -   show raw data points in addition to the boxes. The points should be jittered.
     -   use the `theme_classic()` function
@@ -89,23 +91,23 @@ Let's load the `tidyverse` and read in the data set. Call the data `turbines`.
 
 5.  Write a null hypothesis and an alternative hypothesis for each question we are asking. (2 points)
 
-Power Output:
-
--   **Null Hypothesis** (H~0~):\
--   **Alternative Hypothesis** (H~A~):
-    
-Wind Speed:
+Is there a significant difference in the [power output]{.underline} from turbines from the different companies?
 
 -   **Null Hypothesis** (H~0~):\
 -   **Alternative Hypothesis** (H~A~):
 
-6.  Based on the mean values in the `turbine_summary` data frame and the plots you've created above, predict the outcome of each t-test that we will run: 1 comparing wind speeds between turbine companies and another comparing power outputs between companies (graded for completion, not accuracy; 2 points). 
+Is there a significant difference in the required [wind speeds]{.underline} for turbines from different companies?
 
-    Explain your reasoning (1-2 sentences for each t-test is fine). 
+-   **Null Hypothesis** (H~0~):\
+-   **Alternative Hypothesis** (H~A~):
+
+6.  Based on the mean values in the `turbine_summary` data frame and the plots you've created above, [predict the outcome]{.underline} of each t-test that we will run: one comparing wind speeds between turbine companies and another comparing power outputs between companies (graded for completion, not accuracy; 2 points).
+
+    Explain your reasoning (1-2 sentences for each t-test is fine).
 
     *Answer:*
 
-7.  Perform a t-test on the power output by turbine maker. (1 point)
+7.  Perform a t-test on the [power output]{.underline} by turbine maker. (1 point)
 
 ```{r}
 
@@ -115,7 +117,7 @@ Wind Speed:
 
     *Answer:*
 
-9.  Perform another t-test, this time on the wind_speed variable by manufacturer. (1 point)
+9.  Perform another t-test, this time on the [wind speed]{.underline} variable by manufacturer. (1 point)
 
 ```{r}
 

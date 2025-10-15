@@ -35,8 +35,8 @@ ggplot(turbines, aes(power_output, fill = manufacturer)) +
   geom_vline(data = turbine_summary, aes(xintercept = mean_power, color = manufacturer)) +
   labs(x = "Power Output",
        y = "Frequency",
-       color = "Manufacturer",
-       fill = "Manufacturer") +
+       color = "Company",
+       fill = "Company") +
   theme_classic()
 ```
 
@@ -46,7 +46,7 @@ ggplot(turbines, aes(power_output, fill = manufacturer)) +
 ggplot(turbines, aes(manufacturer, wind_speed)) +
   geom_boxplot() +
   geom_jitter(width = 0.1, alpha = 0.5) +
-  labs(x = "Maker",
+  labs(x = "Company",
        y = "Wind Speed (km/hr)") +
   theme_classic()
 ```
