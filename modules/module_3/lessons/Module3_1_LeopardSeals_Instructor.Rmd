@@ -36,9 +36,6 @@ One way we're working to remove some of this danger is by working with
 data from large mammal researchers. They have been tracking leopard
 seals using radio collars, one of many ways to track wildlife.
 
-[Wildlife Tracking
-Powerpoint](https://docs.google.com/presentation/d/1tAtap0hYy22rwNrdweHlEsimECT7AEjGFaCCQBtpMdc/edit?usp=sharing)
-
 They have radio collared on a number of seals that live in areas that
 could be fished. Fishing boats are equipped with radios that can detect
 the presence of seals in the area and avoid high-risk sites.

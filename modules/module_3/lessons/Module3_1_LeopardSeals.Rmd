@@ -36,9 +36,6 @@ One way we're working to remove some of this danger is by working with
 data from large mammal researchers. They have been tracking leopard
 seals using radio collars, one of many ways to track wildlife.
 
-[Wildlife Tracking
-Powerpoint](https://docs.google.com/presentation/d/1XiBC-M0j82N-T4XS1EEMdGRaZhbXZciKifNnm2Q9ubk/edit?usp=sharing)
-
 They have radio collared on a number of seals that live in areas that
 could be fished. Fishing boats are equipped with radios that can detect
 the presence of seals in the area and avoid high-risk sites.
@@ -79,7 +76,7 @@ Our data on collars is in a file called "collar_data.csv."
 
 Let's practice. Write some code to do the following:
 
--   calculate the mean and sd for:
+-   calculate the mean and standard deviation for:
     -   battery life
     -   signal distance
 -   do this for both manufacturers
@@ -109,10 +106,6 @@ remind ourselves how this works!
 What types of plots can we use to explore one continuous variable (and
 one categorical variable--in this case, maker)?
 
--   multiple histogram
--   multiple density plot
--   box-and-whisker plot
-
 We can start with a histogram of the battery life of the collars.
 
 ```{r}
@@ -125,6 +118,8 @@ there.
 ```{r}
 
 ```
+
+### Adding Measures of Central Tendency
 
 What if we want to add the mean value of each collar maker to the plot?
 How do we do that?

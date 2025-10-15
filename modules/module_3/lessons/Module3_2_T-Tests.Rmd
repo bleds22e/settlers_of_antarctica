@@ -17,7 +17,7 @@ When we are comparing data from two groups, we often want to compare the mean va
 -   visually
 -   statistically (inferential statistics)
 
-In this course so far, we have done the first 2: by calculating the mean values of groups and by plotting histograms, density plots, and box-plots.
+In this course so far, we have done the first 2: by calculating the mean values of groups and by plotting histograms and box-plots.
 
 Today, we will be exploring the statistical side, using inferential statistics. Once again, we will be using our collars data, focusing on the battery life and the signal distance.
 
@@ -39,7 +39,7 @@ Before we dive in, if you need a refresher on inferential statistics, check out 
 
 When we have a categorical variable with 2 categories, the statistical test that we use to determine if the two categories are *statistically significantly different* from each other is called a **t-test**.
 
-### When to Use a t-test
+### When to Use a "t-test"
 
 To run a t-test, the following things need to be true:
 
@@ -75,7 +75,7 @@ The null hypothesis always states that there is no difference or no relationship
 
 How can we determine whether we should *not reject* ("accept") or *reject* the null hypothesis? That's where statistics come in.
 
-*(Note: for reasons I won't go into, we never accept the alternative hypothesis, we only reject the null hypothesis.)*
+*(Note: We never "accept" a hypothesis; we "reject" or "fail to reject" the null hypothesis. We don't do this in reference to the alternative hypothesis--only the null hypothesis.)*
 
 ### Running a t-test
 
