@@ -1,5 +1,5 @@
 ---
-title: 'Module3: Assignment3'
+title: 'Module3: Assignment 2'
 author: "Ellen Bledsoe"
 date: '2022-11-03'
 output:
@@ -13,8 +13,8 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ```{r message = FALSE}
 library(tidyverse)
-fish <- read_csv("fish.csv")
-seals <- read_csv("seals.csv")
+fish <- read_csv("../data/fish.csv")
+seals <- read_csv("../data/seals.csv")
 ```
 
 3.  
@@ -32,7 +32,8 @@ fish_summary
 ```{r}
 ggplot(fish, aes(bay, fish_kg)) +
   geom_boxplot() +
-  geom_jitter(alpha = 0.5, width = 0.1) 
+  geom_jitter(alpha = 0.5, width = 0.1) +
+  theme_bw()
 ```
 
 
@@ -64,7 +65,8 @@ seal_summary
 ```{r}
 ggplot(seals, aes(bay, num_seals)) +
   geom_boxplot() +
-  geom_jitter(alpha = 0.5, width = 0.1) 
+  geom_jitter(alpha = 0.5, width = 0.1) +
+  theme_bw()
 ```
 
 13. 
