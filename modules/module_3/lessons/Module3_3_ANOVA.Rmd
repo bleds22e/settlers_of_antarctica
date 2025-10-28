@@ -92,7 +92,7 @@ Let's examine the data. Do you think the collar companies are all different from
 
 ### Visual
 
-As always, we love (\<3) visualizing our data, especially as a form of data exploration and comparing means.
+As always, we love visualizing our data, especially as a form of data exploration and comparing means.
 
 First, explore the distribution of battery life by maker using a multiple histogram (no need to add a line for the mean, but you can if you really want to!).
 
@@ -162,7 +162,7 @@ What do these different columns represent?
 -   `diff`: the difference in the means for that pair
 -   `lwr`: the lower end of the 95% confidence interval
 -   `upr`: the upper end of the 95% confidence interval
--   `p adj`: the adjusted p-value for that pair. We interpret it as normal.
+-   `p adj`: the adjusted p-value for that pair. We interpret it as we interpret any other p-value.
 
 How should we interpret these results?
 
