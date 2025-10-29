@@ -30,7 +30,7 @@ Write R code which produces the correct answers and correctly interpret the resu
 
 ### Due Date
 
-Nov 7at 9:30 am MST
+Nov 6 at 10:45 am MST
 
 # Assignment Questions
 
@@ -38,9 +38,11 @@ In this assignment, we are going to continue using the hair grass data set from 
 
 At the end of the assignment, you will perform the correct statistical analysis for your own research question.
 
-**NOTE!** Because you are choosing which variables to use in both sections of the assignment, there is no Answer Key provided.
+| **NOTE!** Because you are choosing which variables to use in both sections of the assignment, there is no Answer Key provided.
 
-## Set-Up
+## Section 1
+
+### Set-Up
 
 As always, we must get organized before we can do anything!
 
@@ -53,7 +55,7 @@ First, load the `tidyverse` and read in the hair grass data set.
 
 ```
 
-## Linear Regression
+### Linear Regression with Hairgrass Data
 
 Take a look at the hairgrass data and choose one of the environmental variables we think might influence hairgrass density that we have not used in class (AKA choose one *other than* nitrogen content or soil pH).
 
@@ -123,7 +125,11 @@ Now, we are going to explore the relationship between your chosen variable and h
 
     *Answer:*
 
-## Running Your Statistical Model
+------------------------------------------------------------------------
+
+## Section 2
+
+### Running A Statistical Model for Your Research Question
 
 In this module, we have covered 3 different statistical analyses: t-tests, ANOVAs, and linear regression. It is now time to decide how to apply these statistical analyses to your own research question!
 
@@ -143,7 +149,7 @@ Now that you've written out your research question above, read in your chosen da
 
 ### Conceptual
 
-12. Take a look back at Module 2, Assignment 3. Between questions 2 and 3, there is a lot of very important information about how you should treat certain variables in each dataset.
+12. Take a look back at Module 2, Assignment 3; this is the assignment where you explored your choices for data sets to use for the final assignment. Between questions 2 and 3, there is a lot of very important information about how you should treat certain variables in each dataset.
 
     Assisted by that information, determine whether each variable in your research question is numeric or categorical.
 
@@ -153,7 +159,7 @@ Now that you've written out your research question above, read in your chosen da
 
 *Answer*:
 
-14. Based on your answers to questions 12 and 13 above and other information about your chosen dataset, determine which statistical analysis you should perform to answer your question. In 1-2 sentence, explain how you know.
+14. Based on your answers to Questions 12 and 13 above and other information about your chosen dataset, determine which statistical analysis you should perform to answer your question. In 1-2 sentence, explain how you know.
 
 *Answer*:
 
