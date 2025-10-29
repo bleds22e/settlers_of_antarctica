@@ -13,15 +13,15 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## The Scenario
 
-Last module, we tried to figure out which bays we should prioritize for fishing based on the following data sets:
+In this module, we have tried to figure out which bays we should prioritize for fishing based on the following data sets:
 
 -   radio collar data
 -   fish catch data
 -   leopard seal abundance data
 
-Based on our results from Assignment 2, it looks like Sulzberger Bay and Hope Bay are our best bets. Now, we need to make these bays accessible over land to transport the fish we've caught to our home base.
+Based on our results from Assignment 2, we made a decision about which two bays look like our best options. Now, we need to make these bays accessible over land to transport the fish we've caught to our home base.
 
-**We want to build a road while minimizing our impact on the delicate antarctic ecosystem.**
+**Our Goal: build a road while minimizing our impact on the delicate antarctic ecosystem.**
 
 Our first order of business is to make sure that we avoid areas with that are well-suited for [Antarctica hair grass](https://oceanwide-expeditions.com/blog/the-plants-of-antarctic) (*Deschamsia antarctica*), one of only two flowering species of plants on the continent.
 
@@ -183,16 +183,27 @@ r_nitrogen^2
 
 How would we interpret this `r^2` value?
 
+One way to think of the `r^2` value that might be helpful is to convert it from a proportion to a percentage—what *percentage* of the variation in the dependent variable is explained by the independent variable?
+
+To convert the proportion to a percentage, we can multiple the value by 100.
+
+```{r}
+r_nitrogen^2 * 100
+```
+
+
 ### Linear Regression Analysis
 
 A regression analysis approximates the relationship between a dependent variable and one or more independent variables. It evaluates the strength of that relationship, ultimately giving us a p-value.
 
-Since we are using linear regressions in this course, the regression model will take the form of a line: `y = mx + b`
+Since we are using linear regressions in this course, the regression model will take the form of a straight line. The generic equation for a straight line is `y = mx + b`.
 
 -   `y` = dependent variable (y-axis)
 -   `x` = independent variable (x-axis)
 -   `m` = slope of the line is the slope
 -   `b` = y-intercept
+
+When we have a line with the specific slope and y-intercept, this equation lets us calculate the expected y-axis value for any given point on the x-axis.
 
 Using our variables, what would our linear regression model look like (we don't know `m` or `b` yet...)?
 
