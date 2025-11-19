@@ -1,6 +1,6 @@
 ---
 title: "Module 4 Assignment 2"
-author: "EKB"
+author: "Ellen Bledsoe"
 date: "`r Sys.Date()`"
 output: pdf_document
 ---
@@ -56,7 +56,7 @@ library(drc)
 2.  We also need to load the data from our two bays of interest. Thankfully, we have data from 2010-2024.
 
 ```{r}
-fish <- read_csv("fish_abund_2010-2024.csv")
+fish <- read_csv("../data/fish_abund_2010-2024.csv")
 ```
 
 Make sure you take a look at the data to get familiar with it before you start coding!
@@ -87,7 +87,7 @@ ggplot(fish, aes(x = Year, y = N_fish, color = Bay)) +
 
     *Answer*: Hope is showing logistic growth and Sulzberger is showing exponential growth. (Additional information, but students don't need to say any of it for full credit: the Sulzberger population has a larger population, but that only occured recently. It seems to have a lower instrinsic growth rate (r) because it takes longer to increase)
 
-6.  Based on the plot and what we know about logistic and exponential growth populations, which fish population would be the *safest* population to choose for sustainable fishing? Why? (See Module4_3_SustainableFishing lesson is you're confused.)
+6.  Based on the plot and what we know about logistic and exponential growth populations, which fish population would be the *safest* population to choose for sustainable fishing? Why? (See Module4_2_SustainableFishing lesson is you're confused.)
 
     *Answer*: Even though Sulzberger has a higher population, it could have overshot it's carrying capacity and could crash. Hope looks like it has stabilized at its carrying capacity, making it the much safer option.
 
@@ -102,7 +102,7 @@ hope <- fish %>%
 
 Now that we know which bay to fish, we need to determine how many fish we can harvest per year sustainably.
 
-8.  Our first step is to estimate the carrying capacity. Using the `drm` function from the `drc` package, run and save the model that will give us our estimate of carrying capacity. Remember to include the argument `fct = LL.4()`!
+8.  Our first step is to estimate the carrying capacity. Using the `drm()` function from the `drc` package, run and save the model that will give us our estimate of carrying capacity. Remember to include the argument `fct = LL.4()`!
 
 ```{r}
 # NOTE: You might get output that says "Warning: NaNs produced" repeatedly. That's ok! Keep going.
@@ -130,7 +130,7 @@ K <- unname(K)
 K
 ```
 
-12. Let's go ahead and add a horizontal line onto our plot where the estimated carrying capacity hits the y-axis.
+12. Let's go ahead and add a horizontal line onto our plot where the estimated carrying capacity hits the y-axis using `geom_hline()`.
 
 ```{r}
 ggplot(hope, aes(x = Year, y = N_fish)) +
@@ -150,6 +150,8 @@ MSY <- K / 2
 MSY
 ```
 
+### How Many Fish Do We Need?
+
 Calculating how many fish we need each year at the station to support our staff requires a bit of math. Due to our limited amount of ships, we can only go out for one fishing expedition per year, so we need to figure out how to much we need to feed the station for an entire year. 
 
 We've been given some critical pieces of information:
@@ -167,7 +169,7 @@ days <- 365
 fish_weight <- 154
 ```
 
-15. How do we translate this to the number of Antarctic toothfish we need? First, let's multiple the number of people to feed by the amount of fish eaten per day and again by the number of days in a year. Use the objects you created in Question 15, not the numbers themselves. Save this output as `total_annual_fish_weight`.
+15. How do we translate this to the number of Antarctic toothfish we need? First, let's multiple the number of people to feed by the amount of fish eaten per day and again by the number of days in a year. Use the objects you created in Question 14, not the numbers themselves. Save this output as `total_annual_fish_weight`.
 _Hint: the symbol for multiplying is `*` in R._
 
 ```{r}
@@ -183,6 +185,8 @@ _Hint: the symbol for dividing is `/` in R._
 total_annual_fish_weight / fish_weight
 ```
 
+## Interpretation
+
 17. Based on everything you've learned in this module, determine whether or not we can sustainably fish our chosen population. Explain how you determined your answer using the concepts we've covered in class. Your answer should be 3-4 sentences long. (3 points)
 
-_Answer_: Yes, we can sustainably fish the Hope Bay fish population and successfully feed the station each year. This is because the number of fish we need to take from the population each year is 372, which is below the maximum sustainable yeild of the population, which is 474. This means the population will be able to replace the fish that have been removed from the population successfully, leading to a stable population.
+_Answer_: Yes, we can sustainably fish the Hope Bay fish population and successfully feed the station each year. This is because the number of fish we need to take from the population each year is 372, which is below the maximum sustainable yield of the population, which is 474. This means the population will be able to replace the fish that have been removed from the population successfully, leading to a stable population.

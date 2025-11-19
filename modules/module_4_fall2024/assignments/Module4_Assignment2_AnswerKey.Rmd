@@ -1,6 +1,6 @@
 ---
-title: "Module 4 Assignment 2"
-author: "EKB"
+title: "Module 4 Assignment 2: Answer Key"
+author: "Ellen Bledsoe"
 date: "`r Sys.Date()`"
 output: pdf_document
 ---
@@ -15,7 +15,7 @@ library(drc)
 ```
 
 ```{r}
-fish <- read_csv("fish_abund_2010-2024.csv")
+fish <- read_csv("../data/fish_abund_2010-2024.csv")
 ```
 
 3.  

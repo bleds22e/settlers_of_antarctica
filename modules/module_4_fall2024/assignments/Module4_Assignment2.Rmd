@@ -1,6 +1,6 @@
 ---
 title: "Module 4 Assignment 2"
-author: "EKB"
+author: "Ellen Bledsoe"
 date: "`r Sys.Date()`"
 output: pdf_document
 ---
@@ -30,7 +30,7 @@ Write R code which produces the correct answers and correctly interpret the resu
 
 ### Due Date
 
-December 10 at 11 am MST
+December 2 at 9:30 am MST
 
 ------------------------------------------------------------------------
 
@@ -76,11 +76,11 @@ The maximum abundance is somewhat helpful, but we need more information.
 
 ```
 
-5.  How should be interpret this plot? Which type of growth is being shown in the fish populations in each bay?
+5.  How should we interpret this plot? Which type of growth is being shown in the fish populations in each bay?
 
     *Answer*: 
 
-6.  Based on the plot and what we know about logistic and exponential growth populations, which fish population would be the *safest* population to choose for sustainable fishing? Why? (See Module4_3_SustainableFishing lesson is you're confused.)
+6.  Based on the plot and what we know about logistic and exponential growth populations, which fish population would be the *safest* population to choose for sustainable fishing? Why? (See Module4_2_SustainableFishing lesson is you're confused.)
 
     *Answer*: 
 
@@ -94,7 +94,7 @@ The maximum abundance is somewhat helpful, but we need more information.
 
 Now that we know which bay to fish, we need to determine how many fish we can harvest per year sustainably.
 
-8.  Our first step is to estimate the carrying capacity. Using the `drm` function from the `drc` package, run and save the model that will give us our estimate of carrying capacity. Remember to include the argument `fct = LL.4()`!
+8.  Our first step is to estimate the carrying capacity. Using the `drm()` function from the `drc` package, run and save the model that will give us our estimate of carrying capacity. Remember to include the argument `fct = LL.4()`!
 
 ```{r}
 # NOTE: You might get output that says "Warning: NaNs produced" repeatedly. That's ok! Keep going.
@@ -113,13 +113,13 @@ Now that we know which bay to fish, we need to determine how many fish we can ha
 
 ```
 
-11. For clarity, let's remove the name from the value using the `unname()` function. Save the unnamed output.
+11. For clarity, let's remove the name from the value using the `unname()` function. Save the unnamed output as `K`.
 
 ```{r}
 
 ```
 
-12. Let's go ahead and add a horizontal line onto our plot where the estimated carrying capacity hits the y-axis.
+12. Let's go ahead and add a horizontal line onto our plot where the estimated carrying capacity hits the y-axis using `geom_hline()`.
 
 ```{r}
 
@@ -127,11 +127,13 @@ Now that we know which bay to fish, we need to determine how many fish we can ha
 
 ## Maximum Sustainable Yield
 
-13. Calculate the Maximum Sustainable Yield for this population.
+13. Calculate the Maximum Sustainable Yield (MSY) for this population.
 
 ```{r}
 
 ```
+
+### How Many Fish Do We Need?
 
 Calculating how many fish we need each year at the station to support our staff requires a bit of math. Due to our limited amount of ships, we can only go out for one fishing expedition per year, so we need to figure out how to much we need to feed the station for an entire year. 
 
@@ -142,25 +144,34 @@ b. Amount of fish each person needs: 0.45 lbs/day
 c. Number of days people need to eat from this fishing expedition: 365
 d. Weight of one Antarctic toothfish (assume all weight is edible): 154 lbs
 
-14. Create objects for each one of these pieces of information and assign the correct number to each object.
-```{r}
+14. Create objects for each one of these pieces of information by assigning the correct number to each object and running the code chunk. The objects should now appear in your "Environment."
 
+```{r}
+num_people <- 
+fish_amount <- 
+num_days <- 
+ind_fish_weight <- 
 ```
 
-15. How do we translate this to the number of Antarctic toothfish we need? First, let's multiple the number of people to feed by the amount of fish eaten per day and again by the number of days in a year. Use the objects you created in Question 15, not the numbers themselves. Save this output as `total_annual_fish_weight`.
+15. How do we translate this to the number of Antarctic toothfish we need? First, let's multiply the number of people we need to feed by the amount of fish eaten per day and again by the number of days in a year. This will give use the total amount of fish (in lbs) that we will need to feed everyone at the station for a full year.
+
+Use the objects you created in Question 14, not the numbers themselves. Save this output as `total_annual_fish_weight`.
+
 _Hint: the symbol for multiplying is `*` in R._
 
 ```{r}
 
 ```
 
-16. If we divide the `total_annual_fish_weight` by the weight of the average Antarctic toothfish we catch, we will have determined the total number of fish that we need to catch to sustain the base for a year. Remember to use objects, not the numbers directly.
+16. If we divide the `total_annual_fish_weight` by the weight of the average weight of the individual Antarctic toothfish we catch, the result will be the total number of fish that we need to catch to sustain the base for a year. Remember to use objects, not the numbers directly.
 
 _Hint: the symbol for dividing is `/` in R._
 
 ```{r}
 
 ```
+
+## Interpretation
 
 17. Based on everything you've learned in this module, determine whether or not we can sustainably fish our chosen population. Explain how you determined your answer using the concepts we've covered in class. Your answer should be 3-4 sentences long. (3 points)
 
