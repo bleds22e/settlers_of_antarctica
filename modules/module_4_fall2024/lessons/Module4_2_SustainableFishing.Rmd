@@ -30,15 +30,13 @@ Let's keep exploring our fish populations to help us understand what we should b
 As usual, we start with loading our packages and our data.
 
 ```{r}
-library(tidyverse)
 
-fish <- read_csv("../data/fish_pops.csv")
 ```
 
 Let's take a look at the data and remind ourselves what the data look like.
 
 ```{r}
-head(fish)
+
 ```
 
 ## Population Growth Models
@@ -72,8 +70,7 @@ So, in order for us to feel confident that our population will be large for a lo
 Let's select the logistic growth population with the largest value, Population D, for our next analyses.
 
 ```{r}
-log_pop <- fish %>% 
-  filter(population == "D")
+
 ```
 
 ## Estimating Carrying Capacity
@@ -88,7 +85,7 @@ This package will let us fit a logistic model and provide an estimate of the asy
 
 ```{r message=FALSE}
 # load the drc package; text when you load it is fine (as long as it doesn't say error)
-library(drc)
+
 ```
 
 Now, we are going to use a function from the `drc` package called `drm()` to fit our logistic growth model.
@@ -101,7 +98,7 @@ What kind of growth do we think we have based on this plot? Logistic
 # Fit the model to the data
 # 'N ~ year' means we're predicting N (population) as a function of 'year'
 # fct = LL.4() specifies to fit a logistic growth model
-model <- drm(N ~ year, data = log_pop, fct = LL.4())
+
 ```
 
 This time, unlike with the linear model, we are interested not in a p-value but in the estimate of a specific value from the model--the carrying capacity.
@@ -109,8 +106,7 @@ This time, unlike with the linear model, we are interested not in a p-value but 
 To get all of the estimated values, we will use a function called `coef`, which is short for "coefficient," to give us the estimates from the `model` object.
 
 ```{r}
-estimates <- coef(model)
-estimates
+
 ```
 
 In this case, we happen to be interested in the estimate they are calling `d:(Intercept)`; this is what we are calling `K`, the carrying capacity. Let's save that value.
@@ -118,8 +114,7 @@ In this case, we happen to be interested in the estimate they are calling `d:(In
 The simplest way to choose one value from the vector `estimates` is to use square brackets for subsetting, something we haven't done since Module 1! We want the 3rd value.
 
 ```{r}
-K <- estimates[3]
-K
+
 ```
 
 Our estimate for the carrying capacity is 104.5 fish, which is close to the carrying capacity value in the dataset (100).
@@ -127,8 +122,7 @@ Our estimate for the carrying capacity is 104.5 fish, which is close to the carr
 We can remove the label (`d:(Intercept)`) if we want to by using the `unname()` function. Now our object `K` is only the number for the estimate of the carrying capacity.
 
 ```{r}
-K <- unname(K)
-K
+
 ```
 
 ### Plotting the Carrying Capacity
@@ -138,11 +132,7 @@ Let's now add this estimated carrying capacity value to our plot of the data.
 First, let's plot the population data alone.
 
 ```{r}
-ggplot(log_pop, aes(x = year, y = N)) + # Plot the original data points (year vs. population)
-  geom_point() +
-  geom_line() +
-  labs(x = "Year", y = "Population") +
-  theme_bw()
+
 ```
 
 To add the a line representing the carrying capacity, we can use `geom_hline()` to add a horizontal line where the y-intercept is equal to the carrying capacity.
@@ -150,13 +140,7 @@ To add the a line representing the carrying capacity, we can use `geom_hline()` 
 This is very similar to how we used `geom_vline()` to add a vertical line to histograms to represent the mean value.
 
 ```{r}
-ggplot(log_pop, aes(x = year, y = N)) + # Plot the original data points (year vs. population)
-  geom_point() +
-  geom_line() +
-  # use geom_hline to plot a horizontal line where the y-intercept is equal to K
-  geom_hline(aes(yintercept = K), color = "red") + # outside of aes() sets color
-  labs(x = "Year", y = "Population") +
-  theme_bw()
+
 ```
 
 ## Maximum Sustainable Yield
@@ -174,8 +158,7 @@ While the concept behind how we get to the equation for MSY may be a bit complex
 Let's calculate the maximum sustainable yield for Population D.
 
 ```{r}
-MSY <- K/2
-MSY
+
 ```
 
 This means that we can take about 52 fish from this population annually and keep the population stable!
