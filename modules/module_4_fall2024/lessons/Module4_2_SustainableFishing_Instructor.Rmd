@@ -1,0 +1,179 @@
+---
+title: "Module 4: Sustainable Fishing"
+author: "Jessie Golding and Ellen Bledsoe"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Sustainable Fishing
+
+## Applying Principles of Population Growth
+
+We have decided that the Antarctic toothfish (*Dissostichus mawsoni*) may be a good candidate for our fishing.
+
+![](images/antarctic_toothfish.jpg)
+
+The Antarctic toothfish is fairly widely distributed around Antarctica. The hexagons below show where the Antarctic toothfish occurs. Gray represents known distribution and red represents locations where genetic samples were taken for a study on their population (Maschette et al. 2023).
+
+![](images/antarctic_toothfish_distribution.jpg)
+
+However, given concerns about maintaining the fishery (an important ecosystem service), we want to make sure we do not overfish the species but rather fish sustainably.
+
+Let's keep exploring our fish populations to help us understand what we should be focusing on when making decisions about how many fish we can sustainably harvest from any given population.
+
+## Set-Up
+
+As usual, we start with loading our packages and our data.
+
+```{r}
+library(tidyverse)
+
+fish <- read_csv("fish_pops.csv")
+```
+
+Let's take a look at the data and remind ourselves what the data look like.
+
+```{r}
+head(fish)
+```
+
+## Population Growth Models
+
+Let's remind ourselves about exponential growth and logistic growth.
+
+**Expotential growth** takes births and deaths (in the form of the intrinsic growth rate, `r`) into account:
+
+![](images/clipboard-4205079346.png){width="83" height="28"}
+
+**Logistic growth** includes the intrinsic growth rate and another important factor—resources. The resources determine the maximum number of individuals a population can have, which we call the carrying capacity (`K`):
+
+![](images/clipboard-3779797644.png){width="130"}
+
+This is what each type of population growth model looks like:
+
+![](images/exp_and_logisitc.png)
+
+### Which Population to Fish?
+
+We've previously discussed what factors we want to focus on when we are deciding which population to fish. Ideally, we want to target both a large population and a stable population.
+
+At first glance, a population that is growing exponentially seems ideal—and it is, in some ways.
+
+But in reality, all populations will *eventually* hit some capacity on resources. Populations that are currently demonstrating exponential growth either haven't yet hit their carrying capacity or have dramatically overshot their carrying capacity, which can lead to a huge crash or a smaller crash with boom and bust cycles until it evens out around the carrying capacity.
+
+![](images/pop_crash.jpeg)
+
+So, in order for us to feel confident that our population will be large for a long time, we probably want to choose the safer option, which is choosing a population that is showing logistic growth.
+
+Let's select the logistic growth population with the largest value, population 4, for our next analyses.
+
+```{r}
+log_pop <- fish %>% 
+  filter(population == 4)
+```
+
+## Estimating Carrying Capacity
+
+In our journey to determine how many fish we can sustainably harvest (i.e., remove from the population without causing the population to go extinct), we first need to determine the carrying capacity.
+
+The dataset contains carrying capacity estimates, but let's go ahead and get our own estimates. To do so, we are actually going to use a new package, `drc`!
+
+This package will let us fit a logistic model and provide an estimate of the asymptote, which is `K`, our carrying capacity.
+
+```{r}
+# load the drc package; the red text is fine (it doesn't say error)
+library(drc)
+```
+
+Now, we are going to use a function from the `drc` package called `drm` to fit our logistic growth model. It works very similarly to the inferential statistics models from Module 3.
+
+What kind of growth do we think we have based on this plot? Logistic
+
+```{r}
+# Fit the model to the data
+# 'N ~ year' means we're predicting N (population) as a function of 'year'
+# fct = LL.4() specifies to fit a logistic growth model
+model <- drm(N ~ year, data = log_pop, fct = LL.4())
+```
+
+This time, unlike with the linear model, we are interested not in a p-value, put in the estimate of a specific value from the model--the carrying capacity.
+
+To get all of the estimated values, we will use a function called `coef`, which is short for "coefficient," to give us the estimates from the `model` object.
+
+```{r}
+estimates <- coef(model)
+estimates
+```
+
+In this case, we happen to be interested in the estimate they are calling `d:(Intercept)`; this is what we are calling `K`, the carrying capacity. Let's save that value.
+
+The simplest way to choose one value from the vector `estimates` is to use square brackets for subsetting, something we haven't done since Module 1! We want the 3rd value.
+
+```{r}
+K <- estimates[3]
+K
+```
+
+Our estimate for the carrying capacity is 104.5 fish, which is close to the carrying capacity value in the dataset (100).
+
+We can remove the name (`d:(Intercept)`) if we want to by using the `unname()` function.
+
+```{r}
+K <- unname(K)
+K
+```
+
+### Plotting the Carrying Capacity
+
+Let's now add this estimated carrying capacity value to our plot of the data.
+
+First, let's plot the population data alone.
+
+```{r}
+ggplot(log_pop, aes(x = year, y = N)) + # Plot the original data points (year vs. population)
+  geom_point() +
+  geom_line() +
+  labs(x = "Year", y = "Population") +
+  theme_bw()
+```
+
+To add the a line representing the carrying capacity, we can use `geom_hline()` to add a horizontal line where the y-intercept is equal to the carrying capacity.
+
+This is very similar to how we used `geom_vline()` to add a vertical line to histograms to represent the mean value.
+
+```{r}
+ggplot(log_pop, aes(x = year, y = N)) + # Plot the original data points (year vs. population)
+  geom_point() +
+  geom_line() +
+  # use geom_hline to plot a horizontal line where the y-intercept is equal to K
+  geom_hline(aes(yintercept = K), color = "red") + # outside of aes() sets color
+  labs(x = "Year", y = "Population") +
+  theme_bw()
+```
+
+## Maximum Sustainable Yield
+
+Once we have an estimate of the carrying capacity for a population, we can calculate something called the *maximum sustainable yield*, or MSY.
+
+The MSY is the number of individuals that we can remove from the population and keep the population stable (or increasing). If we remove too many individuals (above MSY), the population will not be able to reproduce fast enough to replace the harvested individuals, causing a decline in the population—in this case, from over-fishing.
+
+![](images/logistic_growth_msy.png){width="49%"} ![](images/msy.png){width="49%"}
+
+While the concept behind how we get to the equation for MSY may be a bit complex, thankfully, the equation itself is quite straightforward:
+
+![](images/clipboard-959845017.png)
+
+Let's calculate the maximum sustainable yield for population 4.
+
+```{r}
+MSY <- K/2
+MSY
+```
+
+This means that we can take about 52 fish from this population annually and keep the population stable!
+
+If we take fewer than 52 fish, the population will increase (until the carrying capacity, that is). If we take more than 52 fish, however, we are over-fishing the population, meaning the population will not be able to reproduce enough to maintain the population and will eventually collapse.

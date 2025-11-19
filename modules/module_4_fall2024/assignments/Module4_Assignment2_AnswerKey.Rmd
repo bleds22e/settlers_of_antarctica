@@ -1,0 +1,104 @@
+---
+title: "Module 4 Assignment 2"
+author: "EKB"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r, message = FALSE}
+library(tidyverse)
+library(drc)
+```
+
+```{r}
+fish <- read_csv("fish_abund_2010-2024.csv")
+```
+
+3.  
+```{r}
+fish %>% 
+  group_by(Bay) %>% 
+  summarise(maxN = max(N_fish))
+```
+4. 
+```{r}
+ggplot(fish, aes(x = Year, y = N_fish, color = Bay)) +
+  geom_point() +
+  geom_line() +
+  labs(y = "Fish Abundance (N)") +
+  theme_light()
+```
+
+
+8.  
+
+```{r}
+hope <- fish %>% filter(Bay == "Hope")
+
+hope_model <- drm(N_fish ~ Year, data = hope, fct = LL.4())
+```
+
+9.  
+
+```{r}
+estimates <- coef(hope_model)
+estimates
+```
+
+10. 
+
+```{r}
+K <- estimates[3]
+K
+```
+
+11. 
+
+```{r}
+K <- unname(K)
+K
+```
+
+12. 
+
+```{r}
+ggplot(hope, aes(x = Year, y = N_fish)) +
+  geom_point() +
+  geom_line() +
+  geom_hline(aes(yintercept = K), color = "blue") +
+  labs(y = "Fish Abundance (N)") +
+  theme_light()
+```
+
+
+13. 
+
+```{r}
+MSY <- K / 2
+MSY
+```
+
+
+```{r}
+people_to_feed <- 349
+amount_fish <- 0.45
+days <- 365
+fish_weight <- 154
+```
+
+15. 
+```{r}
+total_annual_fish_weight <- people_to_feed * amount_fish * days
+total_annual_fish_weight
+```
+
+16. 
+
+```{r}
+total_annual_fish_weight / fish_weight
+```
+
