@@ -1,114 +1,121 @@
-# Load packages
+set.seed(123)  # for reproducibility
+
+# Logistic function
+logistic_fun <- function(t, K, r, N0) {
+  K / (1 + ((K - N0) / N0) * exp(-r * t))
+}
+
+years <- 0:25
+
+# Common parameters
+r  <- 0.7
+N0_1000 <- 0.05 * 1000  # 5% of K
+N0_800  <- 0.05 * 800   # 5% of K
+
+## 1) K ~ 1000, little variation near asymptote
+K1 <- 1000
+true_N1 <- logistic_fun(years, K = 1025, r = r, N0 = 40)
+
+# Small noise that shrinks as we get close to K
+# sd1 <- 50 * (1 - true_N1 / 1000)  # near K, sd ~ 0
+obs_N1 <- true_N1 + rnorm(length(years), mean = 0, sd = 20)
+obs_N1 <- pmax(obs_N1, 0)       # avoid negative counts
+
+dat1 <- data.frame(
+  year = years,
+  true_N = true_N1,
+  obs_N = obs_N1,
+  dataset = "K=1000_low_var"
+)
+
+plot(dat1$obs_N)
+plot(dat1$true_N)
+
+## 2) K ~ 1000, LOTS of variation around asymptote
+K2 <- 1000
+true_N2 <- logistic_fun(years, K = 980, r = r, N0 = 40)
+
+# Larger noise, especially at/after ~year 8
+sd2 <- ifelse(years >= 8, 200, 30)
+obs_N2 <- true_N2 + rnorm(length(years), mean = 0, sd = sd2)
+obs_N2 <- pmax(obs_N2, 0)
+
+dat2 <- data.frame(
+  year = years,
+  true_N = true_N2,
+  obs_N = obs_N2,
+  dataset = "K=1000_high_var"
+)
+
+plot(dat2$obs_N)
+
+## 3) K ~ 800, little variation near asymptote
+K3 <- 800
+true_N3 <- logistic_fun(years, K = K3, r = r, N0 = 32)
+
+#sd3 <- 20 * (1 - true_N3 / K3)
+obs_N3 <- true_N3 + rnorm(length(years), mean = 0, sd = 30)
+obs_N3 <- pmax(obs_N3, 0)
+
+dat3 <- data.frame(
+  year = years,
+  true_N = true_N3,
+  obs_N = obs_N3,
+  dataset = "K=800_low_var"
+)
+
+## Optional: combine into one long data frame (nice for ggplot)
+sim_data <- rbind(dat1, dat2, dat3)
+
+# Example quick check plot (optional)
 library(tidyverse)
+library(drc)
 
-# Load data
-fish_data <- read_csv("modules/module_4_fall2024/data/fish_population_growth.csv")
-
-# 1. Summary Statistics
-fish_data %>%
-  group_by(growth_type) %>%
-  summarize(
-    mean_population = mean(population),
-    sd_population = sd(population),
-    .groups = "drop"
-  )
-
-# 2. Visualizations
-# Scatter plot with trendlines
-ggplot(fish_data, aes(x = year, y = population, color = growth_type)) +
+ggplot(sim_data, aes(x = year, y = obs_N, color = dataset)) +
   geom_point() +
-  geom_line() +
-  labs(title = "Fish Population Growth", x = "Year", y = "Population") +
+  geom_line(aes(y = true_N), linetype = "dashed") +
   theme_minimal()
 
-# 3. Model Fitting
-# Fit exponential model for exponential growth data
-exp_model <- nls(population ~ a * exp(b * year), 
-                 data = fish_data %>% filter(growth_type == "Exponential"), 
-                 start = list(a = 100, b = 0.3))
+mod1 <- drc::drm(obs_N ~ year, data = dat1, fct = LL.4())
+mod1
 
-summary(exp_model)
+mod2 <- drc::drm(obs_N ~ year, data = dat2, fct = LL.4())
+mod2
 
-# Fit logistic model for logistic growth data
-log_model <- nls(population ~ K / (1 + ((K - a) / a) * exp(-b * year)),
-                 data = fish_data %>% filter(growth_type == "Logistic"),
-                 start = list(a = 100, b = 0.4, K = 1000))
+mod3 <- drc::drm(obs_N ~ year, data = dat3, fct = LL.4())
+mod3
 
-summary(log_model)
-
-# 4. Compare Growth Rates
-# Perform t-test on initial growth rates (early years)
-initial_growth <- fish_data %>%
-  filter(year <= 5) %>%
-  group_by(growth_type) %>%
-  summarize(mean_growth = mean(population), .groups = "drop")
-
-t.test(
-  population ~ growth_type,
-  data = fish_data %>% filter(year <= 5)
-)
-
-t.test(
-  population ~ growth_type,
-  data = fish_data
-)
-
-# 5. Calculate Overall Growth Rates
-
-growth_rates <- fish_data %>%
-  group_by(growth_type) %>% # Group by growth type
-  arrange(year) %>% # Ensure data is sorted by year
-  mutate(
-    growth_rate = (population - lag(population)) / (year - lag(year)) # Change in population / Change in time
-  ) %>%
-  drop_na() # Remove rows where lag values are not available (first year)
-
-# View growth rates
-print(growth_rates)
-
-# Plot growth rates over time
-ggplot(growth_rates, aes(x = year, y = growth_rate, color = growth_type)) +
-  geom_line() +
+ggplot(sim_data, aes(x = year, y = obs_N, color = dataset)) +
   geom_point() +
-  labs(
-    title = "Growth Rates Over Time",
-    x = "Year",
-    y = "Growth Rate"
-  ) +
+  geom_line(aes(y = true_N), linetype = "dashed") +
   theme_minimal()
 
-# 6 Calculate Intrinsic Growth Rates (r)
+dat1 |> 
+  mutate(fitted_model = predict(mod1))
 
-# Estimate carrying capacity for logistic growth (assume maximum observed population)
-K_est <- fish_data %>%
-  filter(growth_type == "Logistic") %>%
-  summarize(K = max(population)) %>%
-  pull(K)
+dat1_10 <- filter(dat1, year > 10)
+dat2_10 <- filter(dat2, year > 10)
+dat3_10 <- filter(dat3, year > 10)
 
-# Calculate intrinsic growth rate (r) for each year
-growth_rates_r <- fish_data %>%
-  group_by(growth_type) %>% # Group by growth type
-  arrange(year) %>% # Ensure data is sorted by year
-  mutate(
-    delta_N = population - lag(population),           # Change in population
-    delta_t = year - lag(year),                       # Change in time
-    r = case_when(
-      growth_type == "Exponential" ~ delta_N / (lag(population) * delta_t), # Exponential growth formula
-      growth_type == "Logistic" ~ delta_N / (lag(population) * delta_t * (1 - lag(population) / K_est)) # Logistic growth formula
-    )
-  ) %>%
-  drop_na() # Remove rows where lag values are not available (first year)
+sim_data_10 <- rbind(dat1_10, dat2_10, dat3_10)
 
-# View intrinsic growth rates
-print(growth_rates_r)
+sim_data_10 |> 
+  filter(dataset != "K=800_low_var") |> 
+  t.test(obs_N ~ dataset, data = _)
 
-# Plot intrinsic growth rates over time
-ggplot(growth_rates_r, aes(x = year, y = r, color = growth_type)) +
-  geom_line() +
-  geom_point() +
-  labs(
-    title = "Intrinsic Growth Rates (r) Over Time",
-    x = "Year",
-    y = "Intrinsic Growth Rate (r)"
-  ) +
-  theme_minimal()
+sim_data_10 |> 
+  aov(obs_N ~ dataset, data = _) |> 
+  summary()
+
+sim_data_10 |> 
+  aov(obs_N ~ dataset, data = _) |> 
+  TukeyHSD()
+
+# sim_data <- read_csv("modules/module_4_fall2024/data/comparing_populations.csv")
+# sim_data <- sim_data |> 
+#   dplyr::select(year, abund = obs_N, population = dataset) |> 
+#   mutate(population = case_when(population == "K=1000_low_var" ~ "NE",
+#                                 population == "K=1000_high_var" ~ "SE",
+#                                 population == "K=800_low_var" ~ "SW"),
+#          abund = round(abund))
+write_csv(sim_data, "modules/module_4_fall2024/data/comparing_populations.csv")

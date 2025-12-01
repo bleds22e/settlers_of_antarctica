@@ -1,0 +1,122 @@
+---
+title: 'Module 4: Comparing Populations'
+author: "Ellen Bledsoe"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Comparing Populations
+
+```{r}
+library(tidyverse)
+library(drc)
+```
+
+```{r}
+pops <- read_csv("../data/comparing_populations.csv")
+```
+```{r}
+head(pops)
+```
+
+## Visually
+
+```{r}
+ggplot(pops, aes(year, abund, color = population)) +
+  geom_point() + 
+  labs(x = "Year",
+       y = "Abundance",
+       color = "Fish Population") +
+  theme_bw()
+```
+
+## Numerically
+
+### Separate Populations
+
+```{r}
+pop_NE <- pops |> 
+  filter(population == "NE")
+
+pop_SE <- pops |> 
+  filter(population == "SE")
+
+pop_SW <- pops |> 
+  filter(population == "SW")
+```
+
+### Finding the Carrying Capacity
+
+```{r}
+model_NE <- drm(abund ~ year, data = pop_NE, fct = LL.4())
+model_NE
+
+K_NE <- unname(coef(model_NE)[3])
+K_NE
+```
+
+This might produce "Warning :NaNs produced". Don't worry--that's ok!
+```{r}
+# SE population
+model_SE <- drm(abund ~ year, data = pop_SE, fct = LL.4())
+model_SE
+
+K_SE <- unname(coef(model_SE)[3])
+K_SE
+
+# SW population
+model_SW <- drm(abund ~ year, data = pop_SW, fct = LL.4())
+model_SW
+
+K_SW <- unname(coef(model_SW)[3])
+K_SW
+```
+
+### Plotting the Logistic Curves
+
+```{r}
+pop_NE <- pop_NE |> 
+  mutate(logistic_model = predict(model_NE))
+
+pop_SE <- pop_SE |> 
+  mutate(logistic_model = predict(model_SE))
+
+pop_SW <- pop_SW |> 
+  mutate(logistic_model = predict(model_SW))
+```
+
+Bring the datasets back together again.
+```{r}
+pops_models <- bind_rows(pop_NE, pop_SE, pop_SW)
+```
+
+Plot all of them together.
+```{r}
+ggplot(pops_models, aes(x = year, y = abund, color = population)) +
+  geom_point() +
+  geom_line(aes(y = logistic_model)) +
+  theme_bw()
+```
+
+## Statistically
+
+Compare only after they "level" off -- after 10 years
+```{r}
+after10 <- pops_models |> 
+  filter(year > 10)
+```
+
+What type of statistical test can we run to compare these populations?
+```{r}
+model_aov <- aov(abund ~ population, data = after10)
+summary(model_aov)
+```
+But which populations are different from each other?
+```{r}
+TukeyHSD(model_aov)
+```
+How do we interpret these results?
