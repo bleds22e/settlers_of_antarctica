@@ -39,7 +39,7 @@ December 17 at midnight MST
 
 ### Interpreting Statistical Results
 
-When I ask you to interpret statistical results, you should roughly follow these guidelines.
+When I ask you to interpret statistical results, you should roughly follow these guidelines:
 
 -   the cut-off for our p-values is always 0.05 ($\alpha = 0.05$)
 -   report the p-value that we are focused on in that question
@@ -62,27 +62,24 @@ Your options for plot types to choose from are:
 -   scatter plot
     -   add the linear model to every scatter plot
 
-**Note: All plots should have modified axis labels and legend labels.**
-
-In many cases, this might mean capitalizing the axis label and/or legend label. In other cases, you might want to put units in parentheses after the words (e.g., Body Mass (g)).
+| **NOTE! All plots should have modified axis labels and legend labels.**
+| In many cases, this might mean capitalizing the axis label and/or legend label. In other cases, you might want to put units in parentheses after the words (e.g., Body Mass (g)).
 
 ### Generative AI Guidelines
 
-While I do not recommend using generative AI to complete this assignment (throughout the semester, I've seen it cause more problems than not...), you are allowed to use it on the final.
+While I do not recommend using generative AI to complete this assignment (throughout the semester, I've seen it cause more problems than not...), you are *technically* allowed to use it on the final.
 
 However, you *must* do so according to the guidelines I've set out for all other assignments this semester.
 
-You can find clear examples of these guidelines on D2L in *Resources \> Helpful Info \> Assignment Reminders*.
+| **CAUTION!** If you do use generative AI without following the course guidelines, you will receive a 0 for this final and you will not have the option to resubmit. Proceed wisely.
 
-#### CAUTION!
-
-If you do use generative AI without following the course guidelines, you will receive a 0 for this final and you will not have the option to resubmit. Proceed wisely.
+You can find clear examples of these guidelines on D2L in *Syllabus \> Assignment Reminders*.
 
 ------------------------------------------------------------------------
 
 # Let's Begin!
 
-Have you read through the "Structure & Guidelines" section?
+Have you *actually* read through the "Structure & Guidelines" section above?
 
 If so, proceed! If not, scroll back up...
 
@@ -268,7 +265,7 @@ It is now time to decide how to apply these statistical analyses to your own res
 
 ```
 
-20. If necessary, run a pairwise comparison. If a pairwise comparison is NOT necessary for your statistical analysis, explain why. (3 points)
+20. If necessary, run a pairwise comparison. If a pairwise comparison is NOT necessary for your statistical analysis, explain why not. (3 points)
 
 *Answer*:
 
@@ -298,7 +295,7 @@ It is now time to decide how to apply these statistical analyses to your own res
 
 When we ask a research question, we always want to find out what other people have already found out about that question to give us an idea of what outcome we might expect.
 
-In Module 4 Assignment 1, you were asked to find at least 2 articles that related to your research question.
+In Module 4 Assignment 1, you were asked to find at least 3 articles that related to your research question.
 
 The articles you find don't have to be *exactly* related but should be relevant, as you will be using them at the end of this assignment to help interpret your statistical output.
 
