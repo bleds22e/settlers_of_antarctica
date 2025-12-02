@@ -24,19 +24,20 @@ As always, we need to start by loading the packages we are going to use along wi
 First, let's load our packages. We are going to be using both the `tidyverse` and `drc` packages in this lesson, so we need to load both of them.
 
 ```{r}
-
+library(tidyverse)
+library(drc)
 ```
 
 Next, we want to bring in our dataset.
 
 ```{r}
-
+pops <- read_csv("../data/comparing_populations.csv")
 ```
 
 We can use the `head()` function to take a look at the data. What data do we have?
 
 ```{r}
-
+head(pops)
 ```
 
 After inspecting our dataset, it looks as though we have more time-series data of population abundances. It isn't immediately clear how many populations there are, but perhaps the populations are named after their locations ("NE" could stand for "Northeast").
@@ -50,7 +51,12 @@ As we have done throughout this module, we will want the variable representing t
 We will also want the data points to be distinguished by which population they are from, so we need to specify the `color` argument within the `aes()` function.
 
 ```{r}
-
+ggplot(pops, aes(year, abund, color = population)) +
+  geom_point() + 
+  labs(x = "Year",
+       y = "Abundance",
+       color = "Fish Population") +
+  theme_bw()
 ```
 
 ### Interpretation
@@ -79,7 +85,14 @@ Unlike our typical procedure, in order to fit logistic models to each population
 We can use the `filter` function to select each population, one at a time.
 
 ```{r}
+pop_NE <- pops |> 
+  filter(population == "NE")
 
+pop_SE <- pops |> 
+  filter(population == "SE")
+
+pop_SW <- pops |> 
+  filter(population == "SW")
 ```
 
 ### Finding the Carrying Capacity
@@ -90,26 +103,40 @@ As we run the code to fit the model to each population, we might receive some wa
 
 ```{r}
 # NE population
+model_NE <- drm(abund ~ year, data = pop_NE, fct = LL.4())
+model_NE
 
+# if you want to be fancy and save the carrying capacity as an object
+# this code combines several steps from the last lesson into one step
+K_NE <- unname(coef(model_NE)[3])
+K_NE
 ```
 
 Now we can do the same for the SE and SW populations, too.
 
 ```{r}
 # SE population
+model_SE <- drm(abund ~ year, data = pop_SE, fct = LL.4())
+model_SE
 
+K_SE <- unname(coef(model_SE)[3])
+K_SE
 
 # SW population
+model_SW <- drm(abund ~ year, data = pop_SW, fct = LL.4())
+model_SW
 
+K_SW <- unname(coef(model_SW)[3])
+K_SW
 ```
 
 Let's record the carrying capacity estimates for each population here so we can refer back to them later, if needed.
 
-| Population | Carrying Capacity |
-|:----------:|:-----------------:|
-|     NE     |                   |
-|     SE     |                   |
-|     SW     |                   |
+| Population | Carrying Capacity  |
+|:----------:|:------------------:|
+|     NE     | `r round(K_NE, 1)` |
+|     SE     | `r round(K_SE, 1)` |
+|     SW     | `r round(K_SW, 1)` |
 
 As we saw in the plot, the estimated carrying capacity for the SW population is below that of the NE population.
 
@@ -134,15 +161,23 @@ To do so requires a few steps.
 First, let's see what output the `predict()` function gives us for the NE population.
 
 ```{r}
-
+predict(model_NE)
 ```
 
 If we compare these numbers to the numbers in the `abund` column of `pop_NE`, we notice that they are not the same. The difference between these values from the model of best fit and the actual, observed values are called *residuals*, just as they are with lines of best fit (from linear regressions).
 
-Let's use the `mutate` function to add these model values to each data frame.
+Let's use the `mutate` function to add these model values to each dataframe.
 
 ```{r}
+pop_NE <- pop_NE |> 
+  mutate(logistic_model = predict(model_NE))
+pop_NE
 
+pop_SE <- pop_SE |> 
+  mutate(logistic_model = predict(model_SE))
+
+pop_SW <- pop_SW |> 
+  mutate(logistic_model = predict(model_SW))
 ```
 
 #### Combine Dataframes
@@ -152,7 +187,8 @@ We can now bring all three individual data frames back together into one data fr
 The arguments in the `bind_rows()` function are all of the data frames we want glued together.
 
 ```{r}
-
+pops_models <- bind_rows(pop_NE, pop_SE, pop_SW)
+pops_models
 ```
 
 The resulting data frame again has 78 observations, as did the original `pops` data frame.
@@ -162,10 +198,14 @@ The resulting data frame again has 78 observations, as did the original `pops` d
 We can now add the logisitic models to our plot using the `geom_line()` function. Specifically, the values from the `logistic_model` column will be the y-axis values for the lines we are adding; the x-axis values are the same as the overall plot: `year`.
 
 ```{r}
-
+ggplot(pops_models, aes(x = year, y = abund, color = population)) +
+  geom_point() +
+  geom_line(aes(y = logistic_model)) +
+  labs(x = "Year", y = "Abundance", color = "Fish Population") +
+  theme_bw()
 ```
 
-It is now much easier to visually distinguish the differences between the growth curves and the carrying capacities between the three populations!
+It is now much easier to visually distinguish the differences between the growth curves and the carrying capacities between the three populations.
 
 ## Statistically
 
@@ -188,7 +228,9 @@ To most accurately compare the populations, we likely want to restrict the compa
 A rough estimation would be that the models mostly level off around year 15; let's filter our data to include only abundance from year 15 and later.
 
 ```{r}
-
+pops_15_25 <- pops_models |> 
+  filter(year >= 15)
+pops_15_25
 ```
 
 ### Running the Statistical Analysis
@@ -196,13 +238,14 @@ A rough estimation would be that the models mostly level off around year 15; let
 Now that we have filter our data, we can conduct our statistical test.
 
 ```{r}
-
+model_aov <- aov(abund ~ population, data = pops_15_25)
+summary(model_aov)
 ```
 
 This p-value tells us that the overall model is significant (we reject the null hypothesis), but it doesn't tell us which populations are significantly different from one another. To determine which populations differ from each other, we need to run *post hoc* pairwise-comparisons.
 
 ```{r}
-
+TukeyHSD(model_aov)
 ```
 
 How do we interpret these results? What are our conclusions?
