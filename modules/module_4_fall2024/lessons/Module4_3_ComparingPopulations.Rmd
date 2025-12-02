@@ -125,7 +125,7 @@ To do so requires a few steps.
 
 2.  Use the `mutate()` function to create a new column in each data frame with these logistic *model* values.
 
-3.  Combine all three dataframes back together into one dataframe using the `bind_rows()` function.
+3.  Combine all three data frames back together into one dataframe using the `bind_rows()` function.
 
 4.  Plot the actual data points using `geom_point()` and plot the logistic model data points using the `geom_line()` function.
 
@@ -138,6 +138,8 @@ First, let's see what output the `predict()` function gives us for the NE popula
 ```
 
 If we compare these numbers to the numbers in the `abund` column of `pop_NE`, we notice that they are not the same. The difference between these values from the model of best fit and the actual, observed values are called *residuals*, just as they are with lines of best fit (from linear regressions).
+
+![](residuals.jpg){width="50%" fig-align="center"}
 
 Let's use the `mutate` function to add these model values to each data frame.
 
@@ -171,7 +173,7 @@ It is now much easier to visually distinguish the differences between the growth
 
 We still want to analyze our three populations using inferential statistics to determine if there are significant differences between the populations.
 
-First, we need to decide what type of statistical test makes sense with the data we have. This is *not* a straight-forward question with a straight-forward answer, and there are a handful of different answers. A lot of that determination ultimately depends on the question we are asking and, therefore, the hypothesis we are testing.
+First, we need to decide what type of statistical test makes sense with the data we have. This is *not* a straight-forward question with a straight-forward answer. How we determine which test to use ultimately depends on the question we are asking and, therefore, the hypothesis we are testing.
 
 For the sake of the class (and in your assignment, too), let's assume the question we want to ask is whether the average population sizes significantly differ between the populations.
 
@@ -206,3 +208,9 @@ This p-value tells us that the overall model is significant (we reject the null 
 ```
 
 How do we interpret these results? What are our conclusions?
+
+## Data-Driven Decision Making
+
+Our ultimate goal in this module has been to determine which population of fish is best for fishing sustainably. We are prioritizing large, stable populations.
+
+Given those requirements and what our numeric, visual, and statistical tests have told us, which of these populations would be the best for us to harvest? Why?
