@@ -1,0 +1,111 @@
+---
+title: "Module 4 Assignment 3 Answer Key"
+author: "EKB"
+date: '`r Sys.Date()`'
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+1.  
+
+```{r}
+library(tidyverse)
+library(drc)
+```
+
+2.  
+
+```{r}
+toothfish <- read_csv("../data/toothfish.csv")
+toothfish
+```
+
+4.  
+```{r}
+ggplot(toothfish, aes(x = date, y = fish_kg, color = species)) +
+  geom_point() + 
+  labs(x = "Year", y = "Fish Mass (kg)", color = "Toothfish Species") +
+  theme_classic()
+```
+
+6.  
+```{r}
+pat <- toothfish %>% 
+  filter(species == "Patagonian")
+pat
+
+ant <- toothfish %>% 
+  filter(species == "Antarctic")
+ant
+```
+
+7.  
+
+```{r warning=FALSE}
+pat_model <- drm(fish_kg ~ date, data = pat, fct = LL.4())
+pat_model
+```
+
+8.  
+
+```{r warning=FALSE}
+ant_model <- drm(fish_kg ~ date, data = ant, fct = LL.4())
+ant_model
+```
+
+
+10. 
+
+```{r}
+pat <- pat %>% mutate(predicted_values = predict(pat_model))
+pat
+
+ant <- ant %>% mutate(predicted_values = predict(ant_model))
+ant
+```
+
+11. 
+
+```{r}
+toothfish <- bind_rows(pat, ant)
+toothfish
+```
+
+12. 
+
+```{r}
+ggplot(toothfish, aes(date, fish_kg, color = species)) +
+  geom_point(alpha = 0.5) +
+  geom_line(aes(y = predicted_values)) +
+  labs(x = "Year", y = "Fish Mass (kg)", color = "Toothfish Species") +
+  theme_classic()
+```
+
+
+13. 
+
+```{r}
+toothfish <- toothfish %>% filter(date >= 1995)
+toothfish
+```
+
+14. 
+
+```{r}
+toothfish %>% 
+  group_by(species) %>% 
+  summarise(avg_fish_kg = mean(fish_kg),
+            stdev_fish_kg = sd(fish_kg))
+```
+
+
+16. 
+
+```{r}
+t.test(fish_kg ~ species, data = toothfish)
+```
+
+
