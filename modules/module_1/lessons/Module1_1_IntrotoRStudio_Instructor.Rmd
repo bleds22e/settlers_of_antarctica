@@ -21,7 +21,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Check-in (5 minutes)
 
-Let's all sign-up for RStudio Cloud!
+Let's all sign-up for Posit Cloud!
 
 ## Rstudio Mini-tour
 
@@ -78,7 +78,7 @@ Let's work with an example code chunk.
 3 * 5        # multiplication
 ```
 
-Notice that if you run code in the Console (below) rather than the code chunk in a .Rmd file, you don't need to add the `{r}` to tell it that you are typing R code. The Console only understands R code anyway, so we don't need to tell it what it is!
+Notice that if you run code in the Console (below) rather than the code chunk in a `.Rmd` file, you don't need to add the `{r}` to tell it that you are typing R code. The Console only understands R code anyway, so we don't need to tell it what it is!
 
 ### Math: Small Group Challenge
 
