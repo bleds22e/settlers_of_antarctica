@@ -21,13 +21,13 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Check-in (5 minutes)
 
-Let's all sign-up for RStudio Cloud!
+Let's all sign-up for Posit Cloud!
 
 ## Rstudio Mini-tour
 
 Perform a live-coding mini-tour of RStudio.\
 1. What the different panels do\
-2. Console versus a script/Rmarkdown file?
+2. Console versus an Rmarkdown (`.Rmd`) file?
 
 ## Using R as a calculator
 
@@ -39,19 +39,28 @@ Try multiplying 5 and 3 (hint: \* means multiply) in the console. Hit `Enter` to
 
 ### Rmarkdown and Code Chunks
 
-Rmarkdown (.Rmd) is a file format that lets us incorporate text and code into one document seamlessly. In fact, it is the file format for this document!
+Rmarkdown (`.Rmd`) is a file format that lets us incorporate text and code into one document seamlessly. In fact, it is the file format for this document!
 
--   For writing text, you can type as you would normally
--   Code chunks are a bit different.
-    -   Type your R code in the lines under the `{r}`.
+-   For writing text, you can type as you normally would.
+-   Code chunks are a bit different:
+    -   Near the top right of your screen you can toggle between viewing this document in "Source" or "Visual" mode.
+    -   If you view this document under "Source," you will see that all code chunks are sandwiched between \`\`\`{r} and \`\`\`.
+    -   Under "Visual," you can type R code in the lines under `{r}`.
+    -   To include text in chunks, you will need to put a `#` in front. R will not read anything in the line after `#` as code.
 
-    -   To include text in them, you will need to put a `#` in front. R will not read anything after the `#` as code. Chunks look like this:
+Code chunks look like this:
 
 ```{r}
 
 ```
 
-To run a chunk of code, click the green arrow on the far right side of the chunk. You can also run one or a few lines of code at a time by having your cursor on the line or highlighting multiple lines and hitting `Ctrl` + `Enter` (or `Cmd` + `Enter` on a Mac).
+To run a chunk of code, click the green arrow on the top right corner of the chunk.
+
+You can also run one or a few lines of code at a time by having your cursor on the line or highlighting multiple lines and hitting `Ctrl` + `Enter` (or `Cmd` + `Enter` on a Mac).
+
+A quick shortcut for adding a code chunk is `Ctrl + Alt + i` (`Cmd + Opt + i` on a Mac). Alternatively, you can go to Code \> Insert Chunk.
+
+## Some Code Chunk Practice
 
 Let's work with an example code chunk.
 
@@ -59,7 +68,7 @@ Let's work with an example code chunk.
 
 ```
 
-If you run code in the console (below) rather than the code chunk in a .Rmd file, you don't need to add the `{r}` to tell it that you are typing R code. The console only understand R code, so we don't need to tell it!
+If you run code in the console (below) rather than the code chunk in a `.Rmd` file, you don't need to add the `{r}` to tell it that you are typing R code. The console only understand R code, so we don't need to tell it!
 
 A quick shortcut for adding a code chunk is `Ctrl + Atl + i` (`Cmd + Opt + i` on a Mac). Alternatively, you can go to Code \> Insert Chunk.
 
@@ -67,7 +76,11 @@ A quick shortcut for adding a code chunk is `Ctrl + Atl + i` (`Cmd + Opt + i` on
 
 Write a line of code to raise 2 to the 3rd power (often represented as $2^3$). This will likely require a little bit of Googling to figure out.
 
-First, write and run the code in the console. Next, write and run the code in the code chunk below. What did you have to do differently?
+First, write and run the code in the console.
+
+Next, write and run the code in the code chunk below.
+
+What did you have to do differently?
 
 ```{r}
 
