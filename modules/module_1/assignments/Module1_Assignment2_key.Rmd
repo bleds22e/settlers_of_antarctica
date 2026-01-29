@@ -45,14 +45,14 @@ Run this chunk of code to create a vector of data to use. It represents the numb
 counts <- c(2, 9, 4, 3, 6, 7, 1, 0, 3)
 ```
 
-1.  Write a line of code that pulls out the 2nd value in the `counts` vector.
+1.  Write a line of code that returns the 2nd value in the `counts` vector.
 
 ```{r second_value}
 # second value of counts vector
 counts[2]
 ```
 
-2.  Use conditional sub-setting to return values from the vector tha are greater than 5.
+2.  Subset the `counts` vector using a condition (not index) that returns values from the vector that are greater than 5.
 
 ```{r}
 counts[counts > 5]
@@ -69,9 +69,11 @@ mean(counts)
 
 Now that we've practiced with vectors, let's move on to 2-dimensional data.
 
-Remember those fun/silly questions about our trip to Antarctica? It's time to play around with that data!
+Remember those questions about our trip to Antarctica from the survey you completed the first week of classes? It's time to play around with that data!
 
-The following code chunk will read the data into RStudio. Be sure to run it before try to answer the questions! A bunch of stuff will pop up, but it should work just fine. Once you run the code, you will see a dataframe called `team_data` show up in the environment.
+The following code chunk will read the data into RStudio. Be sure to run it before try to answer the questions! A bunch of stuff will pop up, but it should work just fine.
+
+Once you run the code, you will see a dataframe called `team_data` show up in the environment.
 
 ```{r import_data}
 # using read.csv because we haven't started using the tidyverse yet
@@ -79,21 +81,17 @@ The following code chunk will read the data into RStudio. Be sure to run it befo
 team_data <- read.csv("../data/team_antarctica.csv")
 ```
 
-4.  Using either a function or looking in the environment, answer the following questions (1 point each).
-
--   What are the dimensions of the data (how many rows and how many columns)?
--   What are the names of the columns in the data?
+4.  Take a look at the data and answer the following questions (0.5 points each).
+    a.  What are the dimensions of the data (how many rows and how many columns)?
+    b.  Name a column that has *categorical* data.
+    c.  Name a column that has *numeric* data.
+    d.  Name a column that has data that could be treated as either *categorical* or *numeric*.
 
 *Answer:*
 
-```{r}
-# using code is optional
-dim(team_data) # 22 rows, 10 columns
-colnames(team_data) 
-str(team_data) 
-```
+5.  Take a look at the data frame using the `head()` function. Typically, `head()` provides the first 6 rows of data.
 
-5.  Take a look at the data frame using the `head()` function. Typically, `head()` provides the first 6 rows of data. Modify one of the arguments in `head()` so that the line of code prints the first 10 rows. (If you aren't sure how to do that, remember how you can look for help about functions!)
+    Modify one of the arguments in `head()` so that the line of code prints the first 10 rows. (If you aren't sure how to do that, remember how you can look for help about functions!)
 
 ```{r examine_data}
 head(team_data, 10)
@@ -107,7 +105,7 @@ team_data[4, 8]
 
 When we have a large data set like this, it is often helpful to summarize the data in some way. The next few questions will help use get a better understanding of the content of the data set.
 
-7.  On average, how did people rate their ability to be in a remote location? 
+7.  On average, how did people rate their ability to be in a remote location?
 
 ```{r average_cold_tolerance}
 mean(team_data$remote_location)
@@ -123,12 +121,11 @@ min(team_data$distance_mi)
 max(team_data$distance_mi)
 ```
 
-9.  Use conditional sub-setting to produce a new data frame that only includes rows of data for people who rated their fishing skills as a 5. (Hint: numbers do not need quotation marks around them).
+9.  Subset using a condition to return the rows of data only for people who rated their fishing skills as a 5. Retain all of the columns in those rows. (Hint: numbers do not need quotation marks around them).
 
 ```{r cooking_skill}
 team_data[team_data$fishing_skill == 5, ]
 ```
-
 
 10. Calculate the average cold tolerance of people who want blue parkas. Use these steps to think through how to answer this question.
 
