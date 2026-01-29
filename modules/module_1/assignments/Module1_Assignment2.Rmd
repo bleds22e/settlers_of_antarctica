@@ -13,7 +13,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ### Purpose
 
-The goal of this assignment is to get comfortable using R to look at 1- and 2-dimensional data sets.
+The goal of this assignment is to get comfortable using R to look at 1- and 2-dimensional data sets using base R.
 
 ### Task
 
@@ -31,7 +31,7 @@ Write R code to successfully answer each question below.
 
 ### Due Date
 
-Thursday, Sept 11 by 9:30 am
+Thursday, Feb 5 by start of class
 
 # Assignment Questions
 
@@ -43,14 +43,14 @@ Let's start working with vectors, or 1-dimensional data, first.
 
 Run this chunk of code to create a vector of data to use. It represents the number of penguins counted at different sites.
 
-```{r vector}
+```{r}
 # vector with counts of penguins
 counts <- c(2, 9, 4, 3, 6, 7, 1, 0, 3)
 ```
 
 1.  Write a line of code that pulls out the 2nd value in the `counts` vector.
 
-```{r second_value}
+```{r}
 
 ```
 
@@ -62,7 +62,7 @@ counts <- c(2, 9, 4, 3, 6, 7, 1, 0, 3)
 
 3.  Calculate the average number of penguins that were counted. (Hint: the `mean()` function will calculate the average.)
 
-```{r avg_penguins}
+```{r}
 
 ```
 
@@ -74,7 +74,7 @@ Remember those fun/silly questions about our trip to Antarctica? It's time to pl
 
 The following code chunk will read the data into RStudio. Be sure to run it before try to answer the questions! A bunch of stuff will pop up, but it should work just fine. Once you run the code, you will see a data frame called `team_data` show up in the environment.
 
-```{r import_data}
+```{r}
 team_data <- read.csv("team_antarctica.csv")
 ```
 
@@ -104,7 +104,7 @@ team_data <- read.csv("team_antarctica.csv")
 
 When we have a large data set like this, it is often helpful to summarize the data in some way. The next few questions will help use get a better understanding of the content of the data set.
 
-7.  On average, how did people rate their ability to be in a remote location? 
+7.  On average, how did people rate their ability to be in a remote location?
 
 ```{r}
 
@@ -122,7 +122,6 @@ When we have a large data set like this, it is often helpful to summarize the da
 
 ```
 
-
 10. Calculate the average cold tolerance of people who want blue parkas. Use these steps to think through how to answer this question.
 
     a.  First, think about how to create a data frame with only people who want blue parkas
@@ -139,7 +138,9 @@ When we have a large data set like this, it is often helpful to summarize the da
 
 What animal should be on our team flag?
 
-First, create a vector called `mascot` that has only the values from the `team_flag` column. Next, use the `table()` function on the `mascot`. This will give you the number of times each option was chosen. According to the results, which animal should be on our team flag?
+-   First, create a vector called `mascot` that has only the values from the `team_flag` column. 
+-   Next, use the `table()` function on the `mascot`. Think through what this output likely means. 
+-   For full points, make sure you type out which animal that should be our mascot below; providing only the code will result in partial credit.
 
 *Answer:*
 
@@ -151,8 +152,9 @@ First, create a vector called `mascot` that has only the values from the `team_f
 
 Follow these steps to successfully turn in your assignment on D2L.
 
-1.  Click the `Knit` button up near the top of this document. This should produce a PDF file that shows up in the `Files` panel on the bottom-right of your screen.
-2.  Click the empty box to the left of the PDF file.
-3.  Click on the blue gear near the top of the `Files` panel and choose Export.
-4.  Put your last name at the front of the file name when prompted, then click the Download button. The PDF file of your assignment is now in your "Downloads" folder on your device.
-5.  Head over to D2L and navigate to Module 1 Assignment 2. Submit the PDF file that you just downloaded.
+1.  Click the `Knit` button up near the top of this document. This should produce a PDF file that shows up in the `Files` panel on the bottom-right of your screen and/or pops up as a new window.
+2.  You might get a window that pops up that says to "Try Again." If you do, close the window and check whether there is a PDF in the Files tab--there usually is.
+3.  To download the PDF from Posit Cloud, click the empty box to the left of the PDF file in the Files tab.
+4.  Click on the blue gear near the top of the `Files` panel and choose Export.
+5.  Put your last name at the front of the file name when prompted, then click the Download button. The PDF file of your assignment is now in your "Downloads" folder on your device.
+6.  Head over to D2L and navigate to Module 1 Assignment 2. Submit the PDF file that you just downloaded.

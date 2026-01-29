@@ -212,11 +212,12 @@ As a group, find the standard deviation (`sd()`) of the height of plants treated
 
 Below are some functions that I often find very helpful when working with vectors and data frames:
 
--   `str()`
--   `head()` and `tail()`
--   `length()`
--   `ncol()` and `nrow()`
--   `names()`
+-   `str()`: shows the structure of the object (e.g., rows and columns)
+-   `head()` and `tail()`: shows the first six and last six rows, respectfully
+-   `length()`: counts the number of elements in an object
+-   `ncol()` and `nrow()`: counts the number of columns or rows, respectfully
+-   `names()`: shows the names of the columns in a data frame
+-   `unique()`: shows one of each element in an object (removes duplicate values)
 
 ```{r}
 
