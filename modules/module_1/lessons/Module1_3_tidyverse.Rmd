@@ -188,11 +188,8 @@ The first part of the argument in the `summarize` function (before the `=`) is t
 
 | `summarize(new_column_name = summary_function(column_to_summarize))`
 
-```{r summarize}
-# first attempt at mean and sd of average temperature
-climate_df %>% 
-  summarise(mean_temp = mean(AverageTemperature),
-            sd_temp = sd(AverageTemperature))
+```{r}
+
 ```
 
 Wait a second! Those are some weird values!
@@ -203,10 +200,8 @@ It is important to note that if any of the values in the column that you are try
 
 Fortunately, `mean()` and `sd()` and some other functions have an argument to remove the missing values: `na.rm = TRUE`
 
-```{r summarize_na.rm}
-climate_df %>% 
-  summarise(mean_temp = mean(AverageTemperature, na.rm = TRUE),
-            sd_temp = sd(AverageTemperature, na.rm = TRUE))
+```{r}
+
 ```
 
 Pay attention to where the `na.rm = TRUE` argument is placed. We are putting it inside the parentheses for the `mean()` and `sd()` function, not as an argument in the `summarize()` function.
@@ -223,31 +218,22 @@ The `group_by()` function lets us do this. It is most often used in combination 
 
 For example, we can use this method to calculate the mean temperatures of **each** country instead of the overall mean of the entire dataset. In order to do these, we create groups in the data based on the country.
 
-```{r group_by}
-climate_df %>% 
-  group_by(Country) %>% 
-  summarise(mean_temp = mean(AverageTemperature, na.rm = TRUE),
-            sd_temp = sd(AverageTemperature, na.rm = TRUE))
+```{r}
+
 ```
 
 ### Let's practice!
 
 Practice using the combination of `group_by()` and `summarize()` to calculate the minimum (`min()`) and maximum (`max()`) average temperatures for each city. Save this data frame as `city_min_max`
 
-```{r group_by_city}
-climate_df %>% 
-  group_by(City) %>% 
-  summarize(min_temp = min(AverageTemperature, na.rm = TRUE),
-            max_temp = max(AverageTemperature, na.rm = TRUE))
+```{r}
+
 ```
 
 Already accomplished this task? Try to figure out how you can keep the "Country" column in the final data frame. This is trickier than you might think!
 
-```{r group_by_city_country}
-climate_df %>% 
-  group_by(Country, City) %>% 
-  summarize(min_temp = min(AverageTemperature, na.rm = TRUE),
-            max_temp = max(AverageTemperature, na.rm = TRUE))
+```{r}
+
 ```
 
 ## Creating New Columns with `mutate()`
@@ -262,11 +248,8 @@ Like the `summarize()` function, The first part of the argument in the `mutate` 
 
 To help us out, here is the equation for converting: `Fahrenheit = Celcius * (9/5) + 32`
 
-```{r mutate}
-# create a new column for temps in Fahrenheit
-climate_df %>% 
-  select(dt, AverageTemperature) %>% 
-  mutate(AverageTemperature_F = AverageTemperature * (9/5) + 32)
+```{r}
+
 ```
 
 ### Let's Practice
@@ -274,8 +257,7 @@ climate_df %>%
 Write some code that uses the `round()` function to create a new column of average temperatures (Celsius) with only point value after the decimal point.
 
 ```{r}
-climate_df %>% 
-  mutate(AverageTemperatureRound = round(AverageTemperature, digits = 1))
+
 ```
 
 If we set the "new" column name in the `mutate()` function as the same name of a column that already exists, the code with replace that column with the new values.
