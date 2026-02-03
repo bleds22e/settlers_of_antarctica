@@ -28,7 +28,7 @@ That said, we will be primarily using the `tidyverse` for the rest of the semest
 
 ### Wait, what is a package??
 
-Packages are one of the neatest things of working in an open-source environment like R! They contains bits of code (often in the form of functions) that can be reused, making them a core component of reproducible data science. Anyone can develop a package, and there are thousands of them doing all sorts of things.
+Packages are one of the neatest things of working in an open-source environment like R! They contain bits of code (often in the form of functions) that can be reused, making them a core component of reproducible data science. Anyone can develop a package, and there are thousands of them doing all sorts of things.
 
 ### Explore the `tidyverse`
 
@@ -46,14 +46,14 @@ If you want to learn more about the tidyverse, head over to [www.tidyverse.org](
 
 ### Download and install
 
-In most scenarios, you will need to download a package from the internet onto your computer before you can use it in RStudio. However, with `posit Cloud`, I've already done this step for you!
+In most scenarios, you will need to download a package from the internet onto your computer before you can use it in RStudio. However, with `Posit Cloud`, I've already done this step for you!
 
 For future reference, though:
 
 -   you usually only need to go through this process once until you update R
 -   we use the function `install.packages()` to download the package
 
-```{r install_tidyverse, message = FALSE}
+```{r}
 # download and install the tidyverse package(s)
 # to run the line of code, remove the # in front of the line below and run this chunk
 # install.packages("tidyverse")
@@ -69,7 +69,7 @@ When you run this code, you'll see a message that says "Attaching packages" and 
 -   The "conflict" part is a little more complicated but we don't need to worry too much about it.
     -   If you're curious, though, it is telling us that there are some functions in the `tidyverse` that have the same names as functions that are automatically installed with R and that the `tidyverse` versions of those functions will be the ones that get used by default unless we specify otherwise.
 
-```{r load_tidyverse, message = FALSE}
+```{r}
 
 ```
 
@@ -77,7 +77,7 @@ When you run this code, you'll see a message that says "Attaching packages" and 
 
 To learn about the `tidyverse` syntax, we're going to use a real data set on climate change from Berkeley, CA, USA. It outlines temperatures in major cities across the world since 1750. We will use the `read_csv()` function to read in our data set.
 
-```{r climate_data}
+```{r}
 
 ```
 
@@ -99,13 +99,13 @@ Let's use our first function, `select()`. Select allows us to pick out specific 
 
 First, let's remind ourselves how we would accomplish this in base R.
 
-```{r select_baseR}
+```{r}
 
 ```
 
 The `select()` function does the same thing but with more power (and, in my opinion, more easily). The first argument in the function is the data frame. Any following arguments are the columns we want to select.
 
-```{r select_tidy}
+```{r}
 
 ```
 
@@ -125,14 +125,14 @@ It is important to remember that the computer interprets everything literally. W
 
 `filter()` allows you filter rows by certain conditions. The code below is how we would do this in base R.
 
-```{r filter_baseR, execute = FALSE}
+```{r}
 # base R
 climate_df[climate_df$AverageTemperature > 25, ]
 ```
 
 The code above is, in my opinion, a bit unwieldy. Filter feels more intuitive. We still need the double equal signs, though!
 
-```{r filter_tidy}
+```{r}
 
 ```
 
@@ -140,7 +140,7 @@ The code above is, in my opinion, a bit unwieldy. Filter feels more intuitive. W
 
 Work with the climate data we've been using this class period. Construct a small set of code that does the following:
 
-1.  Slims down the full data frame to one that contains the columns dt, AverageTemperature and City. Assign this to an object called `slim`.
+1.  Slims down the full data frame to one that contains the columns with the date, average temperatures, and the city names. Assign this to an object called `slim`.
 2.  Filters the data for Paris with an average temperature less than 22.
 3.  Name this new data frame "cold_paris"
 
@@ -150,7 +150,11 @@ Work with the climate data we've been using this class period. Construct a small
 
 ## The pipe `%>%`
 
-You can use the pipe operator to chain tidyverse functions together. You can think of the pipe as automatically sending the output from the first line into the next line as the input.
+You can use the pipe operator to chain `tidyverse` functions together.
+
+You can think of the pipe as automatically sending the output from the first line into the next line as the input. The output of the previous line of code (to the "left" of the pipe) becomes the first argument in the function to the right of the pipe.
+
+![](dplyr_pipe.png){fig-align="center" width="75%"}
 
 This is helpful for a lot of reasons, including:
 
@@ -159,7 +163,7 @@ This is helpful for a lot of reasons, including:
 
 The shortcut for typing a pipe is `Ctrl` + `Shift` + `M` (or `Cmd` + `Shift` + `M` on a Mac)
 
-```{r pipes}
+```{r}
 
 ```
 
@@ -167,55 +171,42 @@ The shortcut for typing a pipe is `Ctrl` + `Shift` + `M` (or `Cmd` + `Shift` + `
 
 In small groups, use pipes to create a new data frame called `warm_nigeria` that includes the following:
 
--   the columns AverageTemperature, City, Country
+-   the columns with the average temperatures, the countries, and the cities
 -   only rows for the country Nigeria and temperatures that are greater than 30 degrees
-
-```{r nigeria30}
-
-```
-
-## Creating new variables with `mutate()`
-
-Sometimes our data doesn't have our data in exactly the format we want. For example, we might want our temperature data in Fahrenheit instead of Celsius.
-
-The `tidyverse` has a function called `mutate()` that lets us create a new column. Often, we want to apply a function to the entire column or perform some type of calculation, such as converting temp from F to C.
-
-To help us out, here is the equation for converting: `Fahrenheit = Celcius * (9/5) + 32`
-
-```{r mutate}
-
-```
-
-The first part of the argument in the mutate function (before the `=`) is the name of the new column we want to create (or, sometime, the name of a column we want to overwrite). After the `=` is what we want the new column to contain.
-
-### Let's Practice
-
-Write some code that uses the `round()` function to create a new column of average temperatures (Celsius) with only point value after the decimal point.
 
 ```{r}
 
 ```
 
-If we set the "new" column name in the `mutate()` function as the same name of a column that already exists, the code with replace that column with the new values.
+## Turning Data into Information with `summarize()`
 
-## Understanding data through `summarize()`
+Like we have talked about in previous classes, some of the best ways for us to understand our data is through what we call summary statistics such as the mean (average), standard deviation, minimums, maximums, etc. Fortunately, the `tidyverse` has a handy-dandy function to make this easy to do with data frames.
 
-Like we have talked about in previous classes, some of the best ways for us to understand our data is through what we call summary statistics such as the mean, standard deviation, minimums, maximums, etc.
+The `summarize()` function creates a new data frame with columns and values we give it.
 
-Fortunately, the `tidyverse` has a handy-dandy function to make this easy to do with data frames.
+The first part of the argument in the `summarize` function (before the `=`) is the name of the new column we want to create. After the `=` is code that produces the values we want the new column to contain.
 
-The `summarize()` function creates a new dataframe with columns and values we give it. Similar to `mutate()`, what is on the left of the `=` is the name of the new column, and what is on the right of the `=` is the value(s) to put in the new column.
+| `summarize(new_column_name = summary_function(column_to_summarize))`
 
 ```{r summarize}
-
+# first attempt at mean and sd of average temperature
+climate_df %>% 
+  summarise(mean_temp = mean(AverageTemperature),
+            sd_temp = sd(AverageTemperature))
 ```
 
 Wait a second! Those are some weird values!
 
-It is important to note that if any of the values in the column that you are trying to summarize are missing, you might get some wonky values, like you did above. Fortunately, `mean()` and `sd()` and many other functions have an argument to remove the missing values: `na.rm = TRUE`
+`NA` is used to represent missing data. So what is happening here? We know that there are numbers to calculate these values.
+
+It is important to note that if any of the values in the column that you are trying to summarize are missing (`NA`), you might get some wonky values, like you did above.
+
+Fortunately, `mean()` and `sd()` and some other functions have an argument to remove the missing values: `na.rm = TRUE`
 
 ```{r summarize_na.rm}
-
+climate_df %>% 
+  summarise(mean_temp = mean(AverageTemperature, na.rm = TRUE),
+            sd_temp = sd(AverageTemperature, na.rm = TRUE))
 ```
 
 Pay attention to where the `na.rm = TRUE` argument is placed. We are putting it inside the parentheses for the `mean()` and `sd()` function, not as an argument in the `summarize()` function.
@@ -228,12 +219,15 @@ One common way we analyze data is through something we call the "split, apply, c
 -   *apply* some type of analysis to each group independently and
 -   *combine* the data back together
 
-The `group_by()` function lets us do this. It is most often used in combination with `mutate()` or `summarize()`.
+The `group_by()` function lets us do this. It is most often used in combination with `summarize()`.
 
 For example, we can use this method to calculate the mean temperatures of **each** country instead of the overall mean of the entire dataset. In order to do these, we create groups in the data based on the country.
 
 ```{r group_by}
-
+climate_df %>% 
+  group_by(Country) %>% 
+  summarise(mean_temp = mean(AverageTemperature, na.rm = TRUE),
+            sd_temp = sd(AverageTemperature, na.rm = TRUE))
 ```
 
 ### Let's practice!
@@ -241,11 +235,47 @@ For example, we can use this method to calculate the mean temperatures of **each
 Practice using the combination of `group_by()` and `summarize()` to calculate the minimum (`min()`) and maximum (`max()`) average temperatures for each city. Save this data frame as `city_min_max`
 
 ```{r group_by_city}
-
+climate_df %>% 
+  group_by(City) %>% 
+  summarize(min_temp = min(AverageTemperature, na.rm = TRUE),
+            max_temp = max(AverageTemperature, na.rm = TRUE))
 ```
 
-Already accomplished this task? Try to figure out how you can keep the "Country" column in the final data frame. This might be trickier than you think!
+Already accomplished this task? Try to figure out how you can keep the "Country" column in the final data frame. This is trickier than you might think!
 
 ```{r group_by_city_country}
-
+climate_df %>% 
+  group_by(Country, City) %>% 
+  summarize(min_temp = min(AverageTemperature, na.rm = TRUE),
+            max_temp = max(AverageTemperature, na.rm = TRUE))
 ```
+
+## Creating New Columns with `mutate()`
+
+Sometimes our data frame doesn't have our data points in exactly the format we want. For example, we might want our temperature data in Fahrenheit instead of Celsius.
+
+The `tidyverse` has a function called `mutate()` that lets us create a new column. Often, we want to apply a function to the entire column or perform some type of calculation, such as converting temp from F to C.
+
+Like the `summarize()` function, The first part of the argument in the `mutate` function (before the `=`) is the name of the new column we want to create (or, sometime, the name of a column we want to overwrite). After the `=` is code producing the values we want the new column to contain.
+
+| `mutate(new_column_name = code_producing_values_for_the_new_column)`
+
+To help us out, here is the equation for converting: `Fahrenheit = Celcius * (9/5) + 32`
+
+```{r mutate}
+# create a new column for temps in Fahrenheit
+climate_df %>% 
+  select(dt, AverageTemperature) %>% 
+  mutate(AverageTemperature_F = AverageTemperature * (9/5) + 32)
+```
+
+### Let's Practice
+
+Write some code that uses the `round()` function to create a new column of average temperatures (Celsius) with only point value after the decimal point.
+
+```{r}
+climate_df %>% 
+  mutate(AverageTemperatureRound = round(AverageTemperature, digits = 1))
+```
+
+If we set the "new" column name in the `mutate()` function as the same name of a column that already exists, the code with replace that column with the new values.
