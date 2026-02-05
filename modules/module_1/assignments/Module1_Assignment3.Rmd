@@ -30,7 +30,7 @@ Write R code using the `tidyverse` to successfully answer each question below.
 
 ### Due Date
 
-Sept 18 at 9:30 am
+Feb 12 before class
 
 # Assignment Questions
 
@@ -42,13 +42,14 @@ For this final assignment for Module 1, you'll be working with another real-worl
 
 2.  Load in the `tidyverse` package.
 
-```{r load_tidyverse}
+```{r}
 
 ```
 
-3.  Load in the data file (called "aggregated_station_data.csv") using the `read_csv()` function. Save the data as an object called `weather`.
+3.  Load in the data file (called `aggregated_station_data.csv`) using the `read_csv()` function. Save the data as an object called `weather`.
 
-```{r load_data}
+```{r}
+# Note: use the read_csv function, not the read.csv function!
 
 ```
 
@@ -59,25 +60,26 @@ For this final assignment for Module 1, you'll be working with another real-worl
 
 ```{r}
 # using code is optional for Question 4
+
 ```
 
 5.  Write some code to choose rows that only include temperatures which are above freezing (AKA greater than 0 because the temperature is currently in Celsius)
 
-```{r above0}
+```{r}
 
 ```
 
 6.  Write some code to choose *only* columns with the following information: the year, day, month, temperature, and the station ID. Save these columns as a new object called `station_temp`.
 
-```{r temp_df}
+```{r}
 
 ```
 
 7.  Using the data frame you created in Q6 above (`station_temp`), add a new column to that data frame that converts the temperature column (currently in Celsius) to Fahrenheit. Call the new column `tempF`.
 
-    *Hint: we did this in class---use that same equation!*
+    *Hint: we did this in class--use that same equation!*
 
-```{r tempF}
+```{r}
 
 ```
 
@@ -87,13 +89,13 @@ For this final assignment for Module 1, you'll be working with another real-worl
 
 9.  Using the *original* data frame (`weather`), find the minimum (`min()`) temperature recorded for each month (in Celsius, the original column).
 
-    *Hint: think about months first (split) and then temperature (apply). You will also want to remove all the NA values.*
+    *Hint: think about months first (split) and then temperature (apply). You will also want to remove all the `NA` values.*
 
 ```{r}
 
 ```
 
-10. Again, using the *original* data frame, produce a data frame with the mean temperature for the month of January for each station.
+10. Again, using the *original* data frame, produce a data frame with the average temperature in the month of January for each station.
 
     Some hints:
 
@@ -101,17 +103,17 @@ For this final assignment for Module 1, you'll be working with another real-worl
 
     -   think about using the pipe, how we choose which rows we want, and how we split-apply-combine
 
-    -   remember to remove the NA values!
+    -   remember to remove the `NA` values!
 
-```{r mean_jan_temp}
+```{r}
 
 ```
 
 ## Bonus! (up to 2 points)
 
-Write code to determine how many unique stations are in the `weather` data set. (Hint: look up the help file for the `distinct()` and the `count()` functions).
+Write code to determine how many unique stations are in the `weather` data set. (Hint: look up the help files for the `distinct()` and the `count()` functions).
 
-```{r unique_stations}
+```{r}
 
 ```
 
@@ -123,4 +125,4 @@ Follow these steps to successfully turn in your assignment on D2L.
 2.  Click the empty box to the left of the PDF file.
 3.  Click on the blue gear near the top of the `Files` panel and choose Export.
 4.  Put your last name at the front of the file name when prompted, then click the Download button. The PDF file of your assignment is now in your "Downloads" folder on your device.
-5.  Head over to D2L and navigate to Module 1 Assignment 2. Submit the PDF file that you just downloaded.
+5.  Head over to D2L and navigate to Module 1 Assignment 3. Submit the PDF file that you just downloaded.
