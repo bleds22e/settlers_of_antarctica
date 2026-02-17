@@ -1,5 +1,5 @@
 ---
-title: "Module 2: Food Gone Bad"
+title: "Module 2: Good Food Gone Bad"
 author: "Keaton Wilson, modified by EKB"
 output: pdf_document
 ---
@@ -18,11 +18,11 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Introduction to the problem
 
-![](aquaponics-system.png)
-
 We have a wave of people getting sick across the team. People are coming in complaining of stomach sickness. Doctors have ruled out a communicable viral infection like norovirus, so it seems likely to be a food contamination issue.
 
-The two main sources of food that are grown on site and distributed to team members are [plants grown in hydroponic greenhouses](https://thespoon.tech/scientists-in-antarctica-grow-food-without-soil-or-sunlight-get-ready-mars/) (mostly Swiss chard, cucumbers and radishes) and fish (tilapia, a tolerant warm-water species, and rainbow trout, a cold-water species). The combination of aquaculture and hydroponics is called [**aquaponics**](https://docs.google.com/presentation/d/12Q1wIMO-b5ZfylHnA4dOsaLUBERtvVREzwQuO7Sc53A/edit?usp=sharing).
+The two main sources of food that are grown on site and distributed to team members are [plants grown in hydroponic greenhouses](https://thespoon.tech/scientists-in-antarctica-grow-food-without-soil-or-sunlight-get-ready-mars/) (mostly Swiss chard, cucumbers and radishes) and fish (tilapia, a tolerant warm-water species, and rainbow trout, a cold-water species). The combination of aquaculture and hydroponics is called [**aquaponics**](https://docs.google.com/presentation/d/1vxVtKe9MaTXDrB1u9vGsbdYkJylWlPMm/edit?usp=sharing&ouid=103537286572390245832&rtpof=true&sd=true).
+
+![](aquaponics-system.png){width="60%" fig-align="center"}
 
 Team members' diets vary in composition; people are allowed to choose how much of different food sources they eat.
 
@@ -33,11 +33,38 @@ Fortunately, we have some data we can use to investigate! We have data on the fo
     -   sex, age, height, occupation
     -   how much fish and/or plant material they incorporate into their diets
 
+## The Data
+
+First we're going to pull in the data and give it a quick inspection/exploration before we start.
+
+As usual, we start by calling the `tidyverse`.
+
+```{r}
+library(tidyverse)
+```
+
+To bring our data into R, we use a function called `read_csv()`. CSV (comma-separated values) are efficient ways to save 2-dimensional ("spreadsheet") data.
+
+```{r}
+sick <- read_csv("../data/sick_data.csv")
+head(sick)
+```
+
+Let's talk about the data we have:
+
+-   How many observations (rows) do we have?
+-   What type of information does a single row represent?
+-   How many variables (columns) do we have?
+
+Which variables are we particularly interested in? Are they continuous or categorical? Does it matter?
+
 ### Group Discussion
 
-How might we figure out what is causing the problem? Try to focus on potential solutions that involve the data we already have (listed above).
+How might we figure out what is causing the problem? Try to focus on potential solutions that involve the data we already have.
 
 Spend 5 minutes brainstorming in your groups how you might figure out whether plants or fish are the culprits? Be ready to report out.
+
+Write a research question with a dependent variable and an independent variable (see the "Aquaponics & Research Questions" slide deck for more info).
 
 ## Descriptive Statistics and Data Visualization
 
@@ -56,34 +83,9 @@ As a quick overview, descriptive statistics often include 3 elements:
 -   measures of *central tendency*: mean, median, and mode
 -   measures of *variation*: range and standard deviation
 
-The slide deck with more information about descriptive statistics is linked on D2L and [here](https://docs.google.com/presentation/d/1pAnGupJqgU5t7YucGwMsbAdusoplY4GcJMdOWCic4hs/edit?usp=sharing).
+The slide deck with more information about descriptive statistics is linked on D2L.
 
 For a nice overview of descriptive statistics, check out [this website](https://www.scribbr.com/statistics/descriptive-statistics/) I showed in class. It goes a bit further than we go in this class, but it is a nice place to review!
-
-## The Data
-
-First we're going to pull in the data and give it a quick inspection/exploration before we start.
-
-As usual, we start by calling the `tidyverse`.
-
-```{r, message = FALSE}
-library(tidyverse)
-```
-
-To bring our data into R, we use a function called `read_csv()`. CSV (comma-separated values) are efficient ways to save 2-dimensional ("spreadsheet") data.
-
-```{r}
-sick <- read_csv("../data/sick_data.csv")
-head(sick)
-```
-
-Let's talk about the data we have:
-
--   How many observations (rows) do we have?
--   What type of information does a single row represent?
--   How many variables (columns) do we have?
-
-Which variables are we particularly interested in? Are they continuous or categorical? Does it matter?
 
 ### Let's Practice
 
@@ -141,7 +143,7 @@ This isn't super informative, because there isn't really a relationship between 
 
 ### Building and Interpreting
 
-In your group, create a scatter plot to determine whether there is a correlation between the percentage of fish eaten and the number of trips to the doctor in the past 6 months.
+Create a scatter plot to determine whether there is a correlation between the percentage of fish eaten and the number of trips to the doctor in the past 6 months.
 
 ```{r}
 plot(x = sick$perc_fish, y = sick$doctor_trips)
