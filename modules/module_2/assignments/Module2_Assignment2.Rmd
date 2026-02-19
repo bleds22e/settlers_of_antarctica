@@ -36,15 +36,15 @@ Feb 26 before class
 
 # Assignment Questions
 
-Our goal for this assignment is to start with a data frame of data, summarize the data in constructive ways, and plot the data to answer some questions. To get from Point A to Point B to Point C requires some planning.
+Our goal for this assignment is to start with a data frame of data, summarize the data in constructive ways, and plot the data to answer some questions. To get from Point A to Point D requires some planning.
 
-In this assignment, we will make a plan, execute how we would actually go about the process, and then evaluate how well our original plan matches with the path we actually used.
+In this assignment, we will first make a plan, execute how we would actually go about the process, and then evaluate how well our original plan matches with the path we actually used.
 
 ## Data Summary
 
-The aquaculture scientists on Team Antarctica have been working on developing a new diet for tilapia based on soy protein, and they are interested in whether incorporating this into fish diets will result in faster growth rates.
+The aquaculture scientists on Team Antarctica have been working on developing a new diet for tilapia (a type of fish) based on soy-protein, and they are interested in whether incorporating this into fish diets will result in faster growth rates.
 
-They also want to know if those growth rates are related to average tank temperature.
+They are measuring the amount of growth based on the change in the weight of each fish after 30 days on the new diet.
 
 They've provided us with the data below to analyze.
 
@@ -53,10 +53,10 @@ First, let's take a look at the data we will be using for the assignment.
 1.  As always, we start by loading the `tidyverse`. (1 point)
 
     ```{r}
-
+     
     ```
 
-2.  Next, we need to load in our tilapia growth dataset using the `read_csv` function. Call the data frame `growth`. Then use both the `head` and `tail` functions to take a look at the data. (1 point)
+2.  Next, we need to load in our tilapia growth dataset. Call the data frame `growth`. Then use both the `head` and `tail` functions to take a look at the data. (1 point)
 
     ```{r}
 
@@ -72,14 +72,14 @@ First, let's take a look at the data we will be using for the assignment.
 
     d\. How many different soy protein levels (treatments) are there?
 
-## Our Task
+## Our Tasks
 
 We have been asked by our aquaculture specialists to provide them with the following:
 
-a.  a data frame with the average growth (`day_30_weight`) per treatment (`soy_protein`)
-b.  a boxplot plot that shows the relationship (or lack thereof) between different amounts of soy protein in the diet and the weight at 30 days
-c.  a data frame with the average growth per treatment (`soy_protein`) *and* tank category
-d.  a multiple scatter plot that shows the relationship (or lack thereof) between average tank temperature, the weight at 30 days, and the amount of soy protein in the diet.
+a.  a data frame with the average growth of fish per diet treatment (`soy_protein`); growth is being measured by the change in weight of each fish after 30 days on the diet (`day_30_weight`).
+b.  a plot that shows the relationship (or lack thereof) between the amount of soy protein in the diet and how much the fish have growth
+c.  a data frame with the average growth for each combination of diet treatment *and* tank category (warm or cold)
+d.  a plot that shows the relationship (or lack thereof) between average tank temperature, the amount of growth, and the amount of soy in the diet.
 
 They've also asked that we provide all weights in kilograms instead of grams (the `day_30_weight` is currently in grams).
 
@@ -87,9 +87,9 @@ They've also asked that we provide all weights in kilograms instead of grams (th
 
 4.  Spend some time thinking about each one of these steps. What steps will you need to take to produce the end result? What data frame will you use? What columns will you use? What functions will you use? How will you plot things?
 
-    For each of the 4 tasks listed above, *describe* (do NOT code) how you will get from the starting point (a data frame) to the result (another data frame or a plot).
+    For each of the 4 tasks listed above in "Our Tasks," *describe* (do NOT code) how you will get from the starting point (a data frame) to the result (another data frame or a plot).
 
-    This question will be graded ***only on completion***, not on whether or not your plan is *correct*. (2 points)
+    This question will be grade ***only on completion***, not on whether or not your plan is *correct*. (2 points)
 
     *Task (a)*:
 
@@ -103,20 +103,19 @@ They've also asked that we provide all weights in kilograms instead of grams (th
 
 Now let's actually go ahead and complete our tasks with code.
 
-FIRST! We need to run the line of code below. It's a little wonky but will ultimately be helpful. This line of code tells R that we want the soy proteins levels to be listed in a specific order (low to very high) rather than alphabetically.
+\*\* NOTE! We need to run the line of code below. It's a little wonky but will ultimately be helpful. This line of code tells R that we want the soy proteins levels to be listed in a specific order (low to very high) rather than alphabetically. \*\*
 
 ```{r}
-growth <- growth %>% 
-  mutate(soy_protein = factor(soy_protein, levels = c("low", "medium", "high", "very high")))
+
 ```
 
-Because the aquaculture team has asked for everything to use kilograms instead of grams, it makes sense for us to add a `day_30_weight_kg` column before we tackle any of the specific tasks.
+Because the aquaculture team has asked for everything to use kilograms instead of grams, it makes sense for us to add a column with the fish weights in kilograms (kg) instead of grams (g) to our data frame before we tackle any of the specific tasks.
 
-5.  Use the `mutate()` function to add a `day_30_weight_kg` column to the growth data frame. (Hint: divide grams by 1000 to get kg)
+5.  Use the `mutate()` function to add a `day_30_weight_kg` column to the growth data frame with the weights in kilograms. (Hint: there are 1000 grams in 1 kilogram)
 
     Save the output as `growth_kg` (2 points)
 
-    \*\* NOTE: This is the data frame you will use for the remainder of the assignment.\*\*
+    \*\* NOTE: This is the data frame you will use for the remainder of the assignment. \*\*
 
     ```{r}
 
@@ -124,9 +123,9 @@ Because the aquaculture team has asked for everything to use kilograms instead o
 
 ### Task (a)
 
-**A data frame with the average growth (`day_30_weight_kg`) per treatment (`soy_protein`)**
+**A data frame with the average growth of fish per diet treatment**
 
-6.  Create a new data frame called `growth_by_treatment`. We first want to group the data by treatment (`soy_protein`) then calculate the average weight in kg. (2 points)
+6.  Create a new data frame called `growth_by_treatment` with the average growth for each level of soy protein. Remember to use the `growth_kg` data frame as your starting point. (2 points)
 
     ```{r}
 
@@ -134,13 +133,13 @@ Because the aquaculture team has asked for everything to use kilograms instead o
 
 ### Task (b)
 
-**A box plot that shows the relationship (or lack thereof) between amount soy protein in the diet and the weight at 30 days**
+**A box plot that shows the relationship (or lack thereof) between the amount of soy protein in the diet and the weight at 30 days (growth)**
 
-Based on the values we calculated in task (a), it looks like there is probably a positive relationship between the amount of soy protein in tilapia diet and growth. Let's plot the data to confirm.
+Based on the values we calculated in task (a), it looks like there is probably a positive relationship between the percent of soy protein in tilapia diet and growth. Let's plot the data to confirm.
 
-7.  Make a box plot with `soy_protein` on the x-axis (horizontal) and `day_30_weight_kg` on the y-axis (vertical). Change the axis labels to be more easily understood and add a theme. (2 point)
+7.  Make a box plot to show this relationship. Change the axis labels to be more easily understood and add a theme. (2 point)
 
-    (Hint: because we want to plot *all* of the values, not just the mean values, we need to use the original `growth_kg` data frame)
+    (Hint: because we want to plot *all* of the values, not just the mean values, we need to use the original `growth_kg` data frame, not the data frame we created in task (a))
 
     ```{r}
 
@@ -148,9 +147,9 @@ Based on the values we calculated in task (a), it looks like there is probably a
 
 ### Task (c)
 
-**A data frame with the average growth per treatment (`soy_protein`) *and* if tanks are warm or cold**
+**A data frame with the the average growth for each combination of diet treatment *and* tank category**
 
-8.  We can use both the `tank_category` and `soy_protein` columns in the `group_by` function, along with to calculate the average `day_30_weight_kg` for warm and cold tanks in each treatment. Call this new data frame `growth_by_temp_treatment`. (2 points)
+8.  Create a new data frame called `growth_by_temp_treatment`. It should have groups for each combination of the amount of soy protein and whether tanks are warm or cold. Remember, you can create groups with multiple columns! Calculate the average growth for each combination. (2 points)
 
     ```{r}
 
@@ -162,7 +161,7 @@ Based on the values we calculated in task (a), it looks like there is probably a
 
 Based on our results above, do we think the tank being warm or cold has much of an influence? Let's plot our data to confirm.
 
-9.  Make a multiple scatter plot with `avg_tank_temp` (not `tank_category`!) on the x-axis (horizontal) and `day_30_weight_kg` on the y-axis (vertical). Change the color so it represents the amount of soy protein. Change the axis labels to be more easily understood and add a theme. (2 point)
+9.  Make a multiple scatter plot with the average water temperature in the tank on the x-axis (the actual number, not whether the tank in "cold" or "warm") and the amount of growth on the y-axis (vertical). Change the color of each point so that they represent the amount of soy protein in the diet. Change the axis labels to be more easily understood and add a theme. (2 point)
 
     (Hint: because we want to plot *all* of the values, not just the mean values, we need to use the original `growth_kg` data frame)
 
@@ -176,10 +175,10 @@ As suspected, there doesn't seem to be much of a difference based on tank temper
 
 10. Imagine we had decided to treat `soy_protein` as a continuous variable. What type of plot we have used for task (b)? Would we have been able to complete task (d)? Why or why not? (2 points)
 
-    *Answer:*
+    *Answer*:
 
 11. Write 3-5 sentences about if and how your predictions and execution differed and what you learned through the process. (3 points)
 
     *Examples of questions to answer: How did your initial prediction of how you expected to accomplish the 4 tasks match up with how we actually went about doing it? Were they similar? Were there common mistakes that you made beforehand? Did you plan a different execution from what we did above that you think would also work?*
 
-    *Answer:*
+    *Answer*:
