@@ -32,7 +32,7 @@ Write R code which produces the correct answers and reflect on workflow.
 
 ### Due Date
 
-Oct 10 at 9:30 am MST
+Feb 26 before class
 
 # Assignment Questions
 

@@ -56,10 +56,8 @@ The design is that you work iteratively, building up layer upon layer until you 
 
 The typical structure looks like this:
 
-```{r}
-# ggplot(data = <DATA>, mapping = aes(<MAPPINGS>)) +  
-# <GEOM_FUNCTION>()
-```
+| `ggplot(data = <DATA>, mapping = aes(<MAPPINGS>)) +`
+| `<GEOM_FUNCTION>()`
 
 Let's iteratively build up to the plot we have made above:
 
@@ -68,6 +66,12 @@ Let's iteratively build up to the plot we have made above:
 ```{r fig.width=4.5, fig.height=3}
 ggplot(data = sick)
 ```
+
+As we've previously seen, most plots that we make display data in some way relative to two different axes: the x-axis (horizontal) and the y-axis (vertical).
+
+![](axes.png){fig-align="center"}
+
+You will definitely want to memorize which axis is which!
 
 2)  Specify the x-axis (horizontal) and the y-axis (vertical) in the `aes()` function.
 

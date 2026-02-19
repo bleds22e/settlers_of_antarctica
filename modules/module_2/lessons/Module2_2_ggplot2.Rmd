@@ -66,15 +66,15 @@ Here are some resources you might find helpful now or in the future:
 The `gg` in `ggplot2` stands for "Grammar of Graphics." The "grammar"
 part is based on an idea that all statistical plots have the same
 fundamental features: data and mapping (and specific components of
-mapping. The design is that you work iteratively, building up layer upon
-layer until you have your final plot.
+mapping.
+
+The design is that you work iteratively, building up layer upon layer
+until you have your final plot.
 
 The typical structure looks like this:
 
-```{r}
-# ggplot(data = <DATA>, mapping = aes(<MAPPINGS>)) +  
-# <GEOM_FUNCTION>()
-```
+| `ggplot(data = <DATA>, mapping = aes(<MAPPINGS>)) +`
+| `<GEOM_FUNCTION>()`
 
 Let's iteratively build up to the plot we have made above:
 
@@ -84,6 +84,12 @@ Let's iteratively build up to the plot we have made above:
 
 ```
 
+As we've previously seen, most plots that we make display data in some way relative to two different axes: the x-axis (horizontal) and the y-axis (vertical).
+
+![](axes.png){fig-align="center"}
+
+You will definitely want to memorize which axis is which!
+
 2)  Specify the x-axis (horizontal) and the y-axis (vertical) in the
     `aes()` function.
 
@@ -91,7 +97,8 @@ Let's iteratively build up to the plot we have made above:
 
 ```
 
-3)  Add the type of plot we want using a `geom` function. For a scatter plot, we use `geom_point()`.
+3)  Add the type of plot we want using a `geom` function. For a scatter
+    plot, we use `geom_point()`.
 
 ```{r}
 
@@ -112,8 +119,7 @@ Let's iteratively build up to the plot we have made above:
 
 ```
 
-In Summary:
-A few things to note:
+In Summary: A few things to note:
 
 -   we always start with the `ggplot()` function
 -   we specify the dataset we want to use

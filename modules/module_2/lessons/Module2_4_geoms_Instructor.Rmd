@@ -33,7 +33,7 @@ First, let's remind ourselves of the general structure of how we make plots usin
 
 ## Histograms
 
-As we learned last modules, histograms are plots which let us look at *one continuous variable.*
+As we learned last modules, histograms are plots which let us look at *one numeric variable.*
 
 They help us get a feel for the distribution of that data. To make histograms in `ggplot2`, we use the `geom_histogram()` function. Let's look at the number of fish.
 
@@ -123,7 +123,7 @@ For some additional examples and explanation, check out [this Stack Overflow pag
 
 ## Scatter Plot
 
-As a reminder, we use the `geom_point()` function to make a scatter plot of the relationship between *two continuous variables*.
+As a reminder, we use the `geom_point()` function to make a scatter plot of the relationship between *two numeric variables*.
 
 ```{r}
 ggplot(fish, aes(avg_daily_temp, num_fish)) +
@@ -143,7 +143,7 @@ ggplot(fish, aes(avg_daily_temp, num_fish, color = species)) +
 
 ## Box-and-Whisker Plots
 
-Box-and whisker-plots (also known as box plots) are another great option for looking at one *continuous* variable and one or more *categorical* variables. They are particularly nice when you want to see measures of central tendency and variation in the same plot.
+Box-and whisker-plots (also known as box plots) are another great option for looking at one *numeric* variable and one or more *categorical* variables. They are particularly nice when you want to see measures of central tendency and variation in the same plot.
 
 Let's build one and then talk through what each component means. We use `geom_boxplot` to make these types of plots.
 
@@ -275,30 +275,30 @@ Let's summarize some of what we've learned in this module
 
 ### Histogram
 
-Good for looking at the distribution of one continuous variable
+Good for looking at the distribution of one numeric variable
 
--   one continuous variable (x-axis)
+-   one numeric variable (x-axis)
 
 ### Multiple Histogram
 
-Good for looking at differences in the distributions of one continuous variable based on a categorical variable
+Good for looking at differences in the distributions of one numeric variable based on a categorical variable
 
--   one continuous variable (x-axis)
+-   one numeric variable (x-axis)
 -   one categorical variable via the `fill` or `color` argument in the `aes()` function
 -   we always want to add transparency (`alpha`) and, for histograms, `position = "identity"`
 
 ### Scatter Plot
 
-Good for looking for the relationship between two continuous variables
+Good for looking for the relationship between two numeric variables
 
--   two continuous variables (x-axis and y-axis)
--   can add in a categorical variable via `aes()`, but the main relationship is between the two continuous variables
+-   two numeric variables (x-axis and y-axis)
+-   can add in a categorical variable via `aes()`, but the main relationship is between the two numeric variables
 
 ### Box Plot
 
-Good for looking at measures of central tendency and variation for a continuous variable and the differences between those measures between categories
+Good for looking at measures of central tendency and variation for a numeric variable and the differences between those measures between categories
 
--   one continuous variable (y-axis)
+-   one numeric variable (y-axis)
 -   at least one categorical (x-axis and additional via `aes()`)
 
 ## Layering
