@@ -1,5 +1,5 @@
 ---
-title: '4: Exploring `geom` functions'
+title: 'Exploring `geom` functions'
 author: "Ellen Bledsoe"
 date: "`r Sys.Date()`"
 output: pdf_document
@@ -24,10 +24,10 @@ Let's practice making different kinds of plots with various `geom` functions to 
 First, let's remind ourselves of the general structure of how we make plots using the `ggplot2` syntax.
 
 ```{r}
-| `ggplot(data = <DATA>, mapping = aes(x = <COLUMN1>, y = <COLUMN2)) +`
-| `geom_function() +`
-| `labs() +`
-| `theme()`
+# ggplot(data = <DATA>, mapping = aes(x = <COLUMN1>, y = <COLUMN2)) +
+  # geom_function() +
+  # labs() +
+  # theme()
 ```
 
 ## Histograms
@@ -48,9 +48,9 @@ Make a histogram of the number of sick fish in the tanks. Create the histogram w
 
 ```
 
-## Multiple Histograms (with `geom_histogram()`)
+## Multiple Histograms
 
-When we create a multiple histogram, we have to add one additional argument to `geom_histogram()`. Let's see what happens if we just specify `fill`.
+When we create a multiple histogram, we have to add one additional argument to `geom_histogram()`. Let's see what happens if we specify `fill`.
 
 ```{r}
 

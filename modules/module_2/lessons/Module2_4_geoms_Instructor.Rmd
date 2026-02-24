@@ -1,12 +1,12 @@
 ---
-title: '4: Exploring `geom` Functions'
+title: 'Exploring `geom` Functions'
 author: "Ellen Bledsoe"
 date: "`r Sys.Date()`"
 output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, fig.height = 4, fig.width = 5, fig.align = 'center')
 ```
 
 # Plotting in `ggplot2`
@@ -37,7 +37,7 @@ As we learned last modules, histograms are plots which let us look at *one numer
 
 They help us get a feel for the distribution of that data. To make histograms in `ggplot2`, we use the `geom_histogram()` function. Let's look at the number of fish.
 
-```{r}
+```{r fig.height=4}
 ggplot(fish, aes(x = num_fish)) +
   geom_histogram(bins = 20)
 
@@ -59,7 +59,7 @@ ggplot(fish, aes(x = num_sick)) +
   geom_histogram(bins = 10)
 ```
 
-## Multiple Histograms (with `geom_histogram()`)
+## Multiple Histograms
 
 When we create a multiple histogram, we have to add one additional argument to `geom_histogram()`. Let's see what happens if we just specify `fill`.
 
