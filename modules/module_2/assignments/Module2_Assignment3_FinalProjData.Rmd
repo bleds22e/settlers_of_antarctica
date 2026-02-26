@@ -30,7 +30,7 @@ Choose a dataset to work with for the final, write a research question, summariz
 
 ### Due Date
 
-Oct 16 at 9:30am MST
+March 5 at 12:15 pm
 
 # Assignment Questions
 
@@ -77,51 +77,51 @@ Read all four datasets (.csv files) into RStudio using the `read_csv()` function
 
 Find your dataset below.
 
-I've made a few modifications to each of the dataset to make them a bit more manageable to work with. Based on how some of these variables will be used in future assignments, you should treat certain variables in the way I've listed below (even if they could be considered either *numeric/continuous* or *categorical)*.
+I've made a few modifications to each of the dataset to make them a bit more manageable to work with. Based on how some of these variables will be used in future assignments, you should treat certain variables in the way I've listed below (even if they could be considered either *numeric* or *categorical)*.
 
 #### Krill
 
 -   You will want to use the `Krill_per_1m2_log` column as your dependent variable. This is a log-transformed version of the `Krill_per_1m2` column. You don't need to worry about *why* we transformed the data, but this column should be a bit easier to work with.
--   The `Date`, `Year`, and `Month` columns should all be treated as *numeric/continuous* variables.
--   While the `Station` column can *technically* be considered a qualitative/categorical variable, please use the `Day_Night` column as your qualitative/categorical variable for this assignment and for your research question.
+-   The `Date`, `Year`, and `Month` columns should all be treated as *numeric* variables.
+-   While the `Station` column can *technically* be considered a categorical variable, please use the `Day_Night` column as your categorical variable for this assignment and for your research question.
 
 #### Fur Seals
 
--   If you choose to use the `Date` or `Year` column, treat them as *numeric/continuous* variables.
+-   If you choose to use the `Date` or `Year` column, treat them as *numeric* variables.
 -   On the other hand, if you use the `Month` column, treat it as a *categorical* variable.
 
 #### Gentoo Penguins
 
--   If you are using the `Year` column, treat it as a *numeric/continuous* variable.
+-   If you are using the `Year` column, treat it as a *numeric* variable.
 -   The dataset has a column for the previous year's December temperature. Because counts of chicks took place in January or February (and nests were counted in October/November), the number of chicks is most likely to be related to the temperatures directly after chicks hatched (December of the previous year).
 
 #### Chinstrap Penguins
 
 -   I do not recommend using the `MONTH` or `DAY` column.
--   If you use the `YEAR` column, treat it as a *numeric/continuous* variable.
+-   If you use the `YEAR` column, treat it as a *numeric* variable.
 
 ------------------------------------------------------------------------
 
 ## Writing a Research Question
 
-3.  For each of the columns in your dataset, identify whether they contain categorical or continuous/numeric data.
+3.  For each of the columns in your dataset, identify whether they contain categorical or numeric data.
 
     *NOTE! Some data, such as dates (month, year), can act as both types of data. See the section above for clarification about columns in your chosen dataset.*
 
     Type out the name of the column and then the descriptor. For example:
 
     -   island_name: categorical
-    -   island_size_km: numeric or continuous (either descriptor is fine)
+    -   island_size_km: numeric
 
 *Answer*:
 
 In order to write a successful research question, we need to identify our *dependent* variable and the *independent* variable that we think affects the dependent variable.
 
-4.  First, determine which variable is the *dependent* variable in your dataset. Remember, it must be *numeric/continuous*.
+4.  First, determine which variable is the *dependent* variable in your dataset. Remember, it must be *numeric*.
 
 *Answer*:
 
-5.  Next, choose 1 *independent* variable from your dataset (each dataset has more than one from which to choose). This should be a variable that you believe might affect the values of the dependent variable. It can be either categorical OR continuous.
+5.  Next, choose 1 *independent* variable from your dataset (each dataset has more than one from which to choose). This should be a variable that you believe might affect the values of the dependent variable. It can be either categorical OR numeric.
 
 *Answer*:
 
@@ -156,7 +156,7 @@ Let's get to know our data a little better.
     -   improved labels for the x-axis, y-axis, and the legend (if present)
     -   one of the following themes to your code: `theme_bw`, `theme_classic`, or `theme_light`.
 
-(c) For each question, ***you get to choose the variables you use for each plot!*** Pay attention to which variables are numeric/continuous vs. categorical and where they should go in the code to produce the correct type of plot.
+(c) For each question, ***you get to choose the variables you use for each plot!*** Pay attention to which variables are numeric vs. categorical and where they should go in the code to produce the correct type of plot.
 
 (d) Because I'm having you choose your own variables, there is no Answer Key for this assignment.
 
@@ -164,17 +164,11 @@ Let's get to know our data a little better.
 
 ------------------------------------------------------------------------
 
-_STOP! Did you read the "Important Instructions and Info" section above?_
+#### STOP! Did you read the "Important Instructions and Info" section above?
 
-8.  Produce a histogram plot (just one, not multiple on the same plot). Write 1-2 sentences describing what information you can gather from plot. (3 points)
+8.  Produce a histogram plot (just one, not multiple on the same plot). 
 
-```{r warning=FALSE}
-
-```
-
-*Answer:*
-
-9.  Create a multiple histogram plot. Make sure we can see each histogram plot (make sure one isn't blocking another by modifying the transparency and position). Write 1-2 sentences describing what information you can gather from plot. (3 points)
+    Write 1-2 sentences describing what information you can gather from plot. (2 points for plot, 1 for description)
 
 ```{r warning=FALSE}
 
@@ -182,7 +176,9 @@ _STOP! Did you read the "Important Instructions and Info" section above?_
 
 *Answer:*
 
-10. Create a box-and-whisker plot. Changing the color of the boxes is optional. Make sure to add points to the plot. Write 1-2 sentences describing what information you can gather from plot. (3 points)
+9.  Create a multiple histogram plot. Make sure we can see each histogram plot (make sure one isn't blocking another by modifying the transparency and position). 
+
+    Write 1-2 sentences describing what information you can gather from plot. (2 points for plot, 1 for description)
 
 ```{r warning=FALSE}
 
@@ -190,7 +186,19 @@ _STOP! Did you read the "Important Instructions and Info" section above?_
 
 *Answer:*
 
-11. Create a scatter plot. Write 1-2 sentences describing what information you can gather from plot. (3 points)
+10. Create a box-and-whisker plot. Changing the color of the boxes is optional. Make sure to add points to the plot. 
+    
+    Write 1-2 sentences describing what information you can gather from plot. (2 points for plot, 1 for description)
+
+```{r warning=FALSE}
+
+```
+
+*Answer:*
+
+11. Create a scatter plot. 
+
+    Write 1-2 sentences describing what information you can gather from plot. (2 points for plot, 1 for description)
 
 ```{r warning=FALSE}
 

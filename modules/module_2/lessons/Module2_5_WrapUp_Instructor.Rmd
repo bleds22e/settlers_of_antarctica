@@ -113,17 +113,17 @@ Are those columns numeric or categorical? What plot type have we talked about th
 In small groups, make plots using `density` column in the `sick_trout` data to try to figure out which environmental factor is causing problems in the trout. Treat your variables as numeric.
 
 ```{r}
-ggplot(sick_trout, aes(x = density, y = num_fish)) +
+ggplot(sick_trout, aes(x = num_fish, y = density)) +
   #geom_smooth(method = 'lm', se = FALSE) +
   geom_point() 
 
-ggplot(sick_trout, aes(x = density, y = avg_daily_temp)) +
+ggplot(sick_trout, aes(day_length, density)) +
+  #geom_smooth(method = 'lm', se = FALSE) +
+  geom_point() 
+
+ggplot(sick_trout, aes(x = avg_daily_temp, y = density)) +
   #geom_smooth(method = 'lm', se = FALSE) +
   geom_point()
-
-ggplot(sick_trout, aes(density, day_length)) +
-  #geom_smooth(method = 'lm', se = FALSE) +
-  geom_point() 
 ```
 
 What do we think is the environmental driver causing issues with the trout?
