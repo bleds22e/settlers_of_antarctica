@@ -73,7 +73,7 @@ sick_fish <- read_csv("../data/fish_sick_data.csv")
 
 3.  Take a look at the columns that have the total number of fish in the tank and the number of sick fish per tank. Determine whether these two columns are numeric or categorical.
 
-    *Answer*: both `num_fish` and `num_sick` are numeric/continuous
+    *Answer*: both `num_fish` and `num_sick` are numeric
 
 ### Plotting with base R
 
@@ -84,8 +84,10 @@ sick_fish <- read_csv("../data/fish_sick_data.csv")
     ```
 
 5.  In 2-3 sentences, describe what the histogram tells you about the the distribution of the number of sick fish. (2 points)
+    
+    Note: they do not have to include exactly what I've typed below. As long as their answer is correct and is 2-3 sentences, you can give them full credit.
 
-    *Answer*:
+    *Answer*: The range of the number of fish in each tank is between ~60-110. There are two main clusters: a small one between 70-80 and a much larger one between 95-105. The most frequent number of fish in tanks is between 95-100, with 15 tanks having that many fish.
 
 6.  Using *base R* (the code we learned in "Module2_1_DescriptiveStats"), create a scatter plot. Put the total number of fish on the x-axis and the number of sick fish on the y-axis.
 
@@ -95,7 +97,7 @@ sick_fish <- read_csv("../data/fish_sick_data.csv")
 
 7.  Interpret the scatter plot. What is the plot telling you? Is there a positive or negative relationship between the two variables. What does that mean? (2 points)
 
-    *Answer*: negative relationship, meaning that the more fish that are in the tank, the fewer sick fish there are (which is counter-intuitive).
+    *Answer*: negative relationship, meaning that the more fish that are in the tank, the fewer sick fish there are (which is counter-intuitive to what me might predict, by the way).
 
 ### Using `ggplot2`
 
