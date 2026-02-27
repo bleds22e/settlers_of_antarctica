@@ -235,7 +235,7 @@ First, think about the variables we are plotting. How many are there? Are they c
 
 Based on those answers, determine which plot types you can produce for those variable types.
 
-Now, make your two plot! To each, add labels and a theme.
+Now, make your two plots! To each, add labels and a theme.
 
 ```{r}
 # boxplot
