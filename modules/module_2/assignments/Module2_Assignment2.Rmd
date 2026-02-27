@@ -106,7 +106,8 @@ Now let's actually go ahead and complete our tasks with code.
 \*\* NOTE! We need to run the line of code below. It's a little wonky but will ultimately be helpful. This line of code tells R that we want the soy proteins levels to be listed in a specific order (low to very high) rather than alphabetically. \*\*
 
 ```{r}
-
+growth <- growth %>% 
+  mutate(soy_protein = factor(soy_protein, levels = c("low", "medium", "high", "very high")))
 ```
 
 Because the aquaculture team has asked for everything to use kilograms instead of grams, it makes sense for us to add a column with the fish weights in kilograms (kg) instead of grams (g) to our data frame before we tackle any of the specific tasks.
