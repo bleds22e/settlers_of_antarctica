@@ -37,65 +37,65 @@ Feb 24 before class
 
 For this assignment, we are going to be making plots! We are going to use a data set containing data from a sample of our fish tanks. The data contains information about the tanks sampled and how many sick fish are contained in each tank.
 
+Questions are worth 1 point unless otherwise noted.
+
 First, let's prepare our data.
 
-Load the `tidyverse` package into the work space.
+1. Load the `tidyverse` package into the work space.
 
 ```{r}
 library(tidyverse)
 ```
 
-Read in the data using the `read_csv()` function. Name the data frame `sick_fish`.
+2. Read in the data using the `read_csv()` function. Name the data frame `sick_fish`.
 
-```{r}
-sick_fish <- read_csv("../data/fish_sick_data.csv")
-```
+    ```{r}
+    sick_fish <- read_csv("../data/fish_sick_data.csv")
+    ```
 
-1.  Use the `head()` function to take a look at the columns in the data frame.
+3.  How many rows does the `sick_fish` data frame have? How many columns?
 
-    How many rows does the data frame have? How many columns? (2 points)
+    *Answer*: 50 rows, 7 column
 
-    *Answer*: 50 rows, 7 columns
+4.  Use a function (`head()`, `str()`, or another function you prefer) to take a look at the data points in the data frame.
 
     ```{r}
     head(sick_fish)
     ```
 
-2.  Take a look at the data frame. (2 points, 1 each)
-
-    -   What does one row (observation) represent (e.g., an individual fish?, all fish of a certain species? all tanks of a certain species? etc.)?
+5.  What does one row (observation) represent (e.g., an individual fish?, all fish of a certain species? all tanks of a certain species? etc.)?
 
     *Answer:* one row represents one fish tank that was sampled
 
-    -   Based on the column names, briefly describe what data is included in the data frame. (2 points)
+6.  Based on the column names, briefly describe what data is included in the data frame.
 
     *Answer:* information about each tank, the species of fish in it, and the environmental variables of the tank
 
-3.  Take a look at the columns that have the total number of fish in the tank and the number of sick fish per tank. Determine whether these two columns are numeric or categorical.
+7.  Take a look at the columns that have the total number of fish in the tank and the number of sick fish per tank. Determine whether these two columns are numeric or categorical.
 
     *Answer*: both `num_fish` and `num_sick` are numeric
 
 ### Plotting with base R
 
-4.  Using *base R* (the code we learned in "Module2_1_DescriptiveStats"), create a histogram of the number of fish in each tank.
+8.  Using *base R* (the code we learned in "Module2_1_DescriptiveStats"), create a histogram of the number of sick fish in each tank.
 
     ```{r}
-    hist(sick_fish$num_fish)
+    hist(sick_fish$num_sick)
     ```
 
-5.  In 2-3 sentences, describe what the histogram tells you about the the distribution of the number of sick fish. (2 points)
-    
+9.  In 2-3 sentences, describe what the histogram tells you about the distribution of the number of sick fish. (2 points)
+
     Note: they do not have to include exactly what I've typed below. As long as their answer is correct and is 2-3 sentences, you can give them full credit.
 
-    *Answer*: The range of the number of fish in each tank is between ~60-110. There are two main clusters: a small one between 70-80 and a much larger one between 95-105. The most frequent number of fish in tanks is between 95-100, with 15 tanks having that many fish.
+    *Answer*: Most tanks have between 0-5 sick fish, but there are some tanks with more. Specifically, about 10 tanks have between 10-15 sick fish and ~7 have more than 15.
 
-6.  Using *base R* (the code we learned in "Module2_1_DescriptiveStats"), create a scatter plot. Put the total number of fish on the x-axis and the number of sick fish on the y-axis.
+10.  Using *base R* (the code we learned in "Module2_1_DescriptiveStats"), create a scatter plot. Put the total number of fish on the x-axis and the number of sick fish on the y-axis.
 
     ```{r}
     plot(sick_fish$num_fish, sick_fish$num_sick)
     ```
 
-7.  Interpret the scatter plot. What is the plot telling you? Is there a positive or negative relationship between the two variables. What does that mean? (2 points)
+11.  Interpret the scatter plot. What is the plot telling you? Is there a positive or negative relationship between the two variables. What does that mean? (2 points)
 
     *Answer*: negative relationship, meaning that the more fish that are in the tank, the fewer sick fish there are (which is counter-intuitive to what me might predict, by the way).
 
@@ -103,14 +103,14 @@ sick_fish <- read_csv("../data/fish_sick_data.csv")
 
 Now, let's use what we've learned about `ggplot2` to recreate the same scatter plot. We will do this in 2 steps. In the first step, we will add the data, axes, and geom. In the second step, we will modify the plot to increase interpretability by renaming axes and adding a theme.
 
-8.  Create the scatter plot using the proper `geom` function.
+12.  Create the scatter plot using the proper `geom` function.
 
     ```{r}
     ggplot(sick_fish, aes(num_fish, num_sick)) +
       geom_point()
     ```
 
-9. Now, add to the plot that we created above to make it clearer to understand. Add better axes labels and choose a theme. (2 point)
+13.  Now, recreate the plot from Question 8 and add better axes labels and choose a theme to make it clearer to understand.
 
     ```{r}
     ggplot(sick_fish, aes(num_fish, num_sick)) +
@@ -122,7 +122,7 @@ Now, let's use what we've learned about `ggplot2` to recreate the same scatter p
 
 Looking at the scatter plots, there seem to be two distinct groups. Let's investigate this a bit further.
 
-10. For *each* fish species, calculate the average and the standard deviation for the number of sick fish. (2 points)
+14. For *each* fish species, calculate the average and the standard deviation for the number of sick fish. 
 
     *Hint: think back to Module 1 and which function we can use to "split, apply, combine"*
 
@@ -133,10 +133,10 @@ Looking at the scatter plots, there seem to be two distinct groups. Let's invest
                 sd_sick = sd(num_sick))
     ```
 
-11. Based on the summary data you've calculated above, do you think the two clumps of data correspond to the two species? Which species seems to be the one that is causing the most problems? (2 points)
+15. Based on the summary data you've calculated above, do you think the two clumps of data correspond to the two species? Which species seems to be the one that is causing the most problems? (2 points)
 
     *Answer*: seems like trout are driving the issues; seems reasonable that clumps could belong to species
 
-12. Do some brainstorming. Based on the plots we've made and the calculations we've done so far, are we *sure* that the two clumps of data we see in the data visualization do, in fact, correlate to the two different species? How could we confirm? How might we include that information in the plot? (2 points)
+16. Do some brainstorming. Based on the plots we've made and the calculations we've done so far, are we *sure* that the two clumps of data we see in the data visualization do, in fact, correlate to the two different species? How could we confirm? How might we include that information in the plot? (2 points)
 
     *Answer*: many answer options here. could take average of total num fish to see if that corresponds to what is on the plot; could change some characteristic of the plot (point shape, color, size) to represent fish species; could add labels (would get busy)

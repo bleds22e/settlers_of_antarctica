@@ -10,34 +10,25 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-
+1. 
 ```{r}
 library(tidyverse)
 ```
-
-
 
 ```{r}
 sick_fish <- read_csv("../data/fish_sick_data.csv")
 ```
 
-1.  
-
-    ```{r}
-    head(sick_fish)
-    ```
-
-
 ### Plotting with base R
 
-4. 
+8.
 
     ```{r}
-    hist(sick_fish$num_fish)
+    hist(sick_fish$num_sick)
     ```
 
 
-6. 
+10. 
 
     ```{r}
     plot(sick_fish$num_fish, sick_fish$num_sick)
@@ -46,16 +37,14 @@ sick_fish <- read_csv("../data/fish_sick_data.csv")
 
 ### Using `ggplot2`
 
-
-
-8.  
+12.  
 
     ```{r}
     ggplot(sick_fish, aes(num_fish, num_sick)) +
       geom_point()
     ```
 
-9. 
+13. 
 
     ```{r}
     ggplot(sick_fish, aes(num_fish, num_sick)) +
@@ -66,7 +55,7 @@ sick_fish <- read_csv("../data/fish_sick_data.csv")
     ```
 
 
-10. 
+14. 
 
     ```{r}
     sick_fish %>% 

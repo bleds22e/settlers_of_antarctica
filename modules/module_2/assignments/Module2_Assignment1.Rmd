@@ -37,96 +37,98 @@ Feb 24 before class
 
 For this assignment, we are going to be making plots! We are going to use a data set containing data from a sample of our fish tanks. The data contains information about the tanks sampled and how many sick fish are contained in each tank.
 
+Questions are worth 1 point unless otherwise noted.
+
 First, let's prepare our data.
 
-Load the `tidyverse` package into the work space.
+1. Load the `tidyverse` package into the work space. 
 
-```{r}
+    ```{r}
+    
+    ```
 
-```
+2. Read in the data using the `read_csv()` function. Name the data frame `sick_fish`.
 
-Read in the data using the `read_csv()` function. Name the data frame `sick_fish`.
+    ```{r}
+    
+    ```
 
-```{r}
-
-```
-
-1.  Use the `head()` function to take a look at the columns in the data frame.
-
-    How many rows does the data frame have? How many columns? (2 points)
+3.  How many rows does the `sick_fish` data frame have? How many columns?
 
     *Answer*: 
 
+4.  Use a function (`head()`, `str()`, or another function you prefer) to take a look at the data points in the data frame.
+
     ```{r}
-    head(sick_fish)
+    
     ```
 
-2.  Take a look at the data frame. (2 points, 1 each)
-
-    -   What does one row (observation) represent (e.g., an individual fish?, all fish of a certain species? all tanks of a certain species? etc.)?
+5.  What does one row (observation) represent (e.g., an individual fish?, all fish of a certain species? all tanks of a certain species? etc.)?
 
     *Answer*:
 
-    -   Based on the column names, briefly describe what data is included in the data frame. (2 points)
+6.  Based on the column names, briefly describe what data is included in the data frame.
 
-    *Answer*:
+    *Answer:* 
 
-3.  Take a look at the columns that have the total number of fish in the tank and the number of sick fish per tank. Determine whether these two columns are numeric or categorical.
+7.  Take a look at the columns that have the total number of fish in the tank and the number of sick fish per tank. Determine whether these two columns are numeric or categorical.
 
     *Answer*: 
 
 ### Plotting with base R
 
-4.  Using *base R* (the code we learned in "Module2_1_DescriptiveStats"), create a histogram of the number of fish in each tank.
+8.  Using *base R* (the code we learned in "Module2_1_DescriptiveStats"), create a histogram of the number of sick fish in each tank.
 
     ```{r}
-    hist(sick_fish$num_fish)
+
     ```
 
-5.  In 2-3 sentences, describe what the histogram tells you about the the distribution of the number of sick fish. (2 points)
+9.  In 2-3 sentences, describe what the histogram tells you about the the distribution of the number of sick fish. (2 points)
 
     *Answer*:
 
-6.  Using *base R* (the code we learned in "Module2_1_DescriptiveStats"), create a scatter plot. Put the total number of fish on the x-axis and the number of sick fish on the y-axis.
+10.  Using *base R* (the code we learned in "Module2_1_DescriptiveStats"), create a scatter plot. Put the total number of fish on the x-axis and the number of sick fish on the y-axis.
 
     ```{r}
-    
+
     ```
 
-7.  Interpret the scatter plot. What is the plot telling you? Is there a positive or negative relationship between the two variables. What does that mean? (2 points)
+11.  Interpret the scatter plot. What is the plot telling you? Is there a positive or negative relationship between the two variables. What does that mean? (2 points)
 
-    *Answer*: 
+    *Answer*:
 
 ### Using `ggplot2`
 
-Now, let's use what we've learned about `ggplot2` to recreate the same scatter plot. We will do this in 2 steps. In the first step, we will add the data, axes, and geom. In the second step, we will modify the plot to increase interpretability by renaming axes and adding a theme.
+Now, let's use what we've learned about `ggplot2` to recreate the same scatter plot. We will do this in 2 steps. 
 
-8.  Create the scatter plot using the proper `geom` function.
+-   In the first step, we will add the data, axes, and geom. 
+-   In the second step, we will modify the plot to increase interpretability by renaming axes and adding a theme.
 
-    ```{r}
-    
-    ```
-
-9. Now, add to the plot that we created above to make it clearer to understand. Add better axes labels and choose a theme. (2 point)
+12.  Create the scatter plot using the proper `geom` function.
 
     ```{r}
-   
+
     ```
 
-Looking at the scatter plots, there seem to be two distinct groups. Let's investigate this a bit further.
+13.  Now, recreate the plot from Question 8 and add better axes labels and choose a theme to make it clearer to understand.
 
-10. For *each* fish species, calculate the average and the standard deviation for the number of sick fish. (2 points)
+    ```{r}
+       
+    ```
+
+
+14. For *each* fish species, calculate the average and the standard deviation for the number of sick fish. 
 
     *Hint: think back to Module 1 and which function we can use to "split, apply, combine"*
 
     ```{r}
-    
+
     ```
 
-11. Based on the summary data you've calculated above, do you think the two clumps of data correspond to the two species? Which species seems to be the one that is causing the most problems? (2 points)
+15. Based on the summary data you've calculated above, do you think the two clumps of data correspond to the two species? Which species seems to be the one that is causing the most problems? (2 points)
 
-    *Answer*: 
+    *Answer*:
 
-12. Do some brainstorming. Based on the plots we've made and the calculations we've done so far, are we *sure* that the two clumps of data we see in the data visualization do, in fact, correlate to the two different species? How could we confirm? How might we include that information in the plot? (2 points)
+16. Do some brainstorming. Based on the plots we've made and the calculations we've done so far, are we *sure* that the two clumps of data we see in the data visualization do, in fact, correlate to the two different species? How could we confirm? How might we include that information in the plot? (2 points)
 
-    *Answer*: 
+    *Answer*:
