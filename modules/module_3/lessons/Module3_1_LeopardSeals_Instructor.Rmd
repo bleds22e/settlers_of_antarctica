@@ -55,7 +55,7 @@ can tie it to a particular manufacturer.
 
 ## The Data
 
-Our data on collars is in a file called "collar_data.csv."
+Our data on collars is in a file called `collar_data.csv`.
 
 ```{r message = FALSE}
 library(tidyverse)
@@ -77,19 +77,15 @@ collars <- read_csv("../data/collar_data.csv")
 
 Let's practice. Write some code to do the following:
 
--   calculate the mean and sd for:
-    -   battery life
-    -   signal distance
+-   calculate the mean and standard deviation for battery life
 -   do this for both manufacturers
 
 ```{r summarize}
-bat_life_and_signal <- collars %>%
+bat_life_summary <- collars %>%
   group_by(maker) %>%
   summarize(bat_life_mean = mean(battery_life),
-            bat_life_sd = sd(battery_life),
-            signal_mean = mean(signal_distance),
-            signal_sd = min(signal_distance)) 
-bat_life_and_signal
+            bat_life_sd = sd(battery_life)) 
+bat_life_summary
 ```
 
 We also might want to count up how many collar failures are attributed
@@ -126,7 +122,7 @@ We can start with a histogram of the battery life of the collars.
 
 ```{r}
 ggplot(collars, aes(battery_life)) +
-  geom_histogram()
+  geom_histogram(bins = 15)
 ```
 
 We probably want to add in the collar maker to see some differences
@@ -134,7 +130,7 @@ there.
 
 ```{r}
 ggplot(collars, aes(battery_life, fill = maker)) +
-  geom_histogram(alpha = 0.5, position = "identity")
+  geom_histogram(bins = 15, alpha = 0.5, position = "identity")
 ```
 
 What if we want to add the mean value of each collar maker to the plot?
@@ -143,12 +139,12 @@ How do we do that?
 One of the neat things about `ggplot2` is that you can actually
 reference different data frames within the same plot. We've already
 calculated the mean values for each collar maker and saved those values
-in a data frame called `bat_life_and_signal`. We can now reference that
+in a data frame called `bat_life_summary`. We can now reference that
 data frame and those values and add them to our plot.
 
 We will use the `geom_vline()` function to add a vertical line onto our
 plot at the point in the x-axis that represents the mean value. In this
-function, we will specifically reference the `bat_life_and_signal` data
+function, we will specifically reference the `bat_life_summary` data
 frame.
 
 Let's take a look at the help file for `geom_vline()` to see what
@@ -163,8 +159,8 @@ place on the x-axis that matches the mean value.
 
 ```{r}
 ggplot(collars, aes(battery_life, fill = maker)) +
-  geom_histogram(alpha = 0.5, position = "identity") +
-  geom_vline(data = bat_life_and_signal, aes(xintercept = bat_life_mean))
+  geom_histogram(bins = 15, alpha = 0.5, position = "identity") +
+  geom_vline(data = bat_life_summary, aes(xintercept = bat_life_mean))
 ```
 
 Nice! We have name the data argument in the `geom_vline()` function
@@ -178,8 +174,8 @@ theme.
 
 ```{r}
 ggplot(collars, aes(battery_life, fill = maker)) +
-  geom_histogram(alpha = 0.5, position = "identity") +
-  geom_vline(data = bat_life_and_signal, aes(xintercept = bat_life_mean, color = maker)) + 
+  geom_histogram(bins = 15, alpha = 0.5, position = "identity") +
+  geom_vline(data = bat_life_summary, aes(xintercept = bat_life_mean, color = maker)) + 
   labs(x = "Battery Life",
        y = "Frequency",
        color = "Maker",
@@ -192,9 +188,15 @@ ggplot(collars, aes(battery_life, fill = maker)) +
 Make the same plot that we made above expect for the signal distance.
 
 ```{r}
+signal_summary <- collars %>%
+  group_by(maker) %>%
+  summarize(signal_mean = mean(signal_distance),
+            signal_sd = sd(signal_distance))
+signal_summary
+
 ggplot(collars, aes(signal_distance, fill = maker)) +
-  geom_histogram(alpha = 0.5, position = "identity") +
-  geom_vline(data = bat_life_and_signal, aes(xintercept = signal_mean, color = maker)) + 
+  geom_histogram(alpha = 0.5, position = "identity", bins = 15) +
+  geom_vline(data = signal_summary, aes(xintercept = signal_mean, color = maker)) + 
   labs(x = "Signal Distance",
        y = "Frequency",
        color = "Maker",

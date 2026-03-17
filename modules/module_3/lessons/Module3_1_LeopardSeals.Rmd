@@ -55,7 +55,7 @@ can tie it to a particular manufacturer.
 
 ## The Data
 
-Our data on collars is in a file called "collar_data.csv."
+Our data on collars is in a file called `collar_data.csv`.
 
 ```{r}
 
@@ -76,12 +76,10 @@ Our data on collars is in a file called "collar_data.csv."
 
 Let's practice. Write some code to do the following:
 
--   calculate the mean and standard deviation for:
-    -   battery life
-    -   signal distance
+-   calculate the mean and standard deviation for the battery life
 -   do this for both manufacturers
 
-```{r summarize}
+```{r}
 
 ```
 
@@ -104,7 +102,7 @@ remind ourselves how this works!
 ### One Continuous Variable at a Time
 
 What types of plots can we use to explore one continuous variable (and
-one categorical variable--in this case, maker)?
+one categorical variable--in this case, the collar maker)?
 
 We can start with a histogram of the battery life of the collars.
 
@@ -127,12 +125,12 @@ How do we do that?
 One of the neat things about `ggplot2` is that you can actually
 reference different data frames within the same plot. We've already
 calculated the mean values for each collar maker and saved those values
-in a data frame called `bat_life_and_signal`. We can now reference that
+in a data frame called `bat_life_summary`. We can now reference that
 data frame and those values and add them to our plot.
 
 We will use the `geom_vline()` function to add a vertical line onto our
 plot at the point in the x-axis that represents the mean value. In this
-function, we will specifically reference the `bat_life_and_signal` data
+function, we will specifically reference the `bat_life_summary` data
 frame.
 
 Let's take a look at the help file for `geom_vline()` to see what
