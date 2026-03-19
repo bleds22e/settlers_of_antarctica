@@ -19,7 +19,7 @@ When we are comparing data from two groups, we often want to compare the mean va
 
 In this course so far, we have done the first 2: by calculating the mean values of groups and by plotting histograms and box-plots.
 
-Today, we will be exploring the statistical side, using inferential statistics. Once again, we will be using our collars data, focusing on the battery life and the signal distance.
+Today, we will be exploring the statistical side, using *inferential statistics*. Once again, we will be using our `collars` data, focusing on the battery life and the signal distance.
 
 Let's get set-up by loading the tidyverse and reading in our data.
 
@@ -27,13 +27,13 @@ Let's get set-up by loading the tidyverse and reading in our data.
 
 ```
 
-Let's take a quick look at the data structure to remind ourselves what data we are using.
+We can take a quick look at the data structure to remind ourselves what data we are using.
 
 ```{r}
 
 ```
 
-Before we dive in, if you need a refresher on inferential statistics, check out [this powerpoint](https://docs.google.com/presentation/d/1N2fxiNa5mw_fVukXFPWMuynFcts3gD4SvMO4VKzyZFI/edit?usp=sharing).
+Before we dive in, let's talk more about *inferential statistics*. To do so, we'll be using [this powerpoint](https://docs.google.com/presentation/d/1M23a65rkNsF5e3rMrV2OgIv4WVacMyKa/edit?usp=sharing&ouid=103537286572390245832&rtpof=true&sd=true).
 
 ## T-Tests
 
@@ -46,14 +46,7 @@ To run a t-test, the following things need to be true:
 -   The variable that we use to create our groups (***independent*** variable) is *categorical* and has only 2 categories.
 -   The variable that we want to compare between groups (***dependent*** or response variable) is *numeric*.
 
-#### Independent vs. Dependent Variables
-
-Why are the variables called *independent* and *dependent*, do you think?
-
--   The **independent** variable is the *cause*. It does not change in response to other variables in the data.
--   The **dependent** variable is the *effect*. We expect that it does change in response to the independent variable.
-
-Want more info on independent vs. dependent variables? Check out [this link](https://www.scribbr.com/methodology/independent-and-dependent-variables/).
+| Want more info on independent vs. dependent variables? Check out [this link](https://www.scribbr.com/methodology/independent-and-dependent-variables/).
 
 ### Hypothesis Testing
 
@@ -66,7 +59,7 @@ In this case, we want to know if there is a *meaningful* (read: statistical) dif
 -   independent:
 -   dependent:
 
-Based on our question, we can now set up two different statistical hypotheses: the null hypothesis and the alternative hypothesis.
+Based on our question, we can now set up two different statistical hypotheses: the *null* hypothesis and the *alternative* hypothesis.
 
 The null hypothesis always states that there is no difference or no relationship. We can think of the null hypothesis as our starting place---this is our default assumption. The alternative hypothesis is, well, the alternative to the null hypothesis. For example:
 
@@ -141,7 +134,7 @@ Given our very small p-value here, what can we conclude?
 
 ### Let's Practice!
 
-We want to know if there is a significant difference in the average signal distances for the two companies.
+We want to know if there is a significant difference in the average *signal distances* for the two companies.
 
 1.  Identify your independent and dependent variables; note whether they are continuous or categorical.
 

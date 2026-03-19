@@ -45,9 +45,9 @@ ggplot(turbines, aes(power_output, fill = manufacturer)) +
 ```{r}
 ggplot(turbines, aes(manufacturer, wind_speed)) +
   geom_boxplot() +
-  geom_jitter(width = 0.1, alpha = 0.5) +
+  geom_jitter(width = 0.1, height = 0, alpha = 0.5) +
   labs(x = "Company",
-       y = "Wind Speed (km/hr)") +
+       y = "Required Wind Speed (km/hr)") +
   theme_classic()
 ```
 

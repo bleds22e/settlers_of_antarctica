@@ -30,7 +30,7 @@ Write R code which produces the correct answers and correctly interpret the resu
 
 ### Due Date
 
-Oct 23 at 9:30 am MST
+March 26 before class
 
 # Assignment Questions
 
@@ -101,28 +101,28 @@ Is there a significant difference in the required [wind speeds]{.underline} for 
 -   **Null Hypothesis** (H~0~):\
 -   **Alternative Hypothesis** (H~A~):
 
-6.  Based on the mean values in the `turbine_summary` data frame and the plots you've created above, [predict the outcome]{.underline} of each t-test that we will run: one comparing wind speeds between turbine companies and another comparing power outputs between companies (graded for completion, not accuracy; 2 points).
+6.  Based on the mean values in the `turbine_summary` data frame and the plots you've created above, [predict the outcome]{.underline} of each t-test that we will run: (1) comparing wind speeds between turbine companies and (2) comparing power outputs between companies. (This question graded for completion, not accuracy; 2 points)
 
     Explain your reasoning (1-2 sentences for each t-test is fine).
 
     *Answer:*
 
-7.  Perform a t-test on the [power output]{.underline} by turbine maker. (1 point)
+7.  Perform a t-test to determine if there is a significant difference in the [power output]{.underline} between turbine makers. (1 point)
 
 ```{r}
 
 ```
 
-8.  In 2-3 sentences, interpret the output from question 7. Focus on what the p-value is in reference to the cutoff of 0.05, what that means, and whether that means we reject or fail to reject the null hypothesis. (2 points)
+8.  In 2-3 sentences, interpret the output from Question 7. Focus on what the p-value is in reference to the cutoff of 0.05, what that means, and whether that means we reject or fail to reject the null hypothesis. (2 points)
 
     *Answer:*
 
-9.  Perform another t-test, this time on the [wind speed]{.underline} variable by manufacturer. (1 point)
+9.  Perform another t-test, this time to determine whether the required [wind speed]{.underline} differs significantly between manufacturers. (1 point)
 
 ```{r}
 
 ```
 
-10. In 2-3 sentences, interpret the output from question 9 (focus on the same ideas as question 8). (2 points)
+10. In 2-3 sentences, interpret the output from Question 9; focus on the same ideas as in Question 8. (2 points)
 
     *Answer:*
