@@ -31,7 +31,7 @@ Write R code which produces the correct answers and correctly interpret the resu
 
 ### Due Date
 
-Oct 30 at 9:30 am MST
+April 2 before class
 
 # Assignment Questions
 
@@ -91,7 +91,7 @@ Take a look at the values. Do you think the bays have different amounts of fish 
 
 ### Statistics
 
-5.  In our data set, which variable is the independent variable? Is it categorical or continuous? Which is the dependent variable and is it categorical or continuous?
+5.  In our data set, which variable is the independent variable? Is it categorical or numeric? Which is the dependent variable, and is it categorical or numeric?
 
     **Independent:**
 
@@ -158,7 +158,9 @@ Take a look at the values. Do you think the bays have different numbers of seals
 
 ### Statistics
 
-13. Run an ANOVA to determine if there is an overall difference in means in the four bays. Save the model as an object called `seal_model`, then display the results of the model using the `summary()` function.
+13. Run an ANOVA to determine if there is an overall difference in means in the four bays. 
+
+    Save the model as an object called `seal_model`, then display the results of the model using the `summary()` function.
 
     Remember, the syntax for the model is: `dependent ~ independent`
 
@@ -175,7 +177,7 @@ Take a look at the values. Do you think the bays have different numbers of seals
 
     *Answers:*
 
-15. Run some code to compute pairwise comparisons.
+15. Run a line of code to compute pairwise comparisons.
 
 ```{r}
 

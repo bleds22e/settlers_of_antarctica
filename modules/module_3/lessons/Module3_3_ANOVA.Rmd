@@ -28,7 +28,7 @@ The group of statistical tests called ANOVAs are extensions of the t-test, using
 To run an ANOVA, the following things need to be true:
 
 -   The variable that we use to create our groups (independent variable) is categorical.
--   The variable that we want to compare between groups (dependent or response variable) is numerical.
+-   The variable that we want to compare between groups (dependent or variable) is numerical.
 
 These two aspects above might sound familiar, because they also need to be true for t-tests!
 
@@ -60,23 +60,24 @@ First, as always, we need to load the `tidyverse` and the read in our collars da
 
 ### Conceptual
 
+
 What questions are we trying to answer about these collars?
 
--   Which variable is the independent variable? What about the dependent variable?
+#### Does the *battery life* of the collar differ by collar maker?
 
-Let's write out our two hypotheses.
+First, we need to identify our variables. Which variable is the independent variable? What about the dependent variable?
 
-First, for battery life:
+**Null hypothesis** ($H_{0}$):
 
-**Null hypothesis**:
+**Alternative hypothesis** ($H_{A}$):
 
-**Alternative hypothesis**:
+#### Does the *signal distance* of the collar differ by collar maker?
 
-Next, for signal distance:
+Which variable is the independent variable? What about the dependent variable?
 
-**Null hypothesis**:
+**Null hypothesis** ($H_{0}$):
 
-**Alternative hypothesis**:
+**Alternative hypothesis** ($H_{A}$):
 
 ### Numeric
 
@@ -100,7 +101,7 @@ First, explore the distribution of battery life by maker using a multiple histog
 
 ```
 
-Let's do a different type of visualization for signal distance. What type of data visualization have we covered that does a good job of showing both central tendency (median, in this case) and variation (middle 50% and 95% confidence intervals) in one continuous variable?
+Let's do a different type of visualization for signal distance. What type of data visualization have we covered that does a good job of showing both central tendency (median, in this case) and variation (middle 50% and 95% confidence intervals) in one numeric variable?
 
 ```{r}
 
@@ -151,7 +152,9 @@ ANOVAs are incredibly useful to tell you if there is a difference in the means o
 
 To figure that out, you need to use a class of tests called "post hoc tests," meaning "after the event." Post hoc tests take into account the fact that we are running multiple pairwise comparisons, which unfortunately increases our chance of error. To account for this, we need to adjust our p-values based on the number of pairwise comparisons we run.
 
-The most common post hoc test for these pairwise comparisons is `TukeyHSD()`, but there are others depending on the specifics of your data set. You don't need to worry about understanding the nuances of Tukey's test, but you should know how to run the code and interpret it.
+The most common post hoc test for these pairwise comparisons is a Tukey test; we use the `TukeyHSD()` function. It is not the only post hoc test--there are others depending on the specifics of your data set--but it is the only one we will be using. 
+
+You don't need to worry about understanding the nuances of Tukey's test, but you should know how to run the code and interpret it.
 
 ```{r}
 

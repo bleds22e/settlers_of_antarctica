@@ -31,7 +31,7 @@ Write R code which produces the correct answers and correctly interpret the resu
 
 ### Due Date
 
-November 8 at midnight MST
+April 2 before class
 
 # Assignment Questions
 
@@ -99,11 +99,11 @@ ggplot(fish, aes(bay, fish_kg)) +
 
 ### Statistics
 
-5.  In our data set, which variable is the independent variable? Is it categorical or continuous? Which is the dependent variable and is it categorical or continuous?
+5.  In our data set, which variable is the independent variable? Is it categorical or continuous? Which is the dependent variable, and is it categorical or numeric?
 
     **Independent:** bay, categorical
 
-    **Dependent:** fish_kg, continuous
+    **Dependent:** fish_kg, numeric
 
 6.  Run an ANOVA to determine if there is an overall difference in means in the four bays. Save the model as an object called `fish_model`, then display the results of the model using the `summary()` function. Remember, the syntax for the model is: `dependent ~ independent`
 
@@ -152,6 +152,7 @@ seal_summary <- seals %>%
   group_by(bay) %>% 
   summarise(mean_fish = mean(num_seals),
             sd_fish = sd(num_seals))
+
 seal_summary
 ```
 
@@ -197,7 +198,7 @@ TukeyHSD(seal_model)
 
 16. Write 2-3 sentences interpreting the pairwise comparisons. Which pairs of bays are significantly different from each other, if any?
 
-*Answer:* all pairs are sig. difference except Sulzberger and Hope
+*Answer:* all pairs are significantly different from each other except Sulzberger and Hope
 
 ## Decision-Making
 

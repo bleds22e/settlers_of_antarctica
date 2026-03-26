@@ -27,12 +27,12 @@ The group of statistical tests called ANOVAs are extensions of the t-test, using
 
 To run an ANOVA, the following things need to be true:
 
--   The variable that we use to create our groups (independent variable) is qualitative (categorical).
--   The variable that we want to compare between groups (dependent or response variable) is qunatitative (numerical).
+-   The variable that we use to create our groups (independent variable) is categorical.
+-   The variable that we want to compare between groups (dependent variable) is numeric.
 
 These two aspects above might sound familiar, because they also need to be true for t-tests!
 
--   When we only have 2 groups to compare, we can use a t-test.
+-   When we only have 2 groups to compare, we use a t-test.
 -   When we have *more* than 2 groups to compare, we use an ANOVA.
 
 ### Hypothesis Testing
@@ -48,7 +48,7 @@ Last week, we ran t-tests on the battery life and signal distance variables in o
 
 What if our large mammal team had deployed collars from *three* different companies rather than just two? How would we compare the means numerically, visually, and statistically? Let's find out.
 
-First up, in small groups, work through the set-up, numeric, and visual sections. We'll spend 15-20 minutes on this.
+First up, in small groups, work through the set-up, numeric, and visual sections. We'll spend \~15 minutes working on this.
 
 ### Set-Up
 
@@ -63,19 +63,25 @@ collars <- read_csv("../data/more_collars.csv")
 
 What questions are we trying to answer about these collars?
 
--   Which variable is the independent variable? What about the dependent variable?
+#### Does the *battery life* of the collar differ by collar maker?
 
-Let's write out our hypotheses.
+First, we need to identify our variables.
 
-First, for battery life:
+-   Which variable is the independent variable? [collar maker]
+-   What about the dependent variable? [battery life]
 
-**Null hypothesis**: There is no difference in the average battery life between the three collar makers.\
-**Alternative hypothesis**: There is a difference in the average battery life the three collar makers.
+**Null hypothesis** ($H_{0}$): There is no difference in the average battery life between the three collar makers.\
+**Alternative hypothesis** ($H_{A}$): There is a difference in the average battery life the three collar makers.
 
-Next, for signal distance:
+#### Does the *signal distance* of the collar differ by collar maker?
 
-**Null hypothesis**: There is no difference in the average signal distance between the three collar makers.\
-**Alternative hypothesis**: There is a difference in the average signal distance between the three collar makers.
+Let's identify our variables:
+
+-   Independent variable? [collar maker]
+-   Dependent variable? [signal distance]
+
+**Null hypothesis** ($H_{0}$): There is no difference in the average signal distance between the three collar makers.\
+**Alternative hypothesis** ($H_{A}$): There is a difference in the average signal distance between the three collar makers.
 
 ### Numeric
 
@@ -98,7 +104,7 @@ Let's examine the data. Do you think the collar companies are all different from
 
 ### Visual
 
-As always, we love (\<3) visualizing our data, especially as a form of data exploration and comparing means.
+As always, we love visualizing our data, especially as a form of data exploration and comparing means.
 
 First, explore the distribution of battery life by maker using a multiple histogram (no need to add a line for the mean, but you can if you really want to!).
 
@@ -169,7 +175,9 @@ ANOVAs are incredibly useful to tell you if there is a difference in the means o
 
 To figure that out, you need to use a class of tests called "post hoc tests," meaning "after the event." Post hoc tests take into account the fact that we are running multiple pairwise comparisons, which unfortunately increases our chance of error. To account for this, we need to adjust our p-values based on the number of pairwise comparisons we run.
 
-The most common post hoc test for these pairwise comparisons is `TukeyHSD()`, but there are others depending on the specifics of your data set. You don't need to worry about understanding the nuances of Tukey's test, but you should know how to run the code and interpret it.
+The most common post hoc test for these pairwise comparisons is a Tukey test; we use the `TukeyHSD()` function. It is not the only post hoc test--there are others depending on the specifics of your data set--but it is the only one we will be using. 
+
+You don't need to worry about understanding the nuances of Tukey's test, but you should know how to run the code and interpret it.
 
 ```{r}
 TukeyHSD(battery_model)
