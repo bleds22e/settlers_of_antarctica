@@ -191,7 +191,6 @@ To convert the proportion to a percentage, we can multiple the value by 100.
 r_nitrogen^2 * 100
 ```
 
-
 ### Linear Regression Analysis
 
 A regression analysis approximates the relationship between a dependent variable and one or more independent variables. It evaluates the strength of that relationship, ultimately giving us a p-value.
@@ -244,7 +243,7 @@ As with our other statistical tests---t-tests and ANOVAs---the results give us s
     -   You can report either the "multiple" or the "adjusted"
     -   The "multiple" will typically match the one we calculate with code
 
-This means our equation for the line of best fit is: y = 1.8x + 84.24 and there is a statistically significant relationship between nitrogen content and hairgrass density.
+This means our equation for the line of best fit is: `y = 1.8x + 84.24` or, with variable names included, `hairgrass density = 1.8*nitrogen + 84.24`. There is a statistically significant relationship between nitrogen content and hairgrass density.
 
 ## Soil pH
 
@@ -294,7 +293,7 @@ ph_model <- lm(hairgrass_density ~ soil_ph, data = hairgrass_data)
 summary(ph_model)
 ```
 
-Equation for line of best fit: y = -4.648x + 150.24
+Equation for line of best fit, including variable names: hairgrass = -4.648\*soil pH + 150.24
 
 Interpret the results of the regression (our p-value cutoff is still = 0.05). What do we conclude about the relationship between soil pH and hair grass density? Why?
 
