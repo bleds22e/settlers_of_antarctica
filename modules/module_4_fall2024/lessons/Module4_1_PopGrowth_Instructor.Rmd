@@ -19,21 +19,21 @@ A population that shows [exponential growth]{.underline} has a growth rate that 
 
 We call rates that are averages per individual in a population (rather than a total) *per capita* growth rates; *per capita* translates from Latin to "by head," meaning for individuals.
 
-Combined, birth and death rates can be described as the [intrinsic rate of increase]{.underline} (`r`). We calculate `r` by subtracting the number of individuals that are removed from the population (deaths) from the number of individuals that are joining the population (births): $r = b - d$.
+Combined, birth and death rates can be described as the [intrinsic growth rate]{.underline} (`r`). We calculate `r` by subtracting the number of individuals that are removed from the population (deaths) from the number of individuals that are joining the population (births): $r = b - d$
 
-We can calculate by how many individuals the population will change in a given time period  (`N`) by multiplying the starting population size (`Ni`) by the intrinsic rate of increase (`r`) using this equation:
+We can calculate the change in the population ($\Delta N$) by multiplying the starting population size ($N_i$) by the intrinsic growth rate (`r`) using this equation:
 
-![](images/clipboard-1439389577.png){width="90" fig-align="center"}
+$$\Delta N = rN_i$$
 
 ### Logistic Growth
 
 Populations that show logistic growth start out in the same way as populations with exponential growth–driven by *per capita* birth and death rates.
 
-After a while, though, limited resources also start to come into play. When calculating the change in the size of the population (`N`), we also need to take into account the maximum number of individuals the population can sustainably support, called the [carrying capacity]{.underline}, `K`.
+After a while, though, limited resources also start to come into play. When calculating the change in the size of the population ($\Delta N$), we also need to take into account the maximum number of individuals the population can sustainably support, called the [carrying capacity]{.underline}, `K`.
 
 We use the following equation to calculate the population size:
 
-![](images/clipboard-3908560513.png){width="188" fig-align="center"}
+$$\Delta N = rN_i *\left(1 - \frac{N_i}{K}\right)$$
 
 ### Visualizing Growth Models
 
@@ -48,7 +48,7 @@ We still need to figure out what fish population we will target for Antarctica.
 Briefly, let's consider what we think might be important for sustainability.
 
 1.  Large population
-2.  Stable population (i.e., not declining)
+2.  Stable population (i.e., not declining or overshooting)
 
 ## Fish Data
 
@@ -62,7 +62,7 @@ As always, first we load the `tidyverse` and read in the data.
 
 ```{r}
 library(tidyverse)
-fish_pops <- read_csv("fish_pops.csv")
+fish_pops <- read_csv("../data/fish_pops.csv")
 ```
 
 ### Largest Population
@@ -84,9 +84,11 @@ popB <- fish_pops %>%
 popB
 ```
 
-What type of growth is the population exhibiting? Exponential
+What type of growth is the population exhibiting? *Exponential*
 
-Why is there no carrying capacity in this population data set? What does this mean about the resources Population B needs? Populations experiencing exponential growth not limited by resources.
+Why is there no carrying capacity in this population data set? What does this mean about the resources Population B needs?
+
+*Populations experiencing exponential growth not limited by resources.*
 
 ### Exponential Growth Populations
 
@@ -118,9 +120,11 @@ popA <-fish_pops %>%
 popA
 ```
 
-What do you notice about Population A that is different than Population B? Intrinsic growth rate negative
+What do you notice about Population A that is different than Population B?
 
-The intrinsic rate of increase (r) for Population A is negative. Let's see what that means for Population A and plot it by itself:
+*The intrinsic growth rate is negative.*
+
+The intrinsic growth rate (`r`) for Population A is negative. Let's see what that means for Population A and plot it by itself:
 
 ```{r}
 ggplot(popA, aes(x = year, y = N)) +
@@ -130,11 +134,11 @@ ggplot(popA, aes(x = year, y = N)) +
   theme_light()
 ```
 
-What has happened to this population? Crashed
+What has happened to this population? *Crashed*
 
-Even with "exponential growth", the population has crashed (gone to 0), because *r* is negative. It took approximately 7 years for this to happen.
+Even with "exponential growth," the population has crashed (gone to 0), because *r* is negative. It took approximately 7 years for this to happen.
 
-Between Population A and Population B, which do you think is a better target population for fishing? Population B, `r` is positive
+Between Population A and Population B, which do you think is a better target population for fishing? *Population B, `r` is positive*
 
 **Logistic growth populations**
 
@@ -158,7 +162,7 @@ ggplot(log_pops, aes(x = year, y = N, color = population))+
   theme_light()
 ```
 
-Which population gets the largest? Population 4
+Which population gets the largest? *Population D*
 
 ### Finding the Carrying Capacity
 
@@ -178,9 +182,9 @@ The following factors are important to know about a population before fishing:
 
 1.  Exponential growth can result in bigger populations than logistic growth
 
-2.  Intrinsic rate of increase (`r`) should not be negative
+2.  Intrinsic growth (`r`) should not be negative
 
-3.  A higher carrying capacity means the population can take advantage of more resources to grow larger, which may indicate that the population is a better candidate for fishing
+3.  A higher carrying capacity means the population can take advantage of more resources to grow larger, which may indicate that the population is a better candidate for fishing.
 
 ## References
 

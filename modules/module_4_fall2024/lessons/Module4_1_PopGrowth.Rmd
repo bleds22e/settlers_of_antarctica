@@ -19,21 +19,21 @@ A population that shows [exponential growth]{.underline} has a growth rate that 
 
 We call rates that are averages per individual in a population (rather than a total) *per capita* growth rates; *per capita* translates from Latin to "by head," meaning for individuals.
 
-Combined, birth and death rates can be described as the [intrinsic rate of increase]{.underline} (`r`). We calculate `r` by subtracting the number of individuals that are removed from the population (deaths) from the number of individuals that are joining the population (births): $r = b - d$.
+Combined, birth and death rates can be described as the [intrinsic growth rate]{.underline} (`r`). We calculate `r` by subtracting the number of individuals that are removed from the population (deaths) from the number of individuals that are joining the population (births): $r = b - d$
 
-We can calculate the current size of the population (`N`) by multiplying the starting population size (`Ni`) by the intrinsic rate of increase (`r`) using this equation:
+We can calculate the change in the population ($\Delta N$) by multiplying the starting population size ($N_i$) by the intrinsic growth rate (`r`) using this equation:
 
-![](images/clipboard-1439389577.png){width="90" fig-align="center"}
+$$\Delta N = rN_i$$
 
 ### Logistic Growth
 
 Populations that show logistic growth start out in the same way as populations with exponential growth–driven by *per capita* birth and death rates.
 
-After a while, though, limited resources also start to come into play. When calculating the current size of the population (`N`), we also need to take into account the maximum number of individuals the population can sustainably support, called the [carrying capacity]{.underline}, `K`.
+After a while, though, limited resources also start to come into play. When calculating the change in the population ($\Delta N$), we also need to take into account the maximum number of individuals the population can sustainably support, called the [carrying capacity]{.underline}, `K`.
 
 We use the following equation to calculate the population size:
 
-![](images/clipboard-3908560513.png){width="188" fig-align="center"}
+$$\Delta N = rN_i *\left(1 - \frac{N_i}{K}\right)$$
 
 ### Visualizing Growth Models
 
@@ -108,7 +108,7 @@ It's hard to see what is happening on this plot because the scales are so differ
 
 What do you notice about Population A that is different than Population B?
 
-The intrinsic rate of increase (`r`) for Population A is negative. Let's see what that means for Population A and plot it by itself.
+The intrinsic growth rate (`r`) for Population A is negative. Let's see what that means for Population A and plot it by itself.
 
 ```{r}
 
@@ -136,7 +136,7 @@ Let's use a some data visualizations to help us understand what that means.
 
 ```
 
-Which population gets the largest? Population 4
+Which population gets the largest?
 
 ### Finding the Carrying Capacity
 
@@ -156,7 +156,7 @@ The following factors are important to know about a population before fishing:
 
 1.  Exponential growth can result in bigger populations than logistic growth
 
-2.  Intrinsic rate of increase (`r`) should not be negative
+2.  Intrinsic growth rate (`r`) should not be negative
 
 3.  A higher carrying capacity means the population can take advantage of more resources to grow larger, which may indicate that the population is a better candidate for fishing
 
