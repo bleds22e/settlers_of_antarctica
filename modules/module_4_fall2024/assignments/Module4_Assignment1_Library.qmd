@@ -1,0 +1,127 @@
+---
+title: "Module 4 Assignment 1 (Library Version)"
+author: "Ellen Bledsoe"
+date: last-modified
+format: docx
+editor: visual
+---
+
+# Assignment Details
+
+### Purpose
+
+The goal of this assignment is to find, summarize, and cite research articles related to your research question and practice writing an abstract.
+
+### Task
+
+Use the University of Arizona library to find relevant articles, assess their relevance to your research question, and integrate scientific literature into your writing about your research question.
+
+### Criteria for Success
+
+-   Find 3 scientific articles using the UA library.
+-   Include a link to each article.
+-   Provide a brief summary (\~5 sentences) of each article.
+-   Write 1 sentence explaining why each article is relevant to your research question.
+-   Create an APA citation for each article.
+-   Write an abstract to a scientific article focused on your research question using the resources selected and information about your dataset.
+
+### Due Date
+
+April 16 before class
+
+# Assignment Instructions
+
+This assignment will guide you through the process of finding, citing, and summarizing scientific articles related to your research question for your final assignment (see M2 Assignment 3 and M3 Assignment 3 to refresh your memory).
+
+You will use the **UA Libraries** to search for peer-reviewed articles related to your research question. You will ultimately use these research articles to write an abstract for a scientific paper.
+
+## Part 1: Find 3 Relevant Articles (3 Points)
+
+### How to Access the UA Library
+
+Go to [lib.arizona.edu](https://lib.arizona.edu). From the main search bar, you can search across many databases at once, or you can navigate to a specific database.
+
+::: callout-note
+If you have trouble accessing articles through the UA library, make sure you are either on UA WiFi or logged in through the UA VPN. You can also reach out to a UA librarian for help—they are a fantastic resource!
+:::
+
+For science topics, the following databases are especially useful:
+
+-   **Web of Science** – a broad database covering peer-reviewed research across scientific disciplines
+-   **Scopus** – similar to Web of Science, with strong coverage of environmental and biological sciences
+-   **Google Scholar** – accessible through the library for full-text access to many articles
+
+### How to Search Effectively
+
+-   Look back at M2 Assignment 3 or M3 Assignment 3 to remind yourself what your research question is.
+-   Start with the key terms from your research question. Think about the general trend or pattern you are investigating, not just your specific dataset.
+-   Use filters to narrow results by publication date, article type (peer-reviewed), or subject area.
+-   If your first search returns too many or too few results, try adjusting your keywords.
+
+### Include Your Results
+
+For each of the 3 articles you select, provide a link to the article (either the DOI link or the direct URL). (1 point each)
+
+**Article 1:**
+
+**Article 2:**
+
+**Article 3:**
+
+## Part 2: Summarize Articles and Discuss Relevance (9 Points)
+
+For each article, write a brief summary (3-5 sentences) covering the main points of the research—what question the study addressed, the methods used, the key results, and the conclusions drawn. Then write 1 sentence explaining why the article is relevant or valuable to your research question.
+
+(3 points per article: 2 points for summary, 1 point for relevance)
+
+**Article 1 Summary:**
+
+**Article 1 Relevance:**
+
+**Article 2 Summary:**
+
+**Article 2 Relevance:**
+
+**Article 3 Summary:**
+
+**Article 3 Relevance:**
+
+## Part 3: Create APA Citations (3 Points)
+
+For each of your 3 articles, create a properly formatted APA citation. (1 point each)
+
+APA citations for scientific journal articles follow this format:
+
+> Author, A. A., & Author, B. B. (Year). Title of article. *Title of Journal*, *Volume*(Issue), page–page. https://doi.org/xxxxx
+
+**Example:**
+
+> Johnson, T. R., & Smith, L. M. (2021). Effects of urbanization on bird migration patterns. *Journal of Ornithology*, *45*(3), 112–128. https://doi.org/10.1234/jo.2021.001
+
+You can use [ZoteroBib](https://zbib.org) to automatically generate an APA citation from a DOI, URL, or uploaded PDF.
+
+**Article 1 Citation:**
+
+**Article 2 Citation:**
+
+**Article 3 Citation:**
+
+## Part 4: Write an Abstract Using Selected Articles (5 Points)
+
+Using at least 2 of the 3 articles you selected in Parts 2 and 3, write an abstract for your research question. While you may not yet have the complete results for your research question, you can outline the data you are using, your research question, and your predicted results or actual results.
+
+For full credit, the abstract should:
+
+-   Include an opening sentence about the general topic of interest.
+-   Include 1-2 sentences about the data (e.g., its source, type, or relevance).
+-   Clearly state your research question in 1 sentence.
+-   Use at least 2 sentences to reference the selected articles, supporting your research question, predicted results, or actual results. You should use in-text citations to reference your articles. See examples of in-text citations in the example abstract below.
+-   Your abstract should be a minimum of 4 sentences.
+
+#### Example Abstract:
+
+Urbanization has been shown by many scholars to correlate with reduced bird populations (Johnson et al. 2021). Smith and Doe (2020) specifically demonstrated that urban sprawl leads to habitat fragmentation, which disrupts migratory routes. This study utilizes data from the National Bird Migration Database, focusing on population trends across urbanized regions. The research question examines how urbanization affects the migratory behaviors of birds. Based on these findings, I predict a decline in migratory bird populations in highly urbanized areas.
+
+-   Write your abstract here. It can follow a similar structure of the one above or be a little different, but it should follow the guidelines above for full credit. (5 points)
+
+*Abstract*:
