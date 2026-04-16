@@ -95,7 +95,7 @@ Now, we are going to use a function from the `drc` package called `drm()` to fit
 
 It works very similarly to the inferential statistics models from Module 3 except instead of finding a straight line of best fit, this line of best fit is allowed to curve like the logistic growth model.
 
-What kind of growth do we think we have based on this plot? Logistic
+What kind of growth do we think we have based on this plot? 
 
 ```{r}
 # Fit the model to the data
@@ -169,7 +169,7 @@ The MSY is the number of individuals that we can remove from the population and 
 
 While the concept behind how we get to the equation for MSY may be a bit complex, thankfully, the equation itself is quite straightforward:
 
-![](images4_2/clipboard-959845017.png){fig-align="center"}
+$$MSY = \frac{K}{2}$$
 
 Let's calculate the maximum sustainable yield for Population D.
 

@@ -153,7 +153,7 @@ The MSY is the number of individuals that we can remove from the population and 
 
 While the concept behind how we get to the equation for MSY may be a bit complex, thankfully, the equation itself is quite straightforward:
 
-![](images4_2/clipboard-959845017.png){fig-align="center"}
+$$MSY = \frac{K}{2}$$
 
 Let's calculate the maximum sustainable yield for Population D.
 
