@@ -47,11 +47,11 @@ Let's remind ourselves about exponential growth and logistic growth.
 
 **Expotential growth** takes births and deaths (in the form of the intrinsic growth rate, `r`) into account:
 
-![](images4_2/clipboard-4205079346.png){width="83" fig-align="center"}
+$$\Delta N = rN_i$$
 
 **Logistic growth** includes the intrinsic growth rate and another important factor—resources. The resources determine the maximum number of individuals a population can have, which we call the carrying capacity (`K`):
 
-![](images4_2/clipboard-3779797644.png){width="130" fig-align="center"}
+$$\Delta N = rN_i *\left(1 - \frac{N_i}{K}\right)$$
 
 This is what each type of population growth model looks like:
 
