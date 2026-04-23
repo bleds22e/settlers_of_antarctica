@@ -15,7 +15,7 @@ Throughout this module, we have learned how populations demonstrating exponentia
 
 While we have fit models to some of these populations (specifically, logistic growth models), we have done so in order to estimate the carrying capacity of the population rather than to use inferential statistics to determine if the populations are statistically significantly different from one another.
 
-In today's lesson, we are going to learn how to (a) add those logistic growth models to our data visualizations and (b) compare populations statistically.
+In this lesson, we are going to learn how to (a) add those logistic growth models to our data visualizations and (b) compare populations statistically.
 
 ## Set Up
 
@@ -45,7 +45,7 @@ After inspecting our dataset, it looks as though we have more time-series data o
 
 Let's first start our investigation of these populations by plotting the data points as a scatterplot.
 
-As we have done throughout this module, we will want the variable representing time to be on the x-axis and the population abundance (N) on the y-axis.
+As we have done throughout this module, we will want the variable representing time to be on the x-axis and the population abundance on the y-axis.
 
 We will also want the data points to be distinguished by which population they are from, so we need to specify the `color` argument within the `aes()` function.
 
@@ -57,8 +57,8 @@ We will also want the data points to be distinguished by which population they a
 
 Based on the plot, what do you notice about these populations?
 
--   Are they more likely exhibiting exponential or logistic growth? Why?
--   How do the populations appear to differ from one another?
+- Are they more likely exhibiting exponential or logistic growth? Why?
+- How do the populations appear to differ from one another?
 
 Given your answers to the questions above, what might be a good next step?
 
@@ -72,7 +72,7 @@ Typically, we have compared groups with measures of central tendency and measure
 
 ### Separate Populations
 
-Unlike our typical procedure, in order to fit logistic models to each population, our simplest way forward will be to create one data frame for each population.
+Unlike our typical procedure of using the `group_by()` function to "split-apply-combine," the simplest way for us to fit logistic models to each population is to create one data frame for each population.
 
 | NOTE: in case you are wondering, yes, there are definitely ways to fit a logistic model to each population without separating them! However, we would have to introduce quite a few new concepts to do so efficiently, so we are going to stick with the tried-and-true process of running the models individually.
 
@@ -86,7 +86,7 @@ We can use the `filter` function to select each population, one at a time.
 
 Now that we have data frames for each of the populations, we can fit the logistic model to each population and determine the estimate of the carrying capacity for each.
 
-As we run the code to fit the model to each population, we might receive some warnings: "Warning :NaNs produced". Don't worry--that's ok! Keep going!
+As we run the code to fit the model to each population, we might receive some warnings: `Warning :NaNs produced`. Don't worry--that's ok! Keep going!
 
 ```{r}
 # NE population
@@ -115,21 +115,23 @@ As we saw in the plot, the estimated carrying capacity for the SW population is 
 
 What was much more challenging to see clearly in the plot, however, is that the estimated carrying capacity of the SE population is in between the other two carrying capacities, albeit closer to the NE population.
 
-### Plotting the Logistic Model Curves
+## Plotting the Logistic Model Curves
 
 We can add the logistic growth models that we fit to each population into our ggplot to more easily compare the curves.
 
 To do so requires a few steps.
 
-1.  Use the `predict()` function to get the values for the "logistic line of best fit." Remember, these will not match up perfectly with our *actual, observed* values; these are the y-axis or `abundance` values for the best fitting logistic model at each observed x-axis value, or year.
+1.  Use the `predict()` function to get the values for the "logistic line of best fit."
+
+    Remember, these will not match up perfectly with our *actual, observed* values; these are the y-axis or `abundance` values for the best fitting logistic model at each observed x-axis value, or year.
 
 2.  Use the `mutate()` function to create a new column in each data frame with these logistic *model* values.
 
-3.  Combine all three data frames back together into one dataframe using the `bind_rows()` function.
+3.  Combine all three data frames back together into one data frame using the `bind_rows()` function.
 
 4.  Plot the actual data points using `geom_point()` and plot the logistic model data points using the `geom_line()` function.
 
-#### Add the Logistic Model Points to the Dataframes
+### Add the Logistic Model Points to the Data Frames
 
 First, let's see what output the `predict()` function gives us for the NE population.
 
@@ -137,7 +139,7 @@ First, let's see what output the `predict()` function gives us for the NE popula
 
 ```
 
-If we compare these numbers to the numbers in the `abund` column of `pop_NE`, we notice that they are not the same. The difference between these values from the model of best fit and the actual, observed values are called *residuals*, just as they are with lines of best fit (from linear regressions).
+If we compare these numbers to the numbers in the `abund` column of `pop_NE`, we notice that they are not the same. The difference between these values from the model of best fit and the actual, observed values are called *residuals*, just as they are with lines of best fit from linear regressions (see image below).
 
 ![](residuals.jpg){width="50%" fig-align="center"}
 
@@ -147,7 +149,7 @@ Let's use the `mutate` function to add these model values to each data frame.
 
 ```
 
-#### Combine Dataframes
+### Combine Dataframes
 
 We can now bring all three individual data frames back together into one data frame using a function called `bind_rows()`. You can think of `bind_rows` as gluing the data frames together, one after another.
 
@@ -159,9 +161,9 @@ The arguments in the `bind_rows()` function are all of the data frames we want g
 
 The resulting data frame again has 78 observations, as did the original `pops` data frame.
 
-#### Add Logistic Models to the Plot
+### Add Logistic Models to the Plot
 
-We can now add the logisitic models to our plot using the `geom_line()` function. Specifically, the values from the `logistic_model` column will be the y-axis values for the lines we are adding; the x-axis values are the same as the overall plot: `year`.
+We can now add the logistic models to our plot using the `geom_line()` function. Specifically, the values from the `logistic_model` column will be the y-axis values for the lines we are adding; the x-axis values are the same as the overall plot: `year`.
 
 ```{r}
 
