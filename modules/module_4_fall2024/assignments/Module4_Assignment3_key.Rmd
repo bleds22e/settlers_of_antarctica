@@ -21,16 +21,16 @@ Write R code which produces the correct answers and correctly interpret the resu
 
 ### Criteria for Success
 
--   Code is within the provided code chunks
--   Code chunks run without errors
--   Code produces the correct result
-    -   Code that produces the correct answer will receive full credit
-    -   Code attempts with logical direction will receive partial credit
--   Written answers address the questions in sufficient detail
+- Code is within the provided code chunks
+- Code chunks run without errors
+- Code produces the correct result
+  - Code that produces the correct answer will receive full credit
+  - Code attempts with logical direction will receive partial credit
+- Written answers address the questions in sufficient detail
 
 ### Due Date
 
-December 9 at 10:45 am MST
+April 30 at 12:15 pm MST
 
 ------------------------------------------------------------------------
 
@@ -63,9 +63,9 @@ toothfish <- read_csv("../data/toothfish.csv")
 
 3.  Examine the data frame, either through code or visually. To complete our analyses, we will need data for (a) time, (b) abundance, and (c) population. Below, identify which columns in the data frames represent which data.
 
--   Time: date
--   Abundance: fish_kg
--   Population: species
+- Time: date
+- Abundance: fish_kg
+- Population: species
 
 ### Visual Comparison
 
@@ -88,7 +88,7 @@ ggplot(toothfish, aes(x = date, y = fish_kg, color = species)) +
 
 ### Fitting Models
 
-6.  In order to estimate the carrying capacity of each population, we will first separate the data into two dataframes, one for each species of fish.
+6.  In order to estimate the carrying capacity of each population, we will first separate the data into two data frames, one for each species of fish.
 
     Below, create the two new data frames. Be sure to save them as new objects.
 

@@ -30,7 +30,7 @@ Write R code which produces the correct answers and correctly interpret the resu
 
 ### Due Date
 
-December 9 at 10:45 am MST
+April 30 at 12:15 pm MST
 
 ------------------------------------------------------------------------
 
